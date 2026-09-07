@@ -1,97 +1,105 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Project instructions for this repository.
+
+How Gabriel wants Claude to communicate and handle git/PRs lives in his personal
+`~/.claude/CLAUDE.md` and applies to every project. This file holds only what's
+true about *this* repo.
+
+Folder-specific detail lives in `.claude/rules/` and loads only when you touch
+the matching folder. Don't duplicate it here.
+
+## Objective
+
+**Long-term**: document the full GSL Design System so an AI agent can consume it
+with no human in the loop and generate interfaces that are compliant with the
+design system and at the quality bar SeLoger holds its interfaces to.
+
+**This repo is the knowledge base, not the agent.** It holds one
+platform-neutral truth about GSL. Several agents consume it — design, web, iOS,
+Android — each owning its own output surface and its own quality checks. The
+roster will be refined once the tooling is tested. The `*-rules-ai.md` files are
+the contract between this repo and any consuming agent; keep them
+platform-neutral.
+
+**A generating agent reads `*-rules-ai.md`, never the token pages.** The token
+pages list everything that exists; the rulesets list what's allowed. Reading the
+wrong one produces output built on tokens the audit rejected.
+
+**Compliance means reuse before invention.** A consuming agent should use an
+existing DS component or token wherever one fits, and create something new only
+when nothing does — declaring it when it does. The failure mode to prevent is
+reinventing what already exists, not designing something new.
+
+**Judge any doc by one test**: could an agent build a compliant interface from
+this alone, with nobody correcting it?
+
+| When | What |
+| --- | --- |
+| **End Sept 2026** | An agent that designs fully compliant output in Figma. Compliance only — the quality bar is out of scope for this milestone; it currently exists only in Gabriel's head. |
+| Later | The quality bar documented, so output can be judged on quality and not just compliance. |
+| Later | Web, iOS and Android generation consuming this knowledge base. Dev teams, built separately. |
+| Later | A full audit pipeline across Figma, web, Android and iOS components, so the differences between the four are known and recorded. Deliberately deferred. |
 
 ## What this repository is
 
-This is **not a source-code repository** — there is no build, lint, or test tooling here. It's a staging and reference repo for the **GSL (Gemini) Design System** documentation, used as working material for Claude Code skills that migrate/audit design-system docs into Confluence and Figma. Treat file operations here as content/data work, not software engineering: reading Zeroheight exports, matching images, and publishing to Confluence via the Atlassian MCP tools.
+**Not a source-code repository** — there is no build, lint, or test tooling here
+(the one deliberate exception is `tokens/scripts/`). Treat file operations as
+content and data work, not software engineering: reading Zeroheight exports,
+matching images by hash, publishing to Confluence via the Atlassian MCP tools,
+reading live Figma via the Desktop Bridge.
 
-**Project goal**: document the design system so it's readable by AI and humans — AI is the primary audience.
+**Owner**: Gabriel Saint Martin, sole owner and maintainer of this repo and its
+skills.
 
-**Owner**: Gabriel Saint Martin — sole owner and maintainer of this repo and its skills.
+## Where to look
 
-## How Claude should behave here
+| Path | What's there |
+| --- | --- |
+| `tokens/README.md` | **Start here for tokens** — explains every token file and its role. `tokens/tokens.md` is the content index. |
+| `components/<name>/<name>.md` | One doc plus a self-contained `images/` folder per component. |
+| `figma/*.json` | Figma identity registries — sole source of truth for the `figma-sync-*` skills. |
+| `.claude/skills/` | Six skills. Their descriptions auto-load at session start, so they aren't repeated here — read the `SKILL.md` before running one; it's the source of truth for its own workflow. |
+| `.claude/rules/` | Path-scoped detail for `tokens/`, `figma/` and `components/`. Verified 2026-09-07: a rule loads on **Read/Edit/Write** of a matching path, **not** on `cat`, `sed`, `head` or `grep`. Open the first file you touch in one of those folders with Read, or you'll work without its rule. |
+| `internal/` | Internal reference docs, e.g. `git-basics-tutorial.md`. |
+| `design-language/` | Brand PDF exports. Legacy, superseded elsewhere, left as-is. |
 
-### Every answer
-- Be concise. Short sentences.
-- Use bullet points when listing elements.
-- If a long answer is genuinely needed, say so and explain why before giving it.
+All filenames are lowercase kebab-case. The one exception is image filenames,
+left as their original hash-based names because those are Zeroheight asset
+identifiers matched by exact filename/hash.
 
-### Every new session
-- Check the current git branch (`git branch --show-current`) before starting any task.
-- Confirm with Gabriel that it's the right branch for what he's about to ask — if it looks like a different or already-merged task's branch, flag it and ask before proceeding.
-
-### Every request
-- Rephrase the request first to confirm shared understanding.
-- Ask clarifying questions if relevant.
-- Wait for explicit approval before starting work.
-- Push back on a proposal when warranted — but always offer an alternative.
-- One task = one branch. Finish it (commit, push, PR, merge) before starting the next one, rather than stacking work on top of an unrelated branch.
-- Always pause for explicit go-ahead before pushing, opening a PR, or merging — never chain these automatically after a commit, even within one task.
-
-### Every investigation
-Structure findings as:
-- Current state vs. intended state.
-- A visual model of what's happening.
-- The 2–3 root causes.
-- The decisions Gabriel needs to make.
-
-### Every PR
-- Body has two sections: **Summary** (what changed and why) and **Verification** (what was checked to confirm the change works — e.g. "verified live via Figma Desktop Bridge", "confirmed registry JSON matches live Figma data"). This repo has no automated test suite, so "Verification" replaces the usual "Test plan".
-- Title under 70 characters, imperative mood.
-
-## Branch naming
+## Branch categories
 
 `<category>/<kebab-case-description>`, e.g. `figma/sync-foundations-components`.
 
-Current categories: `figma` (Figma sync skills work), `zeroheight` (zeroheight-confluence-transfer work), `docs` (CLAUDE.md or skill doc edits), `audit` (component-web-ai-docs runs). Extensible — add a new category when a branch's work doesn't fit any existing one, rather than forcing a bad fit.
+| Category | Use for |
+| --- | --- |
+| `figma` | Figma sync skills work |
+| `zeroheight` | `zeroheight-confluence-transfer` work |
+| `docs` | CLAUDE.md, rules, or skill doc edits |
+| `audit` | `component-web-ai-docs` runs |
 
-## Repository structure
+Extensible — add a category when a branch's work doesn't fit an existing one,
+rather than forcing a bad fit.
 
-As of the 2026-09-02 manual reorg, top-level content lives in five plain-English folders (all renames of a prior structure — no content was lost; verify with `git log` if a path below seems to conflict with something older):
+## Pull requests
 
-- `components/` — one folder per design-system component (e.g. `components/accordion/`, `components/button/`), each with its markdown doc and a self-contained `images/` folder. All folder and file names are lowercase kebab-case (e.g. `components/button-group/button-group.md`) — image filenames are the one exception, left as their original hash-based names since those are Zeroheight asset identifiers matched by exact filename/hash, not descriptive names.
-- `tokens/` — **one folder per token category**, matching how `components/` is organised. Start at `tokens/README.md`, which explains every file's role; `tokens/tokens.md` is the content index. Only `README.md`, `tokens.md` and `review-progress.md` sit at the top level; everything else lives in its category folder (`color/`, `typography/`, `spacing/`, `sizing/`, `radius/`, `shadow/`, `border-width/`, `breakpoint/`, `grid/`, `motion/`, `opacity/`, `z-index/`) or in `scripts/`.
-
-  Within a category folder, **the filename suffix states the file's role**:
-  - **`<category>-tokens.md`** — the token page: values and usage, carrying a **Used by** column naming the components that really bind each token.
-  - **`<category>-rules-ai.md`** — the AI ruleset: what an agent may actually use, derived from the audit. These, not the token pages, are what an agent generating UI should read. Only `color`, `typography` and `spacing` were large enough to need one; `spacing`'s also covers `sizing`.
-  - **`<category>-usage-audit.md`** — human-facing evidence and verdicts, including rejected options and open questions. Never read as rules.
-  - **`<category>-usage-ledger.md`** — **generated**, never hand-edited: the raw table the audit was built from (every token, every component that binds it). Its `.json` twin is gitignored. Only `color`, `typography` and `spacing` have one.
-
-  `color/` is the only category with more than three files: it holds `color-tokens.md` (family index), seven family pages (`background.md`, `surface.md`, `border.md`, `content.md`, `symbols.md`, `scale.md`, `native.md`), its ruleset and audit, and a draft `surface-border-combination-audit.md` (human-facing only — see the file's own header).
-
-  `tokens/scripts/` holds four read-only Python extractors that regenerate the usage evidence from `gsl-core-web-design-system`, each writing its `-usage-ledger.{md,json}` into the matching category folder. This is the one exception to "no tooling in this repo", and it is deliberate: without it the **Used by** columns go stale the first time a component changes. The `.md` ledgers are committed as the evidence the audits link to; the `.json` twins are gitignored and regenerated on demand.
-
-  All filenames are lowercase kebab-case. Token pages follow the same template: an `Overview` table (which family/layer to use — omitted where there's only one), a `Semantic usage` table (which specific token, when), and a `Tokens` table (exact values) — no tool-specific source annotations, so the docs stay usable regardless of what pipes them into Confluence/Figma/elsewhere.
-- `figma/` — `figma-components-registry.json`, `figma-patterns-registry.json`, `figma-experiences-registry.json`, `figma-foundations-components-registry.json`, `figma-libraries-registry.json`, `figma-tokens-registry.json`, `figma-icons-registry.json`. One per GSL library tier (Components / Patterns / Experiences / Foundations), same schema: per-entry Figma node key, `nodeId`, variant pattern classification (`Pattern 1`/`Pattern 2`), variant count, last audit date, and status (or an `assets` array in place of variant fields for a flat asset family like Brand App Icons). Sole source of truth for the `figma-sync-*` skills — Confluence is no longer read or written. The `foundations` tier covers Foundations' real components (`Flag`, `Favicon`, `Image Ratio`, `Brand Logo`, `Brand App Icons`) and — added 2026-08-28 — its 173 Illustrations, stored under a sibling top-level `illustrations` key (category-grouped, since they're catalog-sized rather than a handful of named components) — Tokens and Icons are out of this tier's scope. `figma-libraries-registry.json` maps the four GSL library tiers to their Figma library file keys (sole source of truth for `figma-sync-libraries`). `figma-tokens-registry.json` is the per-category design token inventory (sole source of truth for `figma-sync-tokens`). `figma-icons-registry.json` is the flat inventory of Foundations' "Icons" page (455 icons across 17 category frames as of 2026-08-27; sole source of truth for `figma-sync-icons`). Patterns/Experiences files are seeded empty; populate them by running the skill.
-- `internal/` — internal reference docs (e.g. `git-basics-tutorial.md`).
-- `design-language/` — brand PDF exports (color and typography spec sheets). Left as-is (already lowercase, underscore-separated) — this folder is legacy and superseded elsewhere; not part of this rename pass.
-- `.claude/skills/` — the six project skills described below (source of truth for their own workflows — read the `SKILL.md` files directly rather than relying on a summary).
-
-## Skills (the "commands" of this repo)
-
-There are no CLI build/test commands. Work happens through six Claude Code skills:
-
-### `zeroheight-confluence-transfer`
-Transfers one component's Zeroheight markdown export (staged in a `<pre><code class="language-markdown">` block on the target Confluence page, alongside pre-uploaded image attachments) into that page, restructured against a fixed template. Key facts:
-- Master template is cached locally at `.claude/skills/zeroheight-confluence-transfer/template.html` (mirrors Confluence page `3430449284`) — read the local cache, don't fetch Confluence unless the template owner says it changed.
-- Target Confluence space is `ADS`; cloud ID is `4449da05-ef5a-4725-9fc8-353497e0c212`.
-- Images are matched to attachments by filename/hash correlation only — never opened or visually inspected.
-- Publishing is single-pass (assemble → publish → one verification script against one read-back) — no draft-to-disk round trips.
-- Batch runs (multiple components in one sitting) dispatch each component to its own isolated subagent.
-- Full step-by-step process, table color conventions, and a substantial "Known Traps" table (unpaired DO/DON'T rows, wide-table splitting, orphaned "Platform" sections, etc.) live in [`.claude/skills/zeroheight-confluence-transfer/SKILL.md`](.claude/skills/zeroheight-confluence-transfer/SKILL.md) — follow it exactly rather than improvising the format.
-
-### `component-web-ai-docs`
-Given a Confluence link to a GSL component page (space `ADS`), audits the component's **real web implementation** (expected at `libraries/ui/src/{ComponentName}/` — in the separate product codebase, not this repo) against its Confluence usage doc, and publishes three new child pages: an audit/triage report, a platform-agnostic decision tree, and an LLM-ready API spec. Full process in [`.claude/skills/component-web-ai-docs/SKILL.md`](.claude/skills/component-web-ai-docs/SKILL.md). This skill must be run from (or given access to) the actual component source repo to find real code — it cannot ground findings in this documentation-only repo alone.
-
-### `figma-sync-libraries`, `figma-sync-tokens`, `figma-sync-component-sets`, `figma-sync-icons`
-Four Figma-Desktop-Bridge skills that keep the `figma-*-registry.json` files in sync with the live Figma files — Confluence is **not used** by any of them (deliberately dropped 2026-08-26: the output was only ever consumed by AI agents, never read by humans, so publishing it as Confluence pages was pure token cost with no audience). `figma-sync-component-sets` covers all node-bearing tiers (Components, Patterns, Experiences, and — added 2026-08-27 — the real components inside Foundations) with one skill rather than near-duplicates per tier — confirmed live that Patterns and Foundations' components use the identical `COMPONENT_SET`/variant/dot-prefix-private-helper structure as Components, so the extraction logic transfers as-is; it takes a tier argument (or infers it from whichever library file is open) and writes to that tier's registry file. Foundations is mixed-content: `figma-sync-component-sets` owns its real components (`Flag`, `Favicon`, `Image Ratio`, `Brand Logo`, `Brand App Icons`) and — added 2026-08-28 — its 173 Illustrations (10 categories on the "Illustrations" page, each a genuine Pattern 1/2 `COMPONENT_SET` with a `Size` variant, so this stayed in `figma-sync-component-sets` rather than becoming its own skill, unlike Icons); Foundations' Tokens stay `figma-sync-tokens`'s territory; its Icons (455 entries across 17 category frames on the "Icons" page, added 2026-08-27) got their own skill, `figma-sync-icons`, since icons are leaf components with no Pattern 1/2 composition to track — a flat name/key/category registry closer in shape to tokens than to a variant-audited component. Each skill's folder holds its own `known-traps.md` (append-only, self-enriched as new Figma/plugin quirks are found); `figma-sync-tokens` additionally caches a static `architecture.md` (brand/mode/primitive resolution model); `figma-sync-tokens`, `figma-sync-component-sets`, and `figma-sync-icons` each keep a local `audit-log.md` for run history/anomalies that used to go to a shared Confluence audit page. Full process in [`.claude/skills/figma-sync-libraries/SKILL.md`](.claude/skills/figma-sync-libraries/SKILL.md), [`.claude/skills/figma-sync-tokens/SKILL.md`](.claude/skills/figma-sync-tokens/SKILL.md), [`.claude/skills/figma-sync-component-sets/SKILL.md`](.claude/skills/figma-sync-component-sets/SKILL.md), [`.claude/skills/figma-sync-icons/SKILL.md`](.claude/skills/figma-sync-icons/SKILL.md).
+This repo has no automated test suite, so the PR body's evidence section is
+**Verification** (what was checked — e.g. "verified live via Figma Desktop
+Bridge", "confirmed registry JSON matches live Figma data") rather than a test
+plan.
 
 ## Working conventions
 
-- Never invent Confluence page IDs, Figma keys, or Atlassian cloud IDs — read them from the registry JSON files above or resolve them live via the Atlassian/Figma MCP tools.
-- The Zeroheight MCP connector is never used by any skill, even if it appears connected in a session — exports are sourced from a Confluence-staged code block or a human chat-paste fallback only.
-- The four `figma-sync-*` skills never read or write Confluence — the `figma-*-registry.json` files under `figma/` are their sole source of truth.
-- `figma-sync-component-sets` handles Components, Patterns, Experiences, and Foundations' real components — don't create a separate per-tier skill for a new library; extend that one instead. Foundations' Tokens (`figma-sync-tokens`) and Icons (`figma-sync-icons`) are different content shapes and stay outside this skill's scope.
-- Scratch/working files (drafts, escaped HTML, verification scripts) belong in the session scratchpad directory, never committed into this repo.
+- **Never invent** Confluence page IDs, Figma keys, or Atlassian cloud IDs. Read
+  them from the registry JSON files, or resolve them live via the
+  Atlassian/Figma MCP tools.
+- **The Zeroheight MCP connector is never used** by any skill, even if it shows
+  as connected in a session. Exports come from a Confluence-staged code block,
+  or a human chat-paste as fallback.
+- **The four `figma-sync-*` skills never read or write Confluence** — the
+  `figma-*-registry.json` files are their sole source of truth.
+- **Don't create a per-tier Figma skill.** `figma-sync-component-sets` handles
+  Components, Patterns, Experiences and Foundations' real components — extend it
+  instead. Foundations' Tokens (`figma-sync-tokens`) and Icons
+  (`figma-sync-icons`) are different content shapes and stay outside its scope.
