@@ -21,15 +21,26 @@ Media upload components allow users to upload files by either dragging and dropp
 
 ### When to use
 
-Not documented
+**Media upload** — the user uploads files by drag-and-drop or file picker.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| The user provides a URL or file path instead | **Text field** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Empty drop zone
+└─ Add an illustration placeholder — a pictogram is recommended
+
+Header, as with every form component
+├─ Mandatory field → Required asterisk to the right of the label
+├─ Optional field → Optional mention to the right of the label
+├─ Needs an explanation → Tooltip icon
+└─ Needs persistent guidance → Helper text
+```
 
 ### Usage Guidance
 
@@ -39,7 +50,11 @@ Not documented
 
 ### Related Components
 
-Not documented
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Media upload** | — | Media upload components allow users to upload, view, and manage media files such as images, videos and documents. | — |
+| [**Text field**](../text-field/text-field.md) | High | Text fields are used to enter and edit single-line text content. | The user provides a URL or file path instead |
+| [**Text area**](../text-area/text-area.md) | Medium | Text areas are used to enter and edit multi-line text content. | Text area redirects here when: Attaching a file |
 
 ---
 

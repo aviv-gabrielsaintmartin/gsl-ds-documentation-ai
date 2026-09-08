@@ -27,15 +27,26 @@ The component is only used on the web. On iOS and Android, native components are
 
 ### When to use
 
-Not documented
+**Floating button group** — actions that float above scrolling content, typically overlaying media.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Actions sit in normal page flow | **Button group** |
+| A dropdown list of contextual actions | **Action menu** |
+| A single action | **Button** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Number of buttons
+└─ Two or three
+
+Alignment
+├─ Wide space available → Horizontal
+└─ Narrow space, or anchored to a screen edge → Vertical
+```
 
 ### Usage Guidance
 
@@ -45,10 +56,10 @@ Not documented
 
 ### Related Components
 
-| Component | Usage |
-| --- | --- |
-| **Floating button group** | Floating button groups are used to group related actions together and position them on top of images and maps. |
-| [Button (floating)](https://gemini.zeroheight.com/styleguide/s/92948/p/97e03c-button/t/page-97e03c-92632748-17) | Floating buttons are used for unrelated actions on top of images and maps. |
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Floating button group** | — | Floating button groups are used to group related actions together and position them on top of images and maps. | — |
+| **Button (floating)** | Medium | Floating buttons are used for unrelated actions on top of images and maps. | — |
 
 ---
 

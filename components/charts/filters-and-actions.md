@@ -14,15 +14,30 @@ Not documented
 
 ### When to use
 
-Not documented
+**Filters and actions** — letting the user narrow, or act on, the data a chart displays.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Filtering a SERP or a data table rather than a chart | **Filter bar** |
+| Setting a single value inside a form | **Dropdown** |
+| Triggering a list of contextual actions | **Action menu** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Filter control
+├─ Five options or fewer → Chip
+└─ More than five options → Dropdown
+   └─ Any other component used as a filter must be validated by user testing first, and the findings shared
+
+Position
+├─ Default → Above the graph
+├─ Space allows → Beside the graph title
+└─ Space is tight → Below the graph title
+   └─ Placing filters below the graph itself needs user-testing evidence first
+```
 
 ### Usage Guidance
 
@@ -30,7 +45,13 @@ Not documented
 
 ### Related Components
 
-Not documented
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Filters and actions** | — | Narrow or act on the data a chart displays. | — |
+| [**Filter bar**](../filter-bar/filter-bar.md) | High | Filter bars narrow search results or table content using structured criteria. | Filtering a SERP or data table, not a chart |
+| [**Chip group**](../chip-group/chip-group.md) | High | Collections of chips for filtering or selecting multiple related options. | Five filter options or fewer |
+| [**Dropdown**](../dropdown/dropdown.md) | High | Dropdowns are used to select one option from a list. | More than five filter options |
+| [**Action menu**](../action-menu/action-menu.md) | Medium | Action menus display context-specific actions in a dropdown list. | Triggering actions rather than setting filter criteria |
 
 ---
 

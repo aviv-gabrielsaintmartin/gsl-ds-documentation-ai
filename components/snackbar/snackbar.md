@@ -29,15 +29,30 @@ The snackbar has a close button (x-icon) on the web. On iOS/Android, it doesn't 
 
 ### When to use
 
-Not documented
+**Snackbar** — brief, transient feedback confirming the outcome of a user action.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Persistence and inline placement needed | **Feedback message** |
+| Critical and blocking | **Alert** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Type
+├─ Neutral context → Info
+├─ An action succeeded → Success
+├─ Needs attention but is not blocking → Warning
+└─ Something failed → Error
+   └─ Type icons are standardised — never substitute another icon
+
+Action
+├─ Short action label → On the same line as the message
+├─ Longer action label → Below the message
+└─ Nothing to act on → Without action
+```
 
 ### Usage Guidance
 
@@ -58,11 +73,12 @@ Not documented
 | Component | Priority | Usage | Example Scenario |
 | --- | --- | --- | --- |
 | **Snackbar** | Low | Snackbars are used to provide brief, non-critical, and non-intrusive feedback on actions that doesn't require user confirmation before proceeding. They don't block the user from continuing their task. An action may be encouraged, but not required. | Seeker saves listing to favorites |
-| **[Feedback messages](https://zeroheight.com/626199550/p/8754bc-feedback-message)** | Medium | Feedback messages are non-disruptive, inline notifications that provide users with important information or contextual messages. They inform users of system processes or provide additional information about a task. They can be used for critical alerts or as passive feedback. | Seeker receives warning that he has reached the limit of saved searches |
-| **Banner** (not a gemini component) | Medium | Banners are used for important, persistent information. They remain until the user closes them or the problem that caused the banner is solved. | Seeker is shown static information about search results on map |
-| **[State message](https://gemini.zeroheight.com/styleguide/s/92948/p/980e7b-text-field/t/ced82a7a5e)** | Medium | State messages are used for inline feedback in forms to guide users, correct errors, or provide additional information. | User enters incorrect password |
-| **[Alert](https://zeroheight.com/626199550/p/7142d3-alert)** | High | Alerts are used for critical information that requires immediate attention or confirmation before proceeding. They block user flow until an action is taken. | Agent deletes listings |
-| **[Info State](https://zeroheight.com/626199550/p/84818f-info-state)** | High | Info states are used to communicate system status, errors, or other relevant information that prevent users from progressing and require their full attention. They include empty, error, success and loading states. | User is not connected to the Internet |
+| [**Feedback message**](../feedback-message/feedback-message.md) | High | Feedback messages are non-disruptive, inline notifications that provide users with important information or contextual messages. | Persistence and inline placement needed |
+| **Banner (not a gemini component)** | Medium | Banners are used for important, persistent information. They remain until the user closes them or the problem that caused the banner is solved. | Seeker is shown static information about search results on map |
+| **State message** | Medium | State messages are used for inline feedback in forms to guide users, correct errors, or provide additional information. | User enters incorrect password |
+| [**Alert**](../alert/alert.md) | High | Alerts are used for critical information that requires immediate attention or confirmation before proceeding. They block user flow until an action is taken. | Agent deletes listings |
+| [**Info State**](../info-state/info-state.md) | High | Info states are used to communicate system status, errors, or other relevant information that prevent users from progressing and require their full attention. They include empty, error, success and loading states. | User is not connected to the Internet |
+| [**Feedback message**](../feedback-message/feedback-message.md) | High | Feedback messages are non-disruptive, inline notifications that provide users with important information or contextual messages. | Persistence and inline placement needed |
 
 ---
 

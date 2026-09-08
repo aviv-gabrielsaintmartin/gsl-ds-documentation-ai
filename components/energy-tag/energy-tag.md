@@ -20,15 +20,30 @@ Energy tags serve as a visual indicator to quickly communicate the energy effici
 
 ### When to use
 
-Not documented
+**Energy tag** — property energy efficiency ratings **only**. Use the correct country/region variant.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| A general status label, not a property energy rating | **Tag** |
+| Seller lead scoring | **Score tag** |
+| The element is interactive | **Chip** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Country or region — dictated by where the property is, never a design choice
+├─ France → French variant
+├─ Germany → German variant
+├─ Austria → Austrian variant
+├─ Belgium, Brussels → Brussels variant
+├─ Belgium, Flanders → Flanders variant
+└─ Belgium, Wallonia → Wallonia variant
+
+Unsupported markets
+└─ Switzerland and others have no energy tag — never substitute another country's
+```
 
 ### Usage Guidance
 
@@ -38,7 +53,11 @@ Not documented
 
 ### Related Components
 
-Not documented
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Energy tag** | — | Energy tags display property energy efficiency ratings. Use the correct country/region variant. | — |
+| [**Tag**](../tag/tag.md) | High | Non-interactive component for fixed information such as labels, categories, or statuses. | A general status label, not a property energy rating |
+| **Score tag** | Medium | A Tag specialised for seller lead scoring. | Seller lead scoring, not energy efficiency |
 
 ---
 

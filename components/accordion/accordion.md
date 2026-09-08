@@ -29,7 +29,23 @@ Accordions are typically used when screen real estate is limited, and there's a 
 
 ### Variant Selection Flow
 
-Not documented
+```
+Border
+├─ Needs visual prominence, or the page has competing content → With border (white background)
+└─ Page has a solid, neutral background and readability is fine → Without border (transparent)
+
+Header icon
+├─ The icon clarifies or complements the header text → With icon
+└─ Otherwise → Without icon
+
+Title size
+├─ Web → 22px or 16px — pick one, never both at once
+└─ iOS / Android → 16px only
+
+Content
+└─ Text, images and other components are all allowed
+   └─ Never nest another accordion inside
+```
 
 ### Usage Guidance
 
@@ -39,7 +55,12 @@ Not documented
 
 ### Related Components
 
-Not documented
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Accordion** | — | Accordions are container that allow users to expand and collapse sections of content, making it easier to manage large amounts of information in a… | — |
+| [**Card**](../card/card.md) | High | Cards are flexible containers used to visually group content. | Content should always be visible |
+| [**Tabs**](../tabs/tabs.md) | High | Tabs are used to organize related content into different views and allow users to seamlessly switch between them. | Sections are mutually exclusive views |
+| **Text button** | Medium | A distinct component from Button, for when full button weight is too heavy. | Text button redirects here when: The content collapses back into a persistent expandable list |
 
 ---
 

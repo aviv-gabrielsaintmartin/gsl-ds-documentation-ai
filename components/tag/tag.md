@@ -21,15 +21,33 @@ Tags are non-interactive labels used to display information or status that canno
 
 ### When to use
 
-Not documented
+**Tag** — non-interactive status labels or categories, standing on their own in the layout — "New", "Sold", "Exclusive".
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| The element is interactive — selectable, filterable, removable | **Chip** |
+| Status needs supporting text | **Feedback message** |
+| The marker sits **on** another component rather than beside it | **Badge** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Context and style — chosen by meaning and by the surface behind it
+├─ Strongest emphasis → Dark
+├─ Lowest emphasis → Subdued or Light
+├─ Brand emphasis → Primary or Secondary
+└─ Status → Error · Success · Information · Warning
+   └─ Emphasis signals importance, never decoration
+
+Icon
+└─ Optional — add one only when it makes the tag's meaning clearer
+
+Label
+├─ Almost always → With label
+└─ The icon is universally recognised → Without label
+```
 
 ### Usage Guidance
 
@@ -47,8 +65,11 @@ Not documented
 | Component | Priority | Usage | Example Scenario |
 | --- | --- | --- | --- |
 | **Tag** | Low | Tags are non-interactive labels used to display information or status that cannot be edited or changed by the user. They are typically used to provide context, categorize or highlight important attributes of an item. | Highlight new listings, energy performance |
-| **[Chip](https://zeroheight.com/626199550/p/920b72-chip)** | Medium | Chips are interactive elements used to select, filter or organize content. Unlike tags, chips allow users to take action, such as applying or removing a filter, or making a selection. | Filter search results by property features |
-| **[Score tag](https://zeroheight.com/626199550/p/948ed4-seller-lead-score-tag)** | High | Score tags are specific tags used for seller lead scoring. They indicate the score or rating of a lead and are available in different variants to convey different score levels. | Display seller lead score |
+| [**Chip**](../chip/chip.md) | High | Chips are interactive elements used to select, filter or organize content. Unlike tags, chips allow users to take action, such as applying or removing a filter, or making a selection. | Filter search results by property features |
+| **Score tag** | High | Score tags are specific tags used for seller lead scoring. They indicate the score or rating of a lead and are available in different variants to convey different score levels. | Display seller lead score |
+| [**Feedback message**](../feedback-message/feedback-message.md) | High | Feedback messages are non-disruptive, inline notifications that provide users with important information or contextual messages. | Status needs supporting text |
+| **Badge** | High | Attention marker attached to a host component. | The marker sits on another component rather than beside it |
+| [**Chip group**](../chip-group/chip-group.md) | Medium | Chip groups are collections of chips that allow users to filter, select, or manage multiple related options simultaneously. | Chip group redirects here when: The element is non-interactive |
 
 ---
 

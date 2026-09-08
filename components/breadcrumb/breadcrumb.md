@@ -26,15 +26,23 @@ Breadcrumbs are only used on the web. On iOS/Android, other navigation concepts 
 
 ### When to use
 
-Not documented
+**Breadcrumb** — showing hierarchical location and allowing navigation up the hierarchy. **Web only**.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| The primary need is page title and actions | **Top bar** |
+| Top-level global navigation | **Navigation bar** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Icon
+├─ The icon leads the label → Icon left
+├─ The icon trails the label → Icon right
+└─ The crumb leaves the site → External-link icon
+```
 
 ### Usage Guidance
 
@@ -49,7 +57,11 @@ Not documented
 
 ### Related Components
 
-Not documented
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Breadcrumb** | — | Breadcrumbs are navigation elements that consist of a list of links arranged in a hierarchical order. | — |
+| [**Top bar**](../top-bar/top-bar.md) | High | Top bars display navigation elements, titles and actions such as buttons or icons at the top of the screen. | The primary need is page title and actions |
+| [**Navigation bar**](../navigation-bar/navigation-bar.md) | High | Navigation bars provide quick access to key pages within the site, helping users to navigate efficiently. | Top-level global navigation |
 
 ---
 

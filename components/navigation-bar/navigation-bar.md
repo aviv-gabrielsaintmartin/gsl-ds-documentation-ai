@@ -25,15 +25,29 @@ Web only. The Figma design is owned by the Header/Footer team and currently show
 
 ### When to use
 
-Not documented
+**Navigation bar** — global navigation to top-level site destinations (web).
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Sub-pages and flows | **Top bar** |
+| In-app navigation | **Navigation Bar (App), mobile only** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Number of entries
+├─ Up to 7 → Standard
+└─ More than 7 → Only when SEO requires it
+
+Controls
+├─ All brands → Button and icon buttons
+└─ Immoweb only → Language menu
+
+Reduced variant
+└─ Funnels and other focused pages → Logo and language menu only
+```
 
 ### Usage Guidance
 
@@ -43,10 +57,12 @@ Not documented
 
 ### Related Components
 
-| Component | Usage |
-| --- | --- |
-| **Navigation bar** | The navigation bar provides global navigation throughout the site and access to key destinations. |
-| **Top bar** | The top bar provides contextual and screen-specific actions or secondary navigation within a specific page or screen. |
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Navigation bar** | — | The navigation bar provides global navigation throughout the site and access to key destinations. | — |
+| [**Top bar**](../top-bar/top-bar.md) | High | The top bar provides contextual and screen-specific actions or secondary navigation within a specific page or screen. | Sub-pages and flows |
+| [**Tabs**](../tabs/tabs.md) | Medium | Tabs are used to organize related content into different views and allow users to seamlessly switch between them. | Tabs redirects here when: Switching between top-level destinations |
+| [**Breadcrumb**](../breadcrumb/breadcrumb.md) | Medium | Breadcrumbs are navigation elements that consist of a list of links arranged in a hierarchical order. | Breadcrumb redirects here when: Top-level global navigation |
 
 ---
 

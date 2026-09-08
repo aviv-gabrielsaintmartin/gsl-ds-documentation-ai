@@ -26,21 +26,50 @@ Info states are used to communicate system status, errors, or other relevant inf
 
 ### When to use
 
-Not documented
+**Info state** — full-area states — empty, error, success, loading.
+
+**Pattern**-tier component. Rule 0: do not compose an empty/error/loading screen from Illustration + Text + Button — this component already is it.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Inline section-level messages | **Feedback message** |
+| A blocking decision is required | **Alert** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Device
+├─ Phone → Phone variant
+├─ Tablet → Tablet variant
+└─ Desktop → Desktop variant
+
+Content and actions
+├─ The state needs a way forward → Show buttons
+├─ A secondary way forward as well → Add the tertiary button
+└─ Purely informational → No buttons
+
+State being communicated
+├─ Nothing to show yet → Empty
+├─ Something failed → Error
+├─ Something completed → Success
+└─ Content is still arriving → Loading
+```
 
 ### Usage Guidance
 
 | DO |
 | --- |
 | ![](images/5458ffe59f844fedd88bcd.png) **DO:** Use the info state component for empty states, when there is no data to display. |
+
+### Related Components
+
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Info state** | — | Info states are placeholders used to inform users about success, error and empty states. | — |
+| [**Feedback message**](../feedback-message/feedback-message.md) | High | Feedback messages are non-disruptive, inline notifications that provide users with important information or contextual messages. | Inline section-level messages |
+| [**Alert**](../alert/alert.md) | High | Alerts are modals that provide users with critical information they need immediately. | A blocking decision is required |
 
 ---
 

@@ -21,15 +21,32 @@ Avatars help users identify agencies, agents, private sellers or seeker. They ca
 
 ### When to use
 
-Not documented
+**Avatar** — representing a user, agent, agency, or seeker. Circle for individuals, square for agencies.
 
 ### When NOT to use
 
-Not documented
+**No alternative.** Nothing else in the system covers this — see [components-rules-ai.md](../components-rules-ai.md).
 
 ### Variant Selection Flow
 
-Not documented
+```
+Shape
+├─ An individual — agent, seeker, private owner → Circle
+├─ An agency or company → Square
+└─ An AVIV intermediary agent's logo of unpredictable ratio → Rectangular, adaptive
+
+Size
+└─ Any existing size from 24 to 128px
+   └─ Never scale or reshape an avatar to a size that is not offered
+
+Padding and border
+├─ Sits directly on a busy or image background → With padding and/or border
+└─ Sits on a plain surface → Without
+
+Fallback when no image is available
+├─ Circle or square → Icon or initials (building icon for agencies)
+└─ Rectangular adaptive → No fallback exists; an image must be supplied
+```
 
 ### Usage Guidance
 
@@ -37,7 +54,7 @@ Not documented
 
 ### Related Components
 
-Not documented
+**No overlapping component.** Nothing else in the system covers representing a user, agent, agency or seeker. Avatar is chosen directly — see [components-rules-ai.md](../components-rules-ai.md) Rule 1, *Identity and media*.
 
 ---
 

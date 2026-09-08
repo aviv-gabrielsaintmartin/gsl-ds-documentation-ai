@@ -21,15 +21,29 @@ Chip groups are dynamic, interactive collections of chips that allow users to fi
 
 ### When to use
 
-Not documented
+**Chip group** — lightweight multi-select filtering or input outside a structured form.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Inside a structured form with labels and helper text | **Checkbox group** |
+| Constrained space or numerous options | **Dropdown** |
+| Filtering a SERP or data table with structured panels | **Filter bar** |
+| The element is non-interactive | **Tag** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Type
+├─ Toggling filters on and off across a set of options → Filter chip
+├─ Representing user input or a selection inside a form, removable → Input chip
+└─ Triggering a quick, secondary contextual action → Action chip
+   └─ Never use action chips for primary navigation or for critical actions
+
+Icons
+└─ Optional — add one only when it makes the chip's purpose clearer
+```
 
 ### Usage Guidance
 
@@ -42,9 +56,12 @@ Not documented
 | Component | Priority | Usage | Example Scenario |
 | --- | --- | --- | --- |
 | **Chip group** | — | Collections of chips that allow users to filter, select, or manage multiple related options simultaneously. | — |
-| [**Chip**](https://zeroheight.com/626199550/p/32f686-chip) | High | Dynamic, clickable standalone component for selecting, filtering, or removing items. | Only a single, standalone chip is needed |
-| [**Button**](https://zeroheight.com/626199550/p/97e03c-button) | Med | Triggers actions. | A primary or critical action, not filtering/selection |
-| [**Tag**](https://zeroheight.com/626199550/p/28d2fb-tag) | High | Non-interactive component for fixed information such as labels, categories, or statuses. | Displaying a static label or status with no interaction |
+| [**Chip**](../chip/chip.md) | High | Dynamic, clickable standalone component for selecting, filtering, or removing items. | Only a single, standalone chip is needed |
+| [**Button**](../button/button.md) | Medium | Triggers actions. | A primary or critical action, not filtering/selection |
+| [**Tag**](../tag/tag.md) | High | Non-interactive component for fixed information such as labels, categories, or statuses. | Displaying a static label or status with no interaction |
+| [**Checkbox group**](../checkbox-group/checkbox-group.md) | High | Checkbox groups are used to select multiple options from grouped checkboxes. | Inside a structured form with labels and helper text |
+| [**Dropdown**](../dropdown/dropdown.md) | High | Dropdowns are used to select one option from a list. | Constrained space or numerous options |
+| [**Filter bar**](../filter-bar/filter-bar.md) | High | Filter bars are used to narrow down search results or displayed content based on selected criteria. | Filtering a SERP or data table with structured panels |
 
 ---
 

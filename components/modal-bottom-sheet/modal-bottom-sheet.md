@@ -51,15 +51,35 @@ On Android we use native, draggable modal bottom sheets. The component appears a
 
 ### When to use
 
-Not documented
+**Modal bottom sheet** — contextual content must overlay the screen and block interaction.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Content is a simple action list | **Modal bottom sheet menu** |
+| Content should persist on the page | **Card** |
+| An immediate, blocking decision is required | **Alert** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Surface, by platform and device — this is not a free choice
+├─ Web
+│  ├─ Phone → Bottom sheet
+│  ├─ Desktop → Modal
+│  └─ Never draggable on the web
+├─ iOS → Native, draggable
+│  ├─ Phone → Bottom sheet
+│  └─ Tablet → Modal, portrait and landscape
+└─ Android → Native, draggable
+   ├─ Phone → Bottom sheet
+   └─ Tablet → Bottom sheet or modal
+
+Content volume
+├─ Content exceeds the available space → Scrollable
+└─ Small amount of content → Use Pop-up instead; see Rule 1
+```
 
 ### Usage Guidance
 
@@ -71,6 +91,15 @@ Not documented
 | --- |
 | ![](images/cda6de5897d42698ba1996.png) **DO:** In most use cases, the close button is located in the upper left corner. The "X" is quick to locate and is best for quick exits. |
 | ![](images/f74d63cd9f47826dfa710f.png) **DO:** When using modals as alerts that require users to take action or make a decision, include a "Cancel" button next to the primary action. |
+
+### Related Components
+
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Modal bottom sheet** | — | Modal bottom sheets are containers that appear above the content and block interaction with the rest of the screen. | — |
+| [**Modal bottom sheet menu**](../modal-bottom-sheet-menu/modal-bottom-sheet-menu.md) | High | Modal bottom sheet menus display a list of context-specific actions on mobile screens or on apps. | Content is a simple action list |
+| [**Card**](../card/card.md) | High | Cards are flexible containers used to visually group content. | Content should persist on the page |
+| [**Alert**](../alert/alert.md) | High | Alerts are modals that provide users with critical information they need immediately. | An immediate, blocking decision is required |
 
 ### Scrolling
 

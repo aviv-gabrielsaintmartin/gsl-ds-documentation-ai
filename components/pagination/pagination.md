@@ -24,15 +24,29 @@ The pagination component is only used on the web. On iOS/Android, we recommend u
 
 ### When to use
 
-Not documented
+**Pagination** — dividing large result sets into numbered pages. **Web only**.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Mobile and apps | **infinite scroll, a behaviour, not a component — see Rule 2** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Availability
+└─ Web only. On mobile and in apps use infinite scroll, which is a behaviour, not a component
+
+Number of pages
+├─ Below the truncation threshold, 4 to 5 pages → Show every page number
+└─ At or above it → Truncated, showing only the most important page numbers
+
+Navigation controls
+├─ Jumping to a known page → Page-number buttons
+└─ Stepping through → Previous and next chevrons
+   └─ On the first page the previous chevron is disabled; on the last, the next chevron is
+```
 
 ### Usage Guidance
 
@@ -42,7 +56,11 @@ Not documented
 
 ### Related Components
 
-Not documented
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Pagination** | — | Pagination divides large result sets into numbered pages. **Web only.** | — |
+| *Infinite scroll* — **not a component** | High | A loading behaviour, not a component in any library. Implement it; do not search for it. | Mobile and apps, where Pagination is not available |
+| [**Carousel**](../carousel/carousel.md) | Low | Carousels are used to display a collection of items that the users can slide through. | Browsing a horizontal collection one by one rather than paging a result set |
 
 ---
 

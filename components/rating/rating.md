@@ -21,15 +21,29 @@ The rating is a non-interactive component used to display the results of user ra
 
 ### When to use
 
-Not documented
+**Rating** — displaying user rating results — non-interactive, from Opinion System.
 
 ### When NOT to use
 
-Not documented
+**No alternative.** Nothing else in the system covers this — see [components-rules-ai.md](../components-rules-ai.md).
 
 ### Variant Selection Flow
 
-Not documented
+```
+Size
+├─ Prominent placement → L
+└─ Secondary placement → S
+
+Display
+├─ Space is limited → Condensed, a single star
+└─ Space allows → Full, all stars
+   └─ Never hide the rating amount in the condensed variant
+
+Optional elements — hide only while the context stays understandable
+├─ Number of ratings
+├─ User rating
+└─ Maximum rating, such as "/5"
+```
 
 ### Usage Guidance
 
@@ -39,7 +53,7 @@ Not documented
 
 ### Related Components
 
-Not documented
+**No overlapping component.** Nothing else in the system covers displaying user rating results from Opinion System. Rating is chosen directly — see [components-rules-ai.md](../components-rules-ai.md) Rule 1, *Identity and media*.
 
 ---
 

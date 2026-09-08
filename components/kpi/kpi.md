@@ -28,15 +28,25 @@ A KPI can be displayed alone or in a chart to emphasize some data or trends.
 
 ### When to use
 
-Not documented
+**KPI** — a single key metric value needs prominent standalone display.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Trends, comparisons or distributions | **Charts** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Layout
+├─ An additional indicator is shown and space is wide → Horizontal
+└─ An additional indicator is shown and space is narrow → Vertical
+
+Display context
+├─ Paired with a graph → With a graph
+└─ Standing on its own → Independent
+```
 
 ### Usage Guidance
 
@@ -44,7 +54,10 @@ Not documented
 
 ### Related Components
 
-Not documented
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Kpi** | — | Key Performance Indicators (KPIs) are measurable values that demonstrate how effectively a key objective is achieved. | — |
+| [**Charts**](../charts/charts.md) | High | Charts are data visualisation components used to represent numerical data and trends clearly and accessibly. | Trends, comparisons or distributions |
 
 ---
 

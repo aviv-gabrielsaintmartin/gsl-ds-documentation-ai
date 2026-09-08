@@ -31,15 +31,32 @@ We use platform-specific dropdowns that differ between Web, iOS and Android. The
 
 ### When to use
 
-Not documented
+**Dropdown** — single-select from a list in a form, or space too constrained to show options inline.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| ≤5 options and space allows | **Radio button group** |
+| Long list where typing to filter helps | **Autocomplete** |
+| Items trigger actions rather than set a value | **Action menu** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Icons
+├─ Every item has a meaningful icon → With icons, on the field and in the list; all are non-clickable
+└─ Any item lacks one → Remove icons from every item; never mix
+
+Suffix
+└─ Extra context is needed after the value → Add a suffix
+
+Header, as with every form component
+├─ Mandatory field → Required asterisk to the right of the label
+├─ Optional field → Optional mention to the right of the label
+├─ Needs an explanation → Tooltip icon
+└─ Needs persistent guidance → Helper text
+```
 
 ### Usage Guidance
 
@@ -56,7 +73,14 @@ Not documented
 | Component | Priority | Usage | Example Scenario |
 | --- | --- | --- | --- |
 | **Dropdowns** | — | Used in forms to allow users to select an option from a list. | — |
-| [**Action menu**](https://zeroheight.com/626199550/p/16f691-action-menu) | High | Displays a list of context-specific actions. | The list represents actions to trigger, not options to select |
+| [**Action menu**](../action-menu/action-menu.md) | High | Displays a list of context-specific actions. | The list represents actions to trigger, not options to select |
+| [**Radio button group**](../radio-button-group/radio-button-group.md) | High | Radio button groups are used to select one option from a group of mutually exclusive choices. | ≤5 options and space allows |
+| [**Autocomplete**](../autocomplete/autocomplete.md) | High | Autocomplete components suggest possible matches for user input in real time as they type, helping them complete text fields more efficiently by… | Long list where typing to filter helps |
+| [**Checkbox group**](../checkbox-group/checkbox-group.md) | Medium | Checkbox groups are used to select multiple options from grouped checkboxes. | Checkbox group redirects here when: Long list or constrained space |
+| [**Chip group**](../chip-group/chip-group.md) | Medium | Chip groups are collections of chips that allow users to filter, select, or manage multiple related options simultaneously. | Chip group redirects here when: Constrained space or numerous options |
+| [**Filter bar**](../filter-bar/filter-bar.md) | Medium | Filter bars are used to narrow down search results or displayed content based on selected criteria. | Filter bar redirects here when: A single filter criterion inside a form |
+| [**Counter field**](../counter-field/counter-field.md) | Medium | Counter fields are used to enter or select numeric values. | Counter field redirects here when: Only a small fixed set of values |
+| [**Slider**](../slider/slider.md) | Medium | A range slider can be used to select a single value or a range between minimum and maximum values. | Slider redirects here when: Only discrete values available |
 
 ---
 

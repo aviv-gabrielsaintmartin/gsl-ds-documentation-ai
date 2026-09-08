@@ -25,13 +25,36 @@ The action menu does not support submenus or subsections.
 We use platform-specific action menus that differ between Web/Android and iOS. The difference is the position of the icons and that we use a native dropdown list on iOS. On iOS a destructive action is available; on Web/Android it's not.
 
 ### When to use
-Not documented
+
+**Action menu** — a dropdown list of contextual actions, primarily on desktop.
 
 ### When NOT to use
-Not documented
+
+| Instead, when… | Use |
+| --- | --- |
+| Mobile (XXS/XS) or in apps | **Modal bottom sheet menu** |
+| Selecting a form value rather than triggering actions | **Dropdown** |
+| All options always visible, ≤7 | **Button group** |
 
 ### Variant Selection Flow
-Not documented
+
+```
+Trigger
+├─ Space is limited, or the action is commonly recognised (three-dot) → Tertiary icon button
+├─ The menu sits on top of an image or a map → Floating icon button
+└─ The action must be explicitly clear, or is uncommon or complex → Text button
+
+Icons in the list
+├─ Every item has a meaningful icon → With icons
+└─ Any item lacks one → Remove icons from all items; never mix
+
+Menu items
+├─ The item performs an action → Plain item
+└─ The item navigates away → Link item, always with the external-link icon
+
+Concurrency
+└─ Only one action menu may be open at a time on a page
+```
 
 ### Usage Guidance
 
@@ -42,11 +65,14 @@ Not documented
 
 ### Related Components
 
-| Component | Usage |
-| --- | --- |
-| **Action menu** | Action menus display a list of context-specific actions. Although they are primarily used on desktop, they can also be used in apps if they contain only a few actions. |
-| [**Modal bottom sheet menu**](https://zeroheight.com/626199550/p/28f40b-modal-bottom-sheet-menu) | Modal bottom sheet menus display a list of context-specific actions on mobile screens or on apps. |
-| [**Dropdowns**](https://zeroheight.com/626199550/p/98cf75-dropdown) | Dropdowns are used in forms to allow users to select an option from a list. |
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Action menu** | — | Action menus display a list of context-specific actions. Although they are primarily used on desktop, they can also be used in apps if they contain only a few actions. | — |
+| [**Modal bottom sheet menu**](../modal-bottom-sheet-menu/modal-bottom-sheet-menu.md) | High | Modal bottom sheet menus display a list of context-specific actions on mobile screens or on apps. | Mobile (XXS/XS) or in apps |
+| [**Dropdown**](../dropdown/dropdown.md) | High | Dropdowns are used to select one option from a list. | Selecting a form value rather than triggering actions |
+| [**Dropdown**](../dropdown/dropdown.md) | High | Dropdowns are used to select one option from a list. | Selecting a form value rather than triggering actions |
+| [**Button group**](../button-group/button-group.md) | High | Button groups display multiple related choices in a horizontal row, allowing users to select one or more options. | All options always visible, ≤7 |
+| [**Filter bar**](../filter-bar/filter-bar.md) | Medium | Filter bars are used to narrow down search results or displayed content based on selected criteria. | Filter bar redirects here when: Triggering filter-related actions rather than setting criteria |
 
 ---
 

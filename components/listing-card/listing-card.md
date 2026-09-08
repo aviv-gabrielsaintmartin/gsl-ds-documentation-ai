@@ -21,15 +21,39 @@ Listing cards are summaries of properties used as calls to action. Depending on 
 
 ### When to use
 
-Not documented
+**Listing card** — an actionable card summarising a property listed on an AVIV Group website.
+
+**Experience**-tier component. Rule 0: do not compose a property summary card from Card + Image slider + Tag + Price — this component already is it.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Grouping generic content, not summarising a property | **Card** |
+| More layout flexibility than Listing card allows | **Listing summary** |
+| Comparing many properties as tabular rows | **Tables** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Layout
+├─ Mobile, web and app → Vertical
+├─ Tablet and desktop → Horizontal
+└─ Promoting the listing → Add the ribbon
+
+Size S — carousels only, always vertical
+├─ Cards should be clipped at the carousel edge → Fixed width, 280px, 24px gaps
+└─ Cards should fill the carousel width → Responsive width, min 280px, stacks of 3 to 5, 24px gaps
+   ├─ The image slider is disabled; the slide counter still shows how many images exist
+   └─ Always fix the card height — relative heights make neighbouring cards inconsistent
+
+Content blocks — enable only what the listing needs
+├─ Top bar tags → 1, 2 or 3
+├─ Price tag → the whole block · price per m²/month only · price tag only
+├─ Feature list → 3 or 4 items
+├─ Actions → 1 or 2
+└─ Bottom bar tags · Title · Location · Provider · SEO text block · Partner link → on or off
+```
 
 ### Usage Guidance
 
@@ -42,7 +66,12 @@ Not documented
 
 ### Related Components
 
-Not documented
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Listing card** | — | Listing cards are actionable cards that summarize the details of a property listed on any AVIV Group website. | — |
+| **Listing summary** | High | Higher-flexibility alternative to Listing card. | More layout flexibility than Listing card allows |
+| [**Card**](../card/card.md) | Medium | Cards are flexible containers used to visually group content. | Grouping generic content, not summarising a property |
+| **Image slider** | Low | Horizontally sliding image sequence. | Composed inside Listing card, where the slider is disabled — not selected on its own |
 
 **Research:** [Continuous Research from Team Waldo / Starlord](https://docs.google.com/presentation/d/1IZYgKJE0SP0P1PlVeiUS8mB09hgdTShDgFE9ZUL4130/edit#slide=id.g30b1c67e645_1_1)
 

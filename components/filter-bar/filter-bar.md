@@ -21,15 +21,25 @@ The filter bar allows users to set criteria to narrow down displayed content on 
 
 ### When to use
 
-Not documented
+**Filter bar** — narrowing search results or table content using structured criteria — SERP or data page.
+
+**Pattern**-tier component. Rule 0: do not compose a filter row from Chips or Buttons — this component already is it.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Lightweight inline filters without dropdown panels | **Chip group** |
+| A single filter criterion inside a form | **Dropdown** |
+| Triggering filter-related actions rather than setting criteria | **Action menu** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Size
+├─ Default, or a dense layout → 40px
+└─ Roomier layout, or matching 48px controls beside it → 48px
+```
 
 ### Usage Guidance
 
@@ -37,7 +47,12 @@ Not documented
 
 ### Related Components
 
-Not documented
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Filter bar** | — | Filter bars are used to narrow down search results or displayed content based on selected criteria. | — |
+| [**Chip group**](../chip-group/chip-group.md) | High | Chip groups are collections of chips that allow users to filter, select, or manage multiple related options simultaneously. | Lightweight inline filters without dropdown panels |
+| [**Dropdown**](../dropdown/dropdown.md) | High | Dropdowns are used to select one option from a list. | A single filter criterion inside a form |
+| [**Action menu**](../action-menu/action-menu.md) | High | Action menus display context-specific actions in a dropdown list. | Triggering filter-related actions rather than setting criteria |
 
 ---
 

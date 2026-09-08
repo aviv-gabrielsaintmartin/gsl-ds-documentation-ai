@@ -21,15 +21,44 @@ The cell content is a flexible building block that can be used to build larger c
 
 ### When to use
 
-Not documented
+**Cell content** — the building block for list rows and card content: a title, optional body and description, optional icon, image, badge or tag.
+
+**Not selected directly.** Rule 3: choose the container first — **Card** for a grouped block, **Tables** for tabular rows — then compose Cell content inside it. There is no `List` component in any library.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| You are answering "which component solves this problem" | **Card** or **Tables** |
+| Rows are tabular and comparable | **Tables** |
+| The whole block is one navigational action | **Button card** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Alignment
+├─ Plenty of horizontal space, longer content → Horizontal
+└─ Horizontal space limited, vertical space available → Vertical
+
+Padding
+├─ Narrow or dense container → 8px
+└─ Roomier container → 16px
+
+Text
+└─ Title is the primary identifier; add body and description only when they add clarity
+
+Icons and image
+├─ Leading visual → Icon or image, on the left
+├─ Trailing visual → Icon only, on the right
+├─ The row links or triggers an action → Chevron, shown by default
+└─ The row leaves the site → External-link icon
+
+Badge
+└─ Notifications or updates, such as messages or alerts → Badge beside the title
+
+Tag
+└─ A status or category label → Tag beside the title
+```
 
 ### Usage Guidance
 
@@ -47,9 +76,9 @@ Not documented
 
 | Component | Priority | Usage | Example Scenario |
 | --- | --- | --- | --- |
-| **Cell content** | — | Flexible building block, either clickable or non-clickable; when placed inside [cards](https://zeroheight.com/626199550/p/72edda-card), can be used as navigational elements. | — |
-| [**Button card**](https://zeroheight.com/626199550/p/093ea0-button-card) | Med | Also navigational, but offers less flexibility than cell content — always clickable. | A simpler, always-clickable navigational tile is enough |
-| **Select card** | High | Selection elements in forms. | User needs to select an option, not navigate |
+| **Cell content** | — | Flexible building block, either clickable or non-clickable; when placed inside [cards](../card/card.md), can be used as navigational elements. | — |
+| [**Button card**](../button-card/button-card.md) | Medium | Also navigational, but offers less flexibility than cell content — always clickable. | A simpler, always-clickable navigational tile is enough |
+| [**Select card**](../select-card-group/select-card-group.md) | High | Selection elements in forms. | User needs to select an option, not navigate |
 
 ---
 

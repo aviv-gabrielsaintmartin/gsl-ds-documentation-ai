@@ -23,15 +23,36 @@ Links are used to navigate users to a new page, an external website, or a differ
 
 ### When to use
 
-Not documented
+**Link** — the intent is navigation to another page or section — not action.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| An action is triggered | **Button** |
+| Navigation needs button weight, e.g. an empty-state CTA | **Button, tertiary** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Type
+├─ The link stands on its own, outside running text → Standalone
+└─ The link sits inside a sentence or paragraph → Inline
+
+Size
+├─ Standalone → 16px
+└─ Inline → Inherits the size of the surrounding text
+
+Context
+├─ Normal surface → Default
+├─ Dark or inverted region → Inverted
+└─ On a brand-primary fill → On-primary
+
+Icons
+├─ Standalone → No icon, icon left, or icon right; external-link icon for external targets
+└─ Inline → No icon, except the external-link icon for external targets
+   └─ Never add any other icon to an inline link
+```
 
 ### Usage Guidance
 
@@ -46,10 +67,11 @@ Not documented
 
 ### Related Components
 
-| Component | Usage |
-| --- | --- |
-| **Link** | Links are navigational elements that take users to different pages or sections. |
-| **[Button](https://zeroheight.com/626199550/p/97e03c-button)** | Buttons trigger actions. |
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Link** | — | Links are navigational elements that take users to different pages or sections. | — |
+| [**Button**](../button/button.md) | High | Buttons trigger actions. | Navigation needs button weight, e.g. an empty-state CTA |
+| **Text button** | Medium | A distinct component from Button, for when full button weight is too heavy. | Text button redirects here when: The control leaves the page |
 
 ---
 

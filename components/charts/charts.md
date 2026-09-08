@@ -17,13 +17,14 @@ Charts are data visualisation components used to represent numerical data and tr
 
 ---
 
-## Related components
+## Related Components
 
 *Use Charts when quantitative data needs to be compared, trended over time, or shown as a distribution.*
 
-| Component | When to use it instead |
-| --- | --- |
-| KPI | When a single metric value is more informative than a trend or comparison |
-| Progress bar | When showing completion of a single goal, not comparing data series |
-| Progress circle | When showing a single completion percentage in a compact, circular format |
-| Tag | When the data point is a categorical label, not a quantitative value |
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Charts** | — | Charts are data visualisation components used to represent numerical data and trends clearly and accessibly. | — |
+| [**KPI**](../kpi/kpi.md) | High | Key Performance Indicators (KPIs) are measurable values that demonstrate how effectively a key objective is achieved. | A single metric value is more informative than a trend or comparison |
+| [**Progress bar**](../progress-bar/progress-bar.md) | High | Progress bars show linear task or goal completion. | Showing completion of a single goal, not comparing data series |
+| [**Progress circle**](../progress-circle/progress-circle.md) | High | Progress circles show a single completion percentage in a compact circular format. | A single completion percentage in a compact, circular format |
+| [**Tag**](../tag/tag.md) | Medium | Non-interactive component for fixed information such as labels, categories, or statuses. | The data point is a categorical label, not a quantitative value |

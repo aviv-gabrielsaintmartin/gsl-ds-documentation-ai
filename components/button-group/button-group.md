@@ -29,15 +29,36 @@ The button group component is available on all platforms.
 
 ### When to use
 
-Not documented
+**Button group** — a set of related choices shown as always-visible buttons, single- or multi-select, up to 7 options.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Standard form styling with labels and helper text is needed | **Radio button group** / **Checkbox group** |
+| Options benefit from icons or illustrations | **Select card group** |
+| Switching between view modes rather than setting a value | **Segmented control** |
+| The list is long or space is constrained | **Dropdown** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Number of items
+├─ 2 to 7 → Standard
+└─ 8 or 9 → Energy selection on desktop only
+   └─ Otherwise, above 7: multi-select → Chip group; single-select → Dropdown
+
+Icons
+├─ Icon with label → Preferred
+└─ Icon without label → Only when the icon's meaning is unmistakable
+   └─ Never mix icon-only and icon-with-label items in one group
+
+Border highlight
+└─ Energy and CO₂ selection only
+
+In a form
+└─ Add the header with a clear, concise label, and helper text for accessibility
+```
 
 ### Usage Guidance
 
@@ -49,8 +70,12 @@ Not documented
 
 | Component | Priority | Usage | Example Scenario |
 | --- | --- | --- | --- |
-| [Radio button group](https://zeroheight.com/626199550/p/55bfd7-radio-button-group) | High | Single-select alternative | Only one option can ever be selected at a time |
-| [Checkbox group](https://zeroheight.com/626199550/p/41df87-checkbox-group) | High | Multi-select alternative | Users need to select several options at once |
+| **Button group** | — | Button groups display multiple related choices in a horizontal row, allowing users to select one or more options. | — |
+| [**Radio button group**](../radio-button-group/radio-button-group.md) | High | Single-select alternative | Only one option can ever be selected at a time |
+| [**Checkbox group**](../checkbox-group/checkbox-group.md) | High | Multi-select alternative | Users need to select several options at once |
+| [**Button**](../button/button.md) | Medium | Buttons are used to trigger an immediate action. | Button redirects here when: Choosing from a set of related options |
+| [**Segmented control**](../segmented-control/segmented-control.md) | Medium | Segmented controls are used to select one option from a group of mutually exclusive choices. | Segmented control redirects here when: The choice is a form value |
+| [**Action menu**](../action-menu/action-menu.md) | Medium | Action menus display context-specific actions in a dropdown list. | Action menu redirects here when: All options always visible, ≤7 |
 
 ---
 

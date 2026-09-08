@@ -29,7 +29,18 @@ Button cards are prominent clickable containers. They are mainly used as navigat
 
 ### Variant Selection Flow
 
-Not documented
+```
+Alignment
+├─ Single card, narrow space or short label → Vertical
+├─ Single card, wide space or longer label → Horizontal
+└─ In a group → every card in the group takes the same alignment
+
+Leading visual
+├─ A rich, illustrative action → Illustration
+├─ A simple, recognisable action → Icon
+└─ The label alone is clear → Neither
+   └─ Never mix icons and illustrations in the same section
+```
 
 ### Usage Guidance
 
@@ -41,8 +52,11 @@ Not documented
 
 | Component | Priority | Usage | Example Scenario |
 | --- | --- | --- | --- |
-| [Select card group](https://zeroheight.com/626199550/p/44717f-select-card-group) | High | Select cards are selection elements in forms. | When the goal is selection rather than navigation |
-| [Cell content](https://zeroheight.com/626199550/p/27116a-cell-content) | Medium | Cell contents are flexible building blocks that can be either clickable or non-clickable. When placed inside cards, they can be used as navigational elements. | When you need more flexible button cards that include images or descriptions |
+| **Button card** | — | Button cards are prominent calls to action that can be used alone or in a group, with icons or pictograms. | — |
+| [**Select card group**](../select-card-group/select-card-group.md) | High | Select cards are selection elements in forms. | When the goal is selection rather than navigation |
+| [**Cell content**](../cell-content/cell-content.md) | Medium | Cell contents are flexible building blocks that can be either clickable or non-clickable. When placed inside cards, they can be used as navigational elements. | When you need more flexible button cards that include images or descriptions |
+| [**Button**](../button/button.md) | Medium | Buttons are used to trigger an immediate action. | Button redirects here when: Prominent navigational entry point with icon or illustration |
+| [**Card**](../card/card.md) | Medium | Cards are flexible containers used to visually group content. | Card redirects here when: The whole container is a single navigational action |
 
 ---
 

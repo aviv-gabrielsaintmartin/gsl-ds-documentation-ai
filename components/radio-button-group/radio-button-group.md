@@ -29,15 +29,38 @@ On the web and iOS, we use custom radio buttons. On Android, we use native radio
 
 ### When to use
 
-Not documented
+**Radio button group** — mutually exclusive choices in a form, ≤5 options, enough vertical space.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| >5 options, long labels, or constrained space | **Dropdown** |
+| Prominent visual treatment preferred | **Button group (single-select)** |
+| Options benefit from icons or illustrations | **Select card group (single-select)** |
+| Switching views rather than submitting a value | **Segmented control** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Alignment
+├─ Default — best readability → Vertical
+└─ The layout demands it → Horizontal
+
+Border
+├─ Complex options that must be clearly distinguished → With border
+└─ Simple options, easily told apart → Without border
+
+Columns, vertical groups only
+├─ Few options, mobile, or limited vertical space → One column
+└─ Six or more options → Two columns
+
+Header, as with every form component
+├─ Mandatory field → Required asterisk to the right of the label
+├─ Optional field → Optional mention to the right of the label
+├─ Needs an explanation → Tooltip icon
+└─ Needs persistent guidance → Helper text
+```
 
 ### Usage Guidance
 
@@ -51,11 +74,15 @@ Not documented
 
 ### Related Components
 
-| Component | Usage |
-| --- | --- |
-| **Radio button group** | Radio buttons allow users to make mutually exclusive choices. They are used in forms that must be submitted before the change takes effect. |
-| **[Checkbox group](https://zeroheight.com/626199550/p/41df87-checkbox-group)** | Checkbox groups allow users to select one or more choices independently. They are used in forms that must be submitted before the change takes effect. |
-| **[Toggle group](https://zeroheight.com/626199550/p/51f970-toggle-group)** | Toggle groups are used for binary, mutually exclusive choices that take effect immediately and don't require submitting or saving. |
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Radio button group** | — | Radio buttons allow users to make mutually exclusive choices. They are used in forms that must be submitted before the change takes effect. | — |
+| [**Checkbox group**](../checkbox-group/checkbox-group.md) | Medium | Checkbox groups allow users to select one or more choices independently. They are used in forms that must be submitted before the change takes effect. | — |
+| [**Toggle group**](../toggle-group/toggle-group.md) | Medium | Toggle groups are used for binary, mutually exclusive choices that take effect immediately and don't require submitting or saving. | — |
+| [**Dropdown**](../dropdown/dropdown.md) | High | Dropdowns are used to select one option from a list. | >5 options, long labels, or constrained space |
+| [**Button group**](../button-group/button-group.md) | High | Button groups display multiple related choices in a horizontal row, allowing users to select one or more options. | Prominent visual treatment preferred |
+| [**Select card group**](../select-card-group/select-card-group.md) | High | Select cards are used for single- or multi-selection inside forms. | Options benefit from icons or illustrations |
+| [**Segmented control**](../segmented-control/segmented-control.md) | High | Segmented controls are used to select one option from a group of mutually exclusive choices. | Switching views rather than submitting a value |
 
 ---
 

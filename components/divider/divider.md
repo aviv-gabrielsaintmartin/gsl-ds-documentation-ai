@@ -19,15 +19,19 @@ Dividers are used to visually separate content, adding clarity and structure to 
 
 ### When to use
 
-Not documented
+**Divider** — visually separating content sections or list items where spacing alone is insufficient.
 
 ### When NOT to use
 
-Not documented
+**No alternative.** Nothing else in the system covers this — see [components-rules-ai.md](../components-rules-ai.md).
 
 ### Variant Selection Flow
 
-Not documented
+```
+Orientation
+└─ Horizontal only
+   └─ There are no vertical dividers, and no alternative widths or styles — never create one
+```
 
 ### Usage Guidance
 
@@ -41,7 +45,7 @@ Not documented
 
 ### Related Components
 
-Not documented
+**No overlapping component.** Nothing else in the system covers separating content sections or list items. Divider is chosen directly — see [components-rules-ai.md](../components-rules-ai.md) Rule 1, *Grouping and structuring content*.
 
 ---
 

@@ -21,15 +21,30 @@ Tabs organize related content that is at the same level of hierarchy. By separat
 
 ### When to use
 
-Not documented
+**Tabs** — organising related content at the same hierarchy level into switchable views.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Switching view modes within a single content area | **Segmented control** |
+| Steps must be completed in sequence | **Wizard** |
+| Switching between top-level destinations | **Navigation bar** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Number of items
+└─ 2 to 5 — more than that overwhelms the user
+   └─ More sections than fit → reconsider Tabs; see Rule 1
+
+Icon position
+├─ Wider screens → Icon to the left of the label
+└─ Smaller screens with limited space → Icon above the label, avoiding horizontal scrolling
+
+Badge
+└─ Notifications or updates, such as messages or alerts → Badge next to the tab label
+```
 
 ### Usage Guidance
 
@@ -45,10 +60,14 @@ Not documented
 
 ### Related Components
 
-| Component | Usage |
-| --- | --- |
-| **Tabs** | Tabs organize related content into distinct views and allow users to switch between them without leaving the page. |
-| **Navigation bar (app)** | Navigation bars allow users to navigate between different pages within an app. They persist throughout the app to help users move between high-level destinations. |
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Tabs** | — | Tabs organize related content into distinct views and allow users to switch between them without leaving the page. | — |
+| **Navigation bar (app)** | Medium | Navigation bars allow users to navigate between different pages within an app. They persist throughout the app to help users move between high-level destinations. | — |
+| [**Segmented control**](../segmented-control/segmented-control.md) | High | Segmented controls are used to select one option from a group of mutually exclusive choices. | Switching view modes within a single content area |
+| [**Wizard**](../wizard/wizard.md) | High | Wizards guide users through step-by-step processes to achieve their goal. | Steps must be completed in sequence |
+| [**Navigation bar**](../navigation-bar/navigation-bar.md) | High | Navigation bars provide quick access to key pages within the site, helping users to navigate efficiently. | Switching between top-level destinations |
+| [**Accordion**](../accordion/accordion.md) | Medium | Accordions are container that allow users to expand and collapse sections of content, making it easier to manage large amounts of information in a… | Accordion redirects here when: Sections are mutually exclusive views |
 
 ---
 

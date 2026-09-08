@@ -25,15 +25,36 @@ The range slider allows to select a range by sliding 2 handles along the track. 
 
 ### When to use
 
-Not documented
+**Slider** — selecting a value or range along a continuous scale.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Precision and exact entry matter | **Counter field** |
+| Only discrete values available | **Dropdown** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Selected value
+├─ Default → Shown at the top right
+└─ The value already appears elsewhere, or updates live such as when cropping an image → Hidden
+
+Minimum and maximum values
+├─ Selecting a numeric value → Mandatory, shown left and right
+└─ Other uses, such as a sound level → Optional
+
+Step marks and step values
+└─ The slider allows only predefined values → Show the step marks, and optionally the step values
+
+Text fields
+├─ A precise value matters, such as monthly revenue → Show the text fields
+└─ An approximate value is enough → Omit them
+
+Header
+└─ Used as a form element → Show the form header: tooltip trigger, required or optional mention, helper text
+```
 
 ### Usage Guidance
 
@@ -41,7 +62,11 @@ Not documented
 
 ### Related Components
 
-Not documented
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Slider** | — | A range slider can be used to select a single value or a range between minimum and maximum values. | — |
+| [**Counter field**](../counter-field/counter-field.md) | High | Counter fields are used to enter or select numeric values. | Precision and exact entry matter |
+| [**Dropdown**](../dropdown/dropdown.md) | High | Dropdowns are used to select one option from a list. | Only discrete values available |
 
 ---
 

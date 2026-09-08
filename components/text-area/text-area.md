@@ -41,15 +41,47 @@ On Android, the label is inside the field by default and only moves to the top w
 
 ### When to use
 
-Not documented
+**Text area** — multi-line free-form text — descriptions, comments, messages.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Single-line | **Text field** |
+| Attaching a file | **Media upload** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Label
+├─ Almost always → Visible label
+└─ Context is unmistakable → Hidden label, with an invisible aria-label for accessibility
+
+State message
+├─ Web → Error only
+└─ iOS and Android → Information · Success · Warning · Error
+
+Icons and suffix
+└─ None — unlike the text field, the text area has neither
+
+Character counter
+├─ There is a limit worth surfacing → Show the counter
+└─ Behaviour when the limit is exceeded differs by platform:
+   ├─ Web → The counter enters an error state
+   ├─ Android → The whole field enters an error state and shows a message
+   └─ iOS → Typing beyond the limit is blocked
+
+Resizing
+├─ Web → Resize handle; height only, never width
+├─ Android → The field grows automatically as the content lengthens
+└─ iOS → Fixed height; the user cannot resize it
+
+Header, as with every form component
+├─ Mandatory field → Required asterisk to the right of the label
+├─ Optional field → Optional mention to the right of the label
+├─ Needs an explanation → Tooltip icon
+└─ Needs persistent guidance → Helper text
+```
 
 ### Usage Guidance
 
@@ -59,12 +91,13 @@ Not documented
 
 ### Related Components
 
-| Component | Usage |
-| --- | --- |
-| **Text area** | Text areas allow multi-line text content. |
-| **[Text field](https://zeroheight.com/626199550/p/980e7b-text-field)** | Text fields allow short single-line and free-form content. |
-| **[Phone number field](https://zeroheight.com/626199550/p/490309-phone-number-input)** | Phone number fields are only used to input phone numbers. |
-| **[Date field](https://zeroheight.com/626199550/p/33c9e4-date-picker)** | Date fields are only used to input dates. |
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Text area** | — | Text areas allow multi-line text content. | — |
+| [**Text field**](../text-field/text-field.md) | High | Text fields allow short single-line and free-form content. | Single-line |
+| [**Phone number field**](../phone-number-field/phone-number-field.md) | Medium | Phone number fields are only used to input phone numbers. | — |
+| **Date field** | Medium | Date fields are only used to input dates. | — |
+| [**Media upload**](../media-upload/media-upload.md) | High | Media upload components allow users to upload, view, and manage media files such as images, videos and documents. | Attaching a file |
 
 ---
 

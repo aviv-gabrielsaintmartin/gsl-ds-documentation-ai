@@ -21,15 +21,43 @@ Feedback messages are used to provide guidance to the user about their current t
 
 ### When to use
 
-Not documented
+**Feedback message** — persistent inline contextual guidance or status within a section.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Transient, action-triggered feedback | **Snackbar** |
+| Full-area or page-level states | **Info state** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Type
+├─ Neutral context → Info
+├─ An action succeeded → Success
+├─ Needs attention but is not blocking → Warning
+└─ Something failed → Error
+
+Placement
+├─ Inline with the content → Non-floating
+└─ Above the content → Floating
+
+Corner radius, by breakpoint
+├─ Desktop → Floating, with rounded corners
+└─ Tablet and phone → Without corners, as a full-width banner
+
+Text
+├─ Description → Mandatory
+└─ Title → Optional, recommended for clarity
+
+Buttons
+└─ None, one, or two
+
+Close button
+├─ Non-critical information the user may dismiss → With close button
+└─ Feedback that requires ongoing action → No close button, so it stays visible
+```
 
 ### Usage Guidance
 
@@ -48,12 +76,14 @@ Not documented
 
 | Component | Priority | Usage | Example Scenario |
 | --- | --- | --- | --- |
-| [Snackbar](https://zeroheight.com/626199550/p/54ff4c-snackbar) | Low | Snackbars are used to provide brief, non-critical, and non-intrusive feedback on actions that don't require user confirmation. | Seeker saves listing to favorites |
 | **Feedback message** | Medium | Feedback messages are non-disruptive, inline notifications that provide users with important information or contextual messages. They inform users of system processes or provide additional information about a task. They can be used for critical alerts or as passive feedback. | Seeker receives warning that he has reached the limit of saved searches |
-| Banner (not a gemini component) | Medium | Banners are used for important, persistent information. They remain until the user closes them or the problem that caused the banner is solved. | Seeker is shown static information about search results on map |
-| [State message](https://gemini.zeroheight.com/styleguide/s/92948/p/980e7b-text-field/t/ced82a7a5e) | Medium | State messages are used for inline feedback in forms to guide users, correct errors, or provide additional information. | User enters incorrect password |
-| [Alert](https://zeroheight.com/626199550/p/7142d3-alert) | High | Alerts are used for critical information that requires immediate attention or confirmation before proceeding. They block user flow until an action is taken. | Agent deletes listings |
-| [Info State](https://zeroheight.com/626199550/p/84818f-info-state) | High | Info states are used to communicate system status, errors, or other relevant information that prevent users from progressing and require their full attention. They include empty, error, success and loading states. | User is not connected to the Internet |
+| [**Snackbar**](../snackbar/snackbar.md) | High | Snackbars are used to provide brief, non-critical, and non-intrusive feedback on actions that don't require user confirmation. | Seeker saves listing to favorites |
+| **Banner (not a gemini component)** | Medium | Banners are used for important, persistent information. They remain until the user closes them or the problem that caused the banner is solved. | Seeker is shown static information about search results on map |
+| **State message** | Medium | State messages are used for inline feedback in forms to guide users, correct errors, or provide additional information. | User enters incorrect password |
+| [**Alert**](../alert/alert.md) | High | Alerts are used for critical information that requires immediate attention or confirmation before proceeding. They block user flow until an action is taken. | Agent deletes listings |
+| [**Info State**](../info-state/info-state.md) | High | Info states are used to communicate system status, errors, or other relevant information that prevent users from progressing and require their full attention. They include empty, error, success and loading states. | User is not connected to the Internet |
+| [**Tag**](../tag/tag.md) | Medium | Tags are used to label, categorize and highlight items to help users quickly identify content. | Tag redirects here when: Status needs supporting text |
+| [**Coach mark**](../coach-mark/coach-mark.md) | Medium | Coach marks are temporary overlay messages that provide contextual information about user interface elements. | Coach mark redirects here when: Persistent inline guidance not tied to onboarding |
 
 ---
 

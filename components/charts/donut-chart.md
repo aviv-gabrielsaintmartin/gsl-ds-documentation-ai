@@ -18,13 +18,29 @@ A donut chart represents the distribution of a total amount across categories of
 
 ### When to use
 
-Not documented
+**Donut chart** — showing how a total divides into parts of a whole.
+
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Comparing values across categories | **Bar chart** |
+| Following a value over a continuous axis | **Line chart** |
+| There is only one value to show | **KPI** |
+
 ### Variant Selection Flow
 
-Not documented
+```
+Segments
+└─ Each segment is one part of the total; together they make the whole
+
+Legend
+├─ Two or more segments → Mandatory
+└─ Only one value → A donut chart is the wrong choice; use KPI
+
+No further variant axes are documented for this chart type.
+```
+
 ### Usage Guidance
 
 | DO | DON'T |
@@ -45,7 +61,14 @@ Not documented
 
 ### Related Components
 
-Not documented
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Donut chart** | — | Show a distribution across parts of a whole. | — |
+| [**Bar chart**](bar-chart.md) | High | Compare quantities across categories. | A different question about the same data |
+| [**Line chart**](line-chart.md) | High | Show a trend over a continuous axis. | A different question about the same data |
+| [**KPI**](../kpi/kpi.md) | High | A single measurable value shown prominently. | There is only one value to show |
+| [**Legend**](legend.md) | Medium | Identifies which segment each colour represents. | Two or more segments are shown — then it is mandatory |
+
 ---
 
 ## Variants & Modifiers

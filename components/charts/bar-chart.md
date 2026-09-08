@@ -28,10 +28,30 @@ This chart aids in comparing values easily. It's great for data distribution and
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| A trend over a continuous axis matters more than comparing categories | **Line chart** |
+| The point is each part's share of a whole | **Donut chart** |
+| A single metric is more informative than a comparison | **KPI** |
+| Showing completion of one goal | **Progress bar** |
+
 ### Variant Selection Flow
 
-Not documented
+```
+Purpose
+├─ Comparing values across categories → Comparison
+├─ Ordering categories from highest to lowest → Ranking
+└─ Comparing several series within each category → Grouped
+
+Legend
+├─ Two or more data categories → Mandatory
+└─ A single data set → Omit it; rely on the chart title and axis labels
+
+Tooltip
+└─ Hover on desktop, tap on mobile, showing the selected bar's value
+   └─ The user controls dismissal — moving the pointer away, or tapping outside
+```
+
 ### Usage Guidance
 
 | DO | DON'T |
@@ -52,7 +72,14 @@ Not documented
 
 ### Related Components
 
-Not documented
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Bar chart** | — | Compare quantities across categories. | — |
+| [**Line chart**](line-chart.md) | High | Show a trend over a continuous axis. | A different question about the same data |
+| [**Donut chart**](donut-chart.md) | High | Show a distribution across parts of a whole. | A different question about the same data |
+| [**KPI**](../kpi/kpi.md) | High | A single measurable value shown prominently. | One metric is more informative than a comparison |
+| [**Legend**](legend.md) | Medium | Identifies which series each colour represents. | Two or more data categories are shown — then it is mandatory |
+
 ---
 
 ## Variants & Modifiers

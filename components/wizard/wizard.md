@@ -20,15 +20,27 @@ Wizards guide users through a multi-step processes by breaking it down into smal
 
 ### When to use
 
-Not documented
+**Wizard** — guiding users through a sequential multi-step process.
+
+**Pattern**-tier component. Rule 0: do not compose a step-by-step flow from Tabs + Progress bar — this component already is it.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Sections are independent and non-sequential | **Tabs** |
+| Showing task completion without step-by-step input | **Progress bar** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+List type
+├─ Steps must be completed in order, each depending on the one before → Numbered list
+└─ The user may move between steps freely → Unordered list
+
+Description
+└─ Optional — add it when a step needs explaining
+```
 
 ### Usage Guidance
 
@@ -38,7 +50,11 @@ Not documented
 
 ### Related Components
 
-Not documented
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Wizard** | — | Wizards guide users through step-by-step processes to achieve their goal. | — |
+| [**Tabs**](../tabs/tabs.md) | High | Tabs are used to organize related content into different views and allow users to seamlessly switch between them. | Sections are independent and non-sequential |
+| [**Progress bar**](../progress-bar/progress-bar.md) | High | A progress bar shows a task's progress. | Showing task completion without step-by-step input |
 
 ---
 
