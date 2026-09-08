@@ -11,6 +11,93 @@ decision with no downside recorded is usually a decision that wasn't examined.
 
 ---
 
+## 2026-09-08 · Rule 0 has two kinds of row, and only one is countable
+
+**Decided.** Rule 0's table gains a machine-readable **Parts** column and a
+**Kind** column. `C2 · Tier ceiling` covers the composed kind — four rows of ten
+— and reports the other six as skipped.
+
+**Why the split exists at all.** Turning Rule 0's prose into data was supposed
+to be transcription. It wasn't. Every part name failed an exact match against
+the registries on case or plurals, five named things were not components at all
+(`Price`, `container`, `pins`, `Illustration`, `Text`), and three rows named
+exactly one part — which contradicts Rule 0's own test of *two or more moving
+parts*. Read literally, those three could never fire the rule they belong to.
+
+**Gabriel's answers reframed the problem better than the question did.** They
+are not under-documented rows. They are **not parts-composed things**:
+
+| Kind | Rows | Countable? |
+| --- | --- | --- |
+| Composed | `Listing Card` · `Filter bar` · `Wizard` · `Phone Number Field` | **yes** |
+| Container — a shell you place content into | `Info State` · `Table` | no |
+| All-or-nothing — *"full usage or nothing"* | `Map template` | no |
+| Unresolved | `Floor selection` · `Listing summary` · `Estimation card` | no |
+
+His words on the two that mattered: `Map template` is *"full usage or nothing or
+almost — a designer could need a pin as illustration but will find other
+solutions"*, and `Info State` is *"more a content component like a modal with
+specific content inside"*. Neither is assembled, so neither can be caught by
+counting what it was assembled from.
+
+**Cost, stated plainly.** Rule 0 governs all ten rows; the checker enforces four.
+And **detecting a rebuilt container is unsolved** — nothing catches an agent that
+hand-builds an empty state instead of using `Info State`. That needs a
+non-parts-based mechanism, and none is designed. Recorded rather than papered
+over, because the alternative was inventing parts lists — which
+`components-audit.md` had already rejected as *"inferred content in a ruleset
+agents treat as authoritative"*.
+
+---
+
+## 2026-09-08 · Use a component where it exists; the registry is authority for Figma
+
+**Decided.** Gabriel: *"Components existing on a platform should be used on it.
+Figma first. When working on web or android, we will work on the status and
+synchronisation."*
+
+Rule 2 now states that policy and names a source of truth per platform, rather
+than duplicating readiness data into the ruleset.
+
+| Target | Source of truth | State |
+| --- | --- | --- |
+| **Figma** | `figma/*-registry.json`, verified live | **All 98 exist. No constraint** |
+| Web · iOS · Android | the component's own doc | hand-maintained free text |
+
+**A correction, made the same day.** The first reading of this was *"46 of 52
+docs say Figma-ready, so six components are not"*. That was wrong. All six
+non-Ready Figma cells are data-quality problems — three say `Not documented`,
+two hold a link instead of a status, one says `To Do` — and **every one of those
+components is in a registry, verified live in Figma.** Snackbar's doc even links
+to its Figma node two lines under the cell that says it is undocumented.
+
+So the doc's Figma cell is a hand-maintained duplicate that drifted, and the
+conclusion inverts: the Figma agent has **no availability constraint at all**.
+
+**Where availability data belongs**, since Gabriel asked whether it was a doc or
+a skill concern:
+
+- **Figma existence → the registries.** Machine-verifiable, verified live,
+  complete, and it changes when Figma changes rather than when someone edits a
+  doc.
+- **Web and native existence → the component's own doc.** Nothing here can
+  verify it, so a human record is the only option.
+- **The rule → Rule 2.** It is a rule, not data. Duplicating 52 × 4 values into
+  the ruleset would create a second source of truth — which is precisely how the
+  Figma column drifted in the first place.
+
+And the principle behind the question: **a skill reads docs and writes
+registries. A skill is never a source of truth for knowledge.**
+
+**Cost.** Web and native availability stays unruled. And its first job is not
+reconciliation but a **controlled vocabulary**: the docs say `Ready`, `To Do`,
+`To-do`, `WIP`, `In progress`, `Partially available`, `N/A`, `Non-gemini
+component`, a bare link, or `Not documented` — 11 cells hold no status at all.
+Nothing can be ruled on until those mean fixed things. **Block 2c · Platform
+availability**.
+
+---
+
 ## 2026-09-08 · The scorecard is platform-neutral; the checkers are not
 
 **Decided.** `compliance/compliance-scorecard.md` defines *what* compliance is
@@ -86,17 +173,19 @@ recommendation:
 | --- | --- | --- |
 | Does a hard fail sink the run? | **Its own check only.** Extend later | A run-level gate on an unproven checker discards a whole run's data on one false positive. Mitigated by format: hard fails print above any percentage |
 | Unauthorised tokens — fail or flag? | **Flag, and treat flags as findings** | The better reason. Flags now accumulate in a ledger; a subject seen three times is promoted to a ruleset defect |
-| Is `C2` machine-detectable? | **Yes, it must be** | Right, but not from the registries — `Listing Card`'s recorded sub-components are private internal slots, not the public parts an imitation would contain. Needs a parts column on Rule 0's ten rows |
+| Is `C2 · Tier ceiling` machine-detectable? | **Yes, it must be** | Right, but not from the registries — `Listing Card`'s recorded sub-components are private internal slots, not the public parts an imitation would contain. Needs a parts column on Rule 0's ten rows |
 | Thresholds now or later? | **Now** | Refined: derived from rules, never invented. `C3 = 100%` because "never write a pixel literal" says so. Where no rule states a number, the threshold is no-regression |
 
 **Cost.** The scorecard can be enforced only as far as the rulesets are
-verified. `C6` (layout) ships defined and switched off, and `C2` cannot run until
-block 2 makes Rule 0's parts machine-readable. Both are stated in the scorecard
+verified. `C6 · Layout` ships defined and switched off, and `C2 · Tier ceiling`
+cannot run until
+**Block 2a · Rule 0 parts list** makes Rule 0's parts machine-readable. Both are
+stated in the scorecard
 rather than quietly unmeasured.
 
 ---
 
-## 2026-09-08 · Block 3 is verification, not authoring
+## 2026-09-08 · Block 3 · Layout is verification, not authoring
 
 **Decided.** `layout/` verifies page-composition rules that already exist, rather
 than writing them from nothing.

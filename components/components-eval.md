@@ -18,9 +18,10 @@ by luck when the rule should have routed via Rule 2 still fails.
 
 ## The set
 
-Twenty-seven intents. Rows 8, 18–22 and 24 matter most: they test tier order,
-rule precedence and the never-select list — the places where a plausible-looking
-wrong answer is the default failure.
+Thirty-one intents. Rows 8, 18–22, 24 and 28–31 matter most: they test tier
+order, rule precedence, the never-select list and the two non-composed kinds of
+higher-tier component — the places where a plausible-looking wrong answer is the
+default failure.
 
 | # | Intent | Expected | Tests |
 | --- | --- | --- | --- |
@@ -51,14 +52,23 @@ wrong answer is the default failure.
 | 25 | "A step-by-step property-valuation flow where step 3 depends on step 2" | `Wizard` | Rule 0 / Rule 1 — sequential dependency |
 | 26 | "A brief hint explaining what the DPE field means, on hover of the info icon" | `Tooltip` | Rule 1 — single clarification, vs `Coach mark` |
 | 27 | "Tell the user their saved-search limit is reached, inline, and keep it visible" | `Feedback message` | Rule 1 — persistent and inline, vs `Snackbar` |
+| 28 | "An empty state for a saved-search list with nothing in it yet" | `Info State` | **Rule 0, container kind.** Fails if it assembles an illustration + text + a button |
+| 29 | "A data grid of leads, sortable, **on web**" | `Table` — but **flag it**: Figma-ready, web in progress | **Rule 2.** Fails if it returns `Table` with no platform caveat |
+| 30 | "A map view of listings with clickable pins" | `Map template` | **Rule 0, all-or-nothing.** Fails if it selects `mapPinsV2_SL` or builds a container plus pins |
+| 31 | "A list of settings rows, each with a label and a trailing chevron" | A list you lay out yourself, of `Cell content` rows | **Rule 3 + Rule 1.** Tests that Cell content is reachable as a part but never as the answer |
 
 ## Scoring
 
 | Band | Meaning |
 | --- | --- |
-| 27/27 | The ruleset is doing its job |
-| 23–26 | Usable. Fix the missed rows before extending Rule 1 |
-| ≤22 | The ruleset is not yet the single entry point. Do not point agents at it |
+| 31/31 | The ruleset is doing its job |
+| 27–30 | Usable. Fix the missed rows before extending Rule 1 |
+| ≤26 | The ruleset is not yet the single entry point. Do not point agents at it |
+
+**Intents 28–31 have not been run.** They were added on 2026-09-08 with Rule 0's
+parts list, to probe the container and all-or-nothing kinds and the `Table`
+platform caveat — none of which the first three runs touched. Runs 1–3 scored
+against the first 27 only, so their scores are not comparable to a 31-intent run.
 
 Record each run below.
 

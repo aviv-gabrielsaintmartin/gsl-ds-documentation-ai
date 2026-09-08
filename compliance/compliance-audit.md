@@ -233,7 +233,7 @@ Scoring against them would produce a number with no evidence under it — the ex
 failure the token audits were run to prevent. C6 is therefore defined in full and
 explicitly inactive, so that the gap is visible rather than silently unmeasured.
 
-This also revised the plan. Block 3 was scoped as *write the missing layout
+This also revised the plan. **Block 3 · Layout** was scoped as *write the missing layout
 rules*; it is actually *verify layout rules that already exist*. Same dependency
 — Gabriel naming 3–5 real product screens — but a cheaper job and a stronger
 result.
@@ -291,5 +291,6 @@ the same day**; the sixth moved out of this repo with the platform split.
    implementable is not the same as being correct.
 3. **`C1 · Provenance` has no denominator until there is a run.** "Local builds
    that duplicate an existing component" requires knowing which locals duplicate
-   something, which is `C2 · Tier ceiling` parts list. Until block 2 lands,
+   something, which is `C2 · Tier ceiling` parts list. Until **Block 2a · Rule 0
+   parts list** lands,
    `C1 · Provenance` can count hard fails but not produce a percentage.
