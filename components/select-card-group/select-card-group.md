@@ -25,15 +25,39 @@ Select cards contain custom checkboxes on Web/iOS and native checkboxes on Andro
 
 ### When to use
 
-Not documented
+**Select card group** — form selection benefits from a visual, card-based layout with icons or illustrations.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Simpler single-select | **Radio button group** |
+| Simpler multi-select | **Checkbox group** |
+| The intent is navigation, not selection | **Button card** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Grouping
+├─ Several related cards → Group
+└─ One standalone choice → Individual select card
+
+Selection type
+├─ One option only → Single-select, no indicator
+└─ Several options → Multi-select, with a checkbox
+
+Alignment
+├─ Wide space, longer content → Horizontal
+└─ Narrow space → Vertical
+
+Leading visual
+├─ Illustration → 40px or 64px; pictograms recommended
+└─ Icon → When an illustration would be too heavy
+
+Text
+├─ Title → Mandatory
+└─ Description → Optional, for extra explanation
+```
 
 ### Usage Guidance
 
@@ -45,9 +69,11 @@ Not documented
 
 | Component | Priority | Usage | Example Scenario |
 | --- | --- | --- | --- |
-| **[Radio button group](https://zeroheight.com/626199550/p/55bfd7-radio-button-group)** | Not documented | Radio buttons allow users to make mutually exclusive choices. They are used in forms that must be submitted before the change takes effect. | Not documented |
-| **[Checkbox group](https://zeroheight.com/626199550/p/41df87-checkbox-group)** | Not documented | Checkbox groups allow users to select one or more choices independently. They are used in forms that must be submitted before the change takes effect. | Not documented |
-| **[Button cards](https://zeroheight.com/626199550/p/093ea0-button-card)** | Not documented | Button cards are navigational elements. | Not documented |
+| **Select card group** | — | Select cards are used for single- or multi-selection inside forms. | — |
+| [**Radio button group**](../radio-button-group/radio-button-group.md) | High | Radio buttons allow users to make mutually exclusive choices. They are used in forms that must be submitted before the change takes effect. | Simpler single-select |
+| [**Checkbox group**](../checkbox-group/checkbox-group.md) | High | Checkbox groups allow users to select one or more choices independently. They are used in forms that must be submitted before the change takes effect. | Simpler multi-select |
+| [**Button card**](../button-card/button-card.md) | High | Button cards are prominent calls to action that can be used alone or in a group, with icons or pictograms. | The intent is navigation, not selection |
+| [**Button card**](../button-card/button-card.md) | High | Button cards are prominent calls to action that can be used alone or in a group, with icons or pictograms. | The intent is navigation, not selection |
 
 ---
 

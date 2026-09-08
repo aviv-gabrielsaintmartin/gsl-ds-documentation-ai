@@ -56,15 +56,43 @@ Other padding can be used within the cell content. E.g.: 8px
 
 ### When to use
 
-Not documented
+**Tables** — organising and displaying a data set in rows and columns for users to scan, sort and act on.
+
+**Experience**-tier component. Rule 0: do not compose a data grid from Cell content rows — this component already is it.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Grouping content visually rather than tabulating a data set | **Card** |
+| Summarising one property rather than comparing many rows | **Listing card** |
+| Narrowing which rows are shown | **Filter bar** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Device
+├─ Desktop → Desktop version
+└─ Phone or tablet → Mobile version
+   ├─ Row data reads across → Horizontally distributed
+   ├─ Row data reads down → Stacked
+   └─ Maximising screen space → Full-width, "unboxed"
+      └─ If there is a footer, align it to the full-width table too
+
+Selectable rows
+└─ Users must act on rows individually or in bulk → Selectable rows
+   ├─ Applied to every row by default
+   └─ The header must carry a checkbox to select and unselect all
+
+Expandable rows
+├─ Rows reveal a larger panel of contextual data → Expandable rows
+│  └─ Desktop only — the interaction is not available on mobile
+└─ Apply to all rows; mixing expandable and fixed rows needs an explicit cue
+
+Horizontal scroll
+└─ Very wide data sets with many columns → Horizontal scroll, with edge shadows showing the overflow
+   └─ Never combine horizontal scroll with the stacked row view
+```
 
 ### Usage Guidance
 
@@ -79,7 +107,12 @@ Follow our Gemini content guidelines for [numbers](https://zeroheight.com/626199
 
 ### Related Components
 
-Not documented
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Tables** | — | Tables are used to organize and display all information from a data set. | — |
+| [**Cell content**](../cell-content/cell-content.md) | Medium | Cell contents are building blocks used to create elements such as lists or button cards. | Composed inside Tables — never selected on its own, see Rule 3 |
+| [**Card**](../card/card.md) | Medium | Cards are flexible containers used to visually group content. | Grouping content visually rather than tabulating a data set |
+| [**Listing card**](../listing-card/listing-card.md) | Low | Listing cards are actionable cards that summarize the details of a property listing. | Summarising one property rather than comparing many rows |
 
 ---
 

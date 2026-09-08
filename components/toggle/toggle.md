@@ -28,15 +28,26 @@ On the web, we use custom toggles. On Android and iOS, we use native toggles.
 
 ### When to use
 
-Not documented
+**Toggle** — a binary on/off setting that takes effect immediately — settings, preferences.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| The setting is submitted as part of a form | **Checkbox** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Toggle position
+├─ The control leads the label → Left
+└─ The control trails the label → Right
+
+Header elements, as with every form component
+├─ Mandatory field → Required asterisk to the right of the label, visible by default
+├─ Optional field → Optional mention to the right of the label
+└─ Needs an explanation → Tooltip to the right of the toggle label
+```
 
 ### Usage Guidance
 
@@ -51,11 +62,11 @@ Not documented
 
 ### Related Components
 
-| Component | Usage |
-| --- | --- |
-| **Toggle** | Toggles are used for binary, mutually exclusive choices that take effect immediately and don't require submitting or saving. |
-| **[Checkbox](https://zeroheight.com/626199550/p/3044f1-checkbox)** | Checkboxes allow users to select one or more choices independently. They are used in forms that must be submitted before the change takes effect. |
-| **[Radio button](https://zeroheight.com/626199550/p/55bfd7-radio-button-group)** | Radio buttons allow users to make mutually exclusive choices. They are used in forms that must be submitted before the change takes effect. |
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Toggle** | — | Toggles are used for binary, mutually exclusive choices that take effect immediately and don't require submitting or saving. | — |
+| [**Checkbox**](../checkbox/checkbox.md) | High | Checkboxes allow users to select one or more choices independently. They are used in forms that must be submitted before the change takes effect. | The setting is submitted as part of a form |
+| [**Radio button**](../radio-button-group/radio-button-group.md) | Medium | Radio buttons allow users to make mutually exclusive choices. They are used in forms that must be submitted before the change takes effect. | — |
 
 ---
 

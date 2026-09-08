@@ -25,15 +25,25 @@ Unlike other form components, we use the same counter field on all platforms.
 
 ### When to use
 
-Not documented
+**Counter field** — numeric values adjusted with +/− controls.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Range selection where an approximate value is acceptable | **Slider** |
+| Direct numeric text entry without controls | **Text field** |
+| Only a small fixed set of values | **Dropdown** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Header, as with every form component
+├─ Mandatory field → Required asterisk to the right of the label
+├─ Optional field → Optional mention to the right of the label
+├─ Needs an explanation → Tooltip icon
+└─ Needs persistent guidance → Helper text
+```
 
 ### Usage Guidance
 
@@ -51,8 +61,10 @@ Not documented
 | Component | Priority | Usage | Example Scenario |
 | --- | --- | --- | --- |
 | **Counter field** | — | Allows only numeric values — doesn't support letters or words. | — |
-| [**Floor selection**](https://zeroheight.com/626199550/p/244373-floor-selection) | High | Used to select floors; contains "GF" (ground floor) as a word. | User needs to pick an apartment floor, including ground floor |
-| [**Text field**](https://zeroheight.com/626199550/p/980e7b-text-field) | High | Allows all kinds of free-form content; used for larger numbers such as prices, square meters, zip codes, or street numbers. | The number is large or formatted (price, zip code) rather than a small adjustable count |
+| **Floor selection** | High | Used to select floors; contains "GF" (ground floor) as a word. | User needs to pick an apartment floor, including ground floor |
+| [**Text field**](../text-field/text-field.md) | High | Allows all kinds of free-form content; used for larger numbers such as prices, square meters, zip codes, or street numbers. | The number is large or formatted (price, zip code) rather than a small adjustable count |
+| [**Slider**](../slider/slider.md) | High | A range slider can be used to select a single value or a range between minimum and maximum values. | Range selection where an approximate value is acceptable |
+| [**Dropdown**](../dropdown/dropdown.md) | High | Dropdowns are used to select one option from a list. | Only a small fixed set of values |
 
 ---
 

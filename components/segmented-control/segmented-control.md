@@ -20,15 +20,28 @@ Segmented controls are used to choose between mutually exclusive options. They c
 
 ### When to use
 
-Not documented
+**Segmented control** — switching between mutually exclusive view modes or display options — not a form value.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| The choice is a form value | **Button group** |
+| Switching full content sections | **Tabs** |
+| Standard form styling needed | **Radio button group** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Icons
+├─ Icon with label → Preferred, icon on the left
+├─ Icon alone → Only when its meaning is unmistakable
+└─ No icon → Label only
+   └─ Never mix these combinations within one control
+
+Badge
+└─ Drawing attention to one segment → Badge next to the label
+```
 
 ### Usage Guidance
 
@@ -38,11 +51,13 @@ Not documented
 
 ### Related Components
 
-| Component | Usage |
-| --- | --- |
-| **Segmented control** | Segmented controls are horizontally arranged buttons that allow users to select one option from a group of mutually exclusive choices. They are often used to switch views or filter content within the same screen. There is always one option selected. |
-| **[Tabs](https://zeroheight.com/626199550/p/45521d-tabs)** | Tabs are navigational components used to switch between distinct content areas or views, typically at the page or section level. There is always one option selected. |
-| **[Button group](https://zeroheight.com/626199550/p/83dfff-button-group)** | Button groups display multiple related choices in a horizontal row, allowing users to select one or more options. It's possible to have nothing selected. |
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Segmented control** | — | Segmented controls are horizontally arranged buttons that allow users to select one option from a group of mutually exclusive choices. They are often used to switch views or filter content within the same screen. There is always one option selected. | — |
+| [**Tabs**](../tabs/tabs.md) | High | Tabs are navigational components used to switch between distinct content areas or views, typically at the page or section level. There is always one option selected. | Switching full content sections |
+| [**Button group**](../button-group/button-group.md) | High | Button groups display multiple related choices in a horizontal row, allowing users to select one or more options. It's possible to have nothing selected. | The choice is a form value |
+| [**Radio button group**](../radio-button-group/radio-button-group.md) | High | Radio button groups are used to select one option from a group of mutually exclusive choices. | Standard form styling needed |
+| [**Toggle group**](../toggle-group/toggle-group.md) | Medium | Toggle groups are used to organize related options, allowing users to switch between multiple settings, with each toggle independently controlling… | Toggle group redirects here when: Switching between views rather than toggling settings |
 
 ---
 

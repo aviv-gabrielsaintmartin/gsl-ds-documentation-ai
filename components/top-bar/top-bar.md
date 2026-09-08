@@ -29,15 +29,37 @@ We use platform-specific top bars that differ between Web, iOS, and Android. The
 
 ### When to use
 
-Not documented
+**Top bar** — page-specific title, context, and actions.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Global site navigation | **Navigation bar** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Size
+├─ Primary pages, or sections that need more presence → Medium
+└─ Compact layouts and secondary pages with limited vertical space → Small
+
+Style
+├─ Plain background → Default
+└─ Sitting over an image → On picture
+
+Icons and actions
+├─ Icons alone → With icons
+└─ Icons plus a call to action → With icon and button
+
+Title
+├─ Small top bar → Keep the title, so users know where they are
+├─ Medium top bar → The small title is optional
+└─ On-picture variant → The title may be hidden
+
+Badge
+└─ Notifications or updates → Badge next to the title
+```
 
 ### Usage Guidance
 
@@ -47,10 +69,11 @@ Not documented
 
 ### Related Components
 
-| Component | Usage |
-| --- | --- |
-| **Top bar** | The top bar provides contextual and screen-specific actions or secondary navigation within a specific page or screen. |
-| **Navigation bar** | The navigation bar provides global navigation throughout the site and access to key destinations. |
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Top bar** | — | The top bar provides contextual and screen-specific actions or secondary navigation within a specific page or screen. | — |
+| [**Navigation bar**](../navigation-bar/navigation-bar.md) | High | The navigation bar provides global navigation throughout the site and access to key destinations. | Global site navigation |
+| [**Breadcrumb**](../breadcrumb/breadcrumb.md) | Medium | Breadcrumbs are navigation elements that consist of a list of links arranged in a hierarchical order. | Breadcrumb redirects here when: The primary need is page title and actions |
 
 ---
 

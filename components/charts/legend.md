@@ -22,7 +22,13 @@ A legend identifies the data series or categories displayed in a chart.
 
 ### Variant Selection Flow
 
-Not documented
+```
+Presence
+├─ Two or more data categories → Mandatory
+└─ A single data set → Omit it, and rely on the chart title and axis labels instead
+
+No further variant axes are documented.
+```
 
 ### Usage Guidance
 
@@ -34,7 +40,12 @@ Not documented
 
 ### Related Components
 
-Not documented
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Legend** | — | Identifies which series or segment each colour represents. | — |
+| [**Bar chart**](bar-chart.md) | High | Compare quantities across categories. | The chart the legend belongs to |
+| [**Line chart**](line-chart.md) | High | Show a trend over a continuous axis. | The chart the legend belongs to |
+| [**Donut chart**](donut-chart.md) | High | Show a distribution across parts of a whole. | The chart the legend belongs to |
 
 ---
 

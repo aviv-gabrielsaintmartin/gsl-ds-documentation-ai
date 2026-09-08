@@ -25,15 +25,29 @@ As with standalone toggles, the group contains custom toggles on Web and native 
 
 ### When to use
 
-Not documented
+**Toggle group** — multiple independent on/off settings, grouped.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Settings are part of a form submitted later | **Checkbox group** |
+| Switching between views rather than toggling settings | **Segmented control** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Toggle position
+├─ The control leads the label → Left
+└─ The control trails the label → Right
+   └─ Every toggle in a group takes the same position — never mix them
+
+Header, as with every form component
+├─ Mandatory field → Required asterisk to the right of the label
+├─ Optional field → Optional mention to the right of the label
+├─ Needs an explanation → Tooltip icon
+└─ Needs persistent guidance → Helper text
+```
 
 ### Usage Guidance
 
@@ -47,11 +61,12 @@ Not documented
 
 ### Related Components
 
-| Component | Usage |
-| --- | --- |
-| **Toggle group** | Toggle groups are used for binary, mutually exclusive choices that take effect immediately and don't require submitting or saving. |
-| **[Checkbox group](https://zeroheight.com/626199550/p/41df87-checkbox-group)** | Checkbox groups allow users to select one or more choices independently. They are used in forms that must be submitted before the change takes effect. |
-| **[Radio button group](https://zeroheight.com/626199550/p/55bfd7-radio-button-group)** | Radio buttons allow users to make mutually exclusive choices. They are used in forms that must be submitted before the change takes effect. |
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Toggle group** | — | Toggle groups are used for binary, mutually exclusive choices that take effect immediately and don't require submitting or saving. | — |
+| [**Checkbox group**](../checkbox-group/checkbox-group.md) | High | Checkbox groups allow users to select one or more choices independently. They are used in forms that must be submitted before the change takes effect. | Settings are part of a form submitted later |
+| [**Radio button group**](../radio-button-group/radio-button-group.md) | Medium | Radio buttons allow users to make mutually exclusive choices. They are used in forms that must be submitted before the change takes effect. | — |
+| [**Segmented control**](../segmented-control/segmented-control.md) | High | Segmented controls are used to select one option from a group of mutually exclusive choices. | Switching between views rather than toggling settings |
 
 ---
 

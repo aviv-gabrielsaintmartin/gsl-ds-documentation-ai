@@ -25,15 +25,38 @@ As with standalone checkboxes, the group contains custom checkboxes on Web/iOS a
 
 ### When to use
 
-Not documented
+**Checkbox group** — multi-select in a structured form.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Few options and prominent visual treatment preferred | **Button group (multi-select)** |
+| Options benefit from card layout | **Select card group (multi-select)** |
+| Long list or constrained space | **Dropdown** |
+| Lightweight selections outside a form | **Chip group** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Alignment
+├─ Default — best readability → Vertical
+└─ The layout demands it → Horizontal
+
+Border
+├─ Complex options that must be clearly distinguished → With border
+└─ Simple options, easily told apart → Without border
+
+Columns, vertical groups only
+├─ Short list → One column
+└─ Long list and space allows → Two columns
+
+Header, as with every form component
+├─ Mandatory field → Required asterisk to the right of the label
+├─ Optional field → Optional mention to the right of the label
+├─ Needs an explanation → Tooltip icon
+└─ Needs persistent guidance → Helper text
+```
 
 ### Usage Guidance
 
@@ -50,8 +73,12 @@ Not documented
 | Component | Priority | Usage | Example Scenario |
 | --- | --- | --- | --- |
 | **Checkbox group** | — | Allows users to select one or more choices independently; used in forms that must be submitted before the change takes effect. | — |
-| **[Radio button group](https://zeroheight.com/626199550/p/55bfd7-radio-button-group)** | High | Mutually exclusive choices, submitted before the change takes effect. | Only one option can ever be selected at a time |
-| **[Toggle group](https://zeroheight.com/626199550/p/51f970-toggle-group)** | High | Binary, mutually exclusive choices that take effect immediately, no submit/save needed. | Turning settings on/off with instant effect |
+| [**Radio button group**](../radio-button-group/radio-button-group.md) | High | Mutually exclusive choices, submitted before the change takes effect. | Only one option can ever be selected at a time |
+| [**Toggle group**](../toggle-group/toggle-group.md) | High | Binary, mutually exclusive choices that take effect immediately, no submit/save needed. | Turning settings on/off with instant effect |
+| [**Button group**](../button-group/button-group.md) | High | Button groups display multiple related choices in a horizontal row, allowing users to select one or more options. | Few options and prominent visual treatment preferred |
+| [**Select card group**](../select-card-group/select-card-group.md) | High | Select cards are used for single- or multi-selection inside forms. | Options benefit from card layout |
+| [**Dropdown**](../dropdown/dropdown.md) | High | Dropdowns are used to select one option from a list. | Long list or constrained space |
+| [**Chip group**](../chip-group/chip-group.md) | High | Chip groups are collections of chips that allow users to filter, select, or manage multiple related options simultaneously. | Lightweight selections outside a form |
 
 ---
 

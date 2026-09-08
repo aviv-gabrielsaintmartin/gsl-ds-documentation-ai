@@ -25,15 +25,36 @@ We only provide the progress bar itself. Other elements, such as labels, can be 
 
 ### When to use
 
-Not documented
+**Progress bar** — linear task or goal completion.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| A compact circular format fits better | **Progress circle** |
+| Progress involves sequential user-input steps | **Wizard** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Style
+├─ Normal surface → Default
+├─ Dark background → Inverted
+└─ Should recede visually → Neutral
+
+Size
+├─ Default → 8px
+├─ Minor element in the hierarchy → 4px
+└─ Prominent → 12px
+
+Width
+├─ Constrained by its container → Fixed
+└─ Spans the container → Full width
+
+Label — required for accessibility; the bar alone is not sufficient
+├─ Always → A numerical label, such as 75% or 1/5
+└─ Position → Left or right
+```
 
 ### Usage Guidance
 
@@ -41,7 +62,12 @@ Not documented
 
 ### Related Components
 
-Not documented
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Progress bar** | — | A progress bar shows a task's progress. | — |
+| [**Progress circle**](../progress-circle/progress-circle.md) | High | A progress circle shows a task's progress. | A compact circular format fits better |
+| [**Wizard**](../wizard/wizard.md) | High | Wizards guide users through step-by-step processes to achieve their goal. | Progress involves sequential user-input steps |
+| [**Charts**](../charts/charts.md) | Medium | Charts are data visualisation components used to represent numerical data and trends clearly and accessibly. | Charts redirects here when: Completion of a single goal |
 
 ---
 

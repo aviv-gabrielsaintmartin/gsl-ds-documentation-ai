@@ -43,13 +43,35 @@ We don't provide all native system components in Gemini. If you need one, please
 * [Apple Design Resources – iOS 18 and iPadOS 18](https://www.figma.com/community/file/1385659531316001292/ios-18-and-ipados-18)
 
 ### When to use
-Not documented
+
+**Alert** — critical, blocking information requiring immediate action.
 
 ### When NOT to use
-Not documented
+
+| Instead, when… | Use |
+| --- | --- |
+| **On web | **Modal bottom sheet (Alert is not yet available on web)** |
+| Transient, non-blocking feedback | **Snackbar** |
+| Inline, non-blocking contextual guidance | **Feedback message** |
 
 ### Variant Selection Flow
-Not documented
+
+```
+Leading visual
+├─ A spot illustration carries the message → Illustration
+├─ A single icon is enough → Icon
+└─ Neither adds meaning → No icon or illustration
+   └─ Never an icon and an illustration together
+
+Text
+├─ Clarity needs a headline → With title (recommended)
+└─ Extra context is needed → Add a description
+
+Actions
+├─ Acknowledge only → 1 button
+├─ Choose between two paths → 2 buttons, pairing primary with tertiary
+└─ Three paths → 3 buttons
+```
 
 ### Usage Guidance
 
@@ -65,12 +87,13 @@ Not documented
 
 | Component | Priority | Usage | Example Scenario |
 | --- | --- | --- | --- |
-| **[Snackbar](https://zeroheight.com/626199550/p/54ff4c-snackbar)** | Low | Snackbars are used to provide brief, non-critical, and non-intrusive feedback on actions that don't require user confirmation. | Seeker saves listing to favorites |
-| **[Feedback message](https://zeroheight.com/626199550/p/8754bc-feedback-message)** | Medium | Feedback messages are non-disruptive, inline notifications that provide users with important information or contextual messages. They inform users of system processes or provide additional information about a task. They can be used for critical alerts or as passive feedback. | Seeker receives warning that he has reached the limit of saved searches |
-| **Banner** (not a gemini component) | Medium | Banners are used for important, persistent information. They remain until the user closes them or the problem that caused the banner is solved. | Seeker is shown static information about search results on map |
-| **[State message](https://gemini.zeroheight.com/styleguide/s/92948/p/980e7b-text-field/t/ced82a7a5e)** | Medium | State messages are used for inline feedback in forms to guide users, correct errors, or provide additional information. | User enters incorrect password |
 | **Alert** | High | Alerts are used for critical information that requires immediate attention or confirmation before proceeding. They block user flow until an action is taken. | Agent deletes listings |
-| **[Info State](https://zeroheight.com/626199550/p/84818f-info-state)** | High | Info states are used to communicate system status, errors, or other relevant information that prevent users from progressing and require their full attention. They include empty, error, success and loading states. | User is not connected to the Internet |
+| [**Snackbar**](../snackbar/snackbar.md) | High | Snackbars are used to provide brief, non-critical, and non-intrusive feedback on actions that don't require user confirmation. | Seeker saves listing to favorites |
+| [**Feedback message**](../feedback-message/feedback-message.md) | High | Feedback messages are non-disruptive, inline notifications that provide users with important information or contextual messages. They inform users of system processes or provide additional information about a task. They can be used for critical alerts or as passive feedback. | Seeker receives warning that he has reached the limit of saved searches |
+| **Banner (not a gemini component)** | Medium | Banners are used for important, persistent information. They remain until the user closes them or the problem that caused the banner is solved. | Seeker is shown static information about search results on map |
+| **State message** | Medium | State messages are used for inline feedback in forms to guide users, correct errors, or provide additional information. | User enters incorrect password |
+| [**Info State**](../info-state/info-state.md) | High | Info states are used to communicate system status, errors, or other relevant information that prevent users from progressing and require their full attention. They include empty, error, success and loading states. | User is not connected to the Internet |
+| [**Modal bottom sheet**](../modal-bottom-sheet/modal-bottom-sheet.md) | High | Modal bottom sheets are containers that appear above the content and block interaction with the rest of the screen. | On web |
 
 ---
 

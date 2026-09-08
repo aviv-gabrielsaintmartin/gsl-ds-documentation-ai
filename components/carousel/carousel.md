@@ -27,15 +27,35 @@ The carousel is only used on the web. On iOS and Android, scrollable horizontal 
 
 ### When to use
 
-Not documented
+**Carousel** — users browse a horizontal collection of items one by one. **Web only**.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| All items should be visible simultaneously | **a grid layout, not a component — see Rule 2** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Arrow position
+├─ Visually focused content, large images → Arrows inside
+└─ Arrows would cover content or interactive elements → Arrows above
+   └─ On web, desktop and mobile, arrows are mandatory for accessibility
+
+Dots
+├─ Space is limited, or the design is visually focused → Dots inside
+├─ Dots would cover relevant information → Dots outside
+└─ Progress is not useful to show → No dots
+
+Clipped content
+├─ Content should align with the rest of the page → Clipped
+└─ Content should run to the screen edge → Not clipped
+
+Title and description
+├─ A primary identifier is needed → Title
+└─ Extra clarity is needed → Add a description — not recommended without a title
+```
 
 ### Usage Guidance
 

@@ -120,7 +120,7 @@ Three new child pages under the **same page resolved in step 1**, same
 | Page title | Content | Format |
 |---|---|---|
 | `{ComponentName} API Web Audit` | Output 1 | Native Confluence HTML — `<h2>`/`<h3>` headings, `<table>` for each category. **Not** a code block. |
-| `{ComponentName} Decision Tree` | Output 2 | Confluence code block, `language: text`. Preserves exact indentation/branch characters. |
+| `{ComponentName} Decision Tree` | Output 2 | Confluence code block, `language: text`. Preserves exact indentation/branch characters. **Also written into the repo — see 4b below.** |
 | `{ComponentName} API Web` | Output 3 | Confluence code block, `language: markdown`, with a one-line intro noting it's intended as the content of `api.web.md`. |
 
 **Before creating**, check the parent page's existing children
@@ -138,6 +138,28 @@ directory, not the repo.
 Report back the three created page URLs for that component, then move to the
 next link in the batch (see intro).
 
+## 4b. Write the decision tree into the repo (mandatory)
+
+Publishing Output 2 to Confluence alone is not enough — it is the one output of
+the three that is platform-neutral, and this repo is the platform-neutral source
+of truth. Confluence-only publication is why every component doc here carried
+`Variant Selection Flow: Not documented`.
+
+1. Locate the component's doc: `components/<kebab-case-name>/<kebab-case-name>.md`.
+   If there is no such folder, the component has no usage doc yet — say so and
+   skip this step rather than creating one.
+2. Replace the body of that doc's `### Variant Selection Flow` section with
+   Output 2, wrapped in a fenced code block so the tree's indentation and branch
+   characters survive. Replace only that section — never touch a neighbouring
+   heading.
+3. If the section already holds a tree from an earlier run, ask whether to
+   overwrite it, exactly as step 4 asks before overwriting a Confluence page.
+   Never silently replace human-written content.
+4. Outputs 1 and 3 stay Confluence-only. They are code-level and web-specific;
+   this repo is platform-neutral (see `components/components.md`).
+
+Report the doc path alongside the three page URLs.
+
 ## Never do
 
 - Never invent a component name or source path when the `find` search comes
@@ -150,3 +172,6 @@ next link in the batch (see intro).
   finished component at a time.
 - Never publish a claim in the audit that isn't traceable to a specific file
   (and ideally line range) you actually read this run.
+- Never finish a component with Output 2 published to Confluence but not written
+  into its repo doc (step 4b). That gap is what left every `Variant Selection
+  Flow` section reading "Not documented".

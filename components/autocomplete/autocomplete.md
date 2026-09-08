@@ -56,7 +56,21 @@ On Android, the autocomplete appears in a full-screen modal bottom sheet on phon
 
 ### Variant Selection Flow
 
-Not documented
+```
+Dropdown row size
+├─ Dense list, short labels → Small rows
+└─ Labels wrap, or a caption is shown → Large rows
+
+Helper button at the end of the list
+├─ Offering geolocation ("use my location") → Include the text button
+├─ The user may not find the result they expect → Include the text button
+└─ Otherwise → Omit it
+
+Surface, by platform
+├─ Phone → Presented with a top bar
+├─ iOS / Android tablet → Presented in a modal
+└─ Web → Inline dropdown list
+```
 
 ### Usage Guidance
 
@@ -68,7 +82,9 @@ Not documented
 
 | Component | Priority | Usage | Example Scenario |
 | --- | --- | --- | --- |
-| **[Dropdown](https://zeroheight.com/626199550/p/98cf75-dropdown)** | High | Dropdowns display a predefined list of options for users to choose from. | When there's a small, predefined list of choices |
+| **Autocomplete** | — | Autocomplete components suggest possible matches for user input in real time as they type, helping them complete text fields more efficiently by… | — |
+| [**Dropdown**](../dropdown/dropdown.md) | High | Dropdowns display a predefined list of options for users to choose from. | When there's a small, predefined list of choices |
+| [**Text field**](../text-field/text-field.md) | High | Text fields are used to enter and edit single-line text content. | No suggestions needed |
 
 ---
 

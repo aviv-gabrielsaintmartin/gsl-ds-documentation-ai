@@ -21,15 +21,29 @@ Chips are dynamic, interactive elements that allow users to filter content, ente
 
 ### When to use
 
-Not documented
+**Chip** — a single interactive element the user can select, filter by, or remove, outside a structured form.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| The element is non-interactive | **Tag** |
+| Several chips are presented together | **Chip group** |
+| It triggers an action rather than filtering or selecting | **Button** |
+| The marker is attached to a host component | **Badge** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Type
+├─ Toggling filters on and off across a set of options → Filter chip
+├─ Representing user input or a selection inside a form, removable → Input chip
+└─ Triggering a quick, secondary contextual action → Action chip
+   └─ Never use action chips for primary navigation or for critical actions
+
+Icons
+└─ Optional — add one only when it makes the chip's purpose clearer
+```
 
 ### Usage Guidance
 
@@ -42,9 +56,10 @@ Not documented
 | Component | Priority | Usage | Example Scenario |
 | --- | --- | --- | --- |
 | **Chip** | — | Dynamic, clickable standalone component allowing selecting, filtering, or removing items. | — |
-| [**Chip group**](https://zeroheight.com/626199550/p/792d1e-chip-group) | High | Collections of chips for filtering, selecting, or managing multiple related options simultaneously. | User needs to manage several related filters/selections at once |
-| [**Button**](https://zeroheight.com/626199550/p/97e03c-button) | Med | Triggers actions. | A primary or critical action, not filtering/selection |
-| [**Tag**](https://zeroheight.com/626199550/p/28d2fb-tag) | High | Non-interactive component for fixed information such as labels, categories, or statuses. | Displaying a static label or status with no interaction |
+| [**Chip group**](../chip-group/chip-group.md) | High | Collections of chips for filtering, selecting, or managing multiple related options simultaneously. | User needs to manage several related filters/selections at once |
+| [**Button**](../button/button.md) | Medium | Triggers actions. | A primary or critical action, not filtering/selection |
+| [**Tag**](../tag/tag.md) | High | Non-interactive component for fixed information such as labels, categories, or statuses. | Displaying a static label or status with no interaction |
+| **Badge** | Medium | Attention marker attached to a host component. | Badge redirects here when: It is interactive |
 
 ---
 

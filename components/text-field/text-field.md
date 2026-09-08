@@ -40,15 +40,42 @@ On Android, the label is inside the field by default and only moves to the top w
 
 ### When to use
 
-Not documented
+**Text field** — short, single-line free-form input.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Multi-line or longer than a sentence | **Text area** |
+| Suggestions appear as the user types | **Autocomplete** |
+| Numeric with increment/decrement controls | **Counter field** |
+| A date | **Date picker** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Label
+├─ Almost always → Visible label
+└─ Context is unmistakable → Hidden label, with an invisible aria-label for accessibility
+
+State message
+├─ Web → Error only
+└─ iOS and Android → Error · Information · Success
+
+Icons
+├─ A visual cue only → Left icon, never clickable
+├─ An action on the field, such as clearing it → Right icon, as a clickable icon button
+└─ Both → Left and right
+
+Suffix
+└─ Measurements, currency, or another contextual constraint → Add a suffix
+
+Header, as with every form component
+├─ Mandatory field → Required asterisk to the right of the label
+├─ Optional field → Optional mention to the right of the label
+├─ Needs an explanation → Tooltip icon
+└─ Needs persistent guidance → Helper text
+```
 
 ### Usage Guidance
 
@@ -64,11 +91,16 @@ Not documented
 
 ### Related Components
 
-| Component | Usage |
-| --- | --- |
-| **[Text area](https://zeroheight.com/626199550/p/438e9d-text-area)** | Text areas allow multi-line text content. |
-| **[Phone number field](https://zeroheight.com/626199550/p/490309-phone-number-input)** | Phone number fields are only used to input phone numbers. |
-| **[Date field](https://zeroheight.com/626199550/p/33c9e4-date-picker)** | Date fields are only used to input dates. |
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Text field** | — | Text fields are used to enter and edit single-line text content. | — |
+| [**Text area**](../text-area/text-area.md) | High | Text areas allow multi-line text content. | Multi-line or longer than a sentence |
+| [**Phone number field**](../phone-number-field/phone-number-field.md) | Medium | Phone number fields are only used to input phone numbers. | — |
+| **Date field** | Medium | Date fields are only used to input dates. | — |
+| [**Autocomplete**](../autocomplete/autocomplete.md) | High | Autocomplete components suggest possible matches for user input in real time as they type, helping them complete text fields more efficiently by… | Suggestions appear as the user types |
+| [**Counter field**](../counter-field/counter-field.md) | High | Counter fields are used to enter or select numeric values. | Numeric with increment/decrement controls |
+| [**Date picker**](../date-picker/date-picker.md) | High | Date pickers are used to select a date using text input or a calendar view. | A date |
+| [**Media upload**](../media-upload/media-upload.md) | Medium | Media upload components allow users to upload, view, and manage media files such as images, videos and documents. | Media upload redirects here when: The user provides a URL or file path instead |
 
 ---
 

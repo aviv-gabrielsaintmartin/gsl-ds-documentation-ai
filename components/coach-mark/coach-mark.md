@@ -24,15 +24,26 @@ Coach marks are temporary messages that provide contextual information to educat
 
 ### When to use
 
-Not documented
+**Coach mark** — contextual onboarding overlays pointing at specific UI elements.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Persistent inline guidance not tied to onboarding | **Feedback message** |
+| A single brief clarification rather than a guided tour | **Tooltip** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Elements
+├─ Always present → Title and close icon
+└─ Everything else is optional — hide what this step does not need
+
+Tag position
+├─ Title fits on one line → Tag aligned with the title
+└─ Title runs to two lines → Tag placed above the title
+```
 
 ### Usage Guidance
 
@@ -46,7 +57,9 @@ Not documented
 
 | Component | Priority | Usage | Example Scenario |
 | --- | --- | --- | --- |
+| **Coach mark** | — | Coach marks are temporary overlay messages that provide contextual information about user interface elements. | — |
 | **Tooltip** | High | Temporary short overlay messages that clarify the purpose of UI elements or provide additional context about their function. | A single, brief clarification rather than a guided, multi-step tour |
+| [**Feedback message**](../feedback-message/feedback-message.md) | High | Feedback messages are non-disruptive, inline notifications that provide users with important information or contextual messages. | Persistent inline guidance not tied to onboarding |
 
 ---
 

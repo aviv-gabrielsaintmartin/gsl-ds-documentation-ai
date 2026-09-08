@@ -57,15 +57,30 @@ On Android, the label is inside the field by default and only moves to the top w
 
 ### When to use
 
-Not documented
+**Date picker** — selecting a date using text input or a calendar view.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Free-form single-line text | **Text field** |
+| Date entry without a calendar view | **Date field** |
+| A range along a continuous scale | **Slider** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Entry mode
+├─ The user picks from a calendar → Calendar view
+└─ The user types the date → Text input
+   └─ Date entry with no calendar at all → use Date field instead
+
+Header, as with every form component
+├─ Mandatory field → Required asterisk to the right of the label
+├─ Optional field → Optional mention to the right of the label
+├─ Needs an explanation → Tooltip icon
+└─ Needs persistent guidance → Helper text
+```
 
 ### Usage Guidance
 
@@ -79,10 +94,10 @@ Not documented
 
 ### Related Components
 
-| Component | Usage |
-| --- | --- |
-| **Date picker** | Date pickers are used to select or enter specific dates in the past, present or future. |
-| [**Text field**](https://zeroheight.com/626199550/p/980e7b-text-field) | Text fields allow short single-line and free-form content. They can be used to enter years. |
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Date picker** | — | Date pickers are used to select or enter specific dates in the past, present or future. | — |
+| [**Text field**](../text-field/text-field.md) | Medium | Text fields allow short single-line and free-form content. They can be used to enter years. | Text field redirects here when: A date |
 
 ---
 

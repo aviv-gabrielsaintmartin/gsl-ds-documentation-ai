@@ -37,21 +37,50 @@ We use platform-specific phone number fields for Web/iOS and Android, with main 
 
 ### When to use
 
-Not documented
+**Phone number field** — inputting and formatting a phone number, including its country prefix.
+
+**Experience**-tier component. Rule 0: do not compose a phone input from a Text field + country Dropdown — this component already is it.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Free-form single-line input with no country prefix | **Text field** |
+| Selecting a country on its own | **Dropdown** |
+| Numeric input with +/− controls | **Counter field** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Platform
+└─ Web · iOS · Android — the country selector and its flag adapt per platform
+
+Content state
+├─ Nothing entered yet → Empty
+└─ A number has been entered → Filled
+
+Validation
+├─ The number is valid or not yet checked → No error
+└─ The number fails validation → Error, with the state message
+
+Interaction state
+└─ Default · Hover · Active · Disabled — follows the underlying text field
+```
 
 ### Usage Guidance
 
 | DO | DON'T |
 | --- | --- |
 | ![](images/d01bebae3c8709a2b92f25.png) **DO:** Always display phone number fields at full width (100%). | ![](images/992965002c8fd0c1b08ef0.png) **DON'T:** Avoid using 50% width for input fields when they are grouped with other fields. |
+
+### Related Components
+
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Phone number field** | — | The phone number field is used to input and format phone numbers. | — |
+| [**Text field**](../text-field/text-field.md) | High | Text fields are used to enter and edit single-line text content. | Free-form single-line input with no country prefix |
+| [**Dropdown**](../dropdown/dropdown.md) | Medium | Dropdowns are used to select one option from a list. | Selecting a country on its own, outside a phone input |
+| [**Counter field**](../counter-field/counter-field.md) | Low | Counter fields are used to enter or select numeric values. | Numeric input with +/− controls, not a phone number |
 
 ### Breakpoints & Platform Adaptations
 

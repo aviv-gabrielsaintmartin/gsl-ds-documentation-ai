@@ -25,15 +25,33 @@ On the web and iOS, we use custom checkboxes. On Android, we use native checkbox
 
 ### When to use
 
-Not documented
+**Checkbox** — a single binary choice that is submitted as part of a form.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| The setting takes effect immediately | **Toggle** |
+| Several related options are presented together | **Checkbox group** |
+| The choices are mutually exclusive | **Radio button group** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Border
+├─ Options need emphasis, or must be clearly separated from one another → With border
+└─ Simple, easily distinguished options → Without border
+
+Label
+├─ Almost always → With label
+└─ Context makes the meaning unambiguous, such as a table row selector → Without label
+
+Header, as with every form component
+├─ Mandatory field → Required asterisk to the right of the label
+├─ Optional field → Optional mention to the right of the label
+├─ Needs an explanation → Tooltip icon
+└─ Needs persistent guidance → Helper text
+```
 
 ### Usage Guidance
 
@@ -51,8 +69,8 @@ Not documented
 | Component | Priority | Usage | Example Scenario |
 | --- | --- | --- | --- |
 | **Checkbox** | — | Allows users to select one or more choices independently; used in forms that must be submitted before the change takes effect. | — |
-| [**Radio button**](https://zeroheight.com/626199550/p/55bfd7-radio-button-group) | High | Mutually exclusive choices, submitted before the change takes effect. | Only one option can ever be selected at a time |
-| [**Toggle**](https://zeroheight.com/626199550/p/51f970-toggle-group) | High | Binary, mutually exclusive choices that take effect immediately, no submit/save needed. | Turning a setting on/off with instant effect |
+| [**Radio button**](../radio-button-group/radio-button-group.md) | High | Mutually exclusive choices, submitted before the change takes effect. | Only one option can ever be selected at a time |
+| [**Toggle**](../toggle/toggle.md) | High | Binary, mutually exclusive choices that take effect immediately, no submit/save needed. | Turning a setting on/off with instant effect |
 
 ---
 

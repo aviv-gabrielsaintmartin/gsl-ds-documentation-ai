@@ -20,15 +20,34 @@ Cards are used to group related content and actions into a visually distinct, co
 
 ### When to use
 
-Not documented
+**Card** — visually grouping related content in a cohesive container.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Content should be collapsible | **Accordion** |
+| Content overlays the screen | **Modal bottom sheet** |
+| The whole container is a single navigational action | **Button card** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Background colour
+└─ Four are available — choose by how much attention the card should draw
+
+Radius
+├─ Small card → 4px
+├─ Medium card → 8px
+└─ Large card → 16px
+
+Padding
+├─ Content must be separated from the card edge → 8px padding
+└─ Wrapping clickable cell contents, which carry their own padding → No padding
+
+Slots
+└─ 1 to 5 content slots, used to structure what sits inside
+```
 
 ### Usage Guidance
 
@@ -46,8 +65,12 @@ Not documented
 
 | Component | Priority | Usage | Example Scenario |
 | --- | --- | --- | --- |
-| **Select card** | High | Use instead of Card when the container itself represents a selectable option | User needs to pick one or more options presented as cards |
-| [**Cell content**](https://zeroheight.com/626199550/p/27116a-cell-content) | High | Place inside a Card to make the whole card clickable | Card acts as a clickable row or tile linking to another page |
+| **Card** | — | Cards are flexible containers used to visually group content. | — |
+| [**Select card**](../select-card-group/select-card-group.md) | High | Use instead of Card when the container itself represents a selectable option | User needs to pick one or more options presented as cards |
+| [**Cell content**](../cell-content/cell-content.md) | High | Place inside a Card to make the whole card clickable | Card acts as a clickable row or tile linking to another page |
+| [**Accordion**](../accordion/accordion.md) | High | Accordions are container that allow users to expand and collapse sections of content, making it easier to manage large amounts of information in a… | Content should be collapsible |
+| [**Modal bottom sheet**](../modal-bottom-sheet/modal-bottom-sheet.md) | High | Modal bottom sheets are containers that appear above the content and block interaction with the rest of the screen. | Content overlays the screen |
+| [**Button card**](../button-card/button-card.md) | High | Button cards are prominent calls to action that can be used alone or in a group, with icons or pictograms. | The whole container is a single navigational action |
 
 ---
 

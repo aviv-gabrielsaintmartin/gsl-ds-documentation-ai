@@ -33,15 +33,25 @@ The style of the modal bottom sheet slightly differs between each platform. For 
 
 ### When to use
 
-Not documented
+**Modal bottom sheet menu** — a list of contextual actions on mobile or in apps.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Desktop, SM and above | **Action menu** |
+| Content richer than a simple action list | **Modal bottom sheet** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Header
+├─ Title → Mandatory, but may be hidden when the context is unmistakable
+└─ Web only → Optional subtitle
+
+Badges
+└─ Highlighting a new feature or an update → Badge to the right of the menu entry
+```
 
 ### Usage Guidance
 
@@ -53,7 +63,11 @@ Not documented
 
 ### Related Components
 
-Not documented
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Modal bottom sheet menu** | — | Modal bottom sheet menus display a list of context-specific actions on mobile screens or on apps. | — |
+| [**Action menu**](../action-menu/action-menu.md) | High | Action menus display context-specific actions in a dropdown list. | Desktop, SM and above |
+| [**Modal bottom sheet**](../modal-bottom-sheet/modal-bottom-sheet.md) | High | Modal bottom sheets are containers that appear above the content and block interaction with the rest of the screen. | Content richer than a simple action list |
 
 ---
 

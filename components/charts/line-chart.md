@@ -22,13 +22,35 @@ They are particularly useful for tracking trends and making comparisons.
 
 ### When to use
 
-Not documented
+**Line chart** — showing how a value moves across a continuous axis, most often time.
+
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Comparing discrete categories rather than following a trend | **Bar chart** |
+| The point is each part's share of a whole | **Donut chart** |
+| A single metric is more informative than a trend | **KPI** |
+
 ### Variant Selection Flow
 
-Not documented
+```
+Highlight
+└─ A specific time frame needs emphasis, such as the impact of a campaign → Highlight that range
+
+Dots
+├─ Few data points, or accessibility for visual and cognitive needs → With dots
+└─ A dense series where dots would clutter the line → Without dots
+   └─ Dots are not required, but they carry a real accessibility benefit
+
+Legend
+├─ Two or more series → Mandatory
+└─ A single series → Omit it; rely on the chart title and axis labels
+
+Tooltip
+└─ Hovering a line shows that point's value, alongside the other dataset's value
+```
+
 ### Usage Guidance
 
 | DO |
@@ -42,7 +64,14 @@ Not documented
 
 ### Related Components
 
-Not documented
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Line chart** | — | Show a trend over a continuous axis. | — |
+| [**Bar chart**](bar-chart.md) | High | Compare quantities across categories. | A different question about the same data |
+| [**Donut chart**](donut-chart.md) | High | Show a distribution across parts of a whole. | A different question about the same data |
+| [**KPI**](../kpi/kpi.md) | High | A single measurable value shown prominently. | One metric is more informative than a trend |
+| [**Legend**](legend.md) | Medium | Identifies which series each colour represents. | Two or more series are shown — then it is mandatory |
+
 ---
 
 ## Variants & Modifiers

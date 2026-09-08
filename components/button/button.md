@@ -30,15 +30,44 @@ On iOS and Android, an animated floating button is available. When the user star
 
 ### When to use
 
-Not documented
+**Button** — the user triggers an immediate action — save, submit, share, open a modal.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Navigation | **Link** |
+| Full button weight is visually too heavy | **Text button** |
+| Prominent navigational entry point with icon or illustration | **Button card** |
+| Choosing from a set of related options | **Button group** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Emphasis
+├─ The main call to action → Primary — once per section only
+├─ A supporting action beside a primary → Secondary
+├─ A less prominent, independent, or sub-task action → Tertiary
+└─ Destructive and irreversible → Danger — consider a confirmation step after it
+
+Size
+├─ Default → 40px
+├─ Generous whitespace around it → 48px
+└─ Dense layout → 32px
+   └─ Always match the size of an adjacent button or field
+
+Context
+├─ Overlapping an image or a map → Floating
+└─ On a normal page surface → Standard
+
+Icon
+├─ The icon reinforces the label → Icon with label, icon on the left by default
+└─ The action is unmistakable from the icon alone → Icon-only
+   └─ Never place a bare interactive icon outside a button
+
+Badge
+└─ Dynamic attention-grabbing information — notifications, counts, active filters → Add a badge
+```
 
 ### Usage Guidance
 
@@ -51,7 +80,10 @@ Not documented
 | Component | Priority | Usage | Example Scenario |
 | --- | --- | --- | --- |
 | **Button** | — | Buttons trigger actions. | — |
-| **Link** | — | Links are navigational elements that take users to different pages or sections. | — |
+| [**Link**](../link/link.md) | High | Links are navigational elements that take users to different pages or sections. | Navigation |
+| **Text button** | High | A distinct component from Button, for when full button weight is too heavy. | Full button weight is visually too heavy |
+| [**Button card**](../button-card/button-card.md) | High | Button cards are prominent calls to action that can be used alone or in a group, with icons or pictograms. | Prominent navigational entry point with icon or illustration |
+| [**Button group**](../button-group/button-group.md) | High | Button groups display multiple related choices in a horizontal row, allowing users to select one or more options. | Choosing from a set of related options |
 
 ---
 

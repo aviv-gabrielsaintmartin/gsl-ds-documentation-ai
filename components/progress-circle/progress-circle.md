@@ -21,15 +21,27 @@ The progress circle can be a simple graph and a valuable visual representation o
 
 ### When to use
 
-Not documented
+**Progress circle** — a single completion percentage in a compact circular format.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| A linear format fits the layout better | **Progress bar** |
 
 ### Variant Selection Flow
 
-Not documented
+```
+Style
+├─ Normal surface → Default
+└─ Dark background → On-dark
+
+Size
+└─ 64px, 96px or 128px
+
+Label — required for accessibility; the circle alone is not sufficient
+└─ A numerical label, such as 75% or 1/5 — its position is fixed and cannot be changed
+```
 
 ### Usage Guidance
 
@@ -37,7 +49,10 @@ Not documented
 
 ### Related Components
 
-Not documented
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Progress circle** | — | A progress circle shows a task's progress. | — |
+| [**Progress bar**](../progress-bar/progress-bar.md) | High | A progress bar shows a task's progress. | A linear format fits the layout better |
 
 ---
 
