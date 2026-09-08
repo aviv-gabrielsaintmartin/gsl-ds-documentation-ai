@@ -22,7 +22,7 @@ Wizards guide users through a multi-step processes by breaking it down into smal
 
 **Wizard** — guiding users through a sequential multi-step process.
 
-**Pattern**-tier component. Rule 0: do not compose a step-by-step flow from Tabs + Progress bar — this component already is it.
+**Pattern**-tier component. **Highest tier first**: do not compose a step-by-step flow from Tabs + Progress bar — this component already is it.
 
 ### When NOT to use
 

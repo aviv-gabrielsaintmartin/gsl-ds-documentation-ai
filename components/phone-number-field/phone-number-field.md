@@ -39,7 +39,7 @@ We use platform-specific phone number fields for Web/iOS and Android, with main 
 
 **Phone number field** — inputting and formatting a phone number, including its country prefix.
 
-**Experience**-tier component. Rule 0: do not compose a phone input from a Text field + country Dropdown — this component already is it.
+**Experience**-tier component. **Highest tier first**: do not compose a phone input from a Text field + country Dropdown — this component already is it.
 
 ### When NOT to use
 

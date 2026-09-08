@@ -33,7 +33,7 @@ The carousel is only used on the web. On iOS and Android, scrollable horizontal 
 
 | Instead, when… | Use |
 | --- | --- |
-| All items should be visible simultaneously | **a grid layout, not a component — see Rule 2** |
+| All items should be visible simultaneously | **a grid layout, not a component — see Platform limits** |
 
 ### Variant Selection Flow
 

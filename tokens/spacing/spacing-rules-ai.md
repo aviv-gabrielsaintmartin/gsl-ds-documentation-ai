@@ -10,7 +10,11 @@ Type: [typography-rules-ai.md](../typography/typography-rules-ai.md)._
 
 ---
 
-## Rule 0 — Use a component; it carries its own spacing
+## Components first
+
+*Use a component; it carries its own spacing.*
+
+_**This rule precedes every other rule on this page.** The colour and typography rulesets open with the same rule, under the same name — it is one rule stated where each ruleset needs it._
 
 A `<Card>`, `<Modal>` or `<CellContent>` already has correct internal padding in
 every viewport. Reach for the component first. Everything below applies to the
@@ -20,14 +24,18 @@ layout *between* components, and to custom containers.
 
 ---
 
-## Rule 1 — Never write a pixel literal
+## No pixel literals
+
+*Never write a pixel literal.*
 
 No `gap: 10px`, `margin: 15px`, `width: 200px`. Every spacing value resolves to
 a `Spacing/*` token; every fixed dimension to a `Sizing/*` token.
 
 ---
 
-## Rule 2 — Spacing is distance. Sizing is dimension.
+## Spacing vs sizing
+
+*Spacing is distance. Sizing is dimension.*
 
 | Property | Family |
 | --- | --- |
@@ -40,7 +48,9 @@ interpolate a "next step up" from it.
 
 ---
 
-## Rule 3 — Component spacing stops at 32
+## Component spacing stops at 32
+
+*Component spacing stops at 32.*
 
 **Verified: 0 violations across all 60 component token files.**
 
@@ -58,7 +68,9 @@ as page-level.
 
 ---
 
-## Rule 4 — Containment: a gap never exceeds its container's padding
+## Containment
+
+*A gap never exceeds its container’s padding.*
 
 **Verified: 0 violations across the 24 components that have both.**
 
@@ -69,7 +81,9 @@ obvious cause.
 
 ---
 
-## Rule 5 — Start from what components actually use
+## Start from real usage
+
+*Start from what components actually use.*
 
 | Token | px | Components |
 | --- | --- | --- |
@@ -89,7 +103,9 @@ for `Spacing/20` only with a reason — one component uses it.
 
 ---
 
-## Rule 6 — Standard container padding
+## Container padding
+
+*Standard container padding.*
 
 | Container | Mobile (XS–SM) | Desktop (MD–XXXL) |
 | --- | --- | --- |
@@ -98,7 +114,9 @@ for `Spacing/20` only with a reason — one component uses it.
 | Modal / dialog body | `Spacing/16` | `Spacing/24`–`32` |
 | Embedded filter box | `Spacing/16` | `Spacing/16` |
 
-## Rule 7 — Page rhythm by viewport
+## Page rhythm
+
+*Page rhythm by viewport.*
 
 | Tier | Outer margin | Section gap | Card grid gap | Form field gap |
 | --- | --- | --- | --- | --- |

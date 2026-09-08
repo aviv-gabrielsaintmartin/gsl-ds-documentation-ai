@@ -11,17 +11,17 @@ decision with no downside recorded is usually a decision that wasn't examined.
 
 ---
 
-## 2026-09-08 · Rule 0 has two kinds of row, and only one is countable
+## 2026-09-08 · **Highest tier first** has two kinds of row, and only one is countable
 
-**Decided.** Rule 0's table gains a machine-readable **Parts** column and a
+**Decided.** **Highest tier first**'s table gains a machine-readable **Parts** column and a
 **Kind** column. `C2 · Tier ceiling` covers the composed kind — four rows of ten
 — and reports the other six as skipped.
 
-**Why the split exists at all.** Turning Rule 0's prose into data was supposed
+**Why the split exists at all.** Turning **Highest tier first**'s prose into data was supposed
 to be transcription. It wasn't. Every part name failed an exact match against
 the registries on case or plurals, five named things were not components at all
 (`Price`, `container`, `pins`, `Illustration`, `Text`), and three rows named
-exactly one part — which contradicts Rule 0's own test of *two or more moving
+exactly one part — which contradicts **Highest tier first**'s own test of *two or more moving
 parts*. Read literally, those three could never fire the rule they belong to.
 
 **Gabriel's answers reframed the problem better than the question did.** They
@@ -40,7 +40,7 @@ solutions"*, and `Info State` is *"more a content component like a modal with
 specific content inside"*. Neither is assembled, so neither can be caught by
 counting what it was assembled from.
 
-**Cost, stated plainly.** Rule 0 governs all ten rows; the checker enforces four.
+**Cost, stated plainly.** **Highest tier first** governs all ten rows; the checker enforces four.
 And **detecting a rebuilt container is unsolved** — nothing catches an agent that
 hand-builds an empty state instead of using `Info State`. That needs a
 non-parts-based mechanism, and none is designed. Recorded rather than papered
@@ -50,13 +50,54 @@ agents treat as authoritative"*.
 
 ---
 
+## 2026-09-08 · The rulesets' rules have names, not numbers
+
+**Decided.** Gabriel: *"I want to change the name Rule 0. It's not
+understandable... Maybe understandable for AI but not for human. I don't even
+know how to explain."*
+
+All four rulesets lose their rule numbers. Every rule is now a name —
+**Highest tier first**, **Never select**, **No raw colour**, **Page rhythm**.
+
+**Why, beyond memorability.** The number was ambiguous, not just opaque. `Rule 5`
+meant *when nothing fits* in components, *content covers text and icons* in
+colour, *start from what components actually use* in spacing, and *do not use
+Display* in typography. A sentence containing "Rule 5" could not be resolved
+without knowing which file it came from.
+
+And the name already existed: every heading read `## Rule 0 — Reach for the
+highest tier that fits`. References simply threw it away.
+
+**Why names only, with no number kept.** The number looked like it encoded
+precedence. It did not — precedence is stated explicitly in a five-step ladder,
+so the number carried nothing that was not already written down. The components
+ruleset now opens with a table of the six rules and the question each decides,
+which is what the numbering was gesturing at.
+
+**A finding the rename surfaced.** All three token rulesets' first rule is the
+*same rule* — "use a component, it carries its own colour / spacing / type". They
+now share the name **Components first**. Numbering had hidden that they were
+identical.
+
+**Cost.** 287 references rewritten. And a real mistake along the way: the first
+pass applied component rule names to *every* numbered reference in the files that
+cite more than one ruleset, so `compliance-audit.md` briefly claimed typography's
+rule was **Never select**. Caught by checking every line that names a token
+ruleset, reverted, and redone with explicit per-reference mapping.
+
+**The lesson, recorded because it will recur:** a repo-wide identifier rename is
+not one substitution. Any file citing more than one ruleset needs a
+per-reference decision, and a blind map produces confident, wrong documentation.
+
+---
+
 ## 2026-09-08 · Use a component where it exists; the registry is authority for Figma
 
 **Decided.** Gabriel: *"Components existing on a platform should be used on it.
 Figma first. When working on web or android, we will work on the status and
 synchronisation."*
 
-Rule 2 now states that policy and names a source of truth per platform, rather
+**Platform limits** now states that policy and names a source of truth per platform, rather
 than duplicating readiness data into the ruleset.
 
 | Target | Source of truth | State |
@@ -82,7 +123,7 @@ a skill concern:
   doc.
 - **Web and native existence → the component's own doc.** Nothing here can
   verify it, so a human record is the only option.
-- **The rule → Rule 2.** It is a rule, not data. Duplicating 52 × 4 values into
+- **The rule → Platform limits.** It is a rule, not data. Duplicating 52 × 4 values into
   the ruleset would create a second source of truth — which is precisely how the
   Figma column drifted in the first place.
 
@@ -173,13 +214,13 @@ recommendation:
 | --- | --- | --- |
 | Does a hard fail sink the run? | **Its own check only.** Extend later | A run-level gate on an unproven checker discards a whole run's data on one false positive. Mitigated by format: hard fails print above any percentage |
 | Unauthorised tokens — fail or flag? | **Flag, and treat flags as findings** | The better reason. Flags now accumulate in a ledger; a subject seen three times is promoted to a ruleset defect |
-| Is `C2 · Tier ceiling` machine-detectable? | **Yes, it must be** | Right, but not from the registries — `Listing Card`'s recorded sub-components are private internal slots, not the public parts an imitation would contain. Needs a parts column on Rule 0's ten rows |
+| Is `C2 · Tier ceiling` machine-detectable? | **Yes, it must be** | Right, but not from the registries — `Listing Card`'s recorded sub-components are private internal slots, not the public parts an imitation would contain. Needs a parts column on **Highest tier first**'s ten rows |
 | Thresholds now or later? | **Now** | Refined: derived from rules, never invented. `C3 = 100%` because "never write a pixel literal" says so. Where no rule states a number, the threshold is no-regression |
 
 **Cost.** The scorecard can be enforced only as far as the rulesets are
 verified. `C6 · Layout` ships defined and switched off, and `C2 · Tier ceiling`
 cannot run until
-**Block 2a · Rule 0 parts list** makes Rule 0's parts machine-readable. Both are
+**Block 2a · Tier parts list** makes **Highest tier first**'s parts machine-readable. Both are
 stated in the scorecard
 rather than quietly unmeasured.
 
@@ -190,9 +231,9 @@ rather than quietly unmeasured.
 **Decided.** `layout/` verifies page-composition rules that already exist, rather
 than writing them from nothing.
 
-**Why.** The earlier scoping was wrong. `spacing-rules-ai.md` Rule 7 already
+**Why.** The earlier scoping was wrong. spacing's **Page rhythm** already
 gives outer margin, section gap, card-grid gap and form-field gap for every
-viewport tier, and Rule 6 gives container padding — but both carry an explicit
+viewport tier, and **Container padding** gives it — but both carry an explicit
 warning that they are **unverified**, because page composition lives outside the
 component library and could not be checked against it.
 
@@ -272,8 +313,8 @@ turns a wireframe into a screen; the other two each have a home already.
 
 The initial estimate — that this would be the largest piece of work in the plan
 — was wrong. Most of a layout ruleset already exists, scattered: page-rhythm
-spacing is verified in `spacing-rules-ai.md` Rule 3 with zero violations across
-60 component files, containment is verified in Rule 4, and `Grid/Margin`,
+page-rhythm spacing is verified by spacing's **Component spacing stops at 32**, zero violations across
+60 component files, containment is verified in **Containment**, and `Grid/Margin`,
 `Grid/Gutter` and the derived column widths are all verified against
 `grids.json` for all seven tiers. Six of nine pieces assemble from data that has
 already been checked.

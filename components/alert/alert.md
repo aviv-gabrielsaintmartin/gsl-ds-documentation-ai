@@ -50,7 +50,7 @@ We don't provide all native system components in Gemini. If you need one, please
 
 | Instead, when… | Use |
 | --- | --- |
-| **On web | **Modal bottom sheet (Alert is not yet available on web)** |
+| On web | **Modal bottom sheet** (Alert is not yet available on web) |
 | Transient, non-blocking feedback | **Snackbar** |
 | Inline, non-blocking contextual guidance | **Feedback message** |
 

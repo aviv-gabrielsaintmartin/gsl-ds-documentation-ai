@@ -73,7 +73,7 @@ below.
         ▼
 4. THE CHECKER          platform-neutral · reads only facts
    Compares the facts against the inventory, the deny-lists,
-   and Rule 0's parts lists
+   and **Highest tier first**'s parts lists
         │
         ▼
 5. THE REPORT           hard fails, then scores, then flags
@@ -97,12 +97,12 @@ A platform that cannot supply these cannot be scored.
 | Fact | Meaning in design-system terms |
 | --- | --- |
 | `element.isLibraryComponent` | Is this element an instance of a design-system component, or was it built locally? |
-| `element.componentName` | If it is a library component, which one — by the name used in the Figma registries and Rule 4's inventory |
+| `element.componentName` | If it is a library component, which one — by the name used in the Figma registries and **The inventory**'s inventory |
 | `element.children` | Which elements this one contains, so a locally-built composition can be examined |
 | `property.isTokenBound` | Is this styled property resolved through a design token, or written as a literal value? |
 | `property.tokenName` | If bound, which token — by the name used on the token pages |
 | `property.kind` | What is being styled: colour · type style · spacing · radius · border width · shadow |
-| `output.declarations` | The declarations the generating agent produced under Rule 5 |
+| `output.declarations` | The declarations the generating agent produced under **When nothing fits** |
 
 ### Optional facts
 
@@ -237,7 +237,7 @@ chrome. Percentages never appear before the gates they could disguise.
 RUN <id>   <date>   <output>   <wireframe>
 
 HARD FAILS (2)
-  C1 · Provenance     Status Bar      <locator>   never-select list, Rule 3
+  C1 · Provenance     Status Bar      <locator>   never-select list, **Never select**
   C4 · Authorisation  Spacing/56      <locator>   deny-listed, spacing "Do not use"
 
 SCORES
@@ -264,10 +264,10 @@ QUALITY VERDICT    — human, free text, never scored
 | Check | Threshold | Where it comes from |
 | --- | --- | --- |
 | `C1 · Provenance` | **no regression** | No rule states a number |
-| `C2 · Tier ceiling` | **0 undeclared compositions** | Rule 0 + Rule 5 |
+| `C2 · Tier ceiling` | **0 undeclared compositions** | **Highest tier first** + **When nothing fits** |
 | `C3 · Token binding` | **100%** | "Never write a pixel literal" · "Never write a raw colour" |
 | `C4 · Authorisation` | **0 deny-listed** | The *Never use* / *Do not use* tables |
-| `C5 · Declaration` | **100% of inventions declared** | Rule 5 |
+| `C5 · Declaration` | **100% of inventions declared** | **When nothing fits** |
 | `C6 · Layout` | inactive | — |
 
 **"No regression" compares runs of the same wireframe only.** Comparing a search
@@ -283,14 +283,14 @@ not gate on it.
 
 | | |
 | --- | --- |
-| **Enforces** | `components-rules-ai.md` Rule 4 — a name absent from the inventory does not exist. Rule 3 — the never-select list |
+| **Enforces** | **The inventory** — a name absent from it does not exist · **Never select** |
 | **Measure** | Every element reported as a library component must name a component that exists in the inventory. Every element **not** reported as a library component is a local build, and is examined by `C2 · Tier ceiling` |
 | **Score** | library components ÷ (library components + local builds that duplicate an existing component) |
 | **Facts used** | `isLibraryComponent` · `componentName` |
 
 **Hard fail**
 
-- A component on Rule 3's never-select list: platform chrome, brand assets,
+- A component on the **Never select** list: platform chrome, brand assets,
   another component's internals, or a withheld component.
 - A component name that appears in no registry — it came from outside GSL.
 
@@ -312,8 +312,8 @@ single most common compliance failure".
 
 | | |
 | --- | --- |
-| **Enforces** | Rule 0 — reach for the highest tier that fits |
-| **Measure** | For each locally-built element, collect the library components it contains. Compare against the **parts list** of each Rule 0 row. Two or more parts of the same higher-tier component is a detected composition — the ruleset's own *count the parts* test |
+| **Enforces** | **Highest tier first** — reach for the highest tier that fits |
+| **Measure** | For each locally-built element, collect the library components it contains. Compare against the **parts list** of each **Highest tier first** row. Two or more parts of the same higher-tier component is a detected composition — the ruleset's own *count the parts* test |
 | **Score** | 1 − (undeclared compositions ÷ local builds examined) |
 | **Facts used** | `isLibraryComponent` · `componentName` · `children` · `declarations` |
 
@@ -330,9 +330,9 @@ The checker never has to answer *"is this secretly a Listing Card?"*, which need
 a human. It only answers *"did the agent say what it was doing?"*, which does
 not.
 
-### Coverage — this check reaches 4 of Rule 0's 10 rows
+### Coverage — this check reaches 4 of **Highest tier first**'s 10 rows
 
-Rule 0 now carries a machine-readable **Parts** column, so the check can run. It
+**Highest tier first** now carries a machine-readable **Parts** column, so the check can run. It
 does not cover every row, and reports which it skipped rather than passing them
 silently.
 
@@ -343,7 +343,7 @@ silently.
 | **All-or-nothing** — used whole or not at all | `Map template` | no — no partial composition exists to detect |
 | **Unresolved** | `Floor selection` · `Listing summary` · `Estimation card` | no — open questions in `components-audit.md` |
 
-**Rule 0 still applies to all ten.** Six simply cannot be enforced by counting
+**Highest tier first still applies to all ten.** Six simply cannot be enforced by counting
 parts. A report must state coverage as *4 of 10 rows checked*, never imply the
 whole rule was enforced.
 
@@ -353,7 +353,7 @@ there is no part set that characterises one. It needs a different mechanism, and
 none is designed.
 
 **What this check cannot see** — a composition of exactly one part. By the
-ruleset's own threshold that is Rule 1 territory, not a Rule 0 violation.
+ruleset's own threshold that is **Which component** territory, not a **Highest tier first** violation.
 
 ---
 
@@ -363,7 +363,7 @@ ruleset's own threshold that is Rule 1 territory, not a Rule 0 violation.
 
 | | |
 | --- | --- |
-| **Enforces** | `spacing-rules-ai.md` Rule 1 · `color-rules-ai.md` Rule 1 · `typography-rules-ai.md` Rule 1 |
+| **Enforces** | spacing's **No pixel literals** · colour's **No raw colour** · typography's **No hand-set fonts** |
 | **Measure** | Every styled property — colour, type style, spacing, radius, border width, shadow — must be reported as token-bound |
 | **Score** | token-bound properties ÷ all styled properties |
 | **Threshold** | **100%.** The rules say never, not rarely |
@@ -376,7 +376,7 @@ ruleset's own threshold that is Rule 1 territory, not a Rule 0 violation.
 - Type properties — family, size, weight, line height — set individually instead
   of through a text style.
 - **Overriding a library component's own internal styling.**
-  `spacing-rules-ai.md` Rule 0 says never do it.
+  spacing's **Components first** says never do it.
 
 **Deduction** — a property bound to a token from outside the GSL token set.
 
@@ -408,9 +408,9 @@ still rest entirely on values the audits rejected.
 
 | Class | Source | Verdict |
 | --- | --- | --- |
-| **Forbidden** | `color-rules-ai.md` *Never use* — the symbol, native, scale and decorative-surface families, the focus border, the unreachable status leaves, the enumerated orphans · `spacing-rules-ai.md` *Do not use* · `typography-rules-ai.md` Rule 5 — the Display family | **Hard fail** |
+| **Forbidden** | `color-rules-ai.md` *Never use* — the symbol, native, scale and decorative-surface families, the focus border, the unreachable status leaves, the enumerated orphans · `spacing-rules-ai.md` *Do not use* · typography's **No Display** — the Display family | **Hard fail** |
 | **Restricted** | `color-rules-ai.md` *Restricted* — allowed only as described | **Flag** → *awaiting human decision* |
-| **Unprecedented** | Exists, is not forbidden, but sits outside the preferred set — e.g. outside typography Rule 3's eleven styles | **Flag, never a failure** |
+| **Unprecedented** | Exists, is not forbidden, but sits outside the preferred set — e.g. outside typography's **The eleven used styles** | **Flag, never a failure** |
 
 **Why unprecedented is a flag and not a deduction.** The rulesets say *prefer
 these*, not *only these*. A scorecard stricter than the ruleset it enforces
@@ -429,7 +429,7 @@ authorised token. A subdued surface where a default one was meant passes.
 
 | | |
 | --- | --- |
-| **Enforces** | Rule 5 — compliance means reuse before invention, not never inventing |
+| **Enforces** | **When nothing fits** — compliance means reuse before invention, not never inventing |
 | **Measure** | Every local build flagged by `C1 · Provenance` or `C2 · Tier ceiling` must have a declaration |
 | **Score** | declared inventions ÷ total inventions |
 | **Threshold** | **100%** |
@@ -438,11 +438,11 @@ authorised token. A subdued surface where a default one was meant passes.
 A declaration must state all three:
 
 1. **What was built.**
-2. **Which Rule 1 problem it belongs under.**
+2. **Which problem from Which component it belongs under.**
 3. **Which existing components were ruled out, and why.**
 
 **Hard fail** — an invention with no declaration, or a declaration missing any
-of the three parts. Rule 5's own words: *an undeclared new component is a
+of the three parts. **When nothing fits**'s own words: *an undeclared new component is a
 compliance failure even when it looks right.*
 
 **A declared invention does not expire, and is never auto-promoted.** If the
@@ -466,8 +466,8 @@ until **Block 3 · Layout** completes.**
 
 | | |
 | --- | --- |
-| **Would enforce** | `spacing-rules-ai.md` Rule 6 container padding · Rule 7 page rhythm per tier · `grid-tokens.md` outer margin and gutter |
-| **Would measure** | Outer margin, section gap, card-grid gap and form-field gap against Rule 7's table for the output's viewport tier; container padding against Rule 6 |
+| **Would enforce** | spacing's **Container padding** · **Page rhythm** per tier · `grid-tokens.md` outer margin and gutter |
+| **Would measure** | Outer margin, section gap, card-grid gap and form-field gap against spacing's **Page rhythm** table for the output's viewport tier; container padding against **Container padding** |
 | **Facts used** | `viewportTier` *(optional)* — a platform that cannot report it leaves this check inactive |
 
 **Why it is switched off.** Rules 6 and 7 carry an explicit warning in the

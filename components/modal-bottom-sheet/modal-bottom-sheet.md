@@ -78,7 +78,7 @@ Surface, by platform and device — this is not a free choice
 
 Content volume
 ├─ Content exceeds the available space → Scrollable
-└─ Small amount of content → Use Pop-up instead; see Rule 1
+└─ Small amount of content → Use Pop-up instead; see **Which component**
 ```
 
 ### Usage Guidance

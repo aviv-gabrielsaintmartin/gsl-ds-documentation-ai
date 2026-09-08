@@ -45,7 +45,7 @@ Orientation
 
 ### Related Components
 
-**No overlapping component.** Nothing else in the system covers separating content sections or list items. Divider is chosen directly — see [components-rules-ai.md](../components-rules-ai.md) Rule 1, *Grouping and structuring content*.
+**No overlapping component.** Nothing else in the system covers separating content sections or list items. Divider is chosen directly — see [components-rules-ai.md](../components-rules-ai.md) **Which component**, *Grouping and structuring content*.
 
 ---
 

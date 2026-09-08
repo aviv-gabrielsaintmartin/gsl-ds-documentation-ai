@@ -53,7 +53,7 @@ Optional elements — hide only while the context stays understandable
 
 ### Related Components
 
-**No overlapping component.** Nothing else in the system covers displaying user rating results from Opinion System. Rating is chosen directly — see [components-rules-ai.md](../components-rules-ai.md) Rule 1, *Identity and media*.
+**No overlapping component.** Nothing else in the system covers displaying user rating results from Opinion System. Rating is chosen directly — see [components-rules-ai.md](../components-rules-ai.md) **Which component**, *Identity and media*.
 
 ---
 

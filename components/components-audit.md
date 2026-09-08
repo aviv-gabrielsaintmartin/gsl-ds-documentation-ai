@@ -153,7 +153,7 @@ purpose.
 ## Reconciling the Confluence guide
 
 The "Component selection guide" page was migrated on 2026-09-07 and became
-[Rule 1](components-rules-ai.md#rule-1--choose-by-the-problem-being-solved).
+[**Which component**](components-rules-ai.md#which-component).
 Its 14 problem-type sections were adopted as-is — the organising principle
 ("by the type of problem being solved, not by category") was already correct and
 was not second-guessed. Its `Use X when` / `Use Y instead when` shape became the
@@ -198,8 +198,8 @@ Components layer with some Patterns mixed in.
 This is the exact failure `CLAUDE.md` warns about: an agent following the guide
 faithfully will rebuild a Listing Card from `Card` + `Image slider` + `Tag`,
 because nothing told it `Listing Card` exists. It is why
-[Rule 0](components-rules-ai.md#rule-0--reach-for-the-highest-tier-that-fits) was
-added above Rule 1 rather than folded into it — Rule 1 is flat and tier-blind by
+[**Highest tier first**](components-rules-ai.md#highest-tier-first) was
+added above **Which component** rather than folded into it — **Which component** is flat and tier-blind by
 construction, and no amount of editing its rows fixes that.
 
 ### 4. Two guide entries name things that are not components
@@ -210,7 +210,7 @@ construction, and no amount of editing its rows fixes that.
 | "Use **Infinite scroll** on mobile and apps" (under Pagination) | A loading behaviour, not a component |
 
 Both are now called out explicitly in
-[Rule 2](components-rules-ai.md#rule-2--platform-limits-override-rule-1) rather
+[**Platform limits**](components-rules-ai.md#platform-limits) rather
 than silently dropped, because an agent told to "use Card grid" will otherwise
 search the libraries, fail, and invent something.
 
@@ -250,18 +250,18 @@ Each needs Gabriel's answer before the affected rule can be written.
    pickers?
 8. **Four documented components are absent from the guide** —
    `Floating Button Group`, `Listing Card`, `Phone Number Field`, `Table`.
-   Deliberate, or an oversight? Each needs a Rule 1 row under some problem type;
+   Deliberate, or an oversight? Each needs a **Which component** row under some problem type;
    `Listing Card` most urgently.
 9. **Does anything follow "Identity and media" on the live Confluence page?**
    The paste ended mid-word inside the `Energy tag` row.
-10. **Should Rule 1 gain rows for the 24 selectable components that have neither
-    a doc nor a guide entry?** They are named in Rule 4's inventory, so an agent
+10. **Should **Which component** gain rows for the 24 selectable components that have neither
+    a doc nor a guide entry?** They are named in **The inventory**'s inventory, so an agent
     knows they exist, but nothing routes it there by intent. This is the largest
     remaining gap after Phase 1.
 
 11. **`Floor selection`'s second part.** It has one (`Counter Field`), and
     `C2 · Tier ceiling` needs two. Is a floor picker a counter plus ground-floor
-    handling, or is it genuinely a one-part component and therefore a Rule 1 case?
+    handling, or is it genuinely a one-part component and therefore a **Which component** case?
 12. **What controlled vocabulary should the platform rows use?** Answered in
     principle — *use a component where it exists* — but the docs express
     existence as `Ready`, `To Do`, `To-do`, `WIP`, `In progress`, `Partially
@@ -289,20 +289,20 @@ It is the reading a generating agent can act on. Values are `High`, `Medium`,
 `Low`, or `—` for the component's own row. `Med` and `Not documented` were
 normalised away.
 
-A **forward redirect in Rule 1** — the anchor's own *Otherwise* column — is
+A **forward redirect in Which component** — the anchor's own *Otherwise* column — is
 always `High`. A **reverse redirect** — another component pointing here — is
 `Medium` unless hand-written content said otherwise.
 
-### Related Components is generated from Rule 1, hand-written content preserved
+### Related Components is generated from **Which component**, hand-written content preserved
 
-Tables are the union of what was already written and what Rule 1 implies, so the
+Tables are the union of what was already written and what **Which component** implies, so the
 two can't drift. Existing rows keep their hand-written `Usage` and
 `Example Scenario`; only empty cells and `—` placeholders were filled from the
-matching Rule 1 condition. Rows Rule 1 implies but the doc lacked were appended.
+matching **Which component** condition. Rows **Which component** implies but the doc lacked were appended.
 
 ### Three components have no neighbour at all
 
-`Avatar`, `Divider` and `Rating` are solo in Rule 1 — their *Otherwise* column is
+`Avatar`, `Divider` and `Rating` are solo in **Which component** — their *Otherwise* column is
 empty. Rather than a one-row table that says nothing, each carries an explicit
 **"No alternative"** statement. A stated absence is machine-readable; a
 one-row table is just noise.
@@ -321,10 +321,10 @@ written.
 
 ---
 
-## Rule 0's parts list, and what it exposed
+## **Highest tier first**'s parts list, and what it exposed
 
 Added 2026-09-08 so `C2 · Tier ceiling` of the compliance scorecard can run. It
-compares a hand-built element against the parts of each Rule 0 row, and Rule 0
+compares a hand-built element against the parts of each **Highest tier first** row, and **Highest tier first**
 stated those parts only as prose.
 
 Turning the prose into data was not a transcription job. **Four rows worked as
@@ -352,14 +352,14 @@ nothing at all before this.
 | Named | What it actually is | Resolution |
 | --- | --- | --- |
 | `Price` | Nothing in any inventory. `Listing Card` has a private `.listing_price_tag` slot | **Dropped.** Confirmed by Gabriel as the internal slot. `Card` · `Image Slider` · `Tag` already clear the threshold |
-| `container` · `pins` | Descriptions, not names. The real pin sets are `mapPinsV2_SL` / `mapPinsV2_IWT`, both Rule 3 never-select | **Row reclassified.** Gabriel: `Map template` is *"full usage or nothing"* — a designer might want a pin as an illustration but will find another solution. There is no partial build to detect |
+| `container` · `pins` | Descriptions, not names. The real pin sets are `mapPinsV2_SL` / `mapPinsV2_IWT`, both **Never select** never-select | **Row reclassified.** Gabriel: `Map template` is *"full usage or nothing"* — a designer might want a pin as an illustration but will find another solution. There is no partial build to detect |
 | `Illustration` · `Text` | An illustration is real but lives under the Foundations registry's separate `illustrations` key, not the component inventory. Text is a token-styled primitive | **Row reclassified.** Gabriel: `Info State` is *"more a content component like a modal with specific content inside"* — a shell, not an assembly |
 
-### The finding that mattered — Rule 0 has two kinds of row
+### The finding that mattered — **Highest tier first** has two kinds of row
 
-Three rows named exactly one part, which contradicts Rule 0's own operational
+Three rows named exactly one part, which contradicts **Highest tier first**'s own operational
 test: *two or more of the higher-tier component's own moving parts.* Read
-literally, `Info State`, `Floor selection` and `Table` could never fire Rule 0.
+literally, `Info State`, `Floor selection` and `Table` could never fire **Highest tier first**.
 
 Gabriel's answers resolved this, and the resolution is better than the question.
 Those rows are not under-documented — **they are not parts-composed things at
@@ -372,7 +372,7 @@ all**:
 | **All-or-nothing** | Used whole or not at all | `Map template` | no |
 | **Unresolved** | Undescribed, or one part with no second identified | `Floor selection` · `Listing summary` · `Estimation card` | no |
 
-**Rule 0 still governs all ten.** Six cannot be *enforced by counting parts*,
+**Highest tier first still governs all ten.** Six cannot be *enforced by counting parts*,
 which is a limit on the checker, not a gap in the rule. The scorecard states
 coverage as 4 of 10 and names the six it skips.
 
@@ -385,14 +385,14 @@ audit already rejected.
 hand-builds an empty state rather than using `Info State`. It needs a mechanism
 that is not parts-based, and none is designed.
 
-## Rule 2, platform availability, and where that data belongs
+## **Platform limits**, platform availability, and where that data belongs
 
 Found 2026-09-08 while confirming Gabriel's note that *"table is not even dev,
 only figma"*. His `Table` doc says `Figma: Ready ✅ · Web: In progress 🚧`, and
 it turned out not to be alone.
 
 **52 of the 57 component docs carry their own per-platform readiness row** —
-`Figma | Web | iOS | Android`. Rule 2 had nine hand-written rows, only one about
+`Figma | Web | iOS | Android`. **Platform limits** had nine hand-written rows, only one about
 web readiness.
 
 | State | Figma | Web | iOS | Android |
@@ -430,20 +430,20 @@ Neither, for the Figma part — it already has a better home.
 | --- | --- | --- | --- |
 | Does it exist **in Figma**? | `figma/*-registry.json` | the `figma-sync-*` skills | Machine-verifiable, verified live, complete, and it changes when Figma changes rather than when someone edits a doc |
 | Does it exist on **web / iOS / Android**? | the component's own doc | a human | Nothing in this repo can verify it, so a human record is the only option |
-| **The rule** — use a component where it exists | `components-rules-ai.md` Rule 2 | a human, from this audit | It is a rule, not data. Duplicating 52 × 4 values into the ruleset would create a second source of truth, which is exactly how the Figma column drifted |
+| **The rule** — use a component where it exists | `components-rules-ai.md` **Platform limits** | a human, from this audit | It is a rule, not data. Duplicating 52 × 4 values into the ruleset would create a second source of truth, which is exactly how the Figma column drifted |
 
 The general principle, since the question raised it: **a skill reads docs and
 writes registries. A skill is never a source of truth for knowledge.** The
 `figma-sync-*` skills own registry *data*; they own no rules. The
 `component-web-ai-docs` skill reads code and docs; it owns neither.
 
-### The policy, and why Rule 2 states it rather than tabulating it
+### The policy, and why **Platform limits** states it rather than tabulating it
 
 **Decided 2026-09-08 by Gabriel:** *"Components existing on a platform should be
 used on it. Figma first. When working on web or android, we will work on the
 status and synchronisation."*
 
-So Rule 2 now states the policy and names its source of truth per platform,
+So **Platform limits** now states the policy and names its source of truth per platform,
 instead of duplicating the matrix. Two consequences:
 
 - **For Figma there is no availability constraint at all.** All 98 registry
@@ -455,7 +455,7 @@ instead of duplicating the matrix. Two consequences:
   component` interchangeably, plus 11 cells that hold no status at all. Nothing
   can be scored or ruled on until those mean fixed things.
 
-`Table` was added to Rule 2's curated table because Gabriel named it directly.
+`Table` was added to **Platform limits**'s curated table because Gabriel named it directly.
 The other web-unready components were not, because the vocabulary question comes
 first.
 
