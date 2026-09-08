@@ -1,0 +1,202 @@
+# GSL Design System — the knowledge base
+
+This repo is **one platform-neutral description of the GSL (Gemini) Design
+System**, written so that an AI agent can read it and build a compliant
+interface with nobody correcting it.
+
+It is not a code repository. There is no build, no lint, no test suite — the one
+deliberate exception is `tokens/scripts/`. Everything here is content and data.
+
+**It is also not the agent.** Several agents consume this knowledge base — a
+design agent, and later web, iOS and Android. They live in their own repos. This
+one only holds the truth they read.
+
+Judge every page in here by one test:
+
+> Could an agent build a compliant interface from this alone, with nobody
+> correcting it?
+
+---
+
+## Start here
+
+| If you want to… | Read |
+| --- | --- |
+| **Generate an interface** | The rulesets, and only the rulesets — see the four of them below |
+| Know what components exist | [components/components.md](components/components.md) |
+| Know what tokens exist | [tokens/tokens.md](tokens/tokens.md) · then [tokens/README.md](tokens/README.md) for the folder |
+| Know **why** a rule says what it says | The matching `-audit.md` |
+| Know where the project is going | [project/plan.md](project/plan.md) |
+| Know why the project is shaped like this | [project/decisions.md](project/decisions.md) |
+
+---
+
+## Who reads what
+
+The single most useful thing to know about this repo: **almost every file in it
+is written for a machine, and two are written for you.**
+
+| Who reads it | What it is | Where |
+| --- | --- | --- |
+| Agents working *inside* this repo | Instructions and workflows | `CLAUDE.md`, `.claude/rules/`, `.claude/skills/` |
+| Agents *consuming* the knowledge base | **The contract** | the four `*-rules-ai.md` files |
+| Either — machine-first reference | The knowledge itself | `*-tokens.md`, `*-audit.md`, `*-ledger.md`, `components/<name>/<name>.md` |
+| **You, and any human** | **The map and the story** | **`README.md` and `project/`** |
+
+That last row is why this file exists. Everything else is optimised for
+unambiguous machine parsing. `README.md` and `project/` are deliberately not —
+they are plain language, and they are allowed to explain rather than specify.
+
+---
+
+## The filename grammar
+
+**A file's suffix tells you what it is and whether it may be trusted as rules.**
+Learn these five and any filename in the repo explains itself.
+
+| Suffix | What it is | Written by | Read as rules? |
+| --- | --- | --- | --- |
+| `-tokens.md`, or `<name>.md` | **The page.** What exists — every value, every variant, and when to use each | a human | no — it lists everything, including things the audit rejected |
+| `-rules-ai.md` | **The ruleset.** What an agent is *allowed* to reach for | a human, from the audit | **yes. This is the contract** |
+| `-audit.md` | **The evidence.** Why the ruleset says what it says, what was rejected, what is still open | a human, from the ledger | **never** |
+| `-ledger.md` | **The raw evidence table** the audit was built from | **a script** | never — and never edit it, re-run the script |
+| `-eval.md` | **The check on the ruleset** — test intents, expected answers, and the run log | a human | no — it is the test, not the rules |
+
+The distinction that matters most:
+
+> **A page says what exists. A ruleset says what you're allowed to use.**
+> An agent that reads the page instead of the ruleset will build on tokens the
+> audit already rejected.
+
+Two honest inconsistencies, so you aren't confused when you meet them:
+
+- Token audits are named `-usage-audit.md`, the component audit is
+  `-audit.md`. Same family, historical difference.
+- A `-ledger.md` always has a `.json` twin holding the same data for scripts.
+  The `.json` is not committed and is regenerated on demand.
+
+### What exists today
+
+| Rulesets — the contract | Audits — the evidence | Ledgers — script output | Evals — the check |
+| --- | --- | --- | --- |
+| `components/components-rules-ai.md` | `components/components-audit.md` | `tokens/color/color-usage-ledger.md` | `components/components-eval.md` |
+| `tokens/color/color-rules-ai.md` | `tokens/color/color-usage-audit.md` | `tokens/spacing/spacing-usage-ledger.md` | |
+| `tokens/typography/typography-rules-ai.md` | `tokens/typography/typography-usage-audit.md` | `tokens/typography/typography-usage-ledger.md` | |
+| `tokens/spacing/spacing-rules-ai.md` | `tokens/spacing/spacing-usage-audit.md` | | |
+| | `tokens/radius/radius-usage-audit.md` | | |
+| | `tokens/shadow/shadow-usage-audit.md` | | |
+| | `tokens/color/surface-border-combination-audit.md` — draft, not yet a ruleset | | |
+
+Four rulesets, seven audits, three ledgers, one eval.
+
+---
+
+## How a rule earns the right to exist
+
+Nothing in a ruleset is allowed to be an opinion. This is the chain every rule
+has to come through:
+
+```
+  a script reads the real design-system code
+              │
+              ▼
+      ledger        every token, and every component that binds it
+              │     ← raw, mechanical, never edited by hand
+              ▼
+      audit         a human reads the ledger and decides
+              │     ← records what was rejected, and why
+              ▼
+    rules-ai        what an agent may reach for
+              │     ← the contract. Nothing here without evidence above it
+              ▼
+       eval         a cold agent is given ONLY the ruleset and scored
+                    ← every miss is a defect in the ruleset, not the agent
+```
+
+**The eval step is the one people skip, and it is the one that works.** The
+component ruleset scored 22/22 on its first cold run — and that perfect score
+still hid four real defects, which only surfaced because the agent was also
+asked where it had struggled. Twelve defects were found and fixed across three
+runs this way.
+
+---
+
+## The map
+
+### The pillars — what an agent reads to build
+
+| Folder | What's in it | Start at |
+| --- | --- | --- |
+| `tokens/` | 12 token categories — colour, typography, spacing, radius, shadow, and 7 more. Every one checked against real component usage | [tokens/tokens.md](tokens/tokens.md) |
+| `components/` | 53 component docs, one folder each with a self-contained `images/`. Plus the ruleset, audit and eval | [components/components.md](components/components.md) |
+| `figma/` | 7 registry JSON files — the identity of every Figma component, token and icon. Keys, node IDs, variant counts | `.claude/rules/figma-registries.md` |
+
+A third pillar, `layout/`, is planned but does not exist yet — see
+[project/plan.md](project/plan.md). Page composition is currently the one
+decision an agent has to make with no documentation behind it.
+
+### Everything else
+
+| Path | What's there |
+| --- | --- |
+| `CLAUDE.md` | Instructions for agents working in this repo. Not a human document |
+| `.claude/rules/` | 4 path-scoped rule files — for `tokens/`, `figma/`, `components/`, and `project/`. Each loads automatically when an agent opens a file in that folder |
+| `.claude/skills/` | 6 skills — the repeatable workflows. See below |
+| `project/` | The plan, the decision log, and one brief per building block. **Human-first** |
+| `tokens/scripts/` | 4 Python scripts. They only ever *read* the design-system code repo. Re-run them to refresh the evidence |
+| `internal/` | Human reference notes, e.g. a git tutorial |
+| `design-language/` | Brand PDF exports. Legacy, superseded elsewhere, left as-is |
+
+### The six skills
+
+| Skill | What it does |
+| --- | --- |
+| `zeroheight-confluence-transfer` | Zeroheight export → a Confluence component page, against a fixed template |
+| `component-web-ai-docs` | Audits a component's web code against its docs; publishes an audit, a decision tree and an API spec |
+| `figma-sync-component-sets` | Pulls component/pattern/experience identity from Figma into the tier registries |
+| `figma-sync-tokens` | Pulls design tokens, text styles and effect styles into the token registry |
+| `figma-sync-icons` | Pulls the icon inventory into the icon registry |
+| `figma-sync-libraries` | Pulls the four library file keys into the library registry |
+
+Read a skill's own `SKILL.md` before running it. That file, not this one, is the
+source of truth for how it works.
+
+---
+
+## Am I about to lose work?
+
+Two commands. Run them in any terminal, in this folder, any time.
+
+```
+git status --porcelain | wc -l      # 0     = everything is committed
+git log --oneline @{u}..HEAD        # empty = everything is pushed
+```
+
+**Zero and empty means nothing can be lost.** Anything else is telling you
+exactly what is exposed, and it is still all recoverable.
+
+Two habits that prevent the problem instead of detecting it:
+
+- **One session per branch.** Two Claude tabs on the same branch will not lose
+  content in git, but they *can* overwrite each other's edits to the same file,
+  and one can commit the other's half-finished work under the wrong message.
+- **A task isn't finished until `git status` is clean and everything is pushed.**
+  Commit, push, PR, merge — then start the next thing.
+
+Git almost never throws work away. Committed, stashed, or even on a branch you
+deleted, it stays retrievable. If something looks lost, ask before touching
+anything — it is nearly always still there.
+
+---
+
+## Conventions
+
+- All filenames are lowercase kebab-case. **One exception**: image filenames
+  keep their original hash-based names, because those are Zeroheight asset
+  identifiers matched by exact filename. Never rename them.
+- Never invent a Confluence page ID, a Figma key, or an Atlassian cloud ID. Read
+  them from the registry JSON, or resolve them live.
+- The Zeroheight MCP connector is never used, even when a session shows it as
+  connected.
+- Branch names are `<category>/<kebab-case-description>` — categories are listed
+  in `CLAUDE.md`.

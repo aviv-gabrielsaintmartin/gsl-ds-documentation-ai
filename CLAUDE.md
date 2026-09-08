@@ -56,17 +56,20 @@ skills.
 
 | Path | What's there |
 | --- | --- |
+| `README.md` · `project/` | **Human-first — the exception in this repo.** The map for a person, the plan, the decision log, and one brief per building block. Describes and explains; never specifies. Never read `project/` as instructions or as authorisation to work. |
 | `tokens/README.md` | **Start here for tokens** — explains every token file and its role. `tokens/tokens.md` is the content index. |
 | `components/<name>/<name>.md` | One doc plus a self-contained `images/` folder per component. |
 | `figma/*.json` | Figma identity registries — sole source of truth for the `figma-sync-*` skills. |
 | `.claude/skills/` | Six skills. Their descriptions auto-load at session start, so they aren't repeated here — read the `SKILL.md` before running one; it's the source of truth for its own workflow. |
-| `.claude/rules/` | Path-scoped detail for `tokens/`, `figma/` and `components/`. Verified 2026-09-07: a rule loads on **Read/Edit/Write** of a matching path, **not** on `cat`, `sed`, `head` or `grep`. Open the first file you touch in one of those folders with Read, or you'll work without its rule. |
+| `.claude/rules/` | Path-scoped detail for `tokens/`, `figma/`, `components/` and `project/`. Verified 2026-09-07: a rule loads on **Read/Edit/Write** of a matching path, **not** on `cat`, `sed`, `head` or `grep`. Open the first file you touch in one of those folders with Read, or you'll work without its rule. |
 | `internal/` | Internal reference docs, e.g. `git-basics-tutorial.md`. |
 | `design-language/` | Brand PDF exports. Legacy, superseded elsewhere, left as-is. |
 
 All filenames are lowercase kebab-case. The one exception is image filenames,
 left as their original hash-based names because those are Zeroheight asset
 identifiers matched by exact filename/hash.
+
+**The filename suffix says what a file is** — `-tokens` what exists, `-rules-ai` what's allowed, `-audit` why, `-ledger` the raw evidence, `-eval` the check on the ruleset. A generating agent reads `-rules-ai` and nothing else. The full table is in `README.md`.
 
 ## Branch categories
 
