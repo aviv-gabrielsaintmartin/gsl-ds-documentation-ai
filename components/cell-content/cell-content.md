@@ -23,7 +23,7 @@ The cell content is a flexible building block that can be used to build larger c
 
 **Cell content** — the building block for list rows and card content: a title, optional body and description, optional icon, image, badge or tag.
 
-**Not selected directly.** Rule 3: choose the container first — **Card** for a grouped block, **Tables** for tabular rows — then compose Cell content inside it. There is no `List` component in any library.
+**Not selected directly.** **Never select**: choose the container first — **Card** for a grouped block, **Tables** for tabular rows — then compose Cell content inside it. There is no `List` component in any library.
 
 ### When NOT to use
 

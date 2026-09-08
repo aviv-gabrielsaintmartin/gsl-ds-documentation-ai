@@ -8,7 +8,11 @@ Values: [typography-tokens.md](typography-tokens.md). Colour:
 
 ---
 
-## Rule 0 — Use a component; it already carries its type
+## Components first
+
+*Use a component; it already carries its type.*
+
+_**This rule precedes every other rule on this page.** The colour and spacing rulesets open with the same rule, under the same name — it is one rule stated where each ruleset needs it._
 
 Same rule as colour. A `<Button>`, `<Tag>`, `<FeedbackMessage>` or `<CellContent>`
 binds its own text style, correct in every brand. Reach for the component first.
@@ -16,7 +20,9 @@ Everything below applies only when you are setting type on your own markup.
 
 ---
 
-## Rule 1 — Never set font properties by hand
+## No hand-set fonts
+
+*Never set font properties by hand.*
 
 No `font-size`, `font-weight`, `line-height`, `font-family`, or `text-decoration`
 literals. Apply a **style token** — the properties travel together, and a
@@ -31,7 +37,9 @@ brands, so a style token is safe everywhere.
 
 ---
 
-## Rule 2 — There is no hierarchy ladder. Size by context.
+## Size by context
+
+*There is no hierarchy ladder. Size by context.*
 
 No H1→H5 mapping holds. Audited against real screens, a page's own title can
 render *smaller* than a section header further down the same page.
@@ -61,7 +69,9 @@ Observed pairings on real screens, to copy rather than derive:
 
 ---
 
-## Rule 3 — Start from the eleven styles components actually use
+## The eleven used styles
+
+*Start from the eleven styles components actually use.*
 
 These are the styles the design system exercises in real components. Prefer them:
 
@@ -83,7 +93,9 @@ These are the styles the design system exercises in real components. Prefer them
 
 ---
 
-## Rule 4 — Headline is bold-only
+## Headline is bold-only
+
+*Headline is bold-only.*
 
 Every `regular` headline weight — 22, 24, 28, 32 — exists solely to size
 `avatar`'s initials. None expresses a heading anywhere in the system.
@@ -95,7 +107,9 @@ not text styles.
 
 ---
 
-## Rule 5 — Do not use Display
+## No Display
+
+*Do not use Display.*
 
 **No component binds a Display style**, and none of three sampled product screens
 used one. If you reach for Display you are outside every precedent in the system.
@@ -104,7 +118,9 @@ For a large heading use `headline/32/bold`, the largest style with real use.
 
 ---
 
-## Rule 6 — For an inline link, use the decoration longhand
+## Inline link decoration
+
+*For an inline link, use the decoration longhand.*
 
 | Need | Token |
 | --- | --- |

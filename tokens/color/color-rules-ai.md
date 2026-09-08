@@ -9,7 +9,11 @@ from token names. Evidence and reasoning:
 
 ---
 
-## Rule 0 — Do not choose colours. Choose components.
+## Components first
+
+*Do not choose colours. Choose components.*
+
+_**This rule precedes every other rule on this page.** The spacing and typography rulesets open with the same rule, under the same name — it is one rule stated where each ruleset needs it._
 
 Colour in this system is decided by a component-token layer, not by the person
 writing the UI:
@@ -31,14 +35,18 @@ Everything below applies **only** to that remainder.
 
 ---
 
-## Rule 1 — Never write a raw colour
+## No raw colour
+
+*Never write a raw colour.*
 
 No hex, `rgb()`, `hsl()`, named CSS colour, or opacity-shifted variant. Every
 colour comes from a token. There are no exceptions in product UI.
 
 ---
 
-## Rule 2 — Pick the family by what you are painting
+## Pick the family
+
+*Pick the family by what you are painting.*
 
 | Painting | Family |
 | --- | --- |
@@ -47,13 +55,15 @@ colour comes from a token. There are no exceptions in product UI.
 | A stroke or outline | `Border/*` |
 | Text **and icons** | `Content/*` |
 | DPE / CO₂ domain data | `Scale/*` — **external team only, see [Never use](#never-use)** |
-| Error, information, success, warning | see [Rule 6](#rule-6--status-colour-belongs-to-messaging-and-only-error-is-interactive) |
+| Error, information, success, warning | see [**Status is messaging**](#status-is-messaging) |
 
 `Symbol/*` and `Native/*` never appear in generated web code — see [Never use](#never-use).
 
 ---
 
-## Rule 3 — Surface: pick the sub-family by what the element *is*
+## Surface sub-family
+
+*Surface: pick the sub-family by what the element *is*.*
 
 The three hover/pressed sub-families are not interchangeable. Each has a
 distinct, consistent meaning in real usage:
@@ -75,14 +85,16 @@ Then:
 | Sitting on a brand-primary fill | `surface.onPrimary.*` |
 | Sitting on a secondary fill | `surface.onSecondary.*` |
 | Must ignore brand and mode entirely | `surface.constant.{black,white}.*` |
-| Status fill | see [Rule 6](#rule-6--status-colour-belongs-to-messaging-and-only-error-is-interactive) — the tint/Strong distinction matters |
+| Status fill | see [**Status is messaging**](#status-is-messaging) — the tint/Strong distinction matters |
 
 **Selected states use `Interactive/Selected/*`.** Do not use `Surface/Active/*` —
 see [Restricted](#restricted).
 
 ---
 
-## Rule 4 — Border: pick by what the stroke belongs to
+## Border by owner
+
+*Border: pick by what the stroke belongs to.*
 
 | The stroke is on… | Token |
 | --- | --- |
@@ -123,7 +135,9 @@ substitute `Border/Focus`.
 
 ---
 
-## Rule 5 — Content covers text *and* icons
+## Content covers text and icons
+
+*Content covers text *and* icons.*
 
 | Element | Token |
 | --- | --- |
@@ -134,7 +148,7 @@ substitute `Border/Focus`.
 | Text on a dark, inverted, or filled surface | `content.default.inverted.default` |
 | Links and interactive text | `content.interactive.default` · `.hover` · `.pressed` |
 | Text on a brand-primary fill | `content.onPrimary.*` |
-| Status text | `content.status.<status>.default` — see [Rule 6](#rule-6--status-colour-belongs-to-messaging-and-only-error-is-interactive) |
+| Status text | `content.status.<status>.default` — see [**Status is messaging**](#status-is-messaging) |
 
 **Icons take Content tokens.** `Icon` renders with `fill: currentcolor` and a
 `color` prop, so an icon is painted by whatever Content token it inherits or is
@@ -143,7 +157,9 @@ affordance, `content.default.default` for a standalone icon.
 
 ---
 
-## Rule 6 — Status colour belongs to messaging, and only error is interactive
+## Status is messaging
+
+*Status colour belongs to messaging, and only error is interactive.*
 
 Two tiers. Do not mix them.
 
@@ -184,7 +200,9 @@ for a message background makes the text unreadable.
 
 ---
 
-## Rule 7 — Never pick a token by its light-mode colour
+## Never pick by light mode
+
+*Never pick a token by its light-mode colour.*
 
 **21 groups of tokens are identical in light mode and different in dark.** Ten of
 those groups contain multiple live tokens. Choosing by appearance — "I need
@@ -231,7 +249,9 @@ mode-fixed families, not from the collision itself.**
 
 ---
 
-## Rule 8 — Never borrow a state token for its colour
+## Never borrow a state token
+
+*Never borrow a state token for its colour.*
 
 **A `hover`, `pressed`, `selected` or `disabled` leaf may only be used for that
 state.** If an element has no pressed state, it must not bind a `.pressed`
@@ -261,11 +281,11 @@ The agent must never emit these.
 | Token / family | Count | Why |
 | --- | --- | --- |
 | `Symbol/*` — brand, disabled, skinColors | 22 | A design-authoring palette. Icons paint via `currentcolor` from Content; illustrations ship as pre-rendered `.webp` raster. No web runtime consumes it. |
-| `Border/Focus` | 1 | Focus rings use platform system colours (Rule 4). |
+| `Border/Focus` | 1 | Focus rings use platform system colours (**Border by owner**). |
 | `Native/*` | — | iOS/Android only. |
 | `Surface/Decorative/*` | 2 | One live binding (`rating`), a documented exception with no general rule. For a rating display use `<Rating>`. |
 | `Scale/*` — energy, CO₂ | 19 | Consumed by an external team, not by any GSL component. |
-| Status leaves unreachable under Rule 6 | 13 | `…Strong.{hover,pressed}` for information/success/warning, `border.status.{information,success,warning}.default`, `content.status.*.inverted.default`. Only error is interactive; status is never inverted. |
+| Status leaves unreachable under **Status is messaging** | 13 | `…Strong.{hover,pressed}` for information/success/warning, `border.status.{information,success,warning}.default`, `content.status.*.inverted.default`. Only error is interactive; status is never inverted. |
 | Everything else with no consumer | 28 | No component uses it and no rule explains it — there is no precedent for what it means. |
 
 **83 of the 218 tokens have no consumer**: 22 `Symbol/*`, 19 `Scale/*`, 13

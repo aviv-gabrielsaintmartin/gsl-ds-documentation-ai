@@ -43,12 +43,12 @@ conversation.
 the scorecard — delete it rather than justify it.
 
 **The scorecard is never stricter than the ruleset it enforces.** Typography
-Rule 3 says *prefer* these eleven styles, not *only* these — so a twelfth style
+Typography's **The eleven used styles** says *prefer* these eleven, not *only* these — so a twelfth style
 is a flag, never a failure. If a gap is found this way it is a **ruleset defect**
 and gets fixed in the ruleset, not worked around here.
 
 **Never score against unverified rules.** `C6 · Layout` is defined and switched off
-because `spacing-rules-ai.md` Rules 6 and 7 mark themselves unverified. A number
+because spacing's **Container padding** and **Page rhythm** mark themselves unverified. A number
 with no evidence under it is worse than an acknowledged gap.
 
 ## Two things not to confuse

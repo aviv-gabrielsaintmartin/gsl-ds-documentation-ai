@@ -9,9 +9,29 @@ inventory: [components.md](components.md)._
 This page is written for machine consumption. Each section maps a design
 decision to one component.
 
+**The six rules, in precedence order.** Apply them in this order and stop at the
+first that decides your case. The rules have names rather than numbers, because a
+number encoded nothing this list does not already state.
+
+**Precedence order is not page order.** **Which component** appears second on
+the page because it is the bulk of the ruleset, but **Platform limits** is
+checked before it: a component unavailable on your target platform is not a
+candidate, however well it fits the problem.
+
+| Rule | Decides |
+| --- | --- |
+| **Highest tier first** | Am I about to rebuild something that already exists one tier up? |
+| **Platform limits** | Is this component available on my target platform? |
+| **Which component** | Which control solves this problem? |
+| **Never select** | Is this even mine to place? |
+| **The inventory** | Does the component I have in mind exist at all? |
+| **When nothing fits** | Nothing fits — what now? |
+
 ---
 
-## Rule 0 — Reach for the highest tier that fits
+## Highest tier first
+
+*Reach for the highest tier that fits.*
 
 GSL is four Figma libraries, in increasing order of assembly:
 
@@ -31,19 +51,19 @@ whether a Pattern or an Experience already is the thing you are about to build.
 | A step-by-step flow | `Wizard` (Pattern) | composed | `Tabs` · `Progress Bar` |
 | A phone input with a country prefix | `Phone Number Field` (Experience) | composed | `Text Field` · `Dropdown` |
 | An empty / error / success / loading screen | `Info State` (Pattern) | **container** | — it is a shell with content slots, not an assembly of components |
-| A map screen | `Map template` (Experience) | **all-or-nothing** | — used whole or not at all. Its pin sets are Rule 3 never-select |
-| A data grid | `Table` (Experience) | **container** | `Cell Content` rows inside a shell. **Figma-ready, web in progress** — see Rule 2 |
+| A map screen | `Map template` (Experience) | **all-or-nothing** | — used whole or not at all. Its pin sets are **Never select** never-select |
+| A data grid | `Table` (Experience) | **container** | `Cell Content` rows inside a shell. **Figma-ready, web in progress** — see **Platform limits** |
 | A floor picker | `Floor selection` (Experience) | unresolved | `Counter Field` — one part only. Open question |
 | A more flexible property summary than Listing Card allows | `Listing summary` (Experience) | unresolved | — ⚠︎ undescribed, see audit |
 | A price estimation block | `Estimation card` (Experience) | unresolved | — ⚠︎ undescribed, see audit |
 
 **The Parts column is for a checker, not for you.** It lists what a hand-built
 imitation would be assembled *from*, so a compliance check can detect one. Never
-read it as a recipe — the whole point of Rule 0 is that you use the higher-tier
+read it as a recipe — the whole point of **Highest tier first** is that you use the higher-tier
 component instead of assembling anything.
 
-Part names are exact inventory names from Rule 4. A part may be a Rule 3
-never-select component: Rule 3 governs what you may **choose**, while this column
+Part names are exact inventory names from **The inventory**. A part may be a **Never select**
+never-select component: **Never select** governs what you may **choose**, while this column
 describes what an imitation would **contain**. Different questions.
 
 ### Two kinds of higher-tier component
@@ -51,54 +71,56 @@ describes what an imitation would **contain**. Different questions.
 The distinction matters because only the first kind can be detected by counting
 parts.
 
-| Kind | What it is | Rule 0 still applies? | Detectable by counting parts? |
+| Kind | What it is | **Highest tier first** still applies? | Detectable by counting parts? |
 | --- | --- | --- | --- |
 | **Composed** | Assembled from public components | yes | **yes** — the four rows above |
 | **Container** | A shell you place content into. `Info State` is closer to a modal with prescribed content than to an assembly | yes | no — there is no characteristic set of parts to count |
 | **All-or-nothing** | Used whole or not at all. A partial `Map template` is not a realistic build | yes | no — there is no partial composition to detect |
 
-For the container and all-or-nothing kinds, **Rule 0 is still the rule** — you
+For the container and all-or-nothing kinds, **Highest tier first is still the rule** — you
 must still reach for the existing component. It simply cannot be enforced by a
 parts count, and `C2 · Tier ceiling` says so rather than passing them silently.
 
 Composing from a lower tier when a higher-tier component exists is the single
-most common compliance failure. Rule 1 below is flat by design — it answers
-"which control", not "which tier". **Rule 0 wins over Rule 1 whenever both
-apply.**
+most common compliance failure. **Which component** below is flat by design — it answers
+"which control", not "which tier". **Highest tier first wins over Which
+component whenever both apply.**
 
-**What Rule 0 does not cover.** It fires when you would be rebuilding the
-higher-tier component *in full*. It does not fire when Rule 1 deliberately routes
+**What Highest tier first does not cover.** It fires when you would be rebuilding the
+higher-tier component *in full*. It does not fire when **Which component** deliberately routes
 you to a **lighter** component for a smaller version of the same job. These are
 not violations:
 
-| Rule 1 sends you to | Rather than | Because |
+| **Which component** sends you to | Rather than | Because |
 | --- | --- | --- |
 | `Chip group` | `Filter bar` | Inline filters with no dropdown panels — not a structured multi-criteria panel |
 | `Pop-up` | `Modal bottom sheet` | A small amount of content |
 | `Tabs` | `Wizard` | Independent sections, not sequential steps |
 
-When Rule 0's table and a Rule 1 *Otherwise* branch both match, and the Rule 1
+When **Highest tier first**'s table and a **Which component** *Otherwise* branch both match, and the **Which component**
 branch names a **simpler** component for an explicitly **lighter** case, follow
-Rule 1.
+**Which component**.
 
-**The operational test — count the parts.** Rule 0 fires when your build would
+**The operational test — count the parts.** **Highest tier first** fires when your build would
 need **two or more** of the higher-tier component's own moving parts. One part
-alone is the lighter case, and Rule 1 wins.
+alone is the lighter case, and **Which component** wins.
 
 **This test applies to the composed kind only.** For a container or
-all-or-nothing component there are no parts to count, and Rule 0 applies
+all-or-nothing component there are no parts to count, and **Highest tier first** applies
 regardless of how much of it you were about to rebuild.
 
 | You would build | Parts | Rule |
 | --- | --- | --- |
-| Filter controls **and** dropdown panels **and** applied-state handling | 3 | **Rule 0** → `Filter bar` |
-| A row of filter chips, nothing else | 1 | **Rule 1** → `Chip group` |
-| Sequential steps **and** progress **and** step gating | 3 | **Rule 0** → `Wizard` |
-| Switchable sections, no sequence | 1 | **Rule 1** → `Tabs` |
+| Filter controls **and** dropdown panels **and** applied-state handling | 3 | **Highest tier first** → `Filter bar` |
+| A row of filter chips, nothing else | 1 | **Which component** → `Chip group` |
+| Sequential steps **and** progress **and** step gating | 3 | **Highest tier first** → `Wizard` |
+| Switchable sections, no sequence | 1 | **Which component** → `Tabs` |
 
 ---
 
-## Rule 1 — Choose by the problem being solved
+## Which component
+
+*Choose by the problem being solved.*
 
 Find the row whose **When** matches your situation. If your situation differs,
 follow **Otherwise**. Organised by problem, not by component category.
@@ -106,14 +128,14 @@ follow **Otherwise**. Organised by problem, not by component category.
 **When an intent matches more than one row**, apply in this order and stop at the
 first that decides it:
 
-1. **Rule 0** — a Pattern or Experience already is the whole thing. Wins outright.
-2. **Rule 2** — a platform limit forbids the obvious answer.
+1. **Highest tier first** — a Pattern or Experience already is the whole thing. Wins outright.
+2. **Platform limits** — a platform limit forbids the obvious answer.
 3. **The narrower trigger wins.** "Filtering a SERP with structured panels"
    beats "multi-select outside a form"; "a date" beats "single-line input".
 4. **Inside a form beats outside it.** Form context selects the form component
    (`Checkbox group` over `Chip group`, `Radio button group` over
    `Segmented control`).
-5. Still tied → pick either and **declare the tie** under Rule 5.
+5. Still tied → pick either and **declare the tie** under **When nothing fits**.
 
 ### Triggering actions
 
@@ -190,10 +212,10 @@ first that decides it:
 | **Divider** | Visually separating content sections or list items where spacing alone is insufficient | — |
 | **Text button** | Revealing more content in place — "Read more" under truncated text, "Show all 12 photos" | The control leaves the page → **Link** · The content collapses back into a persistent expandable list → **Accordion** |
 | **A list you lay out yourself, of `Cell content` rows** | A plain list — settings, an index, a menu — that is neither one grouped visual block nor tabular data. **There is no `List` component in any library; laying the rows out yourself is the intended pattern, not a workaround** | The rows are tabular and comparable → **Tables** · The rows belong inside one visual container → **Card** · The whole block is a single action → **Button card** · Every row carries an immediate on/off setting → **Toggle group** |
-| **Carousel** | Users browse a horizontal collection of items one by one. **Web only** | All items should be visible simultaneously → a grid layout, **not a component** — see Rule 2 |
+| **Carousel** | Users browse a horizontal collection of items one by one. **Web only** | All items should be visible simultaneously → a grid layout, **not a component** — see **Platform limits** |
 
 `Cell content` is **not a choice** — it is a composition slot inside Cards and
-lists. See Rule 3.
+lists. See **Never select**.
 
 ### Navigating between pages and sections
 
@@ -202,7 +224,7 @@ lists. See Rule 3.
 | **Tabs** | Organising related content at the same hierarchy level into switchable views | Switching view modes within a single content area → **Segmented control** · Steps must be completed in sequence → **Wizard** · Switching between top-level destinations → **Navigation bar** |
 | **Wizard** | Guiding users through a sequential multi-step process | Sections are independent and non-sequential → **Tabs** · Showing task completion without step-by-step input → **Progress bar** |
 | **Breadcrumb** | Showing hierarchical location and allowing navigation up the hierarchy. **Web only** | The primary need is page title and actions → **Top bar** · Top-level global navigation → **Navigation bar** |
-| **Pagination** | Dividing large result sets into numbered pages. **Web only** | Mobile and apps → infinite scroll, a **behaviour, not a component** — see Rule 2 |
+| **Pagination** | Dividing large result sets into numbered pages. **Web only** | Mobile and apps → infinite scroll, a **behaviour, not a component** — see **Platform limits** |
 | **Top bar** | Page-specific title, context, and actions | Global site navigation → **Navigation bar** |
 | **Navigation bar** | Global navigation to top-level site destinations (web) | Sub-pages and flows → **Top bar** · In-app navigation → **Navigation Bar (App)**, mobile only |
 
@@ -241,12 +263,14 @@ lists. See Rule 3.
 
 ---
 
-## Rule 2 — Platform limits override Rule 1
+## Platform limits
 
-Rule 1 assumes web unless stated. These constraints win over it.
+*Platform limits override **Which component**.*
+
+**Which component** assumes web unless stated. These constraints win over it.
 
 **The policy: use a component on a platform where it exists.** Where it does not
-exist on your target platform, it is not available to you, whatever Rule 1 says.
+exist on your target platform, it is not available to you, whatever **Which component** says.
 
 Where to find out whether it exists:
 
@@ -280,7 +304,7 @@ use `To Do`, `To-do`, `WIP`, `In progress`, `Partially available` and
 | `Footer` | Figma only — not built. Do not generate it |
 | `Tab Bar` | Mid-refactor. Use `Tabs` |
 
-**Two things Rule 1 names that are not components.** Do not search the libraries
+**Two things **Which component** names that are not components.** Do not search the libraries
 for them:
 
 | Named as | What it actually is |
@@ -290,7 +314,9 @@ for them:
 
 ---
 
-## Rule 3 — Never select these
+## Never select
+
+*Never select these.*
 
 Present in the libraries, but never a design decision. Selecting one puts
 platform chrome, a brand asset, or another component's internals into a product
@@ -310,11 +336,13 @@ screen.
 
 ---
 
-## Rule 4 — The full inventory
+## The inventory
+
+*The full inventory of every component in the four libraries.*
 
 Every component in the four libraries. **A name absent from this table does not
 exist** — do not invent one. A row marked *no doc* exists in Figma but has no
-usage documentation yet; you may still select it if Rule 1 or Rule 0 points there.
+usage documentation yet; you may still select it if **Which component** or **Highest tier first** points there.
 
 #### Components library
 
@@ -436,13 +464,15 @@ usage documentation yet; you may still select it if Rule 1 or Rule 0 points ther
 
 ---
 
-## Rule 5 — When nothing fits
+## When nothing fits
+
+*What to do when nothing fits.*
 
 Compliance means **reuse before invention**, not never inventing.
 
-1. Re-check Rule 0. Most "nothing fits" cases are a Pattern or Experience that
+1. Re-check **Highest tier first**. Most "nothing fits" cases are a Pattern or Experience that
    was not searched for.
-2. Re-check Rule 4 for a component with no doc — 25 selectable components exist
+2. Re-check **The inventory** for a component with no doc — 25 selectable components exist
    in Figma with no usage page, and absence of a doc is not absence of the
    component.
 3. If nothing still fits, **compose from existing Components** using the token
@@ -450,7 +480,7 @@ Compliance means **reuse before invention**, not never inventing.
    [typography](../tokens/typography/typography-rules-ai.md),
    [spacing](../tokens/spacing/spacing-rules-ai.md). Never hand-style something
    a component already does.
-4. **Declare it.** State, in the output: what you built, which problem in Rule 1
+4. **Declare it.** State, in the output: what you built, which problem in **Which component**
    it belongs under, and which existing components you ruled out and why.
 
 An undeclared new component is a compliance failure even when it looks right.

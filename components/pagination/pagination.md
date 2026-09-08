@@ -30,7 +30,7 @@ The pagination component is only used on the web. On iOS/Android, we recommend u
 
 | Instead, when… | Use |
 | --- | --- |
-| Mobile and apps | **infinite scroll, a behaviour, not a component — see Rule 2** |
+| Mobile and apps | **infinite scroll, a behaviour, not a component — see Platform limits** |
 
 ### Variant Selection Flow
 

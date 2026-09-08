@@ -54,7 +54,7 @@ Not documented
 
 ### Related Components
 
-**No overlapping component.** Nothing else in the system covers representing a user, agent, agency or seeker. Avatar is chosen directly — see [components-rules-ai.md](../components-rules-ai.md) Rule 1, *Identity and media*.
+**No overlapping component.** Nothing else in the system covers representing a user, agent, agency or seeker. Avatar is chosen directly — see [components-rules-ai.md](../components-rules-ai.md) **Which component**, *Identity and media*.
 
 ---
 

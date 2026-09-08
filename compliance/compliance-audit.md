@@ -20,10 +20,10 @@ The three source rulesets and their enforceable sections:
 
 | Ruleset | Sections a checker can act on |
 | --- | --- |
-| `components/components-rules-ai.md` | Rule 0 tier order · Rule 3 never-select list · Rule 4 inventory · Rule 5 declaration |
-| `tokens/color/color-rules-ai.md` | Rule 1 no raw colour · *Never use* (7 rows + 28 enumerated) · *Restricted* (3 cases) |
-| `tokens/spacing/spacing-rules-ai.md` | Rule 0 never override component padding · Rule 1 no pixel literal · *Do not use* (7 tokens) |
-| `tokens/typography/typography-rules-ai.md` | Rule 1 no hand-set font properties · Rule 3 the eleven used styles · Rule 5 no Display |
+| `components/components-rules-ai.md` | **Highest tier first** · **Never select** · **The inventory** · **When nothing fits** |
+| `tokens/color/color-rules-ai.md` | **No raw colour** · *Never use* (7 rows + 28 enumerated) · *Restricted* (3 cases) |
+| `tokens/spacing/spacing-rules-ai.md` | **Components first** · **No pixel literals** · *Do not use* (7 tokens) |
+| `tokens/typography/typography-rules-ai.md` | **No hand-set fonts** · **The eleven used styles** · **No Display** |
 
 ## Why the scorecard is platform-neutral, and the checkers are not
 
@@ -152,7 +152,7 @@ percentage. A percentage never appears before a gate it could disguise.
 **Decided 2026-09-08 by Gabriel**, for a better reason than the one proposed.
 
 The recommendation was to flag because *a scorecard must not be stricter than
-the ruleset it enforces* — typography Rule 3 says "prefer these eleven styles",
+the ruleset it enforces* — typography's **The eleven used styles** says "prefer these eleven styles",
 not "only these", so failing style twelve would blame the agent for reading the
 documentation correctly.
 
@@ -172,7 +172,7 @@ the knowledge base.
 
 ## Why `C2 · Tier ceiling` needs data that does not exist yet
 
-**Decided 2026-09-08 by Gabriel:** C2 must be machine-detectable, and hand-built
+**Decided 2026-09-08 by Gabriel:** `C2 · Tier ceiling` must be machine-detectable, and hand-built
 or new components must be flagged. Correct, and the mechanism took a wrong turn
 first.
 
@@ -185,15 +185,15 @@ higher-tier component's parts. They cannot:
 | **Incomplete** | Only 5 of 11 Experiences, 10 of 21 Patterns and 18 of 61 Components record sub-components at all |
 | **Inconsistent** | `Map template` mixes public (`Image Slider`, `Tag`) with private, and carries a stale entry marked `❌ … (outdated)` |
 
-What C2 actually needs is small: **a machine-readable parts column on Rule 0's
-ten rows.** The information already exists as prose in the ruleset — *"A property
+What `C2 · Tier ceiling` actually needs is small: **a machine-readable parts
+column on the ten Highest tier first rows.** The information already exists as prose in the ruleset — *"A property
 summary card from Card + Image slider + Tag + Price"* — and needs only to become
 data. Ten rows.
 
 This is a dependency on the components ruleset, not on the registries, and it is
-the one thing blocking C2 from running.
+the one thing blocking `C2 · Tier ceiling` from running.
 
-The false-positive problem is solved differently, and better: **C5 decides what a
+The false-positive problem is solved differently, and better: **`C5 · Declaration` decides what a
 detection means.** Composition detected with no declaration is a hard fail;
 composition detected with a declaration naming what was ruled out is a flag for
 review. The checker never has to answer "is this secretly a Listing Card?" — it
@@ -211,8 +211,8 @@ objection does not apply where the rule already states the number:
 | --- | --- |
 | `C3 · Token binding` = 100% bound | No — "never write a pixel literal", "never write a raw colour" |
 | `C4 · Authorisation` = 0 deny-listed | No — the *Never use* tables |
-| `C5 · Declaration` = 100% declared | No — Rule 5 |
-| `C2 · Tier ceiling` = 0 undeclared compositions | No — Rule 0 + Rule 5 |
+| `C5 · Declaration` = 100% declared | No — **When nothing fits** |
+| `C2 · Tier ceiling` = 0 undeclared compositions | No — **Highest tier first** + **When nothing fits** |
 | `C1 · Provenance` = no regression | Nothing to derive, so nothing invented — run 1 sets the baseline |
 
 So every threshold in the scorecard either comes from a rule or is a ratchet.
@@ -220,7 +220,7 @@ None is a guess.
 
 ## Why `C6 · Layout` ships switched off
 
-`spacing-rules-ai.md` Rules 6 and 7 do document page composition — container
+spacing's **Container padding** and **Page rhythm** do document page composition — container
 padding, and outer margin, section gap, card-grid gap and form-field gap per
 viewport tier. Six of the nine pieces a layout check needs are already there.
 
@@ -230,7 +230,7 @@ be checked. Follow them as the documented intent, but they do not carry the same
 evidence as Rules 3–5."*
 
 Scoring against them would produce a number with no evidence under it — the exact
-failure the token audits were run to prevent. C6 is therefore defined in full and
+failure the token audits were run to prevent. `C6 · Layout` is therefore defined in full and
 explicitly inactive, so that the gap is visible rather than silently unmeasured.
 
 This also revised the plan. **Block 3 · Layout** was scoped as *write the missing layout
@@ -254,14 +254,14 @@ alternative was `-log`, a seventh suffix for a distinction nobody would act on.
 | --- | --- |
 | **A single overall compliance percentage** | Averaging six unrelated checks hides the one that matters. A screen at "91%" tells you nothing about whether it contains platform chrome |
 | **Scoring quality alongside compliance** | Different kinds of question. A blended score would be trusted by nobody and would quietly make the human judgment look optional |
-| **Deriving checks from what is easy to measure** | C3 is trivial to check and C2 is where real failures live. Building the scorecard around what a script can see easily would have measured everything except the thing that matters |
+| **Deriving checks from what is easy to measure** | `C3 · Token binding` is trivial to check and `C2 · Tier ceiling` is where real failures live. Building the scorecard around what a script can see easily would have measured everything except the thing that matters |
 | **Letting the scorecard be stricter than the rulesets** | It would blame the agent for correctly following the documentation. Any gap found this way is a ruleset defect and gets fixed there |
 | **Waiting for the Figma agent before defining compliance** | The original plan's order. An agent built first has nothing to aim at, and its first output gets judged by eye — the human bottleneck this project exists to remove |
-| **Scoring C6 against Rules 6 and 7 as they stand** | They are marked unverified by their own ruleset. A number with no evidence under it is worse than an acknowledged gap |
+| **Scoring `C6 · Layout` against Rules 6 and 7 as they stand** | They are marked unverified by their own ruleset. A number with no evidence under it is worse than an acknowledged gap |
 | **Writing the scorecard as a Figma checker specification** | The first draft did this. It put plugin-API vocabulary and Figma node IDs into a repo whose purpose is one platform-neutral truth consumed by several agents. Split into a neutral scorecard plus per-platform adapters |
 | **Scoring a check `0%` when a platform cannot supply its facts** | A zero reads as *the output failed*. It would blame generated output for a gap in the adapter. Such a check reports `unavailable` |
 | **Referring to checks by number alone** | Six two-character codes are not memorable. A report nobody can read cold is not a report |
-| **Using `exposedSubComponents` as C2's parts list** | Wrong kind of data — private internal slots, not the public components an imitation would contain — and present for fewer than half the registry entries |
+| **Using `exposedSubComponents` as the `C2 · Tier ceiling` parts list** | Wrong kind of data — private internal slots, not the public components an imitation would contain — and present for fewer than half the registry entries |
 
 ## Open questions
 
@@ -270,7 +270,7 @@ the same day**; the sixth moved out of this repo with the platform split.
 
 | # | Question | Answer |
 | --- | --- | --- |
-| 1 | Where does Rule 0 parts list live — the ruleset, or a separate data file? | **`components-rules-ai.md` Rule 0.** `Card`, `Image Slider`, `Tag` are design-system names, so the list is platform-neutral and belongs with the rule it serves. Answered by the platform split |
+| 1 | Where does the parts list live — the ruleset, or a separate data file? | **In `components-rules-ai.md`, with Highest tier first.** `Card`, `Image Slider`, `Tag` are design-system names, so the list is platform-neutral and belongs with the rule it serves. Answered by the platform split |
 | 2 | Where does the checker run? | **The consuming agent repo**, as a platform adapter. Also answered by the platform split — the checker is a *how*, and every *how* lives with its tool |
 | 3 | Can a Figma file report bound values reliably enough for `C3 · Token binding`? | **No longer this repo question.** It is a Figma-adapter concern and moves out with the adapter. What stays here is the requirement that the fact be reportable at all |
 | 4 | What counts as one run? | **One output** — whatever the agent produced from a single wireframe and brief, even if that is three screens. Refined during the discussion: **no-regression compares runs of the same wireframe only**, because comparing a search results page against a form measures the difficulty of the brief, not the compliance of the output |
@@ -291,6 +291,6 @@ the same day**; the sixth moved out of this repo with the platform split.
    implementable is not the same as being correct.
 3. **`C1 · Provenance` has no denominator until there is a run.** "Local builds
    that duplicate an existing component" requires knowing which locals duplicate
-   something, which is `C2 · Tier ceiling` parts list. Until **Block 2a · Rule 0
+   something, which is `C2 · Tier ceiling`'s parts list. Until **Block 2a · Tier
    parts list** lands,
    `C1 · Provenance` can count hard fails but not produce a percentage.

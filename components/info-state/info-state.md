@@ -28,7 +28,7 @@ Info states are used to communicate system status, errors, or other relevant inf
 
 **Info state** — full-area states — empty, error, success, loading.
 
-**Pattern**-tier component. Rule 0: do not compose an empty/error/loading screen from Illustration + Text + Button — this component already is it.
+**Pattern**-tier component. **Highest tier first**: do not compose an empty/error/loading screen from Illustration + Text + Button — this component already is it.
 
 ### When NOT to use
 

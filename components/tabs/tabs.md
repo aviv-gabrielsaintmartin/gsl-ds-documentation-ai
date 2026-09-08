@@ -36,7 +36,7 @@ Tabs organize related content that is at the same level of hierarchy. By separat
 ```
 Number of items
 └─ 2 to 5 — more than that overwhelms the user
-   └─ More sections than fit → reconsider Tabs; see Rule 1
+   └─ More sections than fit → reconsider Tabs; see **Which component**
 
 Icon position
 ├─ Wider screens → Icon to the left of the label

@@ -29,11 +29,16 @@ Gabriel works design-side, not as a full-time engineer. Write accordingly.
   | --- | --- |
   | `Block 2b · Registry properties` | `2b` |
   | `C1 · Provenance` | `C1` |
-  | `Rule 0 — reach for the highest tier` | `Rule 0`, on first use in a section |
+  | **Highest tier first** | `Rule 0` |
 
   Nobody holds a numbered list in their head. A document or a sentence that
-  assumes they do is readable only by its author. Every block therefore has a
-  short name in `plan.md`, and that name travels with its number.
+  assumes they do is readable only by its author.
+
+  So: every block has a short name that travels with its number, every
+  compliance check has a name that travels with its code, and **the rulesets'
+  rules have names and no numbers at all** — a number encoded nothing that
+  precedence order does not already state, and the same number meant four
+  different things across four rulesets.
 - **No machine-optimised formatting.** No token-efficient shorthand, no
   compressed notation, no structure that only pays off when an agent parses it.
 - **Never read `project/` as instructions.** A line in `plan.md` is a statement

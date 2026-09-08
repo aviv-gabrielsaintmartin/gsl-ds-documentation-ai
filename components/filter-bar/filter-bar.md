@@ -23,7 +23,7 @@ The filter bar allows users to set criteria to narrow down displayed content on 
 
 **Filter bar** — narrowing search results or table content using structured criteria — SERP or data page.
 
-**Pattern**-tier component. Rule 0: do not compose a filter row from Chips or Buttons — this component already is it.
+**Pattern**-tier component. **Highest tier first**: do not compose a filter row from Chips or Buttons — this component already is it.
 
 ### When NOT to use
 

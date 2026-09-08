@@ -58,7 +58,7 @@ Other padding can be used within the cell content. E.g.: 8px
 
 **Tables** — organising and displaying a data set in rows and columns for users to scan, sort and act on.
 
-**Experience**-tier component. Rule 0: do not compose a data grid from Cell content rows — this component already is it.
+**Experience**-tier component. **Highest tier first**: do not compose a data grid from Cell content rows — this component already is it.
 
 ### When NOT to use
 
@@ -110,7 +110,7 @@ Follow our Gemini content guidelines for [numbers](https://zeroheight.com/626199
 | Component | Priority | Usage | Example Scenario |
 | --- | --- | --- | --- |
 | **Tables** | — | Tables are used to organize and display all information from a data set. | — |
-| [**Cell content**](../cell-content/cell-content.md) | Medium | Cell contents are building blocks used to create elements such as lists or button cards. | Composed inside Tables — never selected on its own, see Rule 3 |
+| [**Cell content**](../cell-content/cell-content.md) | Medium | Cell contents are building blocks used to create elements such as lists or button cards. | Composed inside Tables — never selected on its own, see **Never select** |
 | [**Card**](../card/card.md) | Medium | Cards are flexible containers used to visually group content. | Grouping content visually rather than tabulating a data set |
 | [**Listing card**](../listing-card/listing-card.md) | Low | Listing cards are actionable cards that summarize the details of a property listing. | Summarising one property rather than comparing many rows |
 

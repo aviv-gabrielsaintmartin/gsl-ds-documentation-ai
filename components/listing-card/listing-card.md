@@ -23,7 +23,7 @@ Listing cards are summaries of properties used as calls to action. Depending on 
 
 **Listing card** — an actionable card summarising a property listed on an AVIV Group website.
 
-**Experience**-tier component. Rule 0: do not compose a property summary card from Card + Image slider + Tag + Price — this component already is it.
+**Experience**-tier component. **Highest tier first**: do not compose a property summary card from Card + Image slider + Tag + Price — this component already is it.
 
 ### When NOT to use
 
