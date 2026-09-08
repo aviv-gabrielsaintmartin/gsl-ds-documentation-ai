@@ -61,12 +61,19 @@ Learn these five and any filename in the repo explains itself.
 | `-audit.md` | **The evidence.** Why the ruleset says what it says, what was rejected, what is still open | a human, from the ledger | **never** |
 | `-ledger.md` | **The raw evidence table** the audit was built from | **a script** | never — and never edit it, re-run the script |
 | `-eval.md` | **The check on the ruleset** — test intents, expected answers, and the run log | a human | no — it is the test, not the rules |
+| `-scorecard.md` | **The check on generated output** — how a produced screen is judged, and the run log | a human | no — it is the test, not the rules |
 
 The distinction that matters most:
 
 > **A page says what exists. A ruleset says what you're allowed to use.**
 > An agent that reads the page instead of the ruleset will build on tokens the
 > audit already rejected.
+
+And the distinction between the two kinds of check:
+
+> **An `-eval` judges a ruleset. A `-scorecard` judges output.**
+> The eval asks "would an agent reading this reach the right answer?" The
+> scorecard asks "is this screen compliant?".
 
 Two honest inconsistencies, so you aren't confused when you meet them:
 
@@ -86,8 +93,9 @@ Two honest inconsistencies, so you aren't confused when you meet them:
 | | `tokens/radius/radius-usage-audit.md` | | |
 | | `tokens/shadow/shadow-usage-audit.md` | | |
 | | `tokens/color/surface-border-combination-audit.md` — draft, not yet a ruleset | | |
+| | `compliance/compliance-audit.md` | `compliance/compliance-flag-ledger.md` | `compliance/compliance-scorecard.md` |
 
-Four rulesets, seven audits, three ledgers, one eval.
+Four rulesets, eight audits, four ledgers, one eval, one scorecard.
 
 ---
 
@@ -130,8 +138,9 @@ runs this way.
 | `tokens/` | 12 token categories — colour, typography, spacing, radius, shadow, and 7 more. Every one checked against real component usage | [tokens/tokens.md](tokens/tokens.md) |
 | `components/` | 53 component docs, one folder each with a self-contained `images/`. Plus the ruleset, audit and eval | [components/components.md](components/components.md) |
 | `figma/` | 7 registry JSON files — the identity of every Figma component, token and icon. Keys, node IDs, variant counts | `.claude/rules/figma-registries.md` |
+| `compliance/` | How generated output is judged — six checks, what fails outright, and the run log. Read by a **checking** agent, not a generating one | [compliance/compliance-scorecard.md](compliance/compliance-scorecard.md) |
 
-A third pillar, `layout/`, is planned but does not exist yet — see
+A further pillar, `layout/`, is planned but does not exist yet — see
 [project/plan.md](project/plan.md). Page composition is currently the one
 decision an agent has to make with no documentation behind it.
 
@@ -140,7 +149,7 @@ decision an agent has to make with no documentation behind it.
 | Path | What's there |
 | --- | --- |
 | `CLAUDE.md` | Instructions for agents working in this repo. Not a human document |
-| `.claude/rules/` | 4 path-scoped rule files — for `tokens/`, `figma/`, `components/`, and `project/`. Each loads automatically when an agent opens a file in that folder |
+| `.claude/rules/` | 5 path-scoped rule files — for `tokens/`, `figma/`, `components/`, `compliance/` and `project/`. Each loads automatically when an agent opens a file in that folder |
 | `.claude/skills/` | 6 skills — the repeatable workflows. See below |
 | `project/` | The plan, the decision log, and one brief per building block. **Human-first** |
 | `tokens/scripts/` | 4 Python scripts. They only ever *read* the design-system code repo. Re-run them to refresh the evidence |
