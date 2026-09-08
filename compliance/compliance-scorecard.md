@@ -330,13 +330,27 @@ The checker never has to answer *"is this secretly a Listing Card?"*, which need
 a human. It only answers *"did the agent say what it was doing?"*, which does
 not.
 
-**Dependency, not yet satisfied.** Rule 0's ten rows state their parts in prose —
-*"a property summary card from Card + Image slider + Tag + Price"* — but not as
-data. This check cannot run until those rows carry a machine-readable parts list.
+### Coverage — this check reaches 4 of Rule 0's 10 rows
 
-That list is **platform-neutral** — `Card`, `Image Slider`, `Tag` are
-design-system names — so it belongs in `components-rules-ai.md`, not in an
-adapter.
+Rule 0 now carries a machine-readable **Parts** column, so the check can run. It
+does not cover every row, and reports which it skipped rather than passing them
+silently.
+
+| Kind | Rows | Covered? |
+| --- | --- | --- |
+| **Composed** — assembled from public components | `Listing Card` · `Filter bar` · `Wizard` · `Phone Number Field` | **yes** |
+| **Container** — a shell with content slots | `Info State` · `Table` | no — no characteristic parts to count |
+| **All-or-nothing** — used whole or not at all | `Map template` | no — no partial composition exists to detect |
+| **Unresolved** | `Floor selection` · `Listing summary` · `Estimation card` | no — open questions in `components-audit.md` |
+
+**Rule 0 still applies to all ten.** Six simply cannot be enforced by counting
+parts. A report must state coverage as *4 of 10 rows checked*, never imply the
+whole rule was enforced.
+
+**Detecting a rebuilt container is unsolved.** Nothing currently catches an
+agent that hand-builds an empty state instead of using `Info State`, because
+there is no part set that characterises one. It needs a different mechanism, and
+none is designed.
 
 **What this check cannot see** — a composition of exactly one part. By the
 ruleset's own threshold that is Rule 1 territory, not a Rule 0 violation.
@@ -448,7 +462,7 @@ ones.
 **Does the page composition follow the documented rhythm?**
 
 Defined so it is not forgotten. **Not scored, and not reported as a percentage,
-until block 3 completes.**
+until **Block 3 · Layout** completes.**
 
 | | |
 | --- | --- |
@@ -463,7 +477,7 @@ Follow them as the documented intent, but they do not carry the same evidence as
 Rules 3–5."*
 
 Scoring against unverified rules manufactures confidence the evidence does not
-support. Block 3 verifies them against real product screens; this check
+support. **Block 3 · Layout** verifies them against real product screens; this check
 activates then, and this section says so rather than quietly scoring anyway.
 
 ---
@@ -516,7 +530,7 @@ Stated plainly so a passing score is not mistaken for a good screen.
 | Whether the **right** authorised token was chosen | Nothing yet |
 | Whether the screen is **usable** | Human |
 | Whether the screen is **good** | Human — the quality bar, undocumented by design |
-| Page composition | `C6 · Layout`, inactive until block 3 |
+| Page composition | `C6 · Layout`, inactive until **Block 3 · Layout** |
 | Copy and tone | Nothing yet — `Content & UX Writing` is empty in 15 of 57 component docs |
 | Accessibility beyond token choice | Nothing yet — `Accessibility (a11y)` is empty in 51 of 59 component docs |
 

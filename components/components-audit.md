@@ -259,6 +259,19 @@ Each needs Gabriel's answer before the affected rule can be written.
     knows they exist, but nothing routes it there by intent. This is the largest
     remaining gap after Phase 1.
 
+11. **`Floor selection`'s second part.** It has one (`Counter Field`), and
+    `C2 · Tier ceiling` needs two. Is a floor picker a counter plus ground-floor
+    handling, or is it genuinely a one-part component and therefore a Rule 1 case?
+12. **What controlled vocabulary should the platform rows use?** Answered in
+    principle — *use a component where it exists* — but the docs express
+    existence as `Ready`, `To Do`, `To-do`, `WIP`, `In progress`, `Partially
+    available`, `N/A`, `Non-gemini component`, a bare link, or `Not documented`.
+    Which of those mean "exists"? `Partially available` (7 Android entries) is
+    the genuinely ambiguous one. Blocks **Block 2c · Platform availability**.
+13. **How is a rebuilt container detected?** Nothing catches an agent that
+    hand-builds an empty state instead of using `Info State`. Parts counting
+    cannot work for the container kind, and no alternative is designed.
+
 ---
 
 ## Decisions taken while filling the component docs
@@ -307,6 +320,144 @@ Responsiveness` sections, which is where their real variant logic had been
 written.
 
 ---
+
+## Rule 0's parts list, and what it exposed
+
+Added 2026-09-08 so `C2 · Tier ceiling` of the compliance scorecard can run. It
+compares a hand-built element against the parts of each Rule 0 row, and Rule 0
+stated those parts only as prose.
+
+Turning the prose into data was not a transcription job. **Four rows worked as
+written; six did not.**
+
+### Clerical — every part name was unmatchable
+
+Checked against the four registries. Every name in the prose failed an exact
+match:
+
+| In the prose | Actual inventory name |
+| --- | --- |
+| `Image slider` | `Image Slider` |
+| `Progress bar` | `Progress Bar` |
+| `Counter field` | `Counter Field` |
+| `Text field` | `Text Field` |
+| `Cell content` | `Cell Content` |
+| `Chips` · `Buttons` | `Chip` · `Button` |
+
+Unambiguous, and fixed. A checker matching on inventory names would have found
+nothing at all before this.
+
+### Substantive — five named things are not components
+
+| Named | What it actually is | Resolution |
+| --- | --- | --- |
+| `Price` | Nothing in any inventory. `Listing Card` has a private `.listing_price_tag` slot | **Dropped.** Confirmed by Gabriel as the internal slot. `Card` · `Image Slider` · `Tag` already clear the threshold |
+| `container` · `pins` | Descriptions, not names. The real pin sets are `mapPinsV2_SL` / `mapPinsV2_IWT`, both Rule 3 never-select | **Row reclassified.** Gabriel: `Map template` is *"full usage or nothing"* — a designer might want a pin as an illustration but will find another solution. There is no partial build to detect |
+| `Illustration` · `Text` | An illustration is real but lives under the Foundations registry's separate `illustrations` key, not the component inventory. Text is a token-styled primitive | **Row reclassified.** Gabriel: `Info State` is *"more a content component like a modal with specific content inside"* — a shell, not an assembly |
+
+### The finding that mattered — Rule 0 has two kinds of row
+
+Three rows named exactly one part, which contradicts Rule 0's own operational
+test: *two or more of the higher-tier component's own moving parts.* Read
+literally, `Info State`, `Floor selection` and `Table` could never fire Rule 0.
+
+Gabriel's answers resolved this, and the resolution is better than the question.
+Those rows are not under-documented — **they are not parts-composed things at
+all**:
+
+| Kind | Meaning | Rows | Countable? |
+| --- | --- | --- | --- |
+| **Composed** | Assembled from public components | `Listing Card` · `Filter bar` · `Wizard` · `Phone Number Field` | **yes** |
+| **Container** | A shell you place content into | `Info State` · `Table` | no |
+| **All-or-nothing** | Used whole or not at all | `Map template` | no |
+| **Unresolved** | Undescribed, or one part with no second identified | `Floor selection` · `Listing summary` · `Estimation card` | no |
+
+**Rule 0 still governs all ten.** Six cannot be *enforced by counting parts*,
+which is a limit on the checker, not a gap in the rule. The scorecard states
+coverage as 4 of 10 and names the six it skips.
+
+**Still open**: `Floor selection` has one part (`Counter Field`) and no second
+part identified. A floor picker is plausibly a counter plus ground-floor
+handling, but no document says so, and inferring it would be the guessing this
+audit already rejected.
+
+**Detecting a rebuilt container is unsolved.** Nothing catches an agent that
+hand-builds an empty state rather than using `Info State`. It needs a mechanism
+that is not parts-based, and none is designed.
+
+## Rule 2, platform availability, and where that data belongs
+
+Found 2026-09-08 while confirming Gabriel's note that *"table is not even dev,
+only figma"*. His `Table` doc says `Figma: Ready ✅ · Web: In progress 🚧`, and
+it turned out not to be alone.
+
+**52 of the 57 component docs carry their own per-platform readiness row** —
+`Figma | Web | iOS | Android`. Rule 2 had nine hand-written rows, only one about
+web readiness.
+
+| State | Figma | Web | iOS | Android |
+| --- | --- | --- | --- | --- |
+| Ready | 46 | 39 | 30 | 21 |
+| In progress | 0 | 2 | 0 | 0 |
+| Partially available | 0 | 0 | 0 | 7 |
+| To do | 1 | 7 | 15 | 16 |
+| N/A | 0 | 1 | 6 | 6 |
+| **Not a status** — blank, a link, or free text | **5** | **3** | **1** | **2** |
+
+### The Figma column is unreliable, and redundant
+
+The first reading of this data — *"46 of 52 are Figma-ready, so six are not"* —
+was wrong, and was corrected the same day. **All six non-Ready Figma cells are
+data-quality problems, not missing components:**
+
+| Figma cell | Docs | Reality |
+| --- | --- | --- |
+| `Not documented` | `snackbar` · `select-card-group` · `bar-chart` | All three exist in Figma. Snackbar's doc links to its Figma node two lines below the table |
+| A link instead of a status | `energy-tag` · `modal-bottom-sheet` | The component exists; the cell simply is not a status |
+| `To Do 🚧` | `donut-chart` | `Donut chart` is in the Patterns registry, verified live |
+
+**Every one of the 98 registry entries was verified live in Figma.** So the
+authoritative answer to "does this exist in Figma" is the registry, and the
+doc's Figma cell is a hand-maintained duplicate that has drifted in six of 52
+cases.
+
+### Where each kind of availability data belongs
+
+Gabriel's question was whether this content belongs in the docs or in a skill.
+Neither, for the Figma part — it already has a better home.
+
+| Content | Home | Maintained by | Why there |
+| --- | --- | --- | --- |
+| Does it exist **in Figma**? | `figma/*-registry.json` | the `figma-sync-*` skills | Machine-verifiable, verified live, complete, and it changes when Figma changes rather than when someone edits a doc |
+| Does it exist on **web / iOS / Android**? | the component's own doc | a human | Nothing in this repo can verify it, so a human record is the only option |
+| **The rule** — use a component where it exists | `components-rules-ai.md` Rule 2 | a human, from this audit | It is a rule, not data. Duplicating 52 × 4 values into the ruleset would create a second source of truth, which is exactly how the Figma column drifted |
+
+The general principle, since the question raised it: **a skill reads docs and
+writes registries. A skill is never a source of truth for knowledge.** The
+`figma-sync-*` skills own registry *data*; they own no rules. The
+`component-web-ai-docs` skill reads code and docs; it owns neither.
+
+### The policy, and why Rule 2 states it rather than tabulating it
+
+**Decided 2026-09-08 by Gabriel:** *"Components existing on a platform should be
+used on it. Figma first. When working on web or android, we will work on the
+status and synchronisation."*
+
+So Rule 2 now states the policy and names its source of truth per platform,
+instead of duplicating the matrix. Two consequences:
+
+- **For Figma there is no availability constraint at all.** All 98 registry
+  entries exist. The current milestone is unconstrained on these grounds, which
+  is the opposite of what the first reading suggested.
+- **For web and native, reconciliation is deferred** — and its first job is not
+  reconciliation but a **controlled vocabulary.** The docs currently use `To Do`,
+  `To-do`, `WIP`, `In progress`, `Partially available` and `Non-gemini
+  component` interchangeably, plus 11 cells that hold no status at all. Nothing
+  can be scored or ruled on until those mean fixed things.
+
+`Table` was added to Rule 2's curated table because Gabriel named it directly.
+The other web-unready components were not, because the vocabulary question comes
+first.
 
 ## Rejected approaches
 

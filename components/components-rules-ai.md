@@ -24,18 +24,42 @@ Foundations  →  Components  →  Patterns  →  Experiences
 **Search from the right.** Before composing anything out of Components, check
 whether a Pattern or an Experience already is the thing you are about to build.
 
-| You are about to build | Stop — this already exists |
-| --- | --- |
-| A property summary card from Card + Image slider + Tag + Price | `Listing Card` (Experience) |
-| A more flexible property summary than Listing Card allows | `Listing summary` (Experience) |
-| A **structured, multi-criteria** filter panel from Chips or Buttons | `Filter bar` (Pattern) |
-| A step-by-step flow from Tabs + Progress bar | `Wizard` (Pattern) |
-| A map screen from a container + pins | `Map template` (Experience) |
-| An empty/error/loading screen from Illustration + Text + Button | `Info State` (Pattern) |
-| A price estimation block | `Estimation card` (Experience) |
-| A floor picker from a Counter field | `Floor selection` (Experience) |
-| A phone input from a Text field + country Dropdown | `Phone Number Field` (Experience) |
-| A data grid from Cell content rows | `Table` (Experience) |
+| You are about to build | Stop — this already exists | Kind | Parts a hand-built version would contain |
+| --- | --- | --- | --- |
+| A property summary card | `Listing Card` (Experience) | composed | `Card` · `Image Slider` · `Tag` |
+| A **structured, multi-criteria** filter panel | `Filter bar` (Pattern) | composed | `Chip` · `Button` |
+| A step-by-step flow | `Wizard` (Pattern) | composed | `Tabs` · `Progress Bar` |
+| A phone input with a country prefix | `Phone Number Field` (Experience) | composed | `Text Field` · `Dropdown` |
+| An empty / error / success / loading screen | `Info State` (Pattern) | **container** | — it is a shell with content slots, not an assembly of components |
+| A map screen | `Map template` (Experience) | **all-or-nothing** | — used whole or not at all. Its pin sets are Rule 3 never-select |
+| A data grid | `Table` (Experience) | **container** | `Cell Content` rows inside a shell. **Figma-ready, web in progress** — see Rule 2 |
+| A floor picker | `Floor selection` (Experience) | unresolved | `Counter Field` — one part only. Open question |
+| A more flexible property summary than Listing Card allows | `Listing summary` (Experience) | unresolved | — ⚠︎ undescribed, see audit |
+| A price estimation block | `Estimation card` (Experience) | unresolved | — ⚠︎ undescribed, see audit |
+
+**The Parts column is for a checker, not for you.** It lists what a hand-built
+imitation would be assembled *from*, so a compliance check can detect one. Never
+read it as a recipe — the whole point of Rule 0 is that you use the higher-tier
+component instead of assembling anything.
+
+Part names are exact inventory names from Rule 4. A part may be a Rule 3
+never-select component: Rule 3 governs what you may **choose**, while this column
+describes what an imitation would **contain**. Different questions.
+
+### Two kinds of higher-tier component
+
+The distinction matters because only the first kind can be detected by counting
+parts.
+
+| Kind | What it is | Rule 0 still applies? | Detectable by counting parts? |
+| --- | --- | --- | --- |
+| **Composed** | Assembled from public components | yes | **yes** — the four rows above |
+| **Container** | A shell you place content into. `Info State` is closer to a modal with prescribed content than to an assembly | yes | no — there is no characteristic set of parts to count |
+| **All-or-nothing** | Used whole or not at all. A partial `Map template` is not a realistic build | yes | no — there is no partial composition to detect |
+
+For the container and all-or-nothing kinds, **Rule 0 is still the rule** — you
+must still reach for the existing component. It simply cannot be enforced by a
+parts count, and `C2 · Tier ceiling` says so rather than passing them silently.
 
 Composing from a lower tier when a higher-tier component exists is the single
 most common compliance failure. Rule 1 below is flat by design — it answers
@@ -60,6 +84,10 @@ Rule 1.
 **The operational test — count the parts.** Rule 0 fires when your build would
 need **two or more** of the higher-tier component's own moving parts. One part
 alone is the lighter case, and Rule 1 wins.
+
+**This test applies to the composed kind only.** For a container or
+all-or-nothing component there are no parts to count, and Rule 0 applies
+regardless of how much of it you were about to rebuild.
 
 | You would build | Parts | Rule |
 | --- | --- | --- |
@@ -217,6 +245,28 @@ lists. See Rule 3.
 
 Rule 1 assumes web unless stated. These constraints win over it.
 
+**The policy: use a component on a platform where it exists.** Where it does not
+exist on your target platform, it is not available to you, whatever Rule 1 says.
+
+Where to find out whether it exists:
+
+| Target platform | Source of truth | State today |
+| --- | --- | --- |
+| **Figma** | `figma/*-registry.json` — every entry verified live in Figma | **All 98 exist.** No Figma availability constraint |
+| Web · iOS · Android | The component's own doc, its `Figma \| Web \| iOS \| Android` row | Hand-maintained free text. **Read the doc; do not rely on the table below** |
+
+**Do not read a doc's Figma cell as authority.** It is a hand-maintained
+duplicate of the registries and has drifted — six of 52 docs say `Not
+documented`, hold a link instead of a status, or say `To Do` for a component the
+registry verified live in Figma. The registry wins.
+
+**The table below is the curated set of platform limits, not the whole picture.**
+Nine doc entries are not production-ready on web while this table names two.
+Reconciling that data needs a controlled vocabulary first — the docs currently
+use `To Do`, `To-do`, `WIP`, `In progress`, `Partially available` and
+`Non-gemini component` interchangeably. See
+[components-audit.md](components-audit.md).
+
 | Component | Constraint |
 | --- | --- |
 | `Alert` | **Not yet available on web.** On web, use `Modal bottom sheet` |
@@ -226,6 +276,7 @@ Rule 1 assumes web unless stated. These constraints win over it.
 | `Action menu` | Desktop, SM breakpoint and above |
 | `Modal bottom sheet menu` | Mobile (XXS/XS) and apps |
 | `Navigation Bar (App)` | Mobile (iOS/Android) only |
+| `Table` | **Figma ready, web in progress.** Not yet production on web; iOS and Android not started. Safe for Figma output, not for web |
 | `Footer` | Figma only — not built. Do not generate it |
 | `Tab Bar` | Mid-refactor. Use `Tabs` |
 

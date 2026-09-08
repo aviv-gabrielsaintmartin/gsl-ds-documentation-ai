@@ -6,7 +6,7 @@
 | **Branch** | `docs/compliance-scorecard` |
 | **Written** | 2026-09-08 |
 | **Depends on** | Nothing |
-| **Blocks** | Block 4 — the Figma agent has no target until this exists |
+| **Blocks** | **Block 4 · Figma agent** — it has no target until this exists |
 
 ---
 
@@ -77,7 +77,7 @@ a stricter rule than the ruleset it enforces.
 **C6 — Layout.** Page composition: outer margin, section rhythm, container
 padding and grid alignment per viewport tier.
 
-Defined now, **inactive until block 3**. The rules exist —
+Defined now, **inactive until Block 3 · Layout**. The rules exist —
 `spacing-rules-ai.md` Rules 6 and 7 give container padding and page rhythm per
 tier — but they carry an explicit warning that they are **unverified**, because
 page composition lives outside the component library and could not be checked.
@@ -86,7 +86,7 @@ Scoring against unverified rules would manufacture false confidence.
 ## What deliberately does not change
 
 - **No checker is built.** This block produces a specification. The runner comes
-  in block 4, alongside the agent — you cannot debug a checker with no output to
+  in **Block 4 · Figma agent**, alongside the agent — you cannot debug a checker with no output to
   run it against.
 - **Quality is not scored.** Not now, not by this scorecard. Every run logs your
   quality verdict alongside its compliance score, so the quality bar can later

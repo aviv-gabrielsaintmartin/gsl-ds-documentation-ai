@@ -45,33 +45,42 @@ three separate decisions:
 | --- | --- | --- |
 | 1 | **Which component?** | `components/components-rules-ai.md` — done, and eval'd |
 | 2 | **Which variant of it?** | The `Variant Selection Flow` in each component doc — done |
-| 3 | **How does it sit on the page?** | Documented but **unverified** — `spacing-rules-ai.md` Rules 6 and 7. Block 3 verifies them |
+| 3 | **How does it sit on the page?** | Documented but **unverified** — `spacing-rules-ai.md` Rules 6 and 7. **Block 3 · Layout** verifies them |
 
 ## The building blocks
 
 One block at a time. One block = one branch = one PR.
 
-| # | Block | Status | Brief |
-| --- | --- | --- | --- |
-| — | Component selection ruleset, audit and eval | ✅ **Done** — PR #17, merged 2026-09-08 | — |
-| 0 | This doc layer — README, plan, decisions, briefs | ✅ **Done** — PR #18, merged 2026-09-08 | [00-doc-layer](briefs/00-doc-layer.md) |
-| **1** | **Compliance scorecard** — what compliance means, as six checks, platform-neutral | 🔵 **In progress** | [01-compliance](briefs/01-compliance.md) |
-| 2 | **Machine-readable component data** — variant property names in the registries, plus a parts column on Rule 0's ten rows so `C2` can run | ⬜ Next | — |
-| 3 | **`layout/` — verify page composition.** Rules 6 and 7 of `spacing-rules-ai.md` already document container padding and page rhythm per tier, but mark themselves **unverified**. This block verifies them against real screens and fills the two genuine gaps: column spans, and page anatomy | ⬜ Not started | — |
-| 4 | **The Figma agent and the Figma adapter** — both in the shared skills repo, not here. The adapter implements the scorecard's adapter contract; the scorecard itself stays platform-neutral. Plus wireframe #1 and a first scored run | ⬜ Not started | — |
-| 5 | **Fill the remaining doc gaps**, prioritised by what block 4 actually broke on | ⬜ Not started | — |
+| # | Name | What it is | Status | Brief |
+| --- | --- | --- | --- | --- |
+| — | **Component selection** | The ruleset, audit and eval | ✅ **Done** — PR #17, merged 2026-09-08 | — |
+| 0 | **Doc layer** | README, plan, decisions, briefs | ✅ **Done** — PR #18, merged 2026-09-08 | [00-doc-layer](briefs/00-doc-layer.md) |
+| 1 | **Compliance scorecard** | What compliance means, as six checks, platform-neutral | ✅ **Done** — PR #19, merged 2026-09-08 | [01-compliance](briefs/01-compliance.md) |
+| **2a** | **Rule 0 parts list** | Ten rows become machine-readable so `C2 · Tier ceiling` can run | 🔵 **In progress** | [02a-rule-0-parts-list](briefs/02a-rule-0-parts-list.md) |
+| 2b | **Registry properties** | The registry schema gains a field for parent property definitions, the 18 prose entries migrate into it, then the Components tier re-syncs. Needs live Figma | ⬜ Optional — see below | — |
+| 2c | **Platform availability** | For web and native: first a controlled vocabulary for the 52 docs' readiness rows (10 different values today, 11 cells hold no status), then a rule. **Not needed for Figma** — all 98 registry entries exist | ⬜ Deferred until web or native is a target | — |
+| 3 | **Layout** | Verify page composition. `spacing-rules-ai.md` Rules 6 and 7 already document container padding and page rhythm per tier but mark themselves **unverified**. Verify them against real screens, then fill the two genuine gaps: column spans, and page anatomy | ⬜ Not started | — |
+| 4 | **Figma agent** | The agent and the Figma adapter, both in the shared skills repo, not here. The adapter implements the scorecard's adapter contract. Plus wireframe #1 and a first scored run | ⬜ Not started | — |
+| 5 | **Doc gaps** | Fill what remains, prioritised by what **Block 4 · Figma agent** actually broke on | ⬜ Not started | — |
 
-Blocks 1 and 2 don't depend on each other and can run in either order. Block 4
-needs both.
+**Always refer to a block by number *and* name** — `Block 2b · Registry
+properties`, never just `2b`. Nobody holds a numbered list in their head.
+
+**Block 2a · Rule 0 parts list**, **Block 2b · Registry properties** and
+**Block 2c · Platform availability** are independent and can run in any order.
+**Block 4 · Figma agent** needs the parts list from **Block 2a**. **Block 2b · Registry
+properties** is a cache rather than a blocker, since an agent can read property
+definitions live from Figma. **Block 2c · Platform availability** only matters
+once generation targets web or native.
 
 ## What each block is waiting on
 
 | Block | Blocked by |
 | --- | --- |
 | 3 | **Gabriel naming 3–5 Figma product screens** as the evidence base. A SERP, a listing detail, one funnel step would do it. The rules exist; they cannot be *verified* without real screens |
-| 1 | Nothing |
-| 2 | Nothing |
-| 4 | Blocks 1 and 2. `C2` specifically needs block 2's parts column before it can run |
+| 2a · 2b | Nothing. 2b needs Figma Desktop open |
+| 2c | Deferred by decision — only matters once web or native is a generation target |
+| 4 | Blocks 2a and 2b. `C2 · Tier ceiling` needs 2a's parts column; configuring components needs 2b's property names |
 
 ## The known holes, as of 2026-09-08
 
@@ -79,13 +88,15 @@ Recorded so they aren't rediscovered as surprises.
 
 | Hole | Size |
 | --- | --- |
-| **Page composition is documented but unverified** | `spacing-rules-ai.md` Rules 6 and 7 say so themselves. `C6` of the scorecard is defined and switched off until block 3 verifies them |
+| **Page composition is documented but unverified** | `spacing-rules-ai.md` Rules 6 and 7 say so themselves. `C6 · Layout` of the scorecard is defined and switched off until **Block 3 · Layout** verifies them |
 | **Figma variant property names are missing** for the Components tier | 1 of 61 entries records them, while 57 of 61 have more than one variant. So a decision tree saying `Size → 40px` can't be checked against Figma |
 | **Ten open questions** in `components/components-audit.md` | Each blocks a rule that can't be written until you answer it |
 | **24 selectable components have no doc and no rule row** | They're named in the inventory, so an agent knows they exist, but nothing routes it there by intent |
 | `Accessibility (a11y)` empty in 51 of 59 component docs | Inherited from the Zeroheight source |
 | `Breakpoints & Platform Adaptations` empty in 36 of 54 | Same |
-| **Rule 0 has no machine-readable parts list** | Its ten rows name the components each higher-tier component would be rebuilt from, but as prose. `C2` of the scorecard cannot run until they are data. Ten rows. Block 2 |
+| **`C2 · Tier ceiling` reaches 4 of Rule 0's 10 rows** | Six rows are not parts-composed things — two are containers, one is all-or-nothing, three are unresolved. Rule 0 still governs all ten; it just cannot be *enforced* by counting parts for six |
+| **No way to detect a rebuilt container** | Nothing catches an agent that hand-builds an empty state instead of using `Info State`. Needs a non-parts-based mechanism; none designed |
+| **Web and native availability is unruled** | 52 docs carry a readiness row in 10 different vocabularies, with 11 cells holding no status. Needs a controlled vocabulary before it can be a rule. **Figma is unaffected** — all 98 registry entries verified live. **Block 2c · Platform availability** |
 
 ## How we work through a block
 
