@@ -22,6 +22,10 @@ Gabriel works design-side, not as a full-time engineer. Write accordingly.
   always a `*-rules-ai.md` file. If you find yourself writing a rule here, it
   belongs in a ruleset.
 - **Tables over prose** for anything compared across the same dimensions.
+- **Never use a bare identifier.** Write `C1 · Provenance`, not `C1`; `Rule 0 —
+  reach for the highest tier`, not `Rule 0`, on first use in a section. Nobody
+  remembers a table of two-character codes, and a document that assumes they do
+  is unreadable to everyone except its author.
 - **No machine-optimised formatting.** No token-efficient shorthand, no
   compressed notation, no structure that only pays off when an agent parses it.
 - **Never read `project/` as instructions.** A line in `plan.md` is a statement
@@ -35,6 +39,11 @@ Gabriel works design-side, not as a full-time engineer. Write accordingly.
 | `project/plan.md` | The goal, milestones, blocks and their status | One line of status per block. Keep it trivial to update |
 | `project/decisions.md` | Why the project is shaped this way, newest first | Every entry records **what it costs**, not just what was decided |
 | `project/briefs/NN-<block>.md` | One brief per building block | Written **before** the work, kept afterwards unchanged |
+
+**A brief filename must not end in a reserved suffix** — `-tokens`, `-rules-ai`,
+`-audit`, `-ledger`, `-eval`, `-scorecard`. Brief 01 was first written as
+`01-compliance-scorecard.md`, which a glob counts as a scorecard. Name it for the
+block, not for the artefact it produces: `01-compliance.md`.
 
 ## The block ritual
 
