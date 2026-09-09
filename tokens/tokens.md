@@ -2,7 +2,7 @@ Design tokens for the GSL Design System, generated from the Figma Foundations Li
 
 ## For AI generation
 
-Two categories have been audited against real component usage and carry a
+Six categories have been audited against real component usage and carry a
 dedicated, evidence-based ruleset. **Read the ruleset, not just the token page** —
 it says which tokens are actually authorised and which have no precedent.
 
@@ -11,20 +11,21 @@ it says which tokens are actually authorised and which have no precedent.
 | Colour | [color-rules-ai.md](color/color-rules-ai.md) | [color-usage-audit.md](color/color-usage-audit.md) |
 | Typography | [typography-rules-ai.md](typography/typography-rules-ai.md) | [typography-usage-audit.md](typography/typography-usage-audit.md) |
 | Spacing & sizing | [spacing-rules-ai.md](spacing/spacing-rules-ai.md) | [spacing-usage-audit.md](spacing/spacing-usage-audit.md) |
+| Corner radius | [radius-rules-ai.md](radius/radius-rules-ai.md) | [radius-usage-audit.md](radius/radius-usage-audit.md) |
+| Shadow | [shadow-rules-ai.md](shadow/shadow-rules-ai.md) | [shadow-usage-audit.md](shadow/shadow-usage-audit.md) |
+| Border width | [border-width-rules-ai.md](border-width/border-width-rules-ai.md) | inline in [border-width-tokens.md](border-width/border-width-tokens.md) |
 
 **Every token category has now been checked against real component usage.** The
-three above carry a full ruleset; the rest carry a `Used by` column and their
+six above carry a full ruleset; the rest carry a `Used by` column and their
 findings inline:
 
 | Category | Headline finding |
 | --- | --- |
 | [Breakpoint](breakpoint/breakpoint-tokens.md) | Used via responsive object keys, not token names — mechanism now documented |
 | [Grid](grid/grid-tokens.md) | **No component uses it.** Figma and product pages only. `Grid/Width` derivation verified |
-| [Shadow](shadow/shadow-tokens.md) | `24` and `32` have no consumer; one Figma/code contradiction on Action Menu |
 | [Z-Index](z-index/z-index-tokens.md) | Applied through `Overlay`'s context, which sums when nested; level `2` unused |
 | [Opacity](opacity/opacity-tokens.md) | Only 3 of 11 used — prefer an alpha colour token over an opacity |
 | [Motion](motion/motion-tokens.md) | All four easings used and split by purpose; `500 ms` unused |
-| [Radius](radius/radius-tokens.md) · [Border width](border-width/border-width-tokens.md) | Full coverage — no orphans |
 | [Sizing](sizing/sizing-tokens.md) | Not a Figma property; a code-side dimension ledger. 6 dead tokens |
 
 ## Categories

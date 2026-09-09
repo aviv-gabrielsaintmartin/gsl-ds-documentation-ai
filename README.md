@@ -46,7 +46,7 @@ is written for a machine, and two are written for you.**
 | Who reads it | What it is | Where |
 | --- | --- | --- |
 | Agents working *inside* this repo | Instructions and workflows | `CLAUDE.md`, `.claude/rules/`, `.claude/skills/` |
-| Agents *consuming* the knowledge base | **The contract** | the four `*-rules-ai.md` files |
+| Agents *consuming* the knowledge base | **The contract** | the seven `*-rules-ai.md` files |
 | Either — machine-first reference | The knowledge itself | `*-tokens.md`, `*-audit.md`, `*-ledger.md`, `components/<name>/<name>.md` |
 | **You, and any human** | **Where the project is, and what's left** | **`status.md` and `project/backlog.md`** |
 | You, and any human | The map and the story | `README.md` and the rest of `project/` |
@@ -101,12 +101,13 @@ Two honest inconsistencies, so you aren't confused when you meet them:
 | `tokens/color/color-rules-ai.md` | `tokens/color/color-usage-audit.md` | `tokens/spacing/spacing-usage-ledger.md` | |
 | `tokens/typography/typography-rules-ai.md` | `tokens/typography/typography-usage-audit.md` | `tokens/typography/typography-usage-ledger.md` | |
 | `tokens/spacing/spacing-rules-ai.md` | `tokens/spacing/spacing-usage-audit.md` | | |
-| | `tokens/radius/radius-usage-audit.md` | | |
-| | `tokens/shadow/shadow-usage-audit.md` | | |
+| `tokens/radius/radius-rules-ai.md` | `tokens/radius/radius-usage-audit.md` | | |
+| `tokens/shadow/shadow-rules-ai.md` | `tokens/shadow/shadow-usage-audit.md` | | |
+| `tokens/border-width/border-width-rules-ai.md` | | | |
 | | `tokens/color/surface-border-combination-audit.md` — draft, not yet a ruleset | | |
 | | `compliance/compliance-audit.md` | `compliance/compliance-flag-ledger.md` | `compliance/compliance-scorecard.md` |
 
-Four rulesets, eight audits, four ledgers, one eval, one scorecard.
+Seven rulesets, eight audits, four ledgers, one eval, one scorecard.
 
 ---
 

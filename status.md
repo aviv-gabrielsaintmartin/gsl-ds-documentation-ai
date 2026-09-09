@@ -26,7 +26,7 @@ Teaching the agent four things. Two and a half are done.
 | --- | --- |
 | **Which component to use** — that a label-and-price pair is a Cell Content row, not a hand-drawn box | ✅ Written, and tested cold three times |
 | **Which version of it** — which size, which state | ✅ Written |
-| **Which colours, text styles and spacings it may use** | 🟡 **Three of twelve kinds.** Colour, text and spacing are done. Nine kinds have no rules at all |
+| **Which colours, text styles and spacings it may use** | 🟡 **Seven of twelve kinds.** Colour, text, spacing, sizing, corner radius, shadow and border thickness are done. Five kinds still have no rules |
 | **How the page is laid out** — margins, rhythm, column widths | ❌ Written, but never checked against a real screen |
 
 Plus a scoring sheet that marks a finished screen against all of the above.
@@ -36,21 +36,17 @@ Written, never yet used on a real run.
 
 ## The next task
 
-**Move the corner-radius, shadow and border-thickness rules into the file agents
-are allowed to read.**
+**Record the Figma text-field names for each component.**
 
-Today the agent knows nothing about them and guesses. In the one test we ran it
-picked corner radii by taste, and used no shadow anywhere.
+Today an agent can place a Cell Content row but cannot put words into it. Not one
+GSL component exposes a text property — every string has to be typed into a
+nested layer whose name appears in no ruleset and no registry. In the test, every
+piece of text came from reading Figma live, not from this repo.
 
-**The rules already exist and are already verified** — radius against nine real
-components and three real screens, shadow against eight components. They're just
-in a file agents are told not to read as rules. So this is a moving job, not a
-research job.
+A day's work. **Needs Figma Desktop open**, so tell me when that suits you.
 
-Half a day. **Nothing needed from you.**
-
-Then, in order: record the Figma text-field names so the agent can actually put
-words into a component, and archive the eight old files.
+After that: archive the eight old files, then fix the three component entries
+that currently dead-end into a file agents aren't allowed to open.
 
 ---
 

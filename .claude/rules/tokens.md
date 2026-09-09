@@ -19,7 +19,7 @@ One folder per token category, mirroring how `components/` is organised.
 | File | Role |
 | --- | --- |
 | `<category>-tokens.md` | The token page: values and usage, with a **Used by** column naming the components that really bind each token. |
-| `<category>-rules-ai.md` | The AI ruleset — what an agent may actually use, derived from the audit. **These, not the token pages, are what a generating agent reads.** Only `color`, `typography` and `spacing` needed one; `spacing`'s also covers `sizing`. |
+| `<category>-rules-ai.md` | The AI ruleset — what an agent may actually use, derived from the audit. **These, not the token pages, are what a generating agent reads.** Seven exist: `color`, `typography`, `spacing` (which also covers `sizing`), `radius`, `shadow` and `border-width`, plus `components`. The five without one — `breakpoint`, `grid`, `motion`, `opacity`, `z-index` — have no contract yet, so an agent has nothing authorised to reach for in those categories. |
 | `<category>-usage-audit.md` | Human-facing evidence and verdicts, including rejected options and open questions. **Never read as rules.** |
 | `<category>-usage-ledger.md` | **Generated, never hand-edited** — the raw table the audit was built from (every token, every component that binds it). Only `color`, `typography` and `spacing` have one; the `.json` twin is gitignored. |
 
