@@ -15,7 +15,6 @@ to remember. **Proposed** means waiting for your go.
 | What | Why it matters | How long | Status |
 | --- | --- | --- | --- |
 | Record the Figma text-field names for each component | The agent can place a component but cannot put words into it from the docs alone. Every string in the test came from reading Figma live | A day. **Needs Figma Desktop open** | **Next** |
-| Archive the eight old human-facing files, `project/plan.md` among them | They're what made this project unreadable. Kept, moved out of the way, never deleted | An hour | Proposed |
 | Fix the "Legend" entry — it's a setting on a chart, not a component you pick | The rules currently tell an agent to place something that can't be placed. Our own mistake, from the third round of testing | An hour | Proposed |
 | Fix the three component entries that dead-end into a file agents are forbidden to open | The highest-priority rule in the whole system points nowhere for three cases | Half a day | Proposed |
 | Add a routing entry for "a block of controls that computes a live result" | A mortgage simulator is a recurring product pattern and nothing routes an agent to it. In the test the agent hand-built one and said it couldn't tell whether it should have | Half a day | Proposed |
@@ -23,7 +22,7 @@ to remember. **Proposed** means waiting for your go.
 | Test the three new rulesets on a cold reader | They are verified as accurate but not as understandable. A set of questions with known-correct answers, given to a reader who has only the ruleset — the same method that found twelve defects in component selection | Half a day | Proposed |
 | Remove the leftover rule numbers in the spacing ruleset | It still says "Rules 6 and 7 are unverified" and "Rules 3–5" — the renaming task missed them, so the file contradicts its own rule names | Ten minutes | Proposed |
 | Widen the `audit` branch category to cover compliance runs | It names only one skill, and branches are gone anyway. Small, clerical | Ten minutes | Proposed |
-| Write up the test run properly | Findings are safe in `project/handoff.md` for now | Half a day | **Parked** |
+| Write up the test run properly | Findings are safe in `project/archive/handoff.md` and in this file's notes | Half a day | **Parked** |
 | Check the page-layout rules against real screens | Margins and rhythm are written but never verified | Unknown | **Blocked** — needs you to name 3–5 Figma screens |
 
 ---
@@ -100,6 +99,7 @@ Things that turned out to be true and are worth not rediscovering.
 
 | Date | What |
 | --- | --- |
+| 9 Sep 2026 | **The retired files moved to `project/archive/`** — the old plan, the handoff note and all four briefs, with a README saying why each was retired. `decisions.md` and `README.md` deliberately stayed: one holds why the project is shaped this way, the other is the map |
 | 9 Sep 2026 | **One task, one chat** — each task starts in a fresh conversation. Written into `CLAUDE.md`, `status.md` and the check skill. Not about context limits; a session that built something is the worst judge of whether it reads clearly to someone who wasn't there |
 | 9 Sep 2026 | **Corner radius, shadow and border thickness now have rulesets** an agent is allowed to read — seven of twelve token kinds covered, up from three. Verified: every value matches its token page, 57 links resolve, and all three failures from the test run are now answered, including "a card is not elevated, give it a border" |
 | 9 Sep 2026 | **Git simplified: one task = one commit, straight to `main`.** No branches, no pull requests. A passing check now commits and pushes automatically; undoing, deleting and rewriting always ask first. Overrides Gabriel's personal one-task-one-branch rule, for this repo only. `audit/run-001` merged into `main` and deleted; `main` is now the only branch |

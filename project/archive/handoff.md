@@ -1,16 +1,16 @@
 # Handoff — 2026-09-09
 
 > **Superseded, 9 September 2026.** This file is kept as history and is no
-> longer the current state of the project. Read [../status.md](../status.md) for
-> where things are, and [backlog.md](backlog.md) for every task, open question
+> longer the current state of the project. Read [status.md](../../status.md) for
+> where things are, and [backlog.md](../backlog.md) for every task, open question
 > and finding. Do not work from this file.
 
 _Written because the next stretch of work continues on a different Claude
 account, in a fresh session with no conversation history. Everything a new
 session needs that is **not already in the repo** is here._
 
-**Read first:** [README.md](../README.md) for the map, then
-[plan.md](plan.md) for where we are, then [decisions.md](decisions.md) for why.
+**Read first:** [README.md](../../README.md) for the map, then
+[plan.md](plan.md) for where we are, then [decisions.md](../decisions.md) for why.
 This file only covers what those don't yet say.
 
 ---
@@ -49,7 +49,7 @@ to the four rulesets and the seven `figma/*.json` registries. It was forbidden
 *pages*, and one specific Figma node — a human-built version of the same block,
 which would have turned selection into transcription.
 
-Evidence is in [`compliance/runs/run-001/`](../compliance/runs/run-001/) —
+Evidence is in [`compliance/runs/run-001/`](../../compliance/runs/run-001/) —
 the prompt and both output screenshots, rescued from a job scratch directory
 that has since been deleted.
 

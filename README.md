@@ -33,8 +33,8 @@ Judge every page in here by one test:
 **How work runs:** one task at a time. `/task-next` proposes a task and waits for
 Gabriel's go; `/task-check` verifies it worked and names the next one. Every
 finding is written into the backlog rather than left in conversation.
-`project/plan.md`, `project/briefs/` and `project/handoff.md` are superseded and
-kept only as history.
+The old plan, briefs and handoff note are retired to
+[project/archive/](project/archive/) — history, never worked from.
 
 ---
 
@@ -164,7 +164,7 @@ has to make with no documentation behind it.
 | `.claude/rules/` | 5 path-scoped rule files — for `tokens/`, `figma/`, `components/`, `compliance/` and `project/`. Each loads automatically when an agent opens a file in that folder |
 | `.claude/skills/` | 8 skills — the repeatable workflows. See below |
 | `status.md` | **The one page.** Where the project is and what the next task is. Human-first |
-| `project/` | `backlog.md` — every task, question and finding — plus the decision log. The plan, the briefs and the handoff note are superseded, kept as history. **Human-first** |
+| `project/` | `backlog.md` — every task, question and finding — plus `decisions.md`, the log of why the project is shaped this way. Retired files sit in `project/archive/`. **Human-first** |
 | `tokens/scripts/` | 4 Python scripts. They only ever *read* the design-system code repo. Re-run them to refresh the evidence |
 | `internal/` | Human reference notes, e.g. a git tutorial |
 

@@ -1,8 +1,8 @@
 # The plan
 
 > **Superseded, 9 September 2026.** This file is kept as history and is no
-> longer the current state of the project. Read [../status.md](../status.md) for
-> where things are, and [backlog.md](backlog.md) for every task, open question
+> longer the current state of the project. Read [status.md](../../status.md) for
+> where things are, and [backlog.md](../backlog.md) for every task, open question
 > and finding. Do not work from this file.
 
 _Human-first. Plain language. If this page needs a glossary, it's wrong._
@@ -117,7 +117,7 @@ Four steps, every time. Step 1 is the one that makes the project explainable.
 | **1. Brief** | A one-page brief in `briefs/`: what this block is, why, what changes, what deliberately doesn't, and how we'll know it worked. Gabriel reads it, pushes back, approves | the brief only |
 | **2. Build** | One block, one branch | yes |
 | **3. Check** | Run that block's eval or verification. Record the result, pass or fail | yes |
-| **4. Log** | One entry in [decisions.md](decisions.md), then a PR with a Verification section | yes |
+| **4. Log** | One entry in [decisions.md](../decisions.md), then a PR with a Verification section | yes |
 
 Why briefs rather than just PRs: a PR explains a diff. A brief explains an
 intention. In three months the diffs will be unreadable and the intentions will

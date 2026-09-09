@@ -54,12 +54,7 @@ Gabriel works design-side, not as a full-time engineer. Write accordingly.
 | `project/backlog.md` | Everything not currently active — every task, every question he owes an answer to, every finding | He opens and reads this. Plain language, no shorthand |
 | `README.md` | The map — what does what and where, and the filename grammar | Someone new should find the right file from this alone |
 | `project/decisions.md` | Why the project is shaped this way, newest first | Every entry records **what it costs**, not just what was decided |
-| `project/plan.md` · `project/briefs/` · `project/handoff.md` | **Superseded.** Kept as history until archived | Do not work from them. `status.md` and the backlog are the current state |
-
-**A brief filename must not end in a reserved suffix** — `-tokens`, `-rules-ai`,
-`-audit`, `-ledger`, `-eval`, `-scorecard`. Brief 01 was first written as
-`01-compliance-scorecard.md`, which a glob counts as a scorecard. Name it for the
-block, not for the artefact it produces: `01-compliance.md`.
+| `project/archive/` | The retired plan, briefs and handoff note | **History.** Never work from it, never update it. Its own README says why each was retired |
 
 ## How work runs
 

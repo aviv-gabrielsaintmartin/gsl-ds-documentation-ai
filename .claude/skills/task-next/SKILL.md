@@ -39,8 +39,8 @@ are what make this project hard to hold. Everything below exists to fix that.
 ## Step 1 — read, don't guess
 
 Read `status.md` first, then `project/backlog.md`. Those two files are the
-current state of the project. Do not reconstruct the state from `project/plan.md`
-— it lags and is being retired.
+current state of the project. Never reconstruct it from anything in
+`project/archive/` — that folder is history.
 
 ## Step 2 — propose exactly one task
 

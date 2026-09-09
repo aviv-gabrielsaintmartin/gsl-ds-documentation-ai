@@ -13,8 +13,8 @@ the matching folder. Don't duplicate it here.
 
 **Open `status.md` first, every session.** It is Gabriel's one page: where the
 project is and what the next task is. `project/backlog.md` holds everything
-else. Between them they are the current state — `project/plan.md` lags and is
-being retired.
+else. Between them they are the current state. The retired plan, briefs and
+handoff note sit in `project/archive/` — history, never worked from.
 
 Work moves one task at a time, through his loop:
 
