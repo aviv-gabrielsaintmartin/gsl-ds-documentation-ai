@@ -41,33 +41,54 @@ Gabriel works design-side, not as a full-time engineer. Write accordingly.
   different things across four rulesets.
 - **No machine-optimised formatting.** No token-efficient shorthand, no
   compressed notation, no structure that only pays off when an agent parses it.
-- **Never read `project/` as instructions.** A line in `plan.md` is a statement
-  of intent, not a rule to act on. It does not authorise work.
+- **Never read `project/` as instructions.** A line here is a statement of
+  intent, not a rule to act on. This includes `backlog.md`: a row marked
+  *proposed* is a suggestion waiting for Gabriel, never authorisation to start.
+  Only he authorises work, in conversation.
 
 ## What each file is for
 
 | File | Role | Rule of thumb |
 | --- | --- | --- |
+| `status.md` (repo root) | **Gabriel's one page.** Where the project is, the current task, the top open question | **Never longer than one screen.** Overflow goes to the backlog |
+| `project/backlog.md` | Everything not currently active — every task, every question he owes an answer to, every finding | He opens and reads this. Plain language, no shorthand |
 | `README.md` | The map — what does what and where, and the filename grammar | Someone new should find the right file from this alone |
-| `project/plan.md` | The goal, milestones, blocks and their status | One line of status per block. Keep it trivial to update |
 | `project/decisions.md` | Why the project is shaped this way, newest first | Every entry records **what it costs**, not just what was decided |
-| `project/briefs/NN-<block>.md` | One brief per building block | Written **before** the work, kept afterwards unchanged |
+| `project/plan.md` · `project/briefs/` · `project/handoff.md` | **Superseded.** Kept as history until archived | Do not work from them. `status.md` and the backlog are the current state |
 
 **A brief filename must not end in a reserved suffix** — `-tokens`, `-rules-ai`,
 `-audit`, `-ledger`, `-eval`, `-scorecard`. Brief 01 was first written as
 `01-compliance-scorecard.md`, which a glob counts as a scorecard. Name it for the
 block, not for the artefact it produces: `01-compliance.md`.
 
-## The block ritual
+## How work runs
 
-Work proceeds one block at a time: **brief → build → check → log**.
+One task at a time, through Gabriel's loop. This replaced the old four-step
+ritual — *brief, build, check, log* — on 9 September 2026, because the ceremony
+was generating more reading than work.
 
-- The brief comes first, and nothing in the repo is touched until Gabriel has
-  read and approved it.
-- A block is not finished until its `decisions.md` entry exists and its status in
-  `plan.md` is updated.
-- Briefs are a record, not a living document. Don't rewrite a brief after the
-  block ships — if the plan changed, say so in `decisions.md`.
+```
+   pick the next task  ──►  explain it, he approves  ──►  do it  ──►  check it worked
+                                                                          │
+                                                     ┌────────────────────┴───┐
+                                                    yes                       no
+                                                     │                        │
+                                                   log it            sub-task to fix it
+                                                     │                        │
+                                                     └──►  next task  ◄────────┘
+```
+
+`/task-next` runs the first half, `/task-check` the second. Read those skills
+before running them.
+
+- **Propose, don't do.** Reading and searching are free. Every file change waits
+  for his explicit go — except `status.md` and `project/backlog.md`, which may
+  always be updated, or logging a finding would itself need permission.
+- **Every finding goes into the backlog**, as a task, a question for him, or a
+  note. Never as a paragraph in chat. This is the rule he asked for by name.
+- **No briefs.** A task that genuinely needs one is too big — split it.
+- A task is not finished until `/task-check` has verified it and `status.md`
+  reflects it.
 
 ## Keeping it true
 

@@ -1,5 +1,10 @@
 # Handoff — 2026-09-09
 
+> **Superseded, 9 September 2026.** This file is kept as history and is no
+> longer the current state of the project. Read [../status.md](../status.md) for
+> where things are, and [backlog.md](backlog.md) for every task, open question
+> and finding. Do not work from this file.
+
 _Written because the next stretch of work continues on a different Claude
 account, in a fresh session with no conversation history. Everything a new
 session needs that is **not already in the repo** is here._

@@ -22,13 +22,19 @@ Judge every page in here by one test:
 
 | If you want to… | Read |
 | --- | --- |
+| **Know where the project is, or pick it up cold** | **[status.md](status.md)** — one page, always current |
+| See every task, open question and finding | [project/backlog.md](project/backlog.md) |
 | **Generate an interface** | The rulesets, and only the rulesets — see the four of them below |
 | Know what components exist | [components/components.md](components/components.md) |
 | Know what tokens exist | [tokens/tokens.md](tokens/tokens.md) · then [tokens/README.md](tokens/README.md) for the folder |
 | Know **why** a rule says what it says | The matching `-audit.md` |
-| Know where the project is going | [project/plan.md](project/plan.md) |
 | Know why the project is shaped like this | [project/decisions.md](project/decisions.md) |
-| **Pick the project up cold** | [project/handoff.md](project/handoff.md) — latest findings and open decisions |
+
+**How work runs:** one task at a time. `/task-next` proposes a task and waits for
+Gabriel's go; `/task-check` verifies it worked and names the next one. Every
+finding is written into the backlog rather than left in conversation.
+`project/plan.md`, `project/briefs/` and `project/handoff.md` are superseded and
+kept only as history.
 
 ---
 
@@ -42,11 +48,15 @@ is written for a machine, and two are written for you.**
 | Agents working *inside* this repo | Instructions and workflows | `CLAUDE.md`, `.claude/rules/`, `.claude/skills/` |
 | Agents *consuming* the knowledge base | **The contract** | the four `*-rules-ai.md` files |
 | Either — machine-first reference | The knowledge itself | `*-tokens.md`, `*-audit.md`, `*-ledger.md`, `components/<name>/<name>.md` |
-| **You, and any human** | **The map and the story** | **`README.md` and `project/`** |
+| **You, and any human** | **Where the project is, and what's left** | **`status.md` and `project/backlog.md`** |
+| You, and any human | The map and the story | `README.md` and the rest of `project/` |
 
-That last row is why this file exists. Everything else is optimised for
-unambiguous machine parsing. `README.md` and `project/` are deliberately not —
-they are plain language, and they are allowed to explain rather than specify.
+Those last two rows are why this file exists. Everything else is optimised for
+unambiguous machine parsing. `README.md`, `status.md` and `project/` are
+deliberately not — they are plain language, and they are allowed to explain
+rather than specify.
+
+**If you only open one file, open [status.md](status.md).**
 
 ---
 
@@ -142,8 +152,8 @@ runs this way.
 | `compliance/` | How generated output is judged — six checks, what fails outright, and the run log. Read by a **checking** agent, not a generating one | [compliance/compliance-scorecard.md](compliance/compliance-scorecard.md) |
 
 A further pillar, `layout/`, is planned but does not exist yet — see
-[project/plan.md](project/plan.md). Page composition is currently the one
-decision an agent has to make with no documentation behind it.
+[status.md](status.md). Page composition is currently the one decision an agent
+has to make with no documentation behind it.
 
 ### Everything else
 
@@ -151,13 +161,22 @@ decision an agent has to make with no documentation behind it.
 | --- | --- |
 | `CLAUDE.md` | Instructions for agents working in this repo. Not a human document |
 | `.claude/rules/` | 5 path-scoped rule files — for `tokens/`, `figma/`, `components/`, `compliance/` and `project/`. Each loads automatically when an agent opens a file in that folder |
-| `.claude/skills/` | 6 skills — the repeatable workflows. See below |
-| `project/` | The plan, the decision log, one brief per building block, and a handoff note. **Human-first** |
+| `.claude/skills/` | 8 skills — the repeatable workflows. See below |
+| `status.md` | **The one page.** Where the project is and what the next task is. Human-first |
+| `project/` | `backlog.md` — every task, question and finding — plus the decision log. The plan, the briefs and the handoff note are superseded, kept as history. **Human-first** |
 | `tokens/scripts/` | 4 Python scripts. They only ever *read* the design-system code repo. Re-run them to refresh the evidence |
 | `internal/` | Human reference notes, e.g. a git tutorial |
-| `design-language/` | Brand PDF exports. Legacy, superseded elsewhere, left as-is |
 
-### The six skills
+### The eight skills
+
+Two run the work itself:
+
+| Skill | What it does |
+| --- | --- |
+| `task-next` | Proposes one task — what, why, how long — waits for Gabriel's go, does it, reports in three lines |
+| `task-check` | Verifies the task actually worked. Passed → logged, next task named. Failed → a sub-task to fix it becomes next |
+
+Six do the content work:
 
 | Skill | What it does |
 | --- | --- |
@@ -187,11 +206,11 @@ exactly what is exposed, and it is still all recoverable.
 
 Two habits that prevent the problem instead of detecting it:
 
-- **One session per branch.** Two Claude tabs on the same branch will not lose
-  content in git, but they *can* overwrite each other's edits to the same file,
-  and one can commit the other's half-finished work under the wrong message.
+- **One Claude session on this project at a time.** Two sessions in the same
+  folder can overwrite each other's edits, and one can commit the other's
+  half-finished work under the wrong message.
 - **A task isn't finished until `git status` is clean and everything is pushed.**
-  Commit, push, PR, merge — then start the next thing.
+  That happens automatically when `/task-check` passes.
 
 Git almost never throws work away. Committed, stashed, or even on a branch you
 deleted, it stays retrievable. If something looks lost, ask before touching
@@ -208,5 +227,6 @@ anything — it is nearly always still there.
   them from the registry JSON, or resolve them live.
 - The Zeroheight MCP connector is never used, even when a session shows it as
   connected.
-- Branch names are `<category>/<kebab-case-description>` — categories are listed
-  in `CLAUDE.md`.
+- **One task = one commit, straight to `main`.** No branches, no pull requests —
+  see the git section of `CLAUDE.md` for why, and for the short list of
+  operations that always ask you first.

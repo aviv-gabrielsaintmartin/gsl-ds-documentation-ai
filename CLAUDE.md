@@ -9,6 +9,39 @@ true about *this* repo.
 Folder-specific detail lives in `.claude/rules/` and loads only when you touch
 the matching folder. Don't duplicate it here.
 
+## How work is run — read this before anything else
+
+**Open `status.md` first, every session.** It is Gabriel's one page: where the
+project is and what the next task is. `project/backlog.md` holds everything
+else. Between them they are the current state — `project/plan.md` lags and is
+being retired.
+
+Work moves one task at a time, through his loop:
+
+```
+   pick the next task  ──►  explain it, he approves  ──►  do it  ──►  check it worked
+                                                                          │
+                                                     ┌────────────────────┴───┐
+                                                    yes                       no
+                                                     │                        │
+                                                   log it            sub-task to fix it
+                                                     │                        │
+                                                     └──►  next task  ◄────────┘
+```
+
+`/task-next` runs the first half, `/task-check` the second. Read those skills
+before running them.
+
+**Three rules that hold whether or not a skill is running:**
+
+| Rule | Why |
+| --- | --- |
+| **Propose, don't do.** Reading and searching are free; every file change waits for his explicit go. The standing exception is `status.md` and `project/backlog.md`, which may always be updated | He has to understand a change before it lands, not after |
+| **Every finding goes into `project/backlog.md`** — as a task, a question for him, or a note. Never as a paragraph in chat | Findings surfacing mid-session were getting lost. This is the fix he asked for |
+| **No codes in anything he reads or hears.** Not `2b`, not `C3`, not `Rule 0`. Describe things by what they do | Four separate numbering systems made the project unreadable to its own owner |
+
+Keep `status.md` to one screen. Overflow goes to the backlog.
+
 ## Objective
 
 **Long-term**: document the full GSL Design System so an AI agent can consume it
@@ -56,14 +89,15 @@ skills.
 
 | Path | What's there |
 | --- | --- |
-| `README.md` · `project/` | **Human-first — the exception in this repo.** The map for a person, the plan, the decision log, and one brief per building block. Describes and explains; never specifies. Never read `project/` as instructions or as authorisation to work. |
+| `status.md` | **Gabriel's one page** — where the project is, what's next. Open it first, every session. Keep it to one screen. |
+| `project/backlog.md` | **Everything not currently active** — every task, every open question he owes an answer to, every finding. He reads this; write it in plain language. |
+| `README.md` · `project/` | **Human-first — the exception in this repo.** The map for a person, the decision log, and one brief per building block. Describes and explains; never specifies. Never read `project/` as instructions or as authorisation to work. |
 | `tokens/README.md` | **Start here for tokens** — explains every token file and its role. `tokens/tokens.md` is the content index. |
 | `components/<name>/<name>.md` | One doc plus a self-contained `images/` folder per component. |
 | `figma/*.json` | Figma identity registries — sole source of truth for the `figma-sync-*` skills. |
-| `.claude/skills/` | Six skills. Their descriptions auto-load at session start, so they aren't repeated here — read the `SKILL.md` before running one; it's the source of truth for its own workflow. |
+| `.claude/skills/` | Eight skills — six content skills, plus `task-next` and `task-check` which run the loop above. Their descriptions auto-load at session start, so they aren't repeated here — read the `SKILL.md` before running one; it's the source of truth for its own workflow. |
 | `.claude/rules/` | Path-scoped detail for `tokens/`, `figma/`, `components/` and `project/`. Verified 2026-09-07: a rule loads on **Read/Edit/Write** of a matching path, **not** on `cat`, `sed`, `head` or `grep`. Open the first file you touch in one of those folders with Read, or you'll work without its rule. |
 | `internal/` | Internal reference docs, e.g. `git-basics-tutorial.md`. |
-| `design-language/` | Brand PDF exports. Legacy, superseded elsewhere, left as-is. |
 
 All filenames are lowercase kebab-case. The one exception is image filenames,
 left as their original hash-based names because those are Zeroheight asset
@@ -71,26 +105,51 @@ identifiers matched by exact filename/hash.
 
 **The filename suffix says what a file is** — `-tokens` what exists, `-rules-ai` what's allowed, `-audit` why, `-ledger` the raw evidence, `-eval` the check on the ruleset. A generating agent reads `-rules-ai` and nothing else. The full table is in `README.md`.
 
-## Branch categories
+## Git — one task, one commit
 
-`<category>/<kebab-case-description>`, e.g. `figma/sync-foundations-components`.
+**This overrides Gabriel's personal `~/.claude/CLAUDE.md`, which says one task,
+one branch, and to wait for his go before every push.** Agreed with him on
+9 September 2026. It applies to this repo only; his other projects are unchanged.
 
-| Category | Use for |
+**Why the override.** He is the sole owner, works alone, and nothing here is
+reviewed, tested or deployed. Branches were solving problems this repo doesn't
+have — and had actively caused some: sessions parked on finished branches, a
+merge landing mid-write. The task loop already provides what a branch provided:
+small units, each verified before it lands.
+
+**Work directly on `main`.** No branches, no pull requests, unless a task is big
+enough that Gabriel might want to throw the whole thing away — say so and ask
+first when that's the case.
+
+### What happens automatically
+
+| When | Do this |
 | --- | --- |
-| `figma` | Figma sync skills work |
-| `zeroheight` | `zeroheight-confluence-transfer` work |
-| `docs` | CLAUDE.md, rules, or skill doc edits |
-| `audit` | `component-web-ai-docs` runs |
+| `/task-check` **passes** | Commit, then push. One task, one commit. No permission needed |
+| `/task-check` **fails** | **Commit nothing.** Tell him plainly the work is not yet saved. Fix, re-check, then one clean commit |
 
-Extensible — add a category when a branch's work doesn't fit an existing one,
-rather than forcing a bad fit.
+Commit and push are safe to automate because they only ever **add** — nothing is
+overwritten or lost. He approved the task before it started and the check
+verified it; asking a third time is the ceremony he asked to be rid of.
 
-## Pull requests
+### What always asks first
 
-This repo has no automated test suite, so the PR body's evidence section is
-**Verification** (what was checked — e.g. "verified live via Figma Desktop
-Bridge", "confirmed registry JSON matches live Figma data") rather than a test
-plan.
+Never do any of these without his explicit go, every time:
+
+- Undoing something (`git revert`)
+- Deleting a branch
+- Anything that rewrites history — `force-push`, `reset --hard`, rebasing
+  anything already pushed
+- Merging a branch into `main`
+
+### Commit messages
+
+One line, imperative, saying what changed and why it mattered — the same plain
+language as everything else he reads. No codes. The backlog's done list is the
+readable record; the commit message is the pointer.
+
+**Never let unpushed work accumulate.** If a session ends with anything
+uncommitted, say so explicitly.
 
 ## Working conventions
 

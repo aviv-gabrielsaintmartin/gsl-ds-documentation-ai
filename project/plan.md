@@ -1,5 +1,10 @@
 # The plan
 
+> **Superseded, 9 September 2026.** This file is kept as history and is no
+> longer the current state of the project. Read [../status.md](../status.md) for
+> where things are, and [backlog.md](backlog.md) for every task, open question
+> and finding. Do not work from this file.
+
 _Human-first. Plain language. If this page needs a glossary, it's wrong._
 
 > **Picking this up cold?** Read [handoff.md](handoff.md) after this page. It
