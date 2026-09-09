@@ -4,3 +4,8 @@
 # Generated token-usage data — regenerate with tokens/scripts/extract_*.py
 # The readable *-usage-ledger.md files are committed; the JSON alongside them is not.
 tokens/*/*-usage-ledger.json
+
+# Derived knowledge graph — a diagnostic on the docs, never a source an agent reads.
+# Rebuild with `/graphify . --update`. Committing it would create a second,
+# lossy copy of facts this repo states once.
+graphify-out/
