@@ -40,6 +40,16 @@ before running them.
 | **Every finding goes into `project/backlog.md`** — as a task, a question for him, or a note. Never as a paragraph in chat | Findings surfacing mid-session were getting lost. This is the fix he asked for |
 | **No codes in anything he reads or hears.** Not `2b`, not `C3`, not `Rule 0`. Describe things by what they do | Four separate numbering systems made the project unreadable to its own owner |
 
+**One task, one chat.** Each task starts in a fresh conversation with
+`/task-next`. Not for context limits — the harness compacts on its own — but
+because a session that built something is the worst judge of whether it reads
+clearly to someone who wasn't there. `status.md`, `project/backlog.md` and this
+file carry everything a new session needs, which is what makes a cold start safe.
+
+Stay in the same conversation *within* a task, however many turns it takes, and
+for discussions that aren't tasks. The signal to start fresh is `/task-check`
+finishing — never a token count.
+
 Keep `status.md` to one screen. Overflow goes to the backlog.
 
 ## Objective

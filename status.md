@@ -93,6 +93,10 @@ Two commands drive it:
 | **`/task-next`** | I propose one task — what, why, how long, whether it needs you. **I wait for your go.** Then I do it and report in three lines |
 | **`/task-check`** | I verify it actually worked and tell you pass or fail. Passed → logged, saved, next task named. Failed → a sub-task to fix it becomes next |
 
+**One task, one chat.** Start each task in a new conversation with `/task-next`.
+You never have to watch anything — `/task-check` finishing is the signal. Stay
+put within a task, and for conversations like this one.
+
 **Nothing is written without your approval.** Reading and searching are free.
 
 ### How the work gets saved

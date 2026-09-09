@@ -56,8 +56,9 @@ check.
    needed — see the git section of `CLAUDE.md`. Commit and push only ever add,
    so nothing can be lost; he already approved the task and the check just
    verified it.
-4. Name the next task in one sentence. Do not start it. He runs `/task-next`
-   when he's ready.
+4. Name the next task in one sentence. Do not start it.
+5. Tell him to start it **in a new conversation** with `/task-next`. One task,
+   one chat — a session that built something is the worst judge of it.
 
 ## Step 3b — if it didn't
 

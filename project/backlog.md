@@ -100,6 +100,7 @@ Things that turned out to be true and are worth not rediscovering.
 
 | Date | What |
 | --- | --- |
+| 9 Sep 2026 | **One task, one chat** — each task starts in a fresh conversation. Written into `CLAUDE.md`, `status.md` and the check skill. Not about context limits; a session that built something is the worst judge of whether it reads clearly to someone who wasn't there |
 | 9 Sep 2026 | **Corner radius, shadow and border thickness now have rulesets** an agent is allowed to read — seven of twelve token kinds covered, up from three. Verified: every value matches its token page, 57 links resolve, and all three failures from the test run are now answered, including "a card is not elevated, give it a border" |
 | 9 Sep 2026 | **Git simplified: one task = one commit, straight to `main`.** No branches, no pull requests. A passing check now commits and pushes automatically; undoing, deleting and rewriting always ask first. Overrides Gabriel's personal one-task-one-branch rule, for this repo only. `audit/run-001` merged into `main` and deleted; `main` is now the only branch |
 | 9 Sep 2026 | The repo now describes the new way of working — the rules file for `project/` carries the loop instead of the old ritual, `README.md` opens on `status.md`, and the plan, briefs and handoff note are marked superseded. Verified: 27 links resolve, no stale skill count, no surviving instruction to write briefs |
