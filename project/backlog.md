@@ -20,6 +20,7 @@ to remember. **Proposed** means waiting for your go.
 | Fix the three component entries that dead-end into a file agents are forbidden to open | The highest-priority rule in the whole system points nowhere for three cases | Half a day | Proposed |
 | Add a routing entry for "a block of controls that computes a live result" | A mortgage simulator is a recurring product pattern and nothing routes an agent to it. In the test the agent hand-built one and said it couldn't tell whether it should have | Half a day | Proposed |
 | Extend the "when nothing fits" rule to cover *exists, is correct, and doesn't fit* | The donut chart is 373px wide inside a 360px frame. The agent switched off a mandatory part and broke no rule | Half a day | Proposed |
+| Test the three new rulesets on a cold reader | They are verified as accurate but not as understandable. A set of questions with known-correct answers, given to a reader who has only the ruleset — the same method that found twelve defects in component selection | Half a day | Proposed |
 | Remove the leftover rule numbers in the spacing ruleset | It still says "Rules 6 and 7 are unverified" and "Rules 3–5" — the renaming task missed them, so the file contradicts its own rule names | Ten minutes | Proposed |
 | Widen the `audit` branch category to cover compliance runs | It names only one skill, and branches are gone anyway. Small, clerical | Ten minutes | Proposed |
 | Write up the test run properly | Findings are safe in `project/handoff.md` for now | Half a day | **Parked** |
