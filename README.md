@@ -28,6 +28,7 @@ Judge every page in here by one test:
 | Know **why** a rule says what it says | The matching `-audit.md` |
 | Know where the project is going | [project/plan.md](project/plan.md) |
 | Know why the project is shaped like this | [project/decisions.md](project/decisions.md) |
+| **Pick the project up cold** | [project/handoff.md](project/handoff.md) — latest findings and open decisions |
 
 ---
 
@@ -151,7 +152,7 @@ decision an agent has to make with no documentation behind it.
 | `CLAUDE.md` | Instructions for agents working in this repo. Not a human document |
 | `.claude/rules/` | 5 path-scoped rule files — for `tokens/`, `figma/`, `components/`, `compliance/` and `project/`. Each loads automatically when an agent opens a file in that folder |
 | `.claude/skills/` | 6 skills — the repeatable workflows. See below |
-| `project/` | The plan, the decision log, and one brief per building block. **Human-first** |
+| `project/` | The plan, the decision log, one brief per building block, and a handoff note. **Human-first** |
 | `tokens/scripts/` | 4 Python scripts. They only ever *read* the design-system code repo. Re-run them to refresh the evidence |
 | `internal/` | Human reference notes, e.g. a git tutorial |
 | `design-language/` | Brand PDF exports. Legacy, superseded elsewhere, left as-is |

@@ -2,6 +2,10 @@
 
 _Human-first. Plain language. If this page needs a glossary, it's wrong._
 
+> **Picking this up cold?** Read [handoff.md](handoff.md) after this page. It
+> holds the run-001 findings and the open decisions, which are not yet
+> reflected in the block table below.
+
 ## What we're actually trying to do
 
 Document the GSL Design System well enough that an AI agent can design a
