@@ -56,11 +56,24 @@ check.
    needed — see the git section of `CLAUDE.md`. Commit and push only ever add,
    so nothing can be lost; he already approved the task and the check just
    verified it.
-4. Name the next task in one sentence. Do not start it. Take the top item from
+4. **Refresh the knowledge graph** — `graphify update .` from the repo root.
+   It re-reads only what changed, so it costs almost nothing against the cache.
+   Say one line if it reports anything; say nothing if it's quiet.
+
+   **Never delete `graphify-out/`.** The cache lives inside it, and deleting it
+   turns the next run from a few thousand tokens into roughly 800,000 — that is
+   what a full rebuild of this repo costs. If the graph ever looks wrong, say so
+   and let Gabriel decide; do not rebuild it to be safe.
+
+   Skip this step if the `graphify` command isn't available — personal skills
+   and tools load from `~/.claude/`, and a session on a different config root
+   won't have it. Not having it is never a reason to stop; the graph is a
+   working aid, not part of what this repo delivers.
+5. Name the next task in one sentence. Do not start it. Take the top item from
    *I can start these today* in the backlog — that list is sorted by what goes
    wrong if we don't fix it, and the rule is written above it. If the task just
    done changed what's now most damaging, re-sort the list before naming one.
-5. Tell him to start it **in a new conversation** with `/task-next`. One task,
+6. Tell him to start it **in a new conversation** with `/task-next`. One task,
    one chat — a session that built something is the worst judge of it.
 
 ## Step 3b — if it didn't
