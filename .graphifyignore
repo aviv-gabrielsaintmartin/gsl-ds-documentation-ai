@@ -1,0 +1,16 @@
+# What graphify must not read in this repo.
+#
+# Images: 842 of them, and CLAUDE.md says never to open one — they are
+# Zeroheight assets matched by filename and hash only, never by content.
+# Reading them was 92% of the corpus and the bulk of the token cost.
+**/images/
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.svg
+
+# History. The retired plan, briefs and handoff note were moved here so
+# nobody works from them. A graph that reads them hands a future session
+# the old way of working as if it were current.
+project/archive/
