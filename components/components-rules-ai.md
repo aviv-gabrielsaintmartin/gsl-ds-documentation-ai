@@ -4,7 +4,7 @@ _The authoritative ruleset for choosing **which component** when generating a GS
 interface. Read this before opening any component page — the component pages say
 how to use a component, this says which one to reach for. Evidence and rejected
 options: [components-audit.md](components-audit.md). Full
-inventory: [components.md](components.md)._
+inventory: [components-index.md](components-index.md)._
 
 This page is written for machine consumption. Each section maps a design
 decision to one component.

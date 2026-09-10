@@ -156,7 +156,7 @@ of truth. Confluence-only publication is why every component doc here carried
    overwrite it, exactly as step 4 asks before overwriting a Confluence page.
    Never silently replace human-written content.
 4. Outputs 1 and 3 stay Confluence-only. They are code-level and web-specific;
-   this repo is platform-neutral (see `components/components.md`).
+   this repo is platform-neutral (see `components/components-index.md`).
 
 Report the doc path alongside the three page URLs.
 

@@ -5,7 +5,7 @@ System**, written so that an AI agent can read it and build a compliant
 interface with nobody correcting it.
 
 It is not a code repository. There is no build, no lint, no test suite — the one
-deliberate exception is `tokens/scripts/`. Everything here is content and data.
+deliberate exceptions are `tokens/scripts/` and `scripts/check-links.py`. Everything else here is content and data.
 
 **It is also not the agent.** Several agents consume this knowledge base — a
 design agent, and later web, iOS and Android. They live in their own repos. This
@@ -25,8 +25,8 @@ Judge every page in here by one test:
 | **Know where the project is, or pick it up cold** | **[status.md](status.md)** — one page, always current |
 | See every task, open question and finding | [project/backlog.md](project/backlog.md) |
 | **Generate an interface** | The rulesets, and only the rulesets — see the four of them below |
-| Know what components exist | [components/components.md](components/components.md) |
-| Know what tokens exist | [tokens/tokens.md](tokens/tokens.md) · then [tokens/README.md](tokens/README.md) for the folder |
+| Know what components exist | [components/components-index.md](components/components-index.md) |
+| Know what tokens exist | [tokens/tokens-index.md](tokens/tokens-index.md) · then [tokens/README.md](tokens/README.md) for the folder |
 | Know **why** a rule says what it says | The matching `-audit.md` |
 | Know why the project is shaped like this | [project/decisions.md](project/decisions.md) |
 
@@ -63,10 +63,11 @@ rather than specify.
 ## The filename grammar
 
 **A file's suffix tells you what it is and whether it may be trusted as rules.**
-Learn these five and any filename in the repo explains itself.
+Learn these seven and any filename in the repo explains itself.
 
 | Suffix | What it is | Written by | Read as rules? |
 | --- | --- | --- | --- |
+| `-index.md` | **The routing page.** Every page in the folder, what it covers, and which ruleset to read instead. Holds no values of its own | a human | no — it tells you where to go, not what to use |
 | `-tokens.md`, or `<name>.md` | **The page.** What exists — every value, every variant, and when to use each | a human | no — it lists everything, including things the audit rejected |
 | `-rules-ai.md` | **The ruleset.** What an agent is *allowed* to reach for | a human, from the audit | **yes. This is the contract** |
 | `-audit.md` | **The evidence.** Why the ruleset says what it says, what was rejected, what is still open | a human, from the ledger | **never** |
@@ -147,8 +148,8 @@ runs this way.
 
 | Folder | What's in it | Start at |
 | --- | --- | --- |
-| `tokens/` | 12 token categories — colour, typography, spacing, radius, shadow, and 7 more. Every one checked against real component usage | [tokens/tokens.md](tokens/tokens.md) |
-| `components/` | 53 component docs, one folder each with a self-contained `images/`. Plus the ruleset, audit and eval | [components/components.md](components/components.md) |
+| `tokens/` | 12 token categories — colour, typography, spacing, radius, shadow, and 7 more. Every one checked against real component usage | [tokens/tokens-index.md](tokens/tokens-index.md) |
+| `components/` | 53 component docs, one folder each with a self-contained `images/`. Plus the ruleset, audit and eval | [components/components-index.md](components/components-index.md) |
 | `figma/` | 7 registry JSON files — the identity of every Figma component, token and icon. Keys, node IDs, variant counts | `.claude/rules/figma-registries.md` |
 | `compliance/` | How generated output is judged — six checks, what fails outright, and the run log. Read by a **checking** agent, not a generating one | [compliance/compliance-scorecard.md](compliance/compliance-scorecard.md) |
 
@@ -166,6 +167,7 @@ has to make with no documentation behind it.
 | `status.md` | **The one page.** Where the project is and what the next task is. Human-first |
 | `project/` | `backlog.md` — every task, question and finding — plus `decisions.md`, the log of why the project is shaped this way. Retired files sit in `project/archive/`. **Human-first** |
 | `tokens/scripts/` | 4 Python scripts. They only ever *read* the design-system code repo. Re-run them to refresh the evidence |
+| `scripts/` | `check-links.py` — run it after renaming or deleting anything. It reports links whose target is gone, and rulesets that point an agent at evidence it may not read |
 | `internal/` | Human reference notes, e.g. a git tutorial |
 
 ### The eight skills

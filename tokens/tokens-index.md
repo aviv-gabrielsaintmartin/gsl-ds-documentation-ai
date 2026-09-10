@@ -1,3 +1,8 @@
+# Tokens — index
+
+_Where to find every token page, and which ruleset to read instead of it. This
+page holds no token values of its own._
+
 Design tokens for the GSL Design System, generated from the Figma Foundations Library where applicable. One page per category — each is just the tokens and how to use them.
 
 ## For AI generation

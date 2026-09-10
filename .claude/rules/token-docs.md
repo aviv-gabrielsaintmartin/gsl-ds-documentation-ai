@@ -5,10 +5,14 @@ paths:
 
 # Token docs
 
+_Instructions for Claude when working anywhere in `tokens/`. This is not
+design-system content — the token documentation itself starts at
+[`tokens/tokens-index.md`](../../tokens/tokens-index.md)._
+
 One folder per token category, mirroring how `components/` is organised.
 
 - **Start at `tokens/README.md`** — it explains every file's role.
-  `tokens/tokens.md` is the content index.
+  `tokens/tokens-index.md` is the content index.
 - Only `README.md`, `tokens.md` and `review-progress.md` sit at the top level.
   Everything else lives in a category folder — `color/`, `typography/`,
   `spacing/`, `sizing/`, `radius/`, `shadow/`, `border-width/`, `breakpoint/`,

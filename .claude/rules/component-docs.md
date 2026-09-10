@@ -5,6 +5,10 @@ paths:
 
 # Component docs
 
+_Instructions for Claude when working anywhere in `components/`. This is not
+design-system content — the component documentation itself starts at
+[`components/components-index.md`](../../components/components-index.md)._
+
 One folder per design-system component (`components/accordion/`,
 `components/button/`, …), each holding its markdown doc plus a self-contained
 `images/` folder — e.g. `components/button-group/button-group.md`.

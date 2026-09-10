@@ -1,7 +1,7 @@
 # What is in this folder
 
 A guide to the files, for anyone opening `tokens/` and wondering what all of it
-is. For the *content*, start at [tokens.md](tokens.md) — this page is only about
+is. For the *content*, start at [tokens-index.md](tokens-index.md) — this page is only about
 which file does what.
 
 **One folder per token category**, the same way `components/` works. Everything
@@ -31,7 +31,7 @@ person and safe to edit; the ledger is script output and will be overwritten.
 
 | File | What it is |
 | --- | --- |
-| [tokens.md](tokens.md) | The index. Every category, its page, and its headline finding. What an AI agent reads first. |
+| [tokens-index.md](tokens-index.md) | The index. Every category, its page, and its headline finding. What an AI agent reads first. |
 | [review-progress.md](review-progress.md) | Running record of which categories have been reviewed. |
 | `README.md` | This file. |
 

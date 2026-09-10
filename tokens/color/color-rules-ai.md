@@ -27,7 +27,7 @@ interaction states. A hand-built `<div>` styled to look like a button is correct
 in none of them.
 
 **So: reach for a component first, every time.** See
-[../../components/components.md](../../components/components.md) for the
+[../../components/components-index.md](../../components/components-index.md) for the
 inventory. Only colour something yourself when no component covers it — a custom
 layout surface, a one-off container, a page background.
 

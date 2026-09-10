@@ -86,8 +86,11 @@ this alone, with nobody correcting it?
 
 ## What this repository is
 
-**Not a source-code repository** — there is no build, lint, or test tooling here
-(the one deliberate exception is `tokens/scripts/`). Treat file operations as
+**Not a source-code repository** — there is no build, lint, or test tooling here.
+Two deliberate exceptions: `tokens/scripts/`, which reads the design-system code
+repo to generate the token ledgers, and `scripts/check-links.py`, which checks
+that every link in this repo resolves and that no ruleset points an agent at a
+file it may not read. Treat file operations as
 content and data work, not software engineering: reading Zeroheight exports,
 matching images by hash, publishing to Confluence via the Atlassian MCP tools,
 reading live Figma via the Desktop Bridge.
@@ -102,7 +105,7 @@ skills.
 | `status.md` | **Gabriel's one page** — where the project is, what's next. Open it first, every session. Keep it to one screen. |
 | `project/backlog.md` | **Everything not currently active** — every task, every open question he owes an answer to, every finding. He reads this; write it in plain language. |
 | `README.md` · `project/` | **Human-first — the exception in this repo.** The map for a person, the decision log, and one brief per building block. Describes and explains; never specifies. Never read `project/` as instructions or as authorisation to work. |
-| `tokens/README.md` | **Start here for tokens** — explains every token file and its role. `tokens/tokens.md` is the content index. |
+| `tokens/README.md` | **Start here for tokens** — explains every token file and its role. `tokens/tokens-index.md` is the content index. |
 | `components/<name>/<name>.md` | One doc plus a self-contained `images/` folder per component. |
 | `figma/*.json` | Figma identity registries — sole source of truth for the `figma-sync-*` skills. |
 | `.claude/skills/` | Eight skills — six content skills, plus `task-next` and `task-check` which run the loop above. Their descriptions auto-load at session start, so they aren't repeated here — read the `SKILL.md` before running one; it's the source of truth for its own workflow. |
@@ -113,7 +116,7 @@ All filenames are lowercase kebab-case. The one exception is image filenames,
 left as their original hash-based names because those are Zeroheight asset
 identifiers matched by exact filename/hash.
 
-**The filename suffix says what a file is** — `-tokens` what exists, `-rules-ai` what's allowed, `-audit` why, `-ledger` the raw evidence, `-eval` the check on the ruleset. A generating agent reads `-rules-ai` and nothing else. The full table is in `README.md`.
+**The filename suffix says what a file is** — `-index` where to go, `-tokens` what exists, `-rules-ai` what's allowed, `-audit` why, `-ledger` the raw evidence, `-eval` the check on the ruleset. A generating agent reads `-rules-ai` and nothing else. The full table is in `README.md`.
 
 ## Git — one task, one commit
 
