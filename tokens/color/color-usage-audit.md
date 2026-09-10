@@ -78,7 +78,7 @@ intentional.
 | Brands × modes | 6 × 2 — identical 218-key set in every one |
 | Component token files | 60 (48 declare colour, 12 do not; 4 describe a component that does not exist) |
 | Component → semantic bindings | 631 |
-| Tokens with **no consumer at all** | 83 (38%) |
+| Tokens with **no consumer at all** | 73 (33%) |
 | Tokens consumed **only dynamically** | 22 (`surface.data.*`, chart series) |
 | Tokens used **directly in `.tsx`**, bypassing the component tier | 28 |
 | Bindings whose **role disagrees with the semantic family** | 32 (27 are the documented border-parity idiom, A1–A3) |
@@ -229,7 +229,7 @@ point that it sits outside the brand guidelines is borne out by the values.
 
 **Recommendation: do not create that token yet.** One consumer and no writable
 usage definition is exactly the pressure that produced the sprawl this audit is
-documenting — 83 of 218 tokens with no consumer. Creating a family for a single
+documenting — 73 of 218 tokens with no consumer. Creating a family for a single
 component repeats it. Better to leave the binding, record the exception, and set
 a trigger: **create `Content/Decorative/*` when a second use case appears**, and
 migrate `rating` with it.
@@ -470,7 +470,7 @@ error:
 
 No component uses information, success, or warning on an interactive element.
 
-**This single rule explains 13 of the 83 orphans** — they are not gaps:
+**This single rule explains 13 of the 73 orphans** — they are not gaps:
 
 | Orphaned | Count | Because |
 | --- | --- | --- |
@@ -488,15 +488,15 @@ recorded so it is not mistaken for drift.
 
 ---
 
-## D. Tokens with no consumer — 83 of 218 (38%)
+## D. Tokens with no consumer — 73 of 218 (33%)
 
 Flagged, not triaged, by decision. Grouped, with the apparent reason:
 
 | Cluster | Count | Reason |
 | --- | --- | --- |
 | `symbol.*` — brand, disabled, skinColors | 22 | Figma-only design-authoring palette (C2) |
-| `scales.energy` | 12 | consumed by an external team, not by any GSL component |
-| `scales.co2` | 7 | same |
+| `scales.energy` | 2 | **corrected 10 Sep 2026** — only `Blue100` and `Red300`. The other ten are bound by `EnergyScale.tsx`; this audit first recorded all 12 as unconsumed |
+| `scales.co2` | 7 | no GSL-component consumer — checked again 10 Sep 2026, still true |
 | `surface.constant.*` hover/pressed/disabled/transparent | 9 | fixed black/white fills; only the `.default` leaves have consumers |
 | `surface.status.{info,success,warning}Strong.{hover,pressed}` | 6 | only error is interactive (C3) |
 | `content.status.*.inverted.default` | 4 | status text is never inverted (C3) |
@@ -529,9 +529,15 @@ unexplained (`score`, `background.constant`). The rest are orphaned for a
 recorded, sound reason — the status clusters especially: 13 tokens that look like
 gaps are simply the unreachable corners of a convention (C3).
 
-`scales.energy` and `scales.co2` (19 tokens) are **consumed by an external team**
-outside this monorepo, per Gabriel. They are live tokens with no GSL-component
-consumer — do not delete them, and do not generate with them.
+**Corrected 10 September 2026.** This section previously said all 19 `scales.*`
+tokens were consumed by an external team with no GSL-component consumer, and
+told an agent not to generate with them. That was wrong.
+`libraries/patterns/energyclassslider/src/EnergyScale.tsx` — a GSL component in
+the GSL web repo — binds ten of the twelve `scales.energy` leaves. The colour
+ruleset now carries the French DPE class mapping and permits both families.
+
+Genuinely unconsumed: `scales.energy.blue100`, `scales.energy.red300`, and all
+seven `scales.co2`. Do not delete any of them.
 
 ---
 
@@ -812,8 +818,9 @@ Figma-side pass to complete — it cannot be derived from the code repo.
 
 ### Answered since first draft
 
-- **`scales.energy` / `scales.co2`** — consumed by an external team, outside this
-  monorepo. Live tokens, no GSL-component consumer. (D)
+- **`scales.energy` / `scales.co2`** — **answer corrected 10 Sep 2026.**
+  `scales.energy` is consumed by `EnergyScale.tsx` inside this design system, not
+  by an external team. Both families are now permitted, with rules. (D)
 - **`Symbol/*`** — Figma-only. (C2)
 - **`Active/*`** — fast-iteration artifact. (B4)
 - **`surface.status.*` and `feedbackMessage`** — confirmed; the full convention

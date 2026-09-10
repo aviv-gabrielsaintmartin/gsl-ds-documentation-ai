@@ -174,6 +174,16 @@ uncommitted, say so explicitly.
   or a human chat-paste as fallback.
 - **The four `figma-sync-*` skills never read or write Confluence** — the
   `figma-*-registry.json` files are their sole source of truth.
+- **When a check disproves an audit, propose fixing it in the same task** —
+  don't file it as a backlog row for later. An `-audit`, `-ledger` or `-eval`
+  file describes the system, so a figure now known to be wrong is simply wrong,
+  and the next reader is misled by a file that still looks authoritative. Say
+  what you found, say what you'd change, and **wait for Gabriel's go like any
+  other file change** — this convention decides *when* the correction is raised,
+  never whether it needs approval. Once approved, say what changed and when,
+  inside the file. **The decision log is the exception and is never rewritten**
+  — `project/decisions.md` records what was believed on a date, and correcting
+  it destroys the only thing it is for.
 - **Don't create a per-tier Figma skill.** `figma-sync-component-sets` handles
   Components, Patterns, Experiences and Foundations' real components — extend it
   instead. Foundations' Tokens (`figma-sync-tokens`) and Icons

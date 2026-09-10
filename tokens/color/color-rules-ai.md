@@ -54,7 +54,7 @@ colour comes from a token. There are no exceptions in product UI.
 | A component or container fill | `Surface/*` |
 | A stroke or outline | `Border/*` |
 | Text **and icons** | `Content/*` |
-| DPE / CO₂ domain data | `Scale/*` — **external team only, see [Never use](#never-use)** |
+| DPE / CO₂ domain data | `Scales/Energy/*` · `Scales/CO2/*` — see [**Energy and CO2 scales**](#energy-and-co2-scales) |
 | Error, information, success, warning | see [**Status is messaging**](#status-is-messaging) |
 
 `Symbol/*` and `Native/*` never appear in generated web code — see [Never use](#never-use).
@@ -284,24 +284,86 @@ The agent must never emit these.
 | `Border/Focus` | 1 | Focus rings use platform system colours (**Border by owner**). |
 | `Native/*` | — | iOS/Android only. |
 | `Surface/Decorative/*` | 2 | One live binding (`rating`), a documented exception with no general rule. For a rating display use `<Rating>`. |
-| `Scale/*` — energy, CO₂ | 19 | Consumed by an external team, not by any GSL component. |
 | Status leaves unreachable under **Status is messaging** | 13 | `…Strong.{hover,pressed}` for information/success/warning, `border.status.{information,success,warning}.default`, `content.status.*.inverted.default`. Only error is interactive; status is never inverted. |
 | Everything else with no consumer | 28 | No component uses it and no rule explains it — there is no precedent for what it means. |
 
-**83 of the 218 tokens have no consumer**: 22 `Symbol/*`, 19 `Scale/*`, 13
-status leaves, 1 `Border/Focus`, and 28 others — `surface.active.default`,
+**73 of the 218 tokens have no consumer**: 22 `Symbol/*`, 13
+status leaves, 1 `Border/Focus`, 9 unused `Scales/*` leaves, and 28 others — `surface.active.default`,
 `border.active.pressed`, `content.active.pressed`,
 `surface.brand.secondary.default`, `surface.decorative.red.default`,
 `surface.light.hover`, `border.accent.light.default`,
 `content.constant.white.onDark.default`, `background.light`, the `score` families, the
 `surface.constant.*` interaction states, and `background.constant.{black,white}`.
-Full list in [color-usage-audit.md § D](color-usage-audit.md).
+
+**This figure was 83 and was wrong.** The audit counted all 19 `Scales/*` tokens
+as having no consumer. Ten of them are bound by `EnergyScale.tsx` in the web
+design-system repo — checked 10 September 2026. The nine genuinely unused are
+`Scales/Energy/Blue100`, `Scales/Energy/Red300` and the seven `Scales/CO2/*`.
+The audit file still says 83.
 
 ---
 
 ## Restricted
 
 Allowed only as described.
+
+### Energy and CO2 scales
+
+`Scales/Energy/*` and `Scales/CO2/*` are the **only** correct colours for
+energy-performance and CO₂ data. Never substitute a `Surface/*`, `Content/*` or
+status colour. A grey or neutral energy ladder is wrong output, not a safe
+fallback — the colour carries the meaning, and on a French listing it is
+regulated information.
+
+**France only.** Other country scales exist on the token page and are legacy.
+
+#### Energy class colours — France
+
+*Match the token to the DPE class in the listing data. Never estimate a class,
+and never pick by appearance.*
+
+| DPE class | Token |
+| --- | --- |
+| A | `Scales/Energy/Green100` |
+| B | `Scales/Energy/Green200` |
+| C | `Scales/Energy/Green400` |
+| D | `Scales/Energy/Yellow100` |
+| E | `Scales/Energy/Orange100` |
+| F | `Scales/Energy/Red100` |
+| G | `Scales/Energy/Red200` |
+
+**The French scale runs green to red across all seven classes.** `Green300`,
+`Yellow200`, `Orange200`, `Red300` and `Blue100` are **not part of it** — do not
+reach for them to fill a gap, and do not assume the classes walk the palette in
+order. They do not.
+
+A French ladder that ends yellow or orange at G is wrong. G is the worst rating
+and must read red.
+
+**Text on a selected segment**, as the energy filter slider does it: white on
+**A** and **G** only; the default content colour on B through F. Those two fills
+are the darkest in the scale.
+
+#### CO2 scale
+
+Sequential blue palette, for CO₂ emission data only.
+
+| Step | Token |
+| --- | --- |
+| Lowest emission | `Scales/CO2/Blue100` |
+| Intermediate | `Scales/CO2/Blue200`–`Blue600`, assigned in order |
+| Highest emission | `Scales/CO2/Blue700` |
+
+**Never reverse the scale.** Never use CO₂ blues for an energy class, or energy
+colours for CO₂.
+
+#### Where these rules come from
+
+| | |
+| --- | --- |
+| Energy class mapping | **Verified against web source code** — `libraries/patterns/energyclassslider/src/EnergyScale.tsx`, 10 September 2026 |
+| CO₂ ordering | **Not verified against code.** Nothing in the web codebase consumes `Scales/CO2/*`; the rule comes from the token page |
+| Both | **Never checked against Figma.** `Energy Tag` carries 48 Figma variants that have not been read. If they assign classes differently, that is a finding to raise — not a difference to resolve on your own |
 
 ### `Surface/Dark`
 

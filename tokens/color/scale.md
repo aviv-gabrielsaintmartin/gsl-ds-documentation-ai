@@ -4,29 +4,60 @@
 
 | Family | Use for | Don't use for |
 | --- | --- | --- |
-| `Scales/Energy` | Energy Performance Class (DPE) label fills — A++ through G, per the Energy tag component | CO2 visualisation (→ `CO2`); any general product UI colour |
+| `Scales/Energy` | Energy Performance Class (DPE) fills — France, classes A to G. Used by every energy component | CO2 visualisation (→ `CO2`); any general product UI colour |
 | `Scales/CO2` | CO2 emission scale data visualisation fills — a sequential blue palette | Energy class labels (→ `Energy`); general data visualisation (→ `Surface/Data`) |
 
 ## Semantic usage
 
 ### Energy
 
-*Use only inside the Energy tag component. Always match the token to the actual DPE class from the listing data — never estimate or choose by colour preference.*
+*Always match the token to the actual DPE class from the listing data — never
+estimate, and never choose by colour preference.*
 
-| Token | DPE class | Country availability |
-| --- | --- | --- |
-| `Scales/Energy/Green100` | A (or A++ in DE/AT scale) | All |
-| `Scales/Energy/Green200` | B (or A+ in DE/AT scale) | All |
-| `Scales/Energy/Green300` | C (or A in DE/AT scale) | All |
-| `Scales/Energy/Green400` | D (or B in DE/AT scale) | All |
-| `Scales/Energy/Yellow100` | E (or C in DE/AT scale) | All |
-| `Scales/Energy/Yellow200` | F (or D in DE/AT scale) | All |
-| `Scales/Energy/Orange100` | G (or E in DE/AT scale) | All |
-| `Scales/Energy/Orange200` | F in DE/AT scale | DE/AT only |
-| `Scales/Energy/Red100` | G in DE/AT scale | DE/AT only |
-| `Scales/Energy/Red200` | H in DE/AT scale | DE/AT only |
-| `Scales/Energy/Red300` | I in DE/AT scale (if applicable) | DE/AT only |
-| `Scales/Energy/Blue100` | Special class (varies by country regulation) | Country-specific |
+**France is the only country in scope.** The French scale has seven classes,
+A to G, and it does **not** walk the palette in order — it samples across it so
+that seven classes still span green to red. `Green300`, `Yellow200`,
+`Orange200`, `Red300` and `Blue100` are not part of it.
+
+| Token | DPE class (France) |
+| --- | --- |
+| `Scales/Energy/Green100` | A |
+| `Scales/Energy/Green200` | B |
+| `Scales/Energy/Green400` | C |
+| `Scales/Energy/Yellow100` | D |
+| `Scales/Energy/Orange100` | E |
+| `Scales/Energy/Red100` | F |
+| `Scales/Energy/Red200` | G |
+
+**Corrected 10 September 2026, against web source code.** The previous version of
+this table assigned the French classes to the first seven steps of the palette
+(`Green100` · `Green200` · `Green300` · `Green400` · `Yellow100` · `Yellow200` ·
+`Orange100`). Five of the seven were wrong, and class G — the worst rating —
+came out orange instead of red. The mapping above is the one in
+`libraries/patterns/energyclassslider/src/EnergyScale.tsx`.
+
+**Not checked against Figma.** `Energy Tag` carries 48 Figma variants that have
+not been read. If they disagree with this table, raise it.
+
+#### Other countries — legacy, not in scope
+
+Recorded because the tokens exist, not because anything should generate with
+them. This is the German and Austrian scale, nine classes, and it matches the
+same source file's `ENERGY_CLASS_COLORS_DE`.
+
+| Token | Class (DE/AT) |
+| --- | --- |
+| `Scales/Energy/Green200` | A+ |
+| `Scales/Energy/Green300` | A |
+| `Scales/Energy/Green400` | B |
+| `Scales/Energy/Yellow100` | C |
+| `Scales/Energy/Yellow200` | D |
+| `Scales/Energy/Orange100` | E |
+| `Scales/Energy/Orange200` | F |
+| `Scales/Energy/Red100` | G |
+| `Scales/Energy/Red200` | H |
+
+`Scales/Energy/Blue100` and `Scales/Energy/Red300` are used by neither scale.
 
 ### CO2
 
@@ -42,7 +73,7 @@
 
 ### Scales — Energy (12)
 
-*Energy Performance Class labels (A++ to G) only.*
+*Energy Performance Class fills only. France uses seven of these twelve; see Semantic usage above.*
 
 | Token | Light | Dark | Notes |
 | --- | --- | --- | --- |

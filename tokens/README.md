@@ -65,7 +65,7 @@ family pages rather than one.
 | `border.md` | Strokes and outlines |
 | `content.md` | Text and icon colours |
 | `symbols.md` | Illustration/icon fills — Figma-only, not used in web code |
-| `scale.md` | DPE and CO₂ colours — used by an external team |
+| `scale.md` | DPE and CO₂ colours — France, classes A to G. Used by every energy component |
 | `native.md` | iOS/Android colours — never web |
 | [color-rules-ai.md](color/color-rules-ai.md) | The ruleset |
 | [color-usage-audit.md](color/color-usage-audit.md) | The evidence |

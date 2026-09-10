@@ -36,14 +36,14 @@ Written, never yet used on a real run.
 
 ## The next task
 
-**Find out what the energy scale in web code actually does.**
+**Say which components can actually be built on web, using the web code as the
+source.**
 
-`EnergyScale.tsx` and `EnergyClassSlider.tsx` exist in the web design-system
-repo. The energy-rating question below — the biggest one on the list — is
-written as *no GSL component does this*. For web that looks wrong. Read the
-component first, then the question can be re-put with facts in it.
+The last attempt at this list came from the component docs and was wrong for
+five of thirteen. The web repo is on your machine and is ground truth. The real
+work is name matching — Figma says `Bar graph`, the code says `barchart`.
 
-Half a day. Nothing needed from you, and it may make the question below smaller.
+Half a day. Nothing needed from you.
 
 Tasks are ordered by **what goes wrong if we don't fix it**, not by what's
 quickest. **Fear the ones where the agent breaks no rule** — a stuck agent tells
@@ -51,20 +51,21 @@ you it's stuck; a confidently wrong one doesn't.
 
 **Worth carrying forward.** The component docs' `Figma | Web | iOS | Android`
 readiness rows are stale — five of thirteen wrong against the web source code.
-A whole web availability list was built on them and thrown away before it
-shipped. Don't trust that row anywhere.
+Don't trust that row anywhere.
 
 ---
 
 ## The question I'd like answered first
 
-> **Who owns the energy-rating (DPE) colours?** A French property listing must
-> show a seven-step energy scale. No GSL component does that, the colours belong
-> to another team, and our own rules point agents at a colour family they also
-> forbid. In the test the agent produced a grey ladder — technically compliant,
-> legally and visually wrong.
+The energy-colour question that sat here is **largely answered** — the colours
+are permitted and the French mapping is written and verified. What's left is a
+check against Figma, not a question for you.
 
-There are around two dozen questions waiting in total. They're all listed in
+> **Still open: the energy filter slider ships on web and was never added to the
+> Figma libraries.** An agent asked to build one has working web code to copy
+> and no Figma component to place. Get it added, or tell agents to compose it?
+
+Around two dozen questions are waiting, all in
 [project/backlog.md](project/backlog.md). I'll bring them one at a time.
 
 ---
