@@ -91,13 +91,31 @@ re-litigate the original task, and do not quietly widen the fix.
 
 ## Step 4 — sweep the findings
 
-Before finishing, ask: **did anything surface during this task that isn't
-recorded?** Each one goes into `project/backlog.md` as exactly one of three:
+### First, correct what this task falsified
+
+**Re-read the backlog before adding anything to it.** A task that changes a file
+usually changes what some other row claims about it — a count, a filename, a
+"this is already answered", a blocker that is no longer blocking. Those rows are
+what Gabriel reads to decide what happens next, so a stale one points the next
+session at the wrong thing.
+
+Only check rows about files this task touched. That keeps it a minute's work
+rather than an audit, and it is where the staleness actually collects.
+
+| What you find | What you do |
+| --- | --- |
+| A stale row in `status.md` or `project/backlog.md` | **Correct it.** Those two are the standing exception — always writable |
+| A stale claim in any other file — a ruleset, an audit, a README repeating something this task disproved | **Report it and ask.** Finding it is the job; editing it is not, until he says so |
+
+### Then add what's new
+
+Ask: **did anything surface during this task that isn't recorded?** Each one goes
+into `project/backlog.md` as exactly one of three:
 
 | Kind | Where it goes | Example |
 | --- | --- | --- |
 | **I can fix it** | Task list, marked *proposed* | "Move the radius rules into the file agents read" |
-| **Only Gabriel can decide** | Question list, with a recommendation | "Who owns the energy-rating colours?" |
+| **Only Gabriel can decide** | Question list, with a recommendation | "Should this component be added to the Figma libraries, or composed?" |
 | **Neither — just true** | Note list, closed | "The radius rules already existed and were verified" |
 
 This is the step that stops findings from evaporating into chat. It is not

@@ -36,22 +36,22 @@ Written, never yet used on a real run.
 
 ## The next task
 
-**Say which components can actually be built on web, using the web code as the
-source.**
+**Fix the "Legend" entry — the rules tell an agent to place something that
+cannot be placed.**
 
-The last attempt at this list came from the component docs and was wrong for
-five of thirteen. The web repo is on your machine and is ground truth. The real
-work is name matching — Figma says `Bar graph`, the code says `barchart`.
+All three charts expose the legend as an on/off switch, and the underlying piece
+is private in Figma. An agent following the rules goes looking for a component
+that isn't there.
 
-Half a day. Nothing needed from you.
+An hour. Nothing needed from you. It may also settle the chart-sizing task you
+parked — the two look like the same missing rule.
 
-Tasks are ordered by **what goes wrong if we don't fix it**, not by what's
-quickest. **Fear the ones where the agent breaks no rule** — a stuck agent tells
-you it's stuck; a confidently wrong one doesn't.
+**Tasks are now sorted by one question first: does it change what lands on the
+Figma canvas?** That's the only deadline. Work that only affects web, iOS or
+Android stays on the list, below everything that reaches the canvas. Under the
+old order a web defect was about to be next — wrong for a Figma deadline.
 
-**Worth carrying forward.** The component docs' `Figma | Web | iOS | Android`
-readiness rows are stale — five of thirteen wrong against the web source code.
-Don't trust that row anywhere.
+Within that: **fear the ones where the agent breaks no rule.**
 
 ---
 
