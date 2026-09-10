@@ -52,7 +52,7 @@ whether a Pattern or an Experience already is the thing you are about to build.
 | A phone input with a country prefix | `Phone Number Field` (Experience) | composed | `Text Field` · `Dropdown` |
 | An empty / error / success / loading screen | `Info State` (Pattern) | **container** | — it is a shell with content slots, not an assembly of components |
 | A map screen | `Map template` (Experience) | **all-or-nothing** | — used whole or not at all. Its pin sets are **Never select** never-select |
-| A data grid | `Table` (Experience) | **container** | `Cell Content` rows inside a shell. **Figma-ready, web in progress** — see **Platform limits** |
+| A data grid | `Table` (Experience) | **container** | `Cell Content` rows inside a shell. Web availability: see **Platform limits** |
 | A floor picker | `Floor selection` (Experience) | unresolved | `Counter Field` — one part only. Open question |
 | A more flexible property summary than Listing Card allows | `Listing summary` (Experience) | unresolved | — ⚠︎ undescribed, see audit |
 | A price estimation block | `Estimation card` (Experience) | unresolved | — ⚠︎ undescribed, see audit |
@@ -267,45 +267,67 @@ lists. See **Never select**.
 
 *Platform limits override **Which component**.*
 
-**Which component** assumes web unless stated. These constraints win over it.
+**Availability is always answered for one target platform.** Name the platform,
+then read that platform's section below. A component is available there or it is
+not — there is no partial state.
 
-**The policy: use a component on a platform where it exists.** Where it does not
-exist on your target platform, it is not available to you, whatever **Which component** says.
+**Which component** assumes web unless stated. These limits win over it.
 
-Where to find out whether it exists:
+### Figma
 
-| Target platform | Source of truth | State today |
-| --- | --- | --- |
-| **Figma** | `figma/*-registry.json` — every entry verified live in Figma | **All 98 exist.** No Figma availability constraint |
-| Web · iOS · Android | The component's own doc, its `Figma \| Web \| iOS \| Android` row | Hand-maintained free text. **Read the doc; do not rely on the table below** |
+**Every name in `figma/*-registry.json` is available in Figma.** All 98 entries
+were verified live, so there is no Figma availability limit — if **Which
+component** or **The inventory** names it, you may place it.
 
-**Do not read a doc's Figma cell as authority.** It is a hand-maintained
-duplicate of the registries and has drifted — six of 52 docs say `Not
-documented`, hold a link instead of a status, or say `To Do` for a component the
-registry verified live in Figma. The registry wins.
+A name that appears in neither is not a GSL component. Go to **When nothing
+fits**.
 
-**The table below is the curated set of platform limits, not the whole picture.**
-Nine doc entries are not production-ready on web while this table names two.
-Reconciling that data needs a controlled vocabulary first — the docs currently
-use `To Do`, `To-do`, `WIP`, `In progress`, `Partially available` and
-`Non-gemini component` interchangeably. See
-[components-audit.md](components-audit.md).
+**Do not read a component doc's `Figma` cell.** It is a hand-maintained
+duplicate of the registries and has drifted in six of 52 docs — saying `Not
+documented`, holding a link instead of a status, or saying `To Do` for a
+component the registry verified live. The registry wins, every time.
 
-| Component | Constraint |
+### Web, iOS and Android
+
+**Not answered yet. If your target platform is web, iOS or Android, ask before
+selecting.**
+
+**Do not read a component doc's `Figma | Web | iOS | Android` readiness row, on
+any platform.** It looks like the answer and is not. Checked against the web
+source code on 10 September 2026: of thirteen components the docs call
+unavailable on web, **five are shipping today** — `Bar graph`, `Coachmark`,
+`Line chart`, `Segmented Control` and `Slider`. Three more components have no
+row at all — `Tabs`, `Date Picker`, `Phone Number Field` — and all three are
+live on web. The iOS and Android columns have not been checked against anything.
+
+A stale row that reads as authoritative is worse than no row: it produces a
+confident wrong answer, and nothing downstream catches it.
+
+The few platform limits confirmed independently of that row:
+
+| Component | Limit |
 | --- | --- |
-| `Alert` | **Not yet available on web.** On web, use `Modal bottom sheet` |
 | `Carousel` | Web only |
 | `Breadcrumb` | Web only |
 | `Pagination` | Web only. On mobile and in apps, use infinite scroll |
-| `Action menu` | Desktop, SM breakpoint and above |
-| `Modal bottom sheet menu` | Mobile (XXS/XS) and apps |
-| `Navigation Bar (App)` | Mobile (iOS/Android) only |
-| `Table` | **Figma ready, web in progress.** Not yet production on web; iOS and Android not started. Safe for Figma output, not for web |
-| `Footer` | Figma only — not built. Do not generate it |
-| `Tab Bar` | Mid-refactor. Use `Tabs` |
+| `Navigation Bar (App)` | iOS and Android only — **not** the same component as `Navigation bar`, which is web |
 
-**Two things **Which component** names that are not components.** Do not search the libraries
-for them:
+**This table is not the full picture and must not be read as one.** A component's
+absence from it means nothing has been established, not that it is available.
+
+### Where a component exists but does not apply at every width
+
+Availability and form factor are different questions. These components are
+available, and constrained to part of the range:
+
+| Component | Applies at |
+| --- | --- |
+| `Action Menu` | Desktop, SM breakpoint and above |
+| `Modal Bottom Sheet Menu` | Mobile breakpoints (XXS/XS) |
+
+### Two things **Which component** names that are not components
+
+Do not search the libraries for them:
 
 | Named as | What it actually is |
 | --- | --- |

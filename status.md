@@ -36,24 +36,23 @@ Written, never yet used on a real run.
 
 ## The next task
 
-**Teach the agent what to do when a component is right but physically doesn't
-fit.**
+**Find out what the energy scale in web code actually does.**
 
-In the test, the donut chart is 373px wide inside a 360px frame. The agent
-switched off a mandatory part of it to make it fit — and broke no rule doing so,
-because no rule covers a component that is correct but too big.
+`EnergyScale.tsx` and `EnergyClassSlider.tsx` exist in the web design-system
+repo. The energy-rating question below — the biggest one on the list — is
+written as *no GSL component does this*. For web that looks wrong. Read the
+component first, then the question can be re-put with facts in it.
 
-Half a day. Nothing needed from you.
+Half a day. Nothing needed from you, and it may make the question below smaller.
 
 Tasks are ordered by **what goes wrong if we don't fix it**, not by what's
-quickest — the full ordering is at the top of the backlog. The short version:
-**fear the ones where the agent breaks no rule.** A stuck agent tells you it's
-stuck; a confidently wrong one doesn't.
+quickest. **Fear the ones where the agent breaks no rule** — a stuck agent tells
+you it's stuck; a confidently wrong one doesn't.
 
-Two bigger jobs are waiting. Recording the Figma text-field names — so an agent
-can put words into a component instead of leaving the placeholder — needs a
-session with the Figma connector on. And the question below is the
-highest-impact item on the whole list.
+**Worth carrying forward.** The component docs' `Figma | Web | iOS | Android`
+readiness rows are stale — five of thirteen wrong against the web source code.
+A whole web availability list was built on them and thrown away before it
+shipped. Don't trust that row anywhere.
 
 ---
 
