@@ -56,7 +56,10 @@ check.
    needed — see the git section of `CLAUDE.md`. Commit and push only ever add,
    so nothing can be lost; he already approved the task and the check just
    verified it.
-4. Name the next task in one sentence. Do not start it.
+4. Name the next task in one sentence. Do not start it. Take the top item from
+   *I can start these today* in the backlog — that list is sorted by what goes
+   wrong if we don't fix it, and the rule is written above it. If the task just
+   done changed what's now most damaging, re-sort the list before naming one.
 5. Tell him to start it **in a new conversation** with `/task-next`. One task,
    one chat — a session that built something is the worst judge of it.
 

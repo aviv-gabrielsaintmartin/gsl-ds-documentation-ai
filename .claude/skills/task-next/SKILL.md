@@ -49,15 +49,30 @@ Post it in this shape, and nothing longer:
 | Field | Rule |
 | --- | --- |
 | **What** | One plain sentence. What will be different afterwards |
-| **Why** | What is broken or blocked today. Concrete, not abstract |
+| **Why** | What goes wrong today. Concrete, not abstract — say which of the three failures below it is |
 | **How long** | Rough. "Half a day", "twenty minutes" |
 | **Needs you?** | Either "nothing from you" or the one decision required |
 
 Then stop and wait.
 
-**Picking which task:** take the top unblocked item from the backlog's task
-list. If two are close, prefer the one that needs nothing from Gabriel — his
-attention is the scarce resource, not time.
+**Picking which task:** take the top item from *I can start these today* in the
+backlog. That list is already sorted, and the sorting rule is in the file above
+it — worth re-reading rather than assuming, because it decides what you propose:
+
+| What goes wrong today | Rank |
+| --- | --- |
+| **It ships wrong, and breaks no rule doing it** | Highest. Non-compliant output leaves with confidence and is only caught by looking at the screen |
+| **It stops, or asks** | Middle. Nothing wrong ships, but a human had to step in |
+| **The output doesn't change at all** | Nothing. Not a task — a rider on whatever next opens that file |
+
+Then how often it comes up, then how long it takes.
+
+**Fear the ones where the agent breaks no rule.** A stuck agent tells you it's
+stuck; a confidently wrong one doesn't. Effort is the tie-breaker, never the
+sort — a cheap tidy-up is not a task however cheap it is.
+
+If an item's rank looks wrong to you, say so and re-sort the backlog before
+proposing. The order is a judgement, not a fact, and it may be stale.
 
 If the honest answer is that the next task needs a decision from him first,
 propose the **question** instead of the task. One question, with a

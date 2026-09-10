@@ -3,29 +3,58 @@
 _Everything that isn't the current task. Written for Gabriel to read — open it
 whenever you want the whole picture. `status.md` holds only what's active._
 
-_Nothing here is started without approval. Updated 9 September 2026._
+_Nothing here is started without approval. Updated 10 September 2026._
 
 ---
 
 ## Tasks — things I can do
 
-Top of the list is next — the order **is** the priority, so there are no numbers
-to remember. **Proposed** means waiting for your go.
+### How these are sorted
 
-| What | Why it matters | How long | Status |
+The objective is an agent that designs a compliant screen with **nobody having
+to correct it**. So a task's worth is how badly the thing it fixes breaks that.
+
+| What goes wrong today | Why it ranks there |
+| --- | --- |
+| **It ships wrong, and breaks no rule doing it** | Worst. Non-compliant output leaves with confidence, and you only catch it by opening the screen and looking. Exactly the failure this project exists to prevent |
+| **It stops, or asks** | Real, but it announces itself. Nothing wrong ships — you just had to step in, so "nobody corrects it" still failed |
+| **The output doesn't change at all** | Only our own files are affected. Worth nothing on its own |
+
+Then how often it comes up, then how long it takes. A silent failure on every
+listing beats one on a rare screen.
+
+**Fear the ones where the agent breaks no rule.** A stuck agent tells you it's
+stuck. A confidently wrong one doesn't.
+
+Nothing here is started without your go.
+
+### I can start these today
+
+| What | What goes wrong today | How often | How long |
 | --- | --- | --- | --- |
-| Record the Figma text-field names for each component | The agent can place a component but cannot put words into it from the docs alone. Every string in the test came from reading Figma live | A day. **Needs Figma Desktop open** | **Next** |
-| Fix the "Legend" entry — it's a setting on a chart, not a component you pick | The rules currently tell an agent to place something that can't be placed. Our own mistake, from the third round of testing | An hour | Proposed |
-| Fix the three component entries that dead-end into a file agents are forbidden to open | The highest-priority rule in the whole system points nowhere for three cases | Half a day | Proposed |
-| Add a routing entry for "a block of controls that computes a live result" | A mortgage simulator is a recurring product pattern and nothing routes an agent to it. In the test the agent hand-built one and said it couldn't tell whether it should have | Half a day | Proposed |
-| Extend the "when nothing fits" rule to cover *exists, is correct, and doesn't fit* | The donut chart is 373px wide inside a 360px frame. The agent switched off a mandatory part and broke no rule | Half a day | Proposed |
-| Test the three new rulesets on a cold reader | They are verified as accurate but not as understandable. A set of questions with known-correct answers, given to a reader who has only the ruleset — the same method that found twelve defects in component selection | Half a day | Proposed |
-| Remove the leftover rule numbers in the spacing ruleset | It still says "Rules 6 and 7 are unverified" and "Rules 3–5" — the renaming task missed them, so the file contradicts its own rule names | Ten minutes | Proposed |
-| Widen the `audit` branch category to cover compliance runs | It names only one skill, and branches are gone anyway. Small, clerical | Ten minutes | Proposed |
-| Write up the test run properly | Findings are safe in `project/archive/handoff.md` and in this file's notes | Half a day | **Parked** |
-| Check the page-layout rules against real screens | Margins and rhythm are written but never verified | Unknown | **Blocked** — needs you to name 3–5 Figma screens |
+| Extend the "when nothing fits" rule to cover *exists, is correct, and doesn't physically fit* | **Ships wrong, breaks no rule.** The donut chart is 373px wide inside a 360px frame. The agent switched off a mandatory part of it and broke no rule doing so | Any chart in a narrow column — so all of mobile | Half a day |
+| Fix the "Legend" entry — it's a switch on a chart, not a component you pick | **Stops or asks.** All three charts expose the legend as an on/off property and the underlying piece is private in Figma. The rules tell an agent to go and place it. It cannot be placed | Any chart with two or more series | An hour |
+| Add a routing entry for "a block of controls that computes a live result" | **Stops or asks.** In the test the agent hand-built a mortgage simulator, then said it couldn't tell whether it should have | A recurring product pattern | Half a day |
+| Fix the three component entries that dead-end into a file agents are forbidden to open | **Stops or asks.** The reuse-before-invention rule — the first one an agent applies — points nowhere for three cases | Unknown until we look at which three | Half a day |
+| Test the three new rulesets on a cold reader | Neither — it **finds** problems rather than fixing any. Same method found twelve defects in component selection. Run it *after* the fixes above, or we test rulesets we're about to rewrite | — | Half a day |
 
----
+**The first and third may be one fix.** Both are "the thing I need isn't
+available in the form I need it", and both land on the same fallback rule. Worth
+checking before treating them as two half-days.
+
+**Removing the leftover rule numbers in the spacing ruleset is not on this
+list.** The file still says "Rules 6 and 7 are unverified" and "Rules 3–5" after
+the renaming, which is untidy, but an agent's output doesn't change. It's a
+rider on whatever next opens that file, not a task.
+
+### Something is in the way
+
+| What | What goes wrong today | What's in the way | How long once clear |
+| --- | --- | --- | --- |
+| Decide who owns the energy-rating (`Scale`) colours, and what an agent does with them | **Ships wrong, breaks no rule — the highest-impact item on this whole page.** In the test the agent produced a grey energy ladder: technically compliant, legally and visually wrong | **Your research.** The 19 colours exist in Figma and are fine. What's missing is a written decision. See the question below | Half a day |
+| Record the Figma text-field names for each component | **Ships wrong, breaks no rule.** An agent can place a component but has no way to put words into it, so it ships with the default placeholder text still in place — which breaks nothing. Every string in the test came from reading Figma live, not from this repo | **A session with the Figma connector switched on.** Not just Figma Desktop being open — the bridge tools have to be live. Worth checking before starting, not after | A day |
+| Check the page-layout rules against real screens | Unknown, and that's the problem — margins and rhythm are written but have never been checked against a real screen | **You naming 3–5 Figma screens** to check them against | Unknown |
+| Write up the test run properly | The output doesn't change. Findings are already safe in `project/archive/handoff.md` and in this file's notes | Nothing — you parked it | Half a day |
 
 ## Questions — only you can answer these
 
@@ -84,13 +113,16 @@ Things that turned out to be true and are worth not rediscovering.
 
 | Date | Note |
 | --- | --- |
+| 9 Sep 2026 | **"Widen the `audit` branch category" was deleted from the task list, not done.** It only ever named one skill, and branches are gone from this repo entirely. Recorded here in case it ever needs bringing back |
+| 9 Sep 2026 | **The Figma Desktop Bridge tools are not connected in this session** — no `figma_get_status` / `figma_execute` available at all. The text-field-names task needs more than Figma Desktop being open: it needs a session where that connector is on. Worth checking before starting it, not after |
 | 9 Sep 2026 | Corner radius is applied in Figma as a plain number, never as a bound variable — confirmed across the component library and three real screens. A generating agent must set the value, and a checker must not flag it as an unbound token |
 | 9 Sep 2026 | Border thickness has no separate evidence file; its rules come from the notes inside its own token page. Honest, but it is the one ruleset without a sibling audit |
 | 9 Sep 2026 | The "Newest" sort control on the real results-list screen is a hand-built frame, not a real Button — spotted during the radius audit. Exactly the failure this project exists to prevent, in a shipped screen |
 | 9 Sep 2026 | **Only three files knew about the new way of working** — `CLAUDE.md`, `status.md` and this one. The rules file for `project/` still specified the old four-step ritual and loads automatically, so a future session would have been handed the old process. Became the next task |
 | 9 Sep 2026 | **The corner-radius and shadow rules already existed and were already verified** — radius against nine components and three screens, shadow against eight components. The gap was only that they sit in files agents are told not to read as rules. Turned that task from research into moving text |
 | 9 Sep 2026 | Twelve brand PDFs in `design-language/` were deleted by another session; Gabriel confirmed the removal. The folder is gone |
-| 9 Sep 2026 | `status.md` is at 846 words against a one-screen budget of roughly 900. The next thing added to it should push something else out to this file |
+| 10 Sep 2026 | `status.md` is back inside its one-screen budget at 897 words, after the three git commands were cut. The next thing added to it still has to push something else out |
+| 10 Sep 2026 | **`internal/git-basics-tutorial.md` is about branches, which this repo stopped using on 9 Sep.** Starting a topic, worktrees, which branch a chat is on — none of it applies any more. It also only ever covered `git status`, not `git log` or `git revert`. Nothing depends on it, so nothing is broken, but it now describes a workflow that no longer exists |
 | 9 Sep 2026 | The eight human-facing files totalled 15,400 words — about 60 pages. That, not the 120 machine files, is what made the project unreadable |
 
 ---

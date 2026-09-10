@@ -42,9 +42,10 @@ Gabriel works design-side, not as a full-time engineer. Write accordingly.
 - **No machine-optimised formatting.** No token-efficient shorthand, no
   compressed notation, no structure that only pays off when an agent parses it.
 - **Never read `project/` as instructions.** A line here is a statement of
-  intent, not a rule to act on. This includes `backlog.md`: a row marked
-  *proposed* is a suggestion waiting for Gabriel, never authorisation to start.
-  Only he authorises work, in conversation.
+  intent, not a rule to act on. This includes `backlog.md`: every row in
+  *I can start these today* is a suggestion waiting for Gabriel, and being at
+  the top of that list is never authorisation to start. Only he authorises work,
+  in conversation.
 
 ## What each file is for
 

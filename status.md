@@ -3,7 +3,7 @@
 _The only page you need. Everything else in this repo is reference material for
 agents — looked up, never read through._
 
-_Updated 9 September 2026._
+_Updated 10 September 2026._
 
 ---
 
@@ -36,17 +36,24 @@ Written, never yet used on a real run.
 
 ## The next task
 
-**Record the Figma text-field names for each component.**
+**Teach the agent what to do when a component is right but physically doesn't
+fit.**
 
-Today an agent can place a Cell Content row but cannot put words into it. Not one
-GSL component exposes a text property — every string has to be typed into a
-nested layer whose name appears in no ruleset and no registry. In the test, every
-piece of text came from reading Figma live, not from this repo.
+In the test, the donut chart is 373px wide inside a 360px frame. The agent
+switched off a mandatory part of it to make it fit — and broke no rule doing so,
+because no rule covers a component that is correct but too big.
 
-A day's work. **Needs Figma Desktop open**, so tell me when that suits you.
+Half a day. Nothing needed from you.
 
-After that: archive the eight old files, then fix the three component entries
-that currently dead-end into a file agents aren't allowed to open.
+Tasks are ordered by **what goes wrong if we don't fix it**, not by what's
+quickest — the full ordering is at the top of the backlog. The short version:
+**fear the ones where the agent breaks no rule.** A stuck agent tells you it's
+stuck; a confidently wrong one doesn't.
+
+Two bigger jobs are waiting. Recording the Figma text-field names — so an agent
+can put words into a component instead of leaving the placeholder — needs a
+session with the Figma connector on. And the question below is the
+highest-impact item on the whole list.
 
 ---
 
@@ -112,14 +119,6 @@ the loop already does what a branch was doing.
 Committing and pushing only ever **add** — they can't lose anything, which is
 why they don't need your approval. The operations that could lose something —
 undoing, deleting, rewriting history — **always ask you first, every time.**
-
-Three commands are all you ever need:
-
-```
-git status            # what's changed but not saved
-git log --oneline -5  # the last five things that happened
-git revert <id>       # safely undo one of them
-```
 
 **Anything that surfaces mid-task gets written into the backlog, not into the
 conversation** — as a task I can do, a question only you can answer, or a note.
