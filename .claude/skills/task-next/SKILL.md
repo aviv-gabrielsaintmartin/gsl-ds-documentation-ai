@@ -42,6 +42,20 @@ Read `status.md` first, then `project/backlog.md`. Those two files are the
 current state of the project. Never reconstruct it from anything in
 `project/archive/` — that folder is history.
 
+**Then run `git status`.** Gabriel edits and deletes files by hand between
+sessions, and a deletion he hasn't mentioned is the one that bites: nothing in
+this repo checks links, so a ruleset can end up pointing at a file that no
+longer exists. An agent following a dead link is the failure this project
+exists to prevent.
+
+| What `git status` shows | Do this |
+| --- | --- |
+| Deleted files | Find what referenced them — `grep -rn "<filename>" .` — and say so before proposing anything. If a `-rules-ai` file pointed at it, fixing that *is* the next task |
+| Uncommitted edits | Say what's unsaved in one line. Don't commit it — you don't know whether it was finished |
+| Clean | Say nothing. Carry on |
+
+This is a **check, not a task.** It costs one command; report only what it finds.
+
 ## Step 2 — propose exactly one task
 
 Post it in this shape, and nothing longer:
