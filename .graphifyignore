@@ -14,3 +14,10 @@
 # nobody works from them. A graph that reads them hands a future session
 # the old way of working as if it were current.
 project/archive/
+
+# The two files that change on every single task, and are never looked up
+# through the graph. Every session opens them directly at startup, so putting
+# them in the graph buys nothing — while re-extracting them on every check
+# cost roughly 9,000 input tokens a time. Excluded 10 Sep 2026.
+status.md
+project/backlog.md
