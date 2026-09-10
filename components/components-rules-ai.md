@@ -250,7 +250,7 @@ lists. See **Never select**.
 | **Bar graph** | Comparing quantities **across categories**, or ranking them | A single metric is more informative → **KPI** · The axis is continuous, usually time → **Line chart** · The point is each part's share of a whole → **Donut chart** |
 | **Line chart** | Following a value **over a continuous axis**, usually time | Categories are discrete, not a continuum → **Bar graph** · Each part's share of a whole → **Donut chart** · A single metric is more informative → **KPI** |
 | **Donut chart** | Showing how a total **divides into parts of a whole** | Comparing values across categories → **Bar graph** · A trend over time → **Line chart** · There is only one value → **KPI** |
-| **Legend** | Two or more data series or segments are shown on any chart — then it is **mandatory** | A single data set → omit it; the chart title and axis labels carry the meaning |
+| **Legend** | **Never placed on its own — it is a property of the chart.** Place `Bar graph`, `Line chart` or `Donut chart`, then switch its legend on. **Mandatory when two or more data series or segments are shown.** The legend sits below the chart | A single data set → leave it off; the chart title and axis labels carry the meaning · Looking for a legend component to place → there isn't one, and that is correct |
 
 ### Identity and media
 
@@ -277,10 +277,26 @@ not — there is no partial state.
 
 **Every name in `figma/*-registry.json` is available in Figma.** All 98 entries
 were verified live, so there is no Figma availability limit — if **Which
-component** or **The inventory** names it, you may place it.
+component** or **The inventory** names it, you may place it. **The one exception
+is the short list in *Three things Which component names that are not
+components*, below.** Those three are not components at all, so nothing grants
+permission to place them.
 
-A name that appears in neither is not a GSL component. Go to **When nothing
-fits**.
+A name that appears in **neither *Which component* nor *The inventory*** is not
+a GSL component. Go to **When nothing fits**.
+
+**A name starting with a dot is the exception.** It is not missing — it is an
+internal part of another component, deliberately unregistered and unpublished:
+`.Legend`, `.Header`, `.Grid`, `.Bar graph vertical` and their like. Never place
+one, never rebuild it by hand, never copy it out of its parent. You reach it
+through the component that contains it — as a property to switch on, or as a
+slot already exposed on it. Only a name that is neither registered nor
+dot-prefixed sends you to **When nothing fits**.
+
+**`Donut chart` has no side-placement option.** Its legend sits below, like the
+other two charts. Its shape would allow it beside the chart, but that property
+does not exist in the Figma library today — do not go looking for it, and do not
+compose one by hand.
 
 **Do not read a component doc's `Figma` cell.** It is a hand-maintained
 duplicate of the registries and has drifted in six of 52 docs — saying `Not
@@ -325,7 +341,7 @@ available, and constrained to part of the range:
 | `Action Menu` | Desktop, SM breakpoint and above |
 | `Modal Bottom Sheet Menu` | Mobile breakpoints (XXS/XS) |
 
-### Two things **Which component** names that are not components
+### Three things **Which component** names that are not components
 
 Do not search the libraries for them:
 
@@ -333,6 +349,7 @@ Do not search the libraries for them:
 | --- | --- |
 | "Card grid" | A grid layout of `Card`s. Lay it out yourself — there is no Card grid component |
 | "Infinite scroll" | A loading behaviour, not a component |
+| "Legend" | A property of the chart, not a component. Place `Bar graph`, `Line chart` or `Donut chart` and switch its legend on — see the **Legend** row in **Which component**. The underlying piece is an internal part and is never placed |
 
 ---
 

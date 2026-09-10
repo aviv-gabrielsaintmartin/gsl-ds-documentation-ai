@@ -36,15 +36,17 @@ Written, never yet used on a real run.
 
 ## The next task
 
-**Fix the "Legend" entry — the rules tell an agent to place something that
-cannot be placed.**
+**Done: a legend is switched on, not placed.** The rules also say now — for the
+first time anywhere an agent reads — that a Figma name starting with a dot is an
+internal part, never something you place. Saved and pushed.
 
-All three charts expose the legend as an on/off switch, and the underlying piece
-is private in Figma. An agent following the rules goes looking for a component
-that isn't there.
+**Next: add a routing entry for "a block of controls that computes a live
+result."** In the test the agent hand-built a mortgage simulator, then said it
+couldn't tell whether it should have. Half a day, nothing needed from you.
 
-An hour. Nothing needed from you. It may also settle the chart-sizing task you
-parked — the two look like the same missing rule.
+The chart-sizing task you parked is still parked — the Legend fix did **not**
+settle it, though we thought it might. The legend was never placeable; the donut
+is placeable and just too wide. Different problems.
 
 **Tasks are now sorted by one question first: does it change what lands on the
 Figma canvas?** That's the only deadline. Work that only affects web, iOS or
