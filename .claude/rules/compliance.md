@@ -68,7 +68,8 @@ with no evidence under it is worse than an acknowledged gap.
   scorecard asks whether a produced screen is compliant.
 - **Compliance is not quality.** Compliance is arithmetic and is scored here.
   Quality is judgment, is not scored, and is recorded as a free-text human
-  verdict in the run log. Never add a quality check to the scorecard.
+  verdict — in full in the run's own `report.md`, in one line in
+  `compliance-run-ledger.md`. Never add a quality check to the scorecard.
 
 ## When you run a check
 
