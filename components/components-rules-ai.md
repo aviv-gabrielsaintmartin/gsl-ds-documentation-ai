@@ -181,6 +181,26 @@ first that decides it:
 | **Counter field** | Numeric values adjusted with +/− controls | Range selection where an approximate value is acceptable → **Slider** · Direct numeric text entry without controls → **Text field** · Only a small fixed set of values → **Dropdown** |
 | **Slider** | Selecting a value or range along a continuous scale | Precision and exact entry matter → **Counter field** · Only discrete values available → **Dropdown** |
 
+### Computing a figure from user input
+
+| Choose | When | Otherwise |
+| --- | --- | --- |
+| **No component is this block — compose it, and declare it** | The user adjusts a set of controls and a figure recalculates in front of them: a mortgage or affordability simulator, a yield estimator, a fee calculator. **No Pattern and no Experience is this block** — the libraries were searched. Build the controls from **Slider**, **Counter field** or **Text field**, present the result with **KPI**, and follow **When nothing fits** to the end, including its declaration step | The figure is shown and the user cannot change it → **KPI** · That figure is a property price estimate → **Estimation card**, see **Highest tier first** · The user advances through ordered steps rather than adjusting freely → **Wizard** · The controls narrow a list of results rather than produce a figure → **Filter bar** |
+
+**`Estimation card` is the near miss. It is not this.** It presents a completed
+estimate — price range, confidence, selling or renting — and carries no controls
+to adjust. A simulator whose result happens to be a property price estimate is
+**two halves**: the result half is `Estimation card` and **Highest tier first**
+applies to it normally; the controls half has no component and is composed and
+declared. Using the Experience for the half it covers is not a reason to skip
+declaring the half it does not.
+
+**Composing here is still invention.** Assembling existing components into a
+block the libraries do not have is exactly what **When nothing fits** governs, so
+work its order rather than jumping to the build: re-check the higher tiers,
+re-check **The inventory**, then compose, then declare. An undeclared simulator
+is a compliance failure even when every part inside it is a real component.
+
 ### Binary choices and toggles
 
 | Choose | When | Otherwise |

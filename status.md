@@ -3,7 +3,7 @@
 _The only page you need. Everything else in this repo is reference material for
 agents — looked up, never read through._
 
-_Updated 10 September 2026._
+_Updated 11 September 2026._
 
 ---
 
@@ -36,31 +36,31 @@ Written, never yet used on a real run.
 
 ## The next task
 
-**Done: a legend is switched on, not placed.** The rules also say now — for the
-first time anywhere an agent reads — that a Figma name starting with a dot is an
-internal part, never something you place. Saved and pushed.
+**Done: a simulator now has a routing entry.** A block of controls that computes
+a live result is no Pattern and no Experience — all 21 and all 11 were checked,
+not assumed — so the rules say compose it and declare it. Saved and pushed.
 
-**Next: add a routing entry for "a block of controls that computes a live
-result."** In the test the agent hand-built a mortgage simulator, then said it
-couldn't tell whether it should have. Half a day, nothing needed from you.
+**Next: say where a declaration physically lives.** Every invention rule ends
+with "declare it — say what you built and what you ruled out". None of them says
+**where that statement goes**: a note beside the Figma frame, a code comment,
+the reply itself. So the record is the part that gets dropped — and the record
+is the only thing that makes an invention reviewable. Half a day, and **one
+decision from you**: what counts as "the output" in Figma.
 
-The chart-sizing task you parked is still parked — the Legend fix did **not**
-settle it, though we thought it might. The legend was never placeable; the donut
-is placeable and just too wide. Different problems.
+The chart-sizing task you parked is still parked. Neither the Legend fix nor
+this one settled it — both looked like they might, both were near misses, and
+the reasons are written out in the backlog.
 
-**Tasks are now sorted by one question first: does it change what lands on the
-Figma canvas?** That's the only deadline. Work that only affects web, iOS or
-Android stays on the list, below everything that reaches the canvas. Under the
-old order a web defect was about to be next — wrong for a Figma deadline.
-
-Within that: **fear the ones where the agent breaks no rule.**
+**Tasks are sorted by one question first: does it change what lands on the Figma
+canvas?** That's the only deadline. Within that, **fear the ones where the agent
+breaks no rule** — a stuck agent tells you it's stuck, a confidently wrong one
+doesn't.
 
 ---
 
 ## The question I'd like answered first
 
-The energy-colour question that sat here is **largely answered** — the colours
-are permitted and the French mapping is written and verified. What's left is a
+The energy-colour question that sat here is answered; what's left of it is a
 check against Figma, not a question for you.
 
 > **Still open: the energy filter slider ships on web and was never added to the
