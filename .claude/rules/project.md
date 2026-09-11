@@ -55,6 +55,7 @@ Gabriel works design-side, not as a full-time engineer. Write accordingly.
 | `project/backlog.md` | Everything not currently active — every task, every question he owes an answer to, every finding | He opens and reads this. Plain language, no shorthand |
 | `README.md` | The map — what does what and where, and the filename grammar | Someone new should find the right file from this alone |
 | `project/decisions.md` | Why the project is shaped this way, newest first | Every entry records **what it costs**, not just what was decided |
+| `project/how-a-run-is-reported.md` | How a generation run becomes a saved report, walked through for a non-technical reader | **Links** to the scorecard for the template and the required facts; never repeats them |
 | `project/archive/` | The retired plan, briefs and handoff note | **History.** Never work from it, never update it. Its own README says why each was retired |
 
 ## How work runs
@@ -78,8 +79,9 @@ was generating more reading than work.
 before running them.
 
 - **Propose, don't do.** Reading and searching are free. Every file change waits
-  for his explicit go — except `status.md` and `project/backlog.md`, which may
-  always be updated, or logging a finding would itself need permission.
+  for his explicit go. The exceptions are listed in one place only —
+  *What may be changed without asking* in `CLAUDE.md`. Don't restate them here;
+  two copies drift, and then nobody knows which is current.
 - **Every finding goes into the backlog**, as a task, a question for him, or a
   note. Never as a paragraph in chat. This is the rule he asked for by name.
 - **No briefs.** A task that genuinely needs one is too big — split it.

@@ -36,9 +36,26 @@ before running them.
 
 | Rule | Why |
 | --- | --- |
-| **Propose, don't do.** Reading and searching are free; every file change waits for his explicit go. The standing exception is `status.md` and `project/backlog.md`, which may always be updated | He has to understand a change before it lands, not after |
+| **Propose, don't do.** Reading and searching are free; every file change waits for his explicit go. The exceptions are listed once, below — nowhere else | He has to understand a change before it lands, not after |
 | **Every finding goes into `project/backlog.md`** — as a task, a question for him, or a note. Never as a paragraph in chat | Findings surfacing mid-session were getting lost. This is the fix he asked for |
 | **No codes in anything he reads or hears.** Not `2b`, not `C3`, not `Rule 0`. Describe things by what they do | Four separate numbering systems made the project unreadable to its own owner |
+
+### What may be changed without asking
+
+**This list is the whole of it, and it lives only here.** Nothing else in the
+repo restates it — one page to check, and it cannot disagree with itself. Every
+file change not on this list waits for his explicit go.
+
+| What | Why it is safe |
+| --- | --- |
+| `status.md` | It is his own page. If logging a task needed permission, the loop would ask him twice for every task |
+| `project/backlog.md` | Same reason. A finding has to be able to land somewhere without a conversation first |
+| **One row in a table of contents**, when a task **created, renamed or deleted** a file: `README.md`'s *Where to look*, the file table in `.claude/rules/project.md`, `tokens/README.md`, `tokens-index.md`, `components-index.md`. Created → add the row. Renamed → fix it. Deleted → cut it | It says where a file is. It changes no sentence anyone reads for meaning. **The trigger is created, renamed or deleted — never edited:** changing what is inside a file affects no list |
+| **Commit and push** after `/task-check` passes — not a file change, but the same family. See *Git — one task, one commit* below | It only ever adds. He approved the task and the check verified it |
+
+The test underneath all four: **does this change what a page means?** If it does,
+it is his call, however small it looks. Rewriting a sentence in `README.md` is
+his; adding a filename to the table above it is not.
 
 **One task, one chat.** Each task starts in a fresh conversation with
 `/task-next`. Not for context limits — the harness compacts on its own — but

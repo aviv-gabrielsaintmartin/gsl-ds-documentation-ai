@@ -108,6 +108,8 @@ You never have to watch anything — `/task-check` finishing is the signal. Stay
 put within a task, and for conversations like this one.
 
 **Nothing is written without your approval.** Reading and searching are free.
+The handful of exceptions — this page, the backlog, and adding a file's name to
+a list of files — are written down in one place, `CLAUDE.md`.
 
 ### How the work gets saved
 

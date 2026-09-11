@@ -95,9 +95,9 @@ recommendation attached.
 ## Step 3 — wait for approval
 
 **Nothing is written until he says go.** Reading, searching and inspecting are
-free and need no permission. Any file change does — with one standing exception:
-`status.md` and `project/backlog.md` may always be updated, otherwise logging a
-finding would itself need permission.
+free and need no permission. Any file change does, apart from the short list in
+*What may be changed without asking* in `CLAUDE.md` — the only place that list
+is written.
 
 If he pushes back, take the correction and re-propose. Do not defend the
 original.

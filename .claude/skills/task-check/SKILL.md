@@ -52,15 +52,48 @@ check.
 
 1. Log it. One line in `project/backlog.md`, moved to the done list with the date.
 2. Update `status.md` — the current task becomes done, the next one moves up.
-3. **Commit and push.** One task, one commit, straight to `main`. No permission
+3. **If this task created, renamed or deleted a file, make the lists follow.**
+
+   ```
+      Did this task create, rename or delete a file?
+                │                        │
+               no                       yes
+                │                        │
+                ▼                        ▼
+             skip         open every page that LISTS files
+                          and look for this one
+                                         │
+                                         ▼
+                          created → ADD the row
+                          renamed → FIX the row
+                          deleted → CUT the row
+                                         │
+                                         ▼
+                            same commit · no permission
+   ```
+
+   The pages that list files are `README.md`'s *Where to look* table, the file
+   table in `.claude/rules/project.md`, `tokens/README.md`, `tokens-index.md`
+   and `components-index.md`.
+
+   **The trigger is created, renamed or deleted — never edited.** Changing what
+   is inside a file affects no list. A table of contents only cares about a
+   file's name and whether it exists.
+
+   **This needs no permission** — it is on the short list in *What may be
+   changed without asking* in `CLAUDE.md`, which is where the reasoning lives.
+
+   **Rewriting what a page explains is not this**, however small the rewrite.
+   That waits for Gabriel — Step 4.
+4. **Commit and push.** One task, one commit, straight to `main`. No permission
    needed — see the git section of `CLAUDE.md`. Commit and push only ever add,
    so nothing can be lost; he already approved the task and the check just
    verified it.
-4. Name the next task in one sentence. Do not start it. Take the top item from
+5. Name the next task in one sentence. Do not start it. Take the top item from
    *I can start these today* in the backlog — that list is sorted by what goes
    wrong if we don't fix it, and the rule is written above it. If the task just
    done changed what's now most damaging, re-sort the list before naming one.
-5. Tell him to start it **in a new conversation** with `/task-next`. One task,
+6. Tell him to start it **in a new conversation** with `/task-next`. One task,
    one chat — a session that built something is the worst judge of it.
 
 ## Step 3b — if it didn't
@@ -91,8 +124,12 @@ rather than an audit, and it is where the staleness actually collects.
 
 | What you find | What you do |
 | --- | --- |
-| A stale row in `status.md` or `project/backlog.md` | **Correct it.** Those two are the standing exception — always writable |
-| A stale claim in any other file — a ruleset, an audit, a README repeating something this task disproved | **Report it and ask.** Finding it is the job; editing it is not, until he says so |
+| A stale row in `status.md` or `project/backlog.md` | **Correct it.** Both are on the list in *What may be changed without asking* in `CLAUDE.md` |
+| A stale claim in any other file — a ruleset, an audit, a README paragraph repeating something this task disproved | **Report it and ask.** Finding it is the job; editing it is not, until he says so |
+
+**A claim is what a page explains, not where it points.** A file missing from a
+table of contents is a pointer, and Step 3a already fixed it. A paragraph that
+now describes the repo wrongly is a claim, and it waits for him.
 
 ### Then add what's new
 
