@@ -299,7 +299,7 @@ status leaves, 1 `Border/Focus`, 9 unused `Scales/*` leaves, and 28 others — `
 as having no consumer. Ten of them are bound by `EnergyScale.tsx` in the web
 design-system repo — checked 10 September 2026. The nine genuinely unused are
 `Scales/Energy/Blue100`, `Scales/Energy/Red300` and the seven `Scales/CO2/*`.
-The audit file still says 83.
+Corrected everywhere on 10 September 2026.
 
 ---
 
