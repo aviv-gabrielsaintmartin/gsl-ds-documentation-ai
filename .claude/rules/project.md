@@ -15,15 +15,16 @@ Gabriel works design-side, not as a full-time engineer. Write accordingly.
 
 ## When you edit these files
 
-**How to write them is *How to write* in `CLAUDE.md`.** Below is only what is
-true of these files and not of the rest of the repo.
+**How to write them is Gabriel's personal `~/.claude/CLAUDE.md`** — these are
+pages for a person. Below is only what is true of these files and not of the
+rest of the repo.
 
 - **Explain, never specify.** These files describe how the repo is shaped and
   why. They are never the source of truth for how to build anything — that is
   always a `*-rules-ai.md` file. If you find yourself writing a rule here, it
   belongs in a ruleset.
-- **Every numbered thing here carries its name.** `CLAUDE.md` bans bare codes;
-  this is what obeying it cost in practice. Every block has a short name that
+- **Every numbered thing here carries its name.** Gabriel's personal rules ban bare
+  codes; this is what obeying it cost in practice. Every block has a short name that
   travels with its number — `Block 2b · Registry properties`, never `2b`. Every
   compliance check has a name that travels with its code — `C1 · Provenance`,
   never `C1`. And **the rulesets' rules have names and no numbers at all**,

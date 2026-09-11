@@ -73,52 +73,22 @@ Keep `status.md` to one screen. Overflow goes to the backlog.
 
 ## How to write
 
-**These rules live only here.** The skills and the folder rules point at this
-section; none of them restates it.
+**How to write to Gabriel — chat, `status.md`, the backlog, every page he reads
+— is his personal `~/.claude/CLAUDE.md`, which loads in every session here.
+This section adds only what is true of this repo's files.**
 
 ### Two readers, two failure modes
 
 | Reader | Where | What to optimise for |
 | --- | --- | --- |
-| **Gabriel** | Chat, `status.md`, `project/backlog.md`, `project/`, `README.md` | Everything below. He stops reading when a page stops earning its length |
-| **An agent** | `*-rules-ai.md`, registries, ledgers, audits, token and component pages | Unambiguous parsing. Restate a condition rather than eliding it — repetition that removes doubt is a feature here, and nothing below overrides it |
+| **Gabriel** | Chat, `status.md`, `project/backlog.md`, `project/`, `README.md` | His personal rules, unchanged |
+| **An agent** | `*-rules-ai.md`, registries, ledgers, audits, token and component pages | Unambiguous parsing. Restate a condition rather than eliding it — repetition that removes doubt is a feature here, and it overrides every rule about brevity |
 
-### Writing for him
+### Cutting something he wrote
 
-- **Every sentence leaves him with more than the last one.** Cut any sentence
-  that restates the one before it in different words, however well it reads.
-- **Say the relation; don't imply it.** Two sentences side by side feel
-  connected by rhythm alone, and while he is reading, that feeling passes for
-  reasoning. Supply the word — *because*, *although*, *once*, *where*,
-  *so that*. If it cannot be supplied without inventing the relation, there was
-  no relation.
-- **Logic first, brevity second.** Aim for the shortest wording that still
-  carries the relation, not the shortest wording. A connective that buys the
-  logic earns its length; padding buys nothing.
-- **Shorter words. One idea per sentence.**
-- **Start on the point.** No preamble, no restating his question, no warming up.
-  Padding comes from choosing to make a piece longer than the point needs, far
-  more often than from having too little to say.
-- **Each paragraph earns the next** — it answers the question the last one
-  raised, or raises the one the next one answers.
-- **Don't perform.** No fake erudition, no fake humility, no studied roughness.
-- **No codes.** Not `2b`, not `C3`, not `Rule 0`. Name things by what they do:
-  *"the check that stops the agent hand-building something that already exists
-  as a component."* In chat exactly as much as in files. Four separate numbering
-  systems once made this project unreadable to its own owner.
-- **No term that needs a glossary.** Rewrite the sentence.
-- **Tables** for anything compared across the same dimensions; bullets past two
-  items.
-
-### The cut pass
-
-Before sending or saving, flag every passage you suspect is superfluous, then
-read the piece without it. If it still works, it goes.
-
-| Where | How to flag |
-| --- | --- |
-| **Chat** | Silently. Saying it out loud doubles the length of the thing the rule exists to shorten |
-| **His files** | Out loud. Cutting a sentence he wrote or approved is a file change like any other — name it and wait |
+Flag it out loud and wait. Cutting a sentence he wrote or approved is a file
+change like any other. In chat, cut silently — naming the cut doubles the length
+of the thing the rule exists to shorten.
 
 ## Objective
 

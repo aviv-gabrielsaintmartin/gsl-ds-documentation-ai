@@ -143,7 +143,8 @@ What changed, what it means, what the check will be. Then tell him to run
 - **One task at a time.** A second task in the same turn defeats the point.
 
 **How to write any of it** — the proposal, the report, every line of chat — is
-*How to write* in `CLAUDE.md`. That section is the only place those rules live.
+Gabriel's personal `~/.claude/CLAUDE.md`. This repo's `CLAUDE.md` adds only
+what its agent-facing files need, and nothing here restates either.
 
 ## Where things get written
 
