@@ -94,7 +94,7 @@ section; none of them restates it.
   no relation.
 - **Logic first, brevity second.** Aim for the shortest wording that still
   carries the relation, not the shortest wording. A connective that buys the
-  logic earns its length; padding buys nothing. A guide, not a gate.
+  logic earns its length; padding buys nothing.
 - **Shorter words. One idea per sentence.**
 - **Start on the point.** No preamble, no restating his question, no warming up.
   Padding comes from choosing to make a piece longer than the point needs, far
