@@ -11,6 +11,74 @@ decision with no downside recorded is usually a decision that wasn't examined.
 
 ---
 
+## 2026-09-11 · The backlog is sorted by the steps of designing a screen
+
+**Decided.** A task sits under the step of designing it stops from succeeding,
+and the steps run in order: define the content · define the components to use,
+and which variant · define what needs to be built · choose the tokens · put them
+on the screen · place them according to the design guidance · check the content.
+The next task is the earliest step's topmost row that is due by September with
+an empty *Blocked by*. Three groups sit outside the steps — rows that break
+reaching the rules at every step, rows that break the scorecard, and rows that
+stop nobody designing.
+
+**Why.** This is the third sort in three days, and the first two failed the same
+way. Sorting by how badly a defect fails, then by how much of the goal a task
+finishes, both graded **defects** — so neither could see a step nobody had built.
+*Define the content* and *check the content* had produced no rows at all between
+them, while the scorecard's own blind-spot table records copy and tone as
+measured by "nothing yet" and `Content & UX Writing` sits empty in 15 of 57
+component docs. The least documented part of the system was invisible to the
+list meant to surface it. Gabriel supplied the mechanism: work backwards from
+the objective, ask what each step needs, and a missing step shows up as a
+heading with nothing under it.
+
+Two structural changes came with it. **Startable-versus-blocked became a
+column**, and so did **due-by-September** — the previous attempt failed its check
+because a section drifted while a row's position said nothing about why it was
+there. A column cannot disagree with the row it sits on. And **the steps carry no
+numbers**, because `.claude/rules/project.md` already bans a number that encodes
+only what order states; nothing anywhere says "step 3".
+
+**What it costs.** Three things.
+
+The sequence is unfinished on purpose, so a genuine task can arrive with no step
+to sit under. That is meant to be the signal for a missing step, but it depends
+on someone saying so rather than forcing the row into the nearest heading.
+
+A sequence orders steps, not rows within a step, so severity and frequency
+survive as tie-breakers. They are judgement, and judgement is what the last two
+sorts proved unreliable.
+
+And the backlog's order now has no stable history. A row's position on 9
+September meant "this fails worst", on 10 September "this finishes most of the
+goal", and now "this blocks the earliest step". Reading an old note about why
+something was near the top requires knowing which sort was in force that day.
+
+---
+
+## 2026-09-11 · A ruleset gap goes to the backlog first, never straight to the audit
+
+**Decided.** When a flag seen three times is ruled a `ruleset gap`, it becomes a
+task in `project/backlog.md`. Doing that task writes the rule into the ruleset
+and the reasoning into the relevant `-audit.md`. The audit is where reasoning
+settles; it is never the queue.
+
+**Why.** Two files disagreed with a third. `compliance-scorecard.md` and
+`compliance-flag-ledger.md` both sent a `ruleset gap` directly into the relevant
+`-audit.md`, while `CLAUDE.md` says every finding lands in the backlog. All
+three read as the rule, so two sessions following two different files would file
+the same finding in two different places — and the backlog, the one page Gabriel
+actually reads to decide what happens next, would be the one missing it.
+
+**What it costs.** A finding now takes two hops to reach the audit instead of
+one, so the audit lags the ruleset by however long the task waits in the queue —
+and during that gap the audit is silently incomplete while still looking
+authoritative. Worse, nothing checks that the audit entry is ever written: a
+backlog row can be marked done with the ruleset changed and the reasoning never
+recorded. The old one-hop route could not lose the reasoning, because writing it
+*was* the action. This route can.
+
 ## 2026-09-11 · A run's report is a file here, and this repo owns its shape but not its writing
 
 **Decided.** Every generation run produces a report, and the report is part of

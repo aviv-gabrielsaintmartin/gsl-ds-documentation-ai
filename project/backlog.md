@@ -9,65 +9,96 @@ _Nothing here is started without approval. Updated 11 September 2026._
 
 ## Tasks — things I can do
 
-### How these are sorted
+### How a screen gets designed
 
-The objective is an agent that designs a compliant screen with **nobody having
-to correct it**. So a task's worth is how badly the thing it fixes breaks that.
+Designing a screen is a sequence, and each step needs the ones before it. So a
+task's worth is how early the step it repairs sits: repair an early step and
+everything after it becomes possible, repair the last one and nothing else
+changes.
 
-**Ask this first, before anything else: does it change what lands on the Figma
-canvas?** The deadline is Figma output by the end of September. An agent
-designing in Figma can place any component in the libraries — whether that
-component is also built on web, iOS or Android changes nothing about the page it
-draws. So a defect that only affects another platform cannot outrank a Figma one
-before that date, however badly it fails on its own terms. Those tasks are real
-and stay on the list; they sit below everything that reaches the canvas.
-
-Then, among the tasks that do reach the canvas:
-
-| What goes wrong today | Why it ranks there |
+| | Step |
 | --- | --- |
-| **It ships wrong, and breaks no rule doing it** | Worst. Non-compliant output leaves with confidence, and you only catch it by opening the screen and looking. Exactly the failure this project exists to prevent |
-| **It stops, or asks** | Real, but it announces itself. Nothing wrong ships — you just had to step in, so "nobody corrects it" still failed |
-| **The output doesn't change at all** | Only our own files are affected. Worth nothing on its own |
+| | Define the content — from the user need |
+| | Define the components to use, and which variant, in one move |
+| | Define what needs to be built |
+| | Choose the tokens — colour, text style, spacing |
+| | Put them on the screen |
+| | Place them according to the design guidance |
+| | Check the content |
 
-Then how often it comes up, then how long it takes. A silent failure on every
-listing beats one on a rare screen.
+**The steps are the same for anyone.** A person and an agent take them in
+different orders, and an agent may take several at once, but neither gets a
+sequence of its own. What differs is the *answer* at a step, never the step.
 
-**Fear the ones where the agent breaks no rule.** A stuck agent tells you it's
-stuck. A confidently wrong one doesn't.
+**The sequence is unfinished, on purpose.** A flag seen three times and ruled a
+ruleset gap is how a missing step gets found, so adding one is expected rather
+than a correction.
 
-Nothing here is started without your go.
+**A row names the step that fails, not the kind of file being fixed.** Grid
+lives in `tokens/`, so a grid task looks like it belongs under *choose the
+tokens*. What breaks without it is knowing your margins, which is *place them
+according to the design guidance*. Sort by the symptom, not by the folder —
+without that, every token task drifts into the token step and the order stops
+meaning anything.
 
-### I can start these today
+**Due by September** decides between two rows at the same step. An agent
+designing in Figma can place any component in the libraries, and whether that
+component is also built on web, iOS or Android changes nothing about the screen
+it draws. Rows that are not due are real and they stay; they sit below the ones
+that are.
 
-#### These reach the Figma canvas
+Then two tie-breakers, and neither is ever the sort:
 
-| What | What goes wrong today | How often | How long |
-| --- | --- | --- | --- |
-| Say who assigns a run's wireframe label, and where it comes from | **Ships wrong, breaks no rule — and it fails silently, which is the worst shape.** Four places now depend on a run carrying a *wireframe* label: it is the only thing that makes two runs comparable, and `no regression` for `C1 · Provenance` compares against the last run with a matching one. **Nothing says who names it or where the name comes from.** If each run invents its own — and a checking agent with no instruction will — then no two labels ever match, `no regression` never fires on anything, and no error is ever reported. The scoring sheet looks like it is gating and is not. The fix is small: say the label is set in the brief, by the person writing it, and reused verbatim for every run of that brief | Every run, from the first one | Twenty minutes |
-| Extend the "when nothing fits" rule to cover *exists, is correct, and doesn't physically fit* | **Ships wrong, breaks no rule.** The donut chart is 373px wide inside a 360px frame. The agent switched off a mandatory part of it and broke no rule doing so. **Parked by Gabriel, 10 Sep** — it tangles three questions and he wants them separated first: is the Figma component missing a stacked variant, is the documentation wrong, or does the component itself need fixing? Don't pick this up until that is settled | Any chart in a narrow column — so all of mobile | Half a day |
-| Say where a declaration physically lives | **Stops or asks.** The rules end every invention with "declare it — state, in the output, what you built and what you ruled out". They never say **where that statement goes**: a note on the Figma frame, a code comment, the reply itself. An agent that composes something correctly still has nowhere to put the record, so the record is what gets dropped — and the declaration is the only thing that makes an invention reviewable. The principle stays platform-neutral; the place is named per platform, the way *Platform limits* already works. **Agreed with Gabriel 11 Sep as the task after the simulator routing entry** | Every time anything is composed rather than selected | Half a day |
-| Finish the colour ruleset's restricted list | **Stops or asks.** The pointer into the audit is **already gone** — removed while freeing the energy colours, so this is no longer a dead end. What remains: the list still says "and 28 others" and enumerates only about ten of them, so an agent asking about an unusual token gets no answer. The audit's own section is grouped by family too, so the per-token reasons have to be written, not copied | Any screen using an unusual colour token | Half an hour |
-| Take the clickable audit links out of the six ruleset header lines | **Stops or asks, at worst.** Each ruleset opens with a line like *"Evidence and reasoning: color-usage-audit.md"* as a live link. An agent is told to read `-rules-ai` files and nothing else, so the top of the file offers a door it must not open — and labels it "reasoning", which is what an unsure agent goes looking for. No evidence any agent has followed one; the fix is to keep the sentence and drop the link | Every ruleset an agent opens | Half an hour |
-| Fix the seven remaining places where a ruleset sends an agent to evidence it may not read | **Stops or asks.** Was nine, then eight; two are fixed — the rule that stopped mid-answer and said see the audit is gone. `scripts/check-links.py` names the rest exactly: **six are header credit lines** (their own row above) and **one is mid-file** — `shadow-rules-ai.md:113`, which does give the agent a fallback, so only the stray link needs removing. Do the header-lines row and this one is a five-minute job | Every time an agent follows a ruleset to the end | An hour, once the two rows above are done |
-| Have a generating agent build from the three new rulesets and nothing else | Neither — it **finds** problems rather than fixing any. Same method found twelve defects in component selection. Run it *after* the fixes above, or we test rulesets we're about to rewrite. **Run it on Sonnet, not Opus** — not to save money, but because a stronger reader silently repairs ambiguity, so testing a spec meant to be unambiguous on the strongest available reader is the weakest version of the test | — | Half a day |
+- **How bad it is when it goes wrong.** Worst is a wrong screen with nothing to
+  tell you — the agent obeyed every rule we wrote and the output still isn't
+  compliant, so the only way you find out is opening the file and looking.
+  Better is the agent stopping to ask you: you had to step in, but nothing wrong
+  shipped.
+- **How often it happens.** A failure on every listing beats one on a rare
+  screen.
 
-#### These don't reach the canvas
+**Fear the silent ones.** An agent that stops tells you it stopped. One that is
+confidently wrong doesn't.
 
-Real defects, and they stay on the list. But none of them changes a Figma
-page, so none can outrank the block above before the end of September.
+**Effort is never a reason.** A cheap tidy-up is not a task however cheap it is,
+and a hard task is not demoted for being hard.
 
-| What | What goes wrong today | How often | How long |
-| --- | --- | --- | --- |
-| Teach the link check to spot a page nothing points at | **The output doesn't change — only our own files.** `scripts/check-links.py` answers *does this link go somewhere*. It cannot answer *is this page reachable at all*, so a file that no table of contents lists is invisible to it — which is exactly how `project/how-a-run-is-reported.md` came to exist unlisted. The check skill now says to list a new file, but an instruction is a hope; a check that fails is a mechanism. Scope it narrowly: every `.md` under `project/` must be linked from at least one other file | Every time a page is added or renamed | An hour |
-| Generate the web availability list from the web code repo | **Ships wrong, breaks no rule — proven, not theorised.** The list built from the component docs was wrong for five of thirteen. `~/gsl-core-web-design-system` is ground truth: `libraries/ui/src/` and `libraries/patterns/`. The work is not the lookup but the name matching — Figma calls it `Bar graph`, the code calls it `barchart`; `Modal Bottom Sheet` maps to `Modal`; `Energy Tag` maps to neither `tag` nor `energyclassslider` cleanly. That matching is judgement, roughly 98 Figma names against 60 code directories | Every web screen | Half a day |
-| Add the missing platform-readiness rows to three component docs | **Stops or asks.** `date-picker`, `phone-number-field` and `tabs` have no `Figma \| Web \| iOS \| Android` row at all, and the other 52 do. **Less urgent than it was:** the ruleset no longer singles them out — it now says web, iOS and Android are unestablished for *every* component, so these three are no longer a special case. It matters again the moment web availability is answered properly, and all three are in fact live on web | When web availability is next attempted | An hour, once the real statuses are known |
-| Scale the availability table to iOS and Android | **Stops or asks.** Only **Figma** is answered completely. Web was attempted, found wrong, and reverted — it now says "not established, ask", the same as iOS and Android. The component docs record 22 components unavailable on iOS and 31 on Android, and none of it is in the ruleset. **Do not copy those rows in.** The web pass proved the docs' readiness rows are stale; there is no reason to think the iOS and Android columns are any better, and neither native code repo is on this machine to check against | Every iOS or Android screen | Unknown until a source is found |
-| Fix two rules files that still name renamed files, and teach the link check to see bare filenames | **Stops or asks, and only ever a session working in this repo — never a shipped screen.** A defect we created ourselves: `.claude/rules/component-docs.md:22` tells a session the component index is `components.md`; it is `components-index.md`. `.claude/rules/token-docs.md:16` says the same about `tokens.md`. Both are live instructions naming files that no longer exist. `scripts/check-links.py` missed them because it only reads bracket-and-parenthesis links, not names in backticks — a rename check that only sees links is half a check. **Half of the checker bug is now fixed:** it no longer reads links inside fenced code blocks as real ones, because the report template added on 11 Sep is a markdown example inside a markdown file and produced five false breaks immediately. Still unfixed: link syntax inside *single* backticks, and bare filenames | Every session that opens either rules file | Half an hour |
-| Write the introduction this repo has never had — what the GSL Design System actually is | **The output doesn't change — only our own files.** Every human page assumes the reader already knows what a token is, what a component is, what the four Figma tiers are, and why *highest tier first* is the rule everything hangs off. Nothing anywhere explains any of it. You don't need it; anyone you hand this to does, and they hit the wall on the first page they open. It should also say how Figma, Confluence and the web code repo relate to each other, because a reader's first real question is *which one is true* | Every time someone who isn't you opens the repo | Half a day |
-| Give `figma/` a page written for a person | **The output doesn't change — only our own files.** `README.md`'s map has a *Start at* column, and for `figma/` it points at `.claude/rules/figma-registries.md` — instructions written for an agent. A person following the map is sent into a file that isn't addressed to them. `tokens/README.md` is the shape to copy: what the seven registry files are, what a registry is for, and what re-running a sync actually does | Every time someone opens `figma/` | Half a day |
-| Give `components/` a page written for a person | **The output doesn't change — only our own files.** `components/` is the biggest pillar and its only entry point is `components-index.md`, a routing page written for an agent. There is no human equivalent of `tokens/README.md` saying what a component doc contains, where the 53 of them came from, or why 43 registry entries have no doc at all | Every time someone opens `components/` | Half a day |
-| Write down how knowledge gets **into** this repo, and how it stays true | **The output doesn't change — only our own files.** `README.md` explains beautifully how a rule earns the right to exist — ledger, audit, ruleset, eval. It never explains how the raw material arrives: Zeroheight export to Confluence to `components/`, the four token scripts reading the web code repo, the four Figma syncs. Those exist only as one-line skill descriptions, so nobody can answer *what goes stale if nobody runs anything* — which is the question that decides whether this repo is trustworthy six months from now | Whenever the design system changes underneath us | Half a day |
+**Nothing here is started without your go**, and being top of the list is never
+authorisation to start.
+
+### What's broken
+
+The next task is the **earliest step's topmost row that is due by September and
+has an empty *Blocked by***. If no step has one, look in *Scoring a finished
+screen*, then *Keeping the repo usable*.
+
+Two steps have no rows at all. That is not evidence they are sound — it is that
+nothing has ever looked at them. Their headings stay so the gap stays visible.
+
+#### Define the content
+
+**Nothing yet.** The scorecard cannot see copy or tone — its own blind-spot
+table says so — and `Content & UX Writing` is empty in 15 of 57 component docs.
+Nothing is broken here because nothing has been built here.
+
+#### Define the components to use
+
+| What | Due by September | What goes wrong today | Blocked by | How long |
+| --- | --- | --- | --- | --- |
+| Check `Energy Tag`'s 48 Figma variants against the corrected energy mapping | yes | **Wrong screen, nothing tells you.** The French DPE class-to-colour mapping now in the colour ruleset is verified against web source code and has never been checked against Figma. `Energy Tag` is recorded with 48 variants and no property names, so nothing local can answer it. If Figma assigns classes differently from web, one of the two is wrong and a generating agent is following whichever we wrote down. Hits every French listing | **A session running off `~/.claude/`, with Figma Desktop open.** This one has no Figma tools | Half a day |
+| Check whether `.Legend` is used loose anywhere in the Figma files | yes | **Wrong screen, nothing tells you.** The ruleset now forbids placing a dot-prefixed part. If a designer has already dropped `.Legend` beside a chart somewhere, that file disagrees with the rule, and an agent copying an existing screen would inherit the mistake. Unknown either way today | **A session running off `~/.claude/`, with Figma Desktop open.** This one has no Figma tools | An hour |
+| Add the missing legend-position property to `Donut chart`, then re-record it | yes | **The agent stops and asks you.** The donut's shape would allow its legend beside the chart, not only below, and that property does not exist in the Figma library. The ruleset now tells an agent plainly that the option isn't there, so nothing ships wrong — but it's an option the design genuinely wants. **Two halves:** the Figma edit is yours or the library owner's, then `figma-sync-component-sets` is re-run on the Patterns library so the new property is recorded and the "not available" line comes out of the ruleset. Skipping the second half is how a Figma fix goes undocumented | **The Figma edit being made** | Half an hour for the sync, once it is |
+| Take the audit link out of the components ruleset's header | yes | **The agent stops and asks you, at worst.** `components-rules-ai.md:6` opens with a live link to `components-audit.md`. An agent is told to read `-rules-ai` files and nothing else, so the top of the file offers a door it must not open — and labels it *reasoning*, which is what an unsure agent goes looking for. No evidence any agent has followed one; the fix is to keep the sentence and drop the link. **Comes up:** every time an agent opens the components ruleset |  | Ten minutes |
+| Generate the web availability list from the web code repo | no | **Wrong screen, nothing tells you — proven, not theorised.** The list built from the component docs was wrong for five of thirteen. `~/gsl-core-web-design-system` is ground truth: `libraries/ui/src/` and `libraries/patterns/`. The work is not the lookup but the name matching — Figma calls it `Bar graph`, the code calls it `barchart`; `Modal Bottom Sheet` maps to `Modal`; `Energy Tag` maps to neither `tag` nor `energyclassslider` cleanly. That matching is judgement, roughly 98 Figma names against 60 code directories **Comes up:** Every web screen |  | Half a day |
+| Add the missing platform-readiness rows to three component docs | no | **The agent stops and asks you.** `date-picker`, `phone-number-field` and `tabs` have no `Figma \| Web \| iOS \| Android` row at all, and the other 52 do. **Less urgent than it was:** the ruleset no longer singles them out — it now says web, iOS and Android are unestablished for *every* component, so these three are no longer a special case. It matters again the moment web availability is answered properly, and all three are in fact live on web **Comes up:** When web availability is next attempted |  | An hour, once the real statuses are known |
+| Scale the availability table to iOS and Android | no | **The agent stops and asks you.** Only **Figma** is answered completely. Web was attempted, found wrong, and reverted — it now says "not established, ask", the same as iOS and Android. The component docs record 22 components unavailable on iOS and 31 on Android, and none of it is in the ruleset. **Do not copy those rows in.** The web pass proved the docs' readiness rows are stale; there is no reason to think the iOS and Android columns are any better, and neither native code repo is on this machine to check against **Comes up:** Every iOS or Android screen |  | Unknown until a source is found |
+
+#### Define what needs to be built
+
+| What | Due by September | What goes wrong today | Blocked by | How long |
+| --- | --- | --- | --- | --- |
+| Say where a declaration physically lives | yes | **The agent stops and asks you.** The rules end every invention with "declare it — state, in the output, what you built and what you ruled out". They never say **where that statement goes**: a note on the Figma frame, a code comment, the reply itself. An agent that composes something correctly still has nowhere to put the record, so the record is what gets dropped — and the declaration is the only thing that makes an invention reviewable. The principle stays platform-neutral; the place is named per platform, the way *Platform limits* already works. **Agreed with Gabriel 11 Sep as the task after the simulator routing entry** **Comes up:** Every time anything is composed rather than selected |  | Half a day |
+| Extend the "when nothing fits" rule to cover *exists, is correct, and doesn't physically fit* | yes | **Wrong screen, nothing tells you.** The donut chart is 373px wide inside a 360px frame. The agent switched off a mandatory part of it and broke no rule doing so. **Parked by Gabriel, 10 Sep** — it tangles three questions and he wants them separated first: is the Figma component missing a stacked variant, is the documentation wrong, or does the component itself need fixing? Don't pick this up until that is settled | **Your three-way decision** — is the Figma component missing a stacked variant, is the documentation wrong, or does the component itself need fixing | Half a day once it is |
 
 **The "Legend" task is done, and it did not settle the chart-sizing one.** They
 looked like one fix — both "the component exists and is right, but I can't use
@@ -75,41 +106,81 @@ it in the form I need". They aren't. The legend was never placeable at all, so
 the answer was to stop calling it a component. The donut is placeable and simply
 too wide, which is still an open question about the component itself.
 
-**The routing-entry task is done, and it did not settle the chart-sizing one
-either.** It sends a simulator to compose-and-declare because no Pattern or
-Experience is that block. The donut chart is the opposite case — the component
-exists and is right, and simply does not fit the width. Compose-and-declare has
-no answer for that, which is why the chart-sizing task is still parked and still
-needs your three-way decision.
+**The routing-entry task is done, and it did not settle it either.** That task
+sends a simulator to compose-and-declare because no Pattern or Experience is
+that block. The donut chart is the opposite case — the component exists and is
+right, and simply does not fit the width. Compose-and-declare has no answer for
+that, which is why the chart-sizing row is still waiting on your three-way
+decision.
+
+#### Choose the tokens
+
+| What | Due by September | What goes wrong today | Blocked by | How long |
+| --- | --- | --- | --- | --- |
+| Take the audit links out of the five token ruleset headers, and the stray one mid-file | yes | **The agent stops and asks you.** The same forbidden door as the components row, six times over: `color-rules-ai.md:6`, `radius-rules-ai.md:5`, `shadow-rules-ai.md:5`, `spacing-rules-ai.md:6` and `typography-rules-ai.md:5` are header credit lines, and `shadow-rules-ai.md:113` is mid-file — that one does give the agent a fallback, so only the stray link needs removing. `scripts/check-links.py` names all six exactly. Border width has none; its evidence is inline. **Comes up:** every time an agent opens a token ruleset |  | Half an hour |
+| Finish the colour ruleset's restricted list | yes | **The agent stops and asks you.** The pointer into the audit is **already gone** — removed while freeing the energy colours, so this is no longer a dead end. What remains: the list still says "and 28 others" and enumerates only about ten of them, so an agent asking about an unusual token gets no answer. The audit's own section is grouped by family too, so the per-token reasons have to be written, not copied **Comes up:** Any screen using an unusual colour token |  | Half an hour |
+| Give opacity, motion and z-index a ruleset, or say plainly they are out of scope | no | **The agent stops and asks you.** The other half of the row above. All three are code-only — `tokens-index.md` records motion and z-index as having no Figma property at all, and says an alpha colour token is preferred over an opacity. So a Figma agent never needs them and a web agent has nothing it may read. Either answer closes it; leaving it unanswered is what doesn't **Comes up:** Every web screen that animates or stacks |  | Half a day |
+
+#### Put them on the screen
+
+| What | Due by September | What goes wrong today | Blocked by | How long |
+| --- | --- | --- | --- | --- |
+| Record the Figma text-field names for each component | yes | **Wrong screen, nothing tells you.** An agent can place a component but has no way to put words into it, so it ships with the default placeholder text still in place — which breaks nothing. Every string in the test came from reading Figma live, not from this repo | **A session running off `~/.claude/`, plus Figma Desktop open.** The Figma plugin is installed in that config only; a session on `~/.claude-personal/` has no Figma tools at all. Check the bridge responds before starting, not after | A day |
+
+#### Place them according to the design guidance
+
+| What | Due by September | What goes wrong today | Blocked by | How long |
+| --- | --- | --- | --- | --- |
+| Give grid and breakpoint a ruleset an agent is allowed to read | yes | **Finishes one of the four things the agent must know — how the page is laid out.** Twelve token categories exist; six carry a `-rules-ai` ruleset. A generating agent is told to read `-rules-ai` files and nothing else, so for the other five it has **no authorised source at all** — it either guesses or stops. Two of the five reach a Figma canvas: `grid`, which `tokens-index.md` records as *Figma and product pages only*, and `breakpoint`. Page layout is the one ❌ in `status.md`, and grid is what it is made of. The other three — opacity, motion, z-index — are code-only and sit in the block below **Comes up:** Every screen that needs a margin or a column width |  | Half a day |
+| Check the page-layout rules against real screens | yes | **Finishes one of the four things the agent must know — how the page is laid out.** Margins and rhythm are written but have never been checked against a real screen, so whether they hold is unknown, and that is the problem | **You naming 3–5 Figma screens** to check them against | Unknown |
+
+#### Check the content
+
+**Nothing yet**, for the same reason as the first step: there is no rule here to break.
+
+### Scoring a finished screen
+
+These break no design step. They break finding out **which** step broke, which
+is what the scorecard is for.
+
+| What | Due by September | What goes wrong today | Blocked by | How long |
+| --- | --- | --- | --- | --- |
+| Say who assigns a run's wireframe label, and where it comes from | yes | **Wrong screen, nothing tells you — the worst shape there is.** Four places now depend on a run carrying a *wireframe* label: it is the only thing that makes two runs comparable, and `no regression` for `C1 · Provenance` compares against the last run with a matching one. **Nothing says who names it or where the name comes from.** If each run invents its own — and a checking agent with no instruction will — then no two labels ever match, `no regression` never fires on anything, and no error is ever reported. The scoring sheet looks like it is gating and is not. The fix is small: say the label is set in the brief, by the person writing it, and reused verbatim for every run of that brief **Comes up:** Every run, from the first one |  | Twenty minutes |
+| Say which step each scorecard check enforces | yes | **The agent stops and asks you — or rather, you do.** Each check already enforces a step: `C1 · Provenance` and `C2 · Tier ceiling` guard *define the components to use*, `C5 · Declaration` guards *define what needs to be built*, `C3 · Token binding` and `C4 · Authorisation` guard *choose the tokens*, and `C6 · Layout` would guard *place them according to the design guidance*. **No check says so.** A report tells you `C4` flagged `Spacing/40`, and connecting that to a step happens in your head. Three steps — define the content, put them on the screen, check the content — have no check at all, and the file should say that rather than leave them absent. Raised 11 Sep while re-sorting this list | | Half a day |
+| Have a generating agent build from the three new rulesets and nothing else | yes | **Tells us whether what we wrote actually works.** It finds problems rather than fixing any, which is the point. The same method found twelve defects in component selection. Run it *after* the fixes above, or we test rulesets we're about to rewrite. **Run it on Sonnet, not Opus** — not to save money, but because a stronger reader silently repairs ambiguity, so testing a spec meant to be unambiguous on the strongest available reader is the weakest version of the test |  | Half a day |
+| Score `run-001` and write the report it never got | yes | **Tells us whether what we wrote actually works** — and it would be the first time the scoring sheet is used on real output. `compliance/runs/run-001/` holds the brief and two screenshots and nothing else. The scorecard has never been run against anything, so its six checks, its thresholds and its adapter contract are all reasoning that has never met a real screen. `compliance-audit.md` says this plainly: *being implementable is not the same as being correct* | **The Figma file that run produced still existing, plus a session with Figma tools.** Screenshots alone cannot answer whether a colour was token-bound, which is most of what the scorecard asks | Half a day, once both are true |
+
+### Keeping the repo usable
+
+Nothing here changes what an agent designs. It changes whether a person or a
+session can find their way around — a stale filename, a missing introduction, a
+pointer to a folder that no longer exists.
+
+Real work, all of it. None is due by September, so the deadline column would say
+"no" eight times and is left out.
+
+| What | What goes wrong today | Blocked by | How long |
+| --- | --- | --- | --- |
+| Cut the `internal/` row from `CLAUDE.md`'s *Where to look* | **Only our own files change.** You deleted `internal/git-basics-tutorial.md` during the session of 11 Sep, and the folder went with it — following through on the 10 Sep note that recorded the tutorial as obsolete once this repo stopped using branches. `CLAUDE.md:181` still lists *`internal/` — internal reference docs, e.g. `git-basics-tutorial.md`*, so the map sends a reader to a folder that isn't there. **Not on the list of tables I may edit without asking** — that list names `README.md`, `.claude/rules/project.md`, `tokens/README.md` and the two indexes, and `CLAUDE.md` is not one of them. One line, your go |  | Five minutes |
+| Fix two rules files that still name renamed files, and teach the link check to see bare filenames | **The agent stops and asks you — but only ever a session working in this repo, never a shipped screen.** A defect we created ourselves: `.claude/rules/component-docs.md:22` tells a session the component index is `components.md`; it is `components-index.md`. `.claude/rules/token-docs.md:16` says the same about `tokens.md`. Both are live instructions naming files that no longer exist. `scripts/check-links.py` missed them because it only reads bracket-and-parenthesis links, not names in backticks — a rename check that only sees links is half a check. **Half of the checker bug is now fixed:** it no longer reads links inside fenced code blocks as real ones, because the report template added on 11 Sep is a markdown example inside a markdown file and produced five false breaks immediately. Still unfixed: link syntax inside *single* backticks, and bare filenames **Comes up:** Every session that opens either rules file |  | Half an hour |
+| Teach the link check to spot a page nothing points at | **Only our own files change.** `scripts/check-links.py` answers *does this link go somewhere*. It cannot answer *is this page reachable at all*, so a file that no table of contents lists is invisible to it — which is exactly how `project/how-a-run-is-reported.md` came to exist unlisted. The check skill now says to list a new file, but an instruction is a hope; a check that fails is a mechanism. Scope it narrowly: every `.md` under `project/` must be linked from at least one other file **Comes up:** Every time a page is added or renamed |  | An hour |
+| Write the introduction this repo has never had — what the GSL Design System actually is | **Only our own files change.** Every human page assumes the reader already knows what a token is, what a component is, what the four Figma tiers are, and why *highest tier first* is the rule everything hangs off. Nothing anywhere explains any of it. You don't need it; anyone you hand this to does, and they hit the wall on the first page they open. It should also say how Figma, Confluence and the web code repo relate to each other, because a reader's first real question is *which one is true* **Comes up:** Every time someone who isn't you opens the repo |  | Half a day |
+| Give `figma/` a page written for a person | **Only our own files change.** `README.md`'s map has a *Start at* column, and for `figma/` it points at `.claude/rules/figma-registries.md` — instructions written for an agent. A person following the map is sent into a file that isn't addressed to them. `tokens/README.md` is the shape to copy: what the seven registry files are, what a registry is for, and what re-running a sync actually does **Comes up:** Every time someone opens `figma/` |  | Half a day |
+| Give `components/` a page written for a person | **Only our own files change.** `components/` is the biggest pillar and its only entry point is `components-index.md`, a routing page written for an agent. There is no human equivalent of `tokens/README.md` saying what a component doc contains, where the 53 of them came from, or why 43 registry entries have no doc at all **Comes up:** Every time someone opens `components/` |  | Half a day |
+| Write down how knowledge gets **into** this repo, and how it stays true | **Only our own files change.** `README.md` explains beautifully how a rule earns the right to exist — ledger, audit, ruleset, eval. It never explains how the raw material arrives: Zeroheight export to Confluence to `components/`, the four token scripts reading the web code repo, the four Figma syncs. Those exist only as one-line skill descriptions, so nobody can answer *what goes stale if nobody runs anything* — which is the question that decides whether this repo is trustworthy six months from now **Comes up:** Whenever the design system changes underneath us |  | Half a day |
+| Write up the test run properly | Only our own files change. Findings are already safe in `project/archive/handoff.md` and in this file's notes **Comes up:** Nothing — you parked it |  | Half a day |
 
 **Making "every pillar has a page for a person" an actual rule is a rider, not a
 task.** One line in `.claude/rules/project.md`, ten minutes, folded into
-whichever of the four rows above runs first. It is worth adding because the
-pattern is visible: `tokens/` and `compliance/` each got a human page only when
-something forced one, and `components/` and `figma/` never did. Nothing says
-they should, so the coverage is accidental rather than decided.
-
-**All four of these rows are September-plus work, by your own sorting rule.**
-None of them changes what lands on the Figma canvas, so none can outrank
-anything in the block above before the deadline. They are real, and they are
-what stops anyone other than you from picking this project up.
+whichever of the four human pages above runs first. It is worth adding because
+the pattern is visible: `tokens/` and `compliance/` each got a human page only
+when something forced one, and `components/` and `figma/` never did. Nothing
+says they should, so the coverage is accidental rather than decided.
 
 **Removing the leftover rule numbers in the spacing ruleset is not on this
 list.** The file still says "Rules 6 and 7 are unverified" and "Rules 3–5" after
 the renaming, which is untidy, but an agent's output doesn't change. It's a
 rider on whatever next opens that file, not a task.
-
-### Something is in the way
-
-| What | What goes wrong today | What's in the way | How long once clear |
-| --- | --- | --- | --- |
-| Add the missing legend-position property to `Donut chart`, then re-record it | **Stops or asks.** The donut's shape would allow its legend beside the chart, not only below, and that property does not exist in the Figma library. The ruleset now tells an agent plainly that the option isn't there, so nothing ships wrong — but it's an option the design genuinely wants. **Two halves:** the Figma edit is yours or the library owner's, then `figma-sync-component-sets` is re-run on the Patterns library so the new property is recorded and the "not available" line comes out of the ruleset. Skipping the second half is how a Figma fix goes undocumented | **The Figma edit being made** | Half an hour for the sync, once it is |
-| Check whether `.Legend` is used loose anywhere in the Figma files | **Ships wrong, breaks no rule.** The ruleset now forbids placing a dot-prefixed part. If a designer has already dropped `.Legend` beside a chart somewhere, that file disagrees with the rule, and an agent copying an existing screen would inherit the mistake. Unknown either way today | **A session running off `~/.claude/`, with Figma Desktop open.** This one has no Figma tools | An hour |
-| Check `Energy Tag`'s 48 Figma variants against the corrected energy mapping | **Ships wrong, breaks no rule.** The French DPE class-to-colour mapping now in the colour ruleset is verified against web source code and has never been checked against Figma. `Energy Tag` is recorded with 48 variants and no property names, so nothing local can answer it. If Figma assigns classes differently from web, one of the two is wrong and a generating agent is following whichever we wrote down. Hits every French listing | **A session running off `~/.claude/`, with Figma Desktop open.** This one has no Figma tools | Half a day |
-| Record the Figma text-field names for each component | **Ships wrong, breaks no rule.** An agent can place a component but has no way to put words into it, so it ships with the default placeholder text still in place — which breaks nothing. Every string in the test came from reading Figma live, not from this repo | **A session running off `~/.claude/`, plus Figma Desktop open.** The Figma plugin is installed in that config only; a session on `~/.claude-personal/` has no Figma tools at all. Check the bridge responds before starting, not after | A day |
-| Score `run-001` and write the report it never got | **Neither — it finds problems rather than fixing any**, and it would be the first time the scoring sheet is used on real output. `compliance/runs/run-001/` holds the brief and two screenshots and nothing else. The scorecard has never been run against anything, so its six checks, its thresholds and its adapter contract are all reasoning that has never met a real screen. `compliance-audit.md` says this plainly: *being implementable is not the same as being correct* | **The Figma file that run produced still existing, plus a session with Figma tools.** Screenshots alone cannot answer whether a colour was token-bound, which is most of what the scorecard asks | Half a day, once both are true |
-| Check the page-layout rules against real screens | Unknown, and that's the problem — margins and rhythm are written but have never been checked against a real screen | **You naming 3–5 Figma screens** to check them against | Unknown |
-| Write up the test run properly | The output doesn't change. Findings are already safe in `project/archive/handoff.md` and in this file's notes | Nothing — you parked it | Half a day |
 
 ## Questions — only you can answer these
 
@@ -183,6 +254,11 @@ Things that turned out to be true and are worth not rediscovering.
 
 | Date | Note |
 | --- | --- |
+| 11 Sep 2026 | **A ruleset gap goes to the backlog, not straight into the audit. Gabriel's decision, 11 Sep.** Two files had said otherwise — `compliance-scorecard.md` and `compliance-flag-ledger.md` both sent a flag ruled `ruleset gap` directly to the relevant `-audit.md`, while `CLAUDE.md` says every finding lands in the backlog. Two destinations meant two sessions filed the same finding in different files. Both files now say the backlog first; doing that task writes the rule into the ruleset and the reasoning into the audit. **The audit is where reasoning settles, never the queue.** This is also the one edit made to the scorecard during the re-sorting work, and only because answering the question required it |
+| 11 Sep 2026 | **The task list is sorted by the sequence of designing a screen now, and this is the third sort in three days.** Severity came first, then impact, now the steps — and the reason the first two failed is the same each time: both graded *defects*, so neither could see a step nobody had built. *Define the content* and *check the content* had never produced a single row between them, and content is the least documented part of the whole system. Gabriel found the mechanism: work backwards from the objective, ask what a step needs, and a missing step shows up as a step with nothing under it. **Two sections became columns** — startable-versus-blocked became *Blocked by*, reaches-the-canvas became *Due by September* — because the last attempt failed a check when a section went stale while a row's position said nothing about why it was there. **What stays out: numbers on the steps.** `.claude/rules/project.md` already bans numbers that encode only what order states, so no file anywhere says "step 3" |
+| 11 Sep 2026 | **Each flag now lives in two files and nothing checks they agree.** A flag is written into `report.md` and appended to `compliance-flag-ledger.md`. That is the same risk already recorded for the scores, which sit in both `report.md` and `compliance-run-ledger.md`. Both duplications are inherent to append-only evidence and neither should be removed — what is missing is a stated **direction**: the report is written first, and every ledger row is copied from it, never the reverse. Without that, a session correcting a ledger row can leave the report saying something else and both look authoritative |
+| 11 Sep 2026 | **The scorecard's checks each guard a step of designing, and no check says which.** Mapped while re-sorting: `C1 · Provenance` and `C2 · Tier ceiling` guard *define the components to use*, `C5 · Declaration` guards *define what needs to be built*, `C3 · Token binding` and `C4 · Authorisation` guard *choose the tokens*, `C6 · Layout` would guard *place them according to the design guidance*. Three steps — define the content, put them on the screen, check the content — have **no check at all**. So a report says `C4` flagged a token and joining that to a step happens in Gabriel's head, which is the loop he described not closing. It is now a task under *Scoring a finished screen*; the scorecard itself was deliberately not touched in the same commit as the queue |
+| 11 Sep 2026 | **The task list is sorted by impact now, not by how badly a defect fails.** Gabriel asked for it, and the reason it was needed is specific: a severity sort can only rank things that are *broken*, so it had no slot for things that were simply **missing**. Five of twelve token categories have no ruleset an agent may read, and there was no row for writing them — nothing was wrong, so nothing was graded, so the task never appeared. Two rows moved a long way: the scored generation run rose from last in its block to fifth, because it is the only row that tells us whether any of this works; the ruleset header links fell, because that row's own text says *"no evidence any agent has followed one"*. Severity survives as the first tie-breaker, which is where *fear the silent ones* now lives. **The three severity labels were reworded in the same pass** — "ships wrong, breaks no rule" read as a contradiction unless you already knew "rule" meant *a line in one of our own rulesets*, and Gabriel said plainly he could not parse it |
 | 11 Sep 2026 | **One restatement of the writing rules survives on purpose, in the line that loads at session start.** The `task-next` skill's description still says it proposes a task *in plain language*. It is frontmatter — the sentence that makes the skill offer itself when Gabriel types `/task-next` — so it describes behaviour to a router rather than instructing a writer, and rewording it risks the trigger. A rider on whatever next opens that file, never a task |
 | 11 Sep 2026 | **The generating skill is Gabriel's to build, and it is deliberately later — but two things about it are already decided.** It produces the screen *and* the report; a run whose screen exists but whose report does not is unfinished. And it does **not** define what a report contains — this repo does, in `compliance-scorecard.md` — or the iOS agent will invent a second format and the history splits in two. The skill owns gathering the facts from its own platform and writing the two files; that is the adapter, and adapters are platform-specific by definition. **One practical catch: `design` is already a built-in Claude Code skill name** (the canvas/mockup one), so a `/design` command would collide. Pick another name |
 | 11 Sep 2026 | **The adapter does not exist, so the first reports are written by hand.** The scorecard now specifies `facts.json` precisely — seven required facts, an exact shape, an omitted field meaning *unavailable* and `false` meaning *no*. Nothing produces it. Until the generating skill is built, a run's facts and report are hand-written, and a hand-written facts file is exactly the kind of thing that quietly stops matching the contract it claims to follow. Worth checking the first two against the schema by eye rather than assuming |
@@ -231,6 +307,7 @@ Things that turned out to be true and are worth not rediscovering.
 
 | Date | What |
 | --- | --- |
+| 11 Sep 2026 | **The backlog is sorted by the seven steps of designing a screen, and the order is now reproducible from the file alone.** A task sits under the step it stops, so its position states its own reason. Two sections became columns — *Blocked by* and *Due by September* — because the previous attempt failed its check when a section drifted while a row's position said nothing. Five files carried the old rule and all five changed: the backlog, both task skills, `.claude/rules/project.md` and `status.md`. **It took two failed checks to land.** The first failed because only four of 25 rows stated their rank; the second because a group called *Every step* sat among the step headings and nothing said whether it was one — two defensible readings, two different next tasks. The fix deleted that group rather than documenting it: its two rows were bundled by task, not by defect, and each belongs under the ruleset it sits in. The picking rule now returns one answer with no judgement. **What it found, which is the point:** *define the content* and *check the content* have no rows at all, and the scorecard cannot see copy or tone either — the least documented part of the system had been invisible to the list meant to surface it |
 | 11 Sep 2026 | **How I write to Gabriel is now one section in `CLAUDE.md`, and the four other statements of it are gone.** Four files gave the shape rules — plain language, short sentences, tables — in four wordings, and none of them caught a paragraph that is short, bulleted and still says nothing new. Gabriel supplied the missing half: every sentence must leave him with more than the last one, the relation between two sentences must be named rather than left to rhythm, and a cut pass flags every superfluous passage before anything is sent or saved. *How to write* carries both halves plus the split that keeps them safe — his pages get them, while `-rules-ai` files, registries and ledgers stay optimised for an agent, where restating a condition removes doubt instead of padding. Precedence is written down because the two halves collide: logic first, brevity second, a guide and not a gate. Flagging is silent in chat and out loud in files, because naming a cut in chat doubles the length of the thing the rule exists to shorten. `.claude/rules/project.md` and both task skills stopped restating the rules and point at the section instead; the three-rules table in `CLAUDE.md` is now two, since *no codes* is a writing rule and moved with the others. Verified: nothing outside `CLAUDE.md` states a writing rule, all four pointers resolve, link check 0 broken and the 7 dead ends unchanged |
 | 11 Sep 2026 | **Four findings about what a newcomer cannot learn from this repo are now on the list.** Gabriel asked whether a person opening this project could understand it without technical jargon. The loop half holds up — `status.md`, the backlog, the decision log and the filename grammar answer where we are, what is left, and why the repo is shaped this way. The subject itself is never introduced, so *highest tier first* reads as a phrase rather than a rule: nothing anywhere says what a token is, what a component is, or what the four Figma tiers are. Two pillars have a page for a person — `tokens/` and `compliance/` — and each got one because a task happened to force it, which is why the other two have none: `components/` sends a reader to a routing page written for an agent, and `README.md`'s map sends one into `.claude/rules/figma-registries.md`, addressed to an agent. Filed as four rows in the block that does not reach the canvas, since none of them changes a Figma page before the deadline, plus a rider making "every pillar has a page for a person" an actual rule instead of an accident. Verified: four rows, four columns each, link check 0 broken and the 7 dead ends unchanged |
 | 11 Sep 2026 | **There is now one list of what may change without asking, and it is in `CLAUDE.md`.** The same sentence was written out in three files and named only two exceptions, so a third one — added to the check skill so a new, renamed or deleted file gets listed where the repo lists files — would have been contradicted by the page a cold session reads first. `CLAUDE.md` now carries the whole list in one table with the test underneath it: does this change what a page *means*? If it does, it is Gabriel's. `.claude/rules/project.md`, the two task skills and `status.md` stopped restating it and point at it instead — three of them got shorter. The check skill gained the list-follows-the-file step between updating `status.md` and committing. First application, done in the same sitting: `project/how-a-run-is-reported.md` is now listed in `README.md` and in the project rules file, which closes the row filed for it an hour earlier. Verified: nothing outside `CLAUDE.md` still states the list, link check 0 broken, 7 dead ends unchanged |

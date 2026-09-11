@@ -63,30 +63,53 @@ Post it in this shape, and nothing longer:
 | Field | Rule |
 | --- | --- |
 | **What** | One plain sentence. What will be different afterwards |
-| **Why** | What goes wrong today. Concrete, not abstract — say which of the three failures below it is |
+| **Why** | What goes wrong today. Concrete, not abstract — name the step of designing it stops, and what happens instead |
 | **How long** | Rough. "Half a day", "twenty minutes" |
 | **Needs you?** | Either "nothing from you" or the one decision required |
 
 Then stop and wait.
 
-**Picking which task:** take the top item from *I can start these today* in the
-backlog. That list is already sorted, and the sorting rule is in the file above
-it — worth re-reading rather than assuming, because it decides what you propose:
+**Picking which task:** the backlog's tasks sit under the step of designing they
+break, in order. The next task is the **earliest step's topmost row that is due
+by September and has an empty *Blocked by***.
 
-| What goes wrong today | Rank |
+The sequence is the sort, because each step needs the ones before it:
+
+| | Step |
 | --- | --- |
-| **It ships wrong, and breaks no rule doing it** | Highest. Non-compliant output leaves with confidence and is only caught by looking at the screen |
-| **It stops, or asks** | Middle. Nothing wrong ships, but a human had to step in |
-| **The output doesn't change at all** | Nothing. Not a task — a rider on whatever next opens that file |
+| | Define the content — from the user need |
+| | Define the components to use, and which variant, in one move |
+| | Define what needs to be built |
+| | Choose the tokens — colour, text style, spacing |
+| | Put them on the screen |
+| | Place them according to the design guidance |
+| | Check the content |
 
-Then how often it comes up, then how long it takes.
+Three groups sit outside the steps. **Every step** holds rows that break
+reaching the rules, whichever step you are on. **Scoring a finished screen**
+holds rows that break finding out which step broke. **Keeping the repo usable** holds
+real work that changes nothing an agent designs — it changes whether a person or
+a session can find their way around.
 
-**Fear the ones where the agent breaks no rule.** A stuck agent tells you it's
-stuck; a confidently wrong one doesn't. Effort is the tie-breaker, never the
-sort — a cheap tidy-up is not a task however cheap it is.
+**A row names the step that fails, not the kind of file being fixed** — sort by
+the symptom, not by the folder.
 
-If an item's rank looks wrong to you, say so and re-sort the backlog before
-proposing. The order is a judgement, not a fact, and it may be stale.
+Two tie-breakers decide between rows at the same step, and neither is ever the
+sort: **how bad it is when it goes wrong** (worst is a wrong screen with nothing
+to tell you — the agent obeyed every rule we wrote and the output still isn't
+compliant, so you only find out by looking), then **how often it happens**.
+
+**Fear the silent ones.** An agent that stops tells you it stopped; a
+confidently wrong one doesn't. **Effort is never a reason** — a cheap tidy-up is
+not a task however cheap it is, and a hard task is not demoted for being hard.
+
+**Two steps have no rows.** That is a gap, not a clean bill of health — nothing
+has looked at them. Don't quietly treat an empty step as done.
+
+If a row looks like it sits under the wrong step, say so and re-place it before
+proposing. Which step a row breaks is a judgement, not a fact, and it may be
+stale — or the step it really breaks may not be written yet, which is worth
+saying out loud.
 
 If the honest answer is that the next task needs a decision from him first,
 propose the **question** instead of the task. One question, with a

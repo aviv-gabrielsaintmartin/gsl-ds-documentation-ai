@@ -89,10 +89,12 @@ check.
    needed — see the git section of `CLAUDE.md`. Commit and push only ever add,
    so nothing can be lost; he already approved the task and the check just
    verified it.
-5. Name the next task in one sentence. Do not start it. Take the top item from
-   *I can start these today* in the backlog — that list is sorted by what goes
-   wrong if we don't fix it, and the rule is written above it. If the task just
-   done changed what's now most damaging, re-sort the list before naming one.
+5. Name the next task in one sentence. Do not start it. The backlog's tasks sit
+   under the step of designing they break, in order, and the next one is the
+   **earliest step's topmost row that is due by September and has an empty
+   *Blocked by***. The steps and the two tie-breakers are written above that
+   list. If the task just done changed which step a row breaks, or unblocked
+   one, re-place the rows before naming the next task.
 6. Tell him to start it **in a new conversation** with `/task-next`. One task,
    one chat — a session that built something is the worst judge of it.
 

@@ -20,14 +20,17 @@ right colours, with nobody correcting it.
 
 ## Where we are
 
-Teaching the agent four things. Two and a half are done.
+Designing a screen is seven steps. **One of them is fully written.**
 
-| What the agent needs to know | Done? |
+| The step | Written? |
 | --- | --- |
-| **Which component to use** — that a label-and-price pair is a Cell Content row, not a hand-drawn box | ✅ Written, and tested cold three times |
-| **Which version of it** — which size, which state | ✅ Written |
-| **Which colours, text styles and spacings it may use** | 🟡 **Seven of twelve kinds.** Colour, text, spacing, sizing, corner radius, shadow and border thickness are done. Five kinds still have no rules |
-| **How the page is laid out** — margins, rhythm, column widths | ❌ Written, but never checked against a real screen |
+| Define the content — from the user need | ❌ **Nothing.** No rule, no doc, no task |
+| Define the components to use, and which variant | ✅ Written, and tested cold three times |
+| Define what needs to be built | 🟡 The rule says "declare it" and never says where the declaration goes |
+| Choose the tokens — colour, text style, spacing | 🟡 **Seven of twelve kinds** have a ruleset. Five don't |
+| Put them on the screen | 🟡 An agent can place a component, but can't put words in one |
+| Place them per the design guidance | ❌ Written, but never checked against a real screen |
+| Check the content | ❌ **Nothing**, and the scorecard can't see copy or tone either |
 
 Plus a scoring sheet that marks a finished screen against all of the above.
 Never yet used on a real run, but it now says where the verdict gets saved.
@@ -36,21 +39,19 @@ Never yet used on a real run, but it now says where the verdict gets saved.
 
 ## The next task
 
-**Done: how I write to you is one section now, not four.** `CLAUDE.md` carries
-*How to write* — your principles (every sentence adds something, name the
-relation instead of leaving it to rhythm, cut what's superfluous) merged with
-the ones already in force, and the split that keeps them safe: your pages get
-them, files only an agent reads stay optimised for an agent. The folder rules
-and both task skills stopped restating them and point at the section.
+**Done: the backlog is sorted by the seven steps above.** A task sits under the
+step it stops, so its position states its own reason. It took two failed checks
+to get there — the first left most rows unlabelled, the second left one group
+that might or might not have been a step. A cold session now picks the same next
+task I do, without judgement.
 
-**Next: say who assigns a run's wireframe label.** Twenty minutes. Four things
-now depend on a run carrying that label — it is the only thing that makes two
-runs comparable — and nothing says who names it. If every run invents its own,
-no two ever match, the comparison never fires, and no error is ever reported.
-The scoring sheet looks like it is gating and silently isn't.
+**Next: take the audit link out of the components ruleset's header.** Ten
+minutes. `components-rules-ai.md` opens with a live link to its audit file — a
+door the agent is told never to open, labelled *reasoning*, which is what an
+unsure agent goes looking for.
 
 **Then: say where a declaration physically lives.** Half a day. The rules end
-every invention with "declare it" and never say where that statement goes.
+every invention with "declare it" and never say **where** that goes.
 
 Your generating skill — screen *and* report — is yours, and deliberately later;
 it needed this format settled first. One catch: `design` is already a built-in

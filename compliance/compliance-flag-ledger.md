@@ -14,9 +14,11 @@ is evidence a ruleset is missing a case.
 1. Every run appends its flags here. Nothing is ever rewritten or removed.
 2. **A subject seen three times is raised for a human decision** — never
    auto-promoted, never auto-dismissed. Gabriel rules on it.
-3. If the ruling is `ruleset gap`, it becomes an entry in the relevant
-   `-audit.md` — `color-usage-audit.md`, `spacing-usage-audit.md`,
-   `typography-usage-audit.md` or `components-audit.md`.
+3. **If the ruling is `ruleset gap`, it becomes a task in
+   [the backlog](../project/backlog.md) first.** Doing that task writes the rule
+   into the ruleset and the reasoning into the relevant `-audit.md` —
+   `color-usage-audit.md`, `spacing-usage-audit.md`, `typography-usage-audit.md`
+   or `components-audit.md`. Decided by Gabriel, 11 Sep 2026.
 
 | Verdict | Meaning |
 | --- | --- |
