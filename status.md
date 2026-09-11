@@ -43,12 +43,16 @@ something you *look at*, never as something *saved*, which is why the one run we
 have has screenshots and no verdict. The run log moved out to its own
 append-only ledger, so the rules can change without editing history.
 
-**Next: say where a declaration physically lives.** Every invention rule ends
-with "declare it — say what you built and what you ruled out". None of them says
-**where that statement goes**: a note beside the Figma frame, a code comment,
-the reply itself. So the record is the part that gets dropped — and the record
-is the only thing that makes an invention reviewable. Half a day, and **one
-decision from you**: what counts as "the output" in Figma.
+**Next, because you asked for it: a human walkthrough of how a run gets
+reported** — `project/how-a-run-is-reported.md`. Written for someone
+non-technical, with diagrams, so you can explain this to a person. An hour.
+**This one is your call over the sorting rule**, and worth saying plainly: it
+changes nothing on the Figma canvas, so the list would never offer it on its
+own. Type the task name after `/task-next` or it will propose something else.
+
+**Then two that do reach the canvas**, in this order: say who assigns a run's
+wireframe label (twenty minutes — without it the scoring sheet looks like it is
+gating and silently isn't), then say where a declaration physically lives.
 
 Your generating skill — screen *and* report — is yours, and deliberately later;
 it needed this format settled first. One catch: `design` is already a built-in
