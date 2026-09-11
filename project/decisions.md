@@ -11,6 +11,70 @@ decision with no downside recorded is usually a decision that wasn't examined.
 
 ---
 
+## 2026-09-11 · A run's report is a file here, and this repo owns its shape but not its writing
+
+**Decided.** Every generation run produces a report, and the report is part of
+the output — a run whose screen exists but whose report does not is unfinished.
+It is a markdown file at `compliance/runs/run-NNN/report.md`, alongside the
+brief, the screenshots and the facts the adapter gathered. Screenshots and
+`facts.json` are both required. The run log moved out of
+`compliance-scorecard.md` into a new `compliance-run-ledger.md`.
+
+**Why.** Gabriel asked for a report after each generation that is
+platform-agnostic, readable by anyone, shareable on its own, and kept so runs
+can be compared. `compliance/runs/run-001/` already proved the failure it
+prevents: the brief and the screenshots survived, the verdict never existed at
+all, because the scorecard described a report as something you look at and never
+as something that is saved.
+
+Three questions were settled along the way.
+
+**Where the file lives.** In this repo, never inside the output it judges. A
+verdict stored in the Figma file or the prototype cannot be sent to anyone on
+its own, cannot be compared against another run, and is thrown away with the
+prototype.
+
+**Who owns what.** This repo owns *what a report must contain*; the consuming
+skill owns *how it is gathered and written*. The same split the adapter contract
+already uses. If the generating skill defined the format, the iOS agent would
+invent a second one and the history would split in two. Gabriel raised this
+himself, asking whether a `/design`-style skill could simply handle the whole
+thing — it produces the report, it does not define it.
+
+**Why the run log moved.** The scorecard is the ruler; a run log is a
+measurement. A ruler is rewritten whenever a rule or a threshold changes, and
+rewriting a file that also holds what happened on a date reaches back and edits
+history. It is the same `-rules-ai` against `-ledger` split the rest of the repo
+uses, and the reason the flag ledger was already a separate file. Duller second
+reason: the scorecard is read before every run, so a table growing by a line per
+generated screen does not belong in it.
+
+`facts.json` is kept rather than discarded after scoring, so a later rule change
+can be re-tested against an old run — *would this have caught it?* — without
+regenerating anything. Without it, every scorecard edit orphans the runs before
+it.
+
+**Cost.** Three things.
+
+A run folder now demands four files where one run had three, and two of them —
+`facts.json` and `report.md` — have no tool to produce them yet. **The adapter
+does not exist**, so until Gabriel's generating skill is built these are written
+by hand, and a hand-written facts file is exactly the kind of thing that quietly
+stops matching the contract. The contract had to come first regardless: a skill
+cannot be built against a format that isn't settled.
+
+Splitting the run log from the scorecard means **two files to keep in step** —
+a report's scores and its ledger row can disagree, and nothing checks that they
+don't.
+
+And **nothing forces the quality verdict to be written.** It is the only record
+of what compliance cannot measure, and it is the one field no automation can
+fill. The template leaves the heading in place and empty rather than omitting
+it, on the theory that an empty heading nags and a missing one does not. That is
+a hope, not a mechanism.
+
+---
+
 ## 2026-09-11 · Graphify is retired, and the graph lives outside the repo
 
 **Decided.** The knowledge graph is no longer refreshed as part of the task

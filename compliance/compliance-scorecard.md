@@ -227,35 +227,8 @@ report or a conversation that uses bare codes cannot be followed by anyone who
 did not write it. This applies to every report, every audit entry, and every
 sentence anyone writes about a run.
 
-### Report order is fixed
-
-**Hard fails print first, by name, above any percentage.** A report that opens
-with "C1 94%, C3 88%" reads as broadly fine even when it contains platform
-chrome. Percentages never appear before the gates they could disguise.
-
-```
-RUN <id>   <date>   <output>   <wireframe>
-
-HARD FAILS (2)
-  C1 · Provenance     Status Bar      <locator>   never-select list, **Never select**
-  C4 · Authorisation  Spacing/56      <locator>   deny-listed, spacing "Do not use"
-
-SCORES
-  C1 · Provenance      94%   FAIL — 1 hard fail
-  C2 · Tier ceiling   100%   PASS
-  C3 · Token binding   88%   FAIL — threshold is 100%
-  C4 · Authorisation     —   FAIL — 1 deny-listed token
-  C5 · Declaration    100%   PASS
-  C6 · Layout            —   INACTIVE
-
-FLAGS (1)          — findings, not failures
-  C4 · Authorisation   Spacing/40 used as a section gap, 3 elements
-                       no rule authorises or forbids it
-
-AWAITING HUMAN DECISION (0)
-
-QUALITY VERDICT    — human, free text, never scored
-```
+The report that carries these scores is a file, and its format is fixed. See
+[The report](#the-report).
 
 ### Thresholds
 
@@ -274,6 +247,127 @@ QUALITY VERDICT    — human, free text, never scored
 results page against a form measures the difficulty of the brief, not the
 compliance of the output. Across different wireframes, report the score and do
 not gate on it.
+
+---
+
+## The report
+
+### A report is a file
+
+**Every run produces a report, and the report is part of the output.** A run
+whose screen exists but whose report does not is an unfinished run, not a
+passing one.
+
+It is written to:
+
+```
+compliance/runs/run-<NNN>/report.md
+```
+
+`<NNN>` is the next unused three-digit number. Numbers are never reused, never
+reordered, and never renumbered after the fact.
+
+**A report lives in this repo, never inside the output it judges.** Not in the
+Figma file, not in the web prototype, not beside the skill that produced it. A
+verdict stored inside the thing it judges cannot be sent to anyone on its own,
+cannot be compared against another run, and is thrown away with the prototype.
+
+### What a run folder holds
+
+| File | Required? | Written by | What it is |
+| --- | --- | --- | --- |
+| `prompt.md` | **yes** | the person running it, **before generating** | The brief the run was given. Saved first, so a brief can never be quietly rewritten to match what came out |
+| screenshots — `*.png` | **yes** | whoever ran it | What the screen actually looked like. The only human-readable proof: a Figma file changes under you, a screenshot does not |
+| `facts.json` | **yes** | the adapter | What the platform found, in design-system vocabulary. Shape defined in [The shape](#the-shape) |
+| `report.md` | **yes** | the checking agent | The verdict. Template below |
+
+**Why `facts.json` is kept rather than discarded after scoring.** When a rule or
+a threshold changes, the checker can be re-run against a stored `facts.json` —
+answering *would the new rule have caught the old mistake?* without regenerating
+anything. Discard it and the next scorecard edit orphans every run before it.
+
+### Report order is fixed
+
+**Hard fails print first, by name, above any percentage.** A report that opens
+with "C1 94%, C3 88%" reads as broadly fine even when it contains platform
+chrome. Percentages never appear before the gates they could disguise.
+
+**Every heading below appears in every report, including the empty ones.** A
+*Hard fails (0)* heading is information. A missing one is ambiguous — the reader
+cannot tell whether there were none or whether nobody looked.
+
+### The template
+
+Markdown, so it renders anywhere and can be sent to someone on its own. Filled
+in here with example values, so the shape is unambiguous.
+
+````markdown
+# Run 007 — Property listing detail, mobile
+
+| | |
+| --- | --- |
+| **Date** | 2026-09-14 |
+| **Platform** | Figma |
+| **Wireframe** | `listing-detail-mobile` |
+| **Brief** | [prompt.md](prompt.md) |
+| **Output** | [block-1-energy.png](block-1-energy.png) · [block-2-finance.png](block-2-finance.png) |
+| **Facts** | [facts.json](facts.json) |
+
+The **wireframe** label is what makes `no regression` meaningful: two runs are
+only comparable when this label matches.
+
+## Hard fails (2)
+
+| Check | Subject | Where | Why |
+| --- | --- | --- | --- |
+| `C1 · Provenance` | `Status Bar` | `12:3401` | On the never-select list — **Never select** |
+| `C4 · Authorisation` | `Spacing/56` | `12:3500` | Deny-listed — spacing's *Do not use* |
+
+## Scores
+
+| Check | Score | Verdict |
+| --- | --- | --- |
+| `C1 · Provenance` | 94% | **FAIL** — 1 hard fail |
+| `C2 · Tier ceiling` | 100% | PASS — 4 of 10 **Highest tier first** rows checked |
+| `C3 · Token binding` | 88% | **FAIL** — threshold is 100% |
+| `C4 · Authorisation` | — | **FAIL** — 1 deny-listed token |
+| `C5 · Declaration` | 100% | PASS |
+| `C6 · Layout` | — | INACTIVE |
+
+A check whose facts the adapter could not supply reports `unavailable` — never
+`0%`. `C2 · Tier ceiling` always states its coverage, because it reaches 4 of
+**Highest tier first**'s 10 rows and must never imply it enforced all ten.
+
+## Flags (1)
+
+Findings, not failures. Also appended to
+[the flag ledger](../../compliance-flag-ledger.md).
+
+| Check | Subject | Why flagged |
+| --- | --- | --- |
+| `C4 · Authorisation` | `Spacing/40`, 3 elements | Unprecedented — no rule authorises or forbids it as a section gap |
+
+## Awaiting human decision (0)
+
+_None._
+
+## Quality verdict
+
+_Human, free text, never scored. Not yet written._
+````
+
+**The quality verdict heading stays even when empty.** It is the only record of
+the thing compliance cannot measure, and an empty heading asks to be filled
+where a missing one does not.
+
+### After writing the report
+
+Two appends, both to files that are never rewritten:
+
+| Append to | What |
+| --- | --- |
+| [compliance-run-ledger.md](compliance-run-ledger.md) | One row for the run — its scores and hard-fail count, so runs can be compared without opening any report |
+| [compliance-flag-ledger.md](compliance-flag-ledger.md) | Every flag raised, so a finding seen three times can be spotted |
 
 ---
 
@@ -511,9 +605,18 @@ rather than only grading output.
 
 ## Runs
 
-| Run | Date | Output | Wireframe | C1 · Prov | C2 · Tier | C3 · Token | C4 · Auth | C5 · Decl | Hard fails | Quality verdict |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| — | — | _no runs yet_ | — | — | — | — | — | — | — | — |
+**The run log lives in [compliance-run-ledger.md](compliance-run-ledger.md)**,
+one row per run, append-only.
+
+It used to sit in this file, and moving it out is the point. **This file is the
+ruler; a run log is a measurement.** A ruler is rewritten whenever a rule or a
+threshold changes — and rewriting a file that also holds what happened on a date
+reaches back and edits history. Keeping them apart is what lets the rules change
+while the evidence stays fixed. It is the same split as
+`-rules-ai` against `-ledger` everywhere else in this repo.
+
+There is a second, duller reason: this file is read **before every run**. A log
+that grows by a line each time a screen is generated does not belong inside it.
 
 Record every run, including bad ones. A log that holds only good runs is a
 highlight reel, not evidence.

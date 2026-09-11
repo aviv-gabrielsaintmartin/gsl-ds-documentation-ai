@@ -12,6 +12,10 @@ Two questions, because a link can fail in two different ways:
      open. That is a dead end, not a broken link, and it is worse: the link
      resolves, so nothing looks wrong.
 
+Links inside fenced code blocks are skipped — they are illustrations, not
+navigation. Links written inside single backticks are not yet skipped, and
+neither are bare filenames outside link syntax.
+
 Run it from the repo root:  python3 scripts/check-links.py
 Exit code is 0 when clean, 1 when anything failed.
 """
@@ -33,10 +37,40 @@ EVIDENCE = ("-audit.md", "-eval.md", "-ledger.md")
 
 LINK = re.compile(r"\[([^\]]*)\]\(([^)]+)\)")
 
+# A run of three or more backticks opening or closing a fenced code block.
+FENCE = re.compile(r"^(`{3,})(.*)$")
+
 
 def skipped(path: Path) -> bool:
     rel = path.relative_to(ROOT).as_posix()
     return any(rel == d or rel.startswith(d + "/") for d in SKIP_DIRS)
+
+
+def live_lines(text: str):
+    """Yield (line_no, line) for every line outside a fenced code block.
+
+    A link inside a fenced block is an illustration, not navigation. Checking
+    it reports breaks that aren't there — and a checker that cries wolf gets
+    ignored, which costs more than the links it catches.
+
+    Fence length is tracked so a ```` block may contain ``` fences of its own,
+    which is how a markdown template is shown inside a markdown file.
+    """
+    fence: str | None = None
+    for line_no, line in enumerate(text.splitlines(), 1):
+        match = FENCE.match(line.lstrip())
+        if match:
+            ticks, rest = match.groups()
+            if fence is None:
+                fence = ticks
+                continue
+            # Only a run at least as long as the opener, and nothing after it,
+            # can close the block.
+            if len(ticks) >= len(fence) and not rest.strip():
+                fence = None
+                continue
+        if fence is None:
+            yield line_no, line
 
 
 def main() -> int:
@@ -48,7 +82,7 @@ def main() -> int:
         if skipped(md):
             continue
         rel_src = md.relative_to(ROOT).as_posix()
-        for line_no, line in enumerate(md.read_text(encoding="utf-8").splitlines(), 1):
+        for line_no, line in live_lines(md.read_text(encoding="utf-8")):
             for label, target in LINK.findall(line):
                 # Leave external links and pure anchors alone.
                 if target.startswith(("http://", "https://", "mailto:", "#")):

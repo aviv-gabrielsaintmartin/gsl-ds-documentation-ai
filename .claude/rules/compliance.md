@@ -10,9 +10,19 @@ How generated output is judged against the design system. Same
 
 | File | Role |
 | --- | --- |
-| `compliance-scorecard.md` | **The checks.** What is measured, what fails outright, the thresholds, the run log. Read by a **checking** agent |
+| `compliance-scorecard.md` | **The checks.** What is measured, what fails outright, the thresholds, and the report format. Read by a **checking** agent |
 | `compliance-audit.md` | The evidence — why these checks, what was rejected, open questions. **Never read as rules** |
+| `compliance-run-ledger.md` | Append-only, one row per run. The comparison table. **Written by the checking agent — never edit by hand** |
 | `compliance-flag-ledger.md` | Append-only findings across runs. **Written by the checking agent — never edit by hand** |
+| `runs/run-NNN/` | One folder per run: the brief, screenshots, `facts.json`, `report.md`. All four required |
+
+## The ruler is not the measurements
+
+`compliance-scorecard.md` is rewritten whenever a rule or a threshold changes.
+The two ledgers and the run folders record what happened on a date and are
+**never** rewritten. Never move a growing log back into the scorecard: editing
+the rules would then reach back and edit history, and a file read before every
+run would grow by a line every time a screen is generated.
 
 ## This pillar is platform-neutral
 
@@ -62,8 +72,12 @@ with no evidence under it is worse than an acknowledged gap.
 
 ## When you run a check
 
-- Record **every** run in the scorecard's run log, including bad ones. A log
+- **A run is unfinished until its report exists.** Write it to
+  `runs/run-NNN/report.md` — in this repo, never inside the Figma file or the
+  prototype it judges. Keep `facts.json` too: it is what lets a later scorecard
+  change be re-tested against an old run.
+- Record **every** run in `compliance-run-ledger.md`, including bad ones. A log
   holding only good runs is a highlight reel, not evidence.
-- Append flags to the ledger; never rewrite or remove one.
+- Append flags to the flag ledger; never rewrite or remove one.
 - A flagged subject seen **three times** is promoted to a ruleset defect, with an
   entry in the relevant `-audit.md`.

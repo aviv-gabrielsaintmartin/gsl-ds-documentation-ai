@@ -30,15 +30,18 @@ Teaching the agent four things. Two and a half are done.
 | **How the page is laid out** — margins, rhythm, column widths | ❌ Written, but never checked against a real screen |
 
 Plus a scoring sheet that marks a finished screen against all of the above.
-Written, never yet used on a real run.
+Never yet used on a real run, but it now says where the verdict gets saved.
 
 ---
 
 ## The next task
 
-**Done: a simulator now has a routing entry.** A block of controls that computes
-a live result is no Pattern and no Experience — all 21 and all 11 were checked,
-not assumed — so the rules say compose it and declare it. Saved and pushed.
+**Done: every generation run now leaves a report behind.** A markdown file at
+`compliance/runs/run-NNN/report.md`, beside the brief, the screenshots and the
+raw facts — all four required. The scoring sheet had described a report as
+something you *look at*, never as something *saved*, which is why the one run we
+have has screenshots and no verdict. The run log moved out to its own
+append-only ledger, so the rules can change without editing history.
 
 **Next: say where a declaration physically lives.** Every invention rule ends
 with "declare it — say what you built and what you ruled out". None of them says
@@ -47,21 +50,16 @@ the reply itself. So the record is the part that gets dropped — and the record
 is the only thing that makes an invention reviewable. Half a day, and **one
 decision from you**: what counts as "the output" in Figma.
 
-The chart-sizing task you parked is still parked. Neither the Legend fix nor
-this one settled it — both looked like they might, both were near misses, and
-the reasons are written out in the backlog.
+Your generating skill — screen *and* report — is yours, and deliberately later;
+it needed this format settled first. One catch: `design` is already a built-in
+skill name, so pick another.
 
-**Tasks are sorted by one question first: does it change what lands on the Figma
-canvas?** That's the only deadline. Within that, **fear the ones where the agent
-breaks no rule** — a stuck agent tells you it's stuck, a confidently wrong one
-doesn't.
+How tasks are sorted, and why, is at the top of
+[the backlog](project/backlog.md).
 
 ---
 
 ## The question I'd like answered first
-
-The energy-colour question that sat here is answered; what's left of it is a
-check against Figma, not a question for you.
 
 > **Still open: the energy filter slider ships on web and was never added to the
 > Figma libraries.** An agent asked to build one has working web code to copy

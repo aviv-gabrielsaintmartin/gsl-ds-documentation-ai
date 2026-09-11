@@ -73,7 +73,7 @@ Learn these seven and any filename in the repo explains itself.
 | `-audit.md` | **The evidence.** Why the ruleset says what it says, what was rejected, what is still open | a human, from the ledger | **never** |
 | `-ledger.md` | **The raw evidence table** the audit was built from | **a script** | never — and never edit it, re-run the script |
 | `-eval.md` | **The check on the ruleset** — test intents, expected answers, and the run log | a human | no — it is the test, not the rules |
-| `-scorecard.md` | **The check on generated output** — how a produced screen is judged, and the run log | a human | no — it is the test, not the rules |
+| `-scorecard.md` | **The check on generated output** — how a produced screen is judged, and the format of the report it produces | a human | no — it is the test, not the rules |
 
 The distinction that matters most:
 
@@ -107,8 +107,13 @@ Two honest inconsistencies, so you aren't confused when you meet them:
 | `tokens/border-width/border-width-rules-ai.md` | | | |
 | | `tokens/color/surface-border-combination-audit.md` — draft, not yet a ruleset | | |
 | | `compliance/compliance-audit.md` | `compliance/compliance-flag-ledger.md` | `compliance/compliance-scorecard.md` |
+| | | `compliance/compliance-run-ledger.md` | |
 
-Seven rulesets, eight audits, four ledgers, one eval, one scorecard.
+Seven rulesets, eight audits, five ledgers, one eval, one scorecard.
+
+The three token ledgers are written by a script. The two compliance ledgers are
+written by the checking agent. Both are append-only and neither is ever edited
+by hand.
 
 ---
 
@@ -151,7 +156,7 @@ runs this way.
 | `tokens/` | 12 token categories — colour, typography, spacing, radius, shadow, and 7 more. Every one checked against real component usage | [tokens/tokens-index.md](tokens/tokens-index.md) |
 | `components/` | 53 component docs, one folder each with a self-contained `images/`. Plus the ruleset, audit and eval | [components/components-index.md](components/components-index.md) |
 | `figma/` | 7 registry JSON files — the identity of every Figma component, token and icon. Keys, node IDs, variant counts | `.claude/rules/figma-registries.md` |
-| `compliance/` | How generated output is judged — six checks, what fails outright, and the run log. Read by a **checking** agent, not a generating one | [compliance/compliance-scorecard.md](compliance/compliance-scorecard.md) |
+| `compliance/` | How generated output is judged — six checks, what fails outright, and the report every run must produce. Read by a **checking** agent, not a generating one. `compliance/runs/` holds one folder per run: the brief, the screenshots, the facts and the report | [compliance/compliance-scorecard.md](compliance/compliance-scorecard.md) |
 
 A further pillar, `layout/`, is planned but does not exist yet — see
 [status.md](status.md). Page composition is currently the one decision an agent
