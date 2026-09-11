@@ -36,23 +36,22 @@ Never yet used on a real run, but it now says where the verdict gets saved.
 
 ## The next task
 
-**Done: every generation run now leaves a report behind.** A markdown file at
-`compliance/runs/run-NNN/report.md`, beside the brief, the screenshots and the
-raw facts — all four required. The scoring sheet had described a report as
-something you *look at*, never as something *saved*, which is why the one run we
-have has screenshots and no verdict. The run log moved out to its own
-append-only ledger, so the rules can change without editing history.
+**Done: how a run gets reported is now written down for a person.**
+`project/how-a-run-is-reported.md` walks it end to end — what a run is, the five
+steps from brief to saved verdict, the four files a run leaves behind and who
+writes each, and two walkthroughs: you three weeks later asking *is it getting
+better*, and the checking agent on its next run. Diagrams in plain text so they
+render anywhere. It links to the scoring sheet rather than repeating it. Nothing
+is published; this one is your side only.
 
-**Next, because you asked for it: a human walkthrough of how a run gets
-reported** — `project/how-a-run-is-reported.md`. Written for someone
-non-technical, with diagrams, so you can explain this to a person. An hour.
-**This one is your call over the sorting rule**, and worth saying plainly: it
-changes nothing on the Figma canvas, so the list would never offer it on its
-own. Type the task name after `/task-next` or it will propose something else.
+**Next: say who assigns a run's wireframe label.** Twenty minutes. Four things
+now depend on a run carrying that label — it is the only thing that makes two
+runs comparable — and nothing says who names it. If every run invents its own,
+no two ever match, the comparison never fires, and no error is ever reported.
+The scoring sheet looks like it is gating and silently isn't.
 
-**Then two that do reach the canvas**, in this order: say who assigns a run's
-wireframe label (twenty minutes — without it the scoring sheet looks like it is
-gating and silently isn't), then say where a declaration physically lives.
+**Then: say where a declaration physically lives.** Half a day. The rules end
+every invention with "declare it" and never say where that statement goes.
 
 Your generating skill — screen *and* report — is yours, and deliberately later;
 it needed this format settled first. One catch: `design` is already a built-in
