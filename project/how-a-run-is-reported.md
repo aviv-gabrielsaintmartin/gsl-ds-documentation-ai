@@ -262,8 +262,9 @@ screenshots and **no verdict at all** — no `facts.json`, no `report.md`.
 
 Nothing failed. The rules simply described a report as something you *look at*,
 and never as something that is *saved*. So a real run happened, was looked at,
-and the judgement evaporated with the conversation it happened in. There is no
-way to recover it; the Figma file has moved on.
+and the judgement evaporated with the conversation it happened in. Whether the
+original Figma file still exists, nobody has checked — scoring `run-001`
+properly is still on the backlog, waiting on someone with Figma open.
 
 That single missing file is the reason the whole arrangement on this page
 exists.
