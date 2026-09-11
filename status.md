@@ -36,13 +36,12 @@ Never yet used on a real run, but it now says where the verdict gets saved.
 
 ## The next task
 
-**Done: how a run gets reported is now written down for a person.**
-`project/how-a-run-is-reported.md` walks it end to end — what a run is, the five
-steps from brief to saved verdict, the four files a run leaves behind and who
-writes each, and two walkthroughs: you three weeks later asking *is it getting
-better*, and the checking agent on its next run. Diagrams in plain text so they
-render anywhere. It links to the scoring sheet rather than repeating it. Nothing
-is published; this one is your side only.
+**Done: how I write to you is one section now, not four.** `CLAUDE.md` carries
+*How to write* — your principles (every sentence adds something, name the
+relation instead of leaving it to rhythm, cut what's superfluous) merged with
+the ones already in force, and the split that keeps them safe: your pages get
+them, files only an agent reads stay optimised for an agent. The folder rules
+and both task skills stopped restating them and point at the section.
 
 **Next: say who assigns a run's wireframe label.** Twenty minutes. Four things
 now depend on a run carrying that label — it is the only thing that makes two

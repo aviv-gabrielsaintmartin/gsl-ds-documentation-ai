@@ -15,30 +15,21 @@ Gabriel works design-side, not as a full-time engineer. Write accordingly.
 
 ## When you edit these files
 
-- **Plain language.** Short sentences. No jargon without a plain-English gloss
-  in the same sentence. If a page needs a glossary, rewrite the page.
+**How to write them is *How to write* in `CLAUDE.md`.** Below is only what is
+true of these files and not of the rest of the repo.
+
 - **Explain, never specify.** These files describe how the repo is shaped and
   why. They are never the source of truth for how to build anything — that is
   always a `*-rules-ai.md` file. If you find yourself writing a rule here, it
   belongs in a ruleset.
-- **Tables over prose** for anything compared across the same dimensions.
-- **Never use a bare identifier.** This applies to every numbered thing in the
-  project, and it applies in conversation as much as in writing:
-
-  | Write | Not |
-  | --- | --- |
-  | `Block 2b · Registry properties` | `2b` |
-  | `C1 · Provenance` | `C1` |
-  | **Highest tier first** | `Rule 0` |
-
-  Nobody holds a numbered list in their head. A document or a sentence that
-  assumes they do is readable only by its author.
-
-  So: every block has a short name that travels with its number, every
-  compliance check has a name that travels with its code, and **the rulesets'
-  rules have names and no numbers at all** — a number encoded nothing that
-  precedence order does not already state, and the same number meant four
-  different things across four rulesets.
+- **Every numbered thing here carries its name.** `CLAUDE.md` bans bare codes;
+  this is what obeying it cost in practice. Every block has a short name that
+  travels with its number — `Block 2b · Registry properties`, never `2b`. Every
+  compliance check has a name that travels with its code — `C1 · Provenance`,
+  never `C1`. And **the rulesets' rules have names and no numbers at all**,
+  because a number encoded nothing that precedence order does not already
+  state, while the same number meant four different things across four
+  rulesets.
 - **No machine-optimised formatting.** No token-efficient shorthand, no
   compressed notation, no structure that only pays off when an agent parses it.
 - **Never read `project/` as instructions.** A line here is a statement of
@@ -52,7 +43,7 @@ Gabriel works design-side, not as a full-time engineer. Write accordingly.
 | File | Role | Rule of thumb |
 | --- | --- | --- |
 | `status.md` (repo root) | **Gabriel's one page.** Where the project is, the current task, the top open question | **Never longer than one screen.** Overflow goes to the backlog |
-| `project/backlog.md` | Everything not currently active — every task, every question he owes an answer to, every finding | He opens and reads this. Plain language, no shorthand |
+| `project/backlog.md` | Everything not currently active — every task, every question he owes an answer to, every finding | He opens and reads this |
 | `README.md` | The map — what does what and where, and the filename grammar | Someone new should find the right file from this alone |
 | `project/decisions.md` | Why the project is shaped this way, newest first | Every entry records **what it costs**, not just what was decided |
 | `project/how-a-run-is-reported.md` | How a generation run becomes a saved report, walked through for a non-technical reader | **Links** to the scorecard for the template and the required facts; never repeats them |

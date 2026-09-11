@@ -112,18 +112,15 @@ become backlog rows, not silent extras.
 What changed, what it means, what the check will be. Then tell him to run
 `/task-check`.
 
-## The rules that make this readable
+## The rules that hold here
 
-- **No codes, ever.** Not `2b`, not `C3`, not `Rule 0`. Describe things by what
-  they do: *"the check that stops the agent hand-building something that already
-  exists as a component."* This applies in chat exactly as much as in files.
-- **Plain language.** Short sentences. If a term needs a glossary, rewrite the
-  sentence.
 - **Findings go in the backlog, not in the conversation.** Anything that surfaces
   mid-task and is not the task gets written as a backlog row. Say one line in
   chat pointing at it. Never a paragraph.
-- **Tables for anything compared across the same dimensions.**
 - **One task at a time.** A second task in the same turn defeats the point.
+
+**How to write any of it** — the proposal, the report, every line of chat — is
+*How to write* in `CLAUDE.md`. That section is the only place those rules live.
 
 ## Where things get written
 

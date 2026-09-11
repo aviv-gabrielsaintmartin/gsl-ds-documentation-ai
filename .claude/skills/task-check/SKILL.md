@@ -145,9 +145,10 @@ into `project/backlog.md` as exactly one of three:
 This is the step that stops findings from evaporating into chat. It is not
 optional, and it is why Gabriel asked for this skill.
 
-## The rules that make this readable
+## The rules that hold here
 
-- **No codes, ever.** Describe things by what they do.
-- **Plain language, short sentences, tables for comparisons.**
 - **`status.md` never exceeds one screen.** Overflow goes to the backlog.
 - **Never report something as done that wasn't verified.**
+
+**How to write any of it** — the verdict, the log entry, every line of chat — is
+*How to write* in `CLAUDE.md`. That section is the only place those rules live.
