@@ -56,61 +56,11 @@ check.
    needed — see the git section of `CLAUDE.md`. Commit and push only ever add,
    so nothing can be lost; he already approved the task and the check just
    verified it.
-4. **Refresh the knowledge graph — only when the task changed a file other
-   than `status.md` and `project/backlog.md`.** If it changed nothing else,
-   skip this step and say nothing. Check with `git show --stat HEAD`.
-
-   When it did, invoke the **graphify skill** with `--update`. Not the shell
-   command.
-
-   **Why not `graphify update .`, which this step used to say.** That command
-   does a structural pass only — it prunes filenames that disappeared and picks
-   up new ones as heading-level nodes. It never re-reads what a file *says*, so
-   on a task that rewrites a rule without moving a file it reports "no
-   code-graph topology changes" and leaves `graph.json` untouched. The tool says
-   so in its own output: *"For doc/paper/image changes run `/graphify
-   --update`."* That was a deliberate trade when this step was written on
-   10 Sep 2026 — honest about what exists, uninformed about what changed.
-   Gabriel upgraded it the same day: almost every task here rewrites content
-   without moving a file, which is precisely the case the structural pass
-   cannot see.
-
-   Say one line if it reports anything; say nothing if it's quiet.
-
-   **This costs real tokens, and that is why it is conditional.** Measured
-   10 Sep 2026, not estimated: an update over **15 changed files cost 176,040
-   tokens** — roughly 11,700 a file. That is about double what the files' own
-   word count predicts, because the figure includes the extraction agent's
-   reasoning and tool calls, not just the reading. Budget from the measured
-   number, never from file size. An update re-reads each changed file **whole**;
-   there is no diffing.
-
-   That is why `status.md` and `project/backlog.md` are in `.graphifyignore`
-   and why this step is skipped when they are all that changed. Nothing looks
-   them up through the graph — every session opens them directly — so they cost
-   on every task and return nothing. Even with both guards a task that edits one
-   ruleset still costs on the order of **10,000–30,000 tokens**. Tasks that
-   touch only the two ignored files cost nothing.
-
-   **If it still feels expensive, take this step out of the loop and refresh
-   the graph by hand before querying it.** A graph rebuilt deliberately is
-   fine; one that taxes every task is not. Say so rather than quietly skipping.
-
-   **Never delete `graphify-out/`.** The cache lives inside it, and deleting it
-   turns the next run from a few thousand tokens into roughly 800,000 — that is
-   what a full rebuild of this repo costs. If the graph ever looks wrong, say so
-   and let Gabriel decide; do not rebuild it to be safe.
-
-   **Skip this step, and say you skipped it, when the skill isn't loadable** —
-   a session on a config root other than `~/.claude/` has no personal skills at
-   all. Background sessions **do** load it; that was assumed otherwise until it
-   was tried on 10 Sep 2026. Never a reason to stop; the graph is a working
-   aid, not part of what this repo delivers.
-5. Name the next task in one sentence. Do not start it. Take the top item from
+4. Name the next task in one sentence. Do not start it. Take the top item from
    *I can start these today* in the backlog — that list is sorted by what goes
    wrong if we don't fix it, and the rule is written above it. If the task just
    done changed what's now most damaging, re-sort the list before naming one.
-6. Tell him to start it **in a new conversation** with `/task-next`. One task,
+5. Tell him to start it **in a new conversation** with `/task-next`. One task,
    one chat — a session that built something is the worst judge of it.
 
 ## Step 3b — if it didn't

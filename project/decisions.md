@@ -11,6 +11,41 @@ decision with no downside recorded is usually a decision that wasn't examined.
 
 ---
 
+## 2026-09-11 · Graphify is retired, and the graph lives outside the repo
+
+**Decided.** The knowledge graph is no longer refreshed as part of the task
+loop. `graphify-out/` and `.graphifyignore` moved to
+`~/Desktop/ai/gsl-ds-graphify-archive/`, with a README there explaining what it
+is. `CLAUDE.md` gains a working convention saying not to rebuild it — the skill
+is installed globally and will otherwise offer itself to a future session as if
+nobody had got round to setting it up.
+
+**Why.** Measured rather than assumed: 990,970 tokens spent to build and
+maintain a graph over a corpus of 172,818 words. That is **4.2× what reading the
+entire knowledge base costs**, for something queried exactly once — by the
+session that built it. A targeted `grep` answers the same kind of question for
+about 220 tokens. And the repo is already hand-indexed: the filename suffix says
+what each file is, `tokens-index.md` and `components-index.md` route, and
+`CLAUDE.md` carries a where-to-look table. That index beats a graph here because
+Gabriel can read it too.
+
+The deciding argument was this project's own test — that an agent should be able
+to build a compliant interface from these documents alone. If an agent needs a
+semantic graph to find its way around them, the documents have failed that test,
+and the graph is hiding the failure rather than fixing it.
+
+**Cost.** Cross-file inconsistencies that only surface when everything is read
+at once are no longer caught automatically. This is not hypothetical: the one
+graph run that was completed found that `color-rules-ai.md` still says the audit
+claims 83 orphaned tokens, when the audit has since been corrected to 73. That
+kind of drift now has to be caught by a targeted check or by noticing it.
+Accepted, because a check that costs 10,000–30,000 tokens per task to catch a
+defect a `grep` finds for 200 is the wrong trade.
+
+**Not decided.** Graphify stays installed globally and stays in Gabriel's
+personal `~/.claude/CLAUDE.md`. This decision is about a small, hand-indexed
+corpus; a large unstructured codebase is exactly where the tool would pay.
+
 ## 2026-09-08 · **Highest tier first** has two kinds of row, and only one is countable
 
 **Decided.** **Highest tier first**'s table gains a machine-readable **Parts** column and a

@@ -169,6 +169,14 @@ uncommitted, say so explicitly.
 - **Never invent** Confluence page IDs, Figma keys, or Atlassian cloud IDs. Read
   them from the registry JSON files, or resolve them live via the
   Atlassian/Figma MCP tools.
+- **Graphify is not used in this repo**, even though the skill is installed
+  globally and will offer itself. Retired 11 September 2026: it cost 990,970
+  tokens to maintain a graph over a 172,818-word corpus — 4.2× what reading the
+  whole repo costs — and was queried once. This repo is already hand-indexed by
+  the filename grammar, the two routing pages and the table above. The graph and
+  its config are archived at
+  `~/Desktop/ai/gsl-ds-graphify-archive/`, and the reasoning is in
+  `project/decisions.md`. Don't rebuild it without a deliberate reason.
 - **The Zeroheight MCP connector is never used** by any skill, even if it shows
   as connected in a session. Exports come from a Confluence-staged code block,
   or a human chat-paste as fallback.
