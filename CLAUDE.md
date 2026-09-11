@@ -178,7 +178,6 @@ skills.
 | `figma/*.json` | Figma identity registries — sole source of truth for the `figma-sync-*` skills. |
 | `.claude/skills/` | Eight skills — six content skills, plus `task-next` and `task-check` which run the loop above. Their descriptions auto-load at session start, so they aren't repeated here — read the `SKILL.md` before running one; it's the source of truth for its own workflow. |
 | `.claude/rules/` | Path-scoped detail for `tokens/`, `figma/`, `components/` and `project/`. Verified 2026-09-07: a rule loads on **Read/Edit/Write** of a matching path, **not** on `cat`, `sed`, `head` or `grep`. Open the first file you touch in one of those folders with Read, or you'll work without its rule. |
-| `internal/` | Internal reference docs, e.g. `git-basics-tutorial.md`. |
 
 All filenames are lowercase kebab-case. The one exception is image filenames,
 left as their original hash-based names because those are Zeroheight asset

@@ -174,7 +174,6 @@ has to make with no documentation behind it.
 | `project/` | `backlog.md` — every task, question and finding — plus `decisions.md`, the log of why the project is shaped this way, and `how-a-run-is-reported.md`, the plain-language walkthrough of the reporting pipeline. Retired files sit in `project/archive/`. **Human-first** |
 | `tokens/scripts/` | 4 Python scripts. They only ever *read* the design-system code repo. Re-run them to refresh the evidence |
 | `scripts/` | `check-links.py` — run it after renaming or deleting anything. It reports links whose target is gone, and rulesets that point an agent at evidence it may not read |
-| `internal/` | Human reference notes, e.g. a git tutorial |
 
 ### The eight skills
 
