@@ -39,19 +39,17 @@ Never yet used on a real run, but it now says where the verdict gets saved.
 
 ## The next task
 
-**Done: the backlog is sorted by the seven steps above.** A task sits under the
-step it stops, so its position states its own reason. It took two failed checks
-to get there — the first left most rows unlabelled, the second left one group
-that might or might not have been a step. A cold session now picks the same next
-task I do, without judgement.
+**Done: the components ruleset no longer links into its own audit.** Its sixth
+line offered the agent a working door to a file it is told never to open,
+labelled *evidence and rejected options* — what an unsure agent goes looking
+for. The filename stays in plain text for you; the link is gone. Six dead ends
+left, all in `tokens/`.
 
-**Next: take the audit link out of the components ruleset's header.** Ten
-minutes. `components-rules-ai.md` opens with a live link to its audit file — a
-door the agent is told never to open, labelled *reasoning*, which is what an
-unsure agent goes looking for.
-
-**Then: say where a declaration physically lives.** Half a day. The rules end
+**Next: say where a declaration physically lives.** Half a day. The rules end
 every invention with "declare it" and never say **where** that goes.
+
+**Then: take the audit links out of the five token rulesets.** Half an hour. The
+same forbidden door as the one just closed, six times over.
 
 Your generating skill — screen *and* report — is yours, and deliberately later;
 it needed this format settled first. One catch: `design` is already a built-in

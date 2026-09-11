@@ -3,7 +3,7 @@
 _The authoritative ruleset for choosing **which component** when generating a GSL
 interface. Read this before opening any component page — the component pages say
 how to use a component, this says which one to reach for. Evidence and rejected
-options: [components-audit.md](components-audit.md). Full
+options are in `components-audit.md`, which a generating agent must not read. Full
 inventory: [components-index.md](components-index.md)._
 
 This page is written for machine consumption. Each section maps a design
