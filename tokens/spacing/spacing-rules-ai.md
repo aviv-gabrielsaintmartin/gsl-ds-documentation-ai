@@ -2,10 +2,10 @@
 
 _The authoritative ruleset for spacing and sizing when generating a GSL
 interface. Every rule is derived from real bindings and mechanically verified
-where possible. Evidence:
-[spacing-usage-audit.md](spacing-usage-audit.md). Values:
+where possible. Evidence is in `spacing-usage-audit.md`, which a generating
+agent must not read. Values:
 [spacing-tokens.md](spacing-tokens.md) · [sizing-tokens.md](../sizing/sizing-tokens.md).
-Colour: [colors-tokens/color-rules-ai.md](../color/color-rules-ai.md).
+Colour: [color-rules-ai.md](../color/color-rules-ai.md).
 Type: [typography-rules-ai.md](../typography/typography-rules-ai.md)._
 
 ---
@@ -128,9 +128,11 @@ for `Spacing/20` only with a reason — one component uses it.
 Outer margin and grid gutter must match the [grid tokens](../grid/grid-tokens.md)
 `Margin`/`Gutter` for the same tier.
 
-> **Rules 6 and 7 are unverified.** They describe product-page composition, which
-> lives outside the component library and could not be checked. Follow them as
-> the documented intent, but they do not carry the same evidence as Rules 3–5.
+> **Container padding and Page rhythm are unverified.** They describe
+> product-page composition, which lives outside the component library and could
+> not be checked. Follow them as the documented intent — but unlike **Component
+> spacing stops at 32** and **Containment**, each of which was checked against
+> every component that could break it, nothing has confirmed these two.
 
 ---
 

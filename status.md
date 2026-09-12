@@ -40,15 +40,15 @@ say so. Never yet used on a real run.
 
 ## The next task
 
-**Done: a declaration has a physical home.** It goes in the run's own report,
-under `## Declarations`, written by the generating agent **before** scoring and
-never touched by the checker. Your naming call pulled in the run-number rename,
-since a rule can't name a file the repo doesn't use. The check found two defects
-in my own work; both fixed. Open by your choice: nothing *mechanically* stops a
-late rewording until the adapter exists.
+**Done: no ruleset links to evidence any more, and the link checker is clean for
+the first time.** Six live links labelled *Evidence* pointed at files an agent is
+forbidden to read. Run as the bounded sweep you asked for — read all six token
+rulesets, fix only what a script can confirm, file the rest — which also caught
+the leftover rule numbers and a link labelled with a folder that never existed.
 
-**Next: take the audit links out of the five token rulesets.** Half an hour. The
-same forbidden door closed in the components ruleset, six times over.
+**Next: settle whether `Spacing/56` is a page-rhythm token or a forbidden one.**
+Twenty minutes. The spacing ruleset says both, 83 lines apart, and an agent
+obeying the first fails the scorecard for it.
 
 **Then: give grid and breakpoint a ruleset an agent may read.** Half a day. It
 finishes the last thing an agent needs — how the page is laid out.

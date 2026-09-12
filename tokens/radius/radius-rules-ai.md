@@ -1,8 +1,8 @@
 # Radius rules for AI generation
 
 _The authoritative ruleset for corner radius when generating a GSL interface.
-Every rule is derived from real bindings and live spot-checks. Evidence:
-[radius-usage-audit.md](radius-usage-audit.md). Values:
+Every rule is derived from real bindings and live spot-checks. Evidence is in
+`radius-usage-audit.md`, which a generating agent must not read. Values:
 [radius-tokens.md](radius-tokens.md).
 Spacing: [spacing-rules-ai.md](../spacing/spacing-rules-ai.md).
 Shadow: [shadow-rules-ai.md](../shadow/shadow-rules-ai.md).

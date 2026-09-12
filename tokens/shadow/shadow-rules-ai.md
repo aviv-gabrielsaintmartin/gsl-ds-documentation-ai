@@ -1,8 +1,8 @@
 # Shadow rules for AI generation
 
 _The authoritative ruleset for elevation when generating a GSL interface. Every
-rule is derived from real code bindings and live spot-checks. Evidence:
-[shadow-usage-audit.md](shadow-usage-audit.md). Values:
+rule is derived from real code bindings and live spot-checks. Evidence is in
+`shadow-usage-audit.md`, which a generating agent must not read. Values:
 [shadow-tokens.md](shadow-tokens.md).
 Radius: [radius-rules-ai.md](../radius/radius-rules-ai.md).
 Border: [border-width-rules-ai.md](../border-width/border-width-rules-ai.md)._
@@ -109,6 +109,6 @@ mismatch, and never compensate for it** by picking a higher tier.
 
 ## Known gap
 
-`8` versus `16` has no rule, only precedent. Recorded in
-[shadow-usage-audit.md](shadow-usage-audit.md). Until it is answered, follow
-**When the tier is unresolved, ask**.
+`8` versus `16` has no rule, only precedent. It is recorded in
+`shadow-usage-audit.md`, which a generating agent must not read. Until it is
+answered, follow **When the tier is unresolved, ask**.

@@ -2,8 +2,8 @@
 
 _The authoritative ruleset for choosing colour when generating a GSL interface.
 Every rule here is derived from real bindings in `gsl-core-web-design-system`, not
-from token names. Evidence and reasoning:
-[color-usage-audit.md](color-usage-audit.md). Exact values:
+from token names. Evidence and reasoning are in `color-usage-audit.md`, which a
+generating agent must not read. Exact values:
 [background](background.md) · [surface](surface.md) · [border](border.md) ·
 [content](content.md) · [symbols](symbols.md) · [scale](scale.md)._
 

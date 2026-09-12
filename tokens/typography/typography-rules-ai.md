@@ -2,9 +2,9 @@
 
 _The authoritative ruleset for choosing text styles when generating a GSL
 interface. Derived from real bindings in `gsl-core-web-design-system`, not from
-token names. Evidence: [typography-usage-audit.md](typography-usage-audit.md).
-Values: [typography-tokens.md](typography-tokens.md). Colour:
-[colors-tokens/color-rules-ai.md](../color/color-rules-ai.md)._
+token names. Evidence is in `typography-usage-audit.md`, which a generating
+agent must not read. Values: [typography-tokens.md](typography-tokens.md).
+Colour: [color-rules-ai.md](../color/color-rules-ai.md)._
 
 ---
 
@@ -143,5 +143,5 @@ component library: `headline/28/bold` is the detail-page price on a real screen
 yet no component binds it.
 
 Read the `Used by` column as *"do I get this style for free from a component"* —
-not as a list of dead tokens. Rules 3–5 above tell you which to prefer; they are
-about precedent, not about deletion.
+not as a list of dead tokens. **The eleven used styles** tells you which to
+prefer; it is about precedent, not about deletion.
