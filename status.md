@@ -3,7 +3,7 @@
 _The only page you need. Everything else in this repo is reference material for
 agents — looked up, never read through._
 
-_Updated 11 September 2026._
+_Updated 12 September 2026._
 
 ---
 
@@ -32,24 +32,27 @@ Designing a screen is seven steps. **One of them is fully written.**
 | Place them per the design guidance | ❌ Written, but never checked against a real screen |
 | Check the content | ❌ **Nothing**, and the scorecard can't see copy or tone either |
 
-Plus a scoring sheet that marks a finished screen against all of the above.
-Never yet used on a real run, but it now says where the verdict gets saved.
+Plus a scoring sheet, now laid out as the same seven steps. Each step asks a
+short list of yes-or-no questions; four steps have questions, three have none and
+say so. Never yet used on a real run.
 
 ---
 
 ## The next task
 
-**Done: the components ruleset no longer links into its own audit.** Its sixth
-line offered the agent a working door to a file it is told never to open,
-labelled *evidence and rejected options* — what an unsure agent goes looking
-for. The filename stays in plain text for you; the link is gone. Six dead ends
-left, all in `tokens/`.
+**Done: the scoring sheet is rebuilt around the seven steps, and the check codes
+are gone.** Every question is yes-or-no, phrased so `no` is the good answer — no
+percentages, since every threshold it carried was 100% or zero. It found real
+drift: three of the six token deny-lists had been written and wired into no
+check, so a `1.5` border or a shadow of `32` broke a rule and was never reported.
+Dropped at your request: *no regression*, and the parts count. The check failed
+first, on two defects in the sheet itself; both are fixed.
 
 **Next: say where a declaration physically lives.** Half a day. The rules end
 every invention with "declare it" and never say **where** that goes.
 
 **Then: take the audit links out of the five token rulesets.** Half an hour. The
-same forbidden door as the one just closed, six times over.
+same forbidden door closed in the components ruleset, six times over.
 
 Your generating skill — screen *and* report — is yours, and deliberately later;
 it needed this format settled first. One catch: `design` is already a built-in

@@ -57,10 +57,10 @@ whether a Pattern or an Experience already is the thing you are about to build.
 | A more flexible property summary than Listing Card allows | `Listing summary` (Experience) | unresolved | — ⚠︎ undescribed, see audit |
 | A price estimation block | `Estimation card` (Experience) | unresolved | — ⚠︎ undescribed, see audit |
 
-**The Parts column is for a checker, not for you.** It lists what a hand-built
-imitation would be assembled *from*, so a compliance check can detect one. Never
-read it as a recipe — the whole point of **Highest tier first** is that you use the higher-tier
-component instead of assembling anything.
+**The Parts column is not for you.** It lists what a hand-built imitation would
+be assembled *from*. Never read it as a recipe — the whole point of
+**Highest tier first** is that you use the higher-tier component instead of
+assembling anything.
 
 Part names are exact inventory names from **The inventory**. A part may be a **Never select**
 never-select component: **Never select** governs what you may **choose**, while this column
@@ -78,8 +78,8 @@ parts.
 | **All-or-nothing** | Used whole or not at all. A partial `Map template` is not a realistic build | yes | no — there is no partial composition to detect |
 
 For the container and all-or-nothing kinds, **Highest tier first is still the rule** — you
-must still reach for the existing component. It simply cannot be enforced by a
-parts count, and `C2 · Tier ceiling` says so rather than passing them silently.
+must still reach for the existing component. It simply cannot be detected by a
+parts count.
 
 Composing from a lower tier when a higher-tier component exists is the single
 most common compliance failure. **Which component** below is flat by design — it answers

@@ -16,12 +16,12 @@ Evidence and rejected alternatives: [compliance-audit.md](compliance-audit.md).
 
 | Layer | Content | Where it lives |
 | --- | --- | --- |
-| **The concept** | What compliance means. The six checks. Hard fail vs deduction vs flag. Thresholds. Scoring | **this file** |
+| **The concept** | What compliance means. The questions. What a `yes` means. Where a reason goes | **this file** |
 | **What to measure** | Stated in design-system vocabulary — "every element must be an instance of a library component" | **this file** |
 | **How to measure it** | Figma reads its component keys; web reads its package imports; iOS reads its view hierarchy | **the consuming agent's repo — one adapter per platform** |
 
 **Nothing tool-specific belongs in this file.** No API names, no node IDs, no
-framework vocabulary. If a check cannot be stated without naming a tool, it is
+framework vocabulary. If a question cannot be stated without naming a tool, it is
 not yet a design-system rule and does not belong in the scorecard.
 
 ---
@@ -34,8 +34,241 @@ when you do.
 
 Compliance is **not** quality. Compliance is arithmetic — "is every colour bound
 to an authorised token?" has one right answer. Quality is judgment and is not
-scored here. Every run records a human quality verdict alongside its compliance
-score, so a quality bar can later be written from real judgments.
+scored here. Every run records a human quality verdict alongside its answers, so
+a quality bar can later be written from real judgments.
+
+---
+
+## How a run is judged
+
+**One run = one output.** Whatever the generating agent produced from a single
+wireframe and brief. If it produced three screens from one brief, that is one
+run.
+
+The scorecard asks a short list of questions, grouped by the step of designing
+each one guards. **Every question is binary, and is phrased so that the
+compliant answer is `no`.**
+
+| The answer | What it means |
+| --- | --- |
+| **`no`** | Compliant. Nothing further is recorded |
+| **`yes`** | A finding. The report states **what** and **where**, in the *Reason* column |
+| **`unavailable`** | The adapter could not supply the facts the question needs. **Never answer `no` in this case** — a missing fact is a gap in the adapter, not a compliant screen |
+
+**A `yes` is not always a failure.** One question — *was any element hand-built* —
+is a finding that the next step resolves, because **When nothing fits** permits
+invention as long as it is declared. Every question states what its `yes` means.
+
+### There are no percentages, and no thresholds
+
+Deliberate, and it is a simplification rather than a loss. Every threshold the
+earlier version of this file carried was either `100%` or `zero`: *never write a
+pixel literal*, *never write a raw colour*, *0 deny-listed*, *100% of inventions
+declared*. A threshold of 100% is a yes/no question wearing a percent sign, and
+writing it as `88%` invited a reader to treat a broken rule as a good score.
+
+**Counts belong in the reason, not in the verdict.** *Three elements carry a
+literal colour* is more use than `88%`, and it is the sentence someone can act
+on.
+
+### `no regression` is not a question here
+
+An earlier version gated provenance on *no regression* — better than the last run
+of the same wireframe. It was dropped on 12 September 2026: it answers whether
+this run beat the previous one, which is a question about the project, not about
+the design system, and it was the only judgment in this file that could not be
+made from a single run.
+
+The trend it measured is still readable. Open
+[compliance-run-ledger.md](compliance-run-ledger.md) and read down one wireframe
+label, which is what a ledger is for.
+
+---
+
+## The questions, by step
+
+Designing a screen is seven steps. **Each section below is one step.** Four steps
+have questions; three have none, and say so rather than being left out — an
+absent step reads as an oversight, a step that states its own emptiness reads as
+a known gap.
+
+Every question names the rule it enforces. **A question traceable to no rule in
+`components-rules-ai.md` or one of the token rulesets does not belong here** —
+delete it rather than justify it.
+
+---
+
+### Define the content
+
+**No question yet.**
+
+Nothing here checks copy, tone, or whether the content answers the user need the
+brief described. `Content & UX Writing` is empty in 15 of 57 component docs, so
+there is no source to check against. Stated so the gap stays visible.
+
+---
+
+### Define the components to use
+
+**Did the output use the design system, or build its own?**
+
+| Question | A `yes` means | Enforces | Facts used |
+| --- | --- | --- | --- |
+| Was any element hand-built instead of taken from the library? | **A finding, not a failure.** Every hand-built element is carried into **Define what needs to be built**, where the declaration question decides it | **The inventory** | `isLibraryComponent` |
+| Was any never-select component used? | **Failure.** Platform chrome, brand assets, another component's internals, or a withheld component | **Never select** | `componentName` |
+| Was any component name used that appears in no registry? | **Failure.** It came from outside GSL | **The inventory** | `componentName` |
+
+**The first question is the whole of "is it using the design system".** It needs
+one fact per element and no lists, no parts counting and no judgment: the adapter
+says whether an element is a library instance, and the answer is a count of the
+ones that are not.
+
+**What this step cannot see** — whether the *right* component was chosen. `Chip`
+where `Tag` was correct passes completely. That is `components-eval.md`'s job,
+not the scorecard's.
+
+**And it cannot see that a hand-built element duplicates something that already
+exists.** It reports that `12:3500` was hand-built; it does not report that
+`12:3500` is a `Listing Card`. Naming what was rebuilt is the reason, and the
+reason is investigated by a person. Removed by Gabriel, 12 September 2026 — the
+parts-counting check that attempted it reached 4 of **Highest tier first**'s 10
+rows and could never reach the other six.
+
+---
+
+### Define what needs to be built
+
+**When something was invented, was it declared?**
+
+| Question | A `yes` means | Enforces | Facts used |
+| --- | --- | --- | --- |
+| Was anything hand-built without a complete declaration? | **Failure.** **When nothing fits**'s own words: *an undeclared new component is a compliance failure even when it looks right* | **When nothing fits** | `isLibraryComponent` · `declarations` |
+
+A declaration is complete only when it states all three:
+
+1. **What was built.**
+2. **Which problem from Which component it belongs under.**
+3. **Which existing components were ruled out, and why.**
+
+**A declaration missing any of the three counts as absent.** Two of the three is
+not a partial pass; it is a declaration nobody can review.
+
+**This question is the pivot of the whole scorecard.** It is what lets
+**Define the components to use** report a hand-built element without anyone
+having to decide whether building it was justified. The checker never answers *"was this invention a good idea?"*,
+which needs a person. It answers *"did the agent say what it was doing?"*, which
+does not.
+
+**A declared invention does not expire, and is never auto-promoted.** The same
+invention declared in more than one run is flagged as *awaiting human decision* —
+it may be a missing component rather than a one-off, and only a person can settle
+that. An open decision blocks nothing; it accumulates until it is ruled on.
+
+---
+
+### Choose the tokens
+
+**Are values bound to tokens, and are those tokens allowed?**
+
+| Question | A `yes` means | Enforces | Facts used |
+| --- | --- | --- | --- |
+| Was any styled value written as a literal instead of bound to a token? | **Failure** | colour's **No raw colour** · spacing's and radius's **No pixel literals** · typography's **No hand-set fonts** | `isTokenBound` · `kind` |
+| Was a library component's internal styling overridden? | **Failure** | **Components first**, in all seven rulesets | `isComponentInternal` *(optional)* |
+| Was any deny-listed token used? | **Failure** | the six deny-lists below | `tokenName` · `kind` |
+| Was any token used that is not in the GSL token set? | **Failure.** It came from outside GSL | [tokens-index.md](../tokens/tokens-index.md), which routes to all twelve token pages | `tokenName` |
+
+**Styled properties are colour, type style, spacing, radius, border width and
+shadow.** A type property — family, size, weight, line height — set individually
+rather than through a text style is a literal.
+
+**A library component's internal properties are not examined.** They belong to
+the component and are correct by construction. If the adapter cannot distinguish
+internals from local styling, the first question reports `unavailable`.
+
+**A token name that resolves on no token page is not a GSL token.** This is the
+token half of *was any component name used that appears in no registry*, and it
+is sourced the same way: [tokens-index.md](../tokens/tokens-index.md) does for
+tokens what **The inventory** does for components — it is the list of what
+exists, and a name absent from it does not exist. Neither question needs a
+prohibition written anywhere, because the list is the rule.
+
+**The index, not the rulesets, answers this one.** A ruleset says which of the
+existing tokens are *allowed*, which is the deny-list question above. This
+question asks only whether the name is one of ours at all, so it reads the twelve
+token pages the index routes to and nothing else.
+
+#### The six deny-lists
+
+**Every token ruleset carries one, and all six are read.** Three of them —
+radius, shadow and border width — were unenforced until 12 September 2026, so a
+`1.5` border or a shadow of `32` broke a written rule and was never reported.
+
+| Ruleset | Section | Examples |
+| --- | --- | --- |
+| `color-rules-ai.md` | *Never use* | the symbol, native, scale and decorative-surface families, the focus border, the unreachable status leaves, the enumerated orphans |
+| `spacing-rules-ai.md` | *Do not use* | `Spacing/56` |
+| `typography-rules-ai.md` | **No Display** | the Display family |
+| `radius-rules-ai.md` | *Do not use* | any value outside the five-token table · `Corner radius/*` per-component variables |
+| `shadow-rules-ai.md` | *Do not use* | `24` and `32` · any custom shadow · the mobile bottom navigation bar's shadow |
+| `border-width-rules-ai.md` | *Do not use* | any value other than `0`, `1` and `2` · `Border Width/2` for anything but active or focused · a widened border to signal an error |
+
+#### Two things that are flagged, never failed
+
+| Class | Source | What happens |
+| --- | --- | --- |
+| **Restricted** | `color-rules-ai.md` *Restricted* — allowed only as described | **Flag** → *awaiting human decision* |
+| **Unprecedented** | Exists, is not deny-listed, but sits outside the preferred set — e.g. outside typography's **The eleven used styles** | **Flag, never a failure** |
+
+**Why unprecedented is a flag.** The rulesets say *prefer these*, not *only
+these*. A scorecard stricter than the ruleset it enforces blames the agent for
+reading the documentation correctly. And the flags are findings in their own
+right — an agent reaching for an unprecedented token may be revealing a gap in a
+ruleset rather than making a mistake.
+
+**What this step cannot see** — whether an authorised token is the *right*
+authorised token. A subdued surface where a default one was meant passes.
+
+---
+
+### Put them on the screen
+
+**No question yet.**
+
+Nothing checks whether a placed component carries the content the brief asked
+for — an agent can place a `Text Field` and leave its label empty, and every
+question above still answers `no`.
+
+---
+
+### Place them according to the design guidance · **INACTIVE**
+
+**Defined so it is not forgotten. Not asked, and not reported, until
+Block 3 · Layout completes.**
+
+| | |
+| --- | --- |
+| **Would enforce** | spacing's **Container padding** · **Page rhythm** per tier · `grid-tokens.md` outer margin and gutter |
+| **Would ask** | Whether outer margin, section gap, card-grid gap and form-field gap match spacing's **Page rhythm** table for the output's viewport tier, and whether container padding matches **Container padding** |
+| **Facts used** | `viewportTier` *(optional)* — a platform that cannot report it leaves this step inactive |
+
+**Why it is switched off.** The spacing ruleset carries an explicit warning on
+the two rules this would enforce: *"Rules 6 and 7 are unverified. They describe
+product-page composition, which lives outside the component library and could not
+be checked."*
+
+Judging against unverified rules manufactures confidence the evidence does not
+support. Block 3 · Layout verifies them against real product screens; this step
+activates then, and this section says so rather than quietly judging anyway.
+
+---
+
+### Check the content
+
+**No question yet.**
+
+Nothing reads the finished screen back against the brief. The scorecard's own
+blind-spot table says copy and tone are unmeasured, and this is the step where
+that would be caught.
 
 ---
 
@@ -45,14 +278,14 @@ score, so a quality bar can later be written from real judgments.
 
 **A translator, not a checker.** An adapter reads generated output using its own
 platform's mechanisms, then restates everything it found in design-system
-vocabulary. After it runs, the platform is gone — the checks never see a tool.
+vocabulary. After it runs, the platform is gone — the questions never see a tool.
 
 That is what lets one scorecard judge Figma output today and web or native
 output later. A new platform means a new adapter, never a new scorecard.
 
 An adapter contains **no rules**. It never decides whether something is
-compliant; it only reports what is there. Every judgment lives in the checks
-below.
+compliant; it only reports what is there. Every judgment lives in the questions
+above.
 
 ### The pipeline
 
@@ -72,11 +305,11 @@ below.
         │
         ▼
 4. THE CHECKER          platform-neutral · reads only facts
-   Compares the facts against the inventory, the deny-lists,
-   and **Highest tier first**'s parts lists
+   Answers the questions above against the inventory and
+   the six deny-lists
         │
         ▼
-5. THE REPORT           hard fails, then scores, then flags
+5. THE REPORT           one row per question, then flags
 ```
 
 ### Who owns what
@@ -84,21 +317,20 @@ below.
 | Owned by **this repo** | Owned by the **consuming agent's repo** |
 | --- | --- |
 | The contract — which facts must be reported | The adapter — how its platform answers |
-| The checks, thresholds and report format | The runner that executes them on real output |
+| The questions and the report format | The runner that executes them on real output |
 | The design-system names the facts must use | The translation from local identifiers into those names |
 
-A gap in an adapter is a defect in the consuming repo. A check that cannot be
+A gap in an adapter is a defect in the consuming repo. A question that cannot be
 expressed as a question about facts is a defect **here**.
 
 ### Required facts
 
-A platform that cannot supply these cannot be scored.
+A platform that cannot supply these cannot be judged.
 
 | Fact | Meaning in design-system terms |
 | --- | --- |
 | `element.isLibraryComponent` | Is this element an instance of a design-system component, or was it built locally? |
-| `element.componentName` | If it is a library component, which one — by the name used in the Figma registries and **The inventory**'s inventory |
-| `element.children` | Which elements this one contains, so a locally-built composition can be examined |
+| `element.componentName` | If it is a library component, which one — by the name used in the Figma registries and **The inventory** |
 | `property.isTokenBound` | Is this styled property resolved through a design token, or written as a literal value? |
 | `property.tokenName` | If bound, which token — by the name used on the token pages |
 | `property.kind` | What is being styled: colour · type style · spacing · radius · border width · shadow |
@@ -106,17 +338,24 @@ A platform that cannot supply these cannot be scored.
 
 ### Optional facts
 
-A check that needs one a platform cannot supply reports `unavailable`, never
-`0%`.
+A question that needs one a platform cannot supply reports `unavailable`, never
+`no`.
 
 | Fact | Used by | If missing |
 | --- | --- | --- |
-| `element.viewportTier` | `C6 · Layout` | `C6 · Layout` stays inactive on that platform |
-| `element.isComponentInternal` | `C3 · Token binding` | `C3 · Token binding` cannot exclude a component's own internals, so it reports `partial` |
+| `element.isComponentInternal` | *Was a library component's internal styling overridden?* | The question reports `unavailable`, and the literal-value question cannot exclude a component's own internals |
+| `element.viewportTier` | **Place them according to the design guidance** | That step stays inactive on that platform |
+| `element.children` | The report | A hand-built element is named but not described, so the reason says *what* was built by hand and not *what it was built from* |
 | `element.locator` | The report | Findings are named but not addressable |
 
-**`unavailable` is not a passing score and not a failing one.** It records that
-the platform could not answer, which is a gap in the adapter, not in the output.
+**`unavailable` is not a compliant answer and not a failing one.** It records
+that the platform could not answer, which is a gap in the adapter, not in the
+output.
+
+**`element.children` stopped being required on 12 September 2026**, when the
+parts-counting question was removed. It is still worth supplying: it is what
+turns *"something was hand-built"* into *"a card containing an image slider and a
+tag was hand-built"*, which is the sentence the reason column needs.
 
 ### The shape
 
@@ -171,30 +410,37 @@ what was hardcoded rather than only that something was.
 
 ### A worked example
 
-The two elements above, and what each check concludes.
+The two elements above, and what each question concludes.
 
-**`12:3401` — a library Button**
+**`12:3401` — a library `Button`**
 
-| Check | Facts used | Verdict |
+| Question | Facts used | Answer |
 | --- | --- | --- |
-| `C1 · Provenance` | library component, named `Button` | **pass** — `Button` is in the Components registry and not on the never-select list |
-| `C2 · Tier ceiling` | not a local build | **not applicable** |
-| `C3 · Token binding` | both properties token-bound | **pass** |
-| `C4 · Authorisation` | `Surface/Brand/Primary/default` · `Spacing/16` | **pass** — neither is on a deny-list |
-| `C5 · Declaration` | not an invention | **not applicable** |
+| Was any element hand-built instead of taken from the library? | `isLibraryComponent` is `true`, named `Button` | **no** |
+| Was any never-select component used? | `Button` | **no** — not on the list |
+| Was any component name used that appears in no registry? | `Button` | **no** — it is in the Components registry |
+| Was anything hand-built without a complete declaration? | nothing hand-built here | **no** |
+| Was any styled value written as a literal instead of bound to a token? | both properties token-bound | **no** |
+| Was a library component's internal styling overridden? | `isComponentInternal` is `false` on both | **no** |
+| Was any deny-listed token used? | `Surface/Brand/Primary/default` · `Spacing/16` | **no** — neither is on a deny-list |
+| Was any token used that is not in the GSL token set? | both names resolve on the token pages | **no** |
 
-**`12:3500` — a local build containing `Card`, `Image Slider` and `Tag`**
+**`12:3500` — a hand-built element containing `Card`, `Image Slider` and `Tag`**
 
-| Check | Facts used | Verdict |
+| Question | Facts used | Answer |
 | --- | --- | --- |
-| `C1 · Provenance` | local build | **deduction** — it duplicates something the inventory contains |
-| `C2 · Tier ceiling` | three of `Listing Card`'s parts | detected composition → verdict decided by `C5 · Declaration` |
-| `C3 · Token binding` | one colour is a literal, `#1A1A1A` | **hard fail** — "never write a raw colour" |
-| `C4 · Authorisation` | `Radius/8` | **pass** |
-| `C5 · Declaration` | the declaration names an agency banner, not this | **hard fail** — no declaration covers this element, so `C2 · Tier ceiling` also hard-fails |
+| Was any element hand-built instead of taken from the library? | `isLibraryComponent` is `false` | **yes** — a finding, not a failure. Carried into *define what needs to be built* |
+| Was any never-select component used? | `componentName` is `null` — there is no library component to check | **no** |
+| Was any component name used that appears in no registry? | `componentName` is `null` | **no** |
+| Was anything hand-built without a complete declaration? | the only declaration names an agency banner, not this | **yes** — **failure** |
+| Was any styled value written as a literal instead of bound to a token? | one colour is `#1A1A1A` | **yes** — **failure** |
+| Was a library component's internal styling overridden? | not a library component, so it has no internals | **no** |
+| Was any deny-listed token used? | `Radius/8` | **no** |
+| Was any token used that is not in the GSL token set? | `Radius/8` resolves on the radius token page | **no** |
 
-Note what the checker never had to decide: whether `12:3500` *is* a Listing
-Card. It only had to count parts and look for a declaration.
+Note what the checker never had to decide: whether `12:3500` *is* a `Listing
+Card`. It only had to report that it was hand-built and that nothing declared it.
+Naming what it duplicates is a person's job, on the reason.
 
 ### Naming, across platforms
 
@@ -205,58 +451,13 @@ adapter's job, and the reason `figma/*-registry.json` exists.
 
 ---
 
-## How a run is scored
-
-**One run = one output.** Whatever the generating agent produced from a single
-wireframe and brief. If it produced three screens from one brief, that is one
-run.
-
-Six checks, `C1`–`C6`. Each is scored **independently**.
-
-| | |
-| --- | --- |
-| **A hard fail fails its own check only** | It does not sink the run. Extend to run-level gating once the checker is proven — see [compliance-audit.md](compliance-audit.md) |
-| **A deduction lowers a check's percentage** | The check can still pass |
-| **A flag scores nothing** | It is recorded as a finding, for the ledger below |
-| **`unavailable` scores nothing** | The adapter could not supply a required fact |
-
-### Always write a check's name, never just its number
-
-`C1 · Provenance`, not `C1`. Six two-character codes are not memorable, and a
-report or a conversation that uses bare codes cannot be followed by anyone who
-did not write it. This applies to every report, every audit entry, and every
-sentence anyone writes about a run.
-
-The report that carries these scores is a file, and its format is fixed. See
-[The report](#the-report).
-
-### Thresholds
-
-**A threshold is derived from a rule, or it is "no regression". Never invented.**
-
-| Check | Threshold | Where it comes from |
-| --- | --- | --- |
-| `C1 · Provenance` | **no regression** | No rule states a number |
-| `C2 · Tier ceiling` | **0 undeclared compositions** | **Highest tier first** + **When nothing fits** |
-| `C3 · Token binding` | **100%** | "Never write a pixel literal" · "Never write a raw colour" |
-| `C4 · Authorisation` | **0 deny-listed** | The *Never use* / *Do not use* tables |
-| `C5 · Declaration` | **100% of inventions declared** | **When nothing fits** |
-| `C6 · Layout` | inactive | — |
-
-**"No regression" compares runs of the same wireframe only.** Comparing a search
-results page against a form measures the difficulty of the brief, not the
-compliance of the output. Across different wireframes, report the score and do
-not gate on it.
-
----
-
 ## The report
 
 ### A report is a file
 
 **Every run produces a report, and the report is part of the output.** A run
 whose screen exists but whose report does not is an unfinished run, not a
-passing one.
+compliant one.
 
 It is written to:
 
@@ -279,22 +480,28 @@ cannot be compared against another run, and is thrown away with the prototype.
 | `prompt.md` | **yes** | the person running it, **before generating** | The brief the run was given. Saved first, so a brief can never be quietly rewritten to match what came out |
 | screenshots — `*.png` | **yes** | whoever ran it | What the screen actually looked like. The only human-readable proof: a Figma file changes under you, a screenshot does not |
 | `facts.json` | **yes** | the adapter | What the platform found, in design-system vocabulary. Shape defined in [The shape](#the-shape) |
-| `report.md` | **yes** | the checking agent | The verdict. Template below |
+| `report.md` | **yes** | the checking agent | The answers. Template below |
 
-**Why `facts.json` is kept rather than discarded after scoring.** When a rule or
-a threshold changes, the checker can be re-run against a stored `facts.json` —
-answering *would the new rule have caught the old mistake?* without regenerating
-anything. Discard it and the next scorecard edit orphans every run before it.
+**Why `facts.json` is kept rather than discarded after judging.** When a rule or
+a question changes, the checker can be re-run against a stored `facts.json` —
+answering *would the new question have caught the old mistake?* without
+regenerating anything. Discard it and the next scorecard edit orphans every run
+before it.
 
-### Report order is fixed
+### Every row appears, including the empty ones
 
-**Hard fails print first, by name, above any percentage.** A report that opens
-with "C1 94%, C3 88%" reads as broadly fine even when it contains platform
-chrome. Percentages never appear before the gates they could disguise.
+**One row per question, in step order, whatever the answer.** A row reading `no`
+is information. A missing row is ambiguous — the reader cannot tell whether the
+question was answered or whether nobody asked it.
 
-**Every heading below appears in every report, including the empty ones.** A
-*Hard fails (0)* heading is information. A missing one is ambiguous — the reader
-cannot tell whether there were none or whether nobody looked.
+The same holds for the three steps with no question and for the inactive step:
+they each keep a row saying so.
+
+**There is no hard-fails-first section any more.** It existed because a report
+opening with *"C1 94%, C3 88%"* read as broadly fine even when something
+forbidden had shipped. With no percentages left, there is nothing for a failure
+to hide behind — the Answer column is scanned for `yes`, and that is the whole
+reading.
 
 ### The template
 
@@ -313,39 +520,34 @@ in here with example values, so the shape is unambiguous.
 | **Output** | [block-1-energy.png](block-1-energy.png) · [block-2-finance.png](block-2-finance.png) |
 | **Facts** | [facts.json](facts.json) |
 
-The **wireframe** label is what makes `no regression` meaningful: two runs are
-only comparable when this label matches.
+The **wireframe** label is what makes two runs comparable in the ledger. It is
+not gated on — nothing fails for a label that does not match a previous run.
 
-## Hard fails (2)
+## Answers
 
-| Check | Subject | Where | Why |
+| Step | Question | Answer | Reason |
 | --- | --- | --- | --- |
-| `C1 · Provenance` | `Status Bar` | `12:3401` | On the never-select list — **Never select** |
-| `C4 · Authorisation` | `Spacing/56` | `12:3500` | Deny-listed — spacing's *Do not use* |
-
-## Scores
-
-| Check | Score | Verdict |
-| --- | --- | --- |
-| `C1 · Provenance` | 94% | **FAIL** — 1 hard fail |
-| `C2 · Tier ceiling` | 100% | PASS — 4 of 10 **Highest tier first** rows checked |
-| `C3 · Token binding` | 88% | **FAIL** — threshold is 100% |
-| `C4 · Authorisation` | — | **FAIL** — 1 deny-listed token |
-| `C5 · Declaration` | 100% | PASS |
-| `C6 · Layout` | — | INACTIVE |
-
-A check whose facts the adapter could not supply reports `unavailable` — never
-`0%`. `C2 · Tier ceiling` always states its coverage, because it reaches 4 of
-**Highest tier first**'s 10 rows and must never imply it enforced all ten.
+| Define the content | _no question yet_ | — | — |
+| Define the components to use | Was any element hand-built instead of taken from the library? | **yes** | `12:3500` — a hand-built element containing `Card`, `Image Slider` and `Tag` |
+| Define the components to use | Was any never-select component used? | **yes** | `Status Bar` at `12:3401` — **Never select** |
+| Define the components to use | Was any component name used that appears in no registry? | no | — |
+| Define what needs to be built | Was anything hand-built without a complete declaration? | **yes** | `12:3500` — the only declaration names an agency banner |
+| Choose the tokens | Was any styled value written as a literal instead of bound to a token? | **yes** | `#1A1A1A` at `12:3500` |
+| Choose the tokens | Was a library component's internal styling overridden? | no | — |
+| Choose the tokens | Was any deny-listed token used? | **yes** | `Spacing/56` at `12:3500` — spacing's *Do not use* |
+| Choose the tokens | Was any token used that is not in the GSL token set? | no | — |
+| Put them on the screen | _no question yet_ | — | — |
+| Place them according to the design guidance | _inactive_ | — | — |
+| Check the content | _no question yet_ | — | — |
 
 ## Flags (1)
 
 Findings, not failures. Also appended to
 [the flag ledger](../../compliance-flag-ledger.md).
 
-| Check | Subject | Why flagged |
+| Step | Subject | Why flagged |
 | --- | --- | --- |
-| `C4 · Authorisation` | `Spacing/40`, 3 elements | Unprecedented — no rule authorises or forbids it as a section gap |
+| Choose the tokens | `Spacing/40`, 3 elements | Unprecedented — no rule authorises or forbids it as a section gap |
 
 ## Awaiting human decision (0)
 
@@ -366,213 +568,8 @@ Two appends, both to files that are never rewritten:
 
 | Append to | What |
 | --- | --- |
-| [compliance-run-ledger.md](compliance-run-ledger.md) | One row for the run — its scores and hard-fail count, so runs can be compared without opening any report |
+| [compliance-run-ledger.md](compliance-run-ledger.md) | One row for the run — how many questions answered `yes` at each step, so runs can be compared without opening any report |
 | [compliance-flag-ledger.md](compliance-flag-ledger.md) | Every flag raised, so a finding seen three times can be spotted |
-
----
-
-## C1 · Provenance
-
-**Is each element a real library component, or was it built by hand?**
-
-| | |
-| --- | --- |
-| **Enforces** | **The inventory** — a name absent from it does not exist · **Never select** |
-| **Measure** | Every element reported as a library component must name a component that exists in the inventory. Every element **not** reported as a library component is a local build, and is examined by `C2 · Tier ceiling` |
-| **Score** | library components ÷ (library components + local builds that duplicate an existing component) |
-| **Facts used** | `isLibraryComponent` · `componentName` |
-
-**Hard fail**
-
-- A component on the **Never select** list: platform chrome, brand assets,
-  another component's internals, or a withheld component.
-- A component name that appears in no registry — it came from outside GSL.
-
-**Deduction** — a locally-built element that duplicates a component the
-inventory already contains.
-
-**What this check cannot see** — whether the *right* component was chosen. `Chip`
-where `Tag` was correct passes completely. That is the eval's job, not the
-scorecard's.
-
----
-
-## C2 · Tier ceiling
-
-**Was a higher-tier component reinvented out of lower-tier parts?**
-
-Where real compliance failures live. `components-rules-ai.md` calls it "the
-single most common compliance failure".
-
-| | |
-| --- | --- |
-| **Enforces** | **Highest tier first** — reach for the highest tier that fits |
-| **Measure** | For each locally-built element, collect the library components it contains. Compare against the **parts list** of each **Highest tier first** row. Two or more parts of the same higher-tier component is a detected composition — the ruleset's own *count the parts* test |
-| **Score** | 1 − (undeclared compositions ÷ local builds examined) |
-| **Facts used** | `isLibraryComponent` · `componentName` · `children` · `declarations` |
-
-**`C5 · Declaration` decides what a detection means.** This is what makes the
-check decidable rather than a judgment call:
-
-| Detected composition | Declaration | Verdict |
-| --- | --- | --- |
-| yes | **absent** | **Hard fail.** A higher-tier component was rebuilt, unannounced |
-| yes | present, naming the higher-tier component and why it was ruled out | **Flag** → *awaiting human decision* |
-| no | — | pass |
-
-The checker never has to answer *"is this secretly a Listing Card?"*, which needs
-a human. It only answers *"did the agent say what it was doing?"*, which does
-not.
-
-### Coverage — this check reaches 4 of **Highest tier first**'s 10 rows
-
-**Highest tier first** now carries a machine-readable **Parts** column, so the check can run. It
-does not cover every row, and reports which it skipped rather than passing them
-silently.
-
-| Kind | Rows | Covered? |
-| --- | --- | --- |
-| **Composed** — assembled from public components | `Listing Card` · `Filter bar` · `Wizard` · `Phone Number Field` | **yes** |
-| **Container** — a shell with content slots | `Info State` · `Table` | no — no characteristic parts to count |
-| **All-or-nothing** — used whole or not at all | `Map template` | no — no partial composition exists to detect |
-| **Unresolved** | `Floor selection` · `Listing summary` · `Estimation card` | no — open questions in `components-audit.md` |
-
-**Highest tier first still applies to all ten.** Six simply cannot be enforced by counting
-parts. A report must state coverage as *4 of 10 rows checked*, never imply the
-whole rule was enforced.
-
-**Detecting a rebuilt container is unsolved.** Nothing currently catches an
-agent that hand-builds an empty state instead of using `Info State`, because
-there is no part set that characterises one. It needs a different mechanism, and
-none is designed.
-
-**What this check cannot see** — a composition of exactly one part. By the
-ruleset's own threshold that is **Which component** territory, not a **Highest tier first** violation.
-
----
-
-## C3 · Token binding
-
-**Are values bound to design tokens, or written as literals?**
-
-| | |
-| --- | --- |
-| **Enforces** | spacing's **No pixel literals** · colour's **No raw colour** · typography's **No hand-set fonts** |
-| **Measure** | Every styled property — colour, type style, spacing, radius, border width, shadow — must be reported as token-bound |
-| **Score** | token-bound properties ÷ all styled properties |
-| **Threshold** | **100%.** The rules say never, not rarely |
-| **Facts used** | `isTokenBound` · `tokenName` · `kind` · `isComponentInternal` *(optional)* |
-
-**Hard fail**
-
-- A colour written as a literal rather than resolved through a token.
-- A spacing, radius or border-width literal.
-- Type properties — family, size, weight, line height — set individually instead
-  of through a text style.
-- **Overriding a library component's own internal styling.**
-  spacing's **Components first** says never do it.
-
-**Deduction** — a property bound to a token from outside the GSL token set.
-
-**Not counted** — a library component's internal properties. They belong to the
-component and are correct by construction. If the adapter cannot distinguish
-internals from local styling, this check reports `partial`.
-
-**What this check cannot see** — whether a bound token is *allowed*. That is
-`C4 · Authorisation`, and it is the difference between output that is
-token-bound and output that is compliant.
-
----
-
-## C4 · Authorisation
-
-**Are the bound tokens allowed, or merely existing?**
-
-The check the token audits paid for. 83 of 218 colour tokens have no consumer,
-`Spacing/56` has no documented purpose, and no component binds a Display type
-style. Without this check, output can score 100% on `C3 · Token binding` and
-still rest entirely on values the audits rejected.
-
-| | |
-| --- | --- |
-| **Enforces** | The *Never use*, *Restricted* and *Do not use* sections of the three token rulesets |
-| **Measure** | Each bound token name is classified against three lists |
-| **Threshold** | **0 deny-listed** |
-| **Facts used** | `tokenName` · `kind` |
-
-| Class | Source | Verdict |
-| --- | --- | --- |
-| **Forbidden** | `color-rules-ai.md` *Never use* — the symbol, native, scale and decorative-surface families, the focus border, the unreachable status leaves, the enumerated orphans · `spacing-rules-ai.md` *Do not use* · typography's **No Display** — the Display family | **Hard fail** |
-| **Restricted** | `color-rules-ai.md` *Restricted* — allowed only as described | **Flag** → *awaiting human decision* |
-| **Unprecedented** | Exists, is not forbidden, but sits outside the preferred set — e.g. outside typography's **The eleven used styles** | **Flag, never a failure** |
-
-**Why unprecedented is a flag and not a deduction.** The rulesets say *prefer
-these*, not *only these*. A scorecard stricter than the ruleset it enforces
-blames the agent for reading the documentation correctly. And the flags are
-findings in their own right — an agent reaching for an unprecedented token may
-be revealing a gap in a ruleset rather than making a mistake. See the ledger.
-
-**What this check cannot see** — whether an authorised token is the *right*
-authorised token. A subdued surface where a default one was meant passes.
-
----
-
-## C5 · Declaration
-
-**When something new was invented, was it declared?**
-
-| | |
-| --- | --- |
-| **Enforces** | **When nothing fits** — compliance means reuse before invention, not never inventing |
-| **Measure** | Every local build flagged by `C1 · Provenance` or `C2 · Tier ceiling` must have a declaration |
-| **Score** | declared inventions ÷ total inventions |
-| **Threshold** | **100%** |
-| **Facts used** | `declarations` |
-
-A declaration must state all three:
-
-1. **What was built.**
-2. **Which problem from Which component it belongs under.**
-3. **Which existing components were ruled out, and why.**
-
-**Hard fail** — an invention with no declaration, or a declaration missing any
-of the three parts. **When nothing fits**'s own words: *an undeclared new component is a
-compliance failure even when it looks right.*
-
-**A declared invention does not expire, and is never auto-promoted.** If the
-same invention is declared repeatedly it is flagged as *awaiting human decision*
-— it may be a missing component rather than a one-off, and only a person can
-settle that. An open decision blocks nothing; it accumulates until it is ruled
-on.
-
-**This check is the pivot of the whole scorecard.** It converts
-`C1 · Provenance` and `C2 · Tier ceiling` from judgment calls into decidable
-ones.
-
----
-
-## C6 · Layout · **INACTIVE**
-
-**Does the page composition follow the documented rhythm?**
-
-Defined so it is not forgotten. **Not scored, and not reported as a percentage,
-until **Block 3 · Layout** completes.**
-
-| | |
-| --- | --- |
-| **Would enforce** | spacing's **Container padding** · **Page rhythm** per tier · `grid-tokens.md` outer margin and gutter |
-| **Would measure** | Outer margin, section gap, card-grid gap and form-field gap against spacing's **Page rhythm** table for the output's viewport tier; container padding against **Container padding** |
-| **Facts used** | `viewportTier` *(optional)* — a platform that cannot report it leaves this check inactive |
-
-**Why it is switched off.** Rules 6 and 7 carry an explicit warning in the
-ruleset itself: *"Rules 6 and 7 are unverified. They describe product-page
-composition, which lives outside the component library and could not be checked.
-Follow them as the documented intent, but they do not carry the same evidence as
-Rules 3–5."*
-
-Scoring against unverified rules manufactures confidence the evidence does not
-support. **Block 3 · Layout** verifies them against real product screens; this check
-activates then, and this section says so rather than quietly scoring anyway.
 
 ---
 
@@ -587,7 +584,7 @@ after every run, never rewritten.
 | Column | Meaning |
 | --- | --- |
 | Run | Which run raised it |
-| Check | Its number **and name** — `C4 · Authorisation` |
+| Step | Which step of designing it came from |
 | Subject | Token name, component name, or element |
 | Why flagged | Restricted · unprecedented · declared invention |
 | Times seen | Cumulative across all runs |
@@ -615,10 +612,10 @@ one row per run, append-only.
 
 It used to sit in this file, and moving it out is the point. **This file is the
 ruler; a run log is a measurement.** A ruler is rewritten whenever a rule or a
-threshold changes — and rewriting a file that also holds what happened on a date
+question changes — and rewriting a file that also holds what happened on a date
 reaches back and edits history. Keeping them apart is what lets the rules change
-while the evidence stays fixed. It is the same split as
-`-rules-ai` against `-ledger` everywhere else in this repo.
+while the evidence stays fixed. It is the same split as `-rules-ai` against
+`-ledger` everywhere else in this repo.
 
 There is a second, duller reason: this file is read **before every run**. A log
 that grows by a line each time a screen is generated does not belong inside it.
@@ -630,18 +627,20 @@ highlight reel, not evidence.
 
 ## What this scorecard cannot see
 
-Stated plainly so a passing score is not mistaken for a good screen.
+Stated plainly so a clean report is not mistaken for a good screen.
 
 | Blind spot | Whose job |
 | --- | --- |
 | Whether the **right** component was chosen | `components-eval.md` |
+| Whether a hand-built element **duplicates** a component that already exists | Human, from the reason on the report |
 | Whether the **right** authorised token was chosen | Nothing yet |
+| Whether the screen carries the content the brief asked for | Nothing yet — **Put them on the screen** has no question |
 | Whether the screen is **usable** | Human |
 | Whether the screen is **good** | Human — the quality bar, undocumented by design |
-| Page composition | `C6 · Layout`, inactive until **Block 3 · Layout** |
-| Copy and tone | Nothing yet — `Content & UX Writing` is empty in 15 of 57 component docs |
+| Page composition | **Place them according to the design guidance**, inactive until Block 3 · Layout |
+| Copy and tone | Nothing yet — **Define the content** and **Check the content** have no question |
 | Accessibility beyond token choice | Nothing yet — `Accessibility (a11y)` is empty in 51 of 59 component docs |
 
-A screen can score 100% on every active check and still be the wrong screen,
-badly written and inaccessible. That is not a flaw in the scorecard; it is the
-boundary of what compliance means.
+A screen can answer `no` to every question and still be the wrong screen, badly
+written and inaccessible. That is not a flaw in the scorecard; it is the boundary
+of what compliance means.

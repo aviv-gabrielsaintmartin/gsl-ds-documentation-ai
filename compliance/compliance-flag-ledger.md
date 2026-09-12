@@ -4,7 +4,8 @@ _Append-only. **Written by the checking agent — never edit by hand.** Flags
 raised by [compliance-scorecard.md](compliance-scorecard.md), accumulated across
 every run._
 
-_Always name a check in full — `C4 · Authorisation`, never bare `C4`._
+_The scorecard's questions have no codes and its steps have no numbers. Name the
+design step a flag came from — `Choose the tokens`._
 
 A flag is a finding, not a failure. One flag is noise; the same flag three times
 is evidence a ruleset is missing a case.
@@ -29,6 +30,6 @@ is evidence a ruleset is missing a case.
 
 ## Flags
 
-| Run | Check — number **and** name | Subject | Why flagged | Times seen | Verdict |
+| Run | Step | Subject | Why flagged | Times seen | Verdict |
 | --- | --- | --- | --- | --- | --- |
 | — | — | _no runs yet_ | — | — | — |

@@ -25,9 +25,11 @@ rest of the repo.
   belongs in a ruleset.
 - **Every numbered thing here carries its name.** Gabriel's personal rules ban bare
   codes; this is what obeying it cost in practice. Every block has a short name that
-  travels with its number — `Block 2b · Registry properties`, never `2b`. Every
-  compliance check has a name that travels with its code — `C1 · Provenance`,
-  never `C1`. And **the rulesets' rules have names and no numbers at all**,
+  travels with its number — `Block 2b · Registry properties`, never `2b`. **The
+  compliance checks went further and lost their codes entirely** on 12 September
+  2026: they are questions now, grouped under the design step each one guards,
+  and keeping `C1`–`C6` legible had cost a standing instruction to write the name
+  beside every number everywhere. And **the rulesets' rules have names and no numbers at all**,
   because a number encoded nothing that precedence order does not already
   state, while the same number meant four different things across four
   rulesets.

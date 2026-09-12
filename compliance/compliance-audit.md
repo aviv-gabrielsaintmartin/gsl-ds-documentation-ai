@@ -1,8 +1,36 @@
 # Compliance scorecard audit
 
 _The evidence behind [compliance-scorecard.md](compliance-scorecard.md): why
-these six checks, what was rejected, and what is still unresolved. **Never read
+these questions, what was rejected, and what is still unresolved. **Never read
 as rules.**_
+
+---
+
+## The six checks became questions grouped by step — 12 September 2026
+
+**Everything below this section was written when the scorecard held six checks
+called `C1` to `C6`. It is kept because the reasoning that produced them is still
+the reasoning behind the questions that replaced them.** Read it as history: the
+names it uses no longer exist in the scorecard.
+
+Decided by Gabriel, 12 September 2026, after tracing what the scorecard actually
+reached.
+
+| What changed | Why |
+| --- | --- |
+| **The checks are grouped into one section per design step**, and the codes are gone | A report said `C4` flagged a token and joining that to a step happened in Gabriel's head. The step is the thing he acts on, so the step is what the file is organised by. It also ends the standing instruction to write a check's name beside its number everywhere |
+| **Every question is binary**, phrased so `no` is compliant. No percentages, no thresholds | Four of the six thresholds were already `100%` or `zero`. A threshold of 100% is a yes/no question wearing a percent sign, and `88%` made a broken *never* rule read as a good score |
+| **`C1 · Provenance`'s `no regression` was dropped** | It answered whether this run beat the last one — a question about the project, not the design system — and it was the only judgment here that needed two runs. It also dragged in a wireframe-label dependency that nothing else needed. The trend still reads down a column of the run ledger |
+| **`C2 · Tier ceiling` was removed entirely** | It reached 4 of **Highest tier first**'s 10 rows and could never reach the other six — containers and all-or-nothing components have no characteristic parts to count. What it added over *was this hand-built* was the **diagnosis**, not the detection: a hand-built `Listing Card` is already reported as hand-built. Naming what it duplicates is now the reason column, investigated by a person |
+| **`C5 · Declaration` now hangs off hand-built elements** rather than off tier-ceiling detections | With the parts count gone, the trigger is simply *anything not taken from the library*. Simpler, and stricter |
+| **Three more deny-lists are read** — radius, shadow, border width | They were written and never wired in. A `1.5` border, a shadow of `32` or a `Corner radius/*` variable broke a written rule and was never reported. This is the drift the whole task existed to find |
+| **The three steps with no question say so in the file** | Define the content, put them on the screen, check the content. An absent step reads as an oversight; a step stating its own emptiness reads as a known gap |
+| **`83 of 218 colour tokens have no consumer` was cut from the scorecard** | It had been corrected to 73 in `color-usage-audit.md` on 10 September and never here, so the scorecard carried a figure its own evidence file contradicted. It is evidence, not a measurement rule, and the audit is where it belongs |
+
+**What this cost.** The parts-counting machinery in **Highest tier first**'s
+*Parts* column now has no consumer. It was added on 8 September specifically to
+feed `C2 · Tier ceiling`. Whether to keep it, and what for, is an open question
+in the backlog rather than something decided here.
 
 ---
 

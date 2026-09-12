@@ -180,25 +180,28 @@ better?**
    You open ONE file:  compliance/compliance-run-ledger.md
 
    ┌──────────────────────────────────────────────────────────────┐
-   │ Run  Date    Wireframe          C3·Token  Hard fails  Quality│
-   │ 002  12 Sep  listing-detail      88%          2       "close"│
-   │ 004  15 Sep  listing-detail      94%          1       "good" │
-   │ 007  19 Sep  listing-detail     100%          0       "ship" │
+   │ Run  Date    Wireframe        Components  Build  Tokens  Qual│
+   │ 002  12 Sep  listing-detail        2        1      3    close│
+   │ 004  15 Sep  listing-detail        1        0      1     good│
+   │ 007  19 Sep  listing-detail       ok       ok     ok     ship│
    └──────────────────────────────────────────────────────────────┘
                           ▲
                   read DOWN one wireframe
 ```
 
-That's the whole answer, and you never opened a report.
+Each number is **how many questions that step answered `yes` to** — how many
+things went wrong. `ok` means none did. That's the whole answer, and you never
+opened a report.
 
 Three things to hold on to while reading it:
 
 - **Read down a single `Wireframe` label, never across the table.** Two runs are
   only comparable when that label matches. Comparing a search page against a
   form measures how hard the brief was, not how compliant the output was.
-- **The hard-fails count outranks every percentage on its row.** A row reading
-  *94% · 1 hard fail* is a worse run than one reading *88% · 0*. A hard fail
-  means something forbidden made it onto the screen.
+- **Nothing is a percentage, on purpose.** Every rule behind these questions says
+  *never* — never write a raw colour, never use a deny-listed token. There is no
+  such thing as 88% of never, and writing it that way made a broken rule look
+  like a good score.
 - **Open a report only when a row looks wrong.** The ledger tells you *that*
   something moved; the report in `runs/run-NNN/report.md` tells you *what*.
 
@@ -218,40 +221,46 @@ freshly generated screen.
 ```
   1. Take the facts                 reads facts.json — never opens Figma
          │
-  2. Ask the six questions          Did it use real components?
-         │                          Did it stay inside the tier it's allowed?
-         │                          Is every colour and spacing a real token?
-         │                          Did it use anything on a never-use list?
-         │                          Did it declare whatever it invented?
-         │                          (Layout — switched off for now)
-         ▼
-  3. Sort what it found into three piles
+  2. Ask the questions, step by step
          │
-         ├── HARD FAILS   something forbidden shipped
-         ├── SCORES       a percentage per question
-         └── FLAGS        odd, but no rule covers it either way
+         │   the components step    Was anything hand-built?
+         │                          Was anything never-select used?
+         │                          Was a name used that's in no registry?
+         │   what needs building    Was anything hand-built undeclared?
+         │   choosing the tokens    Was any value written as a literal?
+         │                          Was a component's own styling overridden?
+         │                          Was a deny-listed token used?
+         │                          Was a token used that isn't ours?
+         │   placing them           (switched off for now)
+         │   the three others       (no question yet — they say so)
          ▼
-  4. Write report.md               hard fails FIRST, above any percentage
+  3. Every answer is yes or no
+         │
+         ├── no    compliant. Nothing more recorded
+         ├── yes   a finding. The report says what, and where
+         └── FLAGS odd, but no rule covers it either way
+         ▼
+  4. Write report.md               one row per question, in step order
          │
   5. Append two rows               run ledger · flag ledger
 ```
 
-Three habits in there are deliberate. Two of them are about a human misreading
-a report:
+Three habits in there are deliberate.
 
-**Hard fails print above the scores, always.** A report opening with *"94%,
-88%"* reads as broadly fine even when the screen contains something explicitly
-forbidden. Percentages never get to appear before the gates they'd disguise.
+**Every question is phrased so that `no` is the good answer.** You read one
+column and look for `yes`. That is the whole of reading a report — there is no
+pass mark to remember and no arithmetic to do.
 
-**Every heading appears, including the empty ones.** A report saying
-*Hard fails (0)* tells you nobody found any. A report with no such heading tells
-you nothing — you can't tell whether there were none or whether nobody looked.
-Same for the quality verdict: the heading stays, empty, because an empty heading
-nags and a missing one doesn't.
+**Every row appears, including the empty ones.** A row reading `no` tells you the
+question was asked and nothing was found. A missing row tells you nothing — you
+can't tell whether there was nothing to find or whether nobody looked. Same for
+the three steps that have no question at all, and for the quality verdict: the
+heading stays, empty, because an empty heading nags and a missing one doesn't.
 
-And the third: **a check always gets called by its name, never its number** —
-`C4 · Authorisation`, not `C4`. Six two-character codes are not memorable, and a
-report written in them can only be read by whoever wrote it.
+**Nothing has a code.** The questions used to be `C1` to `C6`, and keeping them
+readable cost a standing rule to write the name beside the number everywhere.
+They are grouped under the step of designing each one guards instead, and a step
+already has a name.
 
 ---
 
