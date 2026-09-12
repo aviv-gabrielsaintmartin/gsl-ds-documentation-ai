@@ -82,7 +82,7 @@ This section adds only what is true of this repo's files.**
 | Reader | Where | What to optimise for |
 | --- | --- | --- |
 | **Gabriel** | Chat, `status.md`, `project/backlog.md`, `project/`, `README.md` | His personal rules, unchanged |
-| **An agent** | `*-rules-ai.md`, registries, ledgers, audits, token and component pages | Unambiguous parsing. Restate a condition rather than eliding it — repetition that removes doubt is a feature here, and it overrides every rule about brevity |
+| **An agent** | `*-rules-ai.md`, registries, ledgers, audits, token and component pages | Unambiguous parsing. Restate a condition rather than eliding it — repetition that removes doubt is a feature here, and it overrides every rule about brevity. **Only the brevity rules yield** — the *never* list and the proved-or-guessing label hold in these files too |
 
 ### Cutting something he wrote
 
