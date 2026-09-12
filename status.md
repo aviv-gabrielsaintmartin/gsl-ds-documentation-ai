@@ -40,13 +40,12 @@ say so. Never yet used on a real run.
 
 ## The next task
 
-**Done: the scoring sheet is rebuilt around the seven steps, and the check codes
-are gone.** Every question is yes-or-no, phrased so `no` is the good answer — no
-percentages, since every threshold it carried was 100% or zero. It found real
-drift: three of the six token deny-lists had been written and wired into no
-check, so a `1.5` border or a shadow of `32` broke a rule and was never reported.
-Dropped at your request: *no regression*, and the parts count. The check failed
-first, on two defects in the sheet itself; both are fixed.
+**Done: the scoring sheet is rebuilt around the seven steps, and the *Parts*
+column is gone with the check that read it.** Every question is yes-or-no,
+phrased so `no` is the good answer. The sheet found real drift — three of the six
+token deny-lists had been written and wired into no check. The column went
+because it printed an assembly recipe for the one thing the rules forbid, in the
+file a generating agent reads, for a reader that no longer existed.
 
 **Next: say where a declaration physically lives.** Half a day. The rules end
 every invention with "declare it" and never say **where** that goes.

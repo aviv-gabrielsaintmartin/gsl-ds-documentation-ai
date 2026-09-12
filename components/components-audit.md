@@ -259,18 +259,25 @@ Each needs Gabriel's answer before the affected rule can be written.
     knows they exist, but nothing routes it there by intent. This is the largest
     remaining gap after Phase 1.
 
-11. **`Floor selection`'s second part.** It has one (`Counter Field`), and
-    `C2 · Tier ceiling` needs two. Is a floor picker a counter plus ground-floor
-    handling, or is it genuinely a one-part component and therefore a **Which component** case?
+11. ~~**`Floor selection`'s second part.**~~ **Dissolved 2026-09-12.** It asked
+    whether a floor picker is a counter plus ground-floor handling, because the
+    parts-counting check needed a second part to fire. That check is gone, so
+    the question has nothing behind it. What is left is that nobody has
+    described `Floor selection`, which is already recorded as `unresolved` in
+    the ruleset and covered by question 10 above.
 12. **What controlled vocabulary should the platform rows use?** Answered in
     principle — *use a component where it exists* — but the docs express
     existence as `Ready`, `To Do`, `To-do`, `WIP`, `In progress`, `Partially
     available`, `N/A`, `Non-gemini component`, a bare link, or `Not documented`.
     Which of those mean "exists"? `Partially available` (7 Android entries) is
     the genuinely ambiguous one. Blocks **Block 2c · Platform availability**.
-13. **How is a rebuilt container detected?** Nothing catches an agent that
-    hand-builds an empty state instead of using `Info State`. Parts counting
-    cannot work for the container kind, and no alternative is designed.
+13. ~~**How is a rebuilt container detected?**~~ **Dissolved 2026-09-12, by
+    becoming general.** It asked how to catch an agent hand-building an empty
+    state instead of using `Info State`, on the premise that parts counting
+    handled the other kinds. Parts counting is gone, so no rebuilt higher-tier
+    component is detected by anything — container or not. The scorecard reports
+    that an element was hand-built and names it; deciding what it duplicates is
+    a person's job, and its blind-spot table says so.
 
 ---
 
@@ -323,8 +330,20 @@ written.
 
 ## **Highest tier first**'s parts list, and what it exposed
 
-Added 2026-09-08 so `C2 · Tier ceiling` of the compliance scorecard can run. It
-compares a hand-built element against the parts of each **Highest tier first** row, and **Highest tier first**
+> **Corrected 2026-09-12: the parts list no longer exists, and neither does the
+> check it was built for.** Gabriel removed the parts-counting check from the
+> compliance scorecard on 12 September, and the *Parts* column came out of
+> `components-rules-ai.md` with it — a column listing how to assemble a
+> `Listing Card`, sitting in the one file a generating agent reads, with no
+> consumer left to justify the risk. **This section is kept for the clerical
+> finding below, which is about the ruleset and not about the check:** every part
+> name the ruleset stated in prose failed an exact match against the registries.
+> That is evidence about how far prose component names can be trusted, and it
+> outlives the thing that uncovered it. Everything else here describes what was
+> true on 8 September.
+
+Added 2026-09-08 so `C2 · Tier ceiling` of the compliance scorecard could run. It
+compared a hand-built element against the parts of each **Highest tier first** row, and **Highest tier first**
 stated those parts only as prose.
 
 Turning the prose into data was not a transcription job. **Four rows worked as
@@ -372,18 +391,29 @@ all**:
 | **All-or-nothing** | Used whole or not at all | `Map template` | no |
 | **Unresolved** | Undescribed, or one part with no second identified | `Floor selection` · `Listing summary` · `Estimation card` | no |
 
-**Highest tier first still governs all ten.** Six cannot be *enforced by counting parts*,
-which is a limit on the checker, not a gap in the rule. The scorecard states
-coverage as 4 of 10 and names the six it skips.
+**Highest tier first still governs all ten.** That was the conclusion on
+8 September and it is still true. What changed on 12 September is the rest of the
+sentence: six rows could not be *enforced by counting parts*, and now none can,
+because nothing counts parts any more.
 
-**Still open**: `Floor selection` has one part (`Counter Field`) and no second
-part identified. A floor picker is plausibly a counter plus ground-floor
-handling, but no document says so, and inferring it would be the guessing this
-audit already rejected.
+**The four kinds survive the check that produced them.** They moved into the
+ruleset as instructions for placing a component rather than for detecting an
+imitation — composed means place it whole, container means fill its slots,
+all-or-nothing means take all of it, unresolved means treat it as
+all-or-nothing. That is the durable half of this section.
 
-**Detecting a rebuilt container is unsolved.** Nothing catches an agent that
-hand-builds an empty state rather than using `Info State`. It needs a mechanism
-that is not parts-based, and none is designed.
+**`Floor selection` is no longer a checker problem.** It was open because it had
+one part and a parts count needs two. With no parts count, what remains is
+smaller and duller: nobody has established what a floor picker is made of, and
+it is marked `unresolved` in the ruleset so an agent places it whole rather than
+guessing.
+
+**Detecting a rebuilt higher-tier component is unsolved, and now openly so.**
+Nothing catches an agent that hand-builds an empty state rather than using
+`Info State` — and since 12 September, nothing catches one that hand-builds a
+`Listing Card` either. The scorecard reports that an element was hand-built and
+leaves naming what it duplicates to a person. Its blind-spot table says this
+outright rather than implying coverage it does not have.
 
 ## **Platform limits**, platform availability, and where that data belongs
 

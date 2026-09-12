@@ -44,42 +44,34 @@ Foundations  →  Components  →  Patterns  →  Experiences
 **Search from the right.** Before composing anything out of Components, check
 whether a Pattern or an Experience already is the thing you are about to build.
 
-| You are about to build | Stop — this already exists | Kind | Parts a hand-built version would contain |
-| --- | --- | --- | --- |
-| A property summary card | `Listing Card` (Experience) | composed | `Card` · `Image Slider` · `Tag` |
-| A **structured, multi-criteria** filter panel | `Filter bar` (Pattern) | composed | `Chip` · `Button` |
-| A step-by-step flow | `Wizard` (Pattern) | composed | `Tabs` · `Progress Bar` |
-| A phone input with a country prefix | `Phone Number Field` (Experience) | composed | `Text Field` · `Dropdown` |
-| An empty / error / success / loading screen | `Info State` (Pattern) | **container** | — it is a shell with content slots, not an assembly of components |
-| A map screen | `Map template` (Experience) | **all-or-nothing** | — used whole or not at all. Its pin sets are **Never select** never-select |
-| A data grid | `Table` (Experience) | **container** | `Cell Content` rows inside a shell. Web availability: see **Platform limits** |
-| A floor picker | `Floor selection` (Experience) | unresolved | `Counter Field` — one part only. Open question |
-| A more flexible property summary than Listing Card allows | `Listing summary` (Experience) | unresolved | — ⚠︎ undescribed, see audit |
-| A price estimation block | `Estimation card` (Experience) | unresolved | — ⚠︎ undescribed, see audit |
+| You are about to build | Stop — this already exists | Kind |
+| --- | --- | --- |
+| A property summary card | `Listing Card` (Experience) | composed |
+| A **structured, multi-criteria** filter panel | `Filter bar` (Pattern) | composed |
+| A step-by-step flow | `Wizard` (Pattern) | composed |
+| A phone input with a country prefix | `Phone Number Field` (Experience) | composed |
+| An empty / error / success / loading screen | `Info State` (Pattern) | container |
+| A map screen | `Map template` (Experience) | all-or-nothing |
+| A data grid | `Table` (Experience) | container |
+| A floor picker | `Floor selection` (Experience) | unresolved |
+| A more flexible property summary than Listing Card allows | `Listing summary` (Experience) | unresolved |
+| A price estimation block | `Estimation card` (Experience) | unresolved |
 
-**The Parts column is not for you.** It lists what a hand-built imitation would
-be assembled *from*. Never read it as a recipe — the whole point of
-**Highest tier first** is that you use the higher-tier component instead of
-assembling anything.
+### The Kind column, and what each kind asks of you
 
-Part names are exact inventory names from **The inventory**. A part may be a **Never select**
-never-select component: **Never select** governs what you may **choose**, while this column
-describes what an imitation would **contain**. Different questions.
+**The Kind column tells you how to use the component, not how to build one.**
+Every row above is a component you place; none of them is ever assembled by hand.
 
-### Two kinds of higher-tier component
+| Kind | What it is | What it asks of you |
+| --- | --- | --- |
+| **Composed** | Assembled from public components | Place it whole. Assembling the same thing from `Card`, `Chip` or `Tabs` yourself is the failure this rule exists to stop |
+| **Container** | A shell you place content into. `Info State` is closer to a modal with prescribed content than to an assembly | Place the shell, then fill its slots. `Table` takes `Cell Content` rows; do not build the shell around them |
+| **All-or-nothing** | Used whole or not at all. A partial `Map template` is not a realistic build | Take the whole thing or nothing. `Map template`'s own pin sets are on the **Never select** list and are reached by placing it |
+| **Unresolved** | Nobody has established which of the other three it is | Treat it as all-or-nothing and place it whole. If it will not do what you need, follow **When nothing fits** rather than guessing at its parts |
 
-The distinction matters because only the first kind can be detected by counting
-parts.
-
-| Kind | What it is | **Highest tier first** still applies? | Detectable by counting parts? |
-| --- | --- | --- | --- |
-| **Composed** | Assembled from public components | yes | **yes** — the four rows above |
-| **Container** | A shell you place content into. `Info State` is closer to a modal with prescribed content than to an assembly | yes | no — there is no characteristic set of parts to count |
-| **All-or-nothing** | Used whole or not at all. A partial `Map template` is not a realistic build | yes | no — there is no partial composition to detect |
-
-For the container and all-or-nothing kinds, **Highest tier first is still the rule** — you
-must still reach for the existing component. It simply cannot be detected by a
-parts count.
+**Highest tier first applies to every kind, unresolved included.** The Kind
+changes how you place the component; it never changes whether you must reach for
+it.
 
 Composing from a lower tier when a higher-tier component exists is the single
 most common compliance failure. **Which component** below is flat by design — it answers
@@ -105,9 +97,15 @@ branch names a **simpler** component for an explicitly **lighter** case, follow
 need **two or more** of the higher-tier component's own moving parts. One part
 alone is the lighter case, and **Which component** wins.
 
-**This test applies to the composed kind only.** For a container or
-all-or-nothing component there are no parts to count, and **Highest tier first** applies
-regardless of how much of it you were about to rebuild.
+**This test applies to the composed kind only.** For a container, an
+all-or-nothing or an unresolved component there are no parts to count, and
+**Highest tier first** applies regardless of how much of it you were about to
+rebuild.
+
+**The parts counted here are capabilities, not components.** *Filter controls*,
+*dropdown panels* and *applied-state handling* are three things the thing you are
+building would have to do. Never try to count which library components an
+imitation would contain — that list is not written anywhere, on purpose.
 
 | You would build | Parts | Rule |
 | --- | --- | --- |
