@@ -152,12 +152,12 @@ runs this way.
 
 ### The pillars — what an agent reads to build
 
-| Folder | What's in it | Start at |
-| --- | --- | --- |
-| `tokens/` | 12 token categories — colour, typography, spacing, radius, shadow, and 7 more. Every one checked against real component usage | [tokens/tokens-index.md](tokens/tokens-index.md) |
-| `components/` | 53 component docs, one folder each with a self-contained `images/`. Plus the ruleset, audit and eval | [components/components-index.md](components/components-index.md) |
-| `figma/` | 7 registry JSON files — the identity of every Figma component, token and icon. Keys, node IDs, variant counts | `.claude/rules/figma-registries.md` |
-| `compliance/` | How generated output is judged — six checks, what fails outright, and the report every run must produce. Read by a **checking** agent, not a generating one. `compliance/runs/` holds one folder per run: the brief, the screenshots, the facts and the report | [compliance/compliance-scorecard.md](compliance/compliance-scorecard.md) |
+| Folder        | What's in it                                                                                                                                                                                                                                                   | Start at                                                                 |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `tokens/`     | 12 token categories — colour, typography, spacing, radius, shadow, and 7 more. Every one checked against real component usage                                                                                                                                  | [tokens/tokens-index.md](tokens/tokens-index.md)                         |
+| `components/` | 53 component docs, one folder each with a self-contained `images/`. Plus the ruleset, audit and eval                                                                                                                                                           | [components/components-index.md](components/components-index.md)         |
+| `figma/`      | 7 registry JSON files — the identity of every Figma component, token and icon. Keys, node IDs, variant counts                                                                                                                                                  | `.claude/rules/figma-registries.md`                                      |
+| `compliance/` | How generated output is judged — eight yes-or-no questions, grouped under the step of designing each one guards, and the report every run must produce. Read by a **checking** agent, not a generating one. `compliance/runs/` holds one folder per run: the brief, the screenshots, the facts and the report | [compliance/compliance-scorecard.md](compliance/compliance-scorecard.md) |
 
 A further pillar, `layout/`, is planned but does not exist yet — see
 [status.md](status.md). Page composition is currently the one decision an agent
@@ -165,15 +165,15 @@ has to make with no documentation behind it.
 
 ### Everything else
 
-| Path | What's there |
-| --- | --- |
-| `CLAUDE.md` | Instructions for agents working in this repo. Not a human document |
-| `.claude/rules/` | 5 path-scoped rule files — for `tokens/`, `figma/`, `components/`, `compliance/` and `project/`. Each loads automatically when an agent opens a file in that folder |
-| `.claude/skills/` | 8 skills — the repeatable workflows. See below |
-| `status.md` | **The one page.** Where the project is and what the next task is. Human-first |
-| `project/` | `backlog.md` — every task, question and finding — plus `decisions.md`, the log of why the project is shaped this way, and `how-a-run-is-reported.md`, the plain-language walkthrough of the reporting pipeline. Retired files sit in `project/archive/`. **Human-first** |
-| `tokens/scripts/` | 4 Python scripts. They only ever *read* the design-system code repo. Re-run them to refresh the evidence |
-| `scripts/` | `check-links.py` — run it after renaming or deleting anything. It reports links whose target is gone, and rulesets that point an agent at evidence it may not read |
+| Path              | What's there                                                                                                                                                                                                                                                             |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `CLAUDE.md`       | Instructions for agents working in this repo. Not a human document                                                                                                                                                                                                       |
+| `.claude/rules/`  | 5 path-scoped rule files — for `tokens/`, `figma/`, `components/`, `compliance/` and `project/`. Each loads automatically when an agent opens a file in that folder                                                                                                      |
+| `.claude/skills/` | 8 skills — the repeatable workflows. See below                                                                                                                                                                                                                           |
+| `status.md`       | **The one page.** Where the project is and what the next task is. Human-first                                                                                                                                                                                            |
+| `project/`        | `backlog.md` — every task, question and finding — plus `decisions.md`, the log of why the project is shaped this way, and `how-a-run-is-reported.md`, the plain-language walkthrough of the reporting pipeline. Retired files sit in `project/archive/`. **Human-first** |
+| `tokens/scripts/` | 4 Python scripts. They only ever *read* the design-system code repo. Re-run them to refresh the evidence                                                                                                                                                                 |
+| `scripts/`        | `check-links.py` — run it after renaming or deleting anything. It reports links whose target is gone, and rulesets that point an agent at evidence it may not read                                                                                                       |
 
 ### The eight skills
 
