@@ -537,7 +537,28 @@ Compliance means **reuse before invention**, not never inventing.
    [typography](../tokens/typography/typography-rules-ai.md),
    [spacing](../tokens/spacing/spacing-rules-ai.md). Never hand-style something
    a component already does.
-4. **Declare it.** State, in the output: what you built, which problem in **Which component**
-   it belongs under, and which existing components you ruled out and why.
+4. **Declare it.** Write the declaration into the `## Declarations` section of
+   this run's report — `compliance/runs/run-<NNN>/report-run-<NNN>.md`, where
+   `<NNN>` is this run's three-digit number. One block per element you built by
+   hand, each stating all three of:
+   - **What you built.**
+   - **Which problem it belongs under** — a heading from **Which component**.
+   - **Which existing components you ruled out, and why.**
+
+   Write each block as a `###` heading naming what you built, followed by the
+   three parts. If you invented nothing, the section still gets written, reading
+   `_None._`.
+
+**The report file is the only place a declaration counts.** Not a note on the
+Figma frame, not a comment in the code, not your reply to whoever asked — a
+reply is not an artefact and is gone when the session closes. The place is the
+same on every platform, because a run folder is the same on every platform.
+
+**Write it before the output is scored, and never revise it afterwards.** A
+declaration reworded once the verdict is known is not a declaration.
+
+**A declaration missing any of the three parts counts as absent**, and an
+absent declaration is a failure. Two of the three is not a partial pass; it is a
+declaration nobody can review.
 
 An undeclared new component is a compliance failure even when it looks right.

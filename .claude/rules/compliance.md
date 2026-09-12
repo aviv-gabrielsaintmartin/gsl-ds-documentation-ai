@@ -14,7 +14,7 @@ How generated output is judged against the design system. Same
 | `compliance-audit.md` | The evidence — why these questions, what was rejected, open questions. **Never read as rules** |
 | `compliance-run-ledger.md` | Append-only, one row per run. The comparison table. **Written by the checking agent — never edit by hand** |
 | `compliance-flag-ledger.md` | Append-only findings across runs. **Written by the checking agent — never edit by hand** |
-| `runs/run-NNN/` | One folder per run: the brief, screenshots, `facts.json`, `report.md`. All four required |
+| `runs/run-NNN/` | One folder per run: `prompt-run-NNN.md`, screenshots, `facts-run-NNN.json`, `report-run-NNN.md`. All four required. **Every file carries its run number**; screenshots keep their descriptive names |
 
 ## The ruler is not the measurements
 
@@ -92,15 +92,20 @@ reads as an oversight; a step that states its own emptiness reads as a known gap
   scorecard asks whether a produced screen is compliant.
 - **Compliance is not quality.** Compliance is arithmetic and is judged here.
   Quality is judgment, is not judged here, and is recorded as a free-text human
-  verdict — in full in the run's own `report.md`, in one line in
+  verdict — in full in the run's own `report-run-NNN.md`, in one line in
   `compliance-run-ledger.md`. Never add a quality question to the scorecard.
 
 ## When you run a check
 
 - **A run is unfinished until its report exists.** Write it to
-  `runs/run-NNN/report.md` — in this repo, never inside the Figma file or the
-  prototype it judges. Keep `facts.json` too: it is what lets a later scorecard
-  change be re-tested against an old run.
+  `runs/run-NNN/report-run-NNN.md` — in this repo, never inside the Figma file
+  or the prototype it judges. Keep `facts-run-NNN.json` too: it is what lets a
+  later scorecard change be re-tested against an old run.
+- **The report's `## Declarations` section is not yours to write.** The
+  generating agent writes it before scoring; a checking agent reads it and
+  answers *was anything hand-built without a complete declaration?* Never edit
+  it, never add one on the agent's behalf — a declaration written after the
+  verdict is not a declaration.
 - Record **every** run in `compliance-run-ledger.md`, including bad ones. A log
   holding only good runs is a highlight reel, not evidence.
 - Append flags to the flag ledger; never rewrite or remove one.

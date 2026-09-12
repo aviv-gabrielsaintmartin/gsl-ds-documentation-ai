@@ -26,7 +26,7 @@ Designing a screen is seven steps. **One of them is fully written.**
 | --- | --- |
 | Define the content — from the user need | ❌ **Nothing.** No rule, no doc, no task |
 | Define the components to use, and which variant | ✅ Written, and tested cold three times |
-| Define what needs to be built | 🟡 The rule says "declare it" and never says where the declaration goes |
+| Define what needs to be built | ✅ **Written.** An invention is declared in the run's own report, before it is scored |
 | Choose the tokens — colour, text style, spacing | 🟡 **Seven of twelve kinds** have a ruleset. Five don't |
 | Put them on the screen | 🟡 An agent can place a component, but can't put words in one |
 | Place them per the design guidance | ❌ Written, but never checked against a real screen |
@@ -40,18 +40,18 @@ say so. Never yet used on a real run.
 
 ## The next task
 
-**Done: the scoring sheet is rebuilt around the seven steps, and the *Parts*
-column is gone with the check that read it.** Every question is yes-or-no,
-phrased so `no` is the good answer. The sheet found real drift — three of the six
-token deny-lists had been written and wired into no check. The column went
-because it printed an assembly recipe for the one thing the rules forbid, in the
-file a generating agent reads, for a reader that no longer existed.
+**Done: a declaration has a physical home.** It goes in the run's own report,
+under `## Declarations`, written by the generating agent **before** scoring and
+never touched by the checker. Your naming call pulled in the run-number rename,
+since a rule can't name a file the repo doesn't use. The check found two defects
+in my own work; both fixed. Open by your choice: nothing *mechanically* stops a
+late rewording until the adapter exists.
 
-**Next: say where a declaration physically lives.** Half a day. The rules end
-every invention with "declare it" and never say **where** that goes.
-
-**Then: take the audit links out of the five token rulesets.** Half an hour. The
+**Next: take the audit links out of the five token rulesets.** Half an hour. The
 same forbidden door closed in the components ruleset, six times over.
+
+**Then: give grid and breakpoint a ruleset an agent may read.** Half a day. It
+finishes the last thing an agent needs — how the page is laid out.
 
 Your generating skill — screen *and* report — is yours, and deliberately later;
 it needed this format settled first. One catch: `design` is already a built-in

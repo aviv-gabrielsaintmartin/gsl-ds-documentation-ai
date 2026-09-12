@@ -153,6 +153,16 @@ A declaration is complete only when it states all three:
 **A declaration missing any of the three counts as absent.** Two of the three is
 not a partial pass; it is a declaration nobody can review.
 
+**Where a declaration physically lives:** the `## Declarations` section of
+`compliance/runs/run-<NNN>/report-run-<NNN>.md`, written by the generating agent
+before scoring. Same place on every platform — a run folder is the same whether
+the output was drawn in Figma or built on web. See
+[the report has two authors](#the-report-has-two-authors).
+
+**A run that invented nothing still writes the section**, reading `_None._`. An
+empty section says the agent looked; a missing one cannot be told apart from an
+agent that never considered the question.
+
 **This question is the pivot of the whole scorecard.** It is what lets
 **Define the components to use** report a hand-built element without anyone
 having to decide whether building it was justified. The checker never answers *"was this invention a good idea?"*,
@@ -334,7 +344,7 @@ A platform that cannot supply these cannot be judged.
 | `property.isTokenBound` | Is this styled property resolved through a design token, or written as a literal value? |
 | `property.tokenName` | If bound, which token — by the name used on the token pages |
 | `property.kind` | What is being styled: colour · type style · spacing · radius · border width · shadow |
-| `output.declarations` | The declarations the generating agent produced under **When nothing fits** |
+| `output.declarations` | The declarations the generating agent produced under **When nothing fits**. The adapter reads them from the `## Declarations` section of `report-run-<NNN>.md` — never from the platform, which has no record of them |
 
 ### Optional facts
 
@@ -367,7 +377,7 @@ nesting, so a deep tree stays readable.
   "run":  { "id": "001", "date": "2026-09-08", "wireframe": "serp-v1", "platform": "figma" },
   "declarations": [
     {
-      "what": "A compact agency banner",
+      "what": "A compact agency banner — logo, agency name, and a contact action on one row",
       "problem": "Grouping and structuring content",
       "ruledOut": [
         { "component": "Card", "why": "needs a full-bleed logo the Card padding forbids" },
@@ -462,11 +472,18 @@ compliant one.
 It is written to:
 
 ```
-compliance/runs/run-<NNN>/report.md
+compliance/runs/run-<NNN>/report-run-<NNN>.md
 ```
 
 `<NNN>` is the next unused three-digit number. Numbers are never reused, never
 reordered, and never renumbered after the fact.
+
+**Every run file carries its run number in its own name.** The folder already
+says which run it is, and the filename repeats it on purpose: a file is opened in
+a tab, attached to a message, or dropped beside another run's file, and in all
+three the folder is gone. Screenshots are the exception — they keep their
+descriptive names, because what a screenshot shows matters more than which run
+drew it.
 
 **A report lives in this repo, never inside the output it judges.** Not in the
 Figma file, not in the web prototype, not beside the skill that produced it. A
@@ -477,13 +494,34 @@ cannot be compared against another run, and is thrown away with the prototype.
 
 | File | Required? | Written by | What it is |
 | --- | --- | --- | --- |
-| `prompt.md` | **yes** | the person running it, **before generating** | The brief the run was given. Saved first, so a brief can never be quietly rewritten to match what came out |
+| `prompt-run-<NNN>.md` | **yes** | the person running it, **before generating** | The brief the run was given. Saved first, so a brief can never be quietly rewritten to match what came out |
 | screenshots — `*.png` | **yes** | whoever ran it | What the screen actually looked like. The only human-readable proof: a Figma file changes under you, a screenshot does not |
-| `facts.json` | **yes** | the adapter | What the platform found, in design-system vocabulary. Shape defined in [The shape](#the-shape) |
-| `report.md` | **yes** | the checking agent | The answers. Template below |
+| `facts-run-<NNN>.json` | **yes** | the adapter | What the platform found, in design-system vocabulary. Shape defined in [The shape](#the-shape) |
+| `report-run-<NNN>.md` | **yes** | **two authors — see below** | **Declarations**, then the answers. Template below |
 
-**Why `facts.json` is kept rather than discarded after judging.** When a rule or
-a question changes, the checker can be re-run against a stored `facts.json` —
+### The report has two authors
+
+**The generating agent writes the `Declarations` section. The checking agent
+writes everything else.** They write at different times, into the same file.
+
+| Written by | When | What |
+| --- | --- | --- |
+| The generating agent | **Before scoring**, as the last act of generating | `## Declarations` — one block per element it built by hand |
+| The checking agent | After the adapter has run | Every other section. It **never edits `Declarations`** — it reads it and answers the question |
+
+**A declaration is written before the score is known, and is never revised
+afterwards.** This is the same protection `prompt-run-<NNN>.md` already has: a
+brief is saved before generating so it cannot be reworded to match what came
+out, and a declaration is written before scoring so it cannot be retrofitted to
+pass. A declaration added or reworded after the verdict is not a declaration.
+
+**The run folder is the only home a declaration has.** Not a note on the Figma
+frame, not a comment in the prototype, not the agent's reply in chat — a reply
+is not an artefact and is gone when the session closes.
+
+**Why the facts file is kept rather than discarded after judging.** When a rule
+or a question changes, the checker can be re-run against a stored
+`facts-run-<NNN>.json` —
 answering *would the new question have caught the old mistake?* without
 regenerating anything. Discard it and the next scorecard edit orphans every run
 before it.
@@ -516,12 +554,25 @@ in here with example values, so the shape is unambiguous.
 | **Date** | 2026-09-14 |
 | **Platform** | Figma |
 | **Wireframe** | `listing-detail-mobile` |
-| **Brief** | [prompt.md](prompt.md) |
+| **Brief** | [prompt-run-007.md](prompt-run-007.md) |
 | **Output** | [block-1-energy.png](block-1-energy.png) · [block-2-finance.png](block-2-finance.png) |
-| **Facts** | [facts.json](facts.json) |
+| **Facts** | [facts-run-007.json](facts-run-007.json) |
 
 The **wireframe** label is what makes two runs comparable in the ledger. It is
 not gated on — nothing fails for a label that does not match a previous run.
+
+## Declarations (1)
+
+Written by the generating agent, before scoring. Never edited afterwards. One
+block per element built by hand; `_None._` if it invented nothing.
+
+### A compact agency banner
+
+| | |
+| --- | --- |
+| **What was built** | A compact agency banner — logo, agency name, and a contact action on one row |
+| **Problem it belongs under** | Grouping and structuring content |
+| **Ruled out** | `Card` — needs a full-bleed logo the Card padding forbids · `Listing Card` — this is an agency, not a property |
 
 ## Answers
 

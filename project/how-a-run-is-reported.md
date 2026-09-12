@@ -33,23 +33,25 @@ Five steps. Two of them are done by a person, three by machines.
 
 ```
         YOU
-         │  write the brief, save it as prompt.md
+         │  write the brief, save it as prompt-run-001.md
          ▼
   ┌─────────────┐
-  │  1. BRIEF   │   prompt.md          saved BEFORE anything is generated
+  │  1. BRIEF   │   prompt-run-001.md   saved BEFORE anything is generated
   └─────────────┘
          │
          ▼
   ┌─────────────┐
   │ 2. GENERATE │   the agent draws the screen in Figma
   └─────────────┘   you take screenshots of what it actually made
+                    it writes down anything it built by hand
+                                            → report-run-001.md, part one
          │
          ▼
   ┌─────────────┐
   │ 3. TRANSLATE│   the "adapter" reads the Figma file and writes down
   │             │   what is there, in design-system words:
   └─────────────┘   "this is a Listing Card"  ·  "this colour is Surface/Brand"
-         │                                          → facts.json
+         │                                       → facts-run-001.json
          ▼
   ┌─────────────┐
   │  4. SCORE   │   the checking agent compares those facts
@@ -58,7 +60,8 @@ Five steps. Two of them are done by a person, three by machines.
          │
          ▼
   ┌─────────────┐
-  │  5. REPORT  │   report.md — the verdict, saved beside everything above
+  │  5. REPORT  │   report-run-001.md — the verdict, written into the
+  │             │   same file, below what the agent already wrote
   └─────────────┘
          │
          ├──────►  one line appended to the run ledger   (so runs can be compared)
@@ -100,16 +103,46 @@ folder missing one is a run that cannot be trusted later.
 
 | The file | Who writes it | When | Why it has to exist |
 | --- | --- | --- | --- |
-| `prompt.md` — the brief | **You** | **Before** generating | So the brief can never be quietly reworded afterwards to match whatever came out |
+| `prompt-run-001.md` — the brief | **You** | **Before** generating | So the brief can never be quietly reworded afterwards to match whatever came out |
 | `*.png` — the screenshots | Whoever ran it | Right after generating | The only human-readable proof. A Figma file keeps changing under you; a screenshot doesn't |
-| `facts.json` — what was found | The translator | During scoring | Kept, not thrown away, so a *future* rule can be tested against an *old* run |
-| `report.md` — the verdict | The checking agent | Last | The answer. Readable on its own, sendable to anyone |
+| `facts-run-001.json` — what was found | The translator | During scoring | Kept, not thrown away, so a *future* rule can be tested against an *old* run |
+| `report-run-001.md` — the verdict | **Two writers** — see below | Twice | The answer. Readable on its own, sendable to anyone |
+
+**Every file carries its run number, and the folder says it too.** That looks
+like saying it twice, and it is deliberate: the moment a file is opened in a tab
+or attached to a message, the folder is gone and the name is all you have. The
+screenshots are the exception — `block-1-energy-and-conditions.png` tells you
+what you are looking at, which matters more than which run drew it.
 
 The exact shape of the report — which headings, in which order — is
 [The template](../compliance/compliance-scorecard.md#the-template). It is not
 repeated here on purpose.
 
-### The one that surprises people: keeping `facts.json`
+### The report is written by two different agents
+
+Most of the report is the verdict, written last by the checking agent. But the
+report **opens** with a section the checking agent never touches.
+
+When an agent cannot find a component that fits, it is allowed to build the
+thing by hand — and it then has to say so. It writes what it built, which
+problem it was solving, and which existing components it looked at and rejected.
+That is a **declaration**, and it is what separates a considered decision from
+an agent that simply didn't look.
+
+The declaration goes at the top of the run's report, written by the generating
+agent **before anything is scored**. Then the checking agent opens the same file
+and writes the verdict underneath.
+
+The order is the point. A brief is saved before generating so nobody can reword
+it to match the output; a declaration is written before scoring for the same
+reason — so it can't be quietly improved once the agent sees it failed. A
+declaration added after the verdict isn't one.
+
+There is nowhere else it could go. A note on the Figma frame is thrown away with
+the file, and a sentence in the agent's reply disappears when the conversation
+does.
+
+### The one that surprises people: keeping the facts file
 
 It looks like scratch paper. It isn't.
 
@@ -133,21 +166,21 @@ compliance/
 │
 └── runs/
     ├── run-001/                 ← the one we already have
-    │   ├── prompt.md
+    │   ├── prompt-run-001.md
     │   ├── block-1-energy-and-conditions.png
-    │   └── block-2-finance.png          (no facts, no report — see below)
+    │   └── block-2-finance.png    (no facts, no report — see below)
     │
     ├── run-002/
-    │   ├── prompt.md
+    │   ├── prompt-run-002.md
     │   ├── screen.png
-    │   ├── facts.json
-    │   └── report.md            ← a complete run looks like this
+    │   ├── facts-run-002.json
+    │   └── report-run-002.md      ← a complete run looks like this
     │
     └── run-003/
-        ├── prompt.md
+        ├── prompt-run-003.md
         ├── screen.png
-        ├── facts.json
-        └── report.md
+        ├── facts-run-003.json
+        └── report-run-003.md
 ```
 
 Run numbers are **never reused, never reordered, never renumbered** after the
@@ -203,7 +236,7 @@ Three things to hold on to while reading it:
   such thing as 88% of never, and writing it that way made a broken rule look
   like a good score.
 - **Open a report only when a row looks wrong.** The ledger tells you *that*
-  something moved; the report in `runs/run-NNN/report.md` tells you *what*.
+  something moved; `runs/run-NNN/report-run-NNN.md` tells you *what*.
 
 And one column no machine can fill: **Quality** is your sentence, in your words,
 about whether the screen is actually any good. Compliance can tell you the agent
@@ -219,7 +252,7 @@ Same pipeline, from the machine's side. The agent has just been handed a
 freshly generated screen.
 
 ```
-  1. Take the facts                 reads facts.json — never opens Figma
+  1. Take the facts                 reads the facts file — never opens Figma
          │
   2. Ask the questions, step by step
          │
@@ -240,7 +273,8 @@ freshly generated screen.
          ├── yes   a finding. The report says what, and where
          └── FLAGS odd, but no rule covers it either way
          ▼
-  4. Write report.md               one row per question, in step order
+  4. Write the report              one row per question, in step order,
+         │                          underneath the declarations already there
          │
   5. Append two rows               run ledger · flag ledger
 ```
@@ -267,7 +301,7 @@ already has a name.
 ## What already went wrong once
 
 `run-001` is sitting in that folder right now with its brief and its
-screenshots and **no verdict at all** — no `facts.json`, no `report.md`.
+screenshots and **no verdict at all** — no facts file, no report.
 
 Nothing failed. The rules simply described a report as something you *look at*,
 and never as something that is *saved*. So a real run happened, was looked at,
@@ -287,7 +321,7 @@ is.
 
 | Thing | State today |
 | --- | --- |
-| The **translator** (step three) | **Not built.** Until it is, `facts.json` is written by hand — and a hand-written facts file is exactly the sort of thing that quietly stops matching what the rules expect |
+| The **translator** (step three) | **Not built.** Until it is, the facts file is written by hand — and a hand-written facts file is exactly the sort of thing that quietly stops matching what the rules expect |
 | The **generating skill** | Gabriel's to build. It will produce both the screen and the report. It deliberately came second: a skill can't be built against a format that isn't settled |
 | The **two ledgers agreeing** | Nothing checks that a report's scores match its ledger row. Two files, kept in step by hand |
 | The **layout check** | Switched off. The layout rules have never been tested against a real screen |

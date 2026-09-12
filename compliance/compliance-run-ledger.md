@@ -59,5 +59,5 @@ stays visible where it matters.
 | — | — | _no runs judged yet_ | — | — | — | — | — | — |
 
 **`run-001` exists and has never been scored.** Its brief and screenshots are in
-`runs/run-001/`; it has no `facts.json` and no `report.md`, because the report
-had nowhere to live when it was run. It is the reason this file exists.
+`runs/run-001/`; it has no facts file and no report, because the report had
+nowhere to live when it was run. It is the reason this file exists.
