@@ -40,11 +40,11 @@ say so. Never yet used on a real run.
 
 ## The next task
 
-**Done: the adapter is gone from the scoring sheet.** A run folder is three
-files now, not four. The scoring agent opens the Figma file and looks — no
-translator, no facts file. The rule that replaced it is the one that matters:
-**the agent that scores is never the agent that built.** A builder can read the
-scorecard, so it knows every question before it is asked.
+**Done: `generate-and-score` exists.** It runs one run end to end and does
+neither half itself — one subagent builds, a second fresh one scores, and the
+scorer's prompt carries only a folder path and a frame pointer. Step one saves
+the brief to disk before anything is built, which is the gap that lost two runs.
+**It has never been run**, and says so in its own frontmatter.
 
 **Next: settle whether `Spacing/56` is a page-rhythm token or a forbidden one.**
 Twenty minutes. The spacing ruleset says both, 83 lines apart, and an agent
@@ -53,10 +53,8 @@ obeying the first fails the scorecard for it.
 **Then: give grid and breakpoint a ruleset an agent may read.** Half a day. It
 finishes the last thing an agent needs — how the page is laid out.
 
-**`generate-and-score` is the next real build**, and it orchestrates rather than
-does: create the folder, save the brief, spawn the builder, spawn a cold scorer,
-append the two ledger rows. Named by you on 14 Sep — `design` collides with a
-built-in, and a name saying only *build* is how a session stops after building.
+**The first real run is what proves any of this.** The skill is reasoning until
+a screen goes through it. Run it from a session with Figma — this one cannot.
 
 How tasks are sorted, and why, is at the top of
 [the backlog](project/backlog.md).

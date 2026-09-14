@@ -169,20 +169,21 @@ has to make with no documentation behind it.
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `CLAUDE.md`       | Instructions for agents working in this repo. Not a human document                                                                                                                                                                                                       |
 | `.claude/rules/`  | 5 path-scoped rule files — for `tokens/`, `figma/`, `components/`, `compliance/` and `project/`. Each loads automatically when an agent opens a file in that folder                                                                                                      |
-| `.claude/skills/` | 8 skills — the repeatable workflows. See below                                                                                                                                                                                                                           |
+| `.claude/skills/` | 9 skills — the repeatable workflows. See below                                                                                                                                                                                                                           |
 | `status.md`       | **The one page.** Where the project is and what the next task is. Human-first                                                                                                                                                                                            |
 | `project/`        | `backlog.md` — every task, question and finding — plus `decisions.md`, the log of why the project is shaped this way, and `how-a-run-is-reported.md`, the plain-language walkthrough of the reporting pipeline. Retired files sit in `project/archive/`. **Human-first** |
 | `tokens/scripts/` | 4 Python scripts. They only ever *read* the design-system code repo. Re-run them to refresh the evidence                                                                                                                                                                 |
 | `scripts/`        | `check-links.py` — run it after renaming or deleting anything. It reports links whose target is gone, and rulesets that point an agent at evidence it may not read                                                                                                       |
 
-### The eight skills
+### The nine skills
 
-Two run the work itself:
+Three run the work itself:
 
 | Skill | What it does |
 | --- | --- |
 | `task-next` | Proposes one task — what, why, how long — waits for Gabriel's go, does it, reports in three lines |
 | `task-check` | Verifies the task actually worked. Passed → logged, next task named. Failed → a sub-task to fix it becomes next |
+| `generate-and-score` | Runs one compliance run end to end. Orchestrates only — one subagent builds the screen, a second cold one scores it |
 
 Six do the content work:
 
