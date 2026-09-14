@@ -68,15 +68,39 @@ trailing space.** `eye slash`, `smart fill`, `Save`, `RDC` and `assistance `
 are the real strings — an approximate match, a tidied match or a guessed
 hyphenation finds nothing.
 
-**Two names are defective, and both are still the real name today:**
+**Two near-identical pictures are two different icons. The category decides:**
+
+| What you want to say | The icon |
+| --- | --- |
+| **An idea, a tip, a hint** | `light-bulb`, in **Alert & Feedback**, beside `info` and `question` |
+| **A physical light** | `lightbulb`, in **Furnitures** |
+
+They look almost the same and mean different things, so **never pick between
+them by appearance** — pick by what you are saying. See
+[icons-index.md](icons-index.md) for both rows.
+
+**One name is a typo, and the typo is still the name today:**
 
 | What you may want | What the library actually holds |
 | --- | --- |
-| A lightbulb | **Both `light-bulb` and `lightbulb` exist.** They appear to be one icon under two spellings. Nothing says which is current — treat it as an unresolved name and ask |
 | A magnifying glass with a spark | `maginifying-glass-spark` — **the typo is the name.** Match it as written |
 
 **Never invent a name that is not in the index**, and never reach for a name
 because it resembles one that is.
+
+---
+
+## Two icons are France-only
+
+*`file-cdd` and `file-cdi` are French employment contract types.*
+
+**CDD** is a fixed-term contract, **CDI** a permanent one. They are meaningful on
+a French listing and meaningless anywhere else. **Confirmed by Gabriel,
+14 September 2026: use them only in a French context**, and never as a generic
+document or contract icon — `file-lines`, `file-signature` and `file-certificate`
+are the general ones.
+
+The two names differ by one letter. Read it before you place it.
 
 ---
 

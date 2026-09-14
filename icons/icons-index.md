@@ -26,6 +26,19 @@ company in **Brands**, the fruit in **Nature & Food**. `route` in **Map** and
 **If no name fits, stop and ask.** Do not pick the nearest-looking icon, and do
 not compose one from shapes. See **When no icon fits** in the ruleset.
 
+## Which parts of this page are generated
+
+**The category lists below are generated from `figma/figma-icons-registry.json`.**
+Re-generate them after any `figma-sync-icons` run — the registry is the source of
+truth for names, and a rename in Figma that is not reflected here makes the page
+lie.
+
+**The three tables after them are written by hand** — the icons with a real
+variant choice, the names that do not explain themselves, and the names nobody
+can resolve. **Regenerating the lists must not overwrite them.** They hold
+answers that exist nowhere else, several of them given by Gabriel in conversation
+and recorded nowhere in Figma.
+
 ---
 
 ## The categories
@@ -161,17 +174,26 @@ See the ruleset's **Variants** section for what that means for your output.
 
 ---
 
+## Names that do not explain themselves
+
+*Answered by Gabriel on 14 September 2026 unless the row says otherwise. An agent
+uses these as written and does not reason past them.*
+
+| Icon | Category | What it is |
+| --- | --- | --- |
+| `RDC` | Place & Property | **Rez-de-chaussée — the ground floor.** Confirmed by Gabriel. It belongs with `attic`, `basement`, `cellar` and `stairs`, which are the other floor levels |
+| `file-cdd` · `file-cdi` | Document & Content | **French employment contract types**, CDD fixed-term and CDI permanent. **France only** — confirmed by Gabriel. Never reach for either outside a French context |
+| `comment` · `comments` | Device & Communication | **One speech bubble against two overlapping** — a single comment against a conversation |
+| `square-h` | Place & Property | **The hospital sign**, H in a square, exactly as `circle-parking` is the P parking sign |
+| `light-bulb` | Alert & Feedback | **An idea or a tip.** Its category is what tells you: it sits with `info`, `exclamation` and `question` |
+| `lightbulb` | Furnitures | **A physical light.** Not a duplicate of `light-bulb` — a different icon doing a different job, in a different category. They are near-identical to look at, and Gabriel has flagged that one should go in the long term |
+| `magnifying-bars` | Real Estate | **A graph under a magnifying glass — showing a trend or data**, most likely for a single classified listing on a listing page. **Guessing**, and Gabriel's own reading: he is unsure where it is used |
+| `power` | Furnitures | The icon is what it looks like. **The category is the problem** — *Furnitures* holds `dishwasher`, `microwave`, `refrigerator`, `vacuum`, `elevator` and `camera-cctv`, which are appliances rather than furniture. Look here for home equipment, not only for furniture |
+
 ## Names nobody can resolve
 
-*An agent must not guess at any of these. Each is an open question for Gabriel,
-recorded in [icons-audit.md](icons-audit.md).*
+*An agent must not guess at these. Ask.*
 
 | Icon | Category | What is not known |
 | --- | --- | --- |
-| `One` · `Two` · `Three` | Document & Content | What they depict and what they are for. They are the only icons named as written-out numbers, and three of the fifteen names that break the naming convention |
-| `RDC` | Place & Property | Almost certainly *rez-de-chaussée*, the French ground floor — **guessing**, from the abbreviation alone. Nothing in the registry says so |
-| `file-cdd` · `file-cdi` | Document & Content | French employment contract types. Opaque to anyone outside France, and the pair differ by one letter |
-| `comment` · `comments` | Device & Communication | Both in the same category, singular against plural. Nothing says when to use which |
-| `magnifying-bars` | Real Estate | What the bars are. Not obviously a search icon, and it sits in Real Estate rather than with the other magnifying glasses |
-| `square-h` | Place & Property | What the H stands for |
-| `power` | Furnitures | Not the name — the category. A power symbol under *Furnitures* looks like a filing mistake, and a wrong category sends an agent to the wrong list |
+| `One` · `Two` · `Three` | Document & Content | **What they are for. Nobody knows, Gabriel included.** They are the only icons named as written-out numbers, and they carry `Filled`, `Circle` and `Square` axes, which fits a numbered marker. **Gabriel's hypothesis, 14 Sep, and he states it as a hypothesis:** they may serve a designer-only Figma case, from a time when the `Badge` component offered no large enough size. Nothing confirms it |

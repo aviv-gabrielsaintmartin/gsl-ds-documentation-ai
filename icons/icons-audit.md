@@ -68,7 +68,7 @@ distinct ways:
 
 | Problem | Names |
 | --- | --- |
-| **Trailing whitespace** | `assistance ` · `virtual-staging ` · `two-three-dimensional-draw ` |
+| **Trailing whitespace** — fixed in Figma by Gabriel, 14 Sep | `assistance ` · `virtual-staging ` · `two-three-dimensional-draw ` |
 | **Spaces instead of hyphens** | `eye slash` · `smart fill` · `smart edit` · `smart search` · `image ai` |
 | **Capital letters** | `Save` · `One` · `Two` · `Three` · `RDC` · `RER-paris` · `location-Xmark` |
 
@@ -76,16 +76,53 @@ distinct ways:
 invisible in every rendering of it, and an agent matching `assistance` against
 `assistance ` finds nothing while appearing to have looked correctly.
 
-**Two further names are defective rather than merely non-conforming:**
+**One further name is defective rather than merely non-conforming:**
 
 | Name | Problem |
 | --- | --- |
-| `light-bulb` · `lightbulb` | **The same icon under two spellings.** An agent choosing by name has a coin flip, and the registry records both as real |
 | `maginifying-glass-spark` | **A typo** — "maginifying". It is nonetheless the name the library holds, so it is the name that must be matched today |
 
-**All seventeen need a Figma rename, then a `figma-sync-icons` run** so the
+**Thirteen still need a Figma rename, then a `figma-sync-icons` run** so the
 registry follows. Doing only the first half leaves the registry holding names
 that no longer exist. On the task list as of 14 September.
+
+**Three of the fifteen were fixed the same day.** Gabriel renamed
+`assistance `, `virtual-staging ` and `two-three-dimensional-draw ` by hand in
+Figma on 14 September. **The registry has not been re-synced**, so it still holds
+the old names and `icons/icons-index.md`, generated from it, still shows them.
+A `figma-sync-icons` run is on the task list.
+
+---
+
+## The set appears to be Font Awesome 6, and that has not been proved
+
+**Guessing, strongly.** On 14 September, 33 distinctive Font Awesome 6 names were
+tested against the registry — `house-building`, `hot-tub-person`, `load-dock`,
+`sprinkler-ceiling`, `clapperboard-play`, `magnet-diagonal`, `scale-balanced`,
+`bell-concierge`, `square-h`, `circle-parking` and 23 more. **All 33 were
+present. None was missing.**
+
+A hit rate that high on names that specific is not coincidence. **It is still not
+proof** — no diff against the full Font Awesome catalogue was run, and this
+session had no network access to fetch one.
+
+**What it would buy if confirmed.** Most of "which icon means what" is already
+documented by Font Awesome, and only the custom real-estate additions —
+`square-meter`, `three-six-zero-view`, `sold-property`, `magnifying-bars`,
+`house-staging`, `RDC`, `One`/`Two`/`Three` — would need a human. That is a
+handful rather than 454.
+
+**It already answered three questions** that were otherwise going to Gabriel:
+`square-h` is the hospital sign, on the same pattern as `circle-parking` being
+the parking sign; `comment` and `comments` are one bubble against two; and
+`lightbulb` is the Font Awesome spelling, which is what exposed `light-bulb` as a
+separate icon rather than a duplicate.
+
+**Deliberately kept out of the ruleset.** A generating agent does not need the
+provenance, and an unverified one invites it to go and read Font Awesome's
+documentation, importing assumptions this design system never made. The names in
+the index are what an agent matches on. Verifying the hypothesis is on the task
+list.
 
 ---
 
@@ -96,12 +133,40 @@ that no longer exist. On the task list as of 14 September.
 `arrow-left` against `arrow-up-left`, `magnifying-glass-plus` against
 `magnifying-glass-minus`, `double-chevron-left` against `double-chevron-right`.
 
-Two resolve on category rather than on name, and the index says so:
+Three resolve on category rather than on name, and the index says so:
 
 | Pair | Resolved by |
 | --- | --- |
 | `apple` · `apple` | **Brands** is the company, **Nature & Food** is the fruit |
 | `route` · `router` | **Map** against **Device & Communication** |
+| `light-bulb` · `lightbulb` | **Alert & Feedback** is an idea or a tip; **Furnitures** is a physical light |
+
+**The lightbulb pair was recorded as a defect on 14 September and it was not
+one.** The first pass called them "the same icon under two spellings" and filed a
+rename. The categories disprove it: `light-bulb` sits with `info`, `exclamation`
+and `question`, `lightbulb` sits with `dishwasher` and `refrigerator`. Two icons,
+two jobs. **Corrected the same day, with Gabriel's go.** **What does hold:** they
+are near-identical to look at, and Gabriel's view on 14 Sep is that one should go
+in the long term. That is a consolidation question, not a rename.
+
+**The lesson is about the check, not the icons.** A similarity score over names
+cannot see meaning. Both times the naming was measured, the measure answered a
+narrower question than the conclusion drawn from it — first *are these unique*,
+then *do these look alike*.
+
+---
+
+## Questions asked and answered, 14 September 2026
+
+*All of these were open when this page was written and were answered by Gabriel
+the same day. The answers live in the index, where an agent reads them.*
+
+| Question | Answer |
+| --- | --- |
+| Does `RDC` mean *rez-de-chaussée*? | **Yes.** The French ground floor |
+| Should `file-cdd` and `file-cdi` be used outside France? | **No. France only** |
+| What is `magnifying-bars`? | **A graph — a trend or data**, most likely for one classified listing on a listing page. Gabriel is unsure where it is used and offered this as his own reading, not a fact |
+| Is `light-bulb` or `lightbulb` the current one? | **Both. They are different icons** — see the pairs section above |
 
 ---
 
@@ -109,14 +174,11 @@ Two resolve on category rather than on name, and the index says so:
 
 | Question | Why it matters |
 | --- | --- |
-| What are `One`, `Two` and `Three`? | The only icons named as written-out numbers, and three of the fifteen that break the naming convention. Nothing suggests what they depict |
-| Does `RDC` mean *rez-de-chaussée*? | **Guessing**, from the abbreviation alone. If it is the French ground floor, it belongs with `square-h` and the other property icons and needs an English-readable name |
-| When is `comment` right and when is `comments`? | Both sit in **Device & Communication**, singular against plural, with nothing to choose between them |
-| What is `magnifying-bars`? | Filed under **Real Estate**, away from the other magnifying glasses. The name does not describe a picture |
-| What does the H in `square-h` stand for? | Hospital, helipad and something property-specific are all plausible. An agent must not pick |
-| Is `power` in the right category? | A power symbol under **Furnitures**. A wrong category sends an agent to the wrong list, which is worse than a wrong name — nothing tells it to look elsewhere |
-| Is `light-bulb` or `lightbulb` the current one? | Both exist. Whichever survives, the other should go |
-| What are the variant axes for? | **The large one.** `Filled`, `Circle` and `Square` were added over several years for different cases and the reasoning was not recorded — Gabriel, 14 Sep. The ruleset currently tells an agent to match what is around it, which is guidance, not a rule |
+| What are `One`, `Two` and `Three`? | **Asked and not answered — Gabriel does not know either, 14 Sep.** His hypothesis, stated as one: they may serve a designer-only Figma case, from a time when `Badge` offered no large enough size. The only icons named as written-out numbers, and they carry `Filled`, `Circle` and `Square`, which fits a numbered marker |
+| Is the set Font Awesome 6? | **The large one, and the cheapest to settle.** If it is, ~440 of 454 names are already documented and only the custom additions need a human. 33 of 33 tested names matched. A proper diff against the catalogue would confirm or kill it |
+| Is *Furnitures* the right name for that category? | It holds `dishwasher`, `microwave`, `refrigerator`, `vacuum`, `elevator` and `camera-cctv` — appliances and home equipment, not furniture. It is also not English. A wrong category name sends an agent to the wrong list, and nothing tells it to look elsewhere |
+| Should `light-bulb` or `lightbulb` be retired? | Gabriel, 14 Sep: they are near-identical and one should go in the long term. Which one, and what the survivor is called, is his call |
+| What are the variant axes for? | **The other large one.** `Filled`, `Circle` and `Square` were added over several years for different cases and the reasoning was not recorded — Gabriel, 14 Sep. The ruleset currently tells an agent to match what is around it, which is guidance, not a rule |
 
 ---
 
@@ -125,6 +187,6 @@ Two resolve on category rather than on name, and the index says so:
 | Decision | Why |
 | --- | --- |
 | **No Figma keys or node IDs on any icon page** | `figma/figma-icons-registry.json` is the sole source of truth for Figma identity. A copy in markdown drifts the first time `figma-sync-icons` runs. Gabriel, 14 Sep: "Keys are Figma specific" |
-| **No rendered images** | 454 renders is real work, a generating agent never needs them, and a human has Figma open. The seven unresolved names are the only place a picture would help, and they are flagged in both the index and here |
+| **No rendered images** | 454 renders is real work, a generating agent never needs them, and a human has Figma open. The names that do not explain themselves are the only place a picture would help, and they are answered in the index instead |
 | **No folder per icon** | A component folder holds prose and images. An icon has neither — a row in a table is the whole of it. 454 folders would be structure with nothing inside |
 | **No theory about why the social icons carry `Square`** | Six brand icons — `instagram`, `linkedin`, `twitter`, `whatsapp`, `xing`, `youtube` — carry `Square` and not `Circle`. An earlier draft proposed this meant `Square` was a brand-tile shape. **Gabriel, 14 Sep: other icons carry `Square` too, he does not know why the social ones differ, and this is not to be theorised about.** Recorded as a fact, not explained |

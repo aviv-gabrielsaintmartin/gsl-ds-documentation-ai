@@ -44,12 +44,16 @@ findings are now ruled.
 `ruleset gap`, two `agent error`, two `accepted`, one `library defect`. Ruled
 cold — three verdicts came out differently from what the report expected.
 
-**Done: icons are documented, and two run-002 findings are closed.** `icons/` is
-the fifth pillar — an index of all 455, the ruleset, the audit. The rule that an
-icon is never interactive alone is written in two places. **What the naming pass
-found:** fifteen names break the convention and **three carry a trailing space**,
-which is invisible and makes an exact match fail silently. Seventeen need a Figma
-rename, and seven names nobody can resolve are now questions for you.
+**Done: icons are documented, and five of the seven open names are answered.**
+`icons/` is the fifth pillar — index, ruleset, audit. An icon is never
+interactive alone, written in two places. **The finding underneath it:** the set
+appears to be **Font Awesome 6** — 33 of 33 tested names matched. Guessing, not
+proved. If it holds, ~440 of 454 names are already documented and only the
+custom real-estate ones need you.
+
+**One thing is live and wrong right now.** You renamed three icons in Figma; the
+registry and the index still hold the old names. A `figma-sync-icons` run fixes
+it and needs a session with Figma tools. It is top of the list.
 
 **Then: settle whether `Spacing/56` is page rhythm or forbidden.** The spacing
 ruleset says both, 83 lines apart — and the donut appears to use 56 internally,
