@@ -443,7 +443,7 @@ writes everything else.** They write at different times, into the same file.
 | Written by | When | What |
 | --- | --- | --- |
 | The generating agent | **Before scoring**, as the last act of generating | `## Declarations` — one block per element it built by hand |
-| The scoring agent | After the screen exists and the declarations are written | Every other section. It **never edits `Declarations`** — it reads it and answers the question |
+| The scoring agent | After the screen exists and the declarations are written | Every other section, and both ledger rows. It writes **above and below** `## Declarations` and **never edits it** — it reads it and answers the question |
 
 **A declaration is written before the score is known, and is never revised
 afterwards.** This is the same protection `prompt-run-<NNN>.md` already has: a
@@ -463,6 +463,46 @@ advanced for the end-of-September deadline. Until then the screenshots and the
 written findings are the record, and a changed question is tested by running a
 new screen.
 
+### Who the report is for, and the order that follows from it
+
+**The report is written for Gabriel.** It is the only thing in the pipeline a
+person reads end to end. The ledgers are the machine-facing summary, and nothing
+else reads a report at all.
+
+That decides the order. **Conclusion first, decisions second, machinery last.**
+
+| Section | Who writes it | Why it sits here |
+| --- | --- | --- |
+| **Verdict** | the scoring agent | The answer, in plain words. First, because it is what he opened the file for |
+| **Decisions you need to make** | the scoring agent | The only part that needs him to act |
+| **Answers** | the scoring agent | The scorecard question by question |
+| **Declarations** | the **generating** agent | What it built by hand and why. Written first, never edited |
+| **Evidence** | the scoring agent | The walk, the inventory, the locators. Last, because nobody reads it unless a line above is disputed |
+| **Quality verdict** | Gabriel | Free text, never scored |
+
+**The generating agent writes `## Declarations` into the file first.** The
+scoring agent then writes the human sections **above** it and the evidence
+**below** it. Writing around a declaration is allowed; editing one is not.
+
+### Writing rules for the report
+
+**Gabriel's personal writing rules apply to the whole file except Evidence.**
+Short sentences, short paragraphs, no preamble.
+
+**A locator is a coordinate, never part of a sentence.** A node ID, a key, a
+file id — each is a way to find a thing, not a way to name it.
+
+- Name the thing in words, then give its locator in a column or in brackets.
+- **Never** write a list of bare IDs in running prose.
+- Bad: *"Also undeclared: the four plain text nodes at `133:5081`, `133:5085`,
+  `134:5078`, `134:5968`."*
+- Good: *"Four text nodes are undeclared — two section titles, two rating
+  labels."* The IDs go in the Evidence table.
+
+**Evidence is the one section written for a machine**, and the repo's usual rule
+applies there: restate a condition rather than eliding it, and give every finding
+its locator.
+
 ### Every row appears, including the empty ones
 
 **One row per question, in step order, whatever the answer.** A row reading `no`
@@ -472,11 +512,28 @@ question was answered or whether nobody asked it.
 The same holds for the three steps with no question and for the inactive step:
 they each keep a row saying so.
 
-**There is no hard-fails-first section any more.** It existed because a report
-opening with *"C1 94%, C3 88%"* read as broadly fine even when something
-forbidden had shipped. With no percentages left, there is nothing for a failure
-to hide behind — the Answer column is scanned for `yes`, and that is the whole
-reading.
+### Everything a person must rule on goes in one table
+
+**A failure needs a human ruling as much as a flag does.** This was missing until
+14 September 2026: flags carried four verdicts and failures carried none, so a
+failure was recorded and never decided. Gabriel raised it after the first scored
+run, where the clearest finding was neither the agent's fault nor the
+documentation's.
+
+Both go in **Decisions you need to make**, with the same five verdicts:
+
+| Verdict | Meaning |
+| --- | --- |
+| `awaiting decision` | Not yet ruled on. Blocks nothing; accumulates until it is |
+| `agent error` | The rules covered this case. The generating agent got it wrong |
+| `ruleset gap` | The rules did not cover this case. **Becomes a task in the backlog** |
+| `library defect` | **The Figma library is wrong.** Not the agent, not the documentation — no doc change fixes it, and it needs a library edit |
+| `accepted` | Legitimate as used. No change needed |
+
+**`library defect` exists because the first scored run produced one.** The
+components ruleset says `Donut chart`'s legend sits below the chart; the Figma
+component's own frame places it beside. Nothing the agent did caused that, and
+rewriting the documentation to match would hide it.
 
 ### The template
 
@@ -488,14 +545,52 @@ in here with example values, so the shape is unambiguous.
 
 | | |
 | --- | --- |
-| **Date** | 2026-09-14 |
+| **Date scored** | 2026-09-14 |
 | **Platform** | Figma |
 | **Wireframe** | `listing-detail-mobile` |
 | **Brief** | [prompt-run-007.md](prompt-run-007.md) |
 | **Output** | [block-1-energy.png](block-1-energy.png) · [block-2-finance.png](block-2-finance.png) |
+| **Frame judged** | `132:5052` · page `Screen` |
 
-The **wireframe** label is what makes two runs comparable in the ledger. It is
-not gated on — nothing fails for a label that does not match a previous run.
+## Verdict
+
+The screen is built almost entirely from the library. Two things failed.
+
+One block was built by hand and never declared, so nobody can review whether
+building it was right. One component had its internal spacing changed, which the
+rules forbid outright.
+
+Four things need your ruling, below. One of them looks like a Figma bug rather
+than a mistake by the agent.
+
+## Decisions you need to make (4)
+
+| What | Why it needs you | Ruling |
+| --- | --- | --- |
+| The partner-offer block was built by hand and not declared | The rules are clear that this fails. Whether it should have been built at all is yours | _unruled_ |
+| The donut chart's legend sits beside the chart, not below | The ruleset says below. The Figma component itself says beside. One of them is wrong | _unruled_ |
+| The energy scale colours were used | A restricted family, used exactly as the rules describe. Restricted means a person looks | _unruled_ |
+| White letters on the CO₂ ladder | No rule allows or forbids it. It may be a gap in the rules rather than a mistake | _unruled_ |
+
+Rulings: `awaiting decision` · `agent error` · `ruleset gap` · `library defect` ·
+`accepted`.
+
+## Answers
+
+| Step | Question | Answer | Reason |
+| --- | --- | --- | --- |
+| Define the content | _no question yet_ | — | — |
+| Define the components to use | Was any element hand-built instead of taken from the library? | **yes** | Five things were built by hand. Three are declared, two are not |
+| Define the components to use | Was any never-select component used? | no | — |
+| Define the components to use | Was any component name used that appears in no registry? | no | — |
+| Define what needs to be built | Was anything hand-built without a complete declaration? | **yes** | The partner-offer block, and four plain text nodes |
+| Choose the tokens | Was any styled value written as a literal instead of bound to a token? | no | — |
+| Choose the tokens | Was a library component's internal styling overridden? | **yes** | The donut chart's internal spacing was changed |
+| Choose the tokens | Was any deny-listed token used? | no | — |
+| Choose the tokens | Was any token used that is not in the GSL token set? | no | — |
+| Put them on the screen | _no question yet_ | — | — |
+| Place them according to the design guidance | _inactive_ | — | — |
+| Check the content | _no question yet_ | — | — |
 
 ## Declarations (1)
 
@@ -510,35 +605,22 @@ block per element built by hand; `_None._` if it invented nothing.
 | **Problem it belongs under** | Grouping and structuring content |
 | **Ruled out** | `Card` — needs a full-bleed logo the Card padding forbids · `Listing Card` — this is an agency, not a property |
 
-## Answers
+## Evidence
 
-| Step | Question | Answer | Reason |
+Written for a machine and for a dispute. Every locator lives here.
+
+### How the screen was read
+
+**Proved.** The frame was walked node by node. For every node the walk recorded
+its type, its main component, its overridden fields, its bound variables and its
+styling.
+
+### Hand-built elements
+
+| What | Nodes | Locator | Declared? |
 | --- | --- | --- | --- |
-| Define the content | _no question yet_ | — | — |
-| Define the components to use | Was any element hand-built instead of taken from the library? | **yes** | `12:3500` — a hand-built element containing `Card`, `Image Slider` and `Tag` |
-| Define the components to use | Was any never-select component used? | **yes** | `Status Bar` at `12:3401` — **Never select** |
-| Define the components to use | Was any component name used that appears in no registry? | no | — |
-| Define what needs to be built | Was anything hand-built without a complete declaration? | **yes** | `12:3500` — the only declaration names an agency banner |
-| Choose the tokens | Was any styled value written as a literal instead of bound to a token? | **yes** | `#1A1A1A` at `12:3500` |
-| Choose the tokens | Was a library component's internal styling overridden? | no | — |
-| Choose the tokens | Was any deny-listed token used? | **yes** | `Spacing/56` at `12:3500` — spacing's *Do not use* |
-| Choose the tokens | Was any token used that is not in the GSL token set? | no | — |
-| Put them on the screen | _no question yet_ | — | — |
-| Place them according to the design guidance | _inactive_ | — | — |
-| Check the content | _no question yet_ | — | — |
-
-## Flags (1)
-
-Findings, not failures. Also appended to
-[the flag ledger](../../compliance-flag-ledger.md).
-
-| Step | Subject | Why flagged |
-| --- | --- | --- |
-| Choose the tokens | `Spacing/40`, 3 elements | Unprecedented — no rule authorises or forbids it as a section gap |
-
-## Awaiting human decision (0)
-
-_None._
+| The partner-offer content block | 5 | `138:5263` | **no** |
+| Section titles and rating labels | 4 | `133:5081` · `133:5085` · `134:5078` · `134:5968` | **no** |
 
 ## Quality verdict
 
@@ -551,19 +633,27 @@ where a missing one does not.
 
 ### After writing the report
 
-Two appends, both to files that are never rewritten:
+**The scoring agent appends both ledger rows itself.** It holds the findings and
+the counts already; anything else re-derives them from the report, and a copy
+step drifts.
 
 | Append to | What |
 | --- | --- |
 | [compliance-run-ledger.md](compliance-run-ledger.md) | One row for the run — how many questions answered `yes` at each step, so runs can be compared without opening any report |
-| [compliance-flag-ledger.md](compliance-flag-ledger.md) | Every flag raised, so a finding seen three times can be spotted |
+| [compliance-flag-ledger.md](compliance-flag-ledger.md) | One row per item in *Decisions you need to make* — failures included, not only flags |
+
+Both files are append-only. Never rewrite a row, never remove one.
+
+**A run is unfinished until both appends exist.** The first scored run wrote a
+report and neither row, because two files disagreed about whose job it was.
 
 ---
 
 ## The flag ledger
 
-**Flags accumulate across runs.** A flag in one run is noise; the same flag in
-three runs is evidence a ruleset is missing a case.
+**Every item a person must rule on is recorded here — failures included, not
+only flags.** One item in one run is noise; the same item in three runs is
+evidence a ruleset is missing a case.
 
 Recorded in [compliance-flag-ledger.md](compliance-flag-ledger.md), appended
 after every run, never rewritten.
@@ -573,13 +663,13 @@ after every run, never rewritten.
 | Run | Which run raised it |
 | Step | Which step of designing it came from |
 | Subject | Token name, component name, or element |
-| Why flagged | Restricted · unprecedented · declared invention |
+| Why raised | Failure · restricted · unprecedented · declared invention |
 | Times seen | Cumulative across all runs |
-| Verdict | `awaiting decision` · `ruleset gap` · `agent error` · `accepted` |
+| Verdict | `awaiting decision` · `agent error` · `ruleset gap` · `library defect` · `accepted` |
 
 **A subject seen three times is raised for a human decision** — it is not
 auto-promoted and not auto-dismissed. Gabriel rules on it, and the verdict says
-which of the four it was. **If the verdict is `ruleset gap`, it becomes a task in
+which of the five it was. **If the verdict is `ruleset gap`, it becomes a task in
 [the backlog](../project/backlog.md) first.** Doing that task writes the rule
 into the ruleset and the reasoning into the relevant `-audit.md`, exactly as the
 component eval's misses did — the audit is where the reasoning settles, never

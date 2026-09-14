@@ -40,11 +40,12 @@ say so. Never yet used on a real run.
 
 ## The next task
 
-**Done: `generate-and-score` exists.** It runs one run end to end and does
-neither half itself — one subagent builds, a second fresh one scores, and the
-scorer's prompt carries only a folder path and a frame pointer. Step one saves
-the brief to disk before anything is built, which is the gap that lost two runs.
-**It has never been run**, and says so in its own frontmatter.
+**Done: the run report is written for you now.** Verdict first, then the
+decisions you must rule on, then the answers; the technical walk moved to the
+bottom. Node IDs are coordinates in a column, never sentences. **Failures now get
+your ruling too**, with a fifth verdict — `library defect`, for when Figma is
+wrong and no documentation change fixes it. Run-002's report is rewritten in the
+new order; no finding changed.
 
 **Next: settle whether `Spacing/56` is a page-rhythm token or a forbidden one.**
 Twenty minutes. The spacing ruleset says both, 83 lines apart, and an agent

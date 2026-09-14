@@ -28,9 +28,10 @@ done by subagents, and they must be two different ones.
         │
         ▼
   4. SCORE            subagent two · fresh · has never seen subagent one
-        │             reads the scorecard · writes findings, then answers
+        │             writes the report FOR GABRIEL — verdict first —
+        │             then appends both ledger rows itself
         ▼
-  5. LEDGERS          one run row · one row per flag
+  5. CHECK            the two ledger rows exist. You never write them
         │
         ▼
   6. REPORT BACK      three lines to Gabriel
@@ -96,6 +97,8 @@ Spawn **one** subagent. Give it:
   `compliance/runs/run-NNN/report-run-NNN.md`, before it finishes — one block
   per element it built by hand. A run that invented nothing still writes the
   section, reading `_None._`.
+- **What to report back:** the Figma file, page and frame it drew into, and the
+  frame's node ID. That pointer is all subagent two will get.
 
 **Paste the declaration format into the builder's prompt. Do not send it to the
 scorecard to find it** — that file is the marking scheme, and a builder that
@@ -115,8 +118,6 @@ opens it for the template has read the questions.
 
 **All three fields are required.** A declaration missing one counts as absent,
 and absent is a failure.
-- **What to report back:** the Figma file, page and frame it drew into, and the
-  frame's node ID. That pointer is all subagent two will get.
 
 **Declarations are written before scoring, and never revised after.** A
 declaration edited once the verdict is known is not a declaration.
@@ -142,22 +143,35 @@ Spawn a **second** subagent. Fresh. Give it exactly:
 - The Figma frame pointer from step 2.
 - The instruction to read `compliance/compliance-scorecard.md` and answer every
   question in it, including the steps that have none.
-- The instruction to write **what it found** and then the answers into
-  `report-run-NNN.md`, below the declarations.
-- **Never edit the `## Declarations` section.** It reads that section to answer
-  *was anything hand-built without a complete declaration?* and changes nothing
-  in it.
+- The instruction to write the report into `report-run-NNN.md`, **in the order
+  the scorecard's template gives** — verdict, decisions, answers, then the
+  builder's declarations, then the evidence.
+- The instruction to **append both ledger rows itself** when the report is done.
+- **Never edit the `## Declarations` section.** It writes above and below that
+  section. It reads it to answer *was anything hand-built without a complete
+  declaration?* and changes nothing in it.
 
-Give it nothing else.
+Give it nothing else. In particular, give it nothing about what was built.
 
-## Step 5 — the two ledgers
+## Step 5 — check the ledgers were appended
 
-Both are append-only. Never rewrite a row, never remove one.
+**The scoring agent writes both ledger rows, not you.** It holds the findings and
+the counts; anything else re-derives them from the report, and a copy step
+drifts. Both ledger files say the same — *written by the checking agent*.
 
-| Append to | What |
-| --- | --- |
-| `compliance/compliance-run-ledger.md` | One row: run number, date, platform, wireframe label, how many questions each step answered `yes` to, flag count, and Gabriel's quality verdict left blank |
-| `compliance/compliance-flag-ledger.md` | One row per flag raised |
+Your job here is to **verify the two rows exist**:
+
+- `compliance/compliance-run-ledger.md` — one row for the run.
+- `compliance/compliance-flag-ledger.md` — one row per item the report lists
+  under *Decisions you need to make*, failures included, not only flags.
+
+**A run is unfinished until both rows exist.** If they are missing, send the
+scoring agent back. Never write them yourself from the report — that is the copy
+step the rule exists to prevent.
+
+**This step exists because the first run lost it.** Step 4 said *"give it nothing
+else"*, step 5 read as the orchestrator's job, and both ledger files said the
+checking agent's. Three files, two answers, so nobody appended anything.
 
 The **wireframe** label comes from the brief and is reused verbatim for every run
 of that brief. Two runs are only comparable when it matches.
@@ -166,6 +180,10 @@ of that brief. Two runs are only comparable when it matches.
 
 Three lines to Gabriel: the run number, what the scorer found, where the report
 is. Never paste the whole report into chat.
+
+**The report is written for him**, so it opens with a verdict and the decisions
+he has to rule on. If it opens with node IDs or a technical walk, the scoring
+agent used the wrong order — send it back rather than summarising around it.
 
 Then commit and push the run folder and both ledger rows. This only ever adds —
 same reasoning as `/task-check`, written out in `CLAUDE.md`.
