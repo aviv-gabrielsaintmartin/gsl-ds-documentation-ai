@@ -48,19 +48,14 @@ wrong and no documentation change fixes it. Run-002's report is rewritten in the
 new order; no finding changed.
 
 **Next: rule on run-002's eight findings.** In a **fresh chat, with Figma** —
-not this one, which watched the builder and would lean toward blaming the rules.
-Read `report-run-002.md`, take the items one at a time, rule all eight before
-fixing anything.
+not the one that built it, which would lean toward blaming the rules. Read
+`report-run-002.md`, one item at a time. Rule all eight before fixing anything.
 
-**Next: settle whether `Spacing/56` is a page-rhythm token or a forbidden one.**
-Twenty minutes. The spacing ruleset says both, 83 lines apart, and an agent
-obeying the first fails the scorecard for it.
+**Then: settle whether `Spacing/56` is a page-rhythm token or a forbidden one.**
+Twenty minutes. The spacing ruleset says both, 83 lines apart.
 
-**Then: give grid and breakpoint a ruleset an agent may read.** Half a day. It
-finishes the last thing an agent needs — how the page is laid out.
-
-**The first real run is what proves any of this.** The skill is reasoning until
-a screen goes through it. Run it from a session with Figma — this one cannot.
+**Then: give grid and breakpoint a ruleset an agent may read.** Half a day, and
+it finishes the last thing an agent needs.
 
 How tasks are sorted, and why, is at the top of
 [the backlog](project/backlog.md).
