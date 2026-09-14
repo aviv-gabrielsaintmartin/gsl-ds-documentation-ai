@@ -26,6 +26,7 @@ Judge every page in here by one test:
 | See every task, open question and finding | [project/backlog.md](project/backlog.md) |
 | **Generate an interface** | The rulesets, and only the rulesets — see the four of them below |
 | Know what components exist | [components/components-index.md](components/components-index.md) |
+| Know what icons exist | [icons/icons-index.md](icons/icons-index.md) |
 | Know what tokens exist | [tokens/tokens-index.md](tokens/tokens-index.md) · then [tokens/README.md](tokens/README.md) for the folder |
 | Know **why** a rule says what it says | The matching `-audit.md` |
 | Know why the project is shaped like this | [project/decisions.md](project/decisions.md) |
@@ -106,6 +107,7 @@ Two honest inconsistencies, so you aren't confused when you meet them:
 | `tokens/radius/radius-rules-ai.md` | `tokens/radius/radius-usage-audit.md` | | |
 | `tokens/shadow/shadow-rules-ai.md` | `tokens/shadow/shadow-usage-audit.md` | | |
 | `tokens/border-width/border-width-rules-ai.md` | | | |
+| `icons/icons-rules-ai.md` | `icons/icons-audit.md` | | |
 | | `tokens/color/surface-border-combination-audit.md` — draft, not yet a ruleset | | |
 | | `compliance/compliance-audit.md` | `compliance/compliance-flag-ledger.md` | `compliance/compliance-scorecard.md` |
 | | | `compliance/compliance-run-ledger.md` | |
@@ -156,6 +158,7 @@ runs this way.
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
 | `tokens/`     | 12 token categories — colour, typography, spacing, radius, shadow, and 7 more. Every one checked against real component usage                                                                                                                                  | [tokens/tokens-index.md](tokens/tokens-index.md)                         |
 | `components/` | 53 component docs, one folder each with a self-contained `images/`. Plus the ruleset, audit and eval                                                                                                                                                           | [components/components-index.md](components/components-index.md)         |
+| `icons/`      | 455 icons in 17 categories — the index of what exists, the ruleset, and the audit. No folder per icon and no rendered images: an icon is a row in a table                                                                                             | [icons/icons-index.md](icons/icons-index.md)                             |
 | `figma/`      | 7 registry JSON files — the identity of every Figma component, token and icon. Keys, node IDs, variant counts                                                                                                                                                  | `.claude/rules/figma-registries.md`                                      |
 | `compliance/` | How generated output is judged — eight yes-or-no questions, grouped under the step of designing each one guards, and the report every run must produce. Read by a **checking** agent, not a generating one. `compliance/runs/` holds one folder per run: the brief, the screenshots, the facts and the report | [compliance/compliance-scorecard.md](compliance/compliance-scorecard.md) |
 

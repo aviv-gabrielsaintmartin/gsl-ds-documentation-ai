@@ -395,6 +395,33 @@ Do not search the libraries for them:
 
 ---
 
+## Icons
+
+*An icon is never interactive on its own.*
+
+_**Stated here and in full in [icons-rules-ai.md](../icons/icons-rules-ai.md)**,
+which is the authority on icons — which one, which variant, and what exists. It is
+repeated here because this is the page you are on when you decide what the user
+presses._
+
+A bare icon has **no states, no hit area and no accessible name.** If the user
+can press it, it sits inside something that carries those: `Button`,
+`Text Button`, `Link`, `Chip`, `Floating Button Group`, or a component's own icon
+slot.
+
+**A tooltip may be triggered by any component. It may never be triggered by a
+bare icon.** `Text Field` shows the pattern — the icon beside its label sits in a
+control, not loose on the canvas.
+
+**A decorative or purely informative icon needs none of this**, because nothing
+presses it. The test is whether the user can act on it, never how it looks.
+
+**455 icons exist and none of them was documented before 14 September 2026.**
+Go to [icons-index.md](../icons/icons-index.md) for what exists, and
+[icons-rules-ai.md](../icons/icons-rules-ai.md) before choosing a variant — every
+variant axis defaults to `Off`, which is how run-002 placed a bare `info` where
+the circled form was wanted.
+
 ## Never select
 
 *Never select these.*

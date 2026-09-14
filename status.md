@@ -25,7 +25,7 @@ Designing a screen is seven steps. **One of them is fully written.**
 | The step | Written? |
 | --- | --- |
 | Define the content — from the user need | ❌ **Nothing.** No rule, no doc, no task |
-| Define the components to use, and which variant | 🟡 **Which component** is written and tested cold three times. **Which variant is not** — 455 icons have no rules at all |
+| Define the components to use, and which variant | 🟡 Components written, tested cold three times. Icons now have an index and a ruleset. **What the variant axes mean is still unknown** — to you as well |
 | Define what needs to be built | ✅ **Written.** An invention is declared in the run's own report, before it is scored |
 | Choose the tokens — colour, text style, spacing | 🟡 **Seven of twelve kinds** have a ruleset. Five don't |
 | Put them on the screen | 🟡 An agent can place a component, but can't put words in one |
@@ -44,12 +44,12 @@ findings are now ruled.
 `ruleset gap`, two `agent error`, two `accepted`, one `library defect`. Ruled
 cold — three verdicts came out differently from what the report expected.
 
-**Next: icons — 455 of them, none documented.** Two more run-002 findings landed
-on one `info` icon: right icon, wrong variant, and no button around it. Nothing
-in any ruleset covers either. **Smaller than it looked** — 454 of 455 names are
-unique, so it's an index plus eight flagged names, not a catalogue. Three tasks:
-the index, the rule that an icon is never interactive alone, and what the
-variant axes are for.
+**Done: icons are documented, and two run-002 findings are closed.** `icons/` is
+the fifth pillar — an index of all 455, the ruleset, the audit. The rule that an
+icon is never interactive alone is written in two places. **What the naming pass
+found:** fifteen names break the convention and **three carry a trailing space**,
+which is invisible and makes an exact match fail silently. Seventeen need a Figma
+rename, and seven names nobody can resolve are now questions for you.
 
 **Then: settle whether `Spacing/56` is page rhythm or forbidden.** The spacing
 ruleset says both, 83 lines apart — and the donut appears to use 56 internally,
