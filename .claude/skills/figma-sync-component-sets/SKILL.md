@@ -21,7 +21,8 @@ Extract identity, parent property definitions (`VARIANT`, `BOOLEAN`, `INSTANCE_S
 
 | Item | Value / Configuration |
 |---|---|
-| **App & Plugin** | Figma Desktop with the target library open. Plugin: `Plugins → Development → Figma Desktop Bridge → Run` (keep active). |
+| **App & Plugin** | Figma Desktop with the target library open. Plugin: `Plugins → Development → **FigCli** → Run` (keep the plugin window open). **Only Gabriel can start it** — ask, then wait. |
+| **How Figma is driven** | **`figma-cli`, at `~/figma-cli`. It is not on PATH** — run everything as `cd ~/figma-cli && node src/index.js <cmd>`. `run <file>` executes a script in the plugin context; `eval <code>` handles one-liners. **Do not use the Desktop Bridge (`figma-console-mcp`)** — Gabriel retired it as unmaintained, and the `figma_get_status` / `figma_execute` tools this skill used to call no longer exist. |
 | **Library tiers → registry files** | `components` → `figma-components-registry.json` · `patterns` → `figma-patterns-registry.json` · `experiences` → `figma-experiences-registry.json` · `foundations` → `figma-foundations-components-registry.json` (all repo root, all shaped `{"components": {...}}` regardless of tier — the key name is kept literal across all files for structural parity, even though it reads oddly for a patterns/experiences/foundations file). `figma-foundations-components-registry.json` additionally carries a sibling top-level `illustrations` key (added 2026-08-28) shaped `{"page", "auditedDate", "status", "categories": {"<Category Name>": {"illustrations": [...]} } }` — illustrations are catalog-sized (173 entries across 10 categories) and category-grouped like Icons, so they get their own key rather than flattening into `components`. |
 | **Library file keys** | Read from `figma-libraries-registry.json` under the matching tier. |
 | **Audit log / Known traps** | `audit-log.md` / `known-traps.md` (this folder) — shared across all three tiers; audit entries are tagged with the tier + page they came from. |
@@ -29,7 +30,7 @@ Extract identity, parent property definitions (`VARIANT`, `BOOLEAN`, `INSTANCE_S
 ## Steps
 
 **STEP 0: Target resolution**
-1. Determine the tier: if the user named it explicitly, use that. Otherwise infer from the currently connected Figma Desktop file name via `figma_get_status` (match against `figma-libraries-registry.json`'s tier names) and confirm: "Working in the [Tier] library ([File Name]) — correct?"
+1. Determine the tier: if the user named it explicitly, use that. Otherwise infer it from the open file's name — `cd ~/figma-cli && node src/index.js eval 'JSON.stringify({name: figma.root.name})'` — and match that against `figma-libraries-registry.json`. **Match on the file *name*, never on `fileKey`: `figma.fileKey` is `undefined` through FigCli** (proved 2026-09-14), so a key-based match silently fails. If the name matches no tier, ask rather than guess.
 2. Check if a component/pattern/experience name was given. If not, ask: "Which one would you like to document or update?"
 
 **STEP 1: Registry pre-check (create vs. update)**
@@ -37,10 +38,13 @@ Extract identity, parent property definitions (`VARIANT`, `BOOLEAN`, `INSTANCE_S
 2. If present: UPDATE mode — preserve any manually-added notes on that entry. If absent: CREATE mode.
 
 **STEP 2: Extract live Figma nodes**
-1. Verify Desktop Bridge is active and connected to the expected file (`figma_get_status`, `probe: true`).
+1. Verify the plugin is attached, and treat this as two separate checks:
+   - `cd ~/figma-cli && node src/index.js status` → the daemon only. `✓ Daemon running` says **nothing** about the plugin.
+   - `node src/index.js eval 'JSON.stringify({name: figma.root.name})'` → the plugin, and which file it is on. Confirm it is the tier you resolved in STEP 0.
+   - **`Error: fetch failed` means the plugin is not attached, not that the daemon is down.** The usual cause is Figma switching files, which stops the plugin. Ask Gabriel to run `Plugins → Development → FigCli`. You cannot do it.
 2. Search the active file for the `COMPONENT_SET` (or a standalone `COMPONENT`, for a slot-style/no-variant case — see `Content Placeholder` in `figma-components-registry.json` for precedent) named [Name]. On Patterns/Experiences pages, a public pattern is often built from `.`-prefixed private helper sets on the same page — register the public one; private helpers stay internal, same convention already applied in Components (e.g. `.Select card AI test`).
    - **Flat asset family case** (first seen in Foundations' `Brand App Icons`): several standalone `COMPONENT`s (no shared `COMPONENT_SET`, no variant properties) that read as one family — e.g. per-platform/per-brand app icon exports. Register these as **one registry entry** for the family name, with an `assets: [{name, key, nodeId}]` array instead of `variantCount`/`componentPropertyDefinitions`. Don't split into one top-level entry per asset.
-3. Extract via `figma_execute`:
+3. Extract by writing a script to the scratchpad and running `node src/index.js run <file>` — it executes in the plugin context, so `figma.loadAllPagesAsync()`, page and node lookup, `componentPropertyDefinitions` and `isExposedInstance` all behave as the Plugin API documents. Have it `return JSON.stringify(...)` and capture stdout. Extract:
    - Key and node ID.
    - Variant count (`children.length`) if a `COMPONENT_SET`; omit if a standalone `COMPONENT`.
    - All `componentPropertyDefinitions`, preserving exact string literals/typos.

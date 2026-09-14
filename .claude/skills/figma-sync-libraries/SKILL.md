@@ -20,7 +20,9 @@ Keep `figma-libraries-registry.json` in sync with whichever GSL library file is 
 | Item | Value / Configuration |
 |---|---|
 | **Figma Desktop** | Target library file open in Figma Desktop (the web browser app is not supported). |
-| **Desktop Bridge** | Plugin active: `Plugins → Development → Figma Desktop Bridge → Run`. |
+| **Plugin** | `Plugins → Development → **FigCli** → Run` (keep the plugin window open). **Only Gabriel can start it** — ask, then wait. |
+| **How Figma is driven** | **`figma-cli`, at `~/figma-cli`. It is not on PATH** — run everything as `cd ~/figma-cli && node src/index.js <cmd>`. **Do not use the Desktop Bridge (`figma-console-mcp`)** — Gabriel retired it as unmaintained, and the `figma_get_status` / `figma_execute` tools this skill used to call no longer exist. |
+| **The file key must come from Gabriel** | **Proved 2026-09-14: `figma.fileKey` is `undefined` through FigCli**, and `node src/index.js files` returns `{"error":"fetch failed"}` because it needs CDP, which Safe Mode does not give. There is no way to read a file's key from inside the plugin. **Ask Gabriel for the file's URL** and take the key from it: `figma.com/design/<fileKey>/<name>`. This is a real capability the Desktop Bridge had and this path does not — say so rather than guessing a key. |
 | **Registry** | `figma-libraries-registry.json` (repo root). Read and write this file directly — never Confluence. |
 | **Core tiers** | `foundations`, `components`, `patterns`, `experiences` (extensible — a new tier can be added on request). |
 
@@ -30,8 +32,11 @@ Keep `figma-libraries-registry.json` in sync with whichever GSL library file is 
 Read `figma-libraries-registry.json` directly. This is the only source of prior state — there is no Confluence fallback to reconcile against.
 
 **STEP 2: Inspect the active Figma file**
-1. Verify the Desktop Bridge plugin is active (`figma_get_status`, `probe: true`).
-2. Read the `fileKey` and document `name` of the currently focused file via `figma_execute`.
+1. Verify the plugin is attached, and note that this is two checks, not one:
+   - `cd ~/figma-cli && node src/index.js status` → the daemon only. `✓ Daemon running` says **nothing** about the plugin.
+   - `node src/index.js eval 'JSON.stringify({name: figma.root.name})'` → the plugin, and which file it is on.
+   - **`Error: fetch failed` means the plugin is not attached, not that the daemon is down.** The usual cause is Figma switching files, which stops the plugin. Ask Gabriel to run `Plugins → Development → FigCli`. You cannot do it.
+2. Read the document `name` from that same `eval`. **The `fileKey` cannot be read this way** — see the Prerequisites row. Ask Gabriel to paste the file's URL and take the key from `figma.com/design/<fileKey>/<name>`. **Never invent a key, and never carry forward the key already in the registry as though you had confirmed it.**
 
 **STEP 3: Identify tier & reconcile**
 1. Match the active file's name against the existing tiers.
@@ -48,4 +53,5 @@ Print a Markdown table of all tracked tiers (Tier, File Name, Key, Status), then
 
 | Trap / Behavior | Root Cause & Resolution |
 |---|---|
-| **Silent Bridge Disconnection** | The Desktop Bridge disconnects whenever the Figma file is edited. Re-run the plugin and verify via `figma_get_status` (`probe: true`) before retrying. |
+| **The plugin stops whenever Figma switches files** | Confirmed 2026-09-14. A command that worked minutes ago fails with `Error: fetch failed` for no reason other than the owner opening another document. The daemon stays up throughout, so `status` still reports healthy — check the plugin with an `eval`, not with `status`. Only Gabriel can restart it from `Plugins → Development → FigCli`. |
+| **`figma.fileKey` is undefined through FigCli** | Proved 2026-09-14 on `0. GSL Foundations Library`: an `eval` returning `figma.root.name` works and `figma.fileKey` comes back `undefined`. Component and component-set `key` values read normally — it is only the *file* key that is missing. `node src/index.js files` would give it but needs CDP, which Safe Mode does not provide. Get the key from the URL Gabriel pastes. |

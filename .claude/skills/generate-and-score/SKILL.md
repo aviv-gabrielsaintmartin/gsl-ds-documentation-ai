@@ -65,7 +65,8 @@ orchestrating chat, one building agent, one scoring agent.
 
 | Precondition | If it is missing |
 | --- | --- |
-| The session can reach Figma Desktop Bridge — it is running off `~/.claude/`, not `~/.claude-personal/` | **Stop.** Say so and ask Gabriel to start the run in a session that can. Neither subagent can work without it |
+| **The FigCli plugin is running, on the right file** | **Ask Gabriel to start it** — `Plugins → Development → FigCli` — then wait. Only he can. Do **not** stop and ask him to move to another session: this precondition used to read *the session can reach Figma Desktop Bridge, it is running off `~/.claude/` not `~/.claude-personal/`*, and that was wrong twice over. The Desktop Bridge is retired, and **`figma-cli` is machine-wide — it does not care which config root a session booted from.** Corrected 2026-09-14, after the old gate would have turned away a session that could do the work |
+| **Both checks pass, and they are different checks** | `cd ~/figma-cli && node src/index.js status` tests the **daemon**; `node src/index.js eval 'JSON.stringify({name: figma.root.name})'` tests the **plugin** and names the open file. `✓ Daemon running` on its own proves nothing. **`Error: fetch failed` means the plugin is detached, not that the daemon is down** — and the usual cause is Figma switching files, which stops the plugin mid-run |
 | A brief exists — pasted, or already a file | **Stop and ask for it.** Never write one yourself |
 | Gabriel has said go | **Stop.** A run writes files. Ask once, here, then write the run's own artefacts without asking again |
 

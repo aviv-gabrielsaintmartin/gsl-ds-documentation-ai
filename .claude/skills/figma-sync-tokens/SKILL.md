@@ -19,7 +19,8 @@ Extract design tokens, text styles, and effect styles from `0. GSL Foundations L
 
 | Item | Value / Configuration |
 |---|---|
-| **App & Plugin** | Figma Desktop with `0. GSL Foundations Library` open. Plugin: `Plugins → Development → Figma Desktop Bridge → Run` (keep active). |
+| **App & Plugin** | Figma Desktop with `0. GSL Foundations Library` open. Plugin: `Plugins → Development → **FigCli** → Run` (keep the plugin window open). **Only Gabriel can start it** — ask, then wait. |
+| **How Figma is driven** | **`figma-cli`, at `~/figma-cli`. It is not on PATH** — run everything as `cd ~/figma-cli && node src/index.js <cmd>`. `run <file>` executes a script in the plugin context; `eval <code>` handles one-liners. **Do not use the Desktop Bridge (`figma-console-mcp`)** — Gabriel retired it as unmaintained, and the `figma_execute` / `figma_get_variables` tools this skill used to call no longer exist. |
 | **Foundations Key** | Read from `figma-libraries-registry.json` under `foundations`. |
 | **Registry** | `figma-tokens-registry.json` (repo root). Read and write directly — never Confluence. |
 | **Architecture reference** | `architecture.md` (this folder) — resolution model, collection/mode IDs, scope rules. Static; only re-cache if the owner says the token architecture itself changed. |
@@ -46,17 +47,21 @@ Extract design tokens, text styles, and effect styles from `0. GSL Foundations L
 
 **STEP 1: Target resolution & connection check**
 1. Map the target category to its collection source above.
-2. Verify Desktop Bridge is active. Read the `foundations` key from `figma-libraries-registry.json`.
-3. Ignore expired REST tokens — all extraction runs through Desktop Bridge (`figma_execute`).
+2. Verify the plugin is attached, and treat this as two separate checks:
+   - `cd ~/figma-cli && node src/index.js status` → the daemon only. `✓ Daemon running` says **nothing** about the plugin.
+   - `node src/index.js eval 'JSON.stringify({name: figma.root.name})'` → the plugin, and which file it is on. It must read `0. GSL Foundations Library`.
+   - **`Error: fetch failed` means the plugin is not attached, not that the daemon is down.** The usual cause is Figma switching files, which stops the plugin. Ask Gabriel to run `Plugins → Development → FigCli`. You cannot do it.
+3. Read the `foundations` key from `figma-libraries-registry.json`. **Do not try to read it from Figma: `figma.fileKey` is `undefined` through FigCli** (proved 2026-09-14). The registry is the source for it.
+4. Ignore expired REST tokens — all extraction runs in the plugin context, through `node src/index.js run <file>`.
 
 **STEP 2: Targeted extraction rules**
 - Exclude variables containing 🔒 (component-internal).
 - Exclude raw `Color/*` primitives in `1 - Primitive` (hidden from publishing).
-- **colors** → extract `3 - Brand` (6 brand modes). Resolve Dark mode by walking the alias chain `3 - Brand → 2 - Mode → 1 - Primitive` with the mode pinned — `figma_get_variables` resolves against Light by default (see `architecture.md`).
+- **colors** → extract `3 - Brand` (6 brand modes). Resolve Dark mode by walking the alias chain `3 - Brand → 2 - Mode → 1 - Primitive` with the mode pinned — the plugin's variable API resolves against Light by default (see `architecture.md`).
 - **spacing / radius / border-width** → extract `1 - Primitive`.
 - **breakpoints / grid** → extract `4 - Breakpoint` (7 modes).
 - **effect-styles / text-styles** → extract local styles, not variables.
-- Read publish keys via `figma_execute → figma.variables.getLocalVariablesAsync() → v.key`. Paginate at 100 items/request.
+- Read publish keys with a script run through `node src/index.js run <file>`: `await figma.variables.getLocalVariablesAsync()`, then `v.key` on each. Have it `return JSON.stringify(...)` and capture stdout. Paginate at 100 items per request.
 - Round-trip one publish key per collection via `importVariableByKeyAsync` before saving, to confirm it's live.
 
 **STEP 3: Diff against the local registry**
