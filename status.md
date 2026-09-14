@@ -3,7 +3,7 @@
 _The only page you need. Everything else in this repo is reference material for
 agents — looked up, never read through._
 
-_Updated 12 September 2026._
+_Updated 14 September 2026._
 
 ---
 
@@ -25,16 +25,16 @@ Designing a screen is seven steps. **One of them is fully written.**
 | The step | Written? |
 | --- | --- |
 | Define the content — from the user need | ❌ **Nothing.** No rule, no doc, no task |
-| Define the components to use, and which variant | ✅ Written, and tested cold three times |
+| Define the components to use, and which variant | 🟡 **Which component** is written and tested cold three times. **Which variant is not** — 455 icons have no rules at all |
 | Define what needs to be built | ✅ **Written.** An invention is declared in the run's own report, before it is scored |
 | Choose the tokens — colour, text style, spacing | 🟡 **Seven of twelve kinds** have a ruleset. Five don't |
 | Put them on the screen | 🟡 An agent can place a component, but can't put words in one |
 | Place them per the design guidance | ❌ Written, but never checked against a real screen |
 | Check the content | ❌ **Nothing**, and the scorecard can't see copy or tone either |
 
-Plus a scoring sheet, now laid out as the same seven steps. Each step asks a
-short list of yes-or-no questions; four steps have questions, three have none and
-say so. Never yet used on a real run.
+Plus a scoring sheet laid out as those same seven steps — four ask yes-or-no
+questions, three have none and say so. **First used on run-002**, whose eight
+findings are now ruled.
 
 ---
 
@@ -42,11 +42,7 @@ say so. Never yet used on a real run.
 
 **Done: run-002's eight findings are ruled, four fixed the same day.** Three
 `ruleset gap`, two `agent error`, two `accepted`, one `library defect`. Ruled
-cold, in a chat that saw neither the one that built the run nor the one that
-scored it. Three verdicts came out differently from what the report expected.
-
-**Waiting on you in Figma:** `Donut chart` cannot place its legend below, and
-its gap to the chart is fixed at 56 — above the 48 ceiling you set. On the list.
+cold — three verdicts came out differently from what the report expected.
 
 **Next: icons — 455 of them, none documented.** Two more run-002 findings landed
 on one `info` icon: right icon, wrong variant, and no button around it. Nothing
@@ -55,12 +51,15 @@ unique, so it's an index plus eight flagged names, not a catalogue. Three tasks:
 the index, the rule that an icon is never interactive alone, and what the
 variant axes are for.
 
-**Then: settle whether `Spacing/56` is a page-rhythm token or a forbidden one.**
-Twenty minutes. The spacing ruleset says both, 83 lines apart — and the donut
-appears to use 56 internally, which would make "no component does" false.
+**Then: settle whether `Spacing/56` is page rhythm or forbidden.** The spacing
+ruleset says both, 83 lines apart — and the donut appears to use 56 internally,
+which would make "no component does" false.
 
 **Then: give grid and breakpoint a ruleset an agent may read.** Half a day, and
 it finishes the last thing an agent needs.
+
+**Waiting on you in Figma:** `Donut chart` cannot place its legend below, and
+its gap to the chart is fixed at 56 — above the 48 ceiling you set.
 
 How tasks are sorted, and why, is at the top of
 [the backlog](project/backlog.md).
