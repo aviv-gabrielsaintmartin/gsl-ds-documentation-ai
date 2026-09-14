@@ -45,16 +45,15 @@ say so. Never yet used on a real run.
 cold, in a chat that saw neither the one that built the run nor the one that
 scored it. Three verdicts came out differently from what the report expected.
 
-**One thing needs you in Figma, and only you can do it.** `Donut chart` cannot
-place its legend below, and its gap to the chart is fixed at 56 — above the 48
-ceiling you set. Both need adding to the component. It is on the list.
+**Waiting on you in Figma:** `Donut chart` cannot place its legend below, and
+its gap to the chart is fixed at 56 — above the 48 ceiling you set. On the list.
 
-**Next: icons — 455 of them, none documented.** You moved this up on 14 Sep.
-Two more run-002 findings landed on one `info` icon: right icon, wrong variant,
-and no button around it. Nothing in any ruleset covers either. **Smaller than it
-looked** — 454 of 455 names are unique, so it's an index plus eight flagged
-names, not a catalogue. Three tasks: the index, the rule that an icon is never
-interactive alone, and what the variant axes are for.
+**Next: icons — 455 of them, none documented.** Two more run-002 findings landed
+on one `info` icon: right icon, wrong variant, and no button around it. Nothing
+in any ruleset covers either. **Smaller than it looked** — 454 of 455 names are
+unique, so it's an index plus eight flagged names, not a catalogue. Three tasks:
+the index, the rule that an icon is never interactive alone, and what the
+variant axes are for.
 
 **Then: settle whether `Spacing/56` is a page-rhythm token or a forbidden one.**
 Twenty minutes. The spacing ruleset says both, 83 lines apart — and the donut
