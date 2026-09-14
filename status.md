@@ -40,6 +40,10 @@ findings are now ruled.
 
 ## The next task
 
+**Done: run-003 failed nothing** — the first run to do so. Same brief as run-002,
+scored cold. Its three failures are all fixed. **Five things need your ruling**,
+in [the report](compliance/runs/run-003/report-run-003.md).
+
 **Done: run-002's eight findings are ruled**, four fixed the same day. Three
 `ruleset gap`, two `agent error`, two `accepted`, one `library defect`.
 
