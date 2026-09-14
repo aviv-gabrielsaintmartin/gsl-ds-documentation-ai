@@ -357,12 +357,45 @@ Sequential blue palette, for CO₂ emission data only.
 **Never reverse the scale.** Never use CO₂ blues for an energy class, or energy
 colours for CO₂.
 
+**Letter or label colour on a CO₂ step.** The CO₂ scale does **not** flip with
+theme — `Blue100` is light in both modes, `Blue700` is dark in both. Text sitting
+on it must therefore use a **theme-stable** content token. Never
+`Content/Default/Default` and never `Content/Default/Inverted`: both flip with
+theme, against a fill that does not, and invert the contrast.
+
+| Step | Token |
+| --- | --- |
+| `Blue100` · `Blue200` · `Blue300` | `Content/Constant/Black` |
+| `Blue400` · `Blue500` · `Blue600` · `Blue700` | `Content/Constant/White` |
+
+Contrast at that split, against the WCAG AA floor of **4.5:1** for text below
+18.66px bold:
+
+| Step | Light | Dark |
+| --- | --- | --- |
+| `Blue100` | 8.24 | 8.64 |
+| `Blue200` | 6.20 | 6.40 |
+| `Blue300` | **4.58** | **4.56** |
+| `Blue400` | 4.76 | 4.88 |
+| `Blue500` | 7.11 | 6.25 |
+| `Blue600` | 10.76 | 8.32 |
+| `Blue700` | 17.47 | 11.24 |
+
+**`Blue300` is the fragile step.** It clears the floor by 0.08 in light and 0.06
+in dark. If either token value ever changes, re-check this step before any other.
+
+**Using `Content/Default/Default` on `Blue100`–`Blue300` passes in light and
+fails in dark** — 1.49:1, 2.02:1 and 2.83:1. This is exactly the trap
+[content.md](content.md) warns about: `Constant` and `Default` are identical in
+light mode and diverge completely in dark.
+
 #### Where these rules come from
 
 | | |
 | --- | --- |
 | Energy class mapping | **Verified against web source code** — `libraries/patterns/energyclassslider/src/EnergyScale.tsx`, 10 September 2026 |
 | CO₂ ordering | **Not verified against code.** Nothing in the web codebase consumes `Scales/CO2/*`; the rule comes from the token page |
+| CO₂ letter colour | **Computed, not observed.** The contrast figures above were calculated from the hex values on [scale.md](scale.md) and [content.md](content.md), 14 September 2026. Nothing in code or Figma sets a letter colour on this scale. The rule was written from run-002, the first output to build a CO₂ ladder, and ruled by Gabriel that day |
 | Both | **Never checked against Figma.** `Energy Tag` carries 48 Figma variants that have not been read. If they assign classes differently, that is a finding to raise — not a difference to resolve on your own |
 
 ### `Surface/Dark`

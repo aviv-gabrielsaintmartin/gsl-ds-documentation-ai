@@ -268,7 +268,7 @@ lists. See **Never select**.
 | **Bar graph** | Comparing quantities **across categories**, or ranking them | A single metric is more informative → **KPI** · The axis is continuous, usually time → **Line chart** · The point is each part's share of a whole → **Donut chart** |
 | **Line chart** | Following a value **over a continuous axis**, usually time | Categories are discrete, not a continuum → **Bar graph** · Each part's share of a whole → **Donut chart** · A single metric is more informative → **KPI** |
 | **Donut chart** | Showing how a total **divides into parts of a whole** | Comparing values across categories → **Bar graph** · A trend over time → **Line chart** · There is only one value → **KPI** |
-| **Legend** | **Never placed on its own — it is a property of the chart.** Place `Bar graph`, `Line chart` or `Donut chart`, then switch its legend on. **Mandatory when two or more data series or segments are shown.** The legend sits below the chart | A single data set → leave it off; the chart title and axis labels carry the meaning · Looking for a legend component to place → there isn't one, and that is correct |
+| **Legend** | **Never placed on its own — it is a property of the chart.** Place `Bar graph`, `Line chart` or `Donut chart`, then switch its legend on. **Mandatory when two or more data series or segments are shown.** The Figma library places the legend beside the chart and offers no below option — see **Where a chart's legend sits**, below | A single data set → leave it off; the chart title and axis labels carry the meaning · Looking for a legend component to place → there isn't one, and that is correct |
 
 ### Identity and media
 
@@ -311,10 +311,34 @@ through the component that contains it — as a property to switch on, or as a
 slot already exposed on it. Only a name that is neither registered nor
 dot-prefixed sends you to **When nothing fits**.
 
-**`Donut chart` has no side-placement option.** Its legend sits below, like the
-other two charts. Its shape would allow it beside the chart, but that property
-does not exist in the Figma library today — do not go looking for it, and do not
-compose one by hand.
+#### Where a chart's legend sits
+
+**`Donut chart`'s legend sits beside the chart, and that is the only placement
+the library offers.** Its graph frame is laid out horizontally, so switching the
+legend on puts it to the side. There is no alignment property — do not go
+looking for one, and do not compose a below-placed legend by hand.
+
+The component documentation allows two placements, below **or to the left**, and
+forbids above. The library can produce only one of the two. **Recorded as a
+library defect on 14 September 2026**, from run-002: the missing alignment
+property is a Figma gap, not a documentation error. Until it is added, beside is
+correct output and is not a finding.
+
+**Never change the gap between a chart and its legend on an instance.** That gap
+is a library component's internal spacing, and **Components first** forbids
+overriding it — the rule is stated in every token ruleset. If the legend does
+not fit the width you have, say so in the run report. Do not reshape the
+component to make it fit.
+
+> **The intended gap is `Spacing/16` at minimum and `Spacing/48` at maximum, and
+> this rule is unverified.** Sixteen is the floor, so the legend never reads as
+> sitting on top of the graph. Forty-eight is the ceiling, so it always reads as
+> belonging to the graph. Within that range the amount is chosen for the
+> context, by the designer or the agent. Gabriel's definition, recorded
+> 14 September 2026. **Not checked against web code, and not what the Figma
+> library does today** — the library uses a fixed 56, above the ceiling. Follow
+> it as documented intent, exactly as you would spacing's **Container padding**
+> and **Page rhythm**, which carry the same unverified label.
 
 **Do not read a component doc's `Figma` cell.** It is a hand-maintained
 duplicate of the registries and has drifted in six of 52 docs — saying `Not
@@ -548,6 +572,23 @@ Compliance means **reuse before invention**, not never inventing.
    Write each block as a `###` heading naming what you built, followed by the
    three parts. If you invented nothing, the section still gets written, reading
    `_None._`.
+
+**What needs declaring, and what does not.** A declaration describes something
+you **composed** — an element assembled from components, frames and text that
+together do a job no single component does. It is not a receipt for every node
+on the screen.
+
+| Built by hand | Declare it? | Why |
+| --- | --- | --- |
+| A composed block — a container plus components plus text, doing one job | **Yes** | Nobody can review whether composing it was right unless you say you did |
+| A layout container holding declared content | **Yes**, inside that content's own declaration | It is part of the thing you composed |
+| **Plain text set in a published GSL text style** — a section title, a field label, a caption, a unit | **No** | Typography's **Components first** tells you to set type on your own markup. No text, heading or label component exists to rule out, and no problem heading in **Which component** covers writing a label. The three-part declaration cannot be written for it, and a declaration missing a part counts as absent |
+
+**Content you author to fill a component's own slot still counts as composed.**
+`Card`'s `Content Placeholder` is documented as taking local content, so building
+something to go in it is correct. It is still an element you built by hand, so it
+still gets its own declaration, with all three parts. **Using a sanctioned slot
+is permission to compose — never an exemption from declaring.**
 
 **The report file is the only place a declaration counts.** Not a note on the
 Figma frame, not a comment in the code, not your reply to whoever asked — a

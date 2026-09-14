@@ -24,6 +24,14 @@ The two ledgers and the run folders record what happened on a date and are
 the rules would then reach back and edit history, and a file read before every
 run would grow by a line every time a screen is generated.
 
+**One thing may be added to a run report after the fact: the ruling.** A report
+is written with its ruling column empty, because the verdicts come from Gabriel
+later. Filling that column is not rewriting history — it is the third author
+finishing the record, and it happens **once**. Everything else in the file is
+fixed the day it is written: the answers, the evidence, the declarations, the
+date. **This exception is the run report's alone.** The two ledgers are never
+touched, including to add a ruling.
+
 ## This pillar is platform-neutral
 
 **The scorecard defines the concept and what to measure. It never defines how a

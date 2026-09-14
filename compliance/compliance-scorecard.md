@@ -183,7 +183,7 @@ that. An open decision blocks nothing; it accumulates until it is ruled on.
 | Question | A `yes` means | Enforces | What the scorer must see |
 | --- | --- | --- | --- |
 | Was any styled value written as a literal instead of bound to a token? | **Failure** | colour's **No raw colour** · spacing's and radius's **No pixel literals** · typography's **No hand-set fonts** | Whether each styled property resolves to a token, and what is being styled |
-| Was a library component's internal styling overridden? | **Failure** | **Components first**, in all seven rulesets | Whether a property belongs to a component's own internals or was set locally |
+| Was a library component's internal styling overridden? | **Failure** | **Components first**, in all six token rulesets | Whether a property belongs to a component's own internals or was set locally |
 | Was any deny-listed token used? | **Failure** | the six deny-lists below | Which token each property resolves to, and what is being styled |
 | Was any token used that is not in the GSL token set? | **Failure.** It came from outside GSL | [tokens-index.md](../tokens/tokens-index.md), which routes to all twelve token pages | Which token each property resolves to |
 
@@ -530,10 +530,13 @@ Both go in **Decisions you need to make**, with the same five verdicts:
 | `library defect` | **The Figma library is wrong.** Not the agent, not the documentation — no doc change fixes it, and it needs a library edit |
 | `accepted` | Legitimate as used. No change needed |
 
-**`library defect` exists because the first scored run produced one.** The
-components ruleset says `Donut chart`'s legend sits below the chart; the Figma
-component's own frame places it beside. Nothing the agent did caused that, and
-rewriting the documentation to match would hide it.
+**`library defect` exists because the first scored run produced one.**
+`Donut chart` places its legend beside the chart and offers no other option. Its
+own documentation allows below **or** to the left, so the library can express
+only one of the two placements it is meant to support. Nothing the agent did
+caused that, and no documentation change fixes it — the component needs an
+alignment property it does not have. Ruled by Gabriel on 14 September 2026, from
+run-002.
 
 ### The template
 

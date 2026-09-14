@@ -31,22 +31,24 @@ written by hand.
 ## Decisions you need to make (8)
 
 Rulings: `awaiting decision` · `agent error` · `ruleset gap` · `library defect` ·
-`accepted`. All eight are unruled. None has been seen in a previous run.
+`accepted`. **All eight were ruled by Gabriel on 14 September 2026**, in a cold
+session that did not see the one that built or scored this run. None had been
+seen in a previous run.
 
 **The flag ledger carries three of these eight, not all eight.** Its rows were
 written before failures were included there, and ledger rows are never
 corrected. From run 003 on, every item in this table gets a row.
 
-| What                                                             | Why it needs you                                                                                                                                   | Ruling    |
-| ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| **The partner-offer block was built by hand and never declared** | The rules are clear that this fails. Whether the block should have been built at all is yours                                                      | _unruled_ |
-| **Four plain text nodes were built by hand and never declared**  | Two section titles and two rating labels. The same rule catches them. They may be too small to be worth declaring, which would be a rules question | _unruled_ |
-| **The donut chart's internal spacing was changed**               | Its internal gap went from 56 to 2. The rules forbid touching a component's internals. Whether the chart needed it is yours                        | _unruled_ |
-| **The donut chart's legend sits beside the chart, not below**    | The ruleset says below. The Figma component itself places it beside. One of the two is wrong, and this is not something the agent did              | _unruled_ |
-| **`Energy tag` was used for the GES rating**                     | The rules say `Energy tag` is for energy ratings only. GES is emissions data. No scorecard question reaches this                                   | _unruled_ |
-| **The energy scale colours were used**                           | A restricted family, used exactly as the rules describe. Restricted means a person looks                                                           | _unruled_ |
-| **The CO₂ scale colours were used**                              | Used in the stated order. The rules record that ordering as never verified against code                                                            | _unruled_ |
-| **White letters on four CO₂ steps**                              | No rule allows or forbids it. It may be a gap in the rules rather than a mistake                                                                   | _unruled_ |
+| What | Why it needs you | Ruling |
+| --- | --- | --- |
+| **The partner-offer block was built by hand and never declared** | The rules are clear that this fails. Whether the block should have been built at all is yours | **agent error** — building it was right, and nothing else in the libraries fits. The declaration was simply missing |
+| **Four plain text nodes were built by hand and never declared** | Two section titles and two rating labels. The same rule catches them. They may be too small to be worth declaring, which would be a rules question | **ruleset gap** — the three-part declaration cannot be written for plain text. No problem heading covers writing a label, and no text component exists to rule out |
+| **The donut chart's internal spacing was changed** | Its internal gap went from 56 to 2. The rules forbid touching a component's internals. Whether the chart needed it is yours | **ruleset gap** — no rule stated what the chart-to-legend gap should be. Now written: `Spacing/16` minimum, `Spacing/48` maximum |
+| **The donut chart's legend sits beside the chart, not below** | The ruleset says below. The Figma component itself places it beside. One of the two is wrong, and this is not something the agent did | **library defect** — the component supports horizontal only and needs an alignment property. The ruleset's claim that the legend sits below was wrong and has been corrected |
+| **`Energy tag` was used for the GES rating** | The rules say `Energy tag` is for energy ratings only. GES is emissions data. No scorecard question reaches this | **agent error** — not the colour. The tag and the scale beneath it state the same information twice in one container. The tag itself is defensible |
+| **The energy scale colours were used** | A restricted family, used exactly as the rules describe. Restricted means a person looks | **accepted** — used exactly as the France table describes, including white letters on A and G only |
+| **The CO₂ scale colours were used** | Used in the stated order. The rules record that ordering as never verified against code | **accepted** — used in the stated order, lowest to highest. The ordering stays marked unverified against code |
+| **White letters on four CO₂ steps** | No rule allows or forbids it. It may be a gap in the rules rather than a mistake | **ruleset gap** — no rule existed. `Constant/White` on `Blue400`–`Blue700` was correct; `Default/Default` on `Blue100`–`Blue300` fails in dark mode at 1.49:1. Rule now written |
 
 ## Answers
 

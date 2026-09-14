@@ -40,19 +40,18 @@ say so. Never yet used on a real run.
 
 ## The next task
 
-**Done: the run report is written for you now.** Verdict first, then the
-decisions you must rule on, then the answers; the technical walk moved to the
-bottom. Node IDs are coordinates in a column, never sentences. **Failures now get
-your ruling too**, with a fifth verdict — `library defect`, for when Figma is
-wrong and no documentation change fixes it. Run-002's report is rewritten in the
-new order; no finding changed.
+**Done: run-002's eight findings are ruled, four fixed the same day.** Three
+`ruleset gap`, two `agent error`, two `accepted`, one `library defect`. Ruled
+cold, in a chat that saw neither the one that built the run nor the one that
+scored it. Three verdicts came out differently from what the report expected.
 
-**Next: rule on run-002's eight findings.** In a **fresh chat, with Figma** —
-not the one that built it, which would lean toward blaming the rules. Read
-`report-run-002.md`, one item at a time. Rule all eight before fixing anything.
+**One thing needs you in Figma, and only you can do it.** `Donut chart` cannot
+place its legend below, and its gap to the chart is fixed at 56 — above the 48
+ceiling you set. Both need adding to the component. It is on the list.
 
-**Then: settle whether `Spacing/56` is a page-rhythm token or a forbidden one.**
-Twenty minutes. The spacing ruleset says both, 83 lines apart.
+**Next: settle whether `Spacing/56` is a page-rhythm token or a forbidden one.**
+Twenty minutes. The spacing ruleset says both, 83 lines apart — and the donut
+appears to use 56 internally, which would make "no component does" false.
 
 **Then: give grid and breakpoint a ruleset an agent may read.** Half a day, and
 it finishes the last thing an agent needs.
