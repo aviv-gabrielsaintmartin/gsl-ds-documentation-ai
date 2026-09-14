@@ -56,7 +56,7 @@ stays visible where it matters.
 
 | Run | Date | Platform | Wireframe | Components | What to build | Tokens | Flags | Quality |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| — | — | _no runs judged yet_ | — | — | — | — | — | — |
+| 002 | 14 Sep 2026 | figma | listing-detail-energy-finance-mobile | 1 of 3 | 1 of 1 | 1 of 4 | 3 |  |
 
 **`run-001` exists and has never been scored.** Its brief and screenshots are in
 `runs/run-001/`; it has no facts file and no report, because the report had

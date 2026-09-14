@@ -32,4 +32,6 @@ is evidence a ruleset is missing a case.
 
 | Run | Step | Subject | Why flagged | Times seen | Verdict |
 | --- | --- | --- | --- | --- | --- |
-| — | — | _no runs yet_ | — | — | — |
+| 002 | Choose the tokens | `Scales/Energy/Green100`, `Green200`, `Green400`, `Yellow100`, `Orange100`, `Red100`, `Red200` — 7 cells at `133:5097` | **Restricted.** Used exactly as colour's **Energy and CO2 scales** describes, including white letters on A and G only. Restricted tokens are flagged, never failed | 1 | `awaiting decision` |
+| 002 | Choose the tokens | `Scales/CO2/Blue100`–`Blue700` — 7 cells at `134:5090` | **Restricted.** Used in the stated order, lowest to highest emission. The ruleset records the CO₂ ordering as never verified against code, so a live use of it is worth a human's eye | 1 | `awaiting decision` |
+| 002 | Choose the tokens | `Color/Content/Constant/White/Default` on CO₂ steps D, E, F, G at `134:5090` | **Unprecedented.** The colour ruleset prescribes letter colour on the energy ladder and says nothing about the CO₂ ladder. The token exists and is not denied. The choice may be revealing a gap in the ruleset rather than an error | 1 | `awaiting decision` |
