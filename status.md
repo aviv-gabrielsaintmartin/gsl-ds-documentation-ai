@@ -44,12 +44,11 @@ findings are now ruled.
 `ruleset gap`, two `agent error`, two `accepted`, one `library defect`. Ruled
 cold — three verdicts came out differently from what the report expected.
 
-**Done: icons are documented, and five of the seven open names are answered.**
-`icons/` is the fifth pillar — index, ruleset, audit. An icon is never
-interactive alone, written in two places. **The finding underneath it:** the set
-appears to be **Font Awesome 6** — 33 of 33 tested names matched. Guessing, not
-proved. If it holds, ~440 of 454 names are already documented and only the
-custom real-estate ones need you.
+**Done: icons are documented, and five of seven open names are answered.**
+`icons/` is the fifth pillar — index, ruleset, audit. **The finding underneath
+it:** the set appears to be **Font Awesome 6**, 33 of 33 tested names matching.
+Guessing, not proved. If it holds, ~440 names are already documented and only
+the custom real-estate ones need you.
 
 **One thing is live and wrong right now.** You renamed three icons in Figma; the
 registry and the index still hold the old names. A `figma-sync-icons` run fixes
