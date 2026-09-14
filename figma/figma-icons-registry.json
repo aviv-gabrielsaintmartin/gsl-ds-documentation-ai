@@ -3989,7 +3989,7 @@
           }
         },
         {
-          "name": "assistance ",
+          "name": "assistance",
           "key": "53c0f912d8763ce9644b48ff71d9c84522ff0d34",
           "nodeId": "58963:5150",
           "variantCount": 1,
@@ -5715,7 +5715,7 @@
           }
         },
         {
-          "name": "virtual-staging ",
+          "name": "virtual-staging",
           "key": "4cf0f3a5a85c19645bdc64ad95545cc10a3cf598",
           "nodeId": "58963:5572",
           "variantCount": 1,
@@ -6134,7 +6134,7 @@
           }
         },
         {
-          "name": "two-three-dimensional-draw ",
+          "name": "two-three-dimensional-draw",
           "key": "95bcd67f8ba8bd4f649b3f1747cbb247887f0551",
           "nodeId": "58963:5700",
           "variantCount": 1,

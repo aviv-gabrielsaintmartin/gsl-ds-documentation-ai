@@ -14,10 +14,15 @@ here** — a copy would drift the first time `figma-sync-icons` runs.
 ## How to find an icon
 
 **Match on the exact name.** The names below are the strings the library uses,
-reproduced character for character. Fifteen of them break the lowercase-kebab
-convention and three carry a trailing space; they are listed here **as they
-really are**, because an approximate match finds nothing. Every one of them is
-recorded in [icons-audit.md](icons-audit.md) as needing a rename.
+reproduced character for character. Twelve of them break the lowercase-kebab
+convention; they are listed here **as they really are**, because an approximate
+match finds nothing. Every one is recorded in [icons-audit.md](icons-audit.md) as
+needing a rename.
+
+**The three names that carried a trailing space are fixed.** Gabriel renamed
+them in Figma on 14 September 2026 and this page was regenerated from the
+re-synced registry the same day. `assistance`, `virtual-staging` and
+`two-three-dimensional-draw` are now exactly what they look like.
 
 **The category disambiguates a repeated name.** `apple` exists twice — the
 company in **Brands**, the fruit in **Nature & Food**. `route` in **Map** and
@@ -61,7 +66,7 @@ and recorded nowhere in Figma.
 
 ### Users & People (23)
 
-`assistance ` · `baby` · `criminal` · `custodian` · `face-frown` · `face-grin-hearts-light` · `face-meh` · `face-smile` · `face-sunglasses-light` · `family` · `hands-holding-heart` · `handshake` · `person-circle` · `receptionist` · `unhappy-face` · `user` · `user-group` · `user-minus` · `user-plus` · `user-police` · `user-slash` · `user-tie` · `wheelchair`
+`assistance` · `baby` · `criminal` · `custodian` · `face-frown` · `face-grin-hearts-light` · `face-meh` · `face-smile` · `face-sunglasses-light` · `family` · `hands-holding-heart` · `handshake` · `person-circle` · `receptionist` · `unhappy-face` · `user` · `user-group` · `user-minus` · `user-plus` · `user-police` · `user-slash` · `user-tie` · `wheelchair`
 
 ### Map (19)
 
@@ -73,11 +78,11 @@ and recorded nowhere in Figma.
 
 ### Device & Communication (34)
 
-`at` · `camera` · `comment` · `comment-dots` · `comments` · `computer` · `desktop` · `envelope` · `envelope-open` · `envelopes-bulk` · `fax` · `floppy-disk` · `inbox-in` · `mailbox` · `megaphone` · `message` · `microphone` · `microphone-slash` · `mobile` · `no-phone` · `paper-plane` · `paper-plane-flat` · `phone` · `phone-missed` · `phone-plus` · `phone-volume` · `presentation-screen` · `print` · `router` · `scanner` · `tv-retro` · `virtual-staging ` · `wifi` · `wifi-slash`
+`at` · `camera` · `comment` · `comment-dots` · `comments` · `computer` · `desktop` · `envelope` · `envelope-open` · `envelopes-bulk` · `fax` · `floppy-disk` · `inbox-in` · `mailbox` · `megaphone` · `message` · `microphone` · `microphone-slash` · `mobile` · `no-phone` · `paper-plane` · `paper-plane-flat` · `phone` · `phone-missed` · `phone-plus` · `phone-volume` · `presentation-screen` · `print` · `router` · `scanner` · `tv-retro` · `virtual-staging` · `wifi` · `wifi-slash`
 
 ### Editor (20)
 
-`ai` · `camera-professional` · `circle-half-stroke` · `compass-drafting` · `crop-simple` · `eye-dropper` · `image ai` · `language` · `layer-group` · `lock` · `lock-open` · `pen` · `pen-line` · `sitemap` · `smart edit` · `smart fill` · `smart search` · `trash-can` · `trash-can-xmark` · `two-three-dimensional-draw `
+`ai` · `camera-professional` · `circle-half-stroke` · `compass-drafting` · `crop-simple` · `eye-dropper` · `image ai` · `language` · `layer-group` · `lock` · `lock-open` · `pen` · `pen-line` · `sitemap` · `smart edit` · `smart fill` · `smart search` · `trash-can` · `trash-can-xmark` · `two-three-dimensional-draw`
 
 ### Document & Content (37)
 
@@ -112,7 +117,6 @@ and recorded nowhere in Figma.
 `block-brick` · `frame` · `house` · `house-chimney-heart` · `house-circle-check` · `house-day` · `house-user` · `listing-deleted` · `ruler-combined`
 
 ---
-
 ## Icons with a real variant choice
 
 *Every variant axis defaults to `Off`. Placing an icon and setting nothing gives

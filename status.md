@@ -49,10 +49,11 @@ the icons were then modified.** That shrinks the shortcut rather than opening it
 a name diff finds what GSL added, never what GSL redrew. The open question is
 which drawings changed, and it needs eyes.
 
-**Next, and it is wrong right now:** you renamed three icons in Figma, so the
-registry and the index still hold the old names. `figma-sync-icons` fixes it.
-**Not blocked on tooling** — `~/figma-cli` works from any session here. It needs
-the Foundations library open.
+**Done: the icon registry is re-synced.** Your three renames landed; the diff was
+three lines and nothing else in the library had moved since 27 August. Run
+through `~/figma-cli`, because `figma-sync-icons` still points at the Desktop
+Bridge you retired. That, and the plugin dying on every file switch, are now
+written into the skill's traps.
 
 **Then: settle whether `Spacing/56` is page rhythm or forbidden.** The ruleset
 says both, 83 lines apart — and the donut appears to use 56 internally.

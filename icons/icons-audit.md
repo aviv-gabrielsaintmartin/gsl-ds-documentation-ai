@@ -63,8 +63,8 @@ names and 21 near-identical pairs, and concluded the naming was in good shape
 with about eight names needing a human. **Uniqueness held. Convention compliance
 did not**, and a later pass found a second, larger problem.
 
-**Proved. Fifteen names break the lowercase-kebab convention**, in three
-distinct ways:
+**Proved. Fifteen names broke the lowercase-kebab convention** when this was
+measured, in three distinct ways. **Three are now fixed; twelve remain:**
 
 | Problem | Names |
 | --- | --- |
@@ -86,11 +86,16 @@ invisible in every rendering of it, and an agent matching `assistance` against
 registry follows. Doing only the first half leaves the registry holding names
 that no longer exist. On the task list as of 14 September.
 
-**Three of the fifteen were fixed the same day.** Gabriel renamed
-`assistance `, `virtual-staging ` and `two-three-dimensional-draw ` by hand in
-Figma on 14 September. **The registry has not been re-synced**, so it still holds
-the old names and `icons/icons-index.md`, generated from it, still shows them.
-A `figma-sync-icons` run is on the task list.
+**Three of the fifteen were fixed the same day, and the fix is fully landed.**
+Gabriel renamed `assistance `, `virtual-staging ` and
+`two-three-dimensional-draw ` by hand in Figma on 14 September. The registry was
+re-synced and `icons-index.md` regenerated from it the same day.
+
+**Proved by the sync diff: 3 added, 3 removed, 0 changed** — and each added name
+shares its `key` and `nodeId` with the removed one, which is what distinguishes a
+rename from a deletion. Nothing else in the library had moved since 27 August:
+no key changed, no node ID changed, no variant property changed, across all 455
+icons. **Twelve convention breaks are left**, none of them invisible.
 
 ---
 
