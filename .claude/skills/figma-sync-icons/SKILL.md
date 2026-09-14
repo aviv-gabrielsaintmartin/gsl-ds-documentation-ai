@@ -19,7 +19,8 @@ Keep `figma-icons-registry.json` in sync with the live "Icons" page: one entry p
 
 | Item | Value / Configuration |
 |---|---|
-| **App & Plugin** | Figma Desktop with `0. GSL Foundations Library` open. Plugin: `Plugins → Development → Figma Desktop Bridge → Run` (keep active). |
+| **App & Plugin** | Figma Desktop with `0. GSL Foundations Library` open. Plugin: `Plugins → Development → **FigCli** → Run` (keep the plugin window open). **Only Gabriel can start it** — ask, then wait. |
+| **How Figma is driven** | **`figma-cli`, at `~/figma-cli`. It is not on PATH** — run everything as `cd ~/figma-cli && node src/index.js <cmd>`. The binary is `figma-cli` / `figma-ds-cli`, never `figma`, and `~/.figma-cli` is an empty config folder, not the install. **Do not use the Desktop Bridge (`figma-console-mcp`)** — Gabriel retired it as unmaintained, and the `figma_get_status` / `figma_execute` tools this skill used to call no longer exist. |
 | **Foundations Key** | Read from `figma-libraries-registry.json` under `foundations`. |
 | **Registry** | `figma-icons-registry.json` (repo root), shaped `{"fileKey", "fileName", "page": "Icons", "categories": {"<Category Name>": {"icons": [{"name","key","nodeId","variantCount","properties"}]}}}`. |
 | **Categories (17, live as of 2026-08-27)** | Action & Settings, Alert & Feedback, Brands, Navigation & Menu, Users & People, Map, Transportation, Device & Communication, Editor, Document & Content, Finance, Nature & Food, Lifestyle, Furnitures, Place & Property, Real Estate, Home. |
@@ -37,9 +38,12 @@ Keep `figma-icons-registry.json` in sync with the live "Icons" page: one entry p
 2. If present: UPDATE mode — preserve any manually-added notes on that entry. If absent: CREATE mode.
 
 **STEP 2: Extract live Figma nodes**
-1. Verify Desktop Bridge is active and connected to `0. GSL Foundations Library` (`figma_get_status`, `probe: true`) — use `fileKey` targeting if it's open but not the active window, no need to switch the owner's focus.
+1. Verify the connection, in this order — the two failures look identical from the outside and have different fixes:
+   - `cd ~/figma-cli && node src/index.js status` → the daemon. `✓ Daemon running (port 3456)` means the CLI is alive; it says **nothing** about the plugin.
+   - `node src/index.js eval 'JSON.stringify({name: figma.root.name, pages: figma.root.children.map(p=>p.name)})'` → the plugin, and the file. It must return `0. GSL Foundations Library` with an `Icons` page.
+   - **`Error: fetch failed` means the plugin is not attached, not that the daemon is down.** The most common cause is that Figma switched files — the plugin stops whenever the owner opens another document, so a sync that worked minutes ago can fail for that reason alone. Ask Gabriel to run `Plugins → Development → FigCli`. You cannot do it.
 2. `await figma.loadAllPagesAsync()`, find the page named `Icons`, then the target category frame(s) by name, excluding `Placeholders`.
-3. For each icon `COMPONENT_SET` in scope, extract via `figma_execute`:
+3. For each icon `COMPONENT_SET` in scope, extract by writing a script to the scratchpad and running `node src/index.js run <file>` (`eval <code>` works for one-liners). The script runs in the plugin context, so `figma.loadAllPagesAsync()`, page lookup and `componentPropertyDefinitions` all behave as the Plugin API documents. Have it `return JSON.stringify(...)` and capture stdout — all 455 icons come back in one call, about 140 KB. Extract:
    - `name`, `key`, node ID (`id`).
    - `variantCount` (`children.length`).
    - `properties`: the full `componentPropertyDefinitions` object, preserving exact string literals — including typos/casing inconsistencies (see `known-traps.md`, e.g. a lowercase `filled` prop on some icons vs the standard `Filled`).
@@ -48,7 +52,9 @@ Keep `figma-icons-registry.json` in sync with the live "Icons" page: one entry p
 **STEP 3: Diff, cache guard & anomaly detection**
 1. If UPDATE mode: compare live properties against the existing registry entry.
    - **Deletion guard**: before reporting an icon as removed, force `await figma.loadAllPagesAsync()`, re-query, and verify twice (same convention as `figma-sync-component-sets`).
-2. Flag, don't silently resolve:
+2. **Check every name for `name !== name.trim()`.** A trailing space is invisible in Figma's layer list, in the registry JSON, and in any page generated from it, so an agent matching `assistance` against `assistance ` finds nothing while appearing to have searched correctly. **Report it; never silently trim** — the registry records what Figma actually holds until the library is fixed. Three were found this way on 2026-09-14.
+3. **A rename looks like a deletion until you compare keys.** When an add and a remove appear together, check `key` and `nodeId` on both sides: same key and same node ID means the icon was renamed, and the deletion guard does not apply.
+4. Flag, don't silently resolve:
    - A new icon name matching one already registered **in the same category** with a different key (duplicate name within a category — see `known-traps.md`'s `water-ladder` case).
    - A new/changed prop shape outside the common `{Name, Filled}` pattern (e.g. `Circle`/`Square`/`Half`/`Triangle` shape variants, a `Platform` prop) — these are legitimate, just note them; only escalate if the shape looks like a mistake.
 3. If CREATE mode: build the full entry from scratch.
