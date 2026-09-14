@@ -40,30 +40,28 @@ findings are now ruled.
 
 ## The next task
 
-**Done: run-002's eight findings are ruled, four fixed the same day.** Three
-`ruleset gap`, two `agent error`, two `accepted`, one `library defect`. Ruled
-cold — three verdicts came out differently from what the report expected.
+**Done: run-002's eight findings are ruled**, four fixed the same day. Three
+`ruleset gap`, two `agent error`, two `accepted`, one `library defect`.
 
-**Done: icons are documented, six of seven open names answered.** `icons/` is the
-fifth pillar — index, ruleset, audit. **The set is Font Awesome, and you
-confirmed the icons were then modified.** That shrinks the shortcut rather than
-opening it: a name diff finds what GSL added, never what GSL redrew. So the open
-question is which drawings changed, and it needs eyes.
+**Done: icons are documented**, six of seven open names answered. `icons/` is the
+fifth pillar — index, ruleset, audit. **The set is Font Awesome, and you confirmed
+the icons were then modified.** That shrinks the shortcut rather than opening it:
+a name diff finds what GSL added, never what GSL redrew. The open question is
+which drawings changed, and it needs eyes.
 
-**One thing is live and wrong right now.** You renamed three icons in Figma; the
-registry and the index still hold the old names. A `figma-sync-icons` run fixes
-it. **Not blocked on tooling** — `~/figma-cli` works from any session here. It
-needs the Foundations library open. Top of the list.
+**Next, and it is wrong right now:** you renamed three icons in Figma, so the
+registry and the index still hold the old names. `figma-sync-icons` fixes it.
+**Not blocked on tooling** — `~/figma-cli` works from any session here. It needs
+the Foundations library open.
 
-**Then: settle whether `Spacing/56` is page rhythm or forbidden.** The spacing
-ruleset says both, 83 lines apart — and the donut appears to use 56 internally,
-which would make "no component does" false.
+**Then: settle whether `Spacing/56` is page rhythm or forbidden.** The ruleset
+says both, 83 lines apart — and the donut appears to use 56 internally.
 
 **Then: give grid and breakpoint a ruleset an agent may read.** Half a day, and
 it finishes the last thing an agent needs.
 
-**Waiting on you in Figma:** `Donut chart` cannot place its legend below, and
-its gap to the chart is fixed at 56 — above the 48 ceiling you set.
+**Waiting on you in Figma:** `Donut chart` cannot place its legend below, and its
+gap to the chart is fixed at 56 — above the 48 ceiling you set.
 
 How tasks are sorted, and why, is at the top of
 [the backlog](project/backlog.md).
