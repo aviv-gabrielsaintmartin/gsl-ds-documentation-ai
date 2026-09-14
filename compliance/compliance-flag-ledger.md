@@ -16,11 +16,18 @@ missing a case.
 1. Every run appends its flags here. Nothing is ever rewritten or removed.
 2. **A subject seen three times is raised for a human decision** — never
    auto-promoted, never auto-dismissed. Gabriel rules on it.
-3. **If the ruling is `ruleset gap`, it becomes a task in
-   [the backlog](../project/backlog.md) first.** Doing that task writes the rule
-   into the ruleset and the reasoning into the relevant `-audit.md` —
-   `color-usage-audit.md`, `spacing-usage-audit.md`, `typography-usage-audit.md`
-   or `components-audit.md`. Decided by Gabriel, 11 Sep 2026.
+3. **A ruling of `ruleset gap` does not file itself.** Gabriel decides, per
+   item, whether it is fixed on the spot or becomes a backlog task. Some gaps
+   close in one sentence, and a backlog round-trip costs more than the fix.
+   Revised by him 14 Sep 2026, after the first scored run produced eight items.
+4. **Either way it lands in `project/backlog.md`** — as a task if it is filed, as
+   a row in the *Done* table if it is fixed on the spot. One destination, which
+   is what the 11 Sep 2026 rule was protecting: two destinations meant two
+   sessions filed the same finding in different files.
+5. Doing the work writes the rule into the ruleset and the reasoning into the
+   relevant `-audit.md` — `color-usage-audit.md`, `spacing-usage-audit.md`,
+   `typography-usage-audit.md` or `components-audit.md`. **The audit is where
+   reasoning settles, never the queue.**
 
 | Verdict | Meaning |
 | --- | --- |

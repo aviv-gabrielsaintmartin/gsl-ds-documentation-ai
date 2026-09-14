@@ -47,6 +47,11 @@ your ruling too**, with a fifth verdict — `library defect`, for when Figma is
 wrong and no documentation change fixes it. Run-002's report is rewritten in the
 new order; no finding changed.
 
+**Next: rule on run-002's eight findings.** In a **fresh chat, with Figma** —
+not this one, which watched the builder and would lean toward blaming the rules.
+Read `report-run-002.md`, take the items one at a time, rule all eight before
+fixing anything.
+
 **Next: settle whether `Spacing/56` is a page-rhythm token or a forbidden one.**
 Twenty minutes. The spacing ruleset says both, 83 lines apart, and an agent
 obeying the first fails the scorecard for it.

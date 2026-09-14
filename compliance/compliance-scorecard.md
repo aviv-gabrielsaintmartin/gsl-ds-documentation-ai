@@ -669,13 +669,21 @@ after every run, never rewritten.
 
 **A subject seen three times is raised for a human decision** — it is not
 auto-promoted and not auto-dismissed. Gabriel rules on it, and the verdict says
-which of the five it was. **If the verdict is `ruleset gap`, it becomes a task in
-[the backlog](../project/backlog.md) first.** Doing that task writes the rule
-into the ruleset and the reasoning into the relevant `-audit.md`, exactly as the
-component eval's misses did — the audit is where the reasoning settles, never
-the queue. Decided by Gabriel, 11 Sep 2026: the backlog is the one place a
-finding has to be able to land, and two destinations meant two sessions filed
-the same finding in different files.
+which of the five it was.
+
+**A verdict of `ruleset gap` does not file itself.** Gabriel decides, per item,
+whether it is fixed on the spot or becomes a backlog task. Some gaps close in one
+sentence, and a backlog round-trip costs more than the fix. Revised by him
+14 Sep 2026, after the first scored run produced eight items to rule on.
+
+**Either way it lands in [the backlog](../project/backlog.md)** — as a task if it
+is filed, as a row in the *Done* table if it is fixed on the spot. One
+destination, which is what the 11 Sep 2026 rule was protecting: two destinations
+meant two sessions filed the same finding in different files.
+
+Doing the work writes the rule into the ruleset and the reasoning into the
+relevant `-audit.md`, exactly as the component eval's misses did — the audit is
+where the reasoning settles, never the queue.
 
 This is the mechanism by which running the checker improves the knowledge base
 rather than only grading output.

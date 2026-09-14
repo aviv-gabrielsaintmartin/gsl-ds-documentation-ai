@@ -37,16 +37,16 @@ Rulings: `awaiting decision` · `agent error` · `ruleset gap` · `library defec
 written before failures were included there, and ledger rows are never
 corrected. From run 003 on, every item in this table gets a row.
 
-| What | Why it needs you | Ruling |
-| --- | --- | --- |
-| **The partner-offer block was built by hand and never declared** | The rules are clear that this fails. Whether the block should have been built at all is yours | _unruled_ |
-| **Four plain text nodes were built by hand and never declared** | Two section titles and two rating labels. The same rule catches them. They may be too small to be worth declaring, which would be a rules question | _unruled_ |
-| **The donut chart's internal spacing was changed** | Its internal gap went from 56 to 2. The rules forbid touching a component's internals. Whether the chart needed it is yours | _unruled_ |
-| **The donut chart's legend sits beside the chart, not below** | The ruleset says below. The Figma component itself places it beside. One of the two is wrong, and this is not something the agent did | _unruled_ |
-| **`Energy tag` was used for the GES rating** | The rules say `Energy tag` is for energy ratings only. GES is emissions data. No scorecard question reaches this | _unruled_ |
-| **The energy scale colours were used** | A restricted family, used exactly as the rules describe. Restricted means a person looks | _unruled_ |
-| **The CO₂ scale colours were used** | Used in the stated order. The rules record that ordering as never verified against code | _unruled_ |
-| **White letters on four CO₂ steps** | No rule allows or forbids it. It may be a gap in the rules rather than a mistake | _unruled_ |
+| What                                                             | Why it needs you                                                                                                                                   | Ruling    |
+| ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| **The partner-offer block was built by hand and never declared** | The rules are clear that this fails. Whether the block should have been built at all is yours                                                      | _unruled_ |
+| **Four plain text nodes were built by hand and never declared**  | Two section titles and two rating labels. The same rule catches them. They may be too small to be worth declaring, which would be a rules question | _unruled_ |
+| **The donut chart's internal spacing was changed**               | Its internal gap went from 56 to 2. The rules forbid touching a component's internals. Whether the chart needed it is yours                        | _unruled_ |
+| **The donut chart's legend sits beside the chart, not below**    | The ruleset says below. The Figma component itself places it beside. One of the two is wrong, and this is not something the agent did              | _unruled_ |
+| **`Energy tag` was used for the GES rating**                     | The rules say `Energy tag` is for energy ratings only. GES is emissions data. No scorecard question reaches this                                   | _unruled_ |
+| **The energy scale colours were used**                           | A restricted family, used exactly as the rules describe. Restricted means a person looks                                                           | _unruled_ |
+| **The CO₂ scale colours were used**                              | Used in the stated order. The rules record that ordering as never verified against code                                                            | _unruled_ |
+| **White letters on four CO₂ steps**                              | No rule allows or forbids it. It may be a gap in the rules rather than a mistake                                                                   | _unruled_ |
 
 ## Answers
 
