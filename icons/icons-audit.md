@@ -118,6 +118,19 @@ the parking sign; `comment` and `comments` are one bubble against two; and
 `lightbulb` is the Font Awesome spelling, which is what exposed `light-bulb` as a
 separate icon rather than a duplicate.
 
+**The icons were modified after they were taken, which is what stops this being
+a shortcut.** Gabriel, 14 September: `One`, `Two` and `Three` originate in Font
+Awesome and were then redrawn — the `3` is not the glyph Font Awesome draws. That
+is one confirmed modification, found by looking at three icons.
+
+**So the provenance answers where the names came from, and not what the pictures
+look like.** Reading Font Awesome's catalogue to learn what a GSL icon depicts
+would be right most of the time and silently wrong an unknown number of times,
+and nothing currently says which icons were touched. **This changes what the
+verification task is for:** not *can we import Font Awesome's documentation*, but
+*which icons were modified after import*. Only the second question makes the
+first one safe.
+
 **Deliberately kept out of the ruleset.** A generating agent does not need the
 provenance, and an unverified one invites it to go and read Font Awesome's
 documentation, importing assumptions this design system never made. The names in
@@ -146,8 +159,8 @@ one.** The first pass called them "the same icon under two spellings" and filed 
 rename. The categories disprove it: `light-bulb` sits with `info`, `exclamation`
 and `question`, `lightbulb` sits with `dishwasher` and `refrigerator`. Two icons,
 two jobs. **Corrected the same day, with Gabriel's go.** **What does hold:** they
-are near-identical to look at, and Gabriel's view on 14 Sep is that one should go
-in the long term. That is a consolidation question, not a rename.
+are near-identical to look at, so an agent must choose by meaning rather than by
+picture. **Gabriel closed the consolidation question on 14 Sep: keep both.**
 
 **The lesson is about the check, not the icons.** A similarity score over names
 cannot see meaning. Both times the naming was measured, the measure answered a
@@ -167,6 +180,7 @@ the same day. The answers live in the index, where an agent reads them.*
 | Should `file-cdd` and `file-cdi` be used outside France? | **No. France only** |
 | What is `magnifying-bars`? | **A graph — a trend or data**, most likely for one classified listing on a listing page. Gabriel is unsure where it is used and offered this as his own reading, not a fact |
 | Is `light-bulb` or `lightbulb` the current one? | **Both. They are different icons** — see the pairs section above |
+| Should one of them be retired? | **No. Keep both** — Gabriel, 14 Sep, after seeing the two definitions. Choose by meaning, not by appearance |
 
 ---
 
@@ -175,9 +189,8 @@ the same day. The answers live in the index, where an agent reads them.*
 | Question | Why it matters |
 | --- | --- |
 | What are `One`, `Two` and `Three`? | **Asked and not answered — Gabriel does not know either, 14 Sep.** His hypothesis, stated as one: they may serve a designer-only Figma case, from a time when `Badge` offered no large enough size. The only icons named as written-out numbers, and they carry `Filled`, `Circle` and `Square`, which fits a numbered marker |
-| Is the set Font Awesome 6? | **The large one, and the cheapest to settle.** If it is, ~440 of 454 names are already documented and only the custom additions need a human. 33 of 33 tested names matched. A proper diff against the catalogue would confirm or kill it |
+| **Which icons were modified after being taken from Font Awesome?** | **Partly answered, and the answer made the question harder.** Gabriel confirmed on 14 Sep that the set originates in Font Awesome — which the 33-of-33 name test already suggested — **and that at least `One`, `Two` and `Three` were redrawn.** So the catalogue cannot be trusted as a description of what a GSL icon looks like until the modified ones are known. A name diff against Font Awesome finds the custom *additions*; it cannot find a modified *drawing*. That needs a visual pass, and it is the reason the provenance stays out of the ruleset |
 | Is *Furnitures* the right name for that category? | It holds `dishwasher`, `microwave`, `refrigerator`, `vacuum`, `elevator` and `camera-cctv` — appliances and home equipment, not furniture. It is also not English. A wrong category name sends an agent to the wrong list, and nothing tells it to look elsewhere |
-| Should `light-bulb` or `lightbulb` be retired? | Gabriel, 14 Sep: they are near-identical and one should go in the long term. Which one, and what the survivor is called, is his call |
 | What are the variant axes for? | **The other large one.** `Filled`, `Circle` and `Square` were added over several years for different cases and the reasoning was not recorded — Gabriel, 14 Sep. The ruleset currently tells an agent to match what is around it, which is guidance, not a rule |
 
 ---

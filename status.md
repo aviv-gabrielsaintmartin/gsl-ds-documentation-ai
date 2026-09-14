@@ -44,15 +44,16 @@ findings are now ruled.
 `ruleset gap`, two `agent error`, two `accepted`, one `library defect`. Ruled
 cold — three verdicts came out differently from what the report expected.
 
-**Done: icons are documented, and five of seven open names are answered.**
-`icons/` is the fifth pillar — index, ruleset, audit. **The finding underneath
-it:** the set appears to be **Font Awesome 6**, 33 of 33 tested names matching.
-Guessing, not proved. If it holds, ~440 names are already documented and only
-the custom real-estate ones need you.
+**Done: icons are documented, six of seven open names answered.** `icons/` is the
+fifth pillar — index, ruleset, audit. **The set is Font Awesome, and you
+confirmed the icons were then modified.** That shrinks the shortcut rather than
+opening it: a name diff finds what GSL added, never what GSL redrew. So the open
+question is which drawings changed, and it needs eyes.
 
 **One thing is live and wrong right now.** You renamed three icons in Figma; the
 registry and the index still hold the old names. A `figma-sync-icons` run fixes
-it and needs a session with Figma tools. It is top of the list.
+it. **Not blocked on tooling** — `~/figma-cli` works from any session here. It
+needs the Foundations library open. Top of the list.
 
 **Then: settle whether `Spacing/56` is page rhythm or forbidden.** The spacing
 ruleset says both, 83 lines apart — and the donut appears to use 56 internally,

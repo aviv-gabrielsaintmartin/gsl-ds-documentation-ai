@@ -186,14 +186,14 @@ uses these as written and does not reason past them.*
 | `comment` · `comments` | Device & Communication | **One speech bubble against two overlapping** — a single comment against a conversation |
 | `square-h` | Place & Property | **The hospital sign**, H in a square, exactly as `circle-parking` is the P parking sign |
 | `light-bulb` | Alert & Feedback | **An idea or a tip.** Its category is what tells you: it sits with `info`, `exclamation` and `question` |
-| `lightbulb` | Furnitures | **A physical light.** Not a duplicate of `light-bulb` — a different icon doing a different job, in a different category. They are near-identical to look at, and Gabriel has flagged that one should go in the long term |
+| `lightbulb` | Furnitures | **A physical light.** Not a duplicate of `light-bulb` — a different icon doing a different job, in a different category. They are near-identical to look at. **Gabriel, 14 Sep: keep both, and choose between them by the definitions above** |
 | `magnifying-bars` | Real Estate | **A graph under a magnifying glass — showing a trend or data**, most likely for a single classified listing on a listing page. **Guessing**, and Gabriel's own reading: he is unsure where it is used |
 | `power` | Furnitures | The icon is what it looks like. **The category is the problem** — *Furnitures* holds `dishwasher`, `microwave`, `refrigerator`, `vacuum`, `elevator` and `camera-cctv`, which are appliances rather than furniture. Look here for home equipment, not only for furniture |
 
-## Names nobody can resolve
+## Names nobody can fully resolve
 
-*An agent must not guess at these. Ask.*
+*An agent uses what is known and does not reason past it.*
 
-| Icon | Category | What is not known |
+| Icon | Category | What is known, and what is not |
 | --- | --- | --- |
-| `One` · `Two` · `Three` | Document & Content | **What they are for. Nobody knows, Gabriel included.** They are the only icons named as written-out numbers, and they carry `Filled`, `Circle` and `Square` axes, which fits a numbered marker. **Gabriel's hypothesis, 14 Sep, and he states it as a hypothesis:** they may serve a designer-only Figma case, from a time when the `Badge` component offered no large enough size. Nothing confirms it |
+| `One` · `Two` · `Three` | Document & Content | **Known:** they came from Font Awesome and **were then modified** — Gabriel, 14 Sep: the `3` is not the same glyph Font Awesome draws. So they are numerals, drawn for this system. They carry `Filled`, `Circle` and `Square`, which fits a numbered marker. **Not known: what they are for.** Gabriel does not know either. His hypothesis, stated as one: they may serve a designer-only Figma case, from a time when `Badge` offered no large enough size. **Do not place one without asking** |
