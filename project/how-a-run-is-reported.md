@@ -29,7 +29,7 @@ does not is an unfinished run, not a good one. We learned that the expensive way
 
 ## The flow, end to end
 
-Five steps. Two of them are done by a person, three by machines.
+Four steps. Two are done by you, two by agents.
 
 ```
         YOU
@@ -41,71 +41,78 @@ Five steps. Two of them are done by a person, three by machines.
          │
          ▼
   ┌─────────────┐
-  │ 2. GENERATE │   the agent draws the screen in Figma
+  │ 2. GENERATE │   the building agent draws the screen in Figma
   └─────────────┘   you take screenshots of what it actually made
                     it writes down anything it built by hand
                                             → report-run-001.md, part one
          │
          ▼
   ┌─────────────┐
-  │ 3. TRANSLATE│   the "adapter" reads the Figma file and writes down
-  │             │   what is there, in design-system words:
-  └─────────────┘   "this is a Listing Card"  ·  "this colour is Surface/Brand"
-         │                                       → facts-run-001.json
-         ▼
-  ┌─────────────┐
-  │  4. SCORE   │   the checking agent compares those facts
-  │             │   against the rules. It never looks at Figma.
+  │  3. SCORE   │   a SECOND agent opens the Figma file and looks.
+  │             │   It has never seen the building conversation.
   └─────────────┘
          │
          ▼
   ┌─────────────┐
-  │  5. REPORT  │   report-run-001.md — the verdict, written into the
-  │             │   same file, below what the agent already wrote
+  │  4. REPORT  │   report-run-001.md — what it found, then the
+  │             │   verdict, below what the builder already wrote
   └─────────────┘
          │
          ├──────►  one line appended to the run ledger   (so runs can be compared)
          └──────►  every oddity appended to the flag ledger (so repeats show up)
 ```
 
-### Why step three exists at all
+### Why the scoring agent has to be a different agent
 
-It is the step people skip when they explain this, and it is the one that makes
-the whole thing portable.
+This is the step that makes the verdict worth anything.
 
-The scoring machinery **never touches Figma**. In between sits a translator —
-we call it the *adapter* — whose only job is to read the output on its own
-platform and restate everything in design-system vocabulary. It makes no
-judgements. It says *"there is a component here and its name is Button"*; it
-never says *"and that was the wrong one"*.
+The scorecard is a file. Any agent can read it, which means the agent that built
+the screen knows every question before it is asked.
 
-That separation is what lets one set of rules judge a Figma screen today and a
-web page or an iOS app later. A new platform needs a new translator, never new
-rules.
+Ask it to report on its own work and it will report truthfully and selectively.
+It never has to state a falsehood to produce a flattering picture. It only has
+to choose what to mention.
+
+So the scoring agent is started fresh. It never sees the building conversation,
+and it never asks the builder anything. It opens the Figma file and looks.
 
 ```
-   Figma          ─┐
-   Web            ─┤──►  a translator  ──►  the same facts  ──►  the same rules
-   iOS            ─┤      per platform         in the same          for everyone
-   Android        ─┘                           words
+   the builder                the scorer
+   knows the questions        knows the questions
+   knows what it did          knows only what it can see
+        │                          │
+        └──► writes ONE section ───┴──► writes everything else
+             what it built by hand      what it found, and the verdict
 ```
 
-The full list of what a translator must report is
-[Required facts](../compliance/compliance-scorecard.md#required-facts) in the
-scorecard.
+### What this deliberately does not do
+
+An earlier design put a translator between the two — it would read the Figma
+file and write out everything it found as data, so the scoring rules never
+touched Figma at all. That made the rules portable to web and iOS for free, and
+it left a stored record that a future rule could be re-tested against.
+
+It was removed on 14 September 2026 as too advanced for the end-of-September
+deadline. Two consequences worth knowing:
+
+- **The scoring agent is Figma-only.** A second platform needs a second scoring
+  agent. The questions themselves are still written in design-system words, so
+  they carry over unchanged.
+- **Nothing is stored but the report.** You cannot change a question in six
+  months and ask an old run whether it would have been caught. The screenshots
+  and the written findings are the record.
 
 ---
 
-## The four files a run leaves behind
+## The three files a run leaves behind
 
-A finished run is a folder with four things in it. All four are required — a
+A finished run is a folder with three things in it. All three are required — a
 folder missing one is a run that cannot be trusted later.
 
 | The file | Who writes it | When | Why it has to exist |
 | --- | --- | --- | --- |
 | `prompt-run-001.md` — the brief | **You** | **Before** generating | So the brief can never be quietly reworded afterwards to match whatever came out |
 | `*.png` — the screenshots | Whoever ran it | Right after generating | The only human-readable proof. A Figma file keeps changing under you; a screenshot doesn't |
-| `facts-run-001.json` — what was found | The translator | During scoring | Kept, not thrown away, so a *future* rule can be tested against an *old* run |
 | `report-run-001.md` — the verdict | **Two writers** — see below | Twice | The answer. Readable on its own, sendable to anyone |
 
 **Every file carries its run number, and the folder says it too.** That looks
@@ -142,14 +149,15 @@ There is nowhere else it could go. A note on the Figma frame is thrown away with
 the file, and a sentence in the agent's reply disappears when the conversation
 does.
 
-### The one that surprises people: keeping the facts file
+### The report is the only record
 
-It looks like scratch paper. It isn't.
+Nothing else survives a run except the screenshots. The scoring agent writes
+down what it found, above its verdict, and that written account is the evidence.
 
-Because it's kept, you can change a rule in six months and ask the old runs a
-question you couldn't ask at the time: **"would this new rule have caught that
-old mistake?"** — without regenerating a single screen. Throw it away and every
-rule change orphans every run that came before it.
+The cost is stated plainly in [what this deliberately does not
+do](#what-this-deliberately-does-not-do): change a question in six months and
+you cannot ask an old run whether it would have been caught. You run a new
+screen instead.
 
 ---
 
@@ -160,7 +168,7 @@ After a few runs, the folder reads like a diary:
 ```
 compliance/
 │
-├── compliance-scorecard.md      THE RULER — the rules, thresholds, template
+├── compliance-scorecard.md      THE RULER — the questions and the template
 ├── compliance-run-ledger.md     THE TABLE — one line per run, compare here
 ├── compliance-flag-ledger.md    THE ODDITIES — things no rule covers yet
 │
@@ -168,18 +176,16 @@ compliance/
     ├── run-001/                 ← the one we already have
     │   ├── prompt-run-001.md
     │   ├── block-1-energy-and-conditions.png
-    │   └── block-2-finance.png    (no facts, no report — see below)
+    │   └── block-2-finance.png    (no report — see below)
     │
     ├── run-002/
     │   ├── prompt-run-002.md
     │   ├── screen.png
-    │   ├── facts-run-002.json
     │   └── report-run-002.md      ← a complete run looks like this
     │
     └── run-003/
         ├── prompt-run-003.md
         ├── screen.png
-        ├── facts-run-003.json
         └── report-run-003.md
 ```
 
@@ -252,7 +258,8 @@ Same pipeline, from the machine's side. The agent has just been handed a
 freshly generated screen.
 
 ```
-  1. Take the facts                 reads the facts file — never opens Figma
+  1. Open the screen                the Figma file, and the builder's
+         │                          declarations. Nothing else.
          │
   2. Ask the questions, step by step
          │
@@ -301,7 +308,7 @@ already has a name.
 ## What already went wrong once
 
 `run-001` is sitting in that folder right now with its brief and its
-screenshots and **no verdict at all** — no facts file, no report.
+screenshots and **no verdict at all** — no report.
 
 Nothing failed. The rules simply described a report as something you *look at*,
 and never as something that is *saved*. So a real run happened, was looked at,
@@ -321,7 +328,6 @@ is.
 
 | Thing | State today |
 | --- | --- |
-| The **translator** (step three) | **Not built.** Until it is, the facts file is written by hand — and a hand-written facts file is exactly the sort of thing that quietly stops matching what the rules expect |
 | The **generating skill** | Gabriel's to build. It will produce both the screen and the report. It deliberately came second: a skill can't be built against a format that isn't settled |
 | The **two ledgers agreeing** | Nothing checks that a report's scores match its ledger row. Two files, kept in step by hand |
 | The **layout check** | Switched off. The layout rules have never been tested against a real screen |
@@ -332,7 +338,7 @@ is.
 
 | For | Go to |
 | --- | --- |
-| The rules themselves — thresholds, the report template, what a translator must report | [compliance/compliance-scorecard.md](../compliance/compliance-scorecard.md) |
+| The rules themselves — the questions, the report template, what a scoring agent must be able to see | [compliance/compliance-scorecard.md](../compliance/compliance-scorecard.md) |
 | The comparison table across runs | [compliance/compliance-run-ledger.md](../compliance/compliance-run-ledger.md) |
 | Oddities seen across runs, so a repeat can be spotted | [compliance/compliance-flag-ledger.md](../compliance/compliance-flag-ledger.md) |
 | **Why** it was built this way, and what it cost | [project/decisions.md](decisions.md) — the entry dated 11 September 2026 |

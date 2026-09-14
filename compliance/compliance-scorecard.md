@@ -1,11 +1,11 @@
 # Compliance scorecard
 
-_How generated output is judged against the GSL Design System. **Platform-neutral
-by design** — it defines *what* to measure, never *how* a given tool measures it.
-Each platform implements the [adapter contract](#the-adapter-contract) in its own
-repo._
+_How generated output is judged against the GSL Design System. **The questions
+are platform-neutral by design** — they say *what* to measure, never *how* a
+given tool measures it. The agent answering them is not: today it reads Figma.
+See [what the scoring agent reads](#what-the-scoring-agent-reads)._
 
-**Read by a checking agent**, not by a generating agent — a generating agent
+**Read by the scoring agent**, never by a generating agent — a generating agent
 reads the `*-rules-ai.md` rulesets.
 
 Evidence and rejected alternatives: [compliance-audit.md](compliance-audit.md).
@@ -18,7 +18,7 @@ Evidence and rejected alternatives: [compliance-audit.md](compliance-audit.md).
 | --- | --- | --- |
 | **The concept** | What compliance means. The questions. What a `yes` means. Where a reason goes | **this file** |
 | **What to measure** | Stated in design-system vocabulary — "every element must be an instance of a library component" | **this file** |
-| **How to measure it** | Figma reads its component keys; web reads its package imports; iOS reads its view hierarchy | **the consuming agent's repo — one adapter per platform** |
+| **How to measure it** | Figma reads its component keys; web reads its package imports; iOS reads its view hierarchy | **the scoring agent — one per platform** |
 
 **Nothing tool-specific belongs in this file.** No API names, no node IDs, no
 framework vocabulary. If a question cannot be stated without naming a tool, it is
@@ -53,7 +53,7 @@ compliant answer is `no`.**
 | --- | --- |
 | **`no`** | Compliant. Nothing further is recorded |
 | **`yes`** | A finding. The report states **what** and **where**, in the *Reason* column |
-| **`unavailable`** | The adapter could not supply the facts the question needs. **Never answer `no` in this case** — a missing fact is a gap in the adapter, not a compliant screen |
+| **`unavailable`** | The scoring agent could not tell from the screen. **Never answer `no` in this case** — being unable to see is not the same as finding nothing |
 
 **A `yes` is not always a failure.** One question — *was any element hand-built* —
 is a finding that the next step resolves, because **When nothing fits** permits
@@ -112,16 +112,16 @@ there is no source to check against. Stated so the gap stays visible.
 
 **Did the output use the design system, or build its own?**
 
-| Question | A `yes` means | Enforces | Facts used |
+| Question | A `yes` means | Enforces | What the scorer must see |
 | --- | --- | --- | --- |
-| Was any element hand-built instead of taken from the library? | **A finding, not a failure.** Every hand-built element is carried into **Define what needs to be built**, where the declaration question decides it | **The inventory** | `isLibraryComponent` |
-| Was any never-select component used? | **Failure.** Platform chrome, brand assets, another component's internals, or a withheld component | **Never select** | `componentName` |
-| Was any component name used that appears in no registry? | **Failure.** It came from outside GSL | **The inventory** | `componentName` |
+| Was any element hand-built instead of taken from the library? | **A finding, not a failure.** Every hand-built element is carried into **Define what needs to be built**, where the declaration question decides it | **The inventory** | Whether an element is a library instance |
+| Was any never-select component used? | **Failure.** Platform chrome, brand assets, another component's internals, or a withheld component | **Never select** | Which component each instance is |
+| Was any component name used that appears in no registry? | **Failure.** It came from outside GSL | **The inventory** | Which component each instance is |
 
 **The first question is the whole of "is it using the design system".** It needs
-one fact per element and no lists, no parts counting and no judgment: the adapter
-says whether an element is a library instance, and the answer is a count of the
-ones that are not.
+one look per element and no lists, no parts counting and no judgment: either an
+element is a library instance or it is not, and the answer is a count of the ones
+that are not.
 
 **What this step cannot see** — whether the *right* component was chosen. `Chip`
 where `Tag` was correct passes completely. That is `components-eval.md`'s job,
@@ -140,9 +140,9 @@ rows and could never reach the other six.
 
 **When something was invented, was it declared?**
 
-| Question | A `yes` means | Enforces | Facts used |
+| Question | A `yes` means | Enforces | What the scorer must see |
 | --- | --- | --- | --- |
-| Was anything hand-built without a complete declaration? | **Failure.** **When nothing fits**'s own words: *an undeclared new component is a compliance failure even when it looks right* | **When nothing fits** | `isLibraryComponent` · `declarations` |
+| Was anything hand-built without a complete declaration? | **Failure.** **When nothing fits**'s own words: *an undeclared new component is a compliance failure even when it looks right* | **When nothing fits** | Whether an element is a library instance, and the run's `## Declarations` section |
 
 A declaration is complete only when it states all three:
 
@@ -180,20 +180,21 @@ that. An open decision blocks nothing; it accumulates until it is ruled on.
 
 **Are values bound to tokens, and are those tokens allowed?**
 
-| Question | A `yes` means | Enforces | Facts used |
+| Question | A `yes` means | Enforces | What the scorer must see |
 | --- | --- | --- | --- |
-| Was any styled value written as a literal instead of bound to a token? | **Failure** | colour's **No raw colour** · spacing's and radius's **No pixel literals** · typography's **No hand-set fonts** | `isTokenBound` · `kind` |
-| Was a library component's internal styling overridden? | **Failure** | **Components first**, in all seven rulesets | `isComponentInternal` *(optional)* |
-| Was any deny-listed token used? | **Failure** | the six deny-lists below | `tokenName` · `kind` |
-| Was any token used that is not in the GSL token set? | **Failure.** It came from outside GSL | [tokens-index.md](../tokens/tokens-index.md), which routes to all twelve token pages | `tokenName` |
+| Was any styled value written as a literal instead of bound to a token? | **Failure** | colour's **No raw colour** · spacing's and radius's **No pixel literals** · typography's **No hand-set fonts** | Whether each styled property resolves to a token, and what is being styled |
+| Was a library component's internal styling overridden? | **Failure** | **Components first**, in all seven rulesets | Whether a property belongs to a component's own internals or was set locally |
+| Was any deny-listed token used? | **Failure** | the six deny-lists below | Which token each property resolves to, and what is being styled |
+| Was any token used that is not in the GSL token set? | **Failure.** It came from outside GSL | [tokens-index.md](../tokens/tokens-index.md), which routes to all twelve token pages | Which token each property resolves to |
 
 **Styled properties are colour, type style, spacing, radius, border width and
 shadow.** A type property — family, size, weight, line height — set individually
 rather than through a text style is a literal.
 
 **A library component's internal properties are not examined.** They belong to
-the component and are correct by construction. If the adapter cannot distinguish
-internals from local styling, the first question reports `unavailable`.
+the component and are correct by construction. If the scoring agent cannot
+distinguish internals from local styling, the first question reports
+`unavailable`.
 
 **A token name that resolves on no token page is not a GSL token.** This is the
 token half of *was any component name used that appears in no registry*, and it
@@ -259,7 +260,7 @@ Block 3 · Layout completes.**
 | --- | --- |
 | **Would enforce** | spacing's **Container padding** · **Page rhythm** per tier · `grid-tokens.md` outer margin and gutter |
 | **Would ask** | Whether outer margin, section gap, card-grid gap and form-field gap match spacing's **Page rhythm** table for the output's viewport tier, and whether container padding matches **Container padding** |
-| **Facts used** | `viewportTier` *(optional)* — a platform that cannot report it leaves this step inactive |
+| **Would need** | The output's viewport tier. A platform that cannot report it leaves this step inactive |
 
 **Why it is switched off.** The spacing ruleset carries an explicit warning on
 the two rules this would enforce: *"Rules 6 and 7 are unverified. They describe
@@ -282,182 +283,118 @@ that would be caught.
 
 ---
 
-## The adapter contract
+## What the scoring agent reads
 
-### What an adapter is
+### It reads the output directly
 
-**A translator, not a checker.** An adapter reads generated output using its own
-platform's mechanisms, then restates everything it found in design-system
-vocabulary. After it runs, the platform is gone — the questions never see a tool.
+**The scoring agent opens the produced screen and looks.** On Figma that means
+reading the file the generating agent drew in. There is no intermediate file and
+no translation step.
 
-That is what lets one scorecard judge Figma output today and web or native
-output later. A new platform means a new adapter, never a new scorecard.
+**It also reads the `## Declarations` section of the run's report**, which the
+generating agent wrote before scoring. That is the only part of a run the screen
+itself cannot tell it.
 
-An adapter contains **no rules**. It never decides whether something is
-compliant; it only reports what is there. Every judgment lives in the questions
-above.
+### It is a different agent from the one that built the screen
 
-### The pipeline
+**This is the rule the whole arrangement rests on.** A generating agent knows
+every question in this file, so anything it hands the scorer it can shape without
+ever stating a falsehood.
 
-```
-1. THE AGENT generates output
-        │
-        ▼
-2. THE ADAPTER          platform-specific · lives with the tool
-   Asks the platform its own questions, then translates every
-   answer into design-system names, using the Figma registries
-   as the dictionary
-        │
-        ▼
-3. THE FACTS            platform-neutral · the contract below
-   "this element is a library component named Button"
-   "its background is token-bound to Surface/Brand/Primary/default"
-        │
-        ▼
-4. THE CHECKER          platform-neutral · reads only facts
-   Answers the questions above against the inventory and
-   the six deny-lists
-        │
-        ▼
-5. THE REPORT           one row per question, then flags
-```
-
-### Who owns what
-
-| Owned by **this repo** | Owned by the **consuming agent's repo** |
+| Written by the **generating** agent | Written by the **scoring** agent |
 | --- | --- |
-| The contract — which facts must be reported | The adapter — how its platform answers |
-| The questions and the report format | The runner that executes them on real output |
-| The design-system names the facts must use | The translation from local identifiers into those names |
+| The `## Declarations` section, before scoring | Everything below it — what it found, the answers, the flags |
 
-A gap in an adapter is a defect in the consuming repo. A question that cannot be
-expressed as a question about facts is a defect **here**.
+The scoring agent must be started fresh. It never sees the generating
+conversation and never asks the generating agent anything.
 
-### Required facts
+### What it has to be able to determine
 
-A platform that cannot supply these cannot be judged.
+Each question names what it needs. Stated here in one place, in design-system
+terms rather than platform terms.
 
-| Fact | Meaning in design-system terms |
+| What it must determine | Used by |
 | --- | --- |
-| `element.isLibraryComponent` | Is this element an instance of a design-system component, or was it built locally? |
-| `element.componentName` | If it is a library component, which one — by the name used in the Figma registries and **The inventory** |
-| `property.isTokenBound` | Is this styled property resolved through a design token, or written as a literal value? |
-| `property.tokenName` | If bound, which token — by the name used on the token pages |
-| `property.kind` | What is being styled: colour · type style · spacing · radius · border width · shadow |
-| `output.declarations` | The declarations the generating agent produced under **When nothing fits**. The adapter reads them from the `## Declarations` section of `report-run-<NNN>.md` — never from the platform, which has no record of them |
+| Whether an element is an instance of a design-system component, or was built by hand | *Was any element hand-built* |
+| Which component an instance is, by its name in **The inventory** | *Was any never-select component used* · *appears in no registry* |
+| Whether a styled property resolves through a token or is a literal value | *Was any styled value written as a literal* |
+| Which token, by the name used on the token pages | *Was any deny-listed token used* · *not in the GSL token set* |
+| What is being styled — colour, type style, spacing, radius, border width, shadow | the same two questions |
+| Whether a property belongs to a component's own internals or was set locally | *Was a component's internal styling overridden* |
 
-### Optional facts
+Two more it should record where it can, because they make a finding actionable
+rather than merely true:
 
-A question that needs one a platform cannot supply reports `unavailable`, never
-`no`.
+- **Where the element is**, so a finding can be pointed at rather than described.
+- **What a hand-built element contains**, so the reason says *a card holding an
+  image slider and a tag* and not only *something was hand-built*.
 
-| Fact | Used by | If missing |
-| --- | --- | --- |
-| `element.isComponentInternal` | *Was a library component's internal styling overridden?* | The question reports `unavailable`, and the literal-value question cannot exclude a component's own internals |
-| `element.viewportTier` | **Place them according to the design guidance** | That step stays inactive on that platform |
-| `element.children` | The report | A hand-built element is named but not described, so the reason says *what* was built by hand and not *what it was built from* |
-| `element.locator` | The report | Findings are named but not addressable |
+### When it cannot tell
 
-**`unavailable` is not a compliant answer and not a failing one.** It records
-that the platform could not answer, which is a gap in the adapter, not in the
-output.
+**A question the scoring agent cannot answer reports `unavailable`, never `no`.**
+A `no` reads as a clean screen. The truth is that nobody could see.
 
-**`element.children` stopped being required on 12 September 2026**, when the
-parts-counting question was removed. It is still worth supplying: it is what
-turns *"something was hand-built"* into *"a card containing an image slider and a
-tag was hand-built"*, which is the sentence the reason column needs.
+- `unavailable` is neither a compliant answer nor a failing one.
+- It records that the screen could not be read on that point, and that is worth
+  knowing.
 
-### The shape
+### It writes down what it found
 
-One object per run. `elements` is flat; `children` holds locators rather than
-nesting, so a deep tree stays readable.
+**Findings go into the report, above the answers.** Not into a separate file.
 
-```json
-{
-  "run":  { "id": "001", "date": "2026-09-08", "wireframe": "serp-v1", "platform": "figma" },
-  "declarations": [
-    {
-      "what": "A compact agency banner — logo, agency name, and a contact action on one row",
-      "problem": "Grouping and structuring content",
-      "ruledOut": [
-        { "component": "Card", "why": "needs a full-bleed logo the Card padding forbids" },
-        { "component": "Listing Card", "why": "this is an agency, not a property" }
-      ]
-    }
-  ],
-  "elements": [
-    {
-      "locator": "12:3401",
-      "isLibraryComponent": true,
-      "componentName": "Button",
-      "isComponentInternal": false,
-      "children": [],
-      "properties": [
-        { "kind": "colour",  "isTokenBound": true, "tokenName": "Surface/Brand/Primary/default" },
-        { "kind": "spacing", "isTokenBound": true, "tokenName": "Spacing/16" }
-      ]
-    },
-    {
-      "locator": "12:3500",
-      "isLibraryComponent": false,
-      "componentName": null,
-      "children": ["12:3501", "12:3502", "12:3503"],
-      "properties": [
-        { "kind": "colour", "isTokenBound": false, "literalValue": "#1A1A1A" },
-        { "kind": "radius", "isTokenBound": true,  "tokenName": "Radius/8" }
-      ]
-    }
-  ]
-}
-```
+This is deliberately the cheap version. A stored, structured record of every
+element would let a future rule be re-run against an old screen — worth having,
+and out of scope before the end of September. The screenshots and the written
+findings are the record until then.
 
-**An omitted field means `unavailable`. `false` means "no".** They are different
-answers and must never be conflated — `"isTokenBound": false` says the platform
-looked and found a literal; omitting the field says the platform could not look.
+### Names are always design-system names
 
-`literalValue` is recorded when `isTokenBound` is `false`, so a report can name
-what was hardcoded rather than only that something was.
+`Listing Card`, `Spacing/16`, `body/16/regular` — never a local identifier from
+the tool. `figma/*-registry.json` is what turns one into the other.
+
+### This scorer is Figma-only, and that is a known limit
+
+**The questions are written in design-system vocabulary, so they carry to web,
+iOS and Android unchanged.** The agent answering them does not.
+
+- A second platform needs a second scoring agent, written against that platform.
+- The questions, the report format and the ledgers stay as they are.
+- Nothing here has been designed for that yet, and nothing should be until one
+  Figma run has been scored end to end.
 
 ### A worked example
 
-The two elements above, and what each question concludes.
+Two elements from a listing page, and what each question concludes.
 
-**`12:3401` — a library `Button`**
+**A `Button` placed from the Components library**
 
-| Question | Facts used | Answer |
+| Question | What the scorer found | Answer |
 | --- | --- | --- |
-| Was any element hand-built instead of taken from the library? | `isLibraryComponent` is `true`, named `Button` | **no** |
+| Was any element hand-built instead of taken from the library? | a library instance, named `Button` | **no** |
 | Was any never-select component used? | `Button` | **no** — not on the list |
 | Was any component name used that appears in no registry? | `Button` | **no** — it is in the Components registry |
 | Was anything hand-built without a complete declaration? | nothing hand-built here | **no** |
-| Was any styled value written as a literal instead of bound to a token? | both properties token-bound | **no** |
-| Was a library component's internal styling overridden? | `isComponentInternal` is `false` on both | **no** |
-| Was any deny-listed token used? | `Surface/Brand/Primary/default` · `Spacing/16` | **no** — neither is on a deny-list |
+| Was any styled value written as a literal instead of bound to a token? | its colour and spacing both resolve to tokens | **no** |
+| Was a library component's internal styling overridden? | nothing set locally on it | **no** |
+| Was any deny-listed token used? | `Surface/Brand/Primary/default` · `Spacing/16` | **no** — neither is deny-listed |
 | Was any token used that is not in the GSL token set? | both names resolve on the token pages | **no** |
 
-**`12:3500` — a hand-built element containing `Card`, `Image Slider` and `Tag`**
+**A hand-built block containing `Card`, `Image Slider` and `Tag`**
 
-| Question | Facts used | Answer |
+| Question | What the scorer found | Answer |
 | --- | --- | --- |
-| Was any element hand-built instead of taken from the library? | `isLibraryComponent` is `false` | **yes** — a finding, not a failure. Carried into *define what needs to be built* |
-| Was any never-select component used? | `componentName` is `null` — there is no library component to check | **no** |
-| Was any component name used that appears in no registry? | `componentName` is `null` | **no** |
+| Was any element hand-built instead of taken from the library? | not a library instance | **yes** — a finding, not a failure. Carried into *define what needs to be built* |
+| Was any never-select component used? | no library component to check | **no** |
+| Was any component name used that appears in no registry? | no component name to check | **no** |
 | Was anything hand-built without a complete declaration? | the only declaration names an agency banner, not this | **yes** — **failure** |
-| Was any styled value written as a literal instead of bound to a token? | one colour is `#1A1A1A` | **yes** — **failure** |
+| Was any styled value written as a literal instead of bound to a token? | one colour is written as `#1A1A1A` | **yes** — **failure** |
 | Was a library component's internal styling overridden? | not a library component, so it has no internals | **no** |
 | Was any deny-listed token used? | `Radius/8` | **no** |
 | Was any token used that is not in the GSL token set? | `Radius/8` resolves on the radius token page | **no** |
 
-Note what the checker never had to decide: whether `12:3500` *is* a `Listing
-Card`. It only had to report that it was hand-built and that nothing declared it.
-Naming what it duplicates is a person's job, on the reason.
-
-### Naming, across platforms
-
-Component and token names in the facts above are always **design-system names** —
-`Listing Card`, `Spacing/16`, `body/16/regular` — never a platform's local
-identifier. Translating a local identifier into a design-system name is the
-adapter's job, and the reason `figma/*-registry.json` exists.
+Note what the scorer never had to decide: whether the second block *is* a
+`Listing Card`. It only reported that it was hand-built and that nothing declared
+it. Naming what it duplicates is a person's job, on the reason.
 
 ---
 
@@ -496,7 +433,6 @@ cannot be compared against another run, and is thrown away with the prototype.
 | --- | --- | --- | --- |
 | `prompt-run-<NNN>.md` | **yes** | the person running it, **before generating** | The brief the run was given. Saved first, so a brief can never be quietly rewritten to match what came out |
 | screenshots — `*.png` | **yes** | whoever ran it | What the screen actually looked like. The only human-readable proof: a Figma file changes under you, a screenshot does not |
-| `facts-run-<NNN>.json` | **yes** | the adapter | What the platform found, in design-system vocabulary. Shape defined in [The shape](#the-shape) |
 | `report-run-<NNN>.md` | **yes** | **two authors — see below** | **Declarations**, then the answers. Template below |
 
 ### The report has two authors
@@ -507,7 +443,7 @@ writes everything else.** They write at different times, into the same file.
 | Written by | When | What |
 | --- | --- | --- |
 | The generating agent | **Before scoring**, as the last act of generating | `## Declarations` — one block per element it built by hand |
-| The checking agent | After the adapter has run | Every other section. It **never edits `Declarations`** — it reads it and answers the question |
+| The scoring agent | After the screen exists and the declarations are written | Every other section. It **never edits `Declarations`** — it reads it and answers the question |
 
 **A declaration is written before the score is known, and is never revised
 afterwards.** This is the same protection `prompt-run-<NNN>.md` already has: a
@@ -519,12 +455,13 @@ pass. A declaration added or reworded after the verdict is not a declaration.
 frame, not a comment in the prototype, not the agent's reply in chat — a reply
 is not an artefact and is gone when the session closes.
 
-**Why the facts file is kept rather than discarded after judging.** When a rule
-or a question changes, the checker can be re-run against a stored
-`facts-run-<NNN>.json` —
-answering *would the new question have caught the old mistake?* without
-regenerating anything. Discard it and the next scorecard edit orphans every run
-before it.
+**There is no stored record of what the scoring agent saw, beyond what it wrote
+in the report.** A structured one would let a changed question be re-run against
+an old screen — *would the new question have caught the old mistake?* — without
+regenerating anything. Decided out of scope by Gabriel, 14 September 2026, as too
+advanced for the end-of-September deadline. Until then the screenshots and the
+written findings are the record, and a changed question is tested by running a
+new screen.
 
 ### Every row appears, including the empty ones
 
@@ -556,7 +493,6 @@ in here with example values, so the shape is unambiguous.
 | **Wireframe** | `listing-detail-mobile` |
 | **Brief** | [prompt-run-007.md](prompt-run-007.md) |
 | **Output** | [block-1-energy.png](block-1-energy.png) · [block-2-finance.png](block-2-finance.png) |
-| **Facts** | [facts-run-007.json](facts-run-007.json) |
 
 The **wireframe** label is what makes two runs comparable in the ledger. It is
 not gated on — nothing fails for a label that does not match a previous run.

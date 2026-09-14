@@ -14,7 +14,7 @@ How generated output is judged against the design system. Same
 | `compliance-audit.md` | The evidence — why these questions, what was rejected, open questions. **Never read as rules** |
 | `compliance-run-ledger.md` | Append-only, one row per run. The comparison table. **Written by the checking agent — never edit by hand** |
 | `compliance-flag-ledger.md` | Append-only findings across runs. **Written by the checking agent — never edit by hand** |
-| `runs/run-NNN/` | One folder per run: `prompt-run-NNN.md`, screenshots, `facts-run-NNN.json`, `report-run-NNN.md`. All four required. **Every file carries its run number**; screenshots keep their descriptive names |
+| `runs/run-NNN/` | One folder per run: `prompt-run-NNN.md`, screenshots, `report-run-NNN.md`. All three required. **Every file carries its run number**; screenshots keep their descriptive names |
 
 ## The ruler is not the measurements
 
@@ -31,14 +31,23 @@ tool measures it.** No API names, no node identifiers, no framework vocabulary.
 If a check cannot be stated without naming a tool, it is not yet a design-system
 rule and does not belong here.
 
-How each platform measures is an **adapter**, and adapters live in the consuming
-agent's repo — one for Figma, later one each for web, iOS and Android. What this
-repo owns is the *adapter contract*: the list of facts a platform must report,
-stated in design-system vocabulary.
+**The agent answering them is not platform-neutral.** It reads the output
+directly — on Figma, the file the generating agent drew in. A second platform
+needs a second scoring agent; the questions, the report format and the ledgers
+stay as they are.
 
-A question whose facts a platform cannot supply reports `unavailable` — never
-`no`. A `no` reads as "the output was clean"; the truth is that the adapter has a
-gap.
+**There is no translation step and no stored facts file.** One was designed and
+removed by Gabriel on 14 September 2026 as too advanced for the end-of-September
+deadline. Do not reintroduce it without a deliberate decision — the cost it
+buys back is being able to re-run a changed question against an old screen.
+
+A question the scoring agent cannot answer reports `unavailable` — never `no`. A
+`no` reads as "the output was clean"; the truth is that nobody could see.
+
+**The scoring agent is never the generating agent.** It starts fresh, never sees
+the generating conversation, and never asks the generating agent anything. A
+generating agent knows every question in the scorecard, so anything it hands the
+scorer it can shape without ever stating a falsehood.
 
 ## The questions have no codes, and never get any
 
@@ -99,8 +108,8 @@ reads as an oversight; a step that states its own emptiness reads as a known gap
 
 - **A run is unfinished until its report exists.** Write it to
   `runs/run-NNN/report-run-NNN.md` — in this repo, never inside the Figma file
-  or the prototype it judges. Keep `facts-run-NNN.json` too: it is what lets a
-  later scorecard change be re-tested against an old run.
+  or the prototype it judges. **Write down what you found, above the answers** —
+  the report is the only record of what the screen contained.
 - **The report's `## Declarations` section is not yours to write.** The
   generating agent writes it before scoring; a checking agent reads it and
   answers *was anything hand-built without a complete declaration?* Never edit

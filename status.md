@@ -40,11 +40,11 @@ say so. Never yet used on a real run.
 
 ## The next task
 
-**Done: no ruleset links to evidence any more, and the link checker is clean for
-the first time.** Six live links labelled *Evidence* pointed at files an agent is
-forbidden to read. Run as the bounded sweep you asked for — read all six token
-rulesets, fix only what a script can confirm, file the rest — which also caught
-the leftover rule numbers and a link labelled with a folder that never existed.
+**Done: the adapter is gone from the scoring sheet.** A run folder is three
+files now, not four. The scoring agent opens the Figma file and looks — no
+translator, no facts file. The rule that replaced it is the one that matters:
+**the agent that scores is never the agent that built.** A builder can read the
+scorecard, so it knows every question before it is asked.
 
 **Next: settle whether `Spacing/56` is a page-rhythm token or a forbidden one.**
 Twenty minutes. The spacing ruleset says both, 83 lines apart, and an agent
@@ -53,9 +53,10 @@ obeying the first fails the scorecard for it.
 **Then: give grid and breakpoint a ruleset an agent may read.** Half a day. It
 finishes the last thing an agent needs — how the page is laid out.
 
-Your generating skill — screen *and* report — is yours, and deliberately later;
-it needed this format settled first. One catch: `design` is already a built-in
-skill name, so pick another.
+**`generate-and-score` is the next real build**, and it orchestrates rather than
+does: create the folder, save the brief, spawn the builder, spawn a cold scorer,
+append the two ledger rows. Named by you on 14 Sep — `design` collides with a
+built-in, and a name saying only *build* is how a session stops after building.
 
 How tasks are sorted, and why, is at the top of
 [the backlog](project/backlog.md).

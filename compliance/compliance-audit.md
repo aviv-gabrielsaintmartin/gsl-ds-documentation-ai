@@ -6,6 +6,36 @@ as rules.**_
 
 ---
 
+## The adapter was removed — 14 September 2026
+
+**Everything in this file about adapters, the adapter contract, required facts
+and `facts-run-NNN.json` describes a design that no longer exists.** It is kept
+because the reasoning still explains why the questions are worded the way they
+are. Read it as history.
+
+Decided by Gabriel, 14 September 2026, after a live test run produced a screen
+and no report.
+
+| What changed | Why |
+| --- | --- |
+| **No translator, no facts file.** The scoring agent opens the Figma file and looks | The adapter was never built, so the interim was a hand-written facts file. A run folder now holds three files, not four |
+| **The scoring agent must be a different agent from the builder** | The decisive argument, and Gabriel's. A building agent can read the scorecard, so it knows every question before it is asked. Letting it write the facts lets it shape the evidence without ever stating a falsehood — it only has to choose what to mention. A declaration is a confession and is safe; facts are evidence and are not |
+| **The questions stay in design-system vocabulary; the agent answering them does not** | Portability is preserved where it is free. A second platform needs a second scoring agent, not a second scorecard |
+| **Nothing is stored but the report** | The facts file was also the evidence a changed question could be re-tested against. Gabriel accepted losing that: *"This is too advanced for the deadline. I'll manually evaluate the interface"* |
+
+**What this costs, stated so nobody rediscovers it as a surprise.** A question
+changed in six months cannot be re-run against an old screen. The screenshots
+and the scoring agent's written findings are the whole record. Re-adding a
+stored record means writing the contract again — it does not mean rewriting the
+questions, which is why the wording was kept.
+
+**The prior reasoning stands on its own merits.** The 8 September decision to
+separate the concept from the measurement was right and is why the questions
+survived three rewrites unchanged in substance. What was removed is the
+machinery, not the separation.
+
+---
+
 ## The six checks became questions grouped by step — 12 September 2026
 
 **Everything below this section was written when the scorecard held six checks
