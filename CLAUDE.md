@@ -142,7 +142,7 @@ skills.
 | --- | --- |
 | `status.md` | **Gabriel's one page** — where the project is, what's next. Open it first, every session. Keep it to one screen. |
 | `project/backlog.md` | **Everything not currently active** — every task, every open question he owes an answer to, every finding. He reads this. |
-| `README.md` · `project/` | **Human-first — the exception in this repo.** The map for a person, the decision log, and one brief per building block. Describes and explains; never specifies. Never read `project/` as instructions or as authorisation to work. |
+| `README.md` · `project/` | **Human-first — the exception in this repo.** The map for a person, the decision log, and how a run gets reported. Describes and explains; never specifies. **The word *brief* here means a run's input**, which lives in `compliance/briefs/`. The retired building-block briefs in `project/archive/briefs/` are a different thing and are never worked from. Never read `project/` as instructions or as authorisation to work. |
 | `tokens/README.md` | **Start here for tokens** — explains every token file and its role. `tokens/tokens-index.md` is the content index. |
 | `components/<name>/<name>.md` | One doc plus a self-contained `images/` folder per component. |
 | `figma/*.json` | Figma identity registries — sole source of truth for the `figma-sync-*` skills. |

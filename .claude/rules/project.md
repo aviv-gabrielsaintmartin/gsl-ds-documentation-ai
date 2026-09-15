@@ -78,7 +78,7 @@ before running them.
   two copies drift, and then nobody knows which is current.
 - **Every finding goes into the backlog**, as a task, a question for him, or a
   note. Never as a paragraph in chat. This is the rule he asked for by name.
-- **No briefs.** A task that genuinely needs one is too big — split it.
+- **No planning documents for a task.** One that genuinely needs one is too big — split it. **This is not about `compliance/briefs/`**, which is a run's input and is required.
 - A task is not finished until `/task-check` has verified it and `status.md`
   reflects it.
 
