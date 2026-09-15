@@ -40,9 +40,10 @@ findings are now ruled.
 
 ## The next task
 
-**Done: run-003 failed nothing** — the first run to do so. Same brief as run-002,
-scored cold. Its three failures are all fixed. **Five things need your ruling**,
-in [the report](compliance/runs/run-003/report-run-003.md).
+**Done: run-003 failed nothing**, the first run to do so — and its five findings
+are ruled. Three `accepted`, one `library defect`, one `ruleset gap`. Two rules
+changed: a frame that only stacks things needs no declaration, and the legend's
+own `Alignment` works — it is the **graph frame** that has none.
 
 **Done: run-002's eight findings are ruled**, four fixed the same day. Three
 `ruleset gap`, two `agent error`, two `accepted`, one `library defect`.

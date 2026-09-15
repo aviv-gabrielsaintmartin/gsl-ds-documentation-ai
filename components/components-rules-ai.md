@@ -314,15 +314,21 @@ dot-prefixed sends you to **When nothing fits**.
 #### Where a chart's legend sits
 
 **`Donut chart`'s legend sits beside the chart, and that is the only placement
-the library offers.** Its graph frame is laid out horizontally, so switching the
-legend on puts it to the side. There is no alignment property — do not go
-looking for one, and do not compose a below-placed legend by hand.
+the library offers.** Its graph frame is laid out horizontally and **carries no
+alignment property**, so switching the legend on puts it to the side. Do not
+compose a below-placed legend by hand.
+
+**The legend's own `Alignment` is a different property, and it works.** The
+internal `.Legend` supports horizontal and vertical, which controls how its rows
+stack inside the legend. Setting it is allowed. It does not move the legend below
+the chart — the graph frame is what would have to change. Gabriel, 15 September
+2026, after run-003 set it and the run had to ask whether that was permitted.
 
 The component documentation allows two placements, below **or to the left**, and
 forbids above. The library can produce only one of the two. **Recorded as a
-library defect on 14 September 2026**, from run-002: the missing alignment
-property is a Figma gap, not a documentation error. Until it is added, beside is
-correct output and is not a finding.
+library defect on 14 September 2026**, from run-002: the alignment property
+missing from the **graph frame** is a Figma gap, not a documentation error.
+Until it is added, beside is correct output and is not a finding.
 
 **Never change the gap between a chart and its legend on an instance.** That gap
 is a library component's internal spacing, and **Components first** forbids
@@ -608,7 +614,8 @@ on the screen.
 | Built by hand | Declare it? | Why |
 | --- | --- | --- |
 | A composed block — a container plus components plus text, doing one job | **Yes** | Nobody can review whether composing it was right unless you say you did |
-| A layout container holding declared content | **Yes**, inside that content's own declaration | It is part of the thing you composed |
+| A layout container holding **one** declared thing | **Yes**, inside that content's own declaration | It is part of the thing you composed |
+| **A frame that only stacks other elements and does no job of its own** — a page frame, a section stack, a container holding content from several declarations at once | **No** | It is layout, not an element. The job is done by the things inside it, and every one of those is declared on its own. The three-part declaration cannot be written for it either: no problem heading in **Which component** covers stacking things, and there is no container component to rule out. Gabriel, 15 September 2026, from run-003 |
 | **Plain text set in a published GSL text style** — a section title, a field label, a caption, a unit | **No** | Typography's **Components first** tells you to set type on your own markup. No text, heading or label component exists to rule out, and no problem heading in **Which component** covers writing a label. The three-part declaration cannot be written for it, and a declaration missing a part counts as absent |
 
 **Content you author to fill a component's own slot still counts as composed.**
