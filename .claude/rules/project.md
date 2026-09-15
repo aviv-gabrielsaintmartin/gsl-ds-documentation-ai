@@ -49,6 +49,7 @@ rest of the repo.
 | `project/backlog.md` | Everything not currently active — every task, every question he owes an answer to, every finding | He opens and reads this |
 | `README.md` | The map — what does what and where, and the filename grammar | Someone new should find the right file from this alone |
 | `project/the-project.md` | **The one page for a stakeholder** — what this is for, what the September deadline means, where the seven steps stand, what is blocked on someone else | Written for someone who does not work on this. Never longer than a screen and a bit |
+| `project/design-process-map.md` | **The long version of the process** — five steps, their objectives, the questions each must answer, and where AI would earn its place | Built from the Guild Design AI workshop board and the strategy brief. A reference, read a section at a time |
 | `project/decisions.md` | Why the project is shaped this way, newest first | Every entry records **what it costs**, not just what was decided |
 | `project/how-a-run-is-reported.md` | How a generation run becomes a saved report, walked through for a non-technical reader | **Links** to the scorecard for the template and the required facts; never repeats them |
 | `project/archive/` | The retired plan, briefs and handoff note | **History.** Never work from it, never update it. Its own README says why each was retired |

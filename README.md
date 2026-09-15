@@ -25,6 +25,7 @@ Judge every page in here by one test:
 | **Know where the project is, or pick it up cold** | **[status.md](status.md)** — one page, always current |
 | See every task, open question and finding | [project/backlog.md](project/backlog.md) |
 | Explain this project to someone who doesn't work on it | [project/the-project.md](project/the-project.md) |
+| See how the design process works today, and where AI would help | [project/design-process-map.md](project/design-process-map.md) |
 | **Generate an interface** | The rulesets, and only the rulesets — see the four of them below |
 | Know what components exist | [components/components-index.md](components/components-index.md) |
 | Know what icons exist | [icons/icons-index.md](icons/icons-index.md) |
@@ -175,7 +176,7 @@ has to make with no documentation behind it.
 | `.claude/rules/`  | 5 path-scoped rule files — for `tokens/`, `figma/`, `components/`, `compliance/` and `project/`. Each loads automatically when an agent opens a file in that folder                                                                                                      |
 | `.claude/skills/` | 9 skills — the repeatable workflows. See below                                                                                                                                                                                                                           |
 | `status.md`       | **The one page.** Where the project is and what the next task is. Human-first                                                                                                                                                                                            |
-| `project/`        | `backlog.md` — every task, question and finding — plus `the-project.md`, the one page for a stakeholder, `decisions.md`, the log of why the project is shaped this way, and `how-a-run-is-reported.md`, the plain-language walkthrough of the reporting pipeline. Retired files sit in `project/archive/`. **Human-first** |
+| `project/`        | `backlog.md` — every task, question and finding — plus `the-project.md`, the one page for a stakeholder, `design-process-map.md`, every design step and the questions it must answer, `decisions.md`, the log of why the project is shaped this way, and `how-a-run-is-reported.md`, the plain-language walkthrough of the reporting pipeline. Retired files sit in `project/archive/`. **Human-first** |
 | `tokens/scripts/` | 4 Python scripts. They only ever *read* the design-system code repo. Re-run them to refresh the evidence                                                                                                                                                                 |
 | `scripts/`        | `check-links.py` — run it after renaming or deleting anything. It reports links whose target is gone, and rulesets that point an agent at evidence it may not read                                                                                                       |
 
