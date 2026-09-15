@@ -104,10 +104,10 @@ deadline. Two consequences worth knowing:
 
 ---
 
-## The three files a run leaves behind
+## The files a run leaves behind
 
-A finished run is a folder with three things in it. All three are required — a
-folder missing one is a run that cannot be trusted later.
+A finished run is a folder with two things in it, sitting under the brief it was
+given. All three are required — a run missing one cannot be trusted later.
 
 | The file | Who writes it | When | Why it has to exist |
 | --- | --- | --- | --- |
@@ -115,11 +115,12 @@ folder missing one is a run that cannot be trusted later.
 | `*.png` — the screenshots | Whoever ran it | Right after generating | The only human-readable proof. A Figma file keeps changing under you; a screenshot doesn't |
 | `report-run-001.md` — the verdict | **Two writers** — see below | Twice | The answer. Readable on its own, sendable to anyone |
 
-**Every file carries its run number, and the folder says it too.** That looks
-like saying it twice, and it is deliberate: the moment a file is opened in a tab
-or attached to a message, the folder is gone and the name is all you have. The
-screenshots are the exception — `block-1-energy-and-conditions.png` tells you
-what you are looking at, which matters more than which run drew it.
+**Every file carries its number, and the folder says it too** — the report its
+run number, the brief its brief number. That looks like saying it twice, and it
+is deliberate: the moment a file is opened in a tab or attached to a message, the
+folder is gone and the name is all you have. The screenshots are the exception —
+`block-1-energy-and-conditions.png` tells you what you are looking at, which
+matters more than which run drew it.
 
 The exact shape of the report — which headings, in which order — is
 [The template](../compliance/compliance-scorecard.md#the-template). It is not
