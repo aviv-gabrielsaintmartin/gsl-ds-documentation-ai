@@ -14,7 +14,8 @@ How generated output is judged against the design system. Same
 | `compliance-audit.md` | The evidence — why these questions, what was rejected, open questions. **Never read as rules** |
 | `compliance-run-ledger.md` | Append-only, one row per run. The comparison table. **Written by the checking agent — never edit by hand** |
 | `compliance-flag-ledger.md` | Append-only findings across runs. **Written by the checking agent — never edit by hand** |
-| `runs/run-NNN/` | One folder per run: `prompt-run-NNN.md`, screenshots, `report-run-NNN.md`. All three required. **Every file carries its run number**; screenshots keep their descriptive names |
+| `briefs/brief-NNN/` | One folder per brief: `brief-NNN.md`, written once, plus every run of it. **Two runs are comparable only when they share this folder.** A changed requirement starts a new brief folder, never an edit to an existing one |
+| `briefs/brief-NNN/run-NNN/` | One folder per run: screenshots and `report-run-NNN.md`, both required. **Run numbers are global across every brief**, never reused. Screenshots keep their descriptive names |
 
 ## The ruler is not the measurements
 
@@ -79,7 +80,7 @@ column, never in the verdict.
 12 September 2026: it answered whether this run beat the last one, which is a
 question about the project rather than about the design system, and it was the
 only judgment here that could not be made from a single run. The trend lives in
-the run ledger, read down one wireframe label.
+the run ledger, read down one brief folder.
 
 ## The rule that governs this pillar
 
@@ -115,7 +116,7 @@ reads as an oversight; a step that states its own emptiness reads as a known gap
 ## When you run a check
 
 - **A run is unfinished until its report exists.** Write it to
-  `runs/run-NNN/report-run-NNN.md` — in this repo, never inside the Figma file
+  `briefs/brief-NNN/run-NNN/report-run-NNN.md` — in this repo, never inside the Figma file
   or the prototype it judges. **Write down what you found, above the answers** —
   the report is the only record of what the screen contained.
 - **The report's `## Declarations` section is not yours to write.** The

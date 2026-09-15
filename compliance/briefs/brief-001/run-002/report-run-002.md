@@ -4,10 +4,15 @@
 | --- | --- |
 | **Date scored** | 2026-09-14 |
 | **Platform** | Figma |
-| **Wireframe** | `listing-detail-energy-finance-mobile` |
-| **Brief** | [prompt-run-002.md](prompt-run-002.md) |
+| **Brief** | [brief-001.md](../brief-001.md) |
+| **Destination** | Figma node `52-68179`, pasted with the brief on the day |
 | **Output** | [block-1-energy-and-conditions.png](block-1-energy-and-conditions.png) · [block-2-finance.png](block-2-finance.png) |
 | **Frame judged** | `132:5052` · page `Screen` |
+
+_Metadata updated 15 September 2026: the `Wireframe` row was removed and a
+`Destination` row added. The run now sits inside `brief-001/`, which is what
+makes it comparable, so the label had nothing left to identify. **No answer and
+no finding was changed.**_
 
 _Reordered 14 September 2026 to the report format agreed that day. **No answer
 and no finding was changed** — only the order and the wording. The original is in

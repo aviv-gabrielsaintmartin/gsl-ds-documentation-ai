@@ -54,7 +54,7 @@ missing a case.
 **Run 002's rows predate the rule above them.** They were written on 14 September
 2026, when only flags landed here and failures did not. Its three failures and
 its two uncovered findings are in
-[report-run-002.md](runs/run-002/report-run-002.md) under *Decisions you need to
+[report-run-002.md](briefs/brief-001/run-002/report-run-002.md) under *Decisions you need to
 make* — eight items, not three. **The rows are not corrected**: this file records
 what was measured on a date, and the rule changed after. Every run from 003 on
 carries every item needing a ruling.

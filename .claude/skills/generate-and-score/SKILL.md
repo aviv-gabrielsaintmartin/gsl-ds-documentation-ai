@@ -75,12 +75,41 @@ orchestrating chat, one building agent, one scoring agent.
 
 **Do this before anything is built. It is the step whose absence lost two runs.**
 
-1. Read `compliance/runs/`. The next run number is the highest existing one plus
-   one, three digits. **Never reuse, never renumber.**
-2. Create `compliance/runs/run-NNN/`.
-3. Save the brief **verbatim** as `prompt-run-NNN.md`. Never reword it, never
-   tidy it, never fill a gap in it.
-4. Tell Gabriel the run number before going further.
+A run lives inside its brief. One brief, many runs, all comparable with each
+other and with nothing outside the folder.
+
+```
+compliance/briefs/
+├── brief-001/
+│   ├── brief-001.md          written once, before run-001
+│   ├── run-001/              screenshots · report
+│   ├── run-002/
+│   └── run-003/
+└── brief-002/
+    ├── brief-002.md
+    └── run-004/              run numbers are global, never restarted
+```
+
+1. **Find the brief, or create it.** Read `compliance/briefs/`. If this exact
+   brief already has a folder, use it and **do not write the brief file again**.
+   If it does not, create `brief-NNN/` and save the brief **verbatim** as
+   `brief-NNN.md`. Never reword it, never tidy it, never fill a gap in it.
+2. **Take the next run number.** The highest run number anywhere under
+   `compliance/briefs/`, plus one, three digits. **Global across every brief —
+   never reuse, never renumber, never restart inside a folder.**
+3. Create `compliance/briefs/brief-NNN/run-NNN/`.
+4. Tell Gabriel the brief folder and the run number before going further.
+
+**Where to draw is not part of the brief.** A Figma URL, a route, a target
+screen — these say where the output goes, not what to build. Keep them out of
+the brief file and record them in the report's **Destination** row. Pasting a
+destination into the brief is what made three copies of one brief look like
+three different briefs.
+
+**Editing a brief starts a new brief folder.** A typo fix or a different
+destination is not an edit. A changed requirement is, and it makes every earlier
+run under that folder incomparable — so it gets its own folder and its own
+number.
 
 A brief saved after the screen exists is not a brief. It can be quietly reworded
 to match whatever came out, and then the run proves nothing.
@@ -89,14 +118,15 @@ to match whatever came out, and then the run proves nothing.
 
 Spawn **one** subagent. Give it:
 
-- The path to `prompt-run-NNN.md`.
+- The path to `compliance/briefs/brief-NNN/brief-NNN.md`, and where to put the
+  output.
 - **What to read:** `components/components-rules-ai.md` and the token rulesets
   under `tokens/*/`.
 - **What not to read:** anything in `compliance/`. The scorecard is written for
   the agent that judges the output, and a builder that has read it is building
   against the marking scheme.
 - **What to write:** the `## Declarations` section of
-  `compliance/runs/run-NNN/report-run-NNN.md`, before it finishes — one block
+  `compliance/briefs/brief-NNN/run-NNN/report-run-NNN.md`, before it finishes — one block
   per element it built by hand. A run that invented nothing still writes the
   section, reading `_None._`.
 - **What to report back:** the Figma file, page and frame it drew into, and the

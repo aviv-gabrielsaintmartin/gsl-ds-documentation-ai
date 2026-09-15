@@ -595,7 +595,7 @@ Compliance means **reuse before invention**, not never inventing.
    [spacing](../tokens/spacing/spacing-rules-ai.md). Never hand-style something
    a component already does.
 4. **Declare it.** Write the declaration into the `## Declarations` section of
-   this run's report — `compliance/runs/run-<NNN>/report-run-<NNN>.md`, where
+   this run's report — `compliance/briefs/brief-<NNN>/run-<NNN>/report-run-<NNN>.md`, where
    `<NNN>` is this run's three-digit number. One block per element you built by
    hand, each stating all three of:
    - **What you built.**

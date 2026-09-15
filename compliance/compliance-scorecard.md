@@ -154,7 +154,8 @@ A declaration is complete only when it states all three:
 not a partial pass; it is a declaration nobody can review.
 
 **Where a declaration physically lives:** the `## Declarations` section of
-`compliance/runs/run-<NNN>/report-run-<NNN>.md`, written by the generating agent
+`compliance/briefs/brief-<NNN>/run-<NNN>/report-run-<NNN>.md`, written by the
+generating agent
 before scoring. Same place on every platform — a run folder is the same whether
 the output was drawn in Figma or built on web. See
 [the report has two authors](#the-report-has-two-authors).
@@ -409,7 +410,7 @@ compliant one.
 It is written to:
 
 ```
-compliance/runs/run-<NNN>/report-run-<NNN>.md
+compliance/briefs/brief-<NNN>/run-<NNN>/report-run-<NNN>.md
 ```
 
 `<NNN>` is the next unused three-digit number. Numbers are never reused, never
@@ -431,7 +432,7 @@ cannot be compared against another run, and is thrown away with the prototype.
 
 | File | Required? | Written by | What it is |
 | --- | --- | --- | --- |
-| `prompt-run-<NNN>.md` | **yes** | the person running it, **before generating** | The brief the run was given. Saved first, so a brief can never be quietly rewritten to match what came out |
+| the brief — `../brief-<NNN>.md` | **yes**, one level up | the person running it, **before the first run of it** | The brief every run in this folder was given. Written once and shared, so it cannot be quietly rewritten to match what came out. **A changed requirement is a new brief folder**, never an edit to this one |
 | screenshots — `*.png` | **yes** | whoever ran it | What the screen actually looked like. The only human-readable proof: a Figma file changes under you, a screenshot does not |
 | `report-run-<NNN>.md` | **yes** | **two authors — see below** | **Declarations**, then the answers. Template below |
 
@@ -446,9 +447,8 @@ writes everything else.** They write at different times, into the same file.
 | The scoring agent | After the screen exists and the declarations are written | Every other section, and both ledger rows. It writes **above and below** `## Declarations` and **never edits it** — it reads it and answers the question |
 
 **A declaration is written before the score is known, and is never revised
-afterwards.** This is the same protection `prompt-run-<NNN>.md` already has: a
-brief is saved before generating so it cannot be reworded to match what came
-out, and a declaration is written before scoring so it cannot be retrofitted to
+afterwards.** This is the same protection the brief already has: it is
+written before the first run so it cannot be reworded to match what came out, and a declaration is written before scoring so it cannot be retrofitted to
 pass. A declaration added or reworded after the verdict is not a declaration.
 
 **The run folder is the only home a declaration has.** Not a note on the Figma
@@ -550,8 +550,8 @@ in here with example values, so the shape is unambiguous.
 | --- | --- |
 | **Date scored** | 2026-09-14 |
 | **Platform** | Figma |
-| **Wireframe** | `listing-detail-mobile` |
-| **Brief** | [prompt-run-007.md](prompt-run-007.md) |
+| **Brief** | [brief-002.md](../brief-002.md) |
+| **Destination** | where the output was produced — a Figma node, a route, a screen |
 | **Output** | [block-1-energy.png](block-1-energy.png) · [block-2-finance.png](block-2-finance.png) |
 | **Frame judged** | `132:5052` · page `Screen` |
 

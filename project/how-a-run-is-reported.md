@@ -33,10 +33,10 @@ Four steps. Two are done by you, two by agents.
 
 ```
         YOU
-         │  write the brief, save it as prompt-run-001.md
+         │  write the brief, save it as briefs/brief-001/brief-001.md
          ▼
   ┌─────────────┐
-  │  1. BRIEF   │   prompt-run-001.md   saved BEFORE anything is generated
+  │  1. BRIEF   │   brief-001.md   saved BEFORE anything is generated
   └─────────────┘
          │
          ▼
@@ -111,7 +111,7 @@ folder missing one is a run that cannot be trusted later.
 
 | The file | Who writes it | When | Why it has to exist |
 | --- | --- | --- | --- |
-| `prompt-run-001.md` — the brief | **You** | **Before** generating | So the brief can never be quietly reworded afterwards to match whatever came out |
+| `brief-001.md` — the brief, one level up | **You** | **Before** the first run of it | So the brief can never be quietly reworded afterwards to match whatever came out. Written once and shared by every run under it |
 | `*.png` — the screenshots | Whoever ran it | Right after generating | The only human-readable proof. A Figma file keeps changing under you; a screenshot doesn't |
 | `report-run-001.md` — the verdict | **Two writers** — see below | Twice | The answer. Readable on its own, sendable to anyone |
 
@@ -172,22 +172,26 @@ compliance/
 ├── compliance-run-ledger.md     THE TABLE — one line per run, compare here
 ├── compliance-flag-ledger.md    THE ODDITIES — things no rule covers yet
 │
-└── runs/
-    ├── run-001/                 ← the one we already have
-    │   ├── prompt-run-001.md
-    │   ├── block-1-energy-and-conditions.png
-    │   └── block-2-finance.png    (no report — see below)
-    │
-    ├── run-002/
-    │   ├── prompt-run-002.md
-    │   ├── screen.png
-    │   └── report-run-002.md      ← a complete run looks like this
-    │
-    └── run-003/
-        ├── prompt-run-003.md
-        ├── screen.png
-        └── report-run-003.md
+└── briefs/
+    └── brief-001/
+        ├── brief-001.md         ← written once, shared by every run below
+        │
+        ├── run-001/             ← the one we already have
+        │   ├── block-1-energy-and-conditions.png
+        │   └── block-2-finance.png    (no report — see below)
+        │
+        ├── run-002/
+        │   ├── screen.png
+        │   └── report-run-002.md      ← a complete run looks like this
+        │
+        └── run-003/
+            ├── screen.png
+            └── report-run-003.md
 ```
+
+**A second brief gets its own folder** — `brief-002/`, holding `brief-002.md`
+and `run-004/` onward. Run numbers keep counting up across every brief, so
+`run-004` means one run and never two.
 
 Run numbers are **never reused, never reordered, never renumbered** after the
 fact. `run-007` means the same run forever, in every conversation and every
@@ -219,30 +223,35 @@ better?**
    You open ONE file:  compliance/compliance-run-ledger.md
 
    ┌──────────────────────────────────────────────────────────────┐
-   │ Run  Date    Wireframe        Components  Build  Tokens  Qual│
-   │ 002  12 Sep  listing-detail        2        1      3    close│
-   │ 004  15 Sep  listing-detail        1        0      1     good│
-   │ 007  19 Sep  listing-detail       ok       ok     ok     ship│
+   │ Run  Date    Brief        Failures  Findings  Flags  Quality │
+   │ 002  12 Sep  brief-001     2 of 7       1       3      close │
+   │ 004  15 Sep  brief-001     1 of 7       1       1       good │
+   │ 007  19 Sep  brief-001     0 of 7       0       0       ship │
    └──────────────────────────────────────────────────────────────┘
                           ▲
-                  read DOWN one wireframe
+                   read DOWN one brief
 ```
 
-Each number is **how many questions that step answered `yes` to** — how many
-things went wrong. `ok` means none did. That's the whole answer, and you never
-opened a report.
+**Failures is the answer.** It says how many of the questions that can fail were
+answered `yes`, out of how many there are. Two then one then zero is the whole
+story, and you never opened a report.
+
+The other two columns are not faults. A **finding** is something the scorecard
+notes rather than fails — a hand-built element, for instance. A **flag** is
+something no rule covers yet, waiting for you to look at it.
 
 Three things to hold on to while reading it:
 
-- **Read down a single `Wireframe` label, never across the table.** Two runs are
-  only comparable when that label matches. Comparing a search page against a
-  form measures how hard the brief was, not how compliant the output was.
+- **Read down a single brief, never across the table.** Two runs are only
+  comparable when they sit in the same brief folder. Comparing a search page
+  against a form measures how hard the brief was, not how compliant the output
+  was.
 - **Nothing is a percentage, on purpose.** Every rule behind these questions says
   *never* — never write a raw colour, never use a deny-listed token. There is no
   such thing as 88% of never, and writing it that way made a broken rule look
   like a good score.
 - **Open a report only when a row looks wrong.** The ledger tells you *that*
-  something moved; `runs/run-NNN/report-run-NNN.md` tells you *what*.
+  something moved; `briefs/brief-NNN/run-NNN/report-run-NNN.md` tells you *what*.
 
 And one column no machine can fill: **Quality** is your sentence, in your words,
 about whether the screen is actually any good. Compliance can tell you the agent
