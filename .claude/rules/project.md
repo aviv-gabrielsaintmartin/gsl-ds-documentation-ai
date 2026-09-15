@@ -48,6 +48,7 @@ rest of the repo.
 | `status.md` (repo root) | **Gabriel's one page.** Where the project is, the current task, the top open question | **Never longer than one screen.** Overflow goes to the backlog |
 | `project/backlog.md` | Everything not currently active — every task, every question he owes an answer to, every finding | He opens and reads this |
 | `README.md` | The map — what does what and where, and the filename grammar | Someone new should find the right file from this alone |
+| `project/the-project.md` | **The one page for a stakeholder** — what this is for, what the September deadline means, where the seven steps stand, what is blocked on someone else | Written for someone who does not work on this. Never longer than a screen and a bit |
 | `project/decisions.md` | Why the project is shaped this way, newest first | Every entry records **what it costs**, not just what was decided |
 | `project/how-a-run-is-reported.md` | How a generation run becomes a saved report, walked through for a non-technical reader | **Links** to the scorecard for the template and the required facts; never repeats them |
 | `project/archive/` | The retired plan, briefs and handoff note | **History.** Never work from it, never update it. Its own README says why each was retired |

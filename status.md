@@ -3,7 +3,7 @@
 _The only page you need. Everything else in this repo is reference material for
 agents — looked up, never read through._
 
-_Updated 14 September 2026._
+_Updated 15 September 2026._
 
 ---
 
@@ -13,8 +13,9 @@ A written description of the GSL Design System complete enough that an AI agent
 can read it and design a screen in Figma using the right components and the
 right colours, with nobody correcting it.
 
-**Deadline: end of September 2026.** Only "did it use the right things" counts.
-"Is it a good design" comes later, on purpose.
+**Deadline: end of September 2026.** What "done" means that day is defined in
+one place — [project/the-project.md](project/the-project.md). Short version: two
+unseen briefs, both built and scored with no rule broken.
 
 ---
 
