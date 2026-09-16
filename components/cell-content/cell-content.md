@@ -10,7 +10,7 @@ Cell contents are building blocks used to create elements such as lists or butto
 | --- | --- | --- | --- |
 | Ready ✅ | Ready ✅ | Ready ✅ | Partially available |
 
-* [Cell content on Figma](https://www.figma.com/design/xxqSJcKOphrgimxRQbvtfe/2.-Gemini-Components-Library?node-id=3-7308)
+* [Cell content on Figma](https://www.figma.com/design/ABqcGx0cmJWozuJ8OoW6f2/2.-GSL-Components-Library?node-id=18359-17763)
 * [Cell content on Storybook](https://gemini-storybook.prompt-scorpion-preview.aws.aviv.eu/?path=/docs/ui-content-cellcontent--docs)
 
 ---
@@ -41,6 +41,7 @@ Alignment
 └─ Horizontal space limited, vertical space available → Vertical
 
 Padding
+├─ The container already supplies the inset → 0 (non-clickable only)
 ├─ Narrow or dense container → 8px
 └─ Roomier container → 16px
 
@@ -52,6 +53,11 @@ Icons and image
 ├─ Trailing visual → Icon only, on the right
 ├─ The row links or triggers an action → Chevron, shown by default
 └─ The row leaves the site → External-link icon
+
+Icon alignment (horizontal layouts only)
+├─ Default → Middle — leading icon centred on the whole text block
+├─ Tall content, the icon should read with the first line → Top
+└─ A trailing icon is shown → Middle, always
 
 Badge
 └─ Notifications or updates, such as messages or alerts → Badge beside the title
@@ -95,7 +101,11 @@ Cell contents are available with horizontal and vertical alignment. Which one to
 
 ### Padding
 
-The cell content is available with 8 and 16px padding. Which one to use depends mainly on the visual design of the container in which the cell content is placed. For narrower designs where space is limited, use 8px; for wider designs, use 16px.
+The cell content is available with 0, 8 and 16px padding. Which one to use depends mainly on the visual design of the container in which the cell content is placed. For narrower designs where space is limited, use 8px; for wider designs, use 16px. Use 0 when the container already supplies the inset and the cell content has to sit flush inside it.
+
+Padding applies to all four sides. It changes the outer inset only — the gaps between icon, text and trailing icon are unchanged, and the height stays driven by the content.
+
+**0 padding is for non-clickable cell contents only.** Figma offers it on the non-clickable variant alone; the clickable combinations were removed from the component set. The web component still accepts 0 on a clickable cell content — never use it there. Hover, pressed and disabled would paint right up to the edge of the content, with no margin around it.
 
 ### Modifiers
 
@@ -108,6 +118,29 @@ All text elements in the cell content are optional and can be freely combined. W
 The cell content contains optional icons and images. Icons and images are available on the left. On the right, only icons are available.
 
 **Link and action icons:** If a link or action is applied to the cell content, the chevron is displayed by default. If an external link is applied, the external link icon is displayed.
+
+How the leading icon sits against the text is a separate setting — see *Icon alignment* below.
+
+#### Icon alignment
+
+Controls how the leading icon sits against the text. **Horizontal layouts only.** Vertical layouts are unaffected and have no such setting.
+
+| Setting | What it does |
+| --- | --- |
+| **Middle** — the default | The 24×24 leading icon is centred against the whole title, body and description block. |
+| **Top** | The leading icon is centred against the first line of text — the 24px title line when there is a title. |
+
+Top does not mean top-edge alignment. The icon and the first line of text are centred against each other, never lined up by their top edges.
+
+**Measured on the live component** (horizontal, 16px padding, title + body + description): under `Middle` the 24×24 icon's centre sits on the centre of the whole text block; under `Top` it sits on the title's own centre. The trailing icon's centre stays on the whole-block centre under both. With a 24px title the icon's top edge lands on the title's top edge as well — that follows from both being 24px tall, and is not the rule.
+
+**With no title, the icon should centre on the first body line. That is design intent and has not been measured** — the title is a toggle rather than a variant, so the behaviour cannot be read off the component set.
+
+The trailing icon is always centred against the whole content block, under both settings.
+
+**If a trailing icon is shown, the leading icon must be Middle.** Nothing prevents Top in that combination — not Figma, not the web component — so the rule holds by convention alone. A top-aligned leading icon beside a centred trailing icon sits the two visuals on different lines and unbalances the row.
+
+In Figma the setting is named `Placeholder left alignement` — the misspelling is in the library. It governs the leading placeholder slot, which can hold an icon or an image. An image can stand in for the icon anywhere the icon is used, to build a list or a similar row. **What `Top` does with an image rather than a 24×24 icon is not documented**, and no rule for it exists.
 
 #### Badge
 

@@ -41,19 +41,19 @@ findings are now ruled.
 
 ## The next task
 
+**Done: `Cell Content` is updated on both sides.** Your two new axes are in the
+doc and the registry — `Placeholder left alignement` (Middle/Top, horizontal
+only) and `Padding=0`. **Three corrections came out of the live read:** 20
+variants were really 33, the property is `Placeholder left alignement` not
+`placeholder-left-alignement`, and the entry's Pattern 1 was wrong — it is
+Pattern 2, with `.placeholder left` exposed on every variant. **Two rules no
+system can enforce went into the doc:** never 0 padding on a clickable cell, and
+a shown trailing icon forces Middle.
+
 **Done: run-003 failed nothing**, the first run to do so — and its five findings
 are ruled. Three `accepted`, one `library defect`, one `ruleset gap`. Two rules
 changed: a frame that only stacks things needs no declaration, and the legend's
 own `Alignment` works — it is the **graph frame** that has none.
-
-**Done: run-002's eight findings are ruled**, four fixed the same day. Three
-`ruleset gap`, two `agent error`, two `accepted`, one `library defect`.
-
-**Done: icons are documented**, six of seven open names answered. `icons/` is the
-fifth pillar — index, ruleset, audit. **The set is Font Awesome, and you confirmed
-the icons were then modified.** That shrinks the shortcut rather than opening it:
-a name diff finds what GSL added, never what GSL redrew. The open question is
-which drawings changed, and it needs eyes.
 
 **Done: the icon registry is re-synced.** Your three renames landed; the diff was
 three lines and nothing else in the library had moved since 27 August. Run

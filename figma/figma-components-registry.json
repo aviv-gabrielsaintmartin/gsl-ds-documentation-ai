@@ -408,9 +408,36 @@
     },
     "Cell Content": {
       "key": "71b1f5176db52eb12c7744a0df8c4096655ac6f4",
-      "pattern": "Pattern 1",
-      "variantCount": 20,
-      "status": "Reclassified (was Pattern 2) — live isExposedInstance trace found no nested exposed instances; Icon Right is an INSTANCE_SWAP property, not an exposed sub-component"
+      "nodeId": "18359:17763",
+      "pattern": "Pattern 2",
+      "variantCount": 33,
+      "auditedDate": "2026-09-16",
+      "status": "Re-synced live 2026-09-16, on the 'Cell content' page of the GSL Components Library, after Gabriel added an icon-alignment axis and a zero padding. Variant props: Alignment (Horizontal/Vertical), 'Placeholder left alignement' (Middle/Top — note the misspelling, preserved), Padding (16/8/0), Clickable (ON/OFF), State (Default/Hover/Pressed/Disabled). Booleans: Description, Placeholder Left, Title, Body, Icon Right, Tag, Badge. Instance swap: '↳ Icon Right'. Three combination limits are enforced by the variant set itself, not by prose: 'Placeholder left alignement=Top' exists only with Alignment=Horizontal; Padding=0 exists only with Clickable=OFF, and covers all three non-clickable combinations; Clickable=OFF only ever pairs with State=Default, at every padding. 20 variants before this change, 33 after. RECLASSIFIED TO PATTERN 2 — this reverses the previous entry, which read 'Reclassified (was Pattern 2) — live isExposedInstance trace found no nested exposed instances'. A live walk on 2026-09-16 found '.placeholder left' exposed on all 33 variants, giving a designer the Type=Image/Icon switch on the leading slot. Gabriel confirmed the same day that the earlier Pattern 1 entry was simply wrong — the slot was not newly exposed. That entry carried no nodeId and no auditedDate, which is the tell for a classification never verified against the current file. Icon Right is still a BOOLEAN plus an INSTANCE_SWAP, never an exposed sub-component — that half of the old note held.",
+      "exposedSubComponents": [
+        {
+          "exposedAs": [
+            "Placeholder Left"
+          ],
+          "key": "d7ba36d47a5c5fe30aed4e528aa89bea3c6407d4",
+          "nodeId": "18359:18070",
+          "name": ".placeholder left",
+          "properties": {
+            "Type": {
+              "type": "VARIANT",
+              "options": [
+                "Image",
+                "Icon"
+              ]
+            },
+            "Content#7531:6": {
+              "type": "INSTANCE_SWAP"
+            },
+            "Icon#7531:9": {
+              "type": "INSTANCE_SWAP"
+            }
+          }
+        }
+      ]
     },
     "Checkbox": {
       "key": "d492baa47ceea8f55da76b1d87b24cae798b4ca6",
