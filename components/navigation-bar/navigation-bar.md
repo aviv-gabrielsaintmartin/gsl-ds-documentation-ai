@@ -84,9 +84,11 @@ A reduced navigation bar with only the logo and the language menu can be used on
 
 ## Behavior & Responsiveness
 
-### Opening menu
+### Interactive States & Loading
 
-#### Desktop
+#### Opening menu
+
+##### Desktop
 
 Clicking on an entry in the navigation bar opens the mega menu on desktop. Leaving the menu with the pointer closes it.
 
@@ -96,7 +98,7 @@ Opening menu: clicking an entry.
 ![](images/06c6d5eeaf6a3118a33187.png)
 Closing menu: leaving the menu.
 
-#### Phone and tablets
+##### Phone and tablets
 
 Tapping on the burger menu icon, opens the burger menu. Tapping on the x-button or tapping outside the menu, closes the burger menu.
 
@@ -109,7 +111,7 @@ Closing menu: tapping the x-button.
 ![](images/835b9b896377e66cc03ca5.png)
 Closing menu: tapping outside the menu.
 
-### Icon tooltip
+#### Icon tooltip
 
 Hovering over the icon buttons will display a tooltip showing the label.
 
@@ -119,13 +121,15 @@ Favourites
 ![](images/b62d3ab0b005b5f831fb6a.png)
 Account
 
-### Language menu
+#### Language menu
 
 The language menu opens a dropdown list from which the language can be selected.
 
 ![](images/be1c04ce72132af1f0c4d3.png)
 
-### Arrows
+### Touch Target & Layout
+
+#### Arrows
 
 Arrows are displayed to allow the user to navigate through the entries if not all entries can be displayed on smaller devices.
 

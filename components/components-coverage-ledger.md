@@ -45,7 +45,7 @@ libraries under the same name, with different keys. They are two distinct
 components, so both entries are listed.
 
 Across the 57 documented entries there are 741 template
-sections to fill. **516 are filled** — 70%.
+sections to fill. **518 are filled** — 70%.
 
 ---
 
@@ -58,11 +58,11 @@ Ordered by how many documented components leave the section empty.
 | a11y | 6 | 51 | 0 | 11% |
 | Breakpoints | 18 | 38 | 1 | 32% |
 | Platform | 27 | 0 | 30 | 47% |
-| Touch target | 33 | 20 | 4 | 58% |
+| Touch target | 34 | 20 | 3 | 60% |
 | Variants | 35 | 20 | 2 | 61% |
 | Modifiers | 38 | 14 | 5 | 67% |
 | Writing | 43 | 14 | 0 | 75% |
-| States | 44 | 11 | 2 | 77% |
+| States | 45 | 11 | 1 | 79% |
 | Usage guidance | 51 | 6 | 0 | 89% |
 | When to use | 55 | 2 | 0 | 96% |
 | When NOT to use | 55 | 2 | 0 | 96% |
@@ -141,7 +141,7 @@ The ten documented components filling fewest of the 13 sections.
 | [Media Upload](media-upload/media-upload.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | 10 |
 | [Modal Bottom Sheet](modal-bottom-sheet/modal-bottom-sheet.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⬜ | ⬜ | ❌ | ❌ | ✅ | ✅ | ❌ | 8 |
 | [Modal Bottom Sheet Menu](modal-bottom-sheet-menu/modal-bottom-sheet-menu.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ⬜ | ✅ | ✅ | ❌ | 10 |
-| [Navigation bar](navigation-bar/navigation-bar.md) | Patterns | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ⬜ | ⬜ | ✅ | ✅ | ❌ | 9 |
+| [Navigation bar](navigation-bar/navigation-bar.md) | Patterns | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | 11 |
 | [Pagination](pagination/pagination.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | 8 |
 | [Phone Number Field](phone-number-field/phone-number-field.md) | Experiences | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ | ⬜ | ✅ | ✅ | ✅ | 9 |
 | [Progress Bar](progress-bar/progress-bar.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | 6 |

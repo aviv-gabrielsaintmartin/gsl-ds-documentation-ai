@@ -247,6 +247,7 @@ loose end — whether Figma's `Energy Tag` agrees — is a task, not a question.
 
 | Question |
 | --- |
+| Four docs split **Content & UX Writing** into named sub-sections — `rating` has `Scale`, `Rating results`, `Reviews`; `floor-selection` has `Digit`, `Labels`, `Helper text`. The template gives that section a flat bullet list and no sub-section slot. Should it take named sub-sections like *Variants & Modifiers* does, or should those drop to `####`? |
 | `Image Ratio` and `Brand Logo` exist in two libraries under different keys — which should an agent use? |
 | Seven components can be selected but are described nowhere. What are they for? |
 | Is `Badge` something you pick on its own, or only ever attached to a host? |

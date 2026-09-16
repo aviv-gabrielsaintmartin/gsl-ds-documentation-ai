@@ -26,11 +26,11 @@ page is the other half of the question.
 | | Count |
 | --- | --- |
 | Component docs measured | **57** |
-| — already match the template | **29** |
-| — need something changed | **28** |
+| — already match the template | **30** |
+| — need something changed | **27** |
 | Chart support pages, listed apart | 5 |
-| Headings the template does not define | **36**, under 23 distinct names |
-| Template sections absent from a page | **65** |
+| Headings the template does not define | **32**, under 19 distinct names |
+| Template sections absent from a page | **63** |
 | Sections at the wrong heading level | **0** |
 | Sections out of template order | **0** |
 | Pages with no readiness table | **3** |
@@ -48,7 +48,7 @@ has to move to a different parent rather than down a level where it is.
 
 | The fix | Headings | What it is |
 | --- | --- | --- |
-| **Move to the right section** | 9 | The heading names an axis of the component — `Opening menu`, `Rating results`, `Padding options` — sitting under a section it does not belong to. **Not mechanical:** demoting it in place would leave it under whatever happens to sit above, or under nothing at all. Somebody has to choose the destination |
+| **Move to the right section** | 5 | The heading names an axis of the component — `Opening menu`, `Rating results`, `Padding options` — sitting under a section it does not belong to. **Not mechanical:** demoting it in place would leave it under whatever happens to sit above, or under nothing at all. Somebody has to choose the destination |
 | **Rename and merge** | 25 | The heading is a template section under another word — `Interaction` for states, `Scrolling` for layout. **Not mechanical:** both headings can hold content, and merging them is a judgement |
 | **Move out of the sections** | 2 | The heading is a list of links to other pages. Links belong under the title, above the first `##` |
 
@@ -77,7 +77,6 @@ Ordered by how much. `—` means nothing to do in that column.
 
 | Doc | Extra headings | Missing sections | What to do |
 | --- | --- | --- | --- |
-| [navigation-bar/navigation-bar.md](navigation-bar/navigation-bar.md) | `Opening menu`, `Icon tooltip`, `Language menu`, `Arrows` | Interactive States & Loading, Touch Target & Layout | `Opening menu`, `Icon tooltip`, `Language menu`, `Arrows` → one level down, under the section above it |
 | [phone-number-field/phone-number-field.md](phone-number-field/phone-number-field.md) | `Overflow Content` | Variants & Modifiers, Modifiers, Behavior & Responsiveness, Interactive States & Loading, Touch Target & Layout | `Overflow Content` → rename to **Touch Target & Layout** and merge; **no readiness table** |
 | [floor-selection/floor-selection.md](floor-selection/floor-selection.md) | `Digit`, `Labels`, `Helper text` | — | `Digit`, `Labels`, `Helper text` → rename to **Content & UX Writing** and merge |
 | [rating/rating.md](rating/rating.md) | `Scale`, `Rating results`, `Reviews` | — | `Scale` → rename to **Touch Target & Layout** and merge; `Rating results`, `Reviews` → one level down, under the section above it |
@@ -106,7 +105,7 @@ Ordered by how much. `—` means nothing to do in that column.
 | [info-state/info-state.md](info-state/info-state.md) | — | Modifiers | — |
 | [pagination/pagination.md](pagination/pagination.md) | — | Modifiers | — |
 
-**29 docs need nothing**: `accordion`, `alert`, `autocomplete`, `breadcrumb`, `button`, `button-card`, `charts`, `chip`, `chip-group`, `coach-mark`, `energy-tag`, `feedback-message`, `filter-bar`, `floating-button-group`, `link`, `listing-card`, `media-upload`, `progress-bar`, `progress-circle`, `segmented-control`, `select-card-group`, `slider`, `snackbar`, `tables`, `tag`, `text-field`, `toggle`, `toggle-group`, `wizard`.
+**30 docs need nothing**: `accordion`, `alert`, `autocomplete`, `breadcrumb`, `button`, `button-card`, `charts`, `chip`, `chip-group`, `coach-mark`, `energy-tag`, `feedback-message`, `filter-bar`, `floating-button-group`, `link`, `listing-card`, `media-upload`, `navigation-bar`, `progress-bar`, `progress-circle`, `segmented-control`, `select-card-group`, `slider`, `snackbar`, `tables`, `tag`, `text-field`, `toggle`, `toggle-group`, `wizard`.
 
 ---
 
@@ -145,8 +144,8 @@ component list above.
 | Variants & Modifiers | 4 docs |
 | Modifiers | 13 docs |
 | Behavior & Responsiveness | 5 docs |
-| Interactive States & Loading | 7 docs |
-| Touch Target & Layout | 9 docs |
+| Interactive States & Loading | 6 docs |
+| Touch Target & Layout | 8 docs |
 | Breakpoints & Platform Adaptations | 6 docs |
 | Content & UX Writing | 3 docs |
 | Accessibility (a11y) | 1 docs |
