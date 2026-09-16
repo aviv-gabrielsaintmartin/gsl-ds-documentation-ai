@@ -80,14 +80,12 @@ Like all form components, counter fields contain a header consisting of a label,
 
 ## Behavior & Responsiveness
 
-### Interaction
-
-Numbers can be entered into the counter field using the keyboard — it is not possible to enter letters. Numbers can also be selected using the +/- buttons; consumers can decide how many steps the counter will increase/decrease per click (e.g. 0.5, 1, 5, 10 steps etc.). The counter field allows positive and negative integer and decimal numbers. The default, maximum and minimum values can be defined by the consumer.
-
 ### Interactive States & Loading
 
 * **Default / Hover / Active / Disabled:** Counter fields have the states default, hover, active, and disabled. They don't have a pressed state — instead, they change to the active state when a user presses on the field. When in error state, they contain an error message.
 * **Buttons:** The +/- buttons have the states default, hover, pressed and disabled.
+
+Numbers can be entered into the counter field using the keyboard — it is not possible to enter letters. Numbers can also be selected using the +/- buttons; consumers can decide how many steps the counter will increase/decrease per click (e.g. 0.5, 1, 5, 10 steps etc.). The counter field allows positive and negative integer and decimal numbers. The default, maximum and minimum values can be defined by the consumer.
 
 ### Touch Target & Layout
 

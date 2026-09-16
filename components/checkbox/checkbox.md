@@ -98,10 +98,6 @@ See the [form guidelines](https://zeroheight.com/626199550/p/81b84d-forms/t/page
 
 ## Behavior & Responsiveness
 
-### Interaction
-
-Not only the checkbox itself is clickable, but also the entire row. The row height is 48px.
-
 ### Interactive States & Loading
 
 * **Default / Hover / Pressed / Disabled:** Checkboxes have the states default, hover, pressed, and disabled. They can be selected, unselected or indeterminate, and they can be in an error state.
@@ -109,6 +105,8 @@ Not only the checkbox itself is clickable, but also the entire row. The row heig
 ### Touch Target & Layout
 
 * **Width Adaptability:** The width of the checkbox component is determined by its content. According to the [form guidelines](https://zeroheight.com/626199550/p/81b84d-forms/t/page-81b84d-92550230-13), the max-width should be kept at 448px.
+
+Not only the checkbox itself is clickable, but also the entire row. The row height is 48px.
 
 ### Breakpoints & Platform Adaptations
 

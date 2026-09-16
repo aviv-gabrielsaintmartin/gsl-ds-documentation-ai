@@ -116,17 +116,17 @@ When the button group is used in a form add the header and use a clear and conci
 
 Include a helper text to improve accessibility. Go to the [form guidelines](https://zeroheight.com/626199550/p/81b84d-forms/t/page-81b84d-92550230-71) for more information.
 
----
-
-## Behavior & Responsiveness
-
-### Interaction
+### Selection
 
 For single selection, the button group allows users to select one item. For multiple selection, users can select multiple items.
 
 | DO | DON'T |
 | --- | --- |
 | **DO:** Use checkboxes, radio buttons, or chip groups to avoid having both single- and multi-select button groups on the same page. | **DON'T:** Avoid mixing single-select and multi-select. |
+
+---
+
+## Behavior & Responsiveness
 
 ### Interactive States & Loading
 

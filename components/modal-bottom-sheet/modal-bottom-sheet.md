@@ -101,13 +101,19 @@ Content volume
 | [**Card**](../card/card.md) | High | Cards are flexible containers used to visually group content. | Content should persist on the page |
 | [**Alert**](../alert/alert.md) | High | Alerts are modals that provide users with critical information they need immediately. | An immediate, blocking decision is required |
 
-### Scrolling
+## Variants & Modifiers
 
-When the content exceeds the available space, the modal becomes scrollable, allowing users to access all the information without having to resize or close the modal. Whether the scrollbar is visible or not depends on the user's system settings. To better separate the content from the header, a divider line appears when the user scrolls the modal.
+Not documented
 
-| Default | Scrolling |
-| --- | --- |
-| ![](images/3f89087a83ce7793045037.png) | ![](images/e38e8f49fa34e5631a367c.png) |
+### Modifiers
+
+Not documented
+
+---
+
+## Behavior & Responsiveness
+
+Not documented
 
 ### Interactive States & Loading
 
@@ -115,7 +121,11 @@ Not documented
 
 ### Touch Target & Layout
 
-Not documented
+When the content exceeds the available space, the modal becomes scrollable, allowing users to access all the information without having to resize or close the modal. Whether the scrollbar is visible or not depends on the user's system settings. To better separate the content from the header, a divider line appears when the user scrolls the modal.
+
+| Default | Scrolling |
+| --- | --- |
+| ![](images/3f89087a83ce7793045037.png) | ![](images/e38e8f49fa34e5631a367c.png) |
 
 ### Breakpoints & Platform Adaptations
 
@@ -124,6 +134,8 @@ The style of the modal bottom sheet depends on the breakpoint. To learn more abo
 | Bottom sheet | Modal |
 | --- | --- |
 | ![](images/30df24c67f6ae5792c6630.png) Web: XXS - SM (0 - 767 px) Android: Compact (0 - 599 dp) iOS: iPhone | ![](images/EqU4JRZ6DUy6dKER-TKYFg.png) Web: MD - XXXL (> 767 px) Android Medium - Expanded (> 599 dp) iOS: iPad |
+
+---
 
 ---
 

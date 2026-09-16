@@ -18,6 +18,8 @@ Cards are flexible containers used to visually group content.
 
 Cards are used to group related content and actions into a visually distinct, cohesive container. They help structure information and provide an organized layout.
 
+Cards themselves are not clickable. If you want to create clickable cards, place a [cell content](https://zeroheight.com/626199550/p/27116a-cell-content) inside the card.
+
 ### When to use
 
 **Card** — visually grouping related content in a cohesive container.
@@ -103,11 +105,11 @@ The content placeholder in the card is available with 1 to 5 slots. You can use 
 
 ---
 
+### Modifiers
+
+Not documented
+
 ## Behavior & Responsiveness
-
-### Interaction
-
-Cards themselves are not clickable. If you want to create clickable cards, place a [cell content](https://zeroheight.com/626199550/p/27116a-cell-content) inside the card.
 
 ### Interactive States & Loading
 

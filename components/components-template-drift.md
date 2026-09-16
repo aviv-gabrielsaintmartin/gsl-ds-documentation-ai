@@ -26,14 +26,14 @@ page is the other half of the question.
 | | Count |
 | --- | --- |
 | Component docs measured | **57** |
-| — already match the template | **34** |
-| — need something changed | **23** |
+| — already match the template | **57** |
+| — need something changed | **0** |
 | Chart support pages, listed apart | 5 |
-| Headings the template does not define | **22**, under 11 distinct names |
-| Template sections absent from a page | **63** |
+| Headings the template does not define | **5**, under 5 distinct names |
+| Template sections absent from a page | **42** |
 | Sections at the wrong heading level | **0** |
 | Sections out of template order | **0** |
-| Pages with no readiness table | **3** |
+| Pages with no readiness table | **0** |
 
 ---
 
@@ -48,8 +48,8 @@ has to move to a different parent rather than down a level where it is.
 
 | The fix | Headings | What it is |
 | --- | --- | --- |
-| **Move to the right section** | 3 | The heading names an axis of the component — `Opening menu`, `Rating results`, `Padding options` — sitting under a section it does not belong to. **Not mechanical:** demoting it in place would leave it under whatever happens to sit above, or under nothing at all. Somebody has to choose the destination |
-| **Rename and merge** | 17 | The heading is a template section under another word — `Interaction` for states, `Scrolling` for layout. **Not mechanical:** both headings can hold content, and merging them is a judgement |
+| **Move to the right section** | 2 | The heading names an axis of the component — `Opening menu`, `Rating results`, `Padding options` — sitting under a section it does not belong to. **Not mechanical:** demoting it in place would leave it under whatever happens to sit above, or under nothing at all. Somebody has to choose the destination |
+| **Rename and merge** | 1 | The heading is a template section under another word — `Interaction` for states, `Scrolling` for layout. **Not mechanical:** both headings can hold content, and merging them is a judgement |
 | **Move out of the sections** | 2 | The heading is a list of links to other pages. Links belong under the title, above the first `##` |
 
 **A free-name slot is not drift.** The template writes one H3 as
@@ -77,31 +77,8 @@ Ordered by how much. `—` means nothing to do in that column.
 
 | Doc | Extra headings | Missing sections | What to do |
 | --- | --- | --- | --- |
-| [phone-number-field/phone-number-field.md](phone-number-field/phone-number-field.md) | `Overflow Content` | Variants & Modifiers, Modifiers, Behavior & Responsiveness, Interactive States & Loading, Touch Target & Layout | `Overflow Content` → rename to **Touch Target & Layout** and merge; **no readiness table** |
-| [modal-bottom-sheet/modal-bottom-sheet.md](modal-bottom-sheet/modal-bottom-sheet.md) | `Scrolling` | Variants & Modifiers, Modifiers, Behavior & Responsiveness | `Scrolling` → rename to **Touch Target & Layout** and merge |
-| [carousel/carousel.md](carousel/carousel.md) | `Interaction`, `Carousel Items` | — | `Interaction` → rename to **Interactive States & Loading** and merge; `Carousel Items` → one level down, under the section above it |
-| [charts/donut-chart.md](charts/donut-chart.md) | — | Modifiers, Interactive States & Loading, Touch Target & Layout, Breakpoints & Platform Adaptations | — |
-| [date-picker/date-picker.md](date-picker/date-picker.md) | — | Touch Target & Layout, Breakpoints & Platform Adaptations | **no readiness table** |
-| [dropdown/dropdown.md](dropdown/dropdown.md) | `Interaction`, `Position & Scrolling` | — | `Interaction` → rename to **Interactive States & Loading** and merge; `Position & Scrolling` → rename to **Touch Target & Layout** and merge |
-| [card/card.md](card/card.md) | `Interaction` | Modifiers | `Interaction` → rename to **Interactive States & Loading** and merge |
-| [modal-bottom-sheet-menu/modal-bottom-sheet-menu.md](modal-bottom-sheet-menu/modal-bottom-sheet-menu.md) | `Scrolling` | Touch Target & Layout | `Scrolling` → rename to **Touch Target & Layout** and merge |
-| [action-menu/action-menu.md](action-menu/action-menu.md) | `Scrolling` | — | `Scrolling` → rename to **Touch Target & Layout** and merge |
-| [button-group/button-group.md](button-group/button-group.md) | `Interaction` | — | `Interaction` → rename to **Interactive States & Loading** and merge |
-| [cell-content/cell-content.md](cell-content/cell-content.md) | `Interaction` | — | `Interaction` → rename to **Interactive States & Loading** and merge |
-| [checkbox-group/checkbox-group.md](checkbox-group/checkbox-group.md) | `Interaction` | — | `Interaction` → rename to **Interactive States & Loading** and merge |
-| [checkbox/checkbox.md](checkbox/checkbox.md) | `Interaction` | — | `Interaction` → rename to **Interactive States & Loading** and merge |
-| [counter-field/counter-field.md](counter-field/counter-field.md) | `Interaction` | — | `Interaction` → rename to **Interactive States & Loading** and merge |
-| [kpi/kpi.md](kpi/kpi.md) | `Anatomy` | — | `Anatomy` → rename to **Modifiers** and merge |
-| [listing-summary/listing-summary.md](listing-summary/listing-summary.md) | `Anatomy` | — | `Anatomy` → rename to **Modifiers** and merge |
-| [tabs/tabs.md](tabs/tabs.md) | — | — | **no readiness table** |
-| [top-bar/top-bar.md](top-bar/top-bar.md) | `Scrolling` | — | `Scrolling` → rename to **Touch Target & Layout** and merge |
-| [avatar/avatar.md](avatar/avatar.md) | — | Modifiers | — |
-| [charts/bar-chart.md](charts/bar-chart.md) | — | Modifiers | — |
-| [divider/divider.md](divider/divider.md) | — | Modifiers | — |
-| [info-state/info-state.md](info-state/info-state.md) | — | Modifiers | — |
-| [pagination/pagination.md](pagination/pagination.md) | — | Modifiers | — |
 
-**34 docs need nothing**: `accordion`, `alert`, `autocomplete`, `breadcrumb`, `button`, `button-card`, `charts`, `chip`, `chip-group`, `coach-mark`, `energy-tag`, `feedback-message`, `filter-bar`, `floating-button-group`, `floor-selection`, `link`, `listing-card`, `media-upload`, `navigation-bar`, `progress-bar`, `progress-circle`, `radio-button-group`, `rating`, `segmented-control`, `select-card-group`, `slider`, `snackbar`, `tables`, `tag`, `text-area`, `text-field`, `toggle`, `toggle-group`, `wizard`.
+**57 docs need nothing**: `accordion`, `action-menu`, `alert`, `autocomplete`, `avatar`, `breadcrumb`, `button`, `button-card`, `button-group`, `card`, `carousel`, `cell-content`, `charts`, `charts`, `charts`, `checkbox`, `checkbox-group`, `chip`, `chip-group`, `coach-mark`, `counter-field`, `date-picker`, `divider`, `dropdown`, `energy-tag`, `feedback-message`, `filter-bar`, `floating-button-group`, `floor-selection`, `info-state`, `kpi`, `link`, `listing-card`, `listing-summary`, `media-upload`, `modal-bottom-sheet`, `modal-bottom-sheet-menu`, `navigation-bar`, `pagination`, `phone-number-field`, `progress-bar`, `progress-circle`, `radio-button-group`, `rating`, `segmented-control`, `select-card-group`, `slider`, `snackbar`, `tables`, `tabs`, `tag`, `text-area`, `text-field`, `toggle`, `toggle-group`, `top-bar`, `wizard`.
 
 ---
 
@@ -137,12 +114,12 @@ component list above.
 | Variant Selection Flow | 3 docs |
 | Usage Guidance | 3 docs |
 | Related Components | 2 docs |
-| Variants & Modifiers | 4 docs |
-| Modifiers | 13 docs |
-| Behavior & Responsiveness | 5 docs |
-| Interactive States & Loading | 6 docs |
-| Touch Target & Layout | 8 docs |
-| Breakpoints & Platform Adaptations | 6 docs |
+| Variants & Modifiers | 2 docs |
+| Modifiers | 4 docs |
+| Behavior & Responsiveness | 3 docs |
+| Interactive States & Loading | 4 docs |
+| Touch Target & Layout | 4 docs |
+| Breakpoints & Platform Adaptations | 4 docs |
 | Content & UX Writing | 3 docs |
 | Accessibility (a11y) | 1 docs |
 

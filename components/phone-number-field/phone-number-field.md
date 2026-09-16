@@ -6,9 +6,9 @@ The phone number field is used to input and format phone numbers.
 
 ![z4fLAt6uS1qLwK_92x3F2A.png](https://avivgroup.atlassian.net/wiki/pages/viewpageattachments.action?pageId=3491856865&preview=%2F3491856865%2F3492086884%2Fz4fLAt6uS1qLwK_92x3F2A.png)  <!-- MISSING LOCAL IMAGE: z4fLAt6uS1qLwK_92x3F2A.png -->
 
-| Web | iOS | Android |
-| --- | --- | --- |
-| Ready ✅ | To do 🚧 | Ready ✅ |
+| Figma | Web | iOS | Android |
+| --- | --- | --- | --- |
+| Ready ✅ | Ready ✅ | To do 🚧 | Ready ✅ |
 
 * [Phone number field on Figma](https://www.figma.com/design/w5XQs0VtHaiaCs3YYQ48Xw/4.-Gemini-Experiences-Library?node-id=3696-294)
 * [Phone number field on Storybook](https://gemini-storybook.prompt-scorpion-preview.aws.aviv.eu/?path=/docs/patterns-phonenumber--docs)
@@ -82,6 +82,29 @@ Interaction state
 | [**Dropdown**](../dropdown/dropdown.md) | Medium | Dropdowns are used to select one option from a list. | Selecting a country on its own, outside a phone input |
 | [**Counter field**](../counter-field/counter-field.md) | Low | Counter fields are used to enter or select numeric values. | Numeric input with +/− controls, not a phone number |
 
+## Variants & Modifiers
+
+Not documented
+
+### Modifiers
+
+Not documented
+
+---
+
+## Behavior & Responsiveness
+
+Not documented
+
+### Interactive States & Loading
+
+Not documented
+
+### Touch Target & Layout
+
+* **Overflow in a text input:** if user input exceeds the single text input line, the content scrolls horizontally within the field container as the cursor is moved.
+* **Overflow in Dropdown:** the country code in the dropdown will be truncated if it exceeds the available space.
+
 ### Breakpoints & Platform Adaptations
 
 The style of the country code selector depends on the breakpoint. To learn more about our breakpoints, see our [grids and breakpoint guidelines](https://zeroheight.com/626199550/p/04fc9a-grids-and-breakpoints).
@@ -91,10 +114,7 @@ The style of the country code selector depends on the breakpoint. To learn more 
 | **Web: XXS - XS (0 - 599 px)** | Dropdown ![](images/ec15768f7eb408a06ef547.png) |
 | **Web: SM - XXXL (> 599 px)** | Bottom Sheet ![](images/ff40cc4061b1997aae7009.png) |
 
-### Overflow Content
-
-* **Overflow in a text input:** if user input exceeds the single text input line, the content scrolls horizontally within the field container as the cursor is moved.
-* **Overflow in Dropdown:** the country code in the dropdown will be truncated if it exceeds the available space.
+---
 
 ---
 

@@ -125,6 +125,14 @@ A badge can be placed next to the title. They can be used to indicate notificati
 ![](images/d45a8d1ae6c18e16a2126c.png)
 ![](images/f6c5b40b1149d824460566.png)
 
+### Scroll behaviour
+
+On the web, consumers can choose whether the top bar stays fixed at the top or scrolls with the content. On iOS and Android, the top bar always stays on top.
+
+| Fixed on top | Scrolls with content |
+| --- | --- |
+| ![](images/5656af62d63b9dac494e32.png) Web and app | ![](images/cd2094e4857b736dad4862.png) Web only |
+
 ---
 
 ## Behavior & Responsiveness
@@ -132,14 +140,6 @@ A badge can be placed next to the title. They can be used to indicate notificati
 ### Interactive States & Loading
 
 Not documented
-
-### Scrolling
-
-On the web, consumers can choose whether the top bar stays fixed at the top or scrolls with the content. On iOS and Android, the top bar always stays on top.
-
-| Fixed on top | Scrolls with content |
-| --- | --- |
-| ![](images/5656af62d63b9dac494e32.png) Web and app | ![](images/cd2094e4857b736dad4862.png) Web only |
 
 ### Touch Target & Layout
 

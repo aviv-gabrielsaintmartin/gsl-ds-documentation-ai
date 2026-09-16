@@ -110,25 +110,23 @@ It's possible to show or clip the content that exceeds the carousel container.
 
 Title and description are both optional. We recommend using the title as the primary identifier, and adding a description when additional clarity or explanation is needed. We don't recommend using the description alone.
 
----
-
-## Behavior & Responsiveness
-
-### Interaction
-
-We recommend limiting carousels to 5-7 slides. This range helps to maintain user interest without overwhelming them, ensuring the most relevant content is seen and easy to navigate.
-
-The carousel slides horizontally by pressing the chevron buttons or dragging the mouse on desktop and swiping on mobile. It's also possible to navigate using the arrow keys on the keyboard.
-
-### Carousel Items
+### Carousel items
 
 Carousel items hold the content. The carousel can be set to automatically adjust the number of items displayed per slide based on the available screen width, or it can be configured to display a fixed number of items per slide. The number of items displayed can also change at different screen sizes (breakpoints), so that more items are displayed when more space is available.
 
 **Figma tip:** To simulate different slide positions in Figma, you can change the item alignment from left to center.
 
+---
+
+## Behavior & Responsiveness
+
 ### Interactive States & Loading
 
 * **Disabled State Guidance:** The state of the buttons depends on the slide position — at the beginning and end of the carousel the button becomes disabled.
+
+We recommend limiting carousels to 5-7 slides. This range helps to maintain user interest without overwhelming them, ensuring the most relevant content is seen and easy to navigate.
+
+The carousel slides horizontally by pressing the chevron buttons or dragging the mouse on desktop and swiping on mobile. It's also possible to navigate using the arrow keys on the keyboard.
 
 ### Touch Target & Layout
 

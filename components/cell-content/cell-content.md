@@ -154,13 +154,13 @@ An optional badge can be placed next to the title in the cell content.
 
 An optional tag can be placed next to the title in the cell content.
 
+#### Clickable
+
+The cell content can be either clickable or non-clickable.
+
 ---
 
 ## Behavior & Responsiveness
-
-### Interaction
-
-The cell content can be either clickable or non-clickable.
 
 ### Interactive States & Loading
 

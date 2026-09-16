@@ -19,23 +19,6 @@ Listing summaries are concise versions of listings featured on any AVIV Group we
 
 The Listing summary component can function as a standalone short version of a listing, as part of larger patterns, or as an individual entity. It can be made interactive and can include various actions or additional components alongside it.
 
-### Anatomy
-
-While Listing Summaries provide a high degree of flexibility, enabling designers to customize and organize them according to specific needs, they come with a default set of elements.
-
-![](images/Gfc912zUuMwTYZGnGOI1Yg.png)
-
-| Sub-component | Enable/Disable capability | Quantity | Sizes | Other |
-| --- | --- | --- | --- | --- |
-| Thumbnail | Yes | N/A | Width: 64, 72, 84, 96, 104, 112, 128, 256 | Aspect ratio: 1:1, 4:3, 3:2<br>Alignment: Left, Top |
-| Tags | Yes | 1,2,3 | N/A |   |
-| Price tag | Yes | N/A | Headline 24 / €m2 14 (default)<br>Headline 20 / €m2 12 |   |
-| Title | Yes | N/A | 16 (default), 14, Headline 24 |   |
-| Feature list | Yes | 3, 4 | 12 (default), 14, 16 | Icons enabled/disabled<br>12 Size (16px icon)<br>14 Size (16px icon)<br>16 Size (20px icon) |
-| Location | Yes | N/A | 12 (default), 14, 16 |   |
-| Helper text | Yes | N/A | 12 (default), 14, 16 |   |
-| Action | Yes | 1,2 | Button size 40 |   |
-
 ### When to use
 
 Not documented
@@ -74,7 +57,22 @@ Listing Summaries come with two default variants that change the position of the
 
 ### Modifiers
 
-Not documented
+#### Sub-components
+
+While Listing Summaries provide a high degree of flexibility, enabling designers to customize and organize them according to specific needs, they come with a default set of elements.
+
+![](images/Gfc912zUuMwTYZGnGOI1Yg.png)
+
+| Sub-component | Enable/Disable capability | Quantity | Sizes | Other |
+| --- | --- | --- | --- | --- |
+| Thumbnail | Yes | N/A | Width: 64, 72, 84, 96, 104, 112, 128, 256 | Aspect ratio: 1:1, 4:3, 3:2<br>Alignment: Left, Top |
+| Tags | Yes | 1,2,3 | N/A |   |
+| Price tag | Yes | N/A | Headline 24 / €m2 14 (default)<br>Headline 20 / €m2 12 |   |
+| Title | Yes | N/A | 16 (default), 14, Headline 24 |   |
+| Feature list | Yes | 3, 4 | 12 (default), 14, 16 | Icons enabled/disabled<br>12 Size (16px icon)<br>14 Size (16px icon)<br>16 Size (20px icon) |
+| Location | Yes | N/A | 12 (default), 14, 16 |   |
+| Helper text | Yes | N/A | 12 (default), 14, 16 |   |
+| Action | Yes | 1,2 | Button size 40 |   |
 
 ## Behavior & Responsiveness
 

@@ -6,9 +6,9 @@ Date pickers are used to select a date using text input or a calendar view.
 
 ![](images/2df569a9fbe45f7d5d6cef.png)
 
-| Web | iOS | Android |
-| --- | --- | --- |
-| Ready ✅ | Ready ✅ | To Do 🚧 |
+| Figma | Web | iOS | Android |
+| --- | --- | --- | --- |
+| Ready ✅ | Ready ✅ | Ready ✅ | To Do 🚧 |
 
 * [Date picker on Figma](https://www.figma.com/design/TSd5D0j4WIVxZTGk0ZgfK7/3.-Gemini-Patterns-Library?node-id=9-7270)
 * [Date picker on Storybook](https://gemini-storybook.prompt-scorpion-preview.aws.aviv.eu/?path=/docs/ui-forms-datepicker--docs)
@@ -150,6 +150,14 @@ The buttons in the date picker have the states default, hover, pressed and disab
 | ![](images/3c1c2012d6bb9868f7cad2.png) | ![](images/ba4e2e38e0434c7faeb9c1.png) | ![](images/cb51e5470d2ee6a4a51353.png) | ![](images/31e16c3227775c7690130d.png) |
 
 ---
+
+### Touch Target & Layout
+
+Not documented
+
+### Breakpoints & Platform Adaptations
+
+Not documented
 
 ## Content & UX Writing
 

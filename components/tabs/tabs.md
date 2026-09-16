@@ -6,9 +6,9 @@ Tabs are used to organize related content into different views and allow users t
 
 ![](images/ytL2CLV7qZ-6dbibvk4jjw.png)
 
-| Web | iOS | Android |
-| --- | --- | --- |
-| Ready ✅ | Ready ✅ | Ready ✅ |
+| Figma | Web | iOS | Android |
+| --- | --- | --- | --- |
+| Ready ✅ | Ready ✅ | Ready ✅ | Ready ✅ |
 
 * [Tabs on Figma](https://www.figma.com/design/xxqSJcKOphrgimxRQbvtfe/2.-Gemini-Components-Library?node-id=3-7291)
 * [Tabs on Storybook](https://gemini-storybook.prompt-scorpion-preview.aws.aviv.eu/?path=/docs/ui-navigation-tabs--docs)

@@ -16,16 +16,6 @@ Key Performance Indicators (KPIs) are measurable values that demonstrate how eff
 
 A KPI can be displayed alone or in a chart to emphasize some data or trends.
 
-### Anatomy
-
-![](images/560391c1635aecbb85fc87.png)
-
-| Element | Description | Mandatory | Customisable |
-| --- | --- | --- | --- |
-| Title | Concise KPI title | Yes | Yes |
-| KPI | Unique number highlighting important data or conclusion | Yes | Yes |
-| Additional indicator | Messages provide context or additional data, usually trending or comparing with other data. Use a state message or a tag to highlight more of the data. | No | Yes |
-
 ### When to use
 
 **KPI** — a single key metric value needs prominent standalone display.
@@ -80,6 +70,16 @@ You can change the alignment to horizontal or vertical when an additional indica
 ### Modifiers
 
 Not documented
+
+#### Elements
+
+![](images/560391c1635aecbb85fc87.png)
+
+| Element | Description | Mandatory | Customisable |
+| --- | --- | --- | --- |
+| Title | Concise KPI title | Yes | Yes |
+| KPI | Unique number highlighting important data or conclusion | Yes | Yes |
+| Additional indicator | Messages provide context or additional data, usually trending or comparing with other data. Use a state message or a tag to highlight more of the data. | No | Yes |
 
 ---
 

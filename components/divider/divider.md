@@ -61,6 +61,10 @@ The divider is only available in horizontal orientation. We currently don't offe
 
 ---
 
+### Modifiers
+
+Not documented
+
 ## Behavior & Responsiveness
 
 ### Interactive States & Loading

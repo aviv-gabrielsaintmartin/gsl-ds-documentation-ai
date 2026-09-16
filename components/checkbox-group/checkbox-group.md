@@ -111,10 +111,6 @@ Like all form components, checkbox groups contain a header consisting of a label
 
 ## Behavior & Responsiveness
 
-### Interaction
-
-Not only the checkbox itself is clickable, but also the entire row. The row height is 48px.
-
 ### Interactive States & Loading
 
 * **Default / Hover / Pressed / Disabled:** Checkbox groups have the states default, hover, pressed, and disabled. They can be selected or unselected, and can be in an error state (containing an error message). Indeterminate checkboxes are also possible within the group, though this won't make sense for most use cases.
@@ -126,6 +122,8 @@ More information: [Guidelines on form validation and displaying errors](https://
 * **Width Adaptability:** The width of the checkbox group component is determined by its content. According to the [form guidelines](https://zeroheight.com/626199550/p/81b84d-forms/t/page-81b84d-92550230-13), the max-width should be kept at 448px.
 * **Wrapping & Alignment (Vertical):** Text that exceeds the available space is automatically wrapped to a new line. Checkbox and content are aligned on top.
 * **Wrapping & Alignment (Horizontal):** Checkboxes wrap to a new line if there is not enough space for all of them. Only if the text of a checkbox is longer than the available space is the text itself wrapped. Checkbox and content are aligned on top.
+
+Not only the checkbox itself is clickable, but also the entire row. The row height is 48px.
 
 ### Breakpoints & Platform Adaptations
 

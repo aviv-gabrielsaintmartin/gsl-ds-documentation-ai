@@ -103,6 +103,12 @@ The modal bottom sheet menu can be opened and closed in different ways.
 | --- | --- | --- | --- |
 | ![](images/51436237726e2e30afe7f4.png) Clicking an option | ![](images/38964f9215466280ae0ccb.png) Web and app | ![](images/7e7c684e654d3900e2c9e4.png) Clicking outside the action menu or pressing esc | ![](images/b798ebab30542d30601c00.png) App only |
 
+### Touch Target & Layout
+
+When the content exceeds the available space, the modal bottom sheet menu becomes scrollable. For more information please refer to the modal bottom sheet documentation.
+
+![](images/489919cbdd949b1b7bd193.png)
+
 ### Breakpoints & Platform Adaptations
 
 On the Web, for XXS and XS breakpoints (from 0 to 600px) the modal bottom sheet menu is used. For the breakpoints above SM, the action menu is used.
@@ -115,12 +121,6 @@ To learn more about our breakpoints, see our grids and breakpoint guidelines.
 | --- | --- |
 | **Modal bottom sheet menu** | Web: XXS to XS (0 - 599 px) Android and iOS: used on all breakpoints |
 | **Action menu** | Web: SM to XXXL (> 599 px) Android and iOS: used on all breakpoints |
-
-### Scrolling
-
-When the content exceeds the available space, the modal bottom sheet menu becomes scrollable. For more information please refer to the modal bottom sheet documentation.
-
-![](images/489919cbdd949b1b7bd193.png)
 
 ---
 

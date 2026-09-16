@@ -87,6 +87,10 @@ Tooltip
 Not documented
 ---
 
+### Modifiers
+
+Not documented
+
 ## Behavior & Responsiveness
 
 ### Interactive States & Loading

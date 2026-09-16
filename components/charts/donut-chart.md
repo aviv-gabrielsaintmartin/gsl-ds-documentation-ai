@@ -76,10 +76,26 @@ No further variant axes are documented for this chart type.
 Not documented
 ---
 
+### Modifiers
+
+Not documented
+
 ## Behavior & Responsiveness
 
 Not documented
 ---
+
+### Interactive States & Loading
+
+Not documented
+
+### Touch Target & Layout
+
+Not documented
+
+### Breakpoints & Platform Adaptations
+
+Not documented
 
 ## Content & UX Writing
 

@@ -63,6 +63,12 @@ Concurrency
 | ![](images/164a91776514f7752359f3.png) **DO:** Use action menus to display a list of actions. | ![](images/0b6b3acfda61bedea7e871.png) **DON'T:** Don't use action menus as selection elements inside a form. Use dropdowns instead. |
 | ![](images/23dce4c449aa845c7541a4.png) **DO:** Use action menus to filter pages. | ![](images/2d593fb5f58d8a70aabc7b.png) **DON'T:** Don't use a backdrop behind the action menu. If you want to block the content, use a modal bottom sheet instead. |
 
+Scrolling is technically possible, but we don't recommend using it. We recommend using fewer options or using a [modal bottom sheet menu](https://zeroheight.com/626199550/p/28f40b-modal-bottom-sheet-menu) in apps.
+
+| DO | DON'T |
+| --- | --- |
+| ![](images/031d6bda873e6aa252a8fa.png) **DO:** Use fewer options to prevent scrolling. | ![](images/1082768d0dc8b0b3518318.png) **DON'T:** Avoid using too many menu items to prevent usability issues. For longer lists consider using a modal bottom sheet menu on apps. |
+
 ### Related Components
 
 | Component | Priority | Usage | Example Scenario |
@@ -121,13 +127,6 @@ Menu items can be actions or links. If the menu item is a link, the external lin
 | **Web — Mobile (0–600px, XXS/XS)** | A [modal bottom sheet](https://zeroheight.com/626199550/p/5942fd-modal-bottom-sheet) is used instead of the dropdown list. |
 | **Web — Desktop (>600px, SM and above)** | The dropdown list is used, 320px wide by default, or set to hug the content. See our [grids and breakpoint guidelines](https://zeroheight.com/626199550/p/04fc9a-grids-and-breakpoints). |
 | **Android / iOS** | Both the dropdown list and modal bottom sheet components can be used regardless of screen size. |
-
-### Scrolling
-Scrolling is technically possible, but we don't recommend using it. We recommend using fewer options or using a [modal bottom sheet menu](https://zeroheight.com/626199550/p/28f40b-modal-bottom-sheet-menu) in apps.
-
-| DO | DON'T |
-| --- | --- |
-| ![](images/031d6bda873e6aa252a8fa.png) **DO:** Use fewer options to prevent scrolling. | ![](images/1082768d0dc8b0b3518318.png) **DON'T:** Avoid using too many menu items to prevent usability issues. For longer lists consider using a modal bottom sheet menu on apps. |
 
 ---
 

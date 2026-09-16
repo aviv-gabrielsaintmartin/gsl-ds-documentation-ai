@@ -132,6 +132,10 @@ Examples with real logos
 
 ---
 
+### Modifiers
+
+Not documented
+
 ## Behavior & Responsiveness
 
 ### Interactive States & Loading

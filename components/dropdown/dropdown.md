@@ -108,23 +108,19 @@ The suffix can be added to provide additional context.
 
 ## Behavior & Responsiveness
 
-### Interaction
-
-The dropdown list opens when the user clicks in the field. It closes when the user clicks on the button again, selects an option from the list, clicks outside the dropdown or presses the esc key.
-
-### Position & Scrolling
-
-By default, the dropdown list is positioned below the field. If there is not enough space below it, it is positioned on top of the field. When the options exceed the available space, the dropdown becomes scrollable. Whether the scrollbar is visible or not depends on the user's system settings. To avoid complexity, not all positions are available in Figma — feel free to detach the component.
-
 ### Interactive States & Loading
 
 * **Default / Hover / Active / Disabled:** The field of the dropdown has the states default, hover, active, and disabled. It can be empty or filled, and it can be in an error state. When in an error state, the dropdown contains an error message. The field doesn't have a pressed state — instead, it changes to the active state when a user presses on it.
 * **Dropdown list:** The rows in the dropdown list have the states default, hover and pressed. They can be selected or unselected.
 * **Loading:** The loading state indicates to users that the data is loading and will appear shortly.
 
+The dropdown list opens when the user clicks in the field. It closes when the user clicks on the button again, selects an option from the list, clicks outside the dropdown or presses the esc key.
+
 ### Touch Target & Layout
 
 * **Width Adaptability:** The width can be set to 100% (full-width) or 50% of the container. For special use cases it is also possible to define a fixed size. According to the [form guidelines](https://zeroheight.com/626199550/p/81b84d-forms/t/page-81b84d-92550230-13), the form container should have a max-width of 448px.
+
+By default, the dropdown list is positioned below the field. If there is not enough space below it, it is positioned on top of the field. When the options exceed the available space, the dropdown becomes scrollable. Whether the scrollbar is visible or not depends on the user's system settings. To avoid complexity, not all positions are available in Figma — feel free to detach the component.
 
 ### Breakpoints & Platform Adaptations
 
