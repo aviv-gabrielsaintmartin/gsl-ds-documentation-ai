@@ -26,10 +26,10 @@ page is the other half of the question.
 | | Count |
 | --- | --- |
 | Component docs measured | **57** |
-| — already match the template | **8** |
-| — need something changed | **49** |
+| — already match the template | **23** |
+| — need something changed | **34** |
 | Chart support pages, listed apart | 5 |
-| Headings the template does not define | **115**, under 74 distinct names |
+| Headings the template does not define | **51**, under 34 distinct names |
 | Template sections absent from a page | **66** |
 | Sections at the wrong heading level | **0** |
 | Sections out of template order | **0** |
@@ -40,13 +40,27 @@ page is the other half of the question.
 ## The three fixes, and how much of the drift each one clears
 
 Every off-template heading found so far falls into one of these. None has
-ever needed a fourth.
+ever needed a fourth. All three need a person, for the reason under each.
+
+**None of the three is a script.** Each was tried: a scripted pass was
+built for the first and thrown away, because in all 11 cases the heading
+has to move to a different parent rather than down a level where it is.
 
 | The fix | Headings | What it is |
 | --- | --- | --- |
-| **One level down** | 75 | The heading names an axis of the component — `Size`, `Type`, `Alignment`, `Dots`. An axis is not a section. Its content is right; only its level is wrong. **Mechanical** |
+| **Move to the right section** | 11 | The heading names an axis of the component — `Opening menu`, `Rating results`, `Padding options` — sitting under a section it does not belong to. **Not mechanical:** demoting it in place would leave it under whatever happens to sit above, or under nothing at all. Somebody has to choose the destination |
 | **Rename and merge** | 38 | The heading is a template section under another word — `Interaction` for states, `Scrolling` for layout. **Not mechanical:** both headings can hold content, and merging them is a judgement |
 | **Move out of the sections** | 2 | The heading is a list of links to other pages. Links belong under the title, above the first `##` |
+
+**A free-name slot is not drift.** The template writes one H3 as
+`### [Variant Category Name]` — a slot that takes any name. A doc filling
+it with `### Shapes and sizes` is using the template correctly. Those are
+not counted here. Before this was handled the page reported 64 of them as
+drift, which was wrong and made the real work look three times bigger.
+
+**A free slot still does not take a section's name.** `### Labels` under
+*Variants & Modifiers* is writing guidance sitting in a variants slot, and
+the slot being free does not make that right. Those stay in the table.
 
 **`Anatomy` is not a section, and will not become one.** Decided 16 Sep 2026:
 a component's elements can be shown or hidden, and often cannot all appear
@@ -62,57 +76,42 @@ Ordered by how much. `—` means nothing to do in that column.
 
 | Doc | Extra headings | Missing sections | What to do |
 | --- | --- | --- | --- |
-| [coach-mark/coach-mark.md](coach-mark/coach-mark.md) | `Boolean`, `Tag position`, `Position`, `Interaction`, `Scroll`, `Animation` | Modifiers | `Boolean`, `Tag position`, `Position` → one level down, under the section above it; `Interaction`, `Animation` → rename to **Interactive States & Loading** and merge; `Scroll` → rename to **Touch Target & Layout** and merge |
-| [tables/tables.md](tables/tables.md) | `Anatomy`, `Padding options`, `Device`, `Selectable rows`, `Expandable row`, `Horizontal scroll` | — | `Anatomy` → rename to **Modifiers** and merge; `Padding options`, `Selectable rows`, `Expandable row` → one level down, under the section above it; `Device` → rename to **Breakpoints & Platform Adaptations** and merge; `Horizontal scroll` → rename to **Touch Target & Layout** and merge |
-| [avatar/avatar.md](avatar/avatar.md) | `Shapes and sizes`, `No padding`, `No border`, `Icons and initials`, `Rectangular, adaptive avatar` | Modifiers | `Shapes and sizes`, `No padding`, `No border`, `Icons and initials`, `Rectangular, adaptive avatar` → one level down, under the section above it |
-| [card/card.md](card/card.md) | `Color`, `Radius`, `Padding`, `Slots`, `Interaction` | Modifiers | `Color`, `Radius`, `Padding`, `Slots` → one level down, under the section above it; `Interaction` → rename to **Interactive States & Loading** and merge |
-| [carousel/carousel.md](carousel/carousel.md) | `Arrow position`, `Dots`, `Clipped content`, `Interaction`, `Carousel Items` | — | `Arrow position`, `Dots`, `Carousel Items` → one level down, under the section above it; `Clipped content` → rename to **Touch Target & Layout** and merge; `Interaction` → rename to **Interactive States & Loading** and merge |
 | [navigation-bar/navigation-bar.md](navigation-bar/navigation-bar.md) | `Opening menu`, `Icon tooltip`, `Language menu`, `Arrows` | Interactive States & Loading, Touch Target & Layout | `Opening menu`, `Icon tooltip`, `Language menu`, `Arrows` → one level down, under the section above it |
-| [rating/rating.md](rating/rating.md) | `Size`, `Condensed display`, `Scale`, `Rating results`, `Reviews` | — | `Size`, `Condensed display`, `Rating results`, `Reviews` → one level down, under the section above it; `Scale` → rename to **Touch Target & Layout** and merge |
+| [coach-mark/coach-mark.md](coach-mark/coach-mark.md) | `Position`, `Interaction`, `Scroll`, `Animation` | Modifiers | `Position` → one level down, under the section above it; `Interaction`, `Animation` → rename to **Interactive States & Loading** and merge; `Scroll` → rename to **Touch Target & Layout** and merge |
 | [phone-number-field/phone-number-field.md](phone-number-field/phone-number-field.md) | `Overflow Content` | Variants & Modifiers, Modifiers, Behavior & Responsiveness, Interactive States & Loading, Touch Target & Layout | `Overflow Content` → rename to **Touch Target & Layout** and merge; **no readiness table** |
-| [progress-bar/progress-bar.md](progress-bar/progress-bar.md) | `Styles`, `Size`, `Width`, `Labels` | — | `Styles`, `Size` → one level down, under the section above it; `Width` → rename to **Touch Target & Layout** and merge; `Labels` → rename to **Content & UX Writing** and merge |
-| [button/button.md](button/button.md) | `Emphasis`, `Size`, `Context` | — | `Emphasis`, `Size`, `Context` → one level down, under the section above it |
-| [cell-content/cell-content.md](cell-content/cell-content.md) | `Alignment`, `Padding`, `Interaction` | — | `Alignment`, `Padding` → one level down, under the section above it; `Interaction` → rename to **Interactive States & Loading** and merge |
-| [checkbox/checkbox.md](checkbox/checkbox.md) | `Border`, `Label`, `Interaction` | — | `Border` → one level down, under the section above it; `Label` → rename to **Content & UX Writing** and merge; `Interaction` → rename to **Interactive States & Loading** and merge |
+| [tables/tables.md](tables/tables.md) | `Anatomy`, `Padding options`, `Device`, `Horizontal scroll` | — | `Anatomy` → rename to **Modifiers** and merge; `Padding options` → one level down, under the section above it; `Device` → rename to **Breakpoints & Platform Adaptations** and merge; `Horizontal scroll` → rename to **Touch Target & Layout** and merge |
+| [carousel/carousel.md](carousel/carousel.md) | `Clipped content`, `Interaction`, `Carousel Items` | — | `Clipped content` → rename to **Touch Target & Layout** and merge; `Interaction` → rename to **Interactive States & Loading** and merge; `Carousel Items` → one level down, under the section above it |
 | [floor-selection/floor-selection.md](floor-selection/floor-selection.md) | `Digit`, `Labels`, `Helper text` | — | `Digit`, `Labels`, `Helper text` → rename to **Content & UX Writing** and merge |
-| [kpi/kpi.md](kpi/kpi.md) | `Anatomy`, `Layout`, `Display Context` | — | `Anatomy` → rename to **Modifiers** and merge; `Layout`, `Display Context` → one level down, under the section above it |
-| [link/link.md](link/link.md) | `Type`, `Size`, `Context` | — | `Type`, `Size`, `Context` → one level down, under the section above it |
-| [progress-circle/progress-circle.md](progress-circle/progress-circle.md) | `Styles`, `Size`, `Labels` | — | `Styles`, `Size` → one level down, under the section above it; `Labels` → rename to **Content & UX Writing** and merge |
-| [radio-button-group/radio-button-group.md](radio-button-group/radio-button-group.md) | `Alignment`, `Main elements`, `Overflow content` | — | `Alignment` → one level down, under the section above it; `Main elements` → rename to **Content & UX Writing** and merge; `Overflow content` → rename to **Touch Target & Layout** and merge |
-| [select-card-group/select-card-group.md](select-card-group/select-card-group.md) | `Group`, `Type`, `Alignment` | — | `Group`, `Type`, `Alignment` → one level down, under the section above it |
-| [top-bar/top-bar.md](top-bar/top-bar.md) | `Size`, `Style`, `Scrolling` | — | `Size`, `Style` → one level down, under the section above it; `Scrolling` → rename to **Touch Target & Layout** and merge |
+| [rating/rating.md](rating/rating.md) | `Scale`, `Rating results`, `Reviews` | — | `Scale` → rename to **Touch Target & Layout** and merge; `Rating results`, `Reviews` → one level down, under the section above it |
 | [modal-bottom-sheet/modal-bottom-sheet.md](modal-bottom-sheet/modal-bottom-sheet.md) | `Scrolling` | Variants & Modifiers, Modifiers, Behavior & Responsiveness | `Scrolling` → rename to **Touch Target & Layout** and merge |
-| [button-group/button-group.md](button-group/button-group.md) | `Number of items`, `Interaction` | — | `Number of items` → one level down, under the section above it; `Interaction` → rename to **Interactive States & Loading** and merge |
 | [charts/donut-chart.md](charts/donut-chart.md) | — | Modifiers, Interactive States & Loading, Touch Target & Layout, Breakpoints & Platform Adaptations | — |
-| [checkbox-group/checkbox-group.md](checkbox-group/checkbox-group.md) | `Alignment`, `Interaction` | — | `Alignment` → one level down, under the section above it; `Interaction` → rename to **Interactive States & Loading** and merge |
+| [checkbox/checkbox.md](checkbox/checkbox.md) | `Label`, `Interaction` | — | `Label` → rename to **Content & UX Writing** and merge; `Interaction` → rename to **Interactive States & Loading** and merge |
 | [date-picker/date-picker.md](date-picker/date-picker.md) | — | Touch Target & Layout, Breakpoints & Platform Adaptations | **no readiness table** |
 | [dropdown/dropdown.md](dropdown/dropdown.md) | `Interaction`, `Position & Scrolling` | — | `Interaction` → rename to **Interactive States & Loading** and merge; `Position & Scrolling` → rename to **Touch Target & Layout** and merge |
-| [feedback-message/feedback-message.md](feedback-message/feedback-message.md) | `Type`, `Floating and corner radius` | — | `Type`, `Floating and corner radius` → one level down, under the section above it |
-| [floating-button-group/floating-button-group.md](floating-button-group/floating-button-group.md) | `Buttons`, `Alignment` | — | `Buttons`, `Alignment` → one level down, under the section above it |
-| [listing-card/listing-card.md](listing-card/listing-card.md) | `Layout`, `S Carousel` | — | `Layout`, `S Carousel` → one level down, under the section above it |
-| [snackbar/snackbar.md](snackbar/snackbar.md) | `Type`, `Actions` | — | `Type`, `Actions` → one level down, under the section above it |
-| [tabs/tabs.md](tabs/tabs.md) | `Number of items` | — | `Number of items` → one level down, under the section above it; **no readiness table** |
+| [progress-bar/progress-bar.md](progress-bar/progress-bar.md) | `Width`, `Labels` | — | `Width` → rename to **Touch Target & Layout** and merge; `Labels` → rename to **Content & UX Writing** and merge |
+| [radio-button-group/radio-button-group.md](radio-button-group/radio-button-group.md) | `Main elements`, `Overflow content` | — | `Main elements` → rename to **Content & UX Writing** and merge; `Overflow content` → rename to **Touch Target & Layout** and merge |
 | [text-area/text-area.md](text-area/text-area.md) | `Main elements`, `Overflow content` | — | `Main elements` → rename to **Content & UX Writing** and merge; `Overflow content` → rename to **Touch Target & Layout** and merge |
-| [divider/divider.md](divider/divider.md) | `Orientation` | Modifiers | `Orientation` → one level down, under the section above it |
+| [card/card.md](card/card.md) | `Interaction` | Modifiers | `Interaction` → rename to **Interactive States & Loading** and merge |
 | [modal-bottom-sheet-menu/modal-bottom-sheet-menu.md](modal-bottom-sheet-menu/modal-bottom-sheet-menu.md) | `Scrolling` | Touch Target & Layout | `Scrolling` → rename to **Touch Target & Layout** and merge |
-| [accordion/accordion.md](accordion/accordion.md) | `Border` | — | `Border` → one level down, under the section above it |
 | [action-menu/action-menu.md](action-menu/action-menu.md) | `Scrolling` | — | `Scrolling` → rename to **Touch Target & Layout** and merge |
-| [button-card/button-card.md](button-card/button-card.md) | `Alignment` | — | `Alignment` → one level down, under the section above it |
+| [button-group/button-group.md](button-group/button-group.md) | `Interaction` | — | `Interaction` → rename to **Interactive States & Loading** and merge |
+| [cell-content/cell-content.md](cell-content/cell-content.md) | `Interaction` | — | `Interaction` → rename to **Interactive States & Loading** and merge |
 | [charts/line-chart.md](charts/line-chart.md) | `Variants` | — | `Variants` → rename to **Variants & Modifiers** and merge |
-| [chip-group/chip-group.md](chip-group/chip-group.md) | `Type` | — | `Type` → one level down, under the section above it |
-| [chip/chip.md](chip/chip.md) | `Type` | — | `Type` → one level down, under the section above it |
+| [checkbox-group/checkbox-group.md](checkbox-group/checkbox-group.md) | `Interaction` | — | `Interaction` → rename to **Interactive States & Loading** and merge |
 | [counter-field/counter-field.md](counter-field/counter-field.md) | `Interaction` | — | `Interaction` → rename to **Interactive States & Loading** and merge |
 | [energy-tag/energy-tag.md](energy-tag/energy-tag.md) | `Country` | — | `Country` → rename to **Content & UX Writing** and merge |
-| [filter-bar/filter-bar.md](filter-bar/filter-bar.md) | `Size` | — | `Size` → one level down, under the section above it |
+| [kpi/kpi.md](kpi/kpi.md) | `Anatomy` | — | `Anatomy` → rename to **Modifiers** and merge |
 | [listing-summary/listing-summary.md](listing-summary/listing-summary.md) | `Anatomy` | — | `Anatomy` → rename to **Modifiers** and merge |
-| [tag/tag.md](tag/tag.md) | `Context / Style` | — | `Context / Style` → one level down, under the section above it |
-| [toggle/toggle.md](toggle/toggle.md) | `Toggle position` | — | `Toggle position` → one level down, under the section above it |
-| [wizard/wizard.md](wizard/wizard.md) | `List type` | — | `List type` → one level down, under the section above it |
+| [progress-circle/progress-circle.md](progress-circle/progress-circle.md) | `Labels` | — | `Labels` → rename to **Content & UX Writing** and merge |
+| [tabs/tabs.md](tabs/tabs.md) | — | — | **no readiness table** |
+| [top-bar/top-bar.md](top-bar/top-bar.md) | `Scrolling` | — | `Scrolling` → rename to **Touch Target & Layout** and merge |
+| [avatar/avatar.md](avatar/avatar.md) | — | Modifiers | — |
 | [charts/bar-chart.md](charts/bar-chart.md) | — | Modifiers | — |
+| [divider/divider.md](divider/divider.md) | — | Modifiers | — |
 | [info-state/info-state.md](info-state/info-state.md) | — | Modifiers | — |
 | [pagination/pagination.md](pagination/pagination.md) | — | Modifiers | — |
 
-**8 docs need nothing**: `alert`, `autocomplete`, `breadcrumb`, `media-upload`, `segmented-control`, `slider`, `text-field`, `toggle-group`.
+**23 docs need nothing**: `accordion`, `alert`, `autocomplete`, `breadcrumb`, `button`, `button-card`, `chip`, `chip-group`, `feedback-message`, `filter-bar`, `floating-button-group`, `link`, `listing-card`, `media-upload`, `segmented-control`, `select-card-group`, `slider`, `snackbar`, `tag`, `text-field`, `toggle`, `toggle-group`, `wizard`.
 
 ---
 
@@ -126,9 +125,9 @@ listed here is only the off-template headings.
 | Doc | Extra headings | What to do |
 | --- | --- | --- |
 | [charts/chart-accessibility.md](charts/chart-accessibility.md) | `Color-blind friendly mode`, `Table format` | `Color-blind friendly mode` → rename to **Accessibility (a11y)** and merge; `Table format` → one level down, under the section above it |
-| [charts/chart-colors.md](charts/chart-colors.md) | `Categorical`, `Sequential`, `Diverging`, `Semantic`, `Resources` | `Categorical`, `Sequential`, `Diverging`, `Semantic` → one level down, under the section above it; `Resources` → link list — belongs under the title, not in a section |
+| [charts/chart-colors.md](charts/chart-colors.md) | `Resources` | `Resources` → link list — belongs under the title, not in a section |
 | [charts/charts.md](charts/charts.md) | `Chart types`, `Supporting documentation` | `Chart types` → one level down, under the section above it; `Supporting documentation` → link list — belongs under the title, not in a section |
-| [charts/filters-and-actions.md](charts/filters-and-actions.md) | `Type`, `Position` | `Type`, `Position` → one level down, under the section above it |
+| [charts/filters-and-actions.md](charts/filters-and-actions.md) | — | — |
 | [charts/legend.md](charts/legend.md) | — | — |
 
 **Whether the template should apply to them at all is undecided.** Nobody

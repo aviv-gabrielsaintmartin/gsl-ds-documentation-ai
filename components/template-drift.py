@@ -78,15 +78,38 @@ SUPPORT_PAGES = {
 
 
 def template_sections():
-    """[(level, title)] for every H2/H3 in the template, in document order."""
+    """[(level, title)] for every named H2/H3 in the template, in order."""
+    return [(lv, t) for lv, t, free in _template_headings() if not free]
+
+
+def free_name_slots():
+    """H2 sections whose H3 children may be called anything.
+
+    The template writes one as `### [Variant Category Name]` — a slot, not a
+    title. A doc filling it with `### Shapes and sizes` is using the template
+    correctly, and counting that as drift makes the report cry wolf: it was
+    64 of 115 before this was handled.
+    """
+    out, current_h2 = set(), None
+    for lv, title, free in _template_headings():
+        if lv == 2:
+            current_h2 = title
+        elif lv == 3 and free and current_h2:
+            out.add(current_h2)
+    return out
+
+
+def _template_headings():
+    """[(level, title, is_a_free_slot)] for the template's H2s and H3s."""
     lines = TEMPLATE.read_text().splitlines()
     out = []
-    for i, line in enumerate(lines):
+    for line in lines:
         if INSTRUCTIONS.match(line):
             break
         m = re.match(r"^(#{2,3})\s+(.*?)\s*$", line)
-        if m and not m.group(2).startswith("["):
-            out.append((len(m.group(1)), m.group(2).strip()))
+        if m:
+            title = m.group(2).strip()
+            out.append((len(m.group(1)), title, title.startswith("[")))
     return out
 
 
@@ -106,6 +129,7 @@ def main():
     sections = template_sections()
     titles = [t for _, t in sections]
     order = {t: n for n, t in enumerate(titles)}
+    free_under = free_name_slots()
 
     docs = sorted(COMPONENTS.glob("*/*.md"))
     rows, clean, support = [], [], []
@@ -115,7 +139,21 @@ def main():
         heads = headings_of(md)
         h23 = [(lv, t) for lv, t in heads if lv in (2, 3)]
         present = [t for _, t in h23]
-        extra = [t for lv, t in h23 if t not in titles]
+
+        # An H3 under a section that takes free names is the template working,
+        # not drift. Track which H2 each H3 sits under to tell them apart.
+        extra, current_h2 = [], None
+        for lv, t in heads:
+            if lv == 2:
+                current_h2 = t
+            if lv not in (2, 3) or t in titles:
+                continue
+            # A free slot takes any name except one that duplicates a section.
+            # `### Labels` under Variants & Modifiers is writing guidance in a
+            # variants slot — the slot being free does not make that right.
+            if lv == 3 and current_h2 in free_under and t not in SYNONYM_OF:
+                continue
+            extra.append(t)
         missing = [t for t in titles if t not in present]
         seq = [order[t] for t in present if t in order]
         out_of_order = sum(1 for a, b in zip(seq, seq[1:]) if b < a)
@@ -201,13 +239,20 @@ def main():
     a("## The three fixes, and how much of the drift each one clears")
     a("")
     a("Every off-template heading found so far falls into one of these. None has")
-    a("ever needed a fourth.")
+    a("ever needed a fourth. All three need a person, for the reason under each.")
+    a("")
+    a("**None of the three is a script.** Each was tried: a scripted pass was")
+    a("built for the first and thrown away, because in all 11 cases the heading")
+    a("has to move to a different parent rather than down a level where it is.")
     a("")
     a("| The fix | Headings | What it is |")
     a("| --- | --- | --- |")
-    a(f"| **One level down** | {kinds['axis']} | The heading names an axis of the "
-      "component — `Size`, `Type`, `Alignment`, `Dots`. An axis is not a section. "
-      "Its content is right; only its level is wrong. **Mechanical** |")
+    a(f"| **Move to the right section** | {kinds['axis']} | The heading names an "
+      "axis of the component — `Opening menu`, `Rating results`, `Padding "
+      "options` — sitting under a section it does not belong to. **Not "
+      "mechanical:** demoting it in place would leave it under whatever "
+      "happens to sit above, or under nothing at all. Somebody has to choose "
+      "the destination |")
     a(f"| **Rename and merge** | {kinds['synonym']} | The heading is a template "
       "section under another word — `Interaction` for states, `Scrolling` for "
       "layout. **Not mechanical:** both headings can hold content, and merging "
@@ -215,6 +260,16 @@ def main():
     a(f"| **Move out of the sections** | {kinds['link']} | The heading is a list "
       "of links to other pages. Links belong under the title, above the first "
       "`##` |")
+    a("")
+    a("**A free-name slot is not drift.** The template writes one H3 as")
+    a("`### [Variant Category Name]` — a slot that takes any name. A doc filling")
+    a("it with `### Shapes and sizes` is using the template correctly. Those are")
+    a("not counted here. Before this was handled the page reported 64 of them as")
+    a("drift, which was wrong and made the real work look three times bigger.")
+    a("")
+    a("**A free slot still does not take a section's name.** `### Labels` under")
+    a("*Variants & Modifiers* is writing guidance sitting in a variants slot, and")
+    a("the slot being free does not make that right. Those stay in the table.")
     a("")
     a("**`Anatomy` is not a section, and will not become one.** Decided 16 Sep 2026:")
     a("a component's elements can be shown or hidden, and often cannot all appear")
