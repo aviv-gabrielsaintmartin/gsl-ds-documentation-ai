@@ -44,16 +44,37 @@ await page.setViewport({ width: 1600, height: 1200 });
 await page.goto(url, { waitUntil: 'networkidle2', timeout: 120000 });
 
 // Scroll the real scroll container to the bottom, so every lazy image loads.
-for (let i = 0; i < 500; i++) {
-  const atEnd = await page.evaluate((sel) => {
+const sweep = async () => {
+  await page.evaluate((sel) => {
     const el = document.querySelector(sel) || document.scrollingElement;
-    el.scrollTop += el.clientHeight * 0.7;
-    return el.scrollTop + el.clientHeight >= el.scrollHeight - 5;
+    el.scrollTop = 0;
   }, SCROLLER);
-  await new Promise((r) => setTimeout(r, 300));
-  if (atEnd) break;
+  for (let i = 0; i < 500; i++) {
+    const atEnd = await page.evaluate((sel) => {
+      const el = document.querySelector(sel) || document.scrollingElement;
+      el.scrollTop += el.clientHeight * 0.7;
+      return el.scrollTop + el.clientHeight >= el.scrollHeight - 5;
+    }, SCROLLER);
+    await new Promise((r) => setTimeout(r, 300));
+    if (atEnd) break;
+  }
+  await new Promise((r) => setTimeout(r, 3000));
+  return page.evaluate((sel) => [...document.querySelectorAll(sel + ' img')]
+    .filter((i) => /zeroheight-uploads|\/uploads\//.test(i.currentSrc || i.src))
+    .length, CONTENT);
+};
+
+// One sweep is not enough: a page measured 7 images once and 9 on the next
+// three runs. Sweep until the count stops growing, so a slow image cannot
+// quietly leave itself out of the doc.
+let previous = -1, found = await sweep();
+for (let pass = 0; pass < 4 && found !== previous; pass++) {
+  previous = found;
+  found = await sweep();
 }
-await new Promise((r) => setTimeout(r, 3000));
+if (found !== previous) {
+  console.error(`WARNING: image count still moving after 5 sweeps (${previous} -> ${found})`);
+}
 
 const result = await page.evaluate((contentSel) => {
   // The page carries two content containers: a short intro, then the body.
@@ -128,11 +149,16 @@ const result = await page.evaluate((contentSel) => {
     }
 
     if (tag === 'table') {
+      // innerText, not textContent: a cell holding two paragraphs must keep
+      // the break between them, or the two run together into one word.
+      const cellText = (td) => (td.innerText || '')
+        .split('\n').map((s) => s.replace(/\s+/g, ' ').trim())
+        .filter(Boolean).join('\n');
       const rows = [...node.querySelectorAll('tr')].map((tr) =>
         [...tr.querySelectorAll('td,th')].map((td) => {
           const img = td.querySelector('img');
           return {
-            text: clean(td.textContent),
+            text: cellText(td),
             links: linksIn(td),
             image: img ? imageOf(img) : null,
           };

@@ -555,9 +555,9 @@ usage documentation yet; you may still select it if **Which component** or **Hig
 | Name | Purpose | Doc |
 | --- | --- | --- |
 | `Estimation card` | ⚠︎ **Undescribed** — see audit | — *no doc* |
-| `Floor selection` | Picking an apartment floor, including ground floor. | — *no doc* |
+| `Floor selection` | Picking an apartment floor, including ground floor. | [floor-selection](floor-selection/floor-selection.md) |
 | `Listing Card` | Listing cards are actionable cards that summarize the details of a property listed on any AVIV Group website. | [listing-card](listing-card/listing-card.md) |
-| `Listing summary` | Higher-flexibility alternative to Listing card. | — *no doc* |
+| `Listing summary` | Higher-flexibility alternative to Listing card. | [listing-summary](listing-summary/listing-summary.md) |
 | `Map template` | The map experience container. | — *no doc* |
 | `mapPinsV2_SL` | 🚫 **Never select** — composed-only — inside Map template, SeLoger | — *no doc* |
 | `mapPinsV2_IWT` | 🚫 **Never select** — composed-only — inside Map template, Immowelt | — *no doc* |

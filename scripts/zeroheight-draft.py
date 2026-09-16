@@ -34,6 +34,11 @@ SECTION_OF = {
     "when to use": ("## Usage", "### When to use"),
     "when not to use": ("## Usage", "### When NOT to use"),
     "related components": ("## Usage", "### Related Components"),
+    # A body heading called "Guidelines" carries the component's global
+    # do/don't rules. It is not the Zeroheight tab of the same name.
+    "guidelines": ("## Usage", "### Usage Guidance"),
+    "usage guidance": ("## Usage", "### Usage Guidance"),
+    "dos and don'ts": ("## Usage", "### Usage Guidance"),
     "related component": ("## Usage", "### Related Components"),
     "variants": ("## Variants & Modifiers", None),
     "variants & modifiers": ("## Variants & Modifiers", None),
@@ -172,7 +177,7 @@ def table_md(rows):
     for n, row in enumerate(rows):
         cells = []
         for c in row:
-            text = md_escape(c["text"])
+            text = md_escape(c["text"]).replace("\n", "<br>")
             for link in c.get("links", []):
                 if link["text"] and link["text"] in text:
                     text = text.replace(link["text"], f"[{link['text']}]({link['href']})", 1)

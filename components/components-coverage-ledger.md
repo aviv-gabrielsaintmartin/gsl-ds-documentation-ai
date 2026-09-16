@@ -36,16 +36,16 @@ inferred.
 | | Count |
 | --- | --- |
 | Registry entries across the four Figma libraries | **98** |
-| — have a doc | **56** |
-| — no doc, and an agent may select them | **25** entries, 24 names |
+| — have a doc | **57** |
+| — no doc, and an agent may select them | **24** entries, 23 names |
 | — no doc, and an agent should never select them | **17** entries, 16 names |
 
 Entries outnumber names because `Brand Logo` and `Image Ratio` each exist in **two** Figma
 libraries under the same name, with different keys. They are two distinct
 components, so both entries are listed.
 
-Across the 56 documented entries there are 728 template
-sections to fill. **513 are filled** — 70%.
+Across the 57 documented entries there are 741 template
+sections to fill. **515 are filled** — 70%.
 
 ---
 
@@ -55,19 +55,19 @@ Ordered by how many documented components leave the section empty.
 
 | Section | ✅ | ❌ | ⬜ | Filled |
 | --- | --- | --- | --- | --- |
-| a11y | 6 | 50 | 0 | 11% |
-| Breakpoints | 18 | 37 | 1 | 32% |
-| Platform | 27 | 0 | 29 | 48% |
-| Touch target | 33 | 19 | 4 | 59% |
-| Variants | 34 | 20 | 2 | 61% |
-| Modifiers | 38 | 12 | 6 | 68% |
-| States | 43 | 11 | 2 | 77% |
-| Writing | 43 | 13 | 0 | 77% |
-| Usage guidance | 50 | 6 | 0 | 89% |
-| When to use | 55 | 1 | 0 | 98% |
-| When NOT to use | 55 | 1 | 0 | 98% |
-| Variant flow | 55 | 1 | 0 | 98% |
-| Related | 56 | 0 | 0 | 100% |
+| a11y | 6 | 51 | 0 | 11% |
+| Breakpoints | 18 | 38 | 1 | 32% |
+| Platform | 27 | 0 | 30 | 47% |
+| Touch target | 33 | 20 | 4 | 58% |
+| Variants | 35 | 20 | 2 | 61% |
+| Modifiers | 38 | 13 | 6 | 67% |
+| States | 43 | 12 | 2 | 75% |
+| Writing | 43 | 14 | 0 | 75% |
+| Usage guidance | 51 | 6 | 0 | 89% |
+| When to use | 55 | 2 | 0 | 96% |
+| When NOT to use | 55 | 2 | 0 | 96% |
+| Variant flow | 55 | 2 | 0 | 96% |
+| Related | 56 | 1 | 0 | 98% |
 
 **Read `Platform` differently from the rest.** It is prose saying a component
 is restricted to some platforms — *"pagination is only used on the web"*. A
@@ -76,7 +76,7 @@ probably correct rather than a gap. Every other row here is a real gap. Which
 of the 29 are deliberate is unknown — nobody has checked.
 
 **`a11y` and `Breakpoints` are the two worth acting on.** Between them they
-account for 87 pages that
+account for 89 pages that
 looked at the section and wrote nothing.
 
 ---
@@ -87,6 +87,7 @@ The ten documented components filling fewest of the 13 sections.
 
 | Component | Tier | Filled |
 | --- | --- | --- |
+| [Listing summary](listing-summary/listing-summary.md) | Experiences | 2 / 13 |
 | [Avatar](avatar/avatar.md) | Components | 5 / 13 |
 | [Donut chart](charts/donut-chart.md) | Patterns | 5 / 13 |
 | [KPI](kpi/kpi.md) | Patterns | 5 / 13 |
@@ -96,11 +97,10 @@ The ten documented components filling fewest of the 13 sections.
 | [Progress Circle](progress-circle/progress-circle.md) | Components | 6 / 13 |
 | [Filter bar](filter-bar/filter-bar.md) | Patterns | 7 / 13 |
 | [Floor selection](floor-selection/floor-selection.md) | Experiences | 7 / 13 |
-| [Info State](info-state/info-state.md) | Patterns | 7 / 13 |
 
 ---
 
-## The matrix — 56 documented entries
+## The matrix — 57 documented entries
 
 | Component | Tier | Readiness | Platform | When to use | When NOT to use | Variant flow | Usage guidance | Related | Variants | Modifiers | States | Touch target | Breakpoints | Writing | a11y | Filled |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -137,6 +137,7 @@ The ten documented components filling fewest of the 13 sections.
 | [Line chart](charts/line-chart.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | 7 |
 | [Link](link/link.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | 9 |
 | [Listing Card](listing-card/listing-card.md) | Experiences | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | 7 |
+| [Listing summary](listing-summary/listing-summary.md) | Experiences | ✅ | ⬜ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 2 |
 | [Media Upload](media-upload/media-upload.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | 10 |
 | [Modal Bottom Sheet](modal-bottom-sheet/modal-bottom-sheet.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⬜ | ⬜ | ❌ | ❌ | ✅ | ✅ | ❌ | 8 |
 | [Modal Bottom Sheet Menu](modal-bottom-sheet-menu/modal-bottom-sheet-menu.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ⬜ | ✅ | ✅ | ❌ | 10 |
@@ -162,7 +163,7 @@ The ten documented components filling fewest of the 13 sections.
 | [Wizard](wizard/wizard.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | 11 |
 
 **Readiness** is the `Figma | Web | iOS | Android` table at the top of a page,
-not a template section — so it is not counted in *Filled*. 53 of 56 pages
+not a template section — so it is not counted in *Filled*. 54 of 57 pages
 carry it. The 3 without it: `Date Picker`, `Phone Number Field`, `Tabs`.
 
 ### Chart pages that are not registry components
@@ -181,7 +182,7 @@ of their own, so they are listed rather than scored.
 
 ---
 
-## The gap — 24 components an agent may select, with no doc at all
+## The gap — 23 components an agent may select, with no doc at all
 
 These have no page anywhere in this repo. An agent asked to use one has
 nothing to read. Where the *Known from* column is filled, the repo describes
@@ -197,7 +198,6 @@ the component inside **another component's** page — a sentence, not a doc.
 | Image Ratio | Components | Enforces an image aspect ratio | registry |
 | Image Ratio | Foundations | Enforces an image aspect ratio | registry |
 | Image Slider | Components | Horizontally sliding image sequence | listing-card, carousel |
-| Listing summary | Experiences | The higher-flexibility alternative to Listing card | listing-card |
 | Loading State | Components | Signals data or content is being fetched | autocomplete, dropdown, info-state |
 | Map template | Experiences | The map experience container | registry |
 | Menus | Patterns | Profile and language menus | registry |
@@ -215,7 +215,7 @@ the component inside **another component's** page — a sentence, not a doc.
 | Feedback Thumb Buttons | Components | **Unknown** | — |
 | Mega menus | Patterns | **Unknown** | — |
 
-**7 of those 24 have no evidence anywhere in the repo** —
+**7 of those 23 have no evidence anywhere in the repo** —
 no doc, and no other page mentions what they do: `Badge Store`, `Button Bar`, `Button Card Group`, `Estimation card`, `Feedback Bar`, `Feedback Thumb Buttons`, `Mega menus`.
 
 ---

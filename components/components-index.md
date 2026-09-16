@@ -16,8 +16,8 @@ which component to reach for, and which ones must never be selected.
 | [components-eval.md](components-eval.md) | The check on the ruleset — 27 intents with expected answers, scoring bands, and the run log |
 | [components-coverage-ledger.md](components-coverage-ledger.md) | **Script-written.** Which of the 98 registry entries have a doc, and which template sections that doc fills. **Never read as rules** — it measures the docs, it does not say what may be used |
 
-The list below covers only the 53 components with a usage doc. The ruleset's
-inventory covers all 98 registry entries, including the 43 that have no doc yet.
+The list below covers only the 55 components with a usage doc. The ruleset's
+inventory covers all 98 registry entries, including the 41 that have no doc yet.
 
 ## Component list
 
@@ -54,6 +54,7 @@ inventory covers all 98 registry entries, including the 43 that have no doc yet.
 | [KPI](kpi/kpi.md) |
 | [Link](link/link.md) |
 | [Listing card](listing-card/listing-card.md) |
+| [Listing summary](listing-summary/listing-summary.md) |
 | [Media upload](media-upload/media-upload.md) |
 | [Modal bottom sheet](modal-bottom-sheet/modal-bottom-sheet.md) |
 | [Modal bottom sheet menu](modal-bottom-sheet-menu/modal-bottom-sheet-menu.md) |
