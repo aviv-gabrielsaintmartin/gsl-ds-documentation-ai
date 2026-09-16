@@ -386,10 +386,22 @@ all**:
 
 | Kind | Meaning | Rows | Countable? |
 | --- | --- | --- | --- |
-| **Composed** | Assembled from public components | `Listing Card` · `Filter bar` · `Wizard` · `Phone Number Field` | **yes** |
+| **Composed** | Assembled from public components | `Listing Card` · `Filter bar` · `Wizard` · `Phone Number Field` · `Listing summary` | **yes** |
 | **Container** | A shell you place content into | `Info State` · `Table` | no |
-| **All-or-nothing** | Used whole or not at all | `Map template` | no |
-| **Unresolved** | Undescribed, or one part with no second identified | `Floor selection` · `Listing summary` · `Estimation card` | no |
+| **All-or-nothing** | Used whole or not at all | `Map template` · `Floor selection` | no |
+| **Unresolved** | Undescribed, or one part with no second identified | `Estimation card` | no |
+
+**Two of those three were settled on 16 September 2026**, when both components
+got a doc generated from their Zeroheight page. What moved them was evidence,
+not a new rule.
+
+| Component | Now | What the doc showed |
+| --- | --- | --- |
+| `Listing summary` | **Composed** | Its anatomy table names **eight** sub-components — thumbnail, tags, price tag, title, feature list, location, helper text, action — each with its own enable/disable, quantity and size rules. That is the definition of assembled from public components |
+| `Floor selection` | **All-or-nothing** | Its doc names exactly **one** part, a header carrying label, asterisk, tooltip and helper text. One part is not an assembly, and half a floor picker is not a realistic build |
+
+`Estimation card` stays unresolved. It has no doc, no Zeroheight page, and
+nothing in this repo describes it.
 
 **Highest tier first still governs all ten.** That was the conclusion on
 8 September and it is still true. What changed on 12 September is the rest of the
@@ -407,6 +419,11 @@ one part and a parts count needs two. With no parts count, what remains is
 smaller and duller: nobody has established what a floor picker is made of, and
 it is marked `unresolved` in the ruleset so an agent places it whole rather than
 guessing.
+
+**Closed on 16 September 2026.** Its doc, generated from Zeroheight, names one
+part and no second. The ruleset now marks it `all-or-nothing` rather than
+`unresolved` — which asks the same thing of an agent, place it whole, but says
+so because it was checked rather than because nobody looked.
 
 **Detecting a rebuilt higher-tier component is unsolved, and now openly so.**
 Nothing catches an agent that hand-builds an empty state rather than using

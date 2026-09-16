@@ -53,8 +53,8 @@ whether a Pattern or an Experience already is the thing you are about to build.
 | An empty / error / success / loading screen | `Info State` (Pattern) | container |
 | A map screen | `Map template` (Experience) | all-or-nothing |
 | A data grid | `Table` (Experience) | container |
-| A floor picker | `Floor selection` (Experience) | unresolved |
-| A more flexible property summary than Listing Card allows | `Listing summary` (Experience) | unresolved |
+| A floor picker | `Floor selection` (Experience) | all-or-nothing |
+| A more flexible property summary than Listing Card allows | `Listing summary` (Experience) | composed |
 | A price estimation block | `Estimation card` (Experience) | unresolved |
 
 ### The Kind column, and what each kind asks of you

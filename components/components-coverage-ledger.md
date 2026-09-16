@@ -226,25 +226,25 @@ The reasons are copied from
 [components-audit.md](components-audit.md#not-selectable-and-why) — that
 classification is the one human judgement this page carries.
 
-| Component | Tier | Why no doc is needed |
-| --- | --- | --- |
-| Brand App Icons | Foundations | Asset — per-platform, per-brand exports |
-| Brand Logo | Components | Asset — configured by brand, not chosen by design intent |
-| Brand Logo | Foundations | Asset — configured by brand, not chosen by design intent |
-| Content Placeholder | Components | Composed-only — a slot, swapped for local content |
-| Favicon | Foundations | Asset — fixed, no properties of its own |
-| Filter dropdown container | Patterns | Composed-only — sibling pattern to Filter bar |
-| Flag | Foundations | Asset — country flag family |
-| Footer | Patterns | Withheld — Figma only, not developed. Owned by Header/Footer team |
-| Home Indicator | Components | Chrome — iOS system affordance |
-| Map Polygon | Experiences | Composed-only — part of the Map experience |
-| Map Polygon backdrop | Experiences | Composed-only — part of the Map experience |
-| mapPinsV2_IWT | Experiences | Composed-only — brand-specific pin set (Immowelt) |
-| mapPinsV2_SL | Experiences | Composed-only — brand-specific pin set (SeLoger) |
-| Programmatic Ads | Components | Withheld — commercial ad slot, not a design choice |
-| Status Bar | Components | Chrome — OS-rendered |
-| Tab Bar | Components | Withheld — in-progress refactor. Use Tabs until it settles |
-| Webview | Components | Chrome — embedded browser container, iOS/Android only |
+| Component                 | Tier        | Why no doc is needed                                              |
+| ------------------------- | ----------- | ----------------------------------------------------------------- |
+| Brand App Icons           | Foundations | Asset — per-platform, per-brand exports                           |
+| Brand Logo                | Components  | Asset — configured by brand, not chosen by design intent          |
+| Brand Logo                | Foundations | Asset — configured by brand, not chosen by design intent          |
+| Content Placeholder       | Components  | Composed-only — a slot, swapped for local content                 |
+| Favicon                   | Foundations | Asset — fixed, no properties of its own                           |
+| Filter dropdown container | Patterns    | Composed-only — sibling pattern to Filter bar                     |
+| Flag                      | Foundations | Asset — country flag family                                       |
+| Footer                    | Patterns    | Withheld — Figma only, not developed. Owned by Header/Footer team |
+| Home Indicator            | Components  | Chrome — iOS system affordance                                    |
+| Map Polygon               | Experiences | Composed-only — part of the Map experience                        |
+| Map Polygon backdrop      | Experiences | Composed-only — part of the Map experience                        |
+| mapPinsV2_IWT             | Experiences | Composed-only — brand-specific pin set (Immowelt)                 |
+| mapPinsV2_SL              | Experiences | Composed-only — brand-specific pin set (SeLoger)                  |
+| Programmatic Ads          | Components  | Withheld — commercial ad slot, not a design choice                |
+| Status Bar                | Components  | Chrome — OS-rendered                                              |
+| Tab Bar                   | Components  | Withheld — in-progress refactor. Use Tabs until it settles        |
+| Webview                   | Components  | Chrome — embedded browser container, iOS/Android only             |
 
 **Careful with `Cell Content`.** It is in the matrix above
 with a full doc, and it is still not selectable — composed-only — a slot inside cards and lists. A well-filled
@@ -255,12 +255,12 @@ that, not this page.
 
 ## What this page is built from
 
-| Input | Used for |
-| --- | --- |
-| `figma/figma-components-registry.json` | The Components tier — what exists |
-| `figma/figma-patterns-registry.json` | The Patterns tier |
-| `figma/figma-experiences-registry.json` | The Experiences tier |
-| `figma/figma-foundations-components-registry.json` | The Foundations tier |
-| `components/<name>/<name>.md` | Every mark in the matrix |
-| [components-audit.md](components-audit.md) | The five name aliases, and which components are not selectable |
+| Input                                              | Used for                                                       |
+| -------------------------------------------------- | -------------------------------------------------------------- |
+| `figma/figma-components-registry.json`             | The Components tier — what exists                              |
+| `figma/figma-patterns-registry.json`               | The Patterns tier                                              |
+| `figma/figma-experiences-registry.json`            | The Experiences tier                                           |
+| `figma/figma-foundations-components-registry.json` | The Foundations tier                                           |
+| `components/<name>/<name>.md`                      | Every mark in the matrix                                       |
+| [components-audit.md](components-audit.md)         | The five name aliases, and which components are not selectable |
 

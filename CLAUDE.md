@@ -125,10 +125,15 @@ this alone, with nobody correcting it?
 ## What this repository is
 
 **Not a source-code repository** — there is no build, lint, or test tooling here.
-Two deliberate exceptions: `tokens/scripts/`, which reads the design-system code
-repo to generate the token ledgers, and `scripts/check-links.py`, which checks
+Three deliberate exceptions: `tokens/scripts/`, which reads the design-system code
+repo to generate the token ledgers; `scripts/check-links.py`, which checks
 that every link in this repo resolves and that no ruleset points an agent at a
-file it may not read. Treat file operations as
+file it may not read; and the pair in `scripts/` that generates a component doc
+from its Zeroheight page — `zeroheight-extract.mjs` renders and downloads,
+`zeroheight-draft.py` lays the result out against the template. **The extractor
+is the only thing here that needs Node**, because the page is client-rendered and
+cannot be read without a browser; `scripts/README.md` says how to install it.
+Treat file operations as
 content and data work, not software engineering: reading Zeroheight exports,
 matching images by hash, publishing to Confluence via the Atlassian MCP tools,
 reading live Figma via the Desktop Bridge.
