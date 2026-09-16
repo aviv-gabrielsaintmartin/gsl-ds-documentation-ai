@@ -29,6 +29,11 @@ ROOT = Path(__file__).resolve().parent.parent
 # Folders that are history, generated, or not ours to police.
 SKIP_DIRS = {".git", "graphify-out", "node_modules", "project/archive"}
 
+# Files whose links are illustrations, not navigation. The component template
+# is written in placeholders -- images/<hash>.png is the shape of a real
+# reference, never a file that exists.
+SKIP_FILES = {"components/component-template.md"}
+
 # A generating agent is told to read these and nothing else.
 RULESET = "-rules-ai.md"
 
@@ -42,8 +47,22 @@ FENCE = re.compile(r"^(`{3,})(.*)$")
 
 
 def skipped(path: Path) -> bool:
+    """True for anything under a skipped directory, at any depth.
+
+    Matching whole path segments, not just the prefix -- `node_modules` only
+    ever appears nested (scripts/node_modules/), and a prefix match misses it.
+    """
     rel = path.relative_to(ROOT).as_posix()
-    return any(rel == d or rel.startswith(d + "/") for d in SKIP_DIRS)
+    if rel in SKIP_FILES:
+        return True
+    segments = rel.split("/")
+    for d in SKIP_DIRS:
+        parts = d.split("/")
+        if rel == d or rel.startswith(d + "/"):
+            return True
+        if len(parts) == 1 and parts[0] in segments[:-1]:
+            return True
+    return False
 
 
 def live_lines(text: str):

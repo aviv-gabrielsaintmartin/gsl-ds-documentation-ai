@@ -1,0 +1,9 @@
+{
+  "name": "gsl-ds-documentation-ai-scripts",
+  "private": true,
+  "description": "Tooling for scripts/. Only zeroheight-extract.mjs needs Node.",
+  "type": "module",
+  "dependencies": {
+    "puppeteer-core": "^24.43.1"
+  }
+}

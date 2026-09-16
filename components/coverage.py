@@ -89,23 +89,52 @@ KNOWN_PURPOSE = {
 }
 
 # --- The template sections that become columns ----------------------------
-# (column heading, full section title, heading level, parent H2 or None)
+# Read out of components/component-template.md, never listed here. A heading in
+# that file becomes a column when the line directly under it carries a
+# `<!-- column: X -->` marker. Document order there is column order here, so
+# the template and this check cannot drift apart.
 
-SECTIONS = [
-    ("Platform", "Platform", 3, "Usage"),
-    ("When to use", "When to use", 3, "Usage"),
-    ("When NOT to use", "When NOT to use", 3, "Usage"),
-    ("Variant flow", "Variant Selection Flow", 3, "Usage"),
-    ("Usage guidance", "Usage Guidance", 3, "Usage"),
-    ("Related", "Related Components", 3, "Usage"),
-    ("Variants", "Variants & Modifiers", 2, None),
-    ("Modifiers", "Modifiers", 3, "Variants & Modifiers"),
-    ("States", "Interactive States & Loading", 3, "Behavior & Responsiveness"),
-    ("Touch target", "Touch Target & Layout", 3, "Behavior & Responsiveness"),
-    ("Breakpoints", "Breakpoints & Platform Adaptations", 3, "Behavior & Responsiveness"),
-    ("Writing", "Content & UX Writing", 2, None),
-    ("a11y", "Accessibility (a11y)", 2, None),
-]
+TEMPLATE = COMPONENTS / "component-template.md"
+
+# Everything after this heading in the template is instructions, not a section.
+TEMPLATE_INSTRUCTIONS = re.compile(r"^#\s+How to use this template\s*$")
+
+COLUMN_MARKER = re.compile(r"^<!--\s*column:\s*(.+?)\s*-->$")
+
+
+def load_sections(path=None):
+    """Return [(column, full section title, heading level, parent H2 or None)].
+
+    Parsed from the template. A marked H2 has no parent; a marked H3 or deeper
+    belongs to the nearest H2 above it.
+    """
+    lines = (path or TEMPLATE).read_text().splitlines()
+    out, current_h2 = [], None
+    for i, line in enumerate(lines):
+        if TEMPLATE_INSTRUCTIONS.match(line):
+            break
+        m = re.match(r"^(#{2,6})\s+(.*?)\s*$", line)
+        if not m:
+            continue
+        level, title = len(m.group(1)), m.group(2).strip()
+        if level == 2:
+            current_h2 = title
+        column = None
+        for ahead in lines[i + 1:i + 4]:
+            marker = COLUMN_MARKER.match(ahead.strip())
+            if marker:
+                column = marker.group(1)
+                break
+            if ahead.strip():
+                break
+        if column:
+            out.append((column, title, level, None if level == 2 else current_h2))
+    if not out:
+        raise SystemExit(f"No `<!-- column: -->` markers found in {TEMPLATE}")
+    return out
+
+
+SECTIONS = load_sections()
 
 PRESENT, MISSING, ABSENT = "✅", "❌", "⬜"
 

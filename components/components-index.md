@@ -49,6 +49,7 @@ inventory covers all 98 registry entries, including the 43 that have no doc yet.
 | [Floating button group](floating-button-group/floating-button-group.md) |
 | [Energy Tag](energy-tag/energy-tag.md) |
 | [Filter bar](filter-bar/filter-bar.md) |
+| [Floor selection](floor-selection/floor-selection.md) |
 | [Info state](info-state/info-state.md) |
 | [KPI](kpi/kpi.md) |
 | [Link](link/link.md) |

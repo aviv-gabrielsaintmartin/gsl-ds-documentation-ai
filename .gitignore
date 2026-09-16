@@ -4,3 +4,7 @@
 # Generated token-usage data — regenerate with tokens/scripts/extract_*.py
 # The readable *-usage-ledger.md files are committed; the JSON alongside them is not.
 tokens/*/*-usage-ledger.json
+
+# Node packages for scripts/zeroheight-extract.mjs — install with
+# npm install --prefix scripts puppeteer-core
+scripts/node_modules/
