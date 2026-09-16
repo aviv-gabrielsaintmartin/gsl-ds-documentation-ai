@@ -59,21 +59,34 @@ const sweep = async () => {
     if (atEnd) break;
   }
   await new Promise((r) => setTimeout(r, 3000));
-  return page.evaluate((sel) => [...document.querySelectorAll(sel + ' img')]
-    .filter((i) => /zeroheight-uploads|\/uploads\//.test(i.currentSrc || i.src))
-    .length, CONTENT);
+  // The page says how many images it SHOULD have: one per design-upload item,
+  // plus each standalone image block. Counting loaded <img> tags alone cannot
+  // tell "all of them" from "the same few, twice".
+  return page.evaluate((sel) => {
+    const roots = [...document.querySelectorAll(sel)];
+    const all = (q) => roots.flatMap((r) => [...r.querySelectorAll(q)]);
+    const loaded = all('img').filter((i) =>
+      /zeroheight-uploads|\/uploads\//.test(i.currentSrc || i.src)).length;
+    const expected = all('[data-testid="design-upload-item"]').length
+      + all('[class*="image-block"] img, [class*="DosAndDonts"] img').length;
+    return { loaded, expected };
+  }, CONTENT);
 };
 
-// One sweep is not enough: a page measured 7 images once and 9 on the next
-// three runs. Sweep until the count stops growing, so a slow image cannot
-// quietly leave itself out of the doc.
-let previous = -1, found = await sweep();
-for (let pass = 0; pass < 4 && found !== previous; pass++) {
-  previous = found;
-  found = await sweep();
+// One sweep is never enough, and a stable count is not proof of a complete one:
+// `phone-number-field` returned 4 twice in a row on a page holding 40. So sweep
+// until as many images have loaded as the page says exist.
+let seenCount = { loaded: -1, expected: 0 };
+for (let pass = 0; pass < 6; pass++) {
+  const now = await sweep();
+  const done = now.loaded >= now.expected && now.loaded === seenCount.loaded;
+  seenCount = now;
+  if (done) break;
 }
-if (found !== previous) {
-  console.error(`WARNING: image count still moving after 5 sweeps (${previous} -> ${found})`);
+if (seenCount.loaded < seenCount.expected) {
+  console.error(`WARNING: ${seenCount.loaded} images loaded, page declares `
+    + `${seenCount.expected}. The doc would be missing images — do not ship it.`);
+  process.exitCode = 1;
 }
 
 const result = await page.evaluate((contentSel) => {
