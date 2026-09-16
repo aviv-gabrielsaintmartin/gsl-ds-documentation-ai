@@ -1,21 +1,22 @@
 # The design process today
 
 **This is the design process as the designers mapped it, plus one thing added:
-where AI would earn its place.** Everything except the AI columns stays faithful
-to the workshop board, never improved.
+where AI would earn its place.**.
 
-_Built from the Guild Design AI workshop board and the `Brief stratégique —
-Stratégie IA pour le Product Design`. Written for a person. It describes how the
+- _Built from the Guild Design AI workshop board and the `Brief stratégique —
+Stratégie IA pour le Product Design`. 
+- Written for a person. It describes how the
 work happens today; it is never the source of truth for how anything is built.
 Updated 15 September 2026._
 
 **This is the long version.** The short page is
 [the-project.md](the-project.md).
 
-**In one line:** a designer takes five steps — Discovery → Definition →
-Solutioning → Validation → Follow-up. Each step has an objective, each objective
-raises questions, and this page holds all 36 of them. **Six have nothing
-answering them today. Eleven would change their step if AI answered them.**
+**In one line:** 
+
+ Adesigner takes five steps Discovery → Definition → Solutioning → Validation → Follow-up. 
+
+Each step has an objective, each objective raises questions, and this page holds all 36 of them. **Six have nothing answering them today. Eleven would change their step if AI answered them.**
 
 ---
 
