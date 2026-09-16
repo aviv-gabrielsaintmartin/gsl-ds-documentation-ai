@@ -1,0 +1,310 @@
+#!/usr/bin/env python3
+"""Generate components-template-drift.md.
+
+Measures every component doc against components/component-template.md and
+reports what would have to change for the doc to match it. Every figure below
+is read out of a file. The one judgement here is which template section an
+off-template heading belongs to, and it is written down in SYNONYM_OF, once.
+
+Run from anywhere:  python3 components/template-drift.py
+"""
+
+import re
+from collections import Counter
+from pathlib import Path
+
+REPO = Path(__file__).resolve().parent.parent
+COMPONENTS = REPO / "components"
+TEMPLATE = COMPONENTS / "component-template.md"
+OUTPUT = COMPONENTS / "components-template-drift.md"
+
+HEADING = re.compile(r"^(#{1,6})\s+(.*?)\s*$", re.M)
+INSTRUCTIONS = re.compile(r"^#\s+How to use this template\s*$")
+READINESS = re.compile(r"^\|\s*Figma\s*\|\s*Web\s*\|\s*iOS\s*\|\s*Android\s*\|", re.M)
+
+# --- The one judgement on this page ---------------------------------------
+# An off-template heading is one of two things. Either it names a template
+# section under a different word -- then it is listed here, and merging it is a
+# content decision a human makes. Or it names an axis of the component --
+# `Size`, `Type`, `Alignment` -- which is not a section at all and belongs one
+# level down, under the section above it. Anything not listed here is treated
+# as an axis.
+#
+# `Anatomy` is deliberately NOT a section of its own. Gabriel's reasoning,
+# 16 Sep 2026: a component's elements can be shown or hidden and often cannot
+# all appear at once, so a diagram of every part is misleading. What those
+# sections actually hold -- which sub-components exist and what each can be
+# set to -- is Modifiers.
+
+SYNONYM_OF = {
+    "Anatomy": "Modifiers",
+    "Variants": "Variants & Modifiers",
+    "Interaction": "Interactive States & Loading",
+    "Interactions": "Interactive States & Loading",
+    "Animation": "Interactive States & Loading",
+    "Scrolling": "Touch Target & Layout",
+    "Scroll": "Touch Target & Layout",
+    "Horizontal scroll": "Touch Target & Layout",
+    "Position & Scrolling": "Touch Target & Layout",
+    "Width": "Touch Target & Layout",
+    "Scale": "Touch Target & Layout",
+    "Clipped content": "Touch Target & Layout",
+    "Overflow content": "Touch Target & Layout",
+    "Overflow Content": "Touch Target & Layout",
+    "Main elements": "Content & UX Writing",
+    "Labels": "Content & UX Writing",
+    "Label": "Content & UX Writing",
+    "Helper text": "Content & UX Writing",
+    "Digit": "Content & UX Writing",
+    "Country": "Content & UX Writing",
+    "Device": "Breakpoints & Platform Adaptations",
+    "Color-blind friendly mode": "Accessibility (a11y)",
+}
+
+# Headings that are links to other pages, not sections of the doc.
+LINK_SECTIONS = {"Resources", "Supporting documentation"}
+
+# Absent by design: the template says to omit Platform when a component has no
+# platform restriction, so its absence is not evidence of anything.
+OMITTABLE = {"Platform"}
+
+# Pages under charts/ that document a part of a chart rather than a component.
+# The template describes a component, so most of its sections cannot apply to
+# these. Copied from CHART_SUPPORT in coverage.py, which makes the same split.
+SUPPORT_PAGES = {
+    "charts/charts.md", "charts/legend.md", "charts/filters-and-actions.md",
+    "charts/chart-colors.md", "charts/chart-accessibility.md",
+}
+
+
+def template_sections():
+    """[(level, title)] for every H2/H3 in the template, in document order."""
+    lines = TEMPLATE.read_text().splitlines()
+    out = []
+    for i, line in enumerate(lines):
+        if INSTRUCTIONS.match(line):
+            break
+        m = re.match(r"^(#{2,3})\s+(.*?)\s*$", line)
+        if m and not m.group(2).startswith("["):
+            out.append((len(m.group(1)), m.group(2).strip()))
+    return out
+
+
+def headings_of(path):
+    return [(len(h), t.strip()) for h, t in HEADING.findall(path.read_text())]
+
+
+def fix_for(title, sections):
+    if title in LINK_SECTIONS:
+        return "link list — belongs under the title, not in a section"
+    if title in SYNONYM_OF:
+        return f"rename to **{SYNONYM_OF[title]}** and merge"
+    return "one level down, under the section above it"
+
+
+def main():
+    sections = template_sections()
+    titles = [t for _, t in sections]
+    order = {t: n for n, t in enumerate(titles)}
+
+    docs = sorted(COMPONENTS.glob("*/*.md"))
+    rows, clean, support = [], [], []
+    extra_names, missing_count = Counter(), Counter()
+
+    for md in docs:
+        heads = headings_of(md)
+        h23 = [(lv, t) for lv, t in heads if lv in (2, 3)]
+        present = [t for _, t in h23]
+        extra = [t for lv, t in h23 if t not in titles]
+        missing = [t for t in titles if t not in present]
+        seq = [order[t] for t in present if t in order]
+        out_of_order = sum(1 for a, b in zip(seq, seq[1:]) if b < a)
+        wrong_level = [t for lv, t in h23 if t in order
+                       and lv != dict((t2, lv2) for lv2, t2 in sections)[t]]
+        readiness = bool(READINESS.search(md.read_text()))
+
+        for t in extra:
+            extra_names[t] += 1
+        for t in missing:
+            missing_count[t] += 1
+
+        record = dict(name=md.relative_to(COMPONENTS).as_posix(), extra=extra,
+                      missing=[t for t in missing if t not in OMITTABLE],
+                      omitted=[t for t in missing if t in OMITTABLE],
+                      out_of_order=out_of_order, wrong_level=wrong_level,
+                      readiness=readiness)
+        if record["name"] in SUPPORT_PAGES:
+            support.append(record)
+        elif not extra and not record["missing"] and not out_of_order \
+                and not wrong_level and readiness:
+            clean.append(record)
+        else:
+            rows.append(record)
+
+    def weight(r):
+        return (len(r["extra"]) * 2 + len(r["missing"]) + r["out_of_order"] * 3
+                + len(r["wrong_level"]) * 2 + (0 if r["readiness"] else 2))
+
+    rows.sort(key=lambda r: (-weight(r), r["name"]))
+
+    kinds = Counter()
+    for t, n in extra_names.items():
+        if t in LINK_SECTIONS:
+            kinds["link"] += n
+        elif t in SYNONYM_OF:
+            kinds["synonym"] += n
+        else:
+            kinds["axis"] += n
+
+    w = []
+    a = w.append
+    a("<!-- GENERATED FILE — do not edit by hand. Re-run: python3 components/template-drift.py -->")
+    a("")
+    a("# Template drift")
+    a("")
+    a("_How far each component doc sits from")
+    a("[component-template.md](component-template.md), and what would close the")
+    a("gap. **Written by a script** — re-run it and the numbers move. Never edit")
+    a("this page._")
+    a("")
+    a("---")
+    a("")
+    a("## Why this page exists and the coverage ledger does not cover it")
+    a("")
+    a("[components-coverage-ledger.md](components-coverage-ledger.md) measures what")
+    a("is **filled in**. It looks for the template's own headings and reports which")
+    a("carry content.")
+    a("")
+    a("It cannot see a heading the template never defined. A doc can put half its")
+    a("content under sections that do not exist and still score well there. This")
+    a("page is the other half of the question.")
+    a("")
+    a("---")
+    a("")
+    a("## Where things stand")
+    a("")
+    a("| | Count |")
+    a("| --- | --- |")
+    a(f"| Component docs measured | **{len(rows) + len(clean)}** |")
+    a(f"| — already match the template | **{len(clean)}** |")
+    a(f"| — need something changed | **{len(rows)}** |")
+    a(f"| Chart support pages, listed apart | {len(support)} |")
+    a(f"| Headings the template does not define | **{sum(extra_names.values())}**, "
+      f"under {len(extra_names)} distinct names |")
+    a(f"| Template sections absent from a page | **{sum(v for k, v in missing_count.items() if k not in OMITTABLE)}** |")
+    a(f"| Sections at the wrong heading level | **{sum(len(r['wrong_level']) for r in rows)}** |")
+    a(f"| Sections out of template order | **{sum(r['out_of_order'] for r in rows)}** |")
+    a(f"| Pages with no readiness table | **{sum(1 for r in rows if not r['readiness'])}** |")
+    a("")
+    a("---")
+    a("")
+    a("## The three fixes, and how much of the drift each one clears")
+    a("")
+    a("Every off-template heading found so far falls into one of these. None has")
+    a("ever needed a fourth.")
+    a("")
+    a("| The fix | Headings | What it is |")
+    a("| --- | --- | --- |")
+    a(f"| **One level down** | {kinds['axis']} | The heading names an axis of the "
+      "component — `Size`, `Type`, `Alignment`, `Dots`. An axis is not a section. "
+      "Its content is right; only its level is wrong. **Mechanical** |")
+    a(f"| **Rename and merge** | {kinds['synonym']} | The heading is a template "
+      "section under another word — `Interaction` for states, `Scrolling` for "
+      "layout. **Not mechanical:** both headings can hold content, and merging "
+      "them is a judgement |")
+    a(f"| **Move out of the sections** | {kinds['link']} | The heading is a list "
+      "of links to other pages. Links belong under the title, above the first "
+      "`##` |")
+    a("")
+    a("**`Anatomy` is not a section, and will not become one.** Decided 16 Sep 2026:")
+    a("a component's elements can be shown or hidden, and often cannot all appear")
+    a("at once, so a picture of every part at once misleads. What those sections")
+    a("really hold — which sub-components exist, and what each can be set to — is")
+    a("**Modifiers**.")
+    a("")
+    a("---")
+    a("")
+    a("## What each doc needs")
+    a("")
+    a("Ordered by how much. `—` means nothing to do in that column.")
+    a("")
+    a("| Doc | Extra headings | Missing sections | What to do |")
+    a("| --- | --- | --- | --- |")
+    for r in rows:
+        extra = ", ".join(f"`{t}`" for t in r["extra"]) or "—"
+        missing = ", ".join(r["missing"]) or "—"
+        todo, grouped = [], {}
+        for t in r["extra"]:
+            grouped.setdefault(fix_for(t, sections), []).append(t)
+        for fix, names in grouped.items():
+            todo.append(", ".join(f"`{n}`" for n in names) + f" → {fix}")
+        if r["wrong_level"]:
+            todo.append("at the wrong heading level: " + ", ".join(r["wrong_level"]))
+        if r["out_of_order"]:
+            todo.append(f"{r['out_of_order']} section(s) out of template order")
+        if not r["readiness"]:
+            todo.append("**no readiness table**")
+        a(f"| [{r['name']}]({r['name']}) | {extra} | {missing} | "
+          + ("; ".join(todo) or "—") + " |")
+    a("")
+    if clean:
+        a(f"**{len(clean)} docs need nothing**: "
+          + ", ".join(f"`{r['name'].split('/')[0]}`" for r in clean) + ".")
+        a("")
+    a("---")
+    a("")
+    a("## The chart support pages")
+    a("")
+    a("These document a part of a chart — the legend, the palettes, the")
+    a("accessibility fallback — not a component. Most template sections cannot")
+    a("apply to them, so their missing sections are not counted above. What is")
+    a("listed here is only the off-template headings.")
+    a("")
+    a("| Doc | Extra headings | What to do |")
+    a("| --- | --- | --- |")
+    for r in support:
+        grouped = {}
+        for t2 in r["extra"]:
+            grouped.setdefault(fix_for(t2, sections), []).append(t2)
+        todo = "; ".join(", ".join(f"`{n}`" for n in names) + f" → {fix}"
+                         for fix, names in grouped.items()) or "—"
+        a(f"| [{r['name']}]({r['name']}) | "
+          + (", ".join(f"`{t2}`" for t2 in r["extra"]) or "—") + f" | {todo} |")
+    a("")
+    a("**Whether the template should apply to them at all is undecided.** Nobody")
+    a("has asked the question; they are split out here so they do not drown the")
+    a("component list above.")
+    a("")
+    a("---")
+    a("")
+    a("## Which sections go missing")
+    a("")
+    a("| Section | Absent from |")
+    a("| --- | --- |")
+    for _, t in sections:
+        a(f"| {t} | {missing_count[t]} docs |")
+    a("")
+    a("**Read `Platform` differently from the rest.** The template says to omit it")
+    a("when a component has no platform restriction, so its absence is expected on")
+    a("most pages and is not counted as drift above. Which of those absences are")
+    a("deliberate is unknown — nobody has checked.")
+    a("")
+    a("---")
+    a("")
+    a("## What this page is built from")
+    a("")
+    a("| Input | Used for |")
+    a("| --- | --- |")
+    a("| [component-template.md](component-template.md) | The sections every doc is measured against |")
+    a("| `components/<name>/<name>.md` | Every heading counted here |")
+    a("| `SYNONYM_OF` in `components/template-drift.py` | Which template section an off-template heading duplicates. **The one judgement on this page** |")
+
+    OUTPUT.write_text("\n".join(w) + "\n")
+    print(f"Wrote {OUTPUT.relative_to(REPO)}")
+    print(f"  {len(docs)} docs: {len(clean)} match the template, {len(rows)} need work")
+    print(f"  {sum(extra_names.values())} extra headings — "
+          f"{kinds['axis']} level, {kinds['synonym']} merge, {kinds['link']} links")
+
+
+if __name__ == "__main__":
+    main()

@@ -188,32 +188,32 @@ These have no page anywhere in this repo. An agent asked to use one has
 nothing to read. Where the *Known from* column is filled, the repo describes
 the component inside **another component's** page — a sentence, not a doc.
 
-| Component | Tier | What it is | Known from |
-| --- | --- | --- | --- |
-| Badge | Components | Attention marker attached to a host element | button, tabs, cell-content |
-| Burger menu | Patterns | Mobile menu opened from the navigation bar | navigation-bar |
-| Burger menu (profil) | Patterns | A distinct component from Burger menu | registry |
-| Date Field | Patterns | Date input, distinct from the Date Picker calendar | date-picker, text-area |
-| Filter button | Patterns | The individual filter control inside Filter bar | filter-bar, charts |
-| Image Ratio | Components | Enforces an image aspect ratio | registry |
-| Image Ratio | Foundations | Enforces an image aspect ratio | registry |
-| Image Slider | Components | Horizontally sliding image sequence | listing-card, carousel |
-| Loading State | Components | Signals data or content is being fetched | autocomplete, dropdown, info-state |
-| Map template | Experiences | The map experience container | registry |
-| Menus | Patterns | Profile and language menus | registry |
-| Navigation Bar (App) | Components | In-app navigation between destinations. Mobile only | tabs, registry |
-| Pop-up | Components | The small-content alternative to Modal bottom sheet | modal-bottom-sheet |
-| Score Tag | Components | A Tag specialised for seller lead scoring | tag |
-| State Messages | Components | Inline form feedback — guide, correct, inform | alert, text-area, text-field |
-| Text Button | Components | A distinct component from Button | button, action-menu, autocomplete |
-| Tooltip | Components | Brief overlay clarifying one UI element | coach-mark |
-| Badge Store | Components | **Unknown** | — |
-| Button Bar | Components | **Unknown** | — |
-| Button Card Group | Components | **Unknown** | — |
-| Estimation card | Experiences | **Unknown** | — |
-| Feedback Bar | Patterns | **Unknown** | — |
-| Feedback Thumb Buttons | Components | **Unknown** | — |
-| Mega menus | Patterns | **Unknown** | — |
+| Component              | Tier        | What it is                                          | Known from                         |
+| ---------------------- | ----------- | --------------------------------------------------- | ---------------------------------- |
+| Badge                  | Components  | Attention marker attached to a host element         | button, tabs, cell-content         |
+| Burger menu            | Patterns    | Mobile menu opened from the navigation bar          | navigation-bar                     |
+| Burger menu (profil)   | Patterns    | A distinct component from Burger menu               | registry                           |
+| Date Field             | Patterns    | Date input, distinct from the Date Picker calendar  | date-picker, text-area             |
+| Filter button          | Patterns    | The individual filter control inside Filter bar     | filter-bar, charts                 |
+| Image Ratio            | Components  | Enforces an image aspect ratio                      | registry                           |
+| Image Ratio            | Foundations | Enforces an image aspect ratio                      | registry                           |
+| Image Slider           | Components  | Horizontally sliding image sequence                 | listing-card, carousel             |
+| Loading State          | Components  | Signals data or content is being fetched            | autocomplete, dropdown, info-state |
+| Map template           | Experiences | The map experience container                        | registry                           |
+| Menus                  | Patterns    | Profile and language menus                          | registry                           |
+| Navigation Bar (App)   | Components  | In-app navigation between destinations. Mobile only | tabs, registry                     |
+| Pop-up                 | Components  | The small-content alternative to Modal bottom sheet | modal-bottom-sheet                 |
+| Score Tag              | Components  | A Tag specialised for seller lead scoring           | tag                                |
+| State Messages         | Components  | Inline form feedback — guide, correct, inform       | alert, text-area, text-field       |
+| Text Button            | Components  | A distinct component from Button                    | button, action-menu, autocomplete  |
+| Tooltip                | Components  | Brief overlay clarifying one UI element             | coach-mark                         |
+| Badge Store            | Components  | **Unknown**                                         | —                                  |
+| Button Bar             | Components  | **Unknown**                                         | —                                  |
+| Button Card Group      | Components  | **Unknown**                                         | —                                  |
+| Estimation card        | Experiences | **Unknown**                                         | —                                  |
+| Feedback Bar           | Patterns    | **Unknown**                                         | —                                  |
+| Feedback Thumb Buttons | Components  | **Unknown**                                         | —                                  |
+| Mega menus             | Patterns    | **Unknown**                                         | —                                  |
 
 **7 of those 23 have no evidence anywhere in the repo** —
 no doc, and no other page mentions what they do: `Badge Store`, `Button Bar`, `Button Card Group`, `Estimation card`, `Feedback Bar`, `Feedback Thumb Buttons`, `Mega menus`.
