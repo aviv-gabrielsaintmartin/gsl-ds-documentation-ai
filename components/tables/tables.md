@@ -18,42 +18,6 @@ Tables are used to organize and display all information from a data set. Display
 
 Table component is essential for displaying large volumes of structured information in an organized, grid-like format, making it ideal for use cases where users need to compare, sort, and analyze data efficiently. It is best suited for scenarios involving datasets with multiple attributes, where clarity and accessibility are paramount. Utilize this component when you need to present data in a way that empowers users to derive insights quickly and make informed decisions based on comprehensive, easy-to-navigate information.
 
-### Anatomy
-
-There are a few types of Tables, but the primary elements that constitute the Table component are as follows:
-
-![](images/x_TXX02RB_7Va9U24CIHcg.svg)
-
-| Sub-component | Enable/Disable capability | Padding |
-| --- | --- | --- |
-| Header row | Yes | Left, Right: 12px, 16px, 20px |
-| Header cell | Yes | Left, Right: 12px, 16px, 20px |
-| Sorting button | Yes | N/A |
-| Additional info button | Yes | N/A |
-| Table row | N/A | Top, Down, Left, Right: 12px, 16px, 20px |
-| Table cell | Yes | Left, Right: 12px, 16px, 20px |
-| Footer | Yes | Left, Right: 0px, 16px |
-| Footer Legend | Yes | N/A |
-| Pagination | Yes | N/A |
-
-### Padding options
-
-The set of spacing available for this component is limited as we've documented in the Anatomy of the component. You can combine a set of 12, 16 and 20px spacing units. Just make sure the spacing is balanced and consistent throughout the table.
-
-#### Example
-
-![](images/eAbmr7WRmMrO-ogUco5GA.png)
-12px gap between cells in the Header
-
-![](images/MjDQBLJbpu0aOhJxEgSGHQ.png)
-12px gap between fixed cells and the rest
-
-![](images/w22S4PTrN3brsXl7LLTxcg.png)
-12px gap between cells and 16px padding top and bottom of the row
-
-![](images/thHqALE35ga2w6LlJV1oTQ.png)
-Other padding can be used within the cell content. E.g.: 8px
-
 ### When to use
 
 **Tables** — organising and displaying a data set in rows and columns for users to scan, sort and act on.
@@ -191,6 +155,42 @@ For very complex data sets that need a large number of columns to display, this 
 | ![](images/-QbNkckaNr8U8Qq8W0L8Cw.svg) **DO:** When the content of the Table can't be fitted inside the Table container, enable "horizontal scroll" — a shadow will appear to help the user notice there's more content underneath. |
 
 ### Modifiers
+
+#### Sub-components and padding
+
+There are a few types of Tables, but the primary elements that constitute the Table component are as follows:
+
+![](images/x_TXX02RB_7Va9U24CIHcg.svg)
+
+| Sub-component | Enable/Disable capability | Padding |
+| --- | --- | --- |
+| Header row | Yes | Left, Right: 12px, 16px, 20px |
+| Header cell | Yes | Left, Right: 12px, 16px, 20px |
+| Sorting button | Yes | N/A |
+| Additional info button | Yes | N/A |
+| Table row | N/A | Top, Down, Left, Right: 12px, 16px, 20px |
+| Table cell | Yes | Left, Right: 12px, 16px, 20px |
+| Footer | Yes | Left, Right: 0px, 16px |
+| Footer Legend | Yes | N/A |
+| Pagination | Yes | N/A |
+
+#### Padding options
+
+The set of spacing available for this component is limited, as the sub-component table above records. You can combine a set of 12, 16 and 20px spacing units. Just make sure the spacing is balanced and consistent throughout the table.
+
+##### Example
+
+![](images/eAbmr7WRmMrO-ogUco5GA.png)
+12px gap between cells in the Header
+
+![](images/MjDQBLJbpu0aOhJxEgSGHQ.png)
+12px gap between fixed cells and the rest
+
+![](images/w22S4PTrN3brsXl7LLTxcg.png)
+12px gap between cells and 16px padding top and bottom of the row
+
+![](images/thHqALE35ga2w6LlJV1oTQ.png)
+Other padding can be used within the cell content. E.g.: 8px
 
 #### Sorting
 

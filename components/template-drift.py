@@ -148,10 +148,12 @@ def main():
                 current_h2 = t
             if lv not in (2, 3) or t in titles:
                 continue
-            # A free slot takes any name except one that duplicates a section.
-            # `### Labels` under Variants & Modifiers is writing guidance in a
-            # variants slot — the slot being free does not make that right.
-            if lv == 3 and current_h2 in free_under and t not in SYNONYM_OF:
+            # A free slot takes ANY name. Checked doc by doc on 16 Sep: every
+            # H3 there that collides with a section title -- `Width`, `Labels`,
+            # `Device`, `Country`, `Horizontal scroll` -- is a real variant
+            # category with its own comparison table. The collision is a
+            # coincidence of wording, not a misfiling.
+            if lv == 3 and current_h2 in free_under:
                 continue
             extra.append(t)
         missing = [t for t in titles if t not in present]
@@ -267,9 +269,10 @@ def main():
     a("not counted here. Before this was handled the page reported 64 of them as")
     a("drift, which was wrong and made the real work look three times bigger.")
     a("")
-    a("**A free slot still does not take a section's name.** `### Labels` under")
-    a("*Variants & Modifiers* is writing guidance sitting in a variants slot, and")
-    a("the slot being free does not make that right. Those stay in the table.")
+    a("**A free slot takes any name, including a section's.** `### Width` under")
+    a("*Variants & Modifiers* looks like a misfiled layout section and is not:")
+    a("it holds a Fixed / Full width comparison. All nine such collisions were")
+    a("read on 16 Sep and every one was a real variant category.")
     a("")
     a("**`Anatomy` is not a section, and will not become one.** Decided 16 Sep 2026:")
     a("a component's elements can be shown or hidden, and often cannot all appear")

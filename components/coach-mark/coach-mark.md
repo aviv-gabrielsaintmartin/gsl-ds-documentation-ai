@@ -73,36 +73,36 @@ Only the title and the close icon are mandatory. All other elements can be hidde
 
 To ensure a perfect readability, the tag can be aligned with the title or placed on top when the title is on two lines. It's up to the consumer.
 
+### Modifiers
+
+Not documented
+
 ---
 
 ## Behavior & Responsiveness
 
-### Position
-
-The coach mark appears near the triggering object. The auto-placement feature identifies the best position from all available placement options, promoting effective use of space.
-
-### Interaction
+### Interactive States & Loading
 
 The coach mark appears automatically after the page loaded (decided by the consumer). A coach mark is an advisory overlay, not a modal dialog — it provides optional information, and its interaction model should reflect its subordinate nature. By allowing it to be dismissed easily, we reinforce that the coach mark is a temporary guide, not a mandatory step. This distinguishes it from critical alerts or dialogs that require an explicit user action before proceeding.
 
-### Scroll
+#### Dismissal on scroll
 
 The coach mark should be dismissed on scroll. A user's scroll action is a clear signal that their focus is shifting — they are navigating to a different part of the page.
 
 * **Respecting Focus:** Keeping the coach mark visible would actively work against the user's intent, pulling their attention back to a part of the UI they have chosen to move away from.
 * **Reducing Intrusion:** The coach mark's job is to be a helpful, temporary guide. Once the user navigates away, its job is done. Dismissing it respects the "temporary" nature of the component.
 
-### Animation
+#### Animation
 
 An animation is used when the coach mark appears and disappears. During a tour, the first coach mark fades out before the second one becomes visible. The coach mark doesn't move on screen.
-
-### Interactive States & Loading
-
-Not documented
 
 ### Touch Target & Layout
 
 * **Width Adaptability:** Size should be defined by the user, between 296 and 400px.
+
+#### Position
+
+The coach mark appears near the triggering object. The auto-placement feature identifies the best position from all available placement options, promoting effective use of space.
 
 ### Breakpoints & Platform Adaptations
 

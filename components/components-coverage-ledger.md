@@ -45,7 +45,7 @@ libraries under the same name, with different keys. They are two distinct
 components, so both entries are listed.
 
 Across the 57 documented entries there are 741 template
-sections to fill. **515 are filled** — 70%.
+sections to fill. **516 are filled** — 70%.
 
 ---
 
@@ -60,9 +60,9 @@ Ordered by how many documented components leave the section empty.
 | Platform | 27 | 0 | 30 | 47% |
 | Touch target | 33 | 20 | 4 | 58% |
 | Variants | 35 | 20 | 2 | 61% |
-| Modifiers | 38 | 13 | 6 | 67% |
-| States | 43 | 12 | 2 | 75% |
+| Modifiers | 38 | 14 | 5 | 67% |
 | Writing | 43 | 14 | 0 | 75% |
+| States | 44 | 11 | 2 | 77% |
 | Usage guidance | 51 | 6 | 0 | 89% |
 | When to use | 55 | 2 | 0 | 96% |
 | When NOT to use | 55 | 2 | 0 | 96% |
@@ -121,7 +121,7 @@ The ten documented components filling fewest of the 13 sections.
 | [Checkbox Group](checkbox-group/checkbox-group.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | 12 |
 | [Chip](chip/chip.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | 10 |
 | [Chip Group](chip-group/chip-group.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | 10 |
-| [Coachmark](coach-mark/coach-mark.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⬜ | ❌ | ✅ | ❌ | ✅ | ✅ | 9 |
+| [Coachmark](coach-mark/coach-mark.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | 10 |
 | [Counter Field](counter-field/counter-field.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | 10 |
 | [Date Picker](date-picker/date-picker.md) | Patterns | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ⬜ | ⬜ | ✅ | ❌ | 9 |
 | [Divider](divider/divider.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⬜ | ❌ | ❌ | ❌ | ❌ | ❌ | 6 |
@@ -188,32 +188,32 @@ These have no page anywhere in this repo. An agent asked to use one has
 nothing to read. Where the *Known from* column is filled, the repo describes
 the component inside **another component's** page — a sentence, not a doc.
 
-| Component              | Tier        | What it is                                          | Known from                         |
-| ---------------------- | ----------- | --------------------------------------------------- | ---------------------------------- |
-| Badge                  | Components  | Attention marker attached to a host element         | button, tabs, cell-content         |
-| Burger menu            | Patterns    | Mobile menu opened from the navigation bar          | navigation-bar                     |
-| Burger menu (profil)   | Patterns    | A distinct component from Burger menu               | registry                           |
-| Date Field             | Patterns    | Date input, distinct from the Date Picker calendar  | date-picker, text-area             |
-| Filter button          | Patterns    | The individual filter control inside Filter bar     | filter-bar, charts                 |
-| Image Ratio            | Components  | Enforces an image aspect ratio                      | registry                           |
-| Image Ratio            | Foundations | Enforces an image aspect ratio                      | registry                           |
-| Image Slider           | Components  | Horizontally sliding image sequence                 | listing-card, carousel             |
-| Loading State          | Components  | Signals data or content is being fetched            | autocomplete, dropdown, info-state |
-| Map template           | Experiences | The map experience container                        | registry                           |
-| Menus                  | Patterns    | Profile and language menus                          | registry                           |
-| Navigation Bar (App)   | Components  | In-app navigation between destinations. Mobile only | tabs, registry                     |
-| Pop-up                 | Components  | The small-content alternative to Modal bottom sheet | modal-bottom-sheet                 |
-| Score Tag              | Components  | A Tag specialised for seller lead scoring           | tag                                |
-| State Messages         | Components  | Inline form feedback — guide, correct, inform       | alert, text-area, text-field       |
-| Text Button            | Components  | A distinct component from Button                    | button, action-menu, autocomplete  |
-| Tooltip                | Components  | Brief overlay clarifying one UI element             | coach-mark                         |
-| Badge Store            | Components  | **Unknown**                                         | —                                  |
-| Button Bar             | Components  | **Unknown**                                         | —                                  |
-| Button Card Group      | Components  | **Unknown**                                         | —                                  |
-| Estimation card        | Experiences | **Unknown**                                         | —                                  |
-| Feedback Bar           | Patterns    | **Unknown**                                         | —                                  |
-| Feedback Thumb Buttons | Components  | **Unknown**                                         | —                                  |
-| Mega menus             | Patterns    | **Unknown**                                         | —                                  |
+| Component | Tier | What it is | Known from |
+| --- | --- | --- | --- |
+| Badge | Components | Attention marker attached to a host element | button, tabs, cell-content |
+| Burger menu | Patterns | Mobile menu opened from the navigation bar | navigation-bar |
+| Burger menu (profil) | Patterns | A distinct component from Burger menu | registry |
+| Date Field | Patterns | Date input, distinct from the Date Picker calendar | date-picker, text-area |
+| Filter button | Patterns | The individual filter control inside Filter bar | filter-bar, charts |
+| Image Ratio | Components | Enforces an image aspect ratio | registry |
+| Image Ratio | Foundations | Enforces an image aspect ratio | registry |
+| Image Slider | Components | Horizontally sliding image sequence | listing-card, carousel |
+| Loading State | Components | Signals data or content is being fetched | autocomplete, dropdown, info-state |
+| Map template | Experiences | The map experience container | registry |
+| Menus | Patterns | Profile and language menus | registry |
+| Navigation Bar (App) | Components | In-app navigation between destinations. Mobile only | tabs, registry |
+| Pop-up | Components | The small-content alternative to Modal bottom sheet | modal-bottom-sheet |
+| Score Tag | Components | A Tag specialised for seller lead scoring | tag |
+| State Messages | Components | Inline form feedback — guide, correct, inform | alert, text-area, text-field |
+| Text Button | Components | A distinct component from Button | button, action-menu, autocomplete |
+| Tooltip | Components | Brief overlay clarifying one UI element | coach-mark |
+| Badge Store | Components | **Unknown** | — |
+| Button Bar | Components | **Unknown** | — |
+| Button Card Group | Components | **Unknown** | — |
+| Estimation card | Experiences | **Unknown** | — |
+| Feedback Bar | Patterns | **Unknown** | — |
+| Feedback Thumb Buttons | Components | **Unknown** | — |
+| Mega menus | Patterns | **Unknown** | — |
 
 **7 of those 23 have no evidence anywhere in the repo** —
 no doc, and no other page mentions what they do: `Badge Store`, `Button Bar`, `Button Card Group`, `Estimation card`, `Feedback Bar`, `Feedback Thumb Buttons`, `Mega menus`.
@@ -226,25 +226,25 @@ The reasons are copied from
 [components-audit.md](components-audit.md#not-selectable-and-why) — that
 classification is the one human judgement this page carries.
 
-| Component                 | Tier        | Why no doc is needed                                              |
-| ------------------------- | ----------- | ----------------------------------------------------------------- |
-| Brand App Icons           | Foundations | Asset — per-platform, per-brand exports                           |
-| Brand Logo                | Components  | Asset — configured by brand, not chosen by design intent          |
-| Brand Logo                | Foundations | Asset — configured by brand, not chosen by design intent          |
-| Content Placeholder       | Components  | Composed-only — a slot, swapped for local content                 |
-| Favicon                   | Foundations | Asset — fixed, no properties of its own                           |
-| Filter dropdown container | Patterns    | Composed-only — sibling pattern to Filter bar                     |
-| Flag                      | Foundations | Asset — country flag family                                       |
-| Footer                    | Patterns    | Withheld — Figma only, not developed. Owned by Header/Footer team |
-| Home Indicator            | Components  | Chrome — iOS system affordance                                    |
-| Map Polygon               | Experiences | Composed-only — part of the Map experience                        |
-| Map Polygon backdrop      | Experiences | Composed-only — part of the Map experience                        |
-| mapPinsV2_IWT             | Experiences | Composed-only — brand-specific pin set (Immowelt)                 |
-| mapPinsV2_SL              | Experiences | Composed-only — brand-specific pin set (SeLoger)                  |
-| Programmatic Ads          | Components  | Withheld — commercial ad slot, not a design choice                |
-| Status Bar                | Components  | Chrome — OS-rendered                                              |
-| Tab Bar                   | Components  | Withheld — in-progress refactor. Use Tabs until it settles        |
-| Webview                   | Components  | Chrome — embedded browser container, iOS/Android only             |
+| Component | Tier | Why no doc is needed |
+| --- | --- | --- |
+| Brand App Icons | Foundations | Asset — per-platform, per-brand exports |
+| Brand Logo | Components | Asset — configured by brand, not chosen by design intent |
+| Brand Logo | Foundations | Asset — configured by brand, not chosen by design intent |
+| Content Placeholder | Components | Composed-only — a slot, swapped for local content |
+| Favicon | Foundations | Asset — fixed, no properties of its own |
+| Filter dropdown container | Patterns | Composed-only — sibling pattern to Filter bar |
+| Flag | Foundations | Asset — country flag family |
+| Footer | Patterns | Withheld — Figma only, not developed. Owned by Header/Footer team |
+| Home Indicator | Components | Chrome — iOS system affordance |
+| Map Polygon | Experiences | Composed-only — part of the Map experience |
+| Map Polygon backdrop | Experiences | Composed-only — part of the Map experience |
+| mapPinsV2_IWT | Experiences | Composed-only — brand-specific pin set (Immowelt) |
+| mapPinsV2_SL | Experiences | Composed-only — brand-specific pin set (SeLoger) |
+| Programmatic Ads | Components | Withheld — commercial ad slot, not a design choice |
+| Status Bar | Components | Chrome — OS-rendered |
+| Tab Bar | Components | Withheld — in-progress refactor. Use Tabs until it settles |
+| Webview | Components | Chrome — embedded browser container, iOS/Android only |
 
 **Careful with `Cell Content`.** It is in the matrix above
 with a full doc, and it is still not selectable — composed-only — a slot inside cards and lists. A well-filled
@@ -255,12 +255,12 @@ that, not this page.
 
 ## What this page is built from
 
-| Input                                              | Used for                                                       |
-| -------------------------------------------------- | -------------------------------------------------------------- |
-| `figma/figma-components-registry.json`             | The Components tier — what exists                              |
-| `figma/figma-patterns-registry.json`               | The Patterns tier                                              |
-| `figma/figma-experiences-registry.json`            | The Experiences tier                                           |
-| `figma/figma-foundations-components-registry.json` | The Foundations tier                                           |
-| `components/<name>/<name>.md`                      | Every mark in the matrix                                       |
-| [components-audit.md](components-audit.md)         | The five name aliases, and which components are not selectable |
+| Input | Used for |
+| --- | --- |
+| `figma/figma-components-registry.json` | The Components tier — what exists |
+| `figma/figma-patterns-registry.json` | The Patterns tier |
+| `figma/figma-experiences-registry.json` | The Experiences tier |
+| `figma/figma-foundations-components-registry.json` | The Foundations tier |
+| `components/<name>/<name>.md` | Every mark in the matrix |
+| [components-audit.md](components-audit.md) | The five name aliases, and which components are not selectable |
 
