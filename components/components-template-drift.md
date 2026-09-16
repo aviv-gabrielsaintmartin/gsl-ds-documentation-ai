@@ -26,10 +26,10 @@ page is the other half of the question.
 | | Count |
 | --- | --- |
 | Component docs measured | **57** |
-| — already match the template | **30** |
-| — need something changed | **27** |
+| — already match the template | **34** |
+| — need something changed | **23** |
 | Chart support pages, listed apart | 5 |
-| Headings the template does not define | **32**, under 19 distinct names |
+| Headings the template does not define | **22**, under 11 distinct names |
 | Template sections absent from a page | **63** |
 | Sections at the wrong heading level | **0** |
 | Sections out of template order | **0** |
@@ -48,8 +48,8 @@ has to move to a different parent rather than down a level where it is.
 
 | The fix | Headings | What it is |
 | --- | --- | --- |
-| **Move to the right section** | 5 | The heading names an axis of the component — `Opening menu`, `Rating results`, `Padding options` — sitting under a section it does not belong to. **Not mechanical:** demoting it in place would leave it under whatever happens to sit above, or under nothing at all. Somebody has to choose the destination |
-| **Rename and merge** | 25 | The heading is a template section under another word — `Interaction` for states, `Scrolling` for layout. **Not mechanical:** both headings can hold content, and merging them is a judgement |
+| **Move to the right section** | 3 | The heading names an axis of the component — `Opening menu`, `Rating results`, `Padding options` — sitting under a section it does not belong to. **Not mechanical:** demoting it in place would leave it under whatever happens to sit above, or under nothing at all. Somebody has to choose the destination |
+| **Rename and merge** | 17 | The heading is a template section under another word — `Interaction` for states, `Scrolling` for layout. **Not mechanical:** both headings can hold content, and merging them is a judgement |
 | **Move out of the sections** | 2 | The heading is a list of links to other pages. Links belong under the title, above the first `##` |
 
 **A free-name slot is not drift.** The template writes one H3 as
@@ -78,15 +78,11 @@ Ordered by how much. `—` means nothing to do in that column.
 | Doc | Extra headings | Missing sections | What to do |
 | --- | --- | --- | --- |
 | [phone-number-field/phone-number-field.md](phone-number-field/phone-number-field.md) | `Overflow Content` | Variants & Modifiers, Modifiers, Behavior & Responsiveness, Interactive States & Loading, Touch Target & Layout | `Overflow Content` → rename to **Touch Target & Layout** and merge; **no readiness table** |
-| [floor-selection/floor-selection.md](floor-selection/floor-selection.md) | `Digit`, `Labels`, `Helper text` | — | `Digit`, `Labels`, `Helper text` → rename to **Content & UX Writing** and merge |
-| [rating/rating.md](rating/rating.md) | `Scale`, `Rating results`, `Reviews` | — | `Scale` → rename to **Touch Target & Layout** and merge; `Rating results`, `Reviews` → one level down, under the section above it |
 | [modal-bottom-sheet/modal-bottom-sheet.md](modal-bottom-sheet/modal-bottom-sheet.md) | `Scrolling` | Variants & Modifiers, Modifiers, Behavior & Responsiveness | `Scrolling` → rename to **Touch Target & Layout** and merge |
 | [carousel/carousel.md](carousel/carousel.md) | `Interaction`, `Carousel Items` | — | `Interaction` → rename to **Interactive States & Loading** and merge; `Carousel Items` → one level down, under the section above it |
 | [charts/donut-chart.md](charts/donut-chart.md) | — | Modifiers, Interactive States & Loading, Touch Target & Layout, Breakpoints & Platform Adaptations | — |
 | [date-picker/date-picker.md](date-picker/date-picker.md) | — | Touch Target & Layout, Breakpoints & Platform Adaptations | **no readiness table** |
 | [dropdown/dropdown.md](dropdown/dropdown.md) | `Interaction`, `Position & Scrolling` | — | `Interaction` → rename to **Interactive States & Loading** and merge; `Position & Scrolling` → rename to **Touch Target & Layout** and merge |
-| [radio-button-group/radio-button-group.md](radio-button-group/radio-button-group.md) | `Main elements`, `Overflow content` | — | `Main elements` → rename to **Content & UX Writing** and merge; `Overflow content` → rename to **Touch Target & Layout** and merge |
-| [text-area/text-area.md](text-area/text-area.md) | `Main elements`, `Overflow content` | — | `Main elements` → rename to **Content & UX Writing** and merge; `Overflow content` → rename to **Touch Target & Layout** and merge |
 | [card/card.md](card/card.md) | `Interaction` | Modifiers | `Interaction` → rename to **Interactive States & Loading** and merge |
 | [modal-bottom-sheet-menu/modal-bottom-sheet-menu.md](modal-bottom-sheet-menu/modal-bottom-sheet-menu.md) | `Scrolling` | Touch Target & Layout | `Scrolling` → rename to **Touch Target & Layout** and merge |
 | [action-menu/action-menu.md](action-menu/action-menu.md) | `Scrolling` | — | `Scrolling` → rename to **Touch Target & Layout** and merge |
@@ -105,7 +101,7 @@ Ordered by how much. `—` means nothing to do in that column.
 | [info-state/info-state.md](info-state/info-state.md) | — | Modifiers | — |
 | [pagination/pagination.md](pagination/pagination.md) | — | Modifiers | — |
 
-**30 docs need nothing**: `accordion`, `alert`, `autocomplete`, `breadcrumb`, `button`, `button-card`, `charts`, `chip`, `chip-group`, `coach-mark`, `energy-tag`, `feedback-message`, `filter-bar`, `floating-button-group`, `link`, `listing-card`, `media-upload`, `navigation-bar`, `progress-bar`, `progress-circle`, `segmented-control`, `select-card-group`, `slider`, `snackbar`, `tables`, `tag`, `text-field`, `toggle`, `toggle-group`, `wizard`.
+**34 docs need nothing**: `accordion`, `alert`, `autocomplete`, `breadcrumb`, `button`, `button-card`, `charts`, `chip`, `chip-group`, `coach-mark`, `energy-tag`, `feedback-message`, `filter-bar`, `floating-button-group`, `floor-selection`, `link`, `listing-card`, `media-upload`, `navigation-bar`, `progress-bar`, `progress-circle`, `radio-button-group`, `rating`, `segmented-control`, `select-card-group`, `slider`, `snackbar`, `tables`, `tag`, `text-area`, `text-field`, `toggle`, `toggle-group`, `wizard`.
 
 ---
 

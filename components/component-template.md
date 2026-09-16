@@ -127,10 +127,25 @@ _Functional behaviour, visual rules, scaling constraints._
 
 ## Content & UX Writing
 <!-- column: Writing -->
+<!-- required: Capitalization, Label Formula, Length Limits -->
+
+_These three are asked of **every** component. Answer them, or write
+`Not documented` after the label. They are what makes one writing rule
+comparable across the whole library — an audit can ask "does this component
+state its capitalization rule?" and get an answer for all of them._
 
 * **Capitalization:** [e.g. Sentence case]
 * **Label Formula:** [e.g. {Action Verb} + {Noun}]
 * **Length Limits:** [e.g. Maximum 3-4 words]
+
+### [Writing topic]
+
+_Free slot, and optional. What this component needs and no other does —
+`rating` states number notation per language, `energy-tag` states per-country
+wording. Add as many as the component actually has, or none._
+
+_**Behaviour is not writing.** How a field scrolls when its content overflows
+belongs in `Touch Target & Layout`, however much it is about content._
 
 ## Accessibility (a11y)
 <!-- column: a11y -->

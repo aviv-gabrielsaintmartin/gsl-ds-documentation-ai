@@ -101,6 +101,14 @@ TEMPLATE_INSTRUCTIONS = re.compile(r"^#\s+How to use this template\s*$")
 
 COLUMN_MARKER = re.compile(r"^<!--\s*column:\s*(.+?)\s*-->$")
 
+# A section can also require named bullets inside it, marked in the template as
+# `<!-- required: A, B, C -->`. Each becomes a column of its own, so one writing
+# rule can be compared across every component instead of only per page.
+REQUIRED_MARKER = re.compile(r"^<!--\s*required:\s*(.+?)\s*-->$")
+
+
+REQUIRED_BULLETS = []   # [(bullet label, the section it must appear in)]
+
 
 def load_sections(path=None):
     """Return [(column, full section title, heading level, parent H2 or None)].
@@ -119,16 +127,22 @@ def load_sections(path=None):
         level, title = len(m.group(1)), m.group(2).strip()
         if level == 2:
             current_h2 = title
-        column = None
-        for ahead in lines[i + 1:i + 4]:
+        column, required = None, []
+        for ahead in lines[i + 1:i + 5]:
             marker = COLUMN_MARKER.match(ahead.strip())
             if marker:
                 column = marker.group(1)
-                break
+                continue
+            needed = REQUIRED_MARKER.match(ahead.strip())
+            if needed:
+                required = [x.strip() for x in needed.group(1).split(",")]
+                continue
             if ahead.strip():
                 break
         if column:
             out.append((column, title, level, None if level == 2 else current_h2))
+            for label in required:
+                REQUIRED_BULLETS.append((label, title))
     if not out:
         raise SystemExit(f"No `<!-- column: -->` markers found in {TEMPLATE}")
     return out
@@ -223,6 +237,21 @@ def is_not_documented(body):
     return normalise(body).startswith("not documented")
 
 
+def bullet_answer(section_body, label):
+    """What a doc says after `**<label>:**` inside a section, or None.
+
+    Docs write these three as bolded bullets and have since before they were
+    required, so this reads the shape already in use rather than demanding a
+    heading. Matches with or without the bullet marker and with the colon
+    inside or outside the bold.
+    """
+    pattern = re.compile(
+        r"^\s*(?:[*-]\s+)?\*\*\s*" + re.escape(label) + r"\s*:?\s*\*\*\s*:?\s*(.*)$",
+        re.M | re.I)
+    m = pattern.search(section_body)
+    return m.group(1).strip() if m else None
+
+
 def has_readiness_table(doc_path):
     return bool(READINESS_ROW.search((COMPONENTS / doc_path).read_text()))
 
@@ -266,6 +295,22 @@ def coverage_for(doc_path):
                 continue
         marks[column] = ABSENT
 
+    # The required bullets inside a section, each its own column. Present when
+    # the doc answers it, missing when it says nothing or "Not documented",
+    # absent when the section carrying it is not on the page at all.
+    for label, section in REQUIRED_BULLETS:
+        key = (2, normalise(section))
+        if key not in by_title:
+            marks[label] = ABSENT
+            continue
+        own, subtree = by_title[key]
+        answer = bullet_answer(subtree, label)
+        if answer is None or not answer or is_not_documented(answer) \
+                or answer.startswith("["):
+            marks[label] = MISSING
+        else:
+            marks[label] = PRESENT
+
     # "Variants" is the H2 minus its Modifiers child. An H2 whose only content
     # is the Modifiers sub-section documents no variants of its own.
     vm = normalise("Variants & Modifiers")
@@ -299,7 +344,7 @@ def main():
     dupes = sorted({n for n, _ in undocumented
                     if sum(1 for m, _ in undocumented if m == n) > 1})
 
-    columns = [c for c, _, _, _ in SECTIONS]
+    columns = [c for c, _, _, _ in SECTIONS] + [lbl for lbl, _ in REQUIRED_BULLETS]
 
     # --- Per-section totals across the documented set
     section_totals = {}
