@@ -25,12 +25,12 @@ page is the other half of the question.
 
 | | Count |
 | --- | --- |
-| Component docs measured | **57** |
-| — already match the template | **57** |
+| Component docs measured | **59** |
+| — already match the template | **59** |
 | — need something changed | **0** |
-| Chart support pages, listed apart | 5 |
+| Chart support pages, listed apart | 3 |
 | Headings the template does not define | **5**, under 5 distinct names |
-| Template sections absent from a page | **42** |
+| Template sections absent from a page | **38** |
 | Sections at the wrong heading level | **0** |
 | Sections out of template order | **0** |
 | Pages with no readiness table | **0** |
@@ -78,7 +78,7 @@ Ordered by how much. `—` means nothing to do in that column.
 | Doc | Extra headings | Missing sections | What to do |
 | --- | --- | --- | --- |
 
-**57 docs need nothing**: `accordion`, `action-menu`, `alert`, `autocomplete`, `avatar`, `breadcrumb`, `button`, `button-card`, `button-group`, `card`, `carousel`, `cell-content`, `charts`, `charts`, `charts`, `checkbox`, `checkbox-group`, `chip`, `chip-group`, `coach-mark`, `counter-field`, `date-picker`, `divider`, `dropdown`, `energy-tag`, `feedback-message`, `filter-bar`, `floating-button-group`, `floor-selection`, `info-state`, `kpi`, `link`, `listing-card`, `listing-summary`, `media-upload`, `modal-bottom-sheet`, `modal-bottom-sheet-menu`, `navigation-bar`, `pagination`, `phone-number-field`, `progress-bar`, `progress-circle`, `radio-button-group`, `rating`, `segmented-control`, `select-card-group`, `slider`, `snackbar`, `tables`, `tabs`, `tag`, `text-area`, `text-field`, `toggle`, `toggle-group`, `top-bar`, `wizard`.
+**59 docs need nothing**: `accordion`, `action-menu`, `alert`, `autocomplete`, `avatar`, `breadcrumb`, `button`, `button-card`, `button-group`, `card`, `carousel`, `cell-content`, `charts`, `charts`, `charts`, `charts`, `charts`, `checkbox`, `checkbox-group`, `chip`, `chip-group`, `coach-mark`, `counter-field`, `date-picker`, `divider`, `dropdown`, `energy-tag`, `feedback-message`, `filter-bar`, `floating-button-group`, `floor-selection`, `info-state`, `kpi`, `link`, `listing-card`, `listing-summary`, `media-upload`, `modal-bottom-sheet`, `modal-bottom-sheet-menu`, `navigation-bar`, `pagination`, `phone-number-field`, `progress-bar`, `progress-circle`, `radio-button-group`, `rating`, `segmented-control`, `select-card-group`, `slider`, `snackbar`, `tables`, `tabs`, `tag`, `text-area`, `text-field`, `toggle`, `toggle-group`, `top-bar`, `wizard`.
 
 ---
 
@@ -94,8 +94,6 @@ listed here is only the off-template headings.
 | [charts/chart-accessibility.md](charts/chart-accessibility.md) | `Color-blind friendly mode`, `Table format` | `Color-blind friendly mode` → rename to **Accessibility (a11y)** and merge; `Table format` → one level down, under the section above it |
 | [charts/chart-colors.md](charts/chart-colors.md) | `Resources` | `Resources` → link list — belongs under the title, not in a section |
 | [charts/charts.md](charts/charts.md) | `Chart types`, `Supporting documentation` | `Chart types` → one level down, under the section above it; `Supporting documentation` → link list — belongs under the title, not in a section |
-| [charts/filters-and-actions.md](charts/filters-and-actions.md) | — | — |
-| [charts/legend.md](charts/legend.md) | — | — |
 
 **Whether the template should apply to them at all is undecided.** Nobody
 has asked the question; they are split out here so they do not drown the
@@ -115,11 +113,11 @@ component list above.
 | Usage Guidance | 3 docs |
 | Related Components | 2 docs |
 | Variants & Modifiers | 2 docs |
-| Modifiers | 4 docs |
+| Modifiers | 3 docs |
 | Behavior & Responsiveness | 3 docs |
-| Interactive States & Loading | 4 docs |
-| Touch Target & Layout | 4 docs |
-| Breakpoints & Platform Adaptations | 4 docs |
+| Interactive States & Loading | 3 docs |
+| Touch Target & Layout | 3 docs |
+| Breakpoints & Platform Adaptations | 3 docs |
 | Content & UX Writing | 3 docs |
 | Accessibility (a11y) | 1 docs |
 

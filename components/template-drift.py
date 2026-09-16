@@ -68,12 +68,22 @@ LINK_SECTIONS = {"Resources", "Supporting documentation"}
 # platform restriction, so its absence is not evidence of anything.
 OMITTABLE = {"Platform"}
 
-# Pages under charts/ that document a part of a chart rather than a component.
-# The template describes a component, so most of its sections cannot apply to
-# these. Copied from CHART_SUPPORT in coverage.py, which makes the same split.
+# Pages under charts/ the template does not describe. Checked page by page on
+# 16 Sep: `charts.md` is a routing page, and the palettes and the accessibility
+# fallback are organised by the thing itself rather than by component -- what
+# Gabriel called a different architecture. Left as they are, deliberately.
+#
+# `legend.md` and `filters-and-actions.md` are NOT here. Both already carry the
+# template's own sections and are measured like any component.
 SUPPORT_PAGES = {
-    "charts/charts.md", "charts/legend.md", "charts/filters-and-actions.md",
-    "charts/chart-colors.md", "charts/chart-accessibility.md",
+    "charts/charts.md", "charts/chart-colors.md", "charts/chart-accessibility.md",
+}
+
+# Pages measured for their sections but never for a readiness table. A legend
+# is part of a chart, not something shipped per platform, so a Figma/Web/iOS/
+# Android row would be four cells nobody can fill.
+NO_READINESS_EXPECTED = {
+    "charts/legend.md", "charts/filters-and-actions.md",
 }
 
 
@@ -161,7 +171,9 @@ def main():
         out_of_order = sum(1 for a, b in zip(seq, seq[1:]) if b < a)
         wrong_level = [t for lv, t in h23 if t in order
                        and lv != dict((t2, lv2) for lv2, t2 in sections)[t]]
-        readiness = bool(READINESS.search(md.read_text()))
+        name = md.relative_to(COMPONENTS).as_posix()
+        readiness = bool(READINESS.search(md.read_text())) \
+            or name in NO_READINESS_EXPECTED
 
         for t in extra:
             extra_names[t] += 1

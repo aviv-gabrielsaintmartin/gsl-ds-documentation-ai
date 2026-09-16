@@ -117,6 +117,18 @@ Not documented
 
 ---
 
+### Interactive States & Loading
+
+Not documented
+
+### Touch Target & Layout
+
+Not documented
+
+### Breakpoints & Platform Adaptations
+
+Not documented
+
 ## Content & UX Writing
 
 Not documented
