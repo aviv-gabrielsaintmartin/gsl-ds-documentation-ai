@@ -171,7 +171,7 @@ Text fields have the states default, hover, active, and disabled. They can be em
 
 | Default empty | Hover empty | Active empty | Disabled empty |
 | --- | --- | --- | --- |
-| ![0dfceb07a896e570f3ee01c.png](https://avivgroup.atlassian.net/wiki/pages/viewpageattachments.action?pageId=2831057031&preview=%2F2831057031%2F3456073745%2F0dfceb07a896e570f3ee01c.png)  <!-- MISSING LOCAL IMAGE: 0dfceb07a896e570f3ee01c.png --> | ![](images/eb069fe9059a04d1d175d4.png) | ![](images/7fe648d0f4729ace591a3e.png) | ![](images/7ff6ba339845321b5b9f1e.png) |
+| ![Default empty](images/0dceb07a896e570f3ee01c.png) | ![](images/eb069fe9059a04d1d175d4.png) | ![](images/7fe648d0f4729ace591a3e.png) | ![](images/7ff6ba339845321b5b9f1e.png) |
 
 | Default filled | Hover filled | Active filled | Disabled filled |
 | --- | --- | --- | --- |

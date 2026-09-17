@@ -91,7 +91,7 @@ See the [form guidelines](https://zeroheight.com/626199550/p/81b84d-forms/t/page
 
 | Optional | Required | Tooltip |
 | --- | --- | --- |
-| ![](images/556f41e3ff1803cfca8c35.png) | *Image not available in source export* | ![](images/556f41e3ff1803cfca8c35.png) |
+| ![](images/556f41e3ff1803cfca8c35.png) | ![Required](images/b0c843c405c58a70487d85.png) | ![](images/556f41e3ff1803cfca8c35.png) |
 
 ---
 

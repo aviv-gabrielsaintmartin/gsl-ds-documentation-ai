@@ -77,13 +77,13 @@ Not documented
 
 | Default | Inverted (on dark background) | Neutral | Success |
 | --- | --- | --- | --- |
-| ![317f2597405101a14c67aa.png](https://avivgroup.atlassian.net/wiki/pages/viewpageattachments.action?pageId=2832203875&preview=%2F2832203875%2F3454861537%2F317f2597405101a14c67aa.png)  <!-- MISSING LOCAL IMAGE: 317f2597405101a14c67aa.png --> | ![](images/40f2a10ff2e74743a8926d.png) | ![](images/a60659031d091e087e1364.png) | ![](images/69f85024f52a373e9ae68a.png) |
+| ![Default](images/d448c3c1e32f64f6b8f08e.png) | ![](images/40f2a10ff2e74743a8926d.png) | ![](images/a60659031d091e087e1364.png) | ![](images/69f85024f52a373e9ae68a.png) |
 
 ### Size
 
 | 4px | 8px (default) | 12px |
 | --- | --- | --- |
-| ![95a7f115-4d70-4a3d-a70f-bfd24f54e73e.png](https://avivgroup.atlassian.net/wiki/pages/viewpageattachments.action?pageId=2832203875&preview=%2F2832203875%2F3454861543%2F95a7f115-4d70-4a3d-a70f-bfd24f54e73e.png)  <!-- MISSING LOCAL IMAGE: 95a7f115-4d70-4a3d-a70f-bfd24f54e73e.png --> | ![](images/b4c7f48808532a039ccd08.png) | ![](images/fb7d2d7424c7576a9f7bc3.png) |
+| ![4px](images/576a9fabd02183790e21ca.png) | ![](images/b4c7f48808532a039ccd08.png) | ![](images/fb7d2d7424c7576a9f7bc3.png) |
 
 **4px:** Only recommended when the progress bar has a small hierarchy in the interface.
 

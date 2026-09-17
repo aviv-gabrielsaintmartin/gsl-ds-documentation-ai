@@ -134,7 +134,7 @@ Snackbars are positioned on the bottom of the screen. On web the spacing from th
 
 | Phone | Phone (above navigation bar) | Phone (above button bar) | Tablet | Desktop |
 | --- | --- | --- | --- | --- |
-| ![](images/6f05ff7349b151bb4dd4ff.png) Web: XXS - XS (0 - 599 px) | ![](images/6386158e30ce24a063d450.png) Web: XXS - XS (0 - 599 px) | ![056490bc-c129-4c67-86c8-6fb091b82192.png](https://avivgroup.atlassian.net/wiki/pages/viewpageattachments.action?pageId=2831843417&preview=%2F2831843417%2F3454861513%2F056490bc-c129-4c67-86c8-6fb091b82192.png)  <!-- MISSING LOCAL IMAGE: 056490bc-c129-4c67-86c8-6fb091b82192.png --> Web: XXS - XS (0 - 599 px) | ![](images/0be94ebbf19c3a1d8a4083.png) Web: SM - LG (600 - 1279 px) | ![](images/ac65efba6047a6d0be6cb1.png) Web: XL - XXXL (> 1279 px) |
+| ![](images/6f05ff7349b151bb4dd4ff.png) Web: XXS - XS (0 - 599 px) | ![](images/6386158e30ce24a063d450.png) Web: XXS - XS (0 - 599 px) | ![Phone (above button bar)](images/54ee2230c5dec18d64b4d7.png) | ![](images/0be94ebbf19c3a1d8a4083.png) Web: SM - LG (600 - 1279 px) | ![](images/ac65efba6047a6d0be6cb1.png) Web: XL - XXXL (> 1279 px) |
 
 #### Stacked snackbars (Web only)
 
