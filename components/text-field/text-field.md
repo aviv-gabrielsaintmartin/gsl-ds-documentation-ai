@@ -4,7 +4,7 @@
 
 Text fields are used to enter and edit single-line text content.
 
-![](images/O-ifxQ8--9J3s4P5GVBDpQ.png)
+![](images/QZHTpDq_y6-HIPdqRyoDDw.png)
 
 | Figma | Web | iOS | Android |
 | --- | --- | --- | --- |
@@ -142,6 +142,10 @@ Icons can be added as visual cues to provide clarity to the user. Icons on the l
 #### Suffix
 
 The suffix can be added to provide additional context or constraints for the user input.
+
+| DO |
+| --- |
+| ![](images/46d805924cd0030440a441.png)<br>**DO:** Use the suffix for measurements, currency, or contextual information. |
 
 ![](images/a335366c9093da955f9f28.png)
 

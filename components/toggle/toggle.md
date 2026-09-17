@@ -109,7 +109,7 @@ Toggles have the states default, hover, pressed, and disabled. They can be selec
 
 | Default selected | Hover selected | Pressed selected | Disabled selected |
 | --- | --- | --- | --- |
-| ![](images/e5ebd41350c841d30abb19.png) | ![](images/2bc82b01a4dfb77d36019d.png) | ![](images/732726df1041347a28959f.png) | ![](images/72a20d4ec30e0e36258ae3.png) |
+| ![](images/7a00d13324345468d61fbd.png) | ![](images/2bc82b01a4dfb77d36019d.png) | ![](images/732726df1041347a28959f.png) | ![](images/72a20d4ec30e0e36258ae3.png) |
 
 #### Error
 

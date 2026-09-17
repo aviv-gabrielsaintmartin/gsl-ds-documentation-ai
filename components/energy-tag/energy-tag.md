@@ -4,7 +4,7 @@
 
 Energy tags are used to indicate the energy efficiency of properties.
 
-![](images/ce59970630d0d71fe178ce.png)
+![](images/vHGcRM0T7w8BjyVJQzH4mA.png)
 
 | Figma | Web | iOS | Android |
 | --- | --- | --- | --- |

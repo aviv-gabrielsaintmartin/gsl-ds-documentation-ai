@@ -94,9 +94,9 @@ Checkbox groups can be aligned vertically or horizontally, depending on the use 
 
 Like standalone checkboxes, checkbox groups can also be used with or without a border. Add a border if you want to emphasize the options more clearly. Borders can also help to distinguish each checkbox.
 
-| DO |
-| --- |
-| ![](images/7752f331e01717cfb623bd.png) **DO:** Use checkboxes without borders when the checkbox group is simple and the options are easily distinguishable without added visual emphasis. |
+| DO                                                                                                                                                                                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![](images/7752f331e01717cfb623bd.png) **DO:** Use checkboxes without borders when the checkbox group is simple and the options are easily distinguishable without added visual emphasis.                                                                                 |
 | ![](images/efe373b17363ee9e97f1a1.png) **DO:** Use borders around checkbox groups when you want to clearly distinguish options, especially in complex forms. Borders help visually separate each option, making it easier for users to scan and understand their choices. |
 
 #### Columns

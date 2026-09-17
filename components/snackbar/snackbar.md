@@ -4,7 +4,7 @@
 
 Snackbars are used to provide quick feedback after an action is taken.
 
-![](images/aae2fa4623a1f30869e050.png)
+![](images/iVl8k509VdXqV-5U4qY40A.png)
 
 | Figma | Web | iOS | Android |
 | --- | --- | --- | --- |
@@ -90,7 +90,7 @@ Snackbars come in the following types: info, success, warning, and error. These 
 
 | Info | Success | Warning | Error |
 | --- | --- | --- | --- |
-| ![](images/2241cebfcc81c2207cc68a.png) | ![](images/ea870caafd00078ddc6951.png) | ![](images/08aba68b6edd034ed5cbf1.png) | ![](images/08aba68b6edd034ed5cbf1.png) |
+| ![](images/2241cebfcc81c2207cc68a.png) | ![](images/250c45a26e301cb4ec2a89.png) | ![](images/08aba68b6edd034ed5cbf1.png) | ![](images/08aba68b6edd034ed5cbf1.png) |
 
 The icons associated with each snackbar type are standardized and shouldn't be changed to ensure consistency and clarity across our products.
 

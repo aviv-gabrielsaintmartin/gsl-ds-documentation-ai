@@ -33,7 +33,7 @@ We use platform-specific phone number fields for Web/iOS and Android, with main 
 
 | Default empty | Default filled | Active empty | Active filled |
 | --- | --- | --- | --- |
-| ![](images/476c35e1c6d931842c0c55.png) | ![](images/f3725bf9800b28f221bc5b.png) | ![](images/ea5c47ba389e28ab339782.png) | ![](images/5863cc446b7f2f9e97dc50.png) |
+| ![](images/476c35e1c6d931842c0c55.png) | ![](images/f3725bf9800b28f221bc5b.png) | ![](images/ea5c47ba389e28ab339782.png) | ![](images/0c33e24037347af4f7eed9.png) |
 
 ### When to use
 
