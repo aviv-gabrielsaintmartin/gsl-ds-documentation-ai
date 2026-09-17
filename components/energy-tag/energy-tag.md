@@ -69,11 +69,11 @@ Energy tags vary by country and region, reflecting local standards for energy ef
 
 #### France
 
-![](images/92890980f2bafec86711e7.png) ![](images/8d33a796182efc5b8bedbd.png) ![](images/312e30808e5223fd439d2f.png) ![](images/82fd449a59b50df8032a75.png) ![](images/9d0d2eefceace54fe3b534.png) ![](images/df521581442dc939a56ef7.png)
+![](images/92890980f2bafec86711e7.png) ![](images/8d33a796182efc5b8bedbd.png) ![](images/312e30808e5223fd439d2f.png) ![](images/82fd449a59b50df8032a75.png) ![](images/9d0d2eefceace54fe3b534.png) ![](images/df521581442dc939a56ef7.png) ![](images/ab1e63054e97fb696f907b.png)
 
 #### Germany
 
-![](images/2647e9b08a0435ebabb421.png) ![](images/7de8608d96b76e0fe2b906.png) ![](images/9061c23eac617da2c4d7cc.png) ![](images/4a48bbff55fc4fbf2613d5.png) ![](images/e7d5799b573f34104be43a.png) ![](images/0887a41106567b97296a30.png) ![](images/b9ddda227fd2b5f1e2d49f.png) ![](images/bbbb7c4809d1e9e6e30f53.png)
+![](images/2647e9b08a0435ebabb421.png) ![](images/c6feb9bc26d25968b6c7f2.png) ![](images/7de8608d96b76e0fe2b906.png) ![](images/9061c23eac617da2c4d7cc.png) ![](images/4a48bbff55fc4fbf2613d5.png) ![](images/e7d5799b573f34104be43a.png) ![](images/0887a41106567b97296a30.png) ![](images/b9ddda227fd2b5f1e2d49f.png) ![](images/bbbb7c4809d1e9e6e30f53.png)
 
 #### Austria
 

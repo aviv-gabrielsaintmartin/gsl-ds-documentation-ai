@@ -6,8 +6,8 @@ Snackbars are used to provide quick feedback after an action is taken.
 
 ![](images/iVl8k509VdXqV-5U4qY40A.png)
 
-| Figma | Web | iOS | Android |
-| --- | --- | --- | --- |
+| Figma          | Web     | iOS     | Android |
+| -------------- | ------- | ------- | ------- |
 | Not documented | Ready ✅ | Ready ✅ | Ready ✅ |
 
 * [Snackbar on Figma](https://www.figma.com/design/xxqSJcKOphrgimxRQbvtfe/2.-Gemini-Components-Library?node-id=3-7301)
@@ -118,9 +118,9 @@ Snackbars appear in response to a user action, such as clicking a button, submit
 
 **App:** On iOS and Android, snackbars can be either auto-dismissable or persistent. Auto-dismissable snackbars disappear automatically after 5 seconds (default value) or when the action button is clicked. Persistent snackbars remain until the user takes an action. We recommend using auto-dismissable snackbars only for noncritical messages.
 
-| Web — clicking the close button | Web — clicking the close button | iOS/Android — clicking action button or waiting 5 seconds |
-| --- | --- | --- |
-| ![](images/7766412da2823c9e461fd2.png) | ![](images/81a0b7861d23d27f403bd8.png) | ![](images/79d7be54a5810a38c20b52.png) |
+| Web — clicking the close button        | Web — clicking the close button        | iOS/Android — clicking action button or waiting 5 seconds |
+| -------------------------------------- | -------------------------------------- | --------------------------------------------------------- |
+| ![](images/7766412da2823c9e461fd2.png) | ![](images/81a0b7861d23d27f403bd8.png) | ![iOS/Android](images/e2e49ac8ca3ee0dc18fdf2.png) |
 
 ### Touch Target & Layout
 

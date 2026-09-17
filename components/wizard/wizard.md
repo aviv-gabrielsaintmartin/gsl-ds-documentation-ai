@@ -120,9 +120,13 @@ Validated steps are marked with a check mark in a green circle. This includes ma
 
 Input errors are marked with an exclamation mark in a red circle.
 
-| Default | Hover | Default active | Hover active | Pressed active |
-| --- | --- | --- | --- | --- |
-| ![](images/b078343960b0cfb58392f8.png) | ![](images/a0743e8e5ac7cc263086e5.png) | ![](images/b5184e6250472e4d9e74a5.png) | ![](images/390bbf5f62ab5021b28662.png) | ![](images/92a772ccfe176d341cf181.png) |
+| Default | Hover | Pressed |
+| --- | --- | --- |
+| ![](images/b078343960b0cfb58392f8.png) | ![](images/a0743e8e5ac7cc263086e5.png) | ![Pressed](images/64d4241823245373115fc9.png) |
+
+| Default active | Hover active | Pressed active |
+| --- | --- | --- |
+| ![](images/b5184e6250472e4d9e74a5.png) | ![](images/390bbf5f62ab5021b28662.png) | ![](images/92a772ccfe176d341cf181.png) |
 
 #### Disabled
 
