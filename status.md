@@ -3,7 +3,7 @@
 _The only page you need. Everything else in this repo is reference material for
 agents — looked up, never read through._
 
-_Updated 15 September 2026._
+_Updated 17 September 2026._
 
 ---
 
@@ -41,25 +41,54 @@ findings are now ruled.
 
 ## The next task
 
-**Done: `Cell Content` is updated on both sides.** Your two new axes are in the
-doc and the registry — `Placeholder left alignement` (Middle/Top, horizontal
-only) and `Padding=0`. **Three corrections came out of the live read:** 20
-variants were really 33, the property is `Placeholder left alignement` not
-`placeholder-left-alignement`, and the entry's Pattern 1 was wrong — it is
-Pattern 2, with `.placeholder left` exposed on every variant. **Two rules no
-system can enforce went into the doc:** never 0 padding on a clickable cell, and
-a shown trailing icon forces Middle.
+**Done, 17 September: every component doc matches the template.** 59 of 59, from
+8 that morning. 115 off-template headings are now 0 — and 64 of those 115 were
+never drift at all, just the report not knowing that
+`### [Variant Category Name]` is a slot that takes any name.
 
-**Done: run-003 failed nothing**, the first run to do so — and its five findings
-are ruled. Three `accepted`, one `library defect`, one `ruleset gap`. Two rules
-changed: a frame that only stacks things needs no declaration, and the legend's
-own `Alignment` works — it is the **graph frame** that has none.
+**Done: `Content & UX Writing` has a fixed core and a free slot.** Three rules —
+`Capitalization`, `Label Formula`, `Length Limits` — are now asked of every
+component and scored individually, so an audit can ask one question of all 57.
+That is why the coverage figure fell from 70% to 62%: `Label Formula` is
+answered by 12 docs of 57. Nothing got worse, it became visible.
 
-**Done: the icon registry is re-synced.** Your three renames landed; the diff was
-three lines and nothing else in the library had moved since 27 August. Run
-through `~/figma-cli`, because `figma-sync-icons` still points at the Desktop
-Bridge you retired. That, and the plugin dying on every file switch, are now
-written into the skill's traps.
+**Done: three components merged with their Zeroheight pages.**
+`select-card-group` 3 images → 30, `dropdown` 6 → 36,
+`modal-bottom-sheet` 10 → 40. **No prose lost on any of them.**
+
+### Then: the remaining 21 merges
+
+**22 of 54 components now carry every image their Zeroheight page has.** The
+rest are the same job, and the method is written down —
+`.claude/skills/zeroheight-merge/SKILL.md`. Read it before starting; the traps
+in it each cost a round of undoing.
+
+The order, worst first:
+
+| Component | Has | Live | Missing |
+| --- | --- | --- | --- |
+| date-picker | 21 | 70 | **52** |
+| media-upload | 7 | 46 | **42** |
+| checkbox | 6 | 42 | **36** |
+| button | 18 | 52 | **34** |
+| button-group | 7 | 38 | **32** |
+| tabs | 9 | 35 | **30** |
+| phone-number-field | 12 | 37 | 26 |
+| chip-group | 6 | 32 | 26 |
+| cell-content | 8 | 33 | 25 |
+| action-menu | 12 | 36 | 24 |
+| feedback-message | 5 | 25 | 20 |
+| coach-mark · chip | 3 · 7 | 21 · 25 | 18 each |
+| tag · filter-bar | 18 · 6 | 25 · 21 | 17 each |
+| checkbox-group · card | 6 · 7 | 22 · 23 | 16 each |
+| counter-field · carousel | 4 · 6 | 19 · 21 | 15 each |
+| toggle-group · info-state · floating-button-group | 6 · 4 · 3 | 17 · 15 · 14 | 11 each |
+| modal-bottom-sheet-menu · link | 17 · 17 | 21 · 21 | 9 each |
+| avatar | 32 | 37 | 5 |
+
+**Do three or four at a time.** Extract, draft, merge, then the drafts go to
+your Desktop and you read them before anything lands. On the last round, three
+of the four defects found were found by you reading, not by a check.
 
 **Then: settle whether `Spacing/56` is page rhythm or forbidden.** The ruleset
 says both, 83 lines apart — and the donut appears to use 56 internally.
@@ -69,11 +98,6 @@ it finishes the last thing an agent needs.
 
 **Waiting on you in Figma:** `Donut chart` cannot place its legend below, and its
 gap to the chart is fixed at 56 — above the 48 ceiling you set.
-
-How tasks are sorted, and why, is at the top of
-[the backlog](project/backlog.md).
-
----
 
 ## The question I'd like answered first
 

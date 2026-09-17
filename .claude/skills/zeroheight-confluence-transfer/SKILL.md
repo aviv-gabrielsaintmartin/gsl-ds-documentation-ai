@@ -9,6 +9,12 @@ metadata:
 
 # Zeroheight → Confluence Transfer
 
+> **Superseded for repo docs, 17 September 2026.** Updating a
+> `components/<name>/<name>.md` file now reads Zeroheight directly — see
+> `.claude/skills/zeroheight-merge/SKILL.md`. That route needs no human paste,
+> no Confluence staging, and merges rather than replaces. **Use the skill below
+> only when the target really is a Confluence page.**
+
 Published mirror (synced on request only, not automatically):
 https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/3478290532/Copy+of+Skill+for+updating+doc+from+Zeroheight+Opimized (page id `3478290532`)
 

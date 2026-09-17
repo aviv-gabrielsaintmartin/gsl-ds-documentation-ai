@@ -37,7 +37,8 @@ Re-check after any `figma-sync-*` run.
 - Images are self-contained per component. Don't reference another component's
   `images/` folder.
 
-Content is produced by `zeroheight-confluence-transfer` (Zeroheight export →
-Confluence, against a fixed template) and audited against real web code by
-`component-web-ai-docs`. Read the relevant `SKILL.md` before editing docs by
+Content is brought up to date by `zeroheight-merge` (reads the live Zeroheight
+page and merges it into the doc, never replacing it) and audited against real
+web code by `component-web-ai-docs`. `zeroheight-confluence-transfer` is the
+older route and is only for Confluence pages now. Read the relevant `SKILL.md` before editing docs by
 hand, so the structure stays consistent with what those skills expect.
