@@ -47,7 +47,7 @@ Badge
 
 | DO | DON'T |
 | --- | --- |
-| ![](images/33af8808ceccd7985fb3d9.png) **DO:** Use segmented controls to allow users to choose between 2-5 options that are closely related and mutually exclusive. | ![](images/935b1814fa79a01e0f09ec.png) **DON'T:** Don't use segmented controls when there are more than 5-7 options. Use other selection components like dropdown or radio buttons instead. |
+| ![](images/d66e4189ca58c67f24235b.png) **DO:** Use segmented controls to allow users to choose between 2-5 options that are closely related and mutually exclusive. | ![](images/935b1814fa79a01e0f09ec.png) **DON'T:** Don't use segmented controls when there are more than 5-7 options. Use other selection components like dropdown or radio buttons instead. |
 
 ### Related Components
 

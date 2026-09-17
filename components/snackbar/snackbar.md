@@ -63,7 +63,7 @@ Action
 
 | DON'T |
 | --- |
-| ![](images/9bd902159cb0f74b2b0190.png) **DON'T:** Don't use snackbars for static information that are not a result of a user action. Use feedback messages instead. |
+| ![](images/3b07fe65a77534c2c6b307.png) **DON'T:** Don't use snackbars for static information that are not a result of a user action. Use feedback messages instead. |
 | ![](images/0cfedcf709161b42e9a5e6.png) **DON'T:** Don't use snackbars for error messages that point to a specific part of the page. Use feedback messages instead. |
 | ![](images/ea870caafd00078ddc6951.png) **DON'T:** Don't use snackbars for critical messages that require the users attention. Use feedback messages or alerts instead. |
 | ![](images/3a48967e2e5358aac98ee5.png) **DON'T:** Don't use snackbars if you need to block the users flow. Use alerts instead. |

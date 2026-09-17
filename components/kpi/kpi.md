@@ -40,7 +40,9 @@ Display context
 
 ### Usage Guidance
 
-Not documented
+| DO | DON'T |
+| --- | --- |
+| ![DO](images/f2db2711eaf0bb035da300.png)<br>**DO:** Use icon, tags or any other elements that don't need color to be understood | ![DON'T](images/9d3fca7a71b54fa795c356.png)<br>**DON'T:** Green and red can be the same color for some type of color-blind issues. |
 
 ### Related Components
 

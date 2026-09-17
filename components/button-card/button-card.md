@@ -46,7 +46,7 @@ Leading visual
 
 | DO | DON'T | CAUTION |
 | --- | --- | --- |
-| ![](images/75d12b4cdae8eff7e42109.png) **DO:** Use button cards to navigate to other pages. | ![](images/48db452b63938243581bfd.png) **DON'T:** Use button cards for selection. Use select cards instead. | **CAUTION:** If you need more flexible button cards that include images or descriptions, for example, consider using cell contents and wrapping them in a card. |
+| ![](images/fe75104f617595639a06d9.png) **DO:** Use button cards to navigate to other pages. | ![](images/48db452b63938243581bfd.png) **DON'T:** Use button cards for selection. Use select cards instead. | **CAUTION:** If you need more flexible button cards that include images or descriptions, for example, consider using cell contents and wrapping them in a card. |
 
 ### Related Components
 
