@@ -102,7 +102,9 @@ def md_escape(text):
 
 def image_md(item, alt=""):
     name = item["hash"]
-    if not name.endswith(".png"):
+    # The hash often already carries the source's own extension -- many pages
+    # are SVG. Appending .png to those names a file that does not exist.
+    if not re.search(r"\.(png|svg|jpe?g|gif|webp)$", name, re.I):
         name += ".png"
     return f"![{alt or item.get('name') or ''}](images/{name})"
 

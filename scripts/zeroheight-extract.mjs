@@ -247,7 +247,11 @@ for (const b of result.blocks) {
 
 let saved = 0, failed = [];
 for (const [hash, img] of wanted) {
-  const file = path.join(outDir, 'images', hash.endsWith('.png') ? hash : `${hash}.png`);
+  // Keep whatever extension the source uses. Forcing `.png` produced
+  // `<name>.svg.png` for every SVG -- an SVG file with a PNG name, and a
+  // filename that matches nothing in the repo.
+  const named = /\.(png|svg|jpe?g|gif|webp)$/i.test(hash) ? hash : `${hash}.png`;
+  const file = path.join(outDir, 'images', named);
   try {
     const res = await fetch(img.url);
     if (!res.ok) { failed.push(`${hash} HTTP ${res.status}`); continue; }
