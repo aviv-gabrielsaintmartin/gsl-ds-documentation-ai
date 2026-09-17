@@ -105,7 +105,7 @@ Links change their appearance depending on their context and background to bette
 
 | Default | Inverted | On-primary | On-secondary |
 | --- | --- | --- | --- |
-| ![](images/3db7d52da7405f90f66302.png) | ![](images/a4ff730fc709f35dd135d7.png) | ![](images/105422e2450e98cda555d7.png) | ![](images/2e49a04dda338865a82cac.png) |
+| ![](images/3db7d52da7405f90f66302.png) | ![](images/a4ff730fc709f35dd135d7.png) | ![](images/a2f60ac4237f2636c64e96.png) | ![](images/2e49a04dda338865a82cac.png) |
 
 ### Modifiers
 
@@ -117,7 +117,7 @@ Icons are used to emphasize the text content in the link label.
 
 | No icon | Icon left | Icon right | External icon |
 | --- | --- | --- | --- |
-| ![](images/3db7d52da7405f90f66302.png) | ![](images/58e406d2e5427fbdb891d2.png) | ![](images/51bb89bb546fe4b444ff1b.png) | ![](images/c2a6b6cee9be158efee919.png) |
+| ![](images/e634fd175195268cb6ef82.png) | ![](images/58e406d2e5427fbdb891d2.png) | ![](images/51bb89bb546fe4b444ff1b.png) | ![](images/78e3f683ed75574b199d89.png) |
 
 | DO |
 | --- |

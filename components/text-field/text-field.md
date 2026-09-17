@@ -28,7 +28,7 @@ On Web/iOS the label is always on top of the field. The placeholder is visible u
 
 | Default empty | Default filled | Active empty | Active filled |
 | --- | --- | --- | --- |
-| ![](images/0a965e77a8aef88bb3d9e5.png) | ![](images/7aa352821725425a35ffc4.png) | ![](images/48468276ca16cfe3d6c497.png) | ![](images/b6098fb25947b6668621df.png) |
+| ![](images/e3e3501d9a2f78e35d1192.png) | ![](images/142a44329cf80879a7da38.png) | ![](images/48468276ca16cfe3d6c497.png) | ![](images/b6098fb25947b6668621df.png) |
 
 #### Android
 
@@ -36,7 +36,7 @@ On Android, the label is inside the field by default and only moves to the top w
 
 | Default empty | Default filled | Active empty | Active filled |
 | --- | --- | --- | --- |
-| ![](images/8a08ee21c14bbdcc823503.png) | ![](images/5578b0c969891362472467.png) | ![](images/9a02898367c4e6491ae28c.png) | ![](images/584aaf5dc9c4355014efbe.png) |
+| ![](images/8a08ee21c14bbdcc823503.png) | ![](images/d530ca7d436b64e4d07407.png) | ![](images/62e98ef5d95f17f81ca725.png) | ![](images/584aaf5dc9c4355014efbe.png) |
 
 ### When to use
 
@@ -122,7 +122,7 @@ State messages can be used to provide additional information or feedback on the 
 
 | Error (Web, iOS, Android) | Information (iOS/Android) | Success (iOS/Android) | Warning (iOS/Android) |
 | --- | --- | --- | --- |
-| ![](images/138f10ddaacd880a8444b7.png) | ![](images/c14bcaa093daf8fac310b9.png) | ![](images/6c76ce29f122c1379aaa47.png) | ![](images/7851910ed639ac6c2d789d.png) |
+| ![](images/138f10ddaacd880a8444b7.png) | ![](images/f2234c13bc1621b65b24a4.png) | ![](images/6c76ce29f122c1379aaa47.png) | ![](images/7851910ed639ac6c2d789d.png) |
 
 More information: [Guidelines on form validation and displaying errors](https://zeroheight.com/626199550/p/81b84d-forms/t/page-81b84d-92550230-79) · [Content guidelines for state messages](https://zeroheight.com/626199550/p/526801-state-messages)
 
@@ -161,21 +161,21 @@ Text fields have the states default, hover, active, and disabled. They can be em
 
 | Default empty | Hover empty | Active empty | Disabled empty |
 | --- | --- | --- | --- |
-| ![](images/0a965e77a8aef88bb3d9e5.png) | ![](images/78c15dff022700b808c7d9.png) | ![](images/48468276ca16cfe3d6c497.png) | ![](images/7ff6ba339845321b5b9f1e.png) |
+| ![](images/0a965e77a8aef88bb3d9e5.png) | ![](images/78c15dff022700b808c7d9.png) | ![](images/48468276ca16cfe3d6c497.png) | ![](images/02203a7ed3438f90d79a51.png) |
 
 | Default filled | Hover filled | Active filled | Disabled filled |
 | --- | --- | --- | --- |
-| ![](images/7aa352821725425a35ffc4.png) | ![](images/ab3a5ac9820ab938da43d7.png) | ![](images/b6098fb25947b6668621df.png) | ![](images/4a28d6128a85c6df604e2c.png) |
+| ![](images/7aa352821725425a35ffc4.png) | ![](images/fa4687fe91e3ce8eb3b178.png) | ![](images/b6098fb25947b6668621df.png) | ![](images/6e1bbad06ab5af81cc1287.png) |
 
 #### Error
 
 | Default empty | Hover empty | Active empty | Disabled empty |
 | --- | --- | --- | --- |
-| ![Default empty](images/0dceb07a896e570f3ee01c.png) | ![](images/eb069fe9059a04d1d175d4.png) | ![](images/7fe648d0f4729ace591a3e.png) | ![](images/7ff6ba339845321b5b9f1e.png) |
+| ![Default empty](images/0dceb07a896e570f3ee01c.png) | ![](images/edc462bdc4b827441f7cdf.png) | ![](images/7fe648d0f4729ace591a3e.png) | ![](images/83fd67e111e3f519165fcc.png) |
 
 | Default filled | Hover filled | Active filled | Disabled filled |
 | --- | --- | --- | --- |
-| ![](images/e02a7fcf3b461512fb9f7d.png) | ![](images/a854598021b70d6e1f73cd.png) | ![](images/6b72832fe45d75f295d878.png) | ![](images/4a28d6128a85c6df604e2c.png) |
+| ![](images/e02a7fcf3b461512fb9f7d.png) | ![](images/0b37fe6bc5705ed29e8eab.png) | ![](images/fde47ce45f6a08dc2577e8.png) | ![](images/4a28d6128a85c6df604e2c.png) |
 
 * **Overflow content:** If a user's content is too long for the single line of text input, the value content can scroll horizontally within the field container as the cursor moves from one end of the value to the other.
 

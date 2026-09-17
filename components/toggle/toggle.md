@@ -91,7 +91,7 @@ See the [form guidelines](https://zeroheight.com/626199550/p/81b84d-forms/t/page
 
 | Optional | Required | Tooltip |
 | --- | --- | --- |
-| ![](images/556f41e3ff1803cfca8c35.png) | ![Required](images/b0c843c405c58a70487d85.png) | ![](images/556f41e3ff1803cfca8c35.png) |
+| ![](images/556f41e3ff1803cfca8c35.png) | ![Required](images/b0c843c405c58a70487d85.png) | ![](images/de260cd1fd4b2011087685.png) |
 
 ---
 
@@ -105,11 +105,11 @@ Toggles have the states default, hover, pressed, and disabled. They can be selec
 
 | Default | Hover | Pressed | Disabled |
 | --- | --- | --- | --- |
-| ![](images/d06824aafcb4722cb0f010.png) | ![](images/f03b8342f2341bed4b41b4.png) | ![](images/402ebb3d34d7d07dc3b5e3.png) | ![](images/5d0130447dd755db4dbcae.png) |
+| ![](images/d06824aafcb4722cb0f010.png) | ![](images/e4020f57cd6c92d69899f3.png) | ![](images/402ebb3d34d7d07dc3b5e3.png) | ![](images/5d0130447dd755db4dbcae.png) |
 
 | Default selected | Hover selected | Pressed selected | Disabled selected |
 | --- | --- | --- | --- |
-| ![](images/e5ebd41350c841d30abb19.png) | ![](images/2bc82b01a4dfb77d36019d.png) | ![](images/732726df1041347a28959f.png) | ![](images/7a00d13324345468d61fbd.png) |
+| ![](images/e5ebd41350c841d30abb19.png) | ![](images/2bc82b01a4dfb77d36019d.png) | ![](images/732726df1041347a28959f.png) | ![](images/72a20d4ec30e0e36258ae3.png) |
 
 #### Error
 

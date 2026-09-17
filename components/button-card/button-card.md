@@ -70,13 +70,13 @@ Button cards are available with vertical and horizontal alignment. Which one to 
 
 | Vertical | Horizontal |
 | --- | --- |
-| ![](images/2f6e1a05355ae555cce19f.png) | ![](images/2f6e1a05355ae555cce19f.png) |
+| ![](images/8b36e1ac3c33640cf215ff.png) | ![](images/2f6e1a05355ae555cce19f.png) |
 
 #### Button card group
 
 | Horizontal | Vertical |
 | --- | --- |
-| ![](images/2f6e1a05355ae555cce19f.png) | ![](images/b6d05504a0fa74166adf7d.png) |
+| ![](images/8ee3a74ff7d48cbfabb5ed.png) | ![](images/b6d05504a0fa74166adf7d.png) |
 
 ### Modifiers
 
@@ -86,7 +86,7 @@ Use icons or illustrations to make the button cards more prominent and emphasize
 
 | With illustration | With icon | Without illustration or icon |
 | --- | --- | --- |
-| ![](images/f37170b21ec79d93e88707.png) | ![](images/2f6e1a05355ae555cce19f.png) | ![](images/2f6e1a05355ae555cce19f.png) |
+| ![](images/f37170b21ec79d93e88707.png) | ![](images/91fade5a96b906d7333cc1.png) | ![](images/8dc34f55e8fc837908307c.png) |
 
 | DO | DON'T |
 | --- | --- |
@@ -102,7 +102,7 @@ Button cards have the states default, hover, pressed and disabled.
 
 | Default | Hover | Pressed | Disabled |
 | --- | --- | --- | --- |
-| ![](images/2f6e1a05355ae555cce19f.png) | ![](images/f7d4fb4572f940047ceafe.png) | ![](images/2f6e1a05355ae555cce19f.png) | ![](images/a0155e4f184097824c53b6.png) |
+| ![](images/8b36e1ac3c33640cf215ff.png) | ![](images/f7d4fb4572f940047ceafe.png) | ![](images/2f6e1a05355ae555cce19f.png) | ![](images/a7e7d9e2e921eb60fdcf7b.png) |
 
 Button cards in a group all have the same height. In development, the height is automatically adjusted to the largest card.
 

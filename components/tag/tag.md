@@ -96,7 +96,7 @@ Icons are optional and can be included to provide additional context or visual c
 
 | With icon | Without icon |
 | --- | --- |
-| ![](images/67527adf84f1685ef30c59.png) | ![](images/fdc9600953537802468776.png) |
+| ![](images/c211d115e28e0b02877023.png) | ![](images/fdc9600953537802468776.png) |
 
 #### Label
 

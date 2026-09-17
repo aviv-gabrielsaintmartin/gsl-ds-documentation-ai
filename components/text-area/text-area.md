@@ -29,7 +29,7 @@ On Web/iOS the label is always on top of the field. The placeholder is visible u
 
 | Default empty | Default filled | Active empty | Active filled |
 | --- | --- | --- | --- |
-| ![](images/0a965e77a8aef88bb3d9e5.png) | ![](images/7aa352821725425a35ffc4.png) | ![](images/48468276ca16cfe3d6c497.png) | ![](images/b6098fb25947b6668621df.png) |
+| ![](images/0a965e77a8aef88bb3d9e5.png) | ![](images/7aa352821725425a35ffc4.png) | ![](images/10adb3386ab2fcfdf11696.png) | ![](images/9c76879a412a489eeda307.png) |
 
 #### Android
 
@@ -37,7 +37,7 @@ On Android, the label is inside the field by default and only moves to the top w
 
 | Default empty | Default filled | Active empty | Active filled |
 | --- | --- | --- | --- |
-| ![](images/3a68903f4e686c60ecee46.png) | ![](images/0fd6695160c85c20bd973b.png) | ![](images/d018d0db0fece167ac65af.png) | ![](images/584aaf5dc9c4355014efbe.png) |
+| ![](images/3a68903f4e686c60ecee46.png) | ![](images/0fd6695160c85c20bd973b.png) | ![](images/d018d0db0fece167ac65af.png) | ![](images/d8e332414727e5899c83ca.png) |
 
 ### When to use
 
@@ -149,7 +149,7 @@ On iOS, the field has a fixed height. The user cannot resize the field.
 
 | Web | iOS | Android |
 | --- | --- | --- |
-| ![](images/232bdbc835f0812a296a26.png) | ![](images/110683ffe2c33e96eb5457.png) | ![](images/4f5e83c9862cba5861ad73.png) |
+| ![](images/232bdbc835f0812a296a26.png) | ![](images/110683ffe2c33e96eb5457.png) | ![](images/d9bf75c08a3491ae37f59c.png) |
 
 ---
 
@@ -165,7 +165,7 @@ They don't have a pressed state. Instead, it changes to the active state when a 
 
 | Default empty | Hover empty | Active empty | Disabled empty |
 | --- | --- | --- | --- |
-| ![](images/0a965e77a8aef88bb3d9e5.png) | ![](images/78c15dff022700b808c7d9.png) | ![](images/48468276ca16cfe3d6c497.png) | ![](images/b569b6334589c6a6dfe686.png) |
+| ![](images/0a965e77a8aef88bb3d9e5.png) | ![](images/570993d125301f45d20a4e.png) | ![](images/48468276ca16cfe3d6c497.png) | ![](images/1fe93966a4bfba26697db8.png) |
 
 | Default filled | Hover filled | Active filled | Disabled filled |
 | --- | --- | --- | --- |
@@ -175,11 +175,11 @@ They don't have a pressed state. Instead, it changes to the active state when a 
 
 | Default empty | Hover empty | Active empty | Disabled empty |
 | --- | --- | --- | --- |
-| ![](images/cf176ee34dacba35071dbd.png) | ![](images/4deda66b55dd8e1ab3ecd9.png) | ![](images/604e9334ee8787fb6e89b7.png) | ![](images/4f5e83c9862cba5861ad73.png) |
+| ![](images/cf176ee34dacba35071dbd.png) | ![](images/7f723bc005979324025dc6.png) | ![](images/604e9334ee8787fb6e89b7.png) | ![](images/4f5e83c9862cba5861ad73.png) |
 
 | Default filled | Hover filled | Active filled | Disabled filled |
 | --- | --- | --- | --- |
-| ![](images/6486197d246ce8420e742c.png) | ![](images/a854598021b70d6e1f73cd.png) | ![](images/6b72832fe45d75f295d878.png) | ![](images/2fe47d7aa8e569c4fd9400.png) |
+| ![](images/6486197d246ce8420e742c.png) | ![](images/8387fc1fbeaf222ba2cf0e.png) | ![](images/6b72832fe45d75f295d878.png) | ![](images/2fe47d7aa8e569c4fd9400.png) |
 
 ### Touch Target & Layout
 
@@ -189,7 +189,7 @@ The min-height of the text-area is 96px. On Web the user can make the field long
 
 | Default height | Height increased by user | Height smaller than content |
 | --- | --- | --- |
-| ![](images/0868f5900d9e01e9a76091.png) | ![](images/d1310b7960969765d0459e.png) | ![](images/b744133ff7f53b70006d2f.png) |
+| ![](images/0868f5900d9e01e9a76091.png) | ![](images/edae14e85c20e657d39dea.png) | ![](images/b744133ff7f53b70006d2f.png) |
 
 ### Breakpoints & Platform Adaptations
 

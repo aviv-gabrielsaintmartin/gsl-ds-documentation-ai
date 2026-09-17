@@ -106,7 +106,7 @@ A badge can be placed next to the label.
 
 | Hug content | Fill container |
 | --- | --- |
-| ![](images/15f19986cc53f35dd75023.png) | ![](images/5c8b74dd9b717b1e0fb49f.png) |
+| ![](images/15f19986cc53f35dd75023.png) | ![](images/fd029468069180759b5143.png) |
 
 ### Breakpoints & Platform Adaptations
 

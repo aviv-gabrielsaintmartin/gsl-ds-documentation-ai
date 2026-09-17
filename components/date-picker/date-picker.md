@@ -147,7 +147,7 @@ The buttons in the date picker have the states default, hover, pressed and disab
 
 | Default | Hover | Pressed | Disabled |
 | --- | --- | --- | --- |
-| ![](images/3c1c2012d6bb9868f7cad2.png) | ![](images/ba4e2e38e0434c7faeb9c1.png) | ![](images/cb51e5470d2ee6a4a51353.png) | ![](images/31e16c3227775c7690130d.png) |
+| ![](images/e0161856af54c89e741f2f.png) | ![](images/e5ab617227c0611d3f7019.png) | ![](images/583da771712d0f480f3f41.png) | ![](images/b1f8463fe4828b6f430065.png) |
 
 ---
 

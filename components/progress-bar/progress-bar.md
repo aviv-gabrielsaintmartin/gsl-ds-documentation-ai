@@ -77,7 +77,7 @@ Not documented
 
 | Default | Inverted (on dark background) | Neutral | Success |
 | --- | --- | --- | --- |
-| ![Default](images/d448c3c1e32f64f6b8f08e.png) | ![](images/40f2a10ff2e74743a8926d.png) | ![](images/a60659031d091e087e1364.png) | ![](images/69f85024f52a373e9ae68a.png) |
+| ![Default](images/d448c3c1e32f64f6b8f08e.png) | ![](images/40f2a10ff2e74743a8926d.png) | ![](images/a60659031d091e087e1364.png) | ![](images/b48a3651c0ca27bb8e1cfb.png) |
 
 ### Size
 

@@ -27,13 +27,13 @@ We use platform-specific phone number fields for Web/iOS and Android, with main 
 
 | Default empty | Default filled | Active empty | Active filled |
 | --- | --- | --- | --- |
-| ![](images/03358f9b750701b86718f6.png) | ![](images/95266500d5443bea44bb56.png) | ![](images/aea0e5fc097c01855d1419.png) | ![](images/1d9ced189e38f489eafc04.png) |
+| ![](images/9af6153dc7ddde354efee8.png) | ![](images/95266500d5443bea44bb56.png) | ![](images/aea0e5fc097c01855d1419.png) | ![](images/1d9ced189e38f489eafc04.png) |
 
 **Android:** the label is inside the field by default and only moves to the top when the field is active or filled. The placeholder is only visible if the field is active.
 
 | Default empty | Default filled | Active empty | Active filled |
 | --- | --- | --- | --- |
-| ![](images/476c35e1c6d931842c0c55.png) | ![](images/0c33e24037347af4f7eed9.png) | ![](images/9df55afb8036416c43a426.png) | ![](images/5863cc446b7f2f9e97dc50.png) |
+| ![](images/476c35e1c6d931842c0c55.png) | ![](images/f3725bf9800b28f221bc5b.png) | ![](images/ea5c47ba389e28ab339782.png) | ![](images/5863cc446b7f2f9e97dc50.png) |
 
 ### When to use
 

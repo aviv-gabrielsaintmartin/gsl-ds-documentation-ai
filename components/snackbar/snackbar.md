@@ -25,7 +25,7 @@ The snackbar has a close button (x-icon) on the web. On iOS/Android, it doesn't 
 
 | Web | iOS/Android |
 | --- | --- |
-| ![](images/03be43f3c7d420bf180b69.png) | ![](images/250c45a26e301cb4ec2a89.png) |
+| ![](images/03be43f3c7d420bf180b69.png) | ![](images/42b31092ad824117ed962f.png) |
 
 ### When to use
 
