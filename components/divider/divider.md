@@ -4,6 +4,8 @@
 
 Dividers are horizontal lines that separate content.
 
+![](images/rZNIXTpQWznsGDqht9_TgQ.png)
+
 | Figma | Web | iOS | Android |
 | --- | --- | --- | --- |
 | Ready ✅ | Ready ✅ | Ready ✅ | Ready ✅ |
@@ -54,6 +56,8 @@ Orientation
 ### Orientation
 
 The divider is only available in horizontal orientation. We currently don't offer vertical dividers or dividers with different widths or styles in Gemini.
+
+![Horizontal](images/d50817ae4216834ebe57e2.png)
 
 | DON'T |
 | --- |

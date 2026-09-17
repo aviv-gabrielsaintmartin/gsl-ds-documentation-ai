@@ -4,6 +4,8 @@
 
 Wizards guide users through step-by-step processes to achieve their goal.
 
+![](images/efksRaEmpDyRYGCdmwhn_w.png)
+
 | Figma | Web | iOS | Android |
 | --- | --- | --- | --- |
 | Ready ✅ | Ready ✅ | To Do 🚧 | To Do 🚧 |

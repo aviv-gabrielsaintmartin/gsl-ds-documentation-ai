@@ -4,6 +4,8 @@
 
 Pagination divides content into smaller, numbered pages, making it easier for users to navigate through large amounts of content.
 
+![](images/OAOm0A4bXtYPsHaCWfBvmQ.png)
+
 | Figma | Web | iOS | Android |
 | --- | --- | --- | --- |
 | Ready ✅ | Ready ✅ | N/A | N/A |

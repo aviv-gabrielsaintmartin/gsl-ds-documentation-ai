@@ -136,12 +136,20 @@ Alerts can be used with one to three buttons. If two buttons are used, we recomm
 * **Interaction:** Alerts either appear in response to user actions, such as submitting a form or deleting a listing, or they appear automatically to notify users of important information or errors.
 * **Dismissal:** Alerts can be closed by clicking on an action or by clicking outside the alert. On iOS, you can choose whether or not to close the alert when you click outside of it.
 
+![Closing](images/b319b3dedd740632177e89.png)
+
+![Closing](images/017c57ec0bac26fcdc7435.png)
+
 ### Touch Target & Layout
 Not documented
 
 ### Breakpoints & Platform Adaptations
 
 The width of the alert depends on the breakpoint. To learn more about our breakpoints, see our [grids and breakpoint guidelines](https://zeroheight.com/626199550/p/04fc9a-grids-and-breakpoints).
+
+| Full width (minus 16px margin left and right) | Fixed width: 400px |
+| --- | --- |
+| ![Full width (minus 16px margin left and right)](images/aa74232f5ee0fce8a4743c.png) | ![Fixed width: 400px](images/1dcfe92c117fcf10a25f00.png) |
 
 **Figma tip:** Use the breakpoint variables to automatically set the correct width. [Learn more about using variables](https://zeroheight.com/626199550/p/37f3bf-breakpoints--grids).
 

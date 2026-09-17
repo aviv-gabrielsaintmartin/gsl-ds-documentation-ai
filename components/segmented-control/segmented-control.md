@@ -81,6 +81,8 @@ Icons can be added as visual cues to provide clarity to the user. The icon is al
 
 A badge can be placed next to the label.
 
+![](images/a511ddb82d02abffd80cb5.png)
+
 ![](images/9b517b810df1071efe9479.png)
 
 ---
@@ -91,6 +93,8 @@ A badge can be placed next to the label.
 
 * The unselected buttons have the states default, hover, pressed and disabled. The selected buttons only have a default state.
 * Segmented control components only support single-select. There is always one button selected per default.
+
+![Single-select](images/34725ff9772f4aff2c53b4.png)
 
 ![](images/3b5d2997c201321d4beb8d.png)
 
