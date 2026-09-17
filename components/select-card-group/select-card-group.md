@@ -4,7 +4,7 @@
 
 Select cards are used for single- or multi-selection inside forms.
 
-![](images/jSIv4dliExAz9xxnc9HL0Q.png)
+![](images/G2bDxxkNTYzq1_kXW1-F9A.png)
 
 | Figma | Web | iOS | Android |
 | --- | --- | --- | --- |
@@ -22,6 +22,10 @@ Select card groups are collections of cards organized together to allow users to
 ### Platform
 
 Select cards contain custom checkboxes on Web/iOS and native checkboxes on Android.
+
+| Web/iOS | Android |
+| --- | --- |
+| ![Web/iOS](images/6a325afb510e3ea785e0e7.png) | ![Android](images/62e2493e7840e775680a6f.png) |
 
 ### When to use
 
@@ -83,13 +87,25 @@ Text
 
 Select cards are available as a group or individual select cards.
 
+| In a group | Individual card |
+| --- | --- |
+| ![In a group](images/320237bf5c6c0ee5282736.png) | ![Individual card](images/7b033a3ec4274431b65b4d.png) |
+
 ### Type
 
 Select cards are available as single or multi-selection component. The multi-selection variant contains a checkbox, the single-selection one doesn't contain an indicator.
 
+| Single-select (radio) | Multi-select (checkbox) |
+| --- | --- |
+| ![Single-select (radio)](images/7b033a3ec4274431b65b4d.png) | ![Multi-select (checkbox)](images/edb378e1684dc72bae908a.png) |
+
 ### Alignment
 
 The content inside select cards can be in a vertical or horizontal alignment, depending on the use case and layout structure.
+
+| Vertical | Horizontal |
+| --- | --- |
+| ![Vertical](images/edb378e1684dc72bae908a.png) | ![Horizontal](images/eb2dbcc491f5267a5763cd.png) |
 
 ### Modifiers
 
@@ -97,11 +113,23 @@ The content inside select cards can be in a vertical or horizontal alignment, de
 
 Select cards contain optional icons and illustrations. The illustrations are available in the size 40 and 64px. If you use an illustration we recommend the usage of pictograms.
 
+| Icon | 40px illustration | 64px illustration |
+| --- | --- | --- |
+| ![Icon](images/edb378e1684dc72bae908a.png) | ![40px illustration](images/500effc1ad3cb6f03299e7.png) | ![64px illustration](images/6b11efdabba4899d7a9f31.png) |
+
+| Icon | 40px illustration | 64px illustration |
+| --- | --- | --- |
+| ![Icon](images/eb2dbcc491f5267a5763cd.png) | ![40px illustration](images/0a65930c1b4a3b80917da3.png) | ![64px illustration](images/c736e66423251efd701d7d.png) |
+
 #### Title and description
 
 The select cards contain a mandatory title and an optional description, that can be added to provide additional explanations.
 
 ---
+
+| With description | Without description |
+| --- | --- |
+| ![With description](images/0f5bc62c25585fac11eddb.png) | ![Without description](images/0e410919cd0e97b7bf645e.png) |
 
 ## Behavior & Responsiveness
 
@@ -109,6 +137,30 @@ The select cards contain a mandatory title and an optional description, that can
 
 * **Default / Hover / Pressed:** Select cards support default, hover, and pressed states, and can be selected or unselected.
 * **Disabled State Guidance:** Select cards support a disabled state and an error state; not documented further.
+
+| Default | Hover | Pressed | Disabled |
+| --- | --- | --- | --- |
+| ![Default](images/2ab570cdae4073b6baa74d.png) | ![Hover](images/a3747e13e1454030ab27db.png) | ![Pressed](images/484a6b1a6d095edd0d69d2.png) | ![Disabled](images/5e3b4e59318da5ed972a3f.png) |
+
+| Default selected | Hover selected | Pressed selected | Disabled selected |
+| --- | --- | --- | --- |
+| ![Default selected](images/f70327cb19c4096f3fdf85.png) | ![Hover selected](images/2467c08180913667b51235.png) | ![Pressed selected](images/5cde9e887629a5a7043aa3.png) | ![Disabled selected](images/595ffef34872a5730e1084.png) |
+
+#### Error
+
+| Default | Hover | Pressed |
+| --- | --- | --- |
+| ![Default](images/46d79e1b90d38a8f100484.png) | ![Hover](images/0e1a65b5b0cd3b88c0b927.png) | ![Pressed](images/ab92d2f326f43a027119ac.png) |
+
+| Default selected | Hover selected | Pressed selected |
+| --- | --- | --- |
+| ![Default selected](images/9cd5e0c1d72cbb7028db5b.png) | ![Hover selected](images/a9d14c26a6d0507281c9b1.png) | ![Pressed selected](images/4b947d9682d650e491d45b.png) |
+
+#### Error message
+
+| Select card group with error message |
+| --- |
+| ![Select card group with error message](images/5f8dc5954864a0fdb06b70.png) |
 
 ### Touch Target & Layout
 
