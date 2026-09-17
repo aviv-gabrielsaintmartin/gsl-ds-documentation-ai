@@ -4,7 +4,7 @@
 
 Dropdowns are used to select one option from a list.
 
-![](images/805888e60f01387a4174ab.png)
+![](images/Yen_CT99Dth3O9m3lN3OKg.png)
 
 | Figma | Web | iOS | Android |
 | --- | --- | --- | --- |
@@ -28,6 +28,14 @@ We use platform-specific dropdowns that differ between Web, iOS and Android. The
 **iOS:** As on the Web, the label is always on top of the field, and the placeholder is visible until an option is selected. On iOS, we use the native dropdown list.
 
 **Android:** The label is inside the field by default and only moves to the top when the field is active or filled. The placeholder is only visible when the field is active.
+
+| Default empty | Default selected | Active empty | Active selected |
+| --- | --- | --- | --- |
+| ![Default empty](images/d435a2d0e6541a20fd91c8.png) | ![Default selected](images/b33c39765d5089e410b91a.png) | ![Active empty](images/e1e0cb8bda2ea5e084f5c7.png) | ![Active selected](images/f1235e3051358fc6a2871f.png) |
+
+| Default empty | Default filled | Active empty | Active filled |
+| --- | --- | --- | --- |
+| ![Default empty](images/1787c087efe42e104f2a39.png) | ![Default filled](images/ed3b9aa92f006ba8675a4c.png) | ![Active empty](images/51486029ec323dc96d5fac.png) | ![Active filled](images/05070550b31af81cbcc3f6.png) |
 
 ### When to use
 
@@ -92,6 +100,8 @@ Header, as with every form component
 
 Like all form components, dropdowns contain a header consisting of a label, a required asterisk or an optional mention, a tooltip icon, and a helper text. Go to the [form guidelines](https://zeroheight.com/626199550/p/81b84d-forms/t/page-81b84d-92550230-54) for more information.
 
+![](images/8c58195b44d6bb17d064e0.png)
+
 #### Icons
 
 Icons can be added to the field and the dropdown list. They act as visual cues to provide clarity to the user. All icons are non-clickable.
@@ -106,6 +116,8 @@ The suffix can be added to provide additional context.
 
 ---
 
+![](images/1b9eb99780fb7abcd4b334.png)
+
 ## Behavior & Responsiveness
 
 ### Interactive States & Loading
@@ -116,11 +128,43 @@ The suffix can be added to provide additional context.
 
 The dropdown list opens when the user clicks in the field. It closes when the user clicks on the button again, selects an option from the list, clicks outside the dropdown or presses the esc key.
 
+| Unselected | Selected |
+| --- | --- |
+| ![Unselected](images/2ee3940a166dbf15ceef75.png) | ![Selected](images/e58535fed5a2b4d0246492.png) |
+
+| Opening and closing | Selecting and closing | Closing |
+| --- | --- | --- |
+| ![Opening and closing](images/e25d9051f808049e2b6f36.png) | ![Selecting and closing](images/974e8ed520f8011225ee40.png) | ![Closing](images/bdc1a87b53f67f2e712c7d.png) |
+
+#### Neutral
+
+| Default empty | Hover empty | Active empty | Disabled empty |
+| --- | --- | --- | --- |
+| ![Default empty](images/d435a2d0e6541a20fd91c8.png) | ![Hover empty](images/cc4e3390755b17884d4fad.png) | ![Active empty](images/e1e0cb8bda2ea5e084f5c7.png) | ![Disabled empty](images/9d3b1e51226b1955231d31.png) |
+
+| Default filled | Hover filled | Active filled | Disabled filled |
+| --- | --- | --- | --- |
+| ![Default filled](images/b33c39765d5089e410b91a.png) | ![Hover filled](images/ea1022389997601113646b.png) | ![Active filled](images/f1235e3051358fc6a2871f.png) | ![Disabled filled](images/741f12f03d07ac30cad1dc.png) |
+
+#### Error
+
+| Default empty | Hover empty | Active empty | Disabled empty |
+| --- | --- | --- | --- |
+| ![Default empty](images/935dcbc5a2ebbb44c2c477.png) | ![Hover empty](images/3a92984649ed58b66dacb6.png) | ![Active empty](images/a555d18979b8beb730504d.png) | ![Disabled empty](images/215c1191a26c0b9b6e224f.png) |
+
+| Default filled | Hover filled | Active filled | Disabled filled |
+| --- | --- | --- | --- |
+| ![Default filled](images/acc49e4f462d8880badb77.png) | ![Hover filled](images/b2e2e1e3329b1c09eb205a.png) | ![Active filled](images/8115b708422153c8a71f08.png) | ![Disabled filled](images/dd6b1018d23d47ba61f3f5.png) |
+
 ### Touch Target & Layout
 
 * **Width Adaptability:** The width can be set to 100% (full-width) or 50% of the container. For special use cases it is also possible to define a fixed size. According to the [form guidelines](https://zeroheight.com/626199550/p/81b84d-forms/t/page-81b84d-92550230-13), the form container should have a max-width of 448px.
 
 By default, the dropdown list is positioned below the field. If there is not enough space below it, it is positioned on top of the field. When the options exceed the available space, the dropdown becomes scrollable. Whether the scrollbar is visible or not depends on the user's system settings. To avoid complexity, not all positions are available in Figma — feel free to detach the component.
+
+| Below the field | On top of the field | Scrolling |
+| --- | --- | --- |
+| ![Below the field](images/d3ae98ed951a8c64a9447c.png) | ![On top of the field](images/d364c547c6b49bca99f47a.png) | ![Scrolling](images/4ffc6574232d6ea446a1f1.png) |
 
 ### Breakpoints & Platform Adaptations
 

@@ -45,7 +45,7 @@ libraries under the same name, with different keys. They are two distinct
 components, so both entries are listed.
 
 Across the 57 documented entries there are 912 template
-sections to fill. **572 are filled** — 63%.
+sections to fill. **573 are filled** — 63%.
 
 ---
 
@@ -65,7 +65,7 @@ Ordered by how many documented components leave the section empty.
 | Touch target | 37 | 20 | 0 | 65% |
 | Modifiers | 39 | 18 | 0 | 68% |
 | Writing | 43 | 14 | 0 | 75% |
-| States | 45 | 12 | 0 | 79% |
+| States | 46 | 11 | 0 | 81% |
 | Usage guidance | 52 | 5 | 0 | 91% |
 | When to use | 55 | 2 | 0 | 96% |
 | When NOT to use | 55 | 2 | 0 | 96% |
@@ -142,7 +142,7 @@ The ten documented components filling fewest of the 16 sections.
 | [Listing Card](listing-card/listing-card.md) | Experiences | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 7 |
 | [Listing summary](listing-summary/listing-summary.md) | Experiences | ✅ | ⬜ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 3 |
 | [Media Upload](media-upload/media-upload.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | 10 |
-| [Modal Bottom Sheet](modal-bottom-sheet/modal-bottom-sheet.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | 12 |
+| [Modal Bottom Sheet](modal-bottom-sheet/modal-bottom-sheet.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | 13 |
 | [Modal Bottom Sheet Menu](modal-bottom-sheet-menu/modal-bottom-sheet-menu.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | 14 |
 | [Navigation bar](navigation-bar/navigation-bar.md) | Patterns | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | 11 |
 | [Pagination](pagination/pagination.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 8 |

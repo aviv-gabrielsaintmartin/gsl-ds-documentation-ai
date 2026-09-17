@@ -194,8 +194,15 @@ def table_md(rows):
     return out
 
 
+# Zeroheight writes some sub-titles as a bare short line rather than a heading
+# -- `Header`, `Footer` -- and they read as stray words in markdown.
+LABEL = re.compile(r"^[A-Z][A-Za-z0-9 /&'-]{0,28}$")
+
+
 def paragraph_md(block):
     text = md_escape(block["text"])
+    if LABEL.match(text.strip()) and not block.get("links"):
+        return f"**{text.strip()}**"
     for link in block.get("links", []):
         if link["text"] and link["text"] in text:
             text = text.replace(link["text"], f"[{link['text']}]({link['href']})", 1)
