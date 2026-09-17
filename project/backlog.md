@@ -67,7 +67,6 @@ and a hard task is not demoted for being hard.
 authorisation to start.
 
 ### What's broken
-| **Delete 27 image files nothing points at any more** — left behind by the 17 Sep swap. `text-field` 8, `text-area` 6, `date-picker` 3, `phone-number-field` 3, `toggle` 2, and five singles. **Not done, because deleting always asks first.** Minutes |
 | **Decide two `energy-tag` hero images** — the source replaced the picture under the summary rather than adding one. Swap, or keep what is there. Minutes, but it is a judgement |
 | **Add the colour-accessibility rule to `kpi`, or decide not to** — the Zeroheight page carries a do/don't saying *"Don't rely on colour alone to give meaning"*, with two images. **None of that text is in `kpi.md`.** It is a content gap, not a missing image |
 
