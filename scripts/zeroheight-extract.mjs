@@ -266,5 +266,17 @@ fs.writeFileSync(path.join(outDir, 'blocks.json'),
 const counts = {};
 for (const b of result.blocks) counts[b.type] = (counts[b.type] || 0) + 1;
 console.log(`blocks: ${result.blocks.length}`, counts);
-console.log(`images found: ${wanted.size} | downloaded: ${saved} | failed: ${failed.length}`);
+// Count what is actually on disk, not what the loop believed it wrote. One
+// `avatar` run reported `found: 37 | downloaded: 36 | failed: 0` -- arithmetic
+// this loop cannot produce -- and said nothing was wrong. A second run got all
+// 37. Whatever the cause, an incomplete page must never exit zero: that is the
+// only thing standing between a flaky download and a doc quietly missing a
+// picture.
+const onDisk = fs.readdirSync(path.join(outDir, 'images'))
+  .filter((f) => !f.startsWith('.')).length;
+console.log(`images found: ${wanted.size} | downloaded: ${saved} | on disk: ${onDisk} | failed: ${failed.length}`);
 if (failed.length) { console.log('FAILED:'); failed.forEach((f) => console.log('  ' + f)); process.exitCode = 1; }
+if (onDisk !== wanted.size) {
+  console.log(`MISMATCH: the page declares ${wanted.size} images and ${onDisk} are on disk. Run it again.`);
+  process.exitCode = 1;
+}

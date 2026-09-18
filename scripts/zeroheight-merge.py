@@ -17,13 +17,13 @@ The rules, in order:
 And one rule that overrides all of them: a `zeroheight.com` link never
 replaces a repo-relative one. The migration exists to retire those.
 
-    python3 scripts/zeroheight-merge.py <component> <regenerated.md> [--write] [--keep-zh-links] [--base=<doc>] [--place="Name=Target"]
+    python3 scripts/zeroheight-merge.py <component> <regenerated.md> [--write] [--keep-zh-links] [--base=<doc>] [--place="Name=Target"] [--table="Col|Col=Section"]
 
 Without --write it writes a `.merged.md` next to the input and changes nothing
 in the repo. Read `.claude/skills/zeroheight-merge/SKILL.md` before running it:
 the traps it documents were all paid for once already.
 """
-import re, shutil, sys
+import difflib, re, shutil, sys
 from pathlib import Path
 
 REPO = Path("/Users/gabriel.saintmartin/gsl-ds-documentation-ai")
@@ -53,8 +53,18 @@ def trim(b):
 
 
 def empty(body):
-    t = "\n".join(body).strip()
-    return not t or t.lower().startswith(("not documented", "not applicable"))
+    """Whether a section holds nothing but a placeholder.
+
+    **`startswith` was wrong and it destroyed a sentence.** `tag` writes
+    "Not applicable. This component does not respond to touch or pointer
+    interaction and has no minimum touch target requirement." — a real
+    statement that opens with the placeholder's words. The section read as
+    empty, the page's version replaced it whole, and the sentence was gone.
+    Three docs write a section that way. A placeholder is the WHOLE text or it
+    is not a placeholder.
+    """
+    t = " ".join(" ".join(body).split()).strip().rstrip(".").lower()
+    return not t or t in ("not documented", "not applicable")
 
 
 def picture_blocks(body):
@@ -100,11 +110,64 @@ CELL_IMG = re.compile(r"!\[[^\]]*\]\(images/[^)\s]+\)")
 SEP = re.compile(r"^\s*\|[\s|:-]+\|\s*$")
 
 
+LINK = re.compile(r"\[([^\]]+)\]\([^)]*\)")
+
+
+def plain(s):
+    """A string's words alone: no pictures, no links, no markup, no spacing.
+
+    **A link must become its words before anything is compared.** `cell-content`
+    writes "wrapped in a [card](https://zeroheight.com/…)" where the page writes
+    "wrapped in a card". Flattening the URL along with the sentence made two
+    identical sentences look different, and the paragraph printed twice.
+    """
+    s = CELL_IMG.sub(" ", s)
+    s = LINK.sub(r"\1", s)
+    s = re.sub(r"<br\s*/?>", " ", s)
+    return re.sub(r"[^a-z0-9]", "", s.lower())
+
+
 def cell_words(cell):
     """A cell's words, with its picture and its markup taken out."""
-    t = CELL_IMG.sub(" ", cell)
-    t = re.sub(r"<br\s*/?>", " ", t)
-    return re.sub(r"[^a-z0-9]", "", t.lower())
+    return plain(cell)
+
+
+def row_sig(line):
+    """A table row as the words of its cells — its identity, ignoring pictures."""
+    return tuple(plain(c) for c in line.strip().strip("|").split("|"))
+
+
+def data_sigs(block):
+    """Row signatures of a table's body — never its header row.
+
+    **The header row is not evidence of anything.** Every DO/DON'T table is
+    headed `DO | DON'T`, so counting that row as shared made every such table a
+    replacement for every other, and `phone-number-field` lost the page's
+    country-code guidance along with its DON'T picture.
+    """
+    out, seen_sep = set(), False
+    for l in block:
+        if not l.lstrip().startswith("|"):
+            continue
+        if SEP.match(l):
+            seen_sep = True
+            continue
+        if seen_sep:
+            s = row_sig(l)
+            if named(s):
+                out.add(s)
+    return out
+
+
+def named(sig):
+    """Whether a row says anything at all.
+
+    **A row of nothing but pictures has no identity.** `| ![](a) | ![](b) |`
+    signs as `("","")`, and so does every other picture-only row on the page,
+    so each one matched all the others and was dropped as a repeat. That cost
+    `tabs` 8 of its 35 pictures. A row is only ever compared when it has words.
+    """
+    return any(c for c in sig)
 
 
 def table_runs(lines):
@@ -120,7 +183,7 @@ def table_runs(lines):
     return runs
 
 
-def fill_cells(body, src):
+def fill_cells(body, src, have=frozenset()):
     """Give the repo's table cells the source's pictures, cell by cell.
 
     Two faults this repairs, both measured on this batch. A repo cell can hold
@@ -144,10 +207,40 @@ def fill_cells(body, src):
             continue
         match = next((r for r in src_tables if headers(r) == h), None)
         if match is None:
-            continue
-        rows_b = [i for i in range(a, b) if not SEP.match(body[i])][1:]
-        rows_s = [l for l in match if not SEP.match(l)][1:]
-        for i, srow in zip(rows_b, rows_s):
+            # A Usage Guidance table often has no header row at all — its first
+            # line is already a DO cell carrying a picture and a sentence. Then
+            # `headers` returns that sentence, the two tables never match, and
+            # the source's is added underneath as a second copy. `tabs` printed
+            # its whole DON'T row twice for exactly this. **Match on what the
+            # rows say instead**, and align them by that, never by position.
+            b_sigs = {row_sig(body[i]) for i in range(a, b)
+                      if not SEP.match(body[i]) and named(row_sig(body[i]))}
+            match = next((r for r in src_tables
+                          if {row_sig(l) for l in r
+                              if not SEP.match(l) and named(row_sig(l))} & b_sigs), None)
+            if match is None:
+                continue
+        rows_b = [i for i in range(a, b) if not SEP.match(body[i])]
+        rows_s = [l for l in match if not SEP.match(l)]
+        if headers(body[a:b]) == headers(match):
+            rows_b, rows_s = rows_b[1:], rows_s[1:]
+        by_sig = {row_sig(l): l for l in rows_s if named(row_sig(l))}
+        pairs = [(i, by_sig[row_sig(body[i])]) for i in rows_b
+                 if named(row_sig(body[i])) and row_sig(body[i]) in by_sig]
+        if not pairs:
+            # Pairing rows by position is only safe when there is exactly one
+            # table on each side with these column names. `media-upload` has
+            # FOUR tables headed `Default empty | Hover empty | …`, whose rows
+            # are pictures and nothing else, so there is no text to match on.
+            # Pairing by position gave all four the first table's pictures and
+            # silently destroyed 12 of them.
+            same_here = sum(1 for a2, b2 in table_runs(body)
+                            if headers(body[a2:b2]) == h)
+            same_there = sum(1 for r in src_tables if headers(r) == h)
+            if same_here != 1 or same_there != 1:
+                continue
+            pairs = list(zip(rows_b, rows_s))
+        for i, srow in pairs:
             bc = body[i].strip().strip("|").split("|")
             sc = srow.strip().strip("|").split("|")
             if len(bc) != len(sc):
@@ -168,6 +261,60 @@ def fill_cells(body, src):
                 touched = True
             if touched:
                 body[i] = "| " + " | ".join(c.strip() for c in bc) + " |"
+
+    # Row matching only works when the two tables have the same shape. The doc
+    # often does not: `button-group` keeps `DO | DON'T | CAUTION` in one table
+    # of three columns where the page uses a `DO | DON'T` table and a `CAUTION`
+    # table beside it. The DO cell then never finds its picture and the row
+    # reads as guidance with nothing to look at.
+    #
+    # So take the words of every source cell that has a picture, and give that
+    # picture to any cell here that says the same thing and shows nothing.
+    def _close(w, keys):
+        """The same sentence, allowing for the page's typos.
+
+        `button-group`'s CAUTION reads "clearly communicate its meaning" here
+        and "clearly comunicate it's meaning" on the page — two slips, and the
+        cell never found its picture. Only long cells are matched this way, and
+        only at 0.92, so nothing short or generic can drift into a match. The
+        doc's own wording always stays; it is the picture that moves.
+        """
+        if len(w) < 40:
+            return None
+        best = difflib.get_close_matches(w, keys, n=1, cutoff=0.92)
+        return best[0] if best else None
+
+    pics_by_words = {}
+    for tbl in src_tables:
+        for l in tbl:
+            if SEP.match(l):
+                continue
+            for cell in l.strip().strip("|").split("|"):
+                m = CELL_IMG.search(cell)
+                w = cell_words(cell)
+                if m and w and len(w) > 12:
+                    pics_by_words.setdefault(w, m.group(0))
+    if pics_by_words:
+        for a, b in table_runs(body):
+            for i in range(a, b):
+                if SEP.match(body[i]):
+                    continue
+                cells = body[i].strip().strip("|").split("|")
+                touched = False
+                for k, cell in enumerate(cells):
+                    if CELL_IMG.search(cell):
+                        continue
+                    w = cell_words(cell)
+                    img = pics_by_words.get(w)
+                    if img is None:
+                        near = _close(w, pics_by_words.keys())
+                        img = pics_by_words.get(near) if near else None
+                    if img and not images_in(img) <= have:
+                        cells[k] = " " + img + " " + cell.strip()
+                        touched = True
+                        filled += 1
+                if touched:
+                    body[i] = "| " + " | ".join(c.strip() for c in cells) + " |"
     return body, filled
 
 
@@ -183,7 +330,8 @@ def headers(block):
     return None
 
 
-def merge(component, regen_path, write=False, keep_links=False, base=None, place=None):
+def merge(component, regen_path, write=False, keep_links=False, base=None,
+          place=None, tables=None):
     # `--base` merges against a doc other than the repo's own. It answers the
     # question a review actually asks -- "what does this look like without that
     # section?" -- without touching `components/`. Cutting a section by hand
@@ -234,9 +382,47 @@ def merge(component, regen_path, write=False, keep_links=False, base=None, place
                 has_child.add(hkey(lv, title))
                 break
 
+    # The page and the doc rarely agree on depth. `coach-mark` keeps `Position`
+    # as an H4 under Touch Target where the page has an H3; matching on level
+    # as well as name left the doc with TWO `Position` sections, the repo's
+    # empty and the page's carrying all 12 pictures. Fall back to the name
+    # alone — but only when exactly one section on the page has that name, so
+    # a page that repeats a heading can never be matched to the wrong one.
+    by_title = {}
+    for lv, title, _ in split(new_lines):
+        if title:
+            by_title.setdefault(re.sub(r"\s+", " ", title).strip().lower(),
+                                []).append(hkey(lv, title))
+
     have = images_in("\n".join(repo_lines))
     out, report = [], []
     used = set()
+
+    def without_repeats(lines_in, so_far):
+        """Source lines, minus every sentence the page already carries.
+
+        **Every path that brings the page's words in has to do this.** Taking a
+        section whole did not, and it printed sentences the doc already had
+        elsewhere: `card` repeated "Cards themselves are not clickable." from
+        `Usage`, and `filter-bar` repeated its 40-and-48px height from `Size`.
+        """
+        flat_now = plain("\n".join(so_far))
+        kept_lines, dropped = [], 0
+        for l in lines_in:
+            s = l.strip()
+            if s and not s.startswith(("#", "|", "![")):
+                parts = re.split(r"(?<=[.!?])\s+", s)
+                flt = [plain(x) for x in parts]
+                gone = [len(f) > 24 and f in flat_now for f in flt]
+                if any(gone):
+                    gone = [g or (f and f in flat_now) for g, f in zip(gone, flt)]
+                fresh = [x for x, g in zip(parts, gone) if not g]
+                if not fresh:
+                    dropped += 1
+                    continue
+                l = " ".join(fresh)
+            kept_lines.append(l)
+        return kept_lines, dropped
 
     for lv, title, body in repo:
         if title is None:
@@ -245,16 +431,32 @@ def merge(component, regen_path, write=False, keep_links=False, base=None, place
         out.append("#" * lv + " " + title)
         key = hkey(lv, title)
         src = new.get(key)
+        if src is None:
+            same_name = by_title.get(key[1], [])
+            if len(same_name) == 1:
+                key = same_name[0]
+                src = new.get(key)
         used.add(key)
         body_t = trim(body)
 
         if src is None:
+            # The page files things differently: `button-group` keeps
+            # `Selection` under Variants while the page folds it into States.
+            # The section still has cells whose sentences the page illustrates,
+            # so fill them from the whole page rather than from a section that
+            # does not exist.
+            body_t, n_filled = fill_cells(body_t, new_lines, have)
+            have |= images_in("\n".join(body_t))
             out += [""] + body_t + [""]
-            report.append((title, "kept — the source has no such section"))
+            report.append((title, f"{n_filled} cells re-pictured from the page"
+                           if n_filled else "kept — the source has no such section"))
             continue
         if empty(body_t) and not empty(src) and key not in has_child:
-            out += [""] + src + [""]
-            report.append((title, f"taken from the source ({len(images_in(chr(10).join(src)))} images)"))
+            fresh, dropped = without_repeats(src, out)
+            out += [""] + trim(fresh) + [""]
+            report.append((title, f"taken from the source "
+                                  f"({len(images_in(chr(10).join(fresh)))} images"
+                           + (f", {dropped} repeated lines dropped)" if dropped else ")")))
             continue
         if empty(src):
             out += [""] + body_t + [""]
@@ -265,7 +467,7 @@ def merge(component, regen_path, write=False, keep_links=False, base=None, place
         # Testing "any" threw away whole blocks for one known picture: the
         # date-picker DO/DON'T row was dropped because its DON'T was already
         # here, taking the DO picture with it.
-        body_t, n_filled = fill_cells(body_t, src)
+        body_t, n_filled = fill_cells(body_t, src, have)
         have |= images_in("\n".join(body_t))
         groups = [(lab, p) for lab, p in picture_groups(src)
                   if not images_in("\n".join(p)) <= have]
@@ -274,8 +476,30 @@ def merge(component, regen_path, write=False, keep_links=False, base=None, place
         # A table whose columns the section already has is a REPLACEMENT, not
         # an addition. `modal-bottom-sheet` ended up with two
         # `| Bottom sheet | Modal |` tables, one under the other.
-        existing = {headers(b) for b in picture_blocks(body_t)}
-        pics = [p for p in pics if headers(p) not in existing or headers(p) is None]
+        # Matching column names alone do not make a table a replacement. Every
+        # DO/DON'T table is headed `DO | DON'T`, which says nothing about what
+        # it contains: `phone-number-field`'s page gives country-code guidance
+        # where the doc gives width guidance, and the page's table — with its
+        # DON'T picture — was dropped as a duplicate of it. **A table replaces
+        # another only when the two also share a row that says the same thing.**
+        existing = {}
+        for b in picture_blocks(body_t):
+            existing.setdefault(headers(b), set()).update(data_sigs(b))
+        def _replaces(pp):
+            h = headers(pp)
+            if h is None or h not in existing:
+                return False
+            mine = data_sigs(pp)
+            # Sharing a row makes it a replacement. Two tables that are nothing
+            # but pictures, under the same column names, are the same table.
+            # But a table of pictures is NOT a replacement for one whose cells
+            # carry sentences: `action-menu` has three columns of guidance with
+            # pictures inside, and the page has the same three columns holding
+            # pictures alone. Treating them as one threw away all three.
+            if mine and existing[h]:
+                return bool(mine & existing[h])
+            return not mine and not existing[h]
+        pics = [p for p in pics if not _replaces(p)]
 
         # The H1 section holds the page hero. A hero is never added to -- the
         # source replaced the picture, so the existing line is rewritten.
@@ -388,7 +612,7 @@ def merge(component, regen_path, write=False, keep_links=False, base=None, place
                 continue
             for part in re.split(r"(?<=[.!?])\s+", s):
                 if len(part.strip()) > 40:
-                    out.append(re.sub(r"[^a-z0-9]", "", part.lower())[:60])
+                    out.append(plain(part)[:60])
         return out
 
     for lv, title, body in src_order:
@@ -404,7 +628,7 @@ def merge(component, regen_path, write=False, keep_links=False, base=None, place
         # line was an image or a caption. Ask instead how much of the section
         # is already on the page.
         sents = prose(trim(body))
-        flat = re.sub(r"[^a-z0-9]", "", "\n".join(out).lower())
+        flat = plain("\n".join(out))
         here = [s for s in sents if s in flat]
 
         # A section that brings pictures the page has never seen is NOT already
@@ -427,24 +651,7 @@ def merge(component, regen_path, write=False, keep_links=False, base=None, place
         # the whole of the source's `Read more button` paragraph on one line,
         # reworded in the middle. The line never matched; two of its sentences
         # did, and both were printed twice.
-        kept = []
-        for l in trim(body):
-            s = l.strip()
-            if s and not s.startswith(("#", "|", "![")):
-                parts = re.split(r"(?<=[.!?])\s+", s)
-                flt = [re.sub(r"[^a-z0-9]", "", x.lower()) for x in parts]
-                gone = [len(f) > 40 and f in flat for f in flt]
-                # Once a sentence on this line has gone as a repeat, the short
-                # ones beside it are repeats too. `checkbox` kept "The row
-                # height is 48px." on its own, orphaned from the sentence it
-                # belonged to, because 18 characters is under the threshold.
-                if any(gone):
-                    gone = [g or (f and f in flat) for g, f in zip(gone, flt)]
-                fresh = [x for x, g in zip(parts, gone) if not g]
-                if not fresh:
-                    continue
-                l = " ".join(fresh)
-            kept.append(l)
+        kept, _ = without_repeats(trim(body), out)
         # `--place "Name=Target"` overrides where a source-only section lands.
         # The draft script GUESSES this and says so; there was nowhere to write
         # the answer down once a human had checked it. Children follow their
@@ -462,6 +669,83 @@ def merge(component, regen_path, write=False, keep_links=False, base=None, place
                 if m and m.group(2).strip().lower() == placed.strip().lower():
                     lv = len(m.group(1)) + 1
                     break
+        # A table row whose words are already on the page is a second copy of
+        # that row, wherever it has been filed. `chip-group` carried its DO row
+        # under `#### Action chips` and the page put the same row under
+        # `### Action chips` — one level apart, so nothing matched them.
+        # The pictures are already taken across by `fill_cells` before this.
+        on_page_rows = {}
+        for n, l in enumerate(out):
+            if l.lstrip().startswith("|") and not SEP.match(l) and named(row_sig(l)) \
+                    and n and SEP.match(out[n - 1] if n else ""):
+                on_page_rows.setdefault(row_sig(l), n)
+            elif l.lstrip().startswith("|") and not SEP.match(l) \
+                    and named(row_sig(l)) and n > 1 \
+                    and any(SEP.match(out[k]) for k in range(max(0, n - 12), n)
+                            if out[k].lstrip().startswith("|")):
+                on_page_rows.setdefault(row_sig(l), n)
+        pruned, dropped_rows, in_body = [], 0, False
+        for l in kept:
+            is_row = l.lstrip().startswith("|")
+            if not is_row:
+                in_body = False
+            elif SEP.match(l):
+                in_body = True
+            sig = row_sig(l) if is_row and not SEP.match(l) and in_body else None
+            if sig is None or not named(sig) or sig not in on_page_rows:
+                pruned.append(l)
+                continue
+            # The row is a second copy — but it may be the only place a picture
+            # appears. **Give the picture to the row already on the page before
+            # dropping this one.** Pruning the row outright cost `tabs` 9 of its
+            # 35 pictures and `chip-group` 6 of 32: the duplication went and
+            # took the pictures with it.
+            n = on_page_rows[sig]
+            tgt = out[n].strip().strip("|").split("|")
+            src_c = l.strip().strip("|").split("|")
+            if len(tgt) == len(src_c):
+                touched = False
+                for k in range(len(tgt)):
+                    sm = CELL_IMG.search(src_c[k])
+                    if not sm or images_in(sm.group(0)) <= have:
+                        continue
+                    bm = CELL_IMG.search(tgt[k])
+                    if bm:
+                        tgt[k] = tgt[k][:bm.start()] + sm.group(0) + tgt[k][bm.end():]
+                    else:
+                        tgt[k] = " " + sm.group(0) + " " + tgt[k].strip()
+                    touched = True
+                if touched:
+                    out[n] = "| " + " | ".join(c.strip() for c in tgt) + " |"
+            dropped_rows += 1
+        # Pruning every data row leaves the header and its rule behind, and a
+        # bare `| DO | DON'T |` under a heading says nothing at all. Gabriel
+        # found three of these in `chip-group` and one in `button-group`.
+        # Drop a whole table when nothing is left below its rule.
+        kept, i = [], 0
+        while i < len(pruned):
+            l = pruned[i]
+            if l.lstrip().startswith("|") and i + 1 < len(pruned) \
+                    and SEP.match(pruned[i + 1]):
+                j = i + 2
+                body_rows = 0
+                while j < len(pruned) and pruned[j].lstrip().startswith("|"):
+                    body_rows += 1
+                    j += 1
+                if body_rows == 0:
+                    i = j                       # header and rule go together
+                    continue
+            kept.append(l)
+            i += 1
+        # Everything under this heading turned out to be a repeat, and it has
+        # no picture of its own. Then the heading is an empty shell:
+        # `phone-number-field` was left with a bare `### Overflow content`
+        # whose two sub-sections the doc already carried as bullets.
+        if not trim(kept) and not images_in(chr(10).join(kept)):
+            report.append((title, "skipped — every line of it was already on "
+                                  "the page, and it has no picture"))
+            continue
+
         block = ["#" * lv + " " + title, ""] + trim(kept) + [""]
         at = None
         if parent:
@@ -495,6 +779,57 @@ def merge(component, regen_path, write=False, keep_links=False, base=None, place
                               f"source has it ({len(images_in(chr(10).join(kept)))} images"
                               + (f", {dropped} repeated lines dropped)" if dropped else ")")))
 
+    # `--table "Col|Col=Section"` moves a finished table into a named section.
+    # The page and the doc do not always divide the same content the same way:
+    # `button-group` documents single- and multi-select under `Selection`,
+    # where the page keeps those pictures inside its states block. Nothing
+    # automatic can know which of the two is right, so a human says.
+    for cols_spec, target in (tables or {}).items():
+        # Compare the way a row signature is built, or `Single-select` never
+        # matches `singleselect` and the move silently does nothing.
+        want = tuple(plain(c) for c in cols_spec.split("|") if c.strip())
+        start = None
+        for n, l in enumerate(out):
+            if l.lstrip().startswith("|") and row_sig(l) == want \
+                    and n + 1 < len(out) and SEP.match(out[n + 1]):
+                start = n
+                break
+        if start is None:
+            report.append((cols_spec, "NOT MOVED — no table with those columns"))
+            continue
+        end = start + 2
+        while end < len(out) and out[end].lstrip().startswith("|"):
+            end += 1
+        lo = start
+        if lo and LABEL.match(out[lo - 1].strip()):
+            lo -= 1
+        block = trim(out[lo:end])
+        del out[lo:end]
+        at = None
+        for n, l in enumerate(out):
+            m = HEAD.match(l)
+            if m and m.group(2).strip().lower() == target.strip().lower():
+                lv_t = len(m.group(1))
+                at = len(out)
+                for k in range(n + 1, len(out)):
+                    m2 = HEAD.match(out[k])
+                    if m2 and len(m2.group(1)) <= lv_t:
+                        at = k
+                        break
+                break
+        if at is None:
+            out[lo:lo] = block
+            report.append((cols_spec, f"NOT MOVED — no section called {target}"))
+        else:
+            # A section ends with a `---` rule and blank lines before the next
+            # heading. Inserting at the heading puts the table below that rule,
+            # which reads as belonging to nothing. Step back over them first.
+            while at > 0 and (not out[at - 1].strip()
+                              or out[at - 1].strip() == "---"):
+                at -= 1
+            out[at:at] = [""] + block
+            report.append((cols_spec, f"table moved into {target}"))
+
     # One pass over the finished page: a nameless image sitting directly above
     # a named comparison table is the picture that table replaced. Gabriel
     # spotted three of these under modal-bottom-sheet's iOS heading.
@@ -508,7 +843,15 @@ def merge(component, regen_path, write=False, keep_links=False, base=None, place
             j = i + 1
             while j < len(out) and not out[j].strip():
                 j += 1
-            if j + 1 < len(out) and out[j].lstrip().startswith("|") \
+            # A DO/DON'T table never replaces an illustration — it is guidance,
+            # not a comparison of the same thing. `phone-number-field` lost the
+            # picture of its 448px form container because the page's DO/DON'T
+            # table happened to be appended directly beneath it.
+            cols = tuple(c.strip().lower()
+                         for c in out[j].strip().strip("|").split("|")) \
+                if j < len(out) and out[j].lstrip().startswith("|") else ()
+            guidance = bool({"do", "don't", "dont", "caution"} & set(cols))
+            if not guidance and j + 1 < len(out) and out[j].lstrip().startswith("|") \
                     and re.match(r"^\s*\|[\s|:-]+\|\s*$", out[j + 1]) \
                     and len([c for c in out[j].strip().strip("|").split("|")
                              if c.strip()]) >= 2 \
@@ -534,8 +877,11 @@ if __name__ == "__main__":
     base = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--base=")), None)
     place = dict(a.split("=", 1)[1].split("=", 1)
                  for a in sys.argv if a.startswith("--place="))
+    tables = dict(a.split("=", 1)[1].split("=", 1)
+                  for a in sys.argv if a.startswith("--table="))
     text, report = merge(comp, regen, write,
-                         keep_links="--keep-zh-links" in sys.argv, base=base, place=place)
+                         keep_links="--keep-zh-links" in sys.argv, base=base,
+                         place=place, tables=tables)
     for title, what in report:
         print(f"   {title[:34]:36} {what}")
     src_imgs = images_in(text) - images_in((C / comp / f"{comp}.md").read_text())
