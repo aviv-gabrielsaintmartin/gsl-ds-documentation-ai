@@ -36,16 +36,16 @@ inferred.
 | | Count |
 | --- | --- |
 | Registry entries across the four Figma libraries | **98** |
-| — have a doc | **57** |
-| — no doc, and an agent may select them | **24** entries, 23 names |
+| — have a doc | **58** |
+| — no doc, and an agent may select them | **23** entries, 22 names |
 | — no doc, and an agent should never select them | **17** entries, 16 names |
 
 Entries outnumber names because `Brand Logo` and `Image Ratio` each exist in **two** Figma
 libraries under the same name, with different keys. They are two distinct
 components, so both entries are listed.
 
-Across the 57 documented entries there are 912 template
-sections to fill. **586 are filled** — 64%.
+Across the 58 documented entries there are 928 template
+sections to fill. **594 are filled** — 64%.
 
 ---
 
@@ -55,22 +55,22 @@ Ordered by how many documented components leave the section empty.
 
 | Section | ✅ | ❌ | ⬜ | Filled |
 | --- | --- | --- | --- | --- |
-| a11y | 6 | 51 | 0 | 11% |
-| Label Formula | 12 | 45 | 0 | 21% |
-| Breakpoints | 18 | 39 | 0 | 32% |
-| Capitalization | 18 | 39 | 0 | 32% |
-| Length Limits | 19 | 38 | 0 | 33% |
-| Platform | 27 | 0 | 30 | 47% |
-| Variants | 35 | 22 | 0 | 61% |
-| Modifiers | 39 | 18 | 0 | 68% |
-| Touch target | 39 | 18 | 0 | 68% |
-| Writing | 43 | 14 | 0 | 75% |
-| States | 50 | 7 | 0 | 88% |
-| Usage guidance | 52 | 5 | 0 | 91% |
-| When to use | 57 | 0 | 0 | 100% |
-| When NOT to use | 57 | 0 | 0 | 100% |
-| Variant flow | 57 | 0 | 0 | 100% |
-| Related | 57 | 0 | 0 | 100% |
+| a11y | 6 | 52 | 0 | 10% |
+| Label Formula | 12 | 46 | 0 | 21% |
+| Capitalization | 18 | 40 | 0 | 31% |
+| Breakpoints | 19 | 39 | 0 | 33% |
+| Length Limits | 19 | 39 | 0 | 33% |
+| Platform | 27 | 0 | 31 | 47% |
+| Variants | 35 | 23 | 0 | 60% |
+| Modifiers | 40 | 18 | 0 | 69% |
+| Touch target | 40 | 18 | 0 | 69% |
+| Writing | 44 | 14 | 0 | 76% |
+| States | 50 | 8 | 0 | 86% |
+| Usage guidance | 52 | 6 | 0 | 90% |
+| When to use | 58 | 0 | 0 | 100% |
+| When NOT to use | 58 | 0 | 0 | 100% |
+| Variant flow | 58 | 0 | 0 | 100% |
+| Related | 58 | 0 | 0 | 100% |
 
 **Read `Platform` differently from the rest.** It is prose saying a component
 is restricted to some platforms — *"pagination is only used on the web"*. A
@@ -79,7 +79,7 @@ probably correct rather than a gap. Every other row here is a real gap. Which
 of the 29 are deliberate is unknown — nobody has checked.
 
 **`a11y` and `Breakpoints` are the two worth acting on.** Between them they
-account for 90 pages that
+account for 91 pages that
 looked at the section and wrote nothing.
 
 ---
@@ -103,7 +103,7 @@ The ten documented components filling fewest of the 16 sections.
 
 ---
 
-## The matrix — 57 documented entries
+## The matrix — 58 documented entries
 
 | Component | Tier | Readiness | Platform | When to use | When NOT to use | Variant flow | Usage guidance | Related | Variants | Modifiers | States | Touch target | Breakpoints | Writing | a11y | Capitalization | Label Formula | Length Limits | Filled |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -115,6 +115,7 @@ The ten documented components filling fewest of the 16 sections.
 | [Bar graph](charts/bar-chart.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 6 |
 | [Breadcrumb](breadcrumb/breadcrumb.md) | Patterns | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | 10 |
 | [Button](button/button.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | 14 |
+| [Button Bar](button-bar/button-bar.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | 8 |
 | [Button Card](button-card/button-card.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 11 |
 | [Button Group](button-group/button-group.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | 14 |
 | [Card](card/card.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | 9 |
@@ -166,7 +167,7 @@ The ten documented components filling fewest of the 16 sections.
 | [Wizard](wizard/wizard.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | 11 |
 
 **Readiness** is the `Figma | Web | iOS | Android` table at the top of a page,
-not a template section — so it is not counted in *Filled*. 57 of 57 pages
+not a template section — so it is not counted in *Filled*. 58 of 58 pages
 carry it. The 0 without it: .
 
 ### Chart pages that are not registry components
@@ -185,7 +186,7 @@ of their own, so they are listed rather than scored.
 
 ---
 
-## The gap — 23 components an agent may select, with no doc at all
+## The gap — 22 components an agent may select, with no doc at all
 
 These have no page anywhere in this repo. An agent asked to use one has
 nothing to read. Where the *Known from* column is filled, the repo describes
@@ -211,15 +212,14 @@ the component inside **another component's** page — a sentence, not a doc.
 | Text Button | Components | A distinct component from Button | button, action-menu, autocomplete |
 | Tooltip | Components | Brief overlay clarifying one UI element | coach-mark |
 | Badge Store | Components | **Unknown** | — |
-| Button Bar | Components | **Unknown** | — |
 | Button Card Group | Components | **Unknown** | — |
 | Estimation card | Experiences | **Unknown** | — |
 | Feedback Bar | Patterns | **Unknown** | — |
 | Feedback Thumb Buttons | Components | **Unknown** | — |
 | Mega menus | Patterns | **Unknown** | — |
 
-**7 of those 23 have no evidence anywhere in the repo** —
-no doc, and no other page mentions what they do: `Badge Store`, `Button Bar`, `Button Card Group`, `Estimation card`, `Feedback Bar`, `Feedback Thumb Buttons`, `Mega menus`.
+**6 of those 22 have no evidence anywhere in the repo** —
+no doc, and no other page mentions what they do: `Badge Store`, `Button Card Group`, `Estimation card`, `Feedback Bar`, `Feedback Thumb Buttons`, `Mega menus`.
 
 ---
 ## No doc, and none needed — 16 names

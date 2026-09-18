@@ -30,6 +30,7 @@ inventory covers all 98 registry entries, including the 41 that have no doc yet.
 | [Avatar](avatar/avatar.md) |
 | [Breadcrumb](breadcrumb/breadcrumb.md) |
 | [Button](button/button.md) |
+| [Button bar](button-bar/button-bar.md) |
 | [Button card](button-card/button-card.md) |
 | [Button group](button-group/button-group.md) |
 | [Card](card/card.md) |

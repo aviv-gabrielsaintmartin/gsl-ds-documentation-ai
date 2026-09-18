@@ -149,7 +149,9 @@ run had left behind**. All three are in the backlog.
 
 **Also done:** asking the user has its own ruleset section, and `Feedback bar` versus `Feedback thumb buttons` is now your rule — a notation against a like — replacing my guess. Two open questions in `components-audit.md` are struck through and answered.
 
-**A pilot doc for `Button Bar` is in the scratchpad for you to read.** Sixteen selectable components still have no doc; six have web code and can be written now, ten need Figma.
+**`Button Bar` has a doc — the first written from web code, not Zeroheight.** You read it and approved the shape; the one Figma mention is cut, because a component doc is platform-neutral. **Documented: 57 → 58.**
+
+**Fifteen selectable components still have no doc.** Five more have web code and can be written the same way. The last ten have a rule row and nothing else, and need Figma.
 
 **Components with no rule: 16 → 0.** Every component in the four libraries can now be reached by a rule, or is forbidden on purpose with the reason written down.
 
