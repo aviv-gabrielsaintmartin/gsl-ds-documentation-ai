@@ -3,7 +3,7 @@
 _The only page you need. Everything else in this repo is reference material for
 agents — looked up, never read through._
 
-_Updated 17 September 2026._
+_Updated 18 September 2026._
 
 ---
 
@@ -52,13 +52,29 @@ component and scored individually, so an audit can ask one question of all 57.
 That is why the coverage figure fell from 70% to 62%: `Label Formula` is
 answered by 12 docs of 57. Nothing got worse, it became visible.
 
-**Done: three components merged with their Zeroheight pages.**
-`select-card-group` 3 images → 30, `dropdown` 6 → 36,
-`modal-bottom-sheet` 10 → 40. **No prose lost on any of them.**
+**Done, 18 September: four more merged, and the merge script rebuilt.**
+`date-picker` 21 images → 70, `media-upload` 7 → 46, `checkbox` 6 → 42,
+`button` 18 → 52. No prose lost, none duplicated, no `zeroheight.com` link
+gained, every picture on every page placed.
 
-### Then: the remaining 21 merges
+**The first run of those four looked clean and was not.** `checkbox` silently
+lost its three error-state tables — 12 pictures — and the draft script still
+reported 42 of 42 placed. Eleven faults came out of chasing it, all fixed and
+all written into the skill.
 
-**22 of 54 components now carry every image their Zeroheight page has.** The
+**Two things nobody was checking, now checked on every run:**
+
+- **What the page gave against what the doc holds.** This is the count that
+  found the checkbox damage. Nothing had ever compared the two.
+- **Whether a file is actually a picture.** **36 files across 12 components are
+  Figma JSON saved under a `.png` name** and can never render.
+  `scripts/check-links.py` cannot see them — it asks whether a file exists,
+  never what it is. Three were `date-picker`'s and are gone; 33 remain, and
+  they are in the backlog.
+
+### Then: the remaining 17 merges
+
+**26 of 54 components now carry every image their Zeroheight page has.** The
 rest are the same job, and the method is written down —
 `.claude/skills/zeroheight-merge/SKILL.md`. Read it before starting; the traps
 in it each cost a round of undoing.
@@ -67,10 +83,6 @@ The order, worst first:
 
 | Component | Has | Live | Missing |
 | --- | --- | --- | --- |
-| date-picker | 21 | 70 | **52** |
-| media-upload | 7 | 46 | **42** |
-| checkbox | 6 | 42 | **36** |
-| button | 18 | 52 | **34** |
 | button-group | 7 | 38 | **32** |
 | tabs | 9 | 35 | **30** |
 | phone-number-field | 12 | 37 | 26 |
@@ -87,8 +99,17 @@ The order, worst first:
 | avatar | 32 | 37 | 5 |
 
 **Do three or four at a time.** Extract, draft, merge, then the drafts go to
-your Desktop and you read them before anything lands. On the last round, three
-of the four defects found were found by you reading, not by a check.
+your Desktop and you read them before anything lands.
+
+**That reading step keeps paying.** On the round before last, three of the four
+defects found were found by you reading. On this one you found a broken picture
+that turned out to be 36 broken pictures across 12 components.
+
+**One thing the next session needs and does not have:** this repo records the
+Zeroheight address of only 25 pages, and only one of the four just done was
+among them. A wrong address returns a page with zero images and no error, so
+there is no way to tell it from an empty page. Reading the styleguide index
+once would fix it for all 17. It is in the backlog.
 
 **Then: settle whether `Spacing/56` is page rhythm or forbidden.** The ruleset
 says both, 83 lines apart — and the donut appears to use 56 internally.
