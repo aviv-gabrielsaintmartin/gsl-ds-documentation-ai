@@ -117,7 +117,9 @@ run had left behind**. All three are in the backlog.
 
 **It came out of assessing the decision-tree article you sent.** The answer was no new trees — this repo already has both layers the article describes, as intent tables and axis lists. What it does **not** have is anything joining a doc's axis name to Figma's property name. That is now a question in the backlog.
 
-**Those same two docs are also the only two of 57 with no `When to use` and no `When NOT to use`.** An hour's work, proposed in the backlog, not started.
+**Those same two docs were also the only two with no `When to use` and no `When NOT to use`. Both are now written.** Three sections stand at 57 of 57: *When to use*, *When NOT to use*, *Variant flow*.
+
+**One thing left on `listing-summary`** — it is the last doc of 57 with no `Related Components` table. Fifteen minutes, not started, not yet in the backlog.
 
 **Then: settle whether `Spacing/56` is page rhythm or forbidden.** The ruleset
 says both, 83 lines apart — and the donut appears to use 56 internally.

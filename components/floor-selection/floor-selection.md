@@ -20,11 +20,17 @@ Unlike other form components, we use the same floor selection on all platforms.
 
 ### When to use
 
-Not documented
+**Floor selection** — entering or selecting an apartment floor, including the ground floor, which the field writes as "GF".
+
+**Experience**-tier component, **all-or-nothing**. **Highest tier first**: do not build a floor picker from a Counter field or a Text field — this component already is it. It accepts 0 to 100; negative values are not possible, so it cannot express basement levels.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| Counting something other than floors, such as rooms | **Counter field** |
+| Larger numbers — prices, square metres, postcodes, street numbers | **Text field** |
+| The value may contain letters or free-form text | **Text field** |
 
 ### Variant Selection Flow
 

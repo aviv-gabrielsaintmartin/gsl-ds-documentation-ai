@@ -19,11 +19,17 @@ The Listing summary component can function as a standalone short version of a li
 
 ### When to use
 
-Not documented
+**Listing summary** — a concise, flexible summary of a property listing, carrying as much or as little detail as the context needs.
+
+**Experience**-tier component, **composed**. **Highest tier first**: do not assemble a property summary from Card + Tag + Price + Title yourself — this component already is it. It stands alone, sits inside a Card or a table row, or forms part of a larger pattern, and it can trigger an action such as opening the listing's detail page.
 
 ### When NOT to use
 
-Not documented
+| Instead, when… | Use |
+| --- | --- |
+| A full, actionable property card on a search results page | **Listing card** |
+| The result would carry Listing card's layout and its functions | **Listing card** |
+| Grouping generic content that does not summarise a property | **Card** |
 
 ### Variant Selection Flow
 
