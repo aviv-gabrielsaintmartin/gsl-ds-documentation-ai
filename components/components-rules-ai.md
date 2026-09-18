@@ -146,9 +146,11 @@ first that decides it:
 
 | Choose | When | Otherwise |
 | --- | --- | --- |
-| **Radio button group** | Mutually exclusive choices in a form, ≤5 options, enough vertical space | \>5 options, long labels, or constrained space → **Dropdown** · Prominent visual treatment preferred → **Button group** (single-select) · Options benefit from icons or illustrations → **Select card group** (single-select) · Switching views rather than submitting a value → **Segmented control** |
-| **Dropdown** | Single-select from a list in a form, or space too constrained to show options inline | ≤5 options and space allows → **Radio button group** · Long list where typing to filter helps → **Autocomplete** · Items trigger actions rather than set a value → **Action menu** |
+| **Radio button group** | Mutually exclusive choices in a form. **The limit is label readability, not a count**: up to 5 options in one column; 6 to 10 in two columns, when every label fits 2 lines or fewer on mobile. In one column a label may run to 3 lines, 2 recommended | More than 10 options, or labels too long for the column count → **Dropdown** · Prominent visual treatment preferred → **Button group** (single-select) · Options benefit from icons or illustrations → **Select card group** (single-select) · Switching views rather than submitting a value → **Segmented control** |
+| **Dropdown** | Single-select from a list in a form, or space too constrained to show options inline | 10 options or fewer, and the labels are short enough for the column count → **Radio button group** · Long list where typing to filter helps → **Autocomplete** · Items trigger actions rather than set a value → **Action menu** |
 | **Segmented control** | Switching between mutually exclusive view modes or display options — not a form value | The choice is a form value → **Button group** · Switching full content sections → **Tabs** · Standard form styling needed → **Radio button group** |
+
+**The 10-option ceiling on a radio button group has one exception.** When the choice is the whole screen, with no competing content — an onboarding step, for example — the count may go higher. **Record it in the run's report**, in the same `## Declarations` section **When nothing fits** uses, stating the count and why the screen carries nothing else. **Anywhere the screen holds other content, the ceiling holds.**
 
 ### Selecting multiple values
 

@@ -27,8 +27,8 @@ default failure.
 | --- | --- | --- | --- |
 | 1 | "A control that takes the user to the pricing page" | `Link` | **Which component** — action vs navigation |
 | 2 | "A 'Read more' control under a truncated description" | `Text button` | **Which component** — button weight |
-| 3 | "Let the user pick one of 12 property types in a form" | `Dropdown` | **Which component** — the ≤5 threshold |
-| 4 | "Let the user pick one of 3 property types in a form" | `Radio button group` | **Which component** — same threshold, other side |
+| 3 | "Let the user pick one of 12 property types in a form" | `Dropdown` | **Which component** — the 10-option ceiling |
+| 4 | "Let the user pick one of 3 property types in a form" | `Radio button group` | **Which component** — same ceiling, other side |
 | 5 | "Switch the results between map view and list view" | `Segmented control` | **Which component** — view mode vs form value |
 | 6 | "Switch between the Description, Photos and Location sections of a listing" | `Tabs` | **Which component** — full content sections |
 | 7 | "Let the user tick several amenities inside the listing-creation form" | `Checkbox group` | **Which component** — structured form |

@@ -41,7 +41,7 @@ We use platform-specific dropdowns that differ between Web, iOS and Android. The
 
 | Instead, when… | Use |
 | --- | --- |
-| ≤5 options and space allows | **Radio button group** |
+| 10 options or fewer, and the labels are short enough for the column count | **Radio button group** |
 | Long list where typing to filter helps | **Autocomplete** |
 | Items trigger actions rather than set a value | **Action menu** |
 
@@ -78,7 +78,7 @@ Header, as with every form component
 | --- | --- | --- | --- |
 | **Dropdowns** | — | Used in forms to allow users to select an option from a list. | — |
 | [**Action menu**](../action-menu/action-menu.md) | High | Displays a list of context-specific actions. | The list represents actions to trigger, not options to select |
-| [**Radio button group**](../radio-button-group/radio-button-group.md) | High | Radio button groups are used to select one option from a group of mutually exclusive choices. | ≤5 options and space allows |
+| [**Radio button group**](../radio-button-group/radio-button-group.md) | High | Radio button groups are used to select one option from a group of mutually exclusive choices. | 10 options or fewer, and the labels are short enough for the column count |
 | [**Autocomplete**](../autocomplete/autocomplete.md) | High | Autocomplete components suggest possible matches for user input in real time as they type, helping them complete text fields more efficiently by… | Long list where typing to filter helps |
 | [**Checkbox group**](../checkbox-group/checkbox-group.md) | Medium | Checkbox groups are used to select multiple options from grouped checkboxes. | Checkbox group redirects here when: Long list or constrained space |
 | [**Chip group**](../chip-group/chip-group.md) | Medium | Chip groups are collections of chips that allow users to filter, select, or manage multiple related options simultaneously. | Chip group redirects here when: Constrained space or numerous options |

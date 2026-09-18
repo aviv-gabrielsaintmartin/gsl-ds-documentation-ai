@@ -127,7 +127,7 @@ run had left behind**. All three are in the backlog.
 
 **The surprise is which flows are weak.** Not the custom components — `energy-tag`, `tables`, `modal-bottom-sheet` and `listing-card` have the best ones. The weak flows are the simple components, and `phone-number-field` is the worst: its whole flow lists runtime states, so the section that should say which variant to pick says nothing. Three task rows in the backlog.
 
-**Waiting on you:** `radio-button-group`'s option cap. You've given me the rule — it is readability, not a number — and I owe you the wording.
+**`radio-button-group`'s contradiction is settled, your way.** The limit is readability, not a number: up to 5 in one column, 6 to 10 in two columns when labels fit 2 lines on mobile, `Dropdown` above 10. Changed in all eight places that stated the old cap.
 
 **Then: settle whether `Spacing/56` is page rhythm or forbidden.** The ruleset
 says both, 83 lines apart — and the donut appears to use 56 internally.

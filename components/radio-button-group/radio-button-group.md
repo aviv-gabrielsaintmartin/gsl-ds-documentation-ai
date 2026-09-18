@@ -25,13 +25,15 @@ On the web and iOS, we use custom radio buttons. On Android, we use native radio
 
 ### When to use
 
-**Radio button group** — mutually exclusive choices in a form, ≤5 options, enough vertical space.
+**Radio button group** — mutually exclusive choices in a form, where every option can be read at a glance.
+
+**The limit is label readability, not a count.** Up to 5 options in one column; 6 to 10 in two columns, when every label fits 2 lines or fewer on mobile. In one column a label may run to 3 lines, 2 recommended.
 
 ### When NOT to use
 
 | Instead, when… | Use |
 | --- | --- |
-| >5 options, long labels, or constrained space | **Dropdown** |
+| More than 10 options, or labels too long for the column count | **Dropdown** |
 | Prominent visual treatment preferred | **Button group (single-select)** |
 | Options benefit from icons or illustrations | **Select card group (single-select)** |
 | Switching views rather than submitting a value | **Segmented control** |
@@ -47,9 +49,18 @@ Border
 ├─ Complex options that must be clearly distinguished → With border
 └─ Simple options, easily told apart → Without border
 
-Columns, vertical groups only
-├─ Few options, mobile, or limited vertical space → One column
-└─ Six or more options → Two columns
+Label length on mobile — this is what sets the option limit, not the count
+├─ One column → 3 lines maximum per label, 2 recommended
+└─ Two columns → 2 lines maximum per label, no exception
+
+Columns and option count, vertical groups only
+├─ Up to 5 options → One column
+├─ 6 to 10 options, every label 2 lines or fewer on mobile → Two columns
+├─ 6 to 10 options, any label longer than that → One column, or Dropdown if it will not fit
+└─ More than 10 options → Dropdown
+   └─ Exception: the choice is the whole screen, with no competing content — an
+      onboarding step, for example. The count may go higher. Record it in the
+      run's report
 
 Header, as with every form component
 ├─ Mandatory field → Required asterisk to the right of the label
@@ -75,7 +86,7 @@ Header, as with every form component
 | **Radio button group** | — | Radio buttons allow users to make mutually exclusive choices. They are used in forms that must be submitted before the change takes effect. | — |
 | [**Checkbox group**](../checkbox-group/checkbox-group.md) | Medium | Checkbox groups allow users to select one or more choices independently. They are used in forms that must be submitted before the change takes effect. | — |
 | [**Toggle group**](../toggle-group/toggle-group.md) | Medium | Toggle groups are used for binary, mutually exclusive choices that take effect immediately and don't require submitting or saving. | — |
-| [**Dropdown**](../dropdown/dropdown.md) | High | Dropdowns are used to select one option from a list. | >5 options, long labels, or constrained space |
+| [**Dropdown**](../dropdown/dropdown.md) | High | Dropdowns are used to select one option from a list. | More than 10 options, or labels too long for the column count |
 | [**Button group**](../button-group/button-group.md) | High | Button groups display multiple related choices in a horizontal row, allowing users to select one or more options. | Prominent visual treatment preferred |
 | [**Select card group**](../select-card-group/select-card-group.md) | High | Select cards are used for single- or multi-selection inside forms. | Options benefit from icons or illustrations |
 | [**Segmented control**](../segmented-control/segmented-control.md) | High | Segmented controls are used to select one option from a group of mutually exclusive choices. | Switching views rather than submitting a value |
