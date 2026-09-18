@@ -253,7 +253,7 @@ lists. See **Never select**.
 | Choose | When | Otherwise |
 | --- | --- | --- |
 | **Snackbar** | Brief, transient feedback confirming the outcome of a user action | Persistence and inline placement needed → **Feedback message** · Critical and blocking → **Alert** |
-| **Feedback message** | Persistent inline contextual guidance or status within a section | Transient, action-triggered feedback → **Snackbar** · Full-area or page-level states → **Info state** |
+| **Feedback message** — the Figma library names this set `Feedback Messages` | Persistent inline contextual guidance or status within a section | Transient, action-triggered feedback → **Snackbar** · Full-area or page-level states → **Info state** |
 | **Info state** | Full-area states — empty, error, success, loading | Inline section-level messages → **Feedback message** · A blocking decision is required → **Alert** |
 | **Tag** | A non-interactive status label or category that **occupies its own place in the layout flow** and would still make sense if the thing beside it were removed — "New", "Sold", "Exclusive", "Verified" | The element is interactive — selectable, filterable, removable → **Chip** · Status needs supporting text → **Feedback message** · The marker is anchored to another component's geometry → **Badge** |
 | **Badge** | A marker **anchored to a host component's geometry** — overlapping or pinned to a button, tab label, menu entry or cell row, and meaningless without that host. Typically a count or a dot | The marker holds its own place in the layout flow → **Tag** · It is interactive → **Chip** |
