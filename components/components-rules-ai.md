@@ -267,14 +267,28 @@ lists. See **Never select**.
 | **Score tag** | A Tag specialised for seller lead scoring | Any other status or category label → **Tag** · An energy-efficiency rating → **Energy tag** |
 | **Badge** | A marker **anchored to a host component's geometry** — overlapping or pinned to a button, tab label, menu entry or cell row, and meaningless without that host. Typically a count or a dot | The marker holds its own place in the layout flow → **Tag** · It is interactive → **Chip** |
 | **Loading state** | Content is being fetched and the wait needs its own element on the page — a spinner with an optional title and description | The area is empty, failed or succeeded rather than waiting → **Info state** · The wait belongs inside a control already on screen, such as a dropdown fetching its options → that component's own loading state, not this |
-| **Feedback thumb buttons** | Asking the user's opinion with a thumbs up / thumbs down | Telling the user something rather than asking → **Feedback message** or **Snackbar** · A laid-out block with an illustration and its own buttons → **Feedback bar** |
-| **Feedback bar** | Asking the user's opinion as a laid-out block — an illustration, a pre-title, and its own buttons, horizontal or vertical, with or without a container | A bare thumbs up / thumbs down → **Feedback thumb buttons** · Telling the user something rather than asking → **Feedback message** or **Snackbar** |
 | **Tooltip** | A brief clarification of one UI element, shown on hover or tap — a single explanation, not a sequence | Persistent inline guidance not tied to a control → **Feedback message** · A guided, multi-step tour → **Coach mark** |
 | **Coach mark** | Contextual onboarding overlays pointing at specific UI elements | Persistent inline guidance not tied to onboarding → **Feedback message** · A single brief clarification rather than a guided tour → **Tooltip** |
 
-**`Feedback thumb buttons` is not built on web, and no usage rules exist for it.** Use it when the user's opinion is needed, until something better replaces it. Gabriel, 18 September 2026.
+### Asking the user for something
 
-**`Feedback bar` and `Feedback thumb buttons` are separate components — the thumbs are not inside the bar.** Gabriel, 18 September 2026. **Which to reach for when both would fit is not documented**; the rows above split them by how much the block carries, which is read from their Figma properties and not from any written rule.
+*The rows above tell the user something. These two ask.*
+
+| Choose | When | Otherwise |
+| --- | --- | --- |
+| **Feedback bar** | Asking the user to **rate** something — a notation on a scale | A like or dislike rather than a score → **Feedback thumb buttons** · Telling the user something rather than asking → **Feedback message** or **Snackbar** |
+| **Feedback thumb buttons** | Asking the user to **like or dislike** — a binary opinion, thumbs up or thumbs down | A score on a scale → **Feedback bar** · Telling the user something rather than asking → **Feedback message** or **Snackbar** |
+
+**A notation against a like is the whole distinction.** Gabriel, 18 September 2026. They are separate
+components and **the thumbs are not inside the bar**, though `Feedback bar` does carry its own button
+group, an illustration slot and a pre-title.
+
+**Neither is built on web**, and **no usage rules exist for the thumb buttons**. Use them when the
+user's opinion is needed, until something better replaces them. Gabriel, 18 September 2026.
+
+**`Rating` is not in this section and is not an alternative to either.** It displays results that
+already exist, from Opinion System, and is non-interactive. These two collect an opinion; `Rating`
+shows one.
 
 ### Showing progress and data
 

@@ -25,6 +25,7 @@ Tags are non-interactive labels used to display information or status that canno
 
 | Instead, when… | Use |
 | --- | --- |
+| Seller lead scoring | **Score tag** |
 | The element is interactive — selectable, filterable, removable | **Chip** |
 | Status needs supporting text | **Feedback message** |
 | The marker sits **on** another component rather than beside it | **Badge** |

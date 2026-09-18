@@ -45,7 +45,8 @@ On Android, the label is inside the field by default and only moves to the top w
 | Multi-line or longer than a sentence | **Text area** |
 | Suggestions appear as the user types | **Autocomplete** |
 | Numeric with increment/decrement controls | **Counter field** |
-| A date | **Date picker** |
+| A date, picked from a calendar | **Date picker** |
+| A date the user types, with no calendar | **Date field** |
 
 ### Variant Selection Flow
 

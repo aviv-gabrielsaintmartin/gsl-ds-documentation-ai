@@ -27,6 +27,7 @@ Web only. The Figma design is owned by the Header/Footer team and currently show
 
 | Instead, when… | Use |
 | --- | --- |
+| Top-level navigation on the main B2C or B2B websites | **Mega menus** |
 | Sub-pages and flows | **Top bar** |
 | In-app navigation | **Navigation Bar (App), mobile only** |
 

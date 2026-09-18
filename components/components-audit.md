@@ -234,14 +234,30 @@ Each needs Gabriel's answer before the affected rule can be written.
 1. **`Image Ratio` and `Brand Logo` exist in two libraries with different keys.**
    Which one does a generating agent instantiate — Components or Foundations? Is
    one deprecated?
-2. **Seven selectable components have no description anywhere**: `Badge Store`,
-   `Button Bar`, `Button Card Group`, `Feedback Thumb Buttons`, `Feedback Bar`,
-   `Mega menus`, `Estimation card`. What is each one for, in one line?
+2. ~~**Seven selectable components have no description anywhere.**~~ **Answered
+   2026-09-18, six of seven, by Gabriel from memory.** `Badge Store` — App Store
+   and Google Play links, our own replicas, kept here so they can be maintained.
+   `Button Bar` — up to two buttons at the foot of a form, sticky or not;
+   confirmed against web code, whose props are exactly two button slots and a
+   responsive direction. `Button Card Group` — never developed, should be removed
+   from Figma; now on **Never select**. `Feedback Thumb Buttons` — asking the user
+   to like or dislike; **not built on web, checked and confirmed absent**.
+   `Feedback Bar` — asking the user to rate something, a notation on a scale; a
+   separate component from the thumbs, which are **not** inside it. `Mega menus` —
+   top-level navigation on the main B2C and B2B sites, not built or maintained by
+   the design system, in Figma because several teams share it; recorded as
+   **provisional**. **`Estimation card` is still open** and is the one the
+   question now means.
 3. **Is `Badge` selectable on its own, or only ever attached to a host
    component?** All five pieces of evidence show it attached.
-4. **Is `Filter button` selectable on its own, or only inside `Filter bar`?**
-   The registry registers it as a sibling pattern, but the Filter bar doc
-   describes it as a constituent.
+4. ~~**Is `Filter button` selectable on its own, or only inside `Filter bar`?**~~
+   **Answered 2026-09-18: only inside.** Gabriel's decision — a `Filter bar` is
+   built *from* filter buttons, so they are its parts and never a component placed
+   beside it. Now on **Never select**, sharing a row with `Filter dropdown
+   container`, which has the same relationship to the same parent. **What made it
+   decidable was an absence**: `~/gsl-core-web-design-system` has no
+   `FilterButton`, while `ImageSlider` and `LoadingState` both exist there — and
+   those two turned out to be real standalone components the same afternoon.
 5. **`Tab Bar` is withheld as an in-progress refactor.** Confirm agents should
    use `Tabs` until it settles, and say who owns the decision to promote it.
 6. **`Footer` is Figma-only, owned by the Header/Footer team.** Confirm it stays

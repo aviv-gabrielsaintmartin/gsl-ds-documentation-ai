@@ -23,6 +23,7 @@ Feedback messages are used to provide guidance to the user about their current t
 
 | Instead, when… | Use |
 | --- | --- |
+| Feedback belongs to one form field | **State message** |
 | Transient, action-triggered feedback | **Snackbar** |
 | Full-area or page-level states | **Info state** |
 
