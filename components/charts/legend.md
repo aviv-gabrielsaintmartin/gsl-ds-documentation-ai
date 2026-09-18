@@ -23,7 +23,17 @@ Presence
 ├─ Two or more data categories → Mandatory
 └─ A single data set → Omit it, and rely on the chart title and axis labels instead
 
-No further variant axes are documented.
+Position — below the graph or to its left; never above, where it sits between
+the header and the graphic and is overlooked
+└─ Which of the two to choose is not documented — no position tested better than
+   the others. If user testing gives you data, share it
+   └─ `Donut chart` can produce neither: its legend sits beside the chart and
+      that is the only placement the library offers. See **Where a chart's
+      legend sits**
+
+Interactivity
+├─ The user should be able to filter which series are shown → Interactive
+└─ The legend only identifies the colours → Static
 ```
 
 ### Usage Guidance

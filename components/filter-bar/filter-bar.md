@@ -35,6 +35,12 @@ The filter bar allows users to set criteria to narrow down displayed content on 
 Size
 ├─ Default, or a dense layout → 40px
 └─ Roomier layout, or matching 48px controls beside it → 48px
+
+All-filters button — desktop only
+└─ Shown or hidden; the condition for choosing is not documented
+
+Primary button — it is not a validation button, so it is optional
+└─ Shown or hidden; the condition for choosing is not documented
 ```
 
 ### Usage Guidance

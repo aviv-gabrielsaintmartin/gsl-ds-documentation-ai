@@ -50,19 +50,27 @@ We use platform-specific phone number fields for Web/iOS and Android, with main 
 ### Variant Selection Flow
 
 ```
-Platform
-└─ Web · iOS · Android — the country selector and its flag adapt per platform
+Label
+├─ Almost always → Visible label
+└─ Rare cases where the context is unmistakable → Hidden label, with an invisible aria-label
 
-Content state
-├─ Nothing entered yet → Empty
-└─ A number has been entered → Filled
+Platform — dictated by the platform, never a design choice
+├─ Web and iOS → The label sits above the field; the placeholder shows until the field is filled
+└─ Android → The label sits inside the field, and moves above it once the field is active or filled
 
-Validation
-├─ The number is valid or not yet checked → No error
-└─ The number fails validation → Error, with the state message
+Country code selector — dictated by width, never a design choice
+├─ Web, XXS to XS (0 to 599px) → Dropdown
+└─ Web, SM and above (over 599px) → Bottom sheet
+   └─ **Unverified, and it points the opposite way from the rest of the system.**
+      Everywhere else a bottom sheet is the narrow-width answer and a dropdown
+      the wide one — see **Showing context-specific actions**. This is what the
+      component's own breakpoint table says. Do not follow it without checking
 
-Interaction state
-└─ Default · Hover · Active · Disabled — follows the underlying text field
+Header, as with every form component
+├─ Mandatory field → Required asterisk to the right of the label
+├─ Optional field → Optional mention to the right of the label
+├─ Needs an explanation → Tooltip icon
+└─ Needs persistent guidance → Helper text
 ```
 
 ### Usage Guidance

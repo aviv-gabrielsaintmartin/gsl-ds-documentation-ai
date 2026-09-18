@@ -32,10 +32,15 @@ Chip groups are dynamic, interactive collections of chips that allow users to fi
 
 ```
 Type
-├─ Toggling filters on and off across a set of options → Filter chip
-├─ Representing user input or a selection inside a form, removable → Input chip
-└─ Triggering a quick, secondary contextual action → Action chip
+├─ Toggling filters on and off across a set of options → Filter chip, selectable
+├─ Representing user input or a selection inside a form, removable → Input chip, selectable
+└─ Triggering a quick, secondary contextual action → Action chip, which cannot be selected
    └─ Never use action chips for primary navigation or for critical actions
+   └─ Whether one group may mix types is not documented
+
+Wrapping — the group's own layout, not the chip's
+└─ The chips do not fit the container width → They wrap to a new line
+   └─ How many chips a group may hold is not documented
 
 Icons
 └─ Optional — add one only when it makes the chip's purpose clearer

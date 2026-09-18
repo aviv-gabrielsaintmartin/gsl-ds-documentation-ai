@@ -31,6 +31,14 @@ Media upload components allow users to upload files by either dragging and dropp
 Empty drop zone
 └─ Add an illustration placeholder — a pictogram is recommended
 
+File counter — optional, recommended in most cases
+└─ Show it, so the user knows how many files they may upload
+
+Filename — optional, recommended in most cases
+├─ Shown → Includes the file extension, such as `bathroom.jpg`
+└─ Hidden → Still shown under a non-image preview, which carries only a generic illustration
+   └─ The filename can be changed afterwards through the action menu
+
 Header, as with every form component
 ├─ Mandatory field → Required asterisk to the right of the label
 ├─ Optional field → Optional mention to the right of the label

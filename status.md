@@ -129,6 +129,14 @@ run had left behind**. All three are in the backlog.
 
 **`radio-button-group`'s contradiction is settled, your way.** The limit is readability, not a number: up to 5 in one column, 6 to 10 in two columns when labels fit 2 lines on mobile, `Dropdown` above 10. Changed in all eight places that stated the old cap.
 
+### Done: five thin flows filled, from their own pages
+
+**The material was already in the docs.** The flows were thin because nobody had read past `Usage`, not because the source was empty. `filter-bar`, `media-upload`, `legend` and `chip-group` gained real axes; `phone-number-field` was rewritten outright, since all four of its axes were runtime states.
+
+**Four invented conditions were cut the same hour.** They are now visible *not documented* lines, in one backlog row — an agent that reads *not documented* asks; one that reads a plausible invention follows it.
+
+**Waiting on you:** `Phone number field`'s breakpoint table says dropdown on narrow screens and bottom sheet on wide ones. Everywhere else in the system that mapping is reversed.
+
 **Then: settle whether `Spacing/56` is page rhythm or forbidden.** The ruleset
 says both, 83 lines apart — and the donut appears to use 56 internally.
 
