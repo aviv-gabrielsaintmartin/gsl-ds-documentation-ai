@@ -248,6 +248,7 @@ lists. See **Never select**.
 | **Breadcrumb** | Showing hierarchical location and allowing navigation up the hierarchy. **Web only** | The primary need is page title and actions → **Top bar** · Top-level global navigation → **Navigation bar** |
 | **Pagination** | Dividing large result sets into numbered pages. **Web only** | Mobile and apps → infinite scroll, a **behaviour, not a component** — see **Platform limits** |
 | **Top bar** | Page-specific title, context, and actions | Global site navigation → **Navigation bar** |
+| **Burger menu** | The mobile navigation menu opened from the navigation bar's burger icon | Navigation stays visible across the top → **Navigation bar** · A list of contextual actions rather than navigation → **Action menu** on desktop, **Modal bottom sheet menu** on mobile |
 | **Navigation bar** | Global navigation to top-level site destinations (web) | Sub-pages and flows → **Top bar** · In-app navigation → **Navigation Bar (App)**, mobile only |
 
 ### Providing feedback and status
@@ -261,6 +262,7 @@ lists. See **Never select**.
 | **Tag** | A non-interactive status label or category that **occupies its own place in the layout flow** and would still make sense if the thing beside it were removed — "New", "Sold", "Exclusive", "Verified" | Seller lead scoring → **Score tag** · The element is interactive — selectable, filterable, removable → **Chip** · Status needs supporting text → **Feedback message** · The marker is anchored to another component's geometry → **Badge** |
 | **Score tag** | A Tag specialised for seller lead scoring | Any other status or category label → **Tag** · An energy-efficiency rating → **Energy tag** |
 | **Badge** | A marker **anchored to a host component's geometry** — overlapping or pinned to a button, tab label, menu entry or cell row, and meaningless without that host. Typically a count or a dot | The marker holds its own place in the layout flow → **Tag** · It is interactive → **Chip** |
+| **Loading state** | Content is being fetched and the wait needs its own element on the page — a spinner with an optional title and description | The area is empty, failed or succeeded rather than waiting → **Info state** · The wait belongs inside a control already on screen, such as a dropdown fetching its options → that component's own loading state, not this |
 | **Tooltip** | A brief clarification of one UI element, shown on hover or tap — a single explanation, not a sequence | Persistent inline guidance not tied to a control → **Feedback message** · A guided, multi-step tour → **Coach mark** |
 | **Coach mark** | Contextual onboarding overlays pointing at specific UI elements | Persistent inline guidance not tied to onboarding → **Feedback message** · A single brief clarification rather than a guided tour → **Tooltip** |
 
@@ -282,6 +284,7 @@ lists. See **Never select**.
 | --- | --- | --- |
 | **Avatar** | Representing a user, agent, agency, or seeker. Circle for individuals, square for agencies | — |
 | **Media upload** | The user uploads files by drag-and-drop or file picker | The user provides a URL or file path instead → **Text field** |
+| **Image slider** | A sequence of images the user swipes or steps through — **images only**, and the whole slider may link to one destination | The slides carry mixed content, not only images → **Carousel** · A single image held to a fixed ratio → **Image ratio** |
 | **Rating** | Displaying user rating results — non-interactive, from Opinion System | — |
 | **Energy tag** | Property energy efficiency ratings **only**. Use the correct country/region variant | — |
 
@@ -451,6 +454,7 @@ screen.
 | `Map Polygon` · `Map Polygon backdrop` · `mapPinsV2_SL` · `mapPinsV2_IWT` | Internal to `Map template`; the two pin sets are brand-specific | Select `Map template` |
 | `Brand Logo` · `Favicon` · `Brand App Icons` · `Flag` | Brand assets, determined by brand configuration | Nothing. Brand config places them |
 | `Programmatic Ads` | Commercial ad slot | Nothing |
+| `Burger menu (profil)` | Already adapted to consumer-content needs, and never to be used. Gabriel, 18 September 2026 | Use `Burger menu` |
 | `Tab Bar` | Mid-refactor, unclassified | Use `Tabs` |
 | `Footer` | Figma only, owned by the Header/Footer team, not built | Nothing |
 
