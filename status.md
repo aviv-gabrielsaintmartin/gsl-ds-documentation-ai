@@ -141,7 +141,17 @@ run had left behind**. All three are in the backlog.
 
 **`State message`, `Score tag`, `Date field` and `Floating button group` have a rule row**, each built from words already in the repo. Components with no rule: 16 → 12.
 
-**Then three more, after you pushed back.** `Image slider`, `Loading state` and `Burger menu` are routed; `Burger menu (profil)` is forbidden on your word. **You were right about the first two** — the web code repo has real standalone components for both, which the repo's own docs never mentioned. **Components with no rule: 16 → 0.** Every component in the four libraries can now be reached by a rule, or is forbidden on purpose with the reason written down.
+**Then three more, after you pushed back.** `Image slider`, `Loading state` and `Burger menu` are routed; `Burger menu (profil)` is forbidden on your word. **You were right about the first two** — the web code repo has real standalone components for both, which the repo's own docs never mentioned. ### Done: the check that stops the two sides drifting
+
+**`scripts/check-rules-docs.py` compares each doc's *When NOT to use* against its ruleset row.** Sets of component names, never prose — the doc is meant to rephrase.
+
+**It found 12 disagreements the day it was written, and five were made that same afternoon** by the new rules. All five closed. Seven predate it and are a backlog row.
+
+**Also done:** asking the user has its own ruleset section, and `Feedback bar` versus `Feedback thumb buttons` is now your rule — a notation against a like — replacing my guess. Two open questions in `components-audit.md` are struck through and answered.
+
+**A pilot doc for `Button Bar` is in the scratchpad for you to read.** Sixteen selectable components still have no doc; six have web code and can be written now, ten need Figma.
+
+**Components with no rule: 16 → 0.** Every component in the four libraries can now be reached by a rule, or is forbidden on purpose with the reason written down.
 
 **You described five of the last six from memory.** The sixth came out of its Figma properties. Two things are recorded as unknown rather than guessed: the thumb buttons have no usage rules, and the boundary between the two feedback components is read from Figma, not from any rule.
 

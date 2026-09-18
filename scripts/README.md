@@ -5,6 +5,7 @@ Repo-level tools. Nothing here is part of the documentation an agent reads.
 | Script | What it does |
 | --- | --- |
 | `check-links.py` | Checks every repo-relative link resolves, and that no ruleset points an agent at a file it may not read |
+| `check-rules-docs.py` | Checks each component doc and its ruleset row name the same alternatives. Compares sets of component names, never prose |
 | `zeroheight-extract.mjs` | Renders one Zeroheight component page, scrolls it, and saves its blocks plus every content image |
 | `zeroheight-draft.py` | Turns one extraction into a draft component doc, laid out against `components/component-template.md` |
 | `zeroheight-merge.py` | Merges that draft into the doc the repo already has, section by section, so nothing hand-written is lost |
