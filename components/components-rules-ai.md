@@ -450,7 +450,7 @@ screen.
 | `Status Bar` · `Home Indicator` · `Webview` | Platform chrome — the OS draws it | Nothing. It is not yours to place |
 | `Cell Content` | A composition slot — what you build rows *from*. Never the answer to "which component solves this problem" | Decide the container first: `Card` for one grouped block, `Tables` for tabular data, or — for a plain list — a layout you lay out yourself. **There is no `List` component in any library.** Once the container is settled, Cell content is the correct row, and using it there is not a violation of this rule |
 | `Content Placeholder` | A slot, instantiated once then swapped for local content | Select the parent, put your content in the slot |
-| `Filter dropdown container` | Internal to `Filter bar` | Select `Filter bar` |
+| `Filter dropdown container` · `Filter button` | Internal to `Filter bar`. The bar is built **from** filter buttons — they are its parts, never a component you place beside it. Gabriel, 18 September 2026 | Select `Filter bar`, then configure its filter buttons inside it |
 | `Map Polygon` · `Map Polygon backdrop` · `mapPinsV2_SL` · `mapPinsV2_IWT` | Internal to `Map template`; the two pin sets are brand-specific | Select `Map template` |
 | `Brand Logo` · `Favicon` · `Brand App Icons` · `Flag` | Brand assets, determined by brand configuration | Nothing. Brand config places them |
 | `Programmatic Ads` | Commercial ad slot | Nothing |
