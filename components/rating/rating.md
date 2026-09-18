@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831155311/Rating | Last modified: Aug 21, 2026 -->
-
-# Rating
-
 The rating is used to display the result of user ratings.
 
 ![](images/ZB3p1QzprQonyzpmBN2UZA.png)

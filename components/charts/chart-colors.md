@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2832531564/Chart+colors | Last modified: Aug 25, 2026 -->
-
-# Chart colors
-
 Four types of color palettes are available for data visualization: qualitative, sequential, diverging, and semantic.
 
 ---

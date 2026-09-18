@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831712331/Card | Last modified: Aug 17, 2026 -->
-
-# Card
-
 Cards are flexible containers used to visually group content.
 
 ![](images/8py3RJZZnPsqp4NWg8cD5Q.png)

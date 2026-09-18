@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831712357/Feedback+message | Last modified: Aug 21, 2026 -->
-
-# Feedback message
-
 Feedback messages are non-disruptive, inline notifications that provide users with important information or contextual messages.
 
 ![](images/wPVVnxmPv1fRlrS4GTAAeg.png)

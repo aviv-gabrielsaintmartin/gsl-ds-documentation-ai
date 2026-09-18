@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2832367678/Checkbox+group | Last modified: Aug 17, 2026 -->
-
-# Checkbox group
-
 Checkbox groups are used to select multiple options from grouped checkboxes.
 
 ![](images/-yHOGviQOEqwMIUy1V3WXQ.png)

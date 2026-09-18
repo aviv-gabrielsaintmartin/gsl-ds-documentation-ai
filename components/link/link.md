@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831351882/Link | Last modified: Aug 21, 2026 -->
-
-# Link
-
 Links are navigational elements that are used to direct users to another location or resource.
 
 ![](images/C4dNr5fe-CI6pYkNP3tS9A.png)
@@ -19,7 +15,6 @@ Links are navigational elements that are used to direct users to another locatio
 
 Links are used to navigate users to a new page, an external website, or a different section of the current page.
 
-![](images/71670a906b31270489dc68.png)
 
 ### When to use
 

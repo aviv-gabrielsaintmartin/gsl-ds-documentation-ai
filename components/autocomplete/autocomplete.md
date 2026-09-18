@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831941697/Autocomplete | Last modified: Aug 13, 2026 -->
-
-# Autocomplete
-
 Autocomplete components suggest possible matches for user input in real time as they type, helping them complete text fields more efficiently by providing relevant results.
 
 ![](images/qVZPr35vzW8m3tMKJ-mqyg.png)

@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2832039962/Button | Last modified: Aug 17, 2026 -->
-
-# Button
-
 Buttons are used to trigger an immediate action. Button labels express what action will occur when the user interacts with it.
 
 ![](images/9x_Scmr1cd8CdgMGR1pZWA.png)  <!-- order-inferred, please verify -->

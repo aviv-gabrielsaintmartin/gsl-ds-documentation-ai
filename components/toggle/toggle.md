@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2832400439/Toggle | Last modified: Aug 21, 2026 -->
-
-# Toggle
-
 Toggles are used to switch between on and off states.
 
 ![](images/gvq4xxgMMGqLso7a0Yy7WA.png)

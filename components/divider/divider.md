@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2832531536/Divider | Last modified: Aug 21, 2026 -->
-
-# Divider
-
 Dividers are horizontal lines that separate content.
 
 ![](images/rZNIXTpQWznsGDqht9_TgQ.png)

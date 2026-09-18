@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831515736/Coach+mark | Last modified: Aug 17, 2026 -->
-
-# Coach mark
-
 Coach marks are temporary overlay messages that provide contextual information about user interface elements. They can be used successively to create a guided interface tour.
 
 ![](images/GwOjYxT8sMvbAII7lkLgcw.png)

@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831351902/Toggle+group | Last modified: Aug 21, 2026 -->
-
-# Toggle group
-
 Toggle groups are used to organize related options, allowing users to switch between multiple settings, with each toggle independently controlling an on or off state.
 
 ![](images/jSIv4dliExAz9xxnc9HL0Q.png)

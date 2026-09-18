@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2832695405/Top+bar | Last modified: Aug 21, 2026 -->
-
-# Top bar
-
 Top bars display navigation elements, titles and actions such as buttons or icons at the top of the screen.
 
 ![](images/O-ifxQ8--9J3s4P5GVBDpQ.png)

@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2832203896/Bar+chart | Last modified: Aug 25, 2026 -->
-
-# Bar chart
-
 A bar chart, or bar graph, shows numeric values as bars, with one axis for categories and the other for values. Each bar represents a category, with length indicating the value.
 
 ![](images/YnFGbHFdQBWSeuY7aX4G0g.png)

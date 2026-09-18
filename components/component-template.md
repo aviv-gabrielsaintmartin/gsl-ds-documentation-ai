@@ -1,5 +1,3 @@
-# [Component Name]
-
 _One sentence. What this component is, and its primary UX purpose._
 
 ![](images/<hash>.png)

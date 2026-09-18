@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831908925/Chart+accessibility | Last modified: Aug 25, 2026 -->
-
-# Chart accessibility
-
 ## Accessibility (a11y)
 
 > ℹ️ The design is WIP and will vary based on the platform and framework used.

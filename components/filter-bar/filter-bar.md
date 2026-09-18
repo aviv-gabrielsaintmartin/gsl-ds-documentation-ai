@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2832695387/Filter+bar | Last modified: Aug 21, 2026 -->
-
-# Filter bar
-
 Filter bars are used to narrow down search results or displayed content based on selected criteria.
 
 ![](images/xZ1WvNc74cFYoOJVLSaUGg.png)
@@ -155,8 +151,8 @@ The appearance of the filter bar changes depending on the breakpoint. To learn m
 | Platform / Breakpoint | Layout & Width Behavior |
 | --- | --- |
 | **Desktop** | ![](images/4fb33b409efbe92b150592.png) Web: XL - XXXL (> 1279 px) |
-| **Tablet** | ![](images/35567ac899eb93d995ca72.png) Web: SM - LG (600 - 1279 px) |
-| **Mobile 1** | ![](images/29e879310bad5138e95321.png) Web: XXS - XS (0 - 599 px) |
+| **Tablet** |  Web: SM - LG (600 - 1279 px) |
+| **Mobile 1** |  Web: XXS - XS (0 - 599 px) |
 | **Mobile 2** | ![](images/47f4b46654d668fe4a24d1.png) Web: XXS - XS (0 - 599 px) |
 
 We don't recommend stretching the filter bar over the entire width on desktop as this can cause usability issues.

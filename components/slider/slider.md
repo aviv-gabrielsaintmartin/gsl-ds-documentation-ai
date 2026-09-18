@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831450204/Slider | Last modified: Aug 21, 2026 -->
-
-# Slider
-
 A range slider can be used to select a single value or a range between minimum and maximum values.
 
 ![](images/Hb0YZ9yT3xcGE1HqbHjylg.png)

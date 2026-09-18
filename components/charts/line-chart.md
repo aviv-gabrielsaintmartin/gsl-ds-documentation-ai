@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831286379/Line+chart | Last modified: Aug 25, 2026 -->
-
-# Line chart
-
 Line charts are effective tools for showcasing trends in numerical data, especially continuous data over time, enabling quick analysis.
 
 ![](images/s3pZKPGI0xVBDZlbdExx_w.png)

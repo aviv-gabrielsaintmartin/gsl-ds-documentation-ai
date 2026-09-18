@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2832203916/KPI | Last modified: Aug 21, 2026 -->
-
-# KPI
-
 Key Performance Indicators (KPIs) are measurable values that demonstrate how effectively a key objective is achieved. In data visualization, KPIs are critical for providing at-a-glance insights into performance and guiding decision-making.
 
 ![](images/LBAIs8fJoDJAlhZN6CVWiQ.png)

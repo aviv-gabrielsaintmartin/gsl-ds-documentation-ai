@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2832302192/Breadcrumb | Last modified: Aug 21, 2026 -->
-
-# Breadcrumb
-
 Breadcrumbs are navigation elements that consist of a list of links arranged in a hierarchical order. They help users keep track of their location and allow them to navigate between pages.
 
 | Figma | Web | iOS | Android |

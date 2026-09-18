@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831024256/Text+area | Last modified: Aug 21, 2026 -->
-
-# Text area
-
 Text areas are used to enter and edit multi-line text content.
 
 ![](images/Wui_hPh43PH8foRvC0PW4w.png)

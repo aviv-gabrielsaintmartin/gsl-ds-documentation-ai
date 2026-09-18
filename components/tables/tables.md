@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/3492184533/Tables | Last modified: Aug 25, 2026 -->
-
-# Tables
-
 Tables are used to organize and display all information from a data set. Display, organize, and sort data for users to analyze and take action on.
 
 ![](images/0rDon-JZve3x_5TApwfbyA.png)

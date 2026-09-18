@@ -1,5 +1,3 @@
-# Floor selection
-
 Floor selection components are used to select floors.
 
 ![](images/pIehMjLted9fdlzTAovBEA.png)

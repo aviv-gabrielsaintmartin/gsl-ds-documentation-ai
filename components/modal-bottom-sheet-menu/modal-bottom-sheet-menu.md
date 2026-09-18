@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831155273/Modal+bottom+sheet+menu | Last modified: Aug 21, 2026 -->
-
-# Modal bottom sheet menu
-
 Modal bottom sheet menus display a list of context-specific actions on mobile screens or on apps.
 
 ![](images/tuOhRVIC_5-SjJutQovUAQ.png)
@@ -57,9 +53,9 @@ Badges
 
 | DO | DON'T |
 | --- | --- |
-| ![](images/acdeda841d82cbb4371bff.png) **DO:** In most use cases, display icons on the left of the labels. | ![](images/fe1e2362b5fa492a5acbf5.png) **DON'T:** Avoid mixing options with and without icons within the same modal bottom sheet menu. Icons can be omitted if none of the options require them. |
-| ![](images/b0aeed31569c898452b524.png) **DO:** Use dividers to group related options in a menu. Grouping options helps users quickly scan the menu and find what they need. | ![](images/89a1ca7702989d92214a00.png) **DON'T:** Avoid overusing dividers. Too many dividers create visual noise, which can make the menu harder to read. |
-| ![](images/d659fdf55982edc939ad3f.png) **DO:** Group destructive actions (e.g. Delete, Remove) at the end of the menu, separated by a divider, and style them in red to prevent accidental clicks. | ![](images/780f7c8a9bb6fd1621b3ab.png) **DON'T:** Don't place destructive actions at the top or in the middle of a menu, as this increases the risk of users accidentally triggering them. |
+| ![](images/acdeda841d82cbb4371bff.png) **DO:** In most use cases, display icons on the left of the labels. |  **DON'T:** Avoid mixing options with and without icons within the same modal bottom sheet menu. Icons can be omitted if none of the options require them. |
+|  **DO:** Use dividers to group related options in a menu. Grouping options helps users quickly scan the menu and find what they need. |  **DON'T:** Avoid overusing dividers. Too many dividers create visual noise, which can make the menu harder to read. |
+|  **DO:** Group destructive actions (e.g. Delete, Remove) at the end of the menu, separated by a divider, and style them in red to prevent accidental clicks. | ![](images/780f7c8a9bb6fd1621b3ab.png) **DON'T:** Don't place destructive actions at the top or in the middle of a menu, as this increases the risk of users accidentally triggering them. |
 
 | DO | DON'T |
 | --- | --- |
@@ -89,7 +85,6 @@ Badges can be added to the right of the menu entries to highlight new features o
 
 The modal bottom sheet menu contains a title. On Web, an optional subtitle can be added. The title is mandatory, but can be hidden if the context is clear.
 
-![](images/027d18a3896875c1fffe38.png)
 
 ---
 

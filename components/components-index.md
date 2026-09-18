@@ -1,5 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2839871500/Components | Last modified: Aug 11, 2026 -->
-
 # Components
 
 Component usage documentation for the GSL Design System.

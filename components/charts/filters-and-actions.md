@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831122547/Filters+and+actions | Last modified: Aug 25, 2026 -->
-
-# Filters and actions
-
 You can change the data displayed using filters or/and an interactive legend.
 
 Not documented

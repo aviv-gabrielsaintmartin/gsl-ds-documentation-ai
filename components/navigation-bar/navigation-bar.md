@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2832466011/Navigation+bar | Last modified: Aug 21, 2026 -->
-
-# Navigation bar
-
 Navigation bars provide quick access to key pages within the site, helping users to navigate efficiently.
 
 ![](images/qks62yjHepW5gBaS2cSk7g.png)

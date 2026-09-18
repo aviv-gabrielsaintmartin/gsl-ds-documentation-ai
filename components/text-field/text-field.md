@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831057031/Text+field | Last modified: Aug 21, 2026 -->
-
-# Text field
-
 Text fields are used to enter and edit single-line text content.
 
 ![](images/QZHTpDq_y6-HIPdqRyoDDw.png)
@@ -151,7 +147,7 @@ The suffix can be added to provide additional context or constraints for the use
 
 | DO |
 | --- |
-| ![](images/3599980db7caed657874f2.png) **DO:** Use the suffix for measurements, currency, or contextual information. |
+|  **DO:** Use the suffix for measurements, currency, or contextual information. |
 
 ---
 

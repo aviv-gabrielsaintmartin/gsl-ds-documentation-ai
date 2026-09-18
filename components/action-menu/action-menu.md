@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831482931/Action+menu | Last modified: Aug 13, 2026 -->
-
-# Action menu
-
 Action menus display context-specific actions in a dropdown list.
 
 ![](images/8HY5luhWgM6hGin5UWj1Ng.png)

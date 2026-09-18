@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2830991392/Alert | Last modified: Aug 13, 2026 -->
-
-# Alert
-
 Alerts are modals that provide users with critical information they need immediately.
 
 ![](images/Eu5gCszyADmog0cdnC6abQ.png)

@@ -1,5 +1,3 @@
-# Charts (Pattern)
-
 Charts are data visualisation components used to represent numerical data and trends clearly and accessibly. This section covers usage guidelines, best practices, interaction patterns, colour palettes, and accessibility requirements for all chart types in the Gemini design system.
 
 ## Chart types

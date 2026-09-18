@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2832465961/Avatar | Last modified: Aug 13, 2026 -->
-
-# Avatar
-
 Avatars represent user profiles of agencies, agents, private sellers and seekers.
 
 ![](images/tzzux_iIi19kcr1hdcYcRg.png)

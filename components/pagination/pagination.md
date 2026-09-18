@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2832597057/Pagination | Last modified: Aug 21, 2026 -->
-
-# Pagination
-
 Pagination divides content into smaller, numbered pages, making it easier for users to navigate through large amounts of content.
 
 ![](images/OAOm0A4bXtYPsHaCWfBvmQ.png)

@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/3491856865/Phone+number+field | Last modified: Aug 25, 2026 -->
-
-# Phone number field
-
 ![](images/OkYohMv1tV25EOYLM5g6xw.png)
 
 The phone number field is used to input and format phone numbers.
@@ -172,7 +168,7 @@ The style of the country code selector depends on the breakpoint. To learn more 
 | Platform / Breakpoint | Layout & Width Behavior |
 | --- | --- |
 | **Web: XXS - XS (0 - 599 px)** | Dropdown ![](images/ec15768f7eb408a06ef547.png) |
-| **Web: SM - XXXL (> 599 px)** | Bottom Sheet ![](images/ff40cc4061b1997aae7009.png) |
+| **Web: SM - XXXL (> 599 px)** | Bottom Sheet  |
 
 ---
 | Dropdown | Bottom Sheet |

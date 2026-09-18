@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/3492446795/Listing+card | Last modified: Aug 26, 2026 -->
-
-# Listing card
-
 Listing cards are actionable cards that summarize the details of a property listed on any AVIV Group website. They are generally used as calls to action but can contain different actions within their content.
 
 ![](images/Wo3lI2EnblK39bpXMzUxDQ.png)

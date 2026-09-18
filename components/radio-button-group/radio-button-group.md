@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831810661/Radio+button+group | Last modified: Aug 21, 2026 -->
-
-# Radio button group
-
 Radio button groups are used to select one option from a group of mutually exclusive choices.
 
 ![](images/p5-WvjoietVl-5Y7q03HeA.png)

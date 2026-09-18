@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2830860391/Counter+field | Last modified: Aug 17, 2026 -->
-
-# Counter field
-
 Counter fields are used to enter or select numeric values.
 
 ![](images/theZ5Og8R2pC8tFQLmvTwA.png)

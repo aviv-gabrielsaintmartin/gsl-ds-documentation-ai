@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831941723/Chip | Last modified: Aug 17, 2026 -->
-
-# Chip
-
 Chips are used to filter content, make selections, display input information or trigger actions.
 
 ![](images/OhyQGXKcKpgHUAJg6nCDeg.png)

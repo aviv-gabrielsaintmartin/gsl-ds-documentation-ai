@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831024238/Tabs | Last modified: Aug 21, 2026 -->
-
-# Tabs
-
 Tabs are used to organize related content into different views and allow users to seamlessly switch between them.
 
 ![](images/ytL2CLV7qZ-6dbibvk4jjw.png)

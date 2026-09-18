@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2740060239/Accordion | Last modified: Aug 13, 2026 -->
-
-# Accordion
-
 Accordions are container that allow users to expand and collapse sections of content, making it easier to manage large amounts of information in a compact space.
 
 ![](images/wkNTz-LmYzzZ9oU95EBrLQ.png)

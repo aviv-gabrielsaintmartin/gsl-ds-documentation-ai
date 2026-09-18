@@ -3,7 +3,7 @@ name: zeroheight-merge
 description: Bring a component doc up to date with its Zeroheight page by merging, never replacing — extract the live page, lay it out against the template, then merge section by section so the repo's own hand-written content survives. Triggers on requests to update/refresh/sync a component doc's images from Zeroheight, to close a component's image gap, or on "merge <component> with Zeroheight".
 metadata:
   author: Aviv
-  version: "1.2.0"
+  version: "1.3.0"
   status: production
 ---
 
@@ -129,14 +129,29 @@ whole time.
 
 ### The hero needs its own exception, every time
 
-Three separate bugs came from treating the hero as an ordinary image:
+**The hero lives in the preamble, above the first `##`.** It used to sit under
+an H1, and the rule keyed on that. **A component doc has no H1 any more** — the
+filename is the component's name, and repeating it as the first line said
+nothing while every reader saw it twice. Removed from all 62 docs and from the
+template on 18 September 2026.
+
+So the rule now reads the preamble on both sides: the page's first bare image
+replaces the doc's first bare image, and only when the two differ.
+
+Four separate bugs came from treating the hero as an ordinary image:
 
 1. Appending it gave the page **two heroes**, the wrong one first.
 2. The loose-image cleanup **deleted it**, because a hero also sits directly
    above a table — the readiness table.
 3. The do/don't placer added a second one before the same rule was written down.
 
-If you touch image placement, check the hero first.
+4. Moving it out from under the H1 could have lost it silently, because a doc
+   with no H1 is all preamble and the preamble used to pass straight through.
+
+If you touch image placement, check the hero first. **Test it by giving a copy
+of the doc a hero the page does not have** and confirming the merge swaps it —
+a merge that leaves a correct hero alone looks identical to one that has
+stopped handling heroes at all.
 
 ## Read the three report lines before anything else
 

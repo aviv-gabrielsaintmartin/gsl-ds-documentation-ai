@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2832695351/Progress+circle | Last modified: Aug 21, 2026 -->
-
-# Progress circle
-
 A progress circle shows a task's progress.
 
 ![](images/pDWPVEQ-P3kMaAjdQZ2-2w.png)

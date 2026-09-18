@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2830925897/Carousel | Last modified: Aug 17, 2026 -->
-
-# Carousel
-
 Carousels are used to display a collection of items that the users can slide through.
 
 ⚠️ Web only

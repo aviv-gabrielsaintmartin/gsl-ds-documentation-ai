@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831581316/Modal+bottom+sheet | Last modified: Aug 21, 2026 -->
-
-# Modal bottom sheet
-
 Modal bottom sheets are containers that appear above the content and block interaction with the rest of the screen.
 
 ![](images/EqU4JRZ6DUy6dKER-TKYFg.png)
@@ -92,8 +88,8 @@ Content volume
 
 | DO |
 | --- |
-| ![](images/cda6de5897d42698ba1996.png) **DO:** In most use cases, the close button is located in the upper left corner. The "X" is quick to locate and is best for quick exits. |
-| ![](images/f74d63cd9f47826dfa710f.png) **DO:** When using modals as alerts that require users to take action or make a decision, include a "Cancel" button next to the primary action. |
+|  **DO:** In most use cases, the close button is located in the upper left corner. The "X" is quick to locate and is best for quick exits. |
+|  **DO:** When using modals as alerts that require users to take action or make a decision, include a "Cancel" button next to the primary action. |
 
 ### Related Components
 
@@ -194,7 +190,7 @@ When the content exceeds the available space, the modal becomes scrollable, allo
 
 | Default | Scrolling |
 | --- | --- |
-| ![](images/3f89087a83ce7793045037.png) | ![](images/e38e8f49fa34e5631a367c.png) |
+|  | ![](images/e38e8f49fa34e5631a367c.png) |
 
 ### Breakpoints & Platform Adaptations
 
@@ -202,7 +198,7 @@ The style of the modal bottom sheet depends on the breakpoint. To learn more abo
 
 | Bottom sheet | Modal |
 | --- | --- |
-| ![](images/30df24c67f6ae5792c6630.png) Web: XXS - SM (0 - 767 px) Android: Compact (0 - 599 dp) iOS: iPhone | ![](images/EqU4JRZ6DUy6dKER-TKYFg.png) Web: MD - XXXL (> 767 px) Android Medium - Expanded (> 599 dp) iOS: iPad |
+|  Web: XXS - SM (0 - 767 px) Android: Compact (0 - 599 dp) iOS: iPhone | ![](images/EqU4JRZ6DUy6dKER-TKYFg.png) Web: MD - XXXL (> 767 px) Android Medium - Expanded (> 599 dp) iOS: iPad |
 
 ---
 ## Content & UX Writing

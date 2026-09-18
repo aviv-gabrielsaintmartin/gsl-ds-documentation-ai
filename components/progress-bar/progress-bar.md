@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2832203875/Progress+bar | Last modified: Aug 21, 2026 -->
-
-# Progress bar
-
 A progress bar shows a task's progress.
 
 ![](images/l648xU_EnNU42mKld-eSBw.png)

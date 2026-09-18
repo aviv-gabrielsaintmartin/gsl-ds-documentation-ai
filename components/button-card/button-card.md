@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2832007251/Button+card | Last modified: Aug 13, 2026 -->
-
-# Button card
-
 Button cards are prominent calls to action that can be used alone or in a group, with icons or pictograms.
 
 ![](images/bj5SSYKN_MjaydOGtYC25g.png)

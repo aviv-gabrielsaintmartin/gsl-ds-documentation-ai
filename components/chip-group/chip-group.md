@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/3453419713/Chip+group | Last modified: Aug 17, 2026 -->
-
-# Chip group
-
 Chip groups are collections of chips that allow users to filter, select, or manage multiple related options simultaneously.
 
 ![](images/7dz3_WZlIb8gPjEvmTpK2w.png)

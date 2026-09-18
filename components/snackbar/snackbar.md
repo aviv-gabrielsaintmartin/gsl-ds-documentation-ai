@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831843417/Snackbar | Last modified: Aug 21, 2026 -->
-
-# Snackbar
-
 Snackbars are used to provide quick feedback after an action is taken.
 
 ![](images/iVl8k509VdXqV-5U4qY40A.png)

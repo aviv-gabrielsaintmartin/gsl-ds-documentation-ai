@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/3433955377/Energy+Tag | Last modified: Aug 21, 2026 -->
-
-# Energy Tag
-
 Energy tags are used to indicate the energy efficiency of properties.
 
 ![](images/vHGcRM0T7w8BjyVJQzH4mA.png)

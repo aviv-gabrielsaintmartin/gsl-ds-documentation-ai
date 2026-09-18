@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2832629823/Floating+button+group | Last modified: Aug 21, 2026 -->
-
-# Floating button group
-
 The floating button group is used to display icon-only actions on top of images and maps.
 
 ![](images/WqQGeGstUtnnr_3NT0v-kg.png)

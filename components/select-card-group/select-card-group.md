@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2830991442/Select+card+group | Last modified: Aug 21, 2026 -->
-
-# Select card group
-
 Select cards are used for single- or multi-selection inside forms.
 
 ![](images/G2bDxxkNTYzq1_kXW1-F9A.png)

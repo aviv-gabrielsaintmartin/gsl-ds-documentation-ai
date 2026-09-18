@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2830991419/Dropdown | Last modified: Aug 17, 2026 -->
-
-# Dropdown
-
 Dropdowns are used to select one option from a list.
 
 ![](images/Yen_CT99Dth3O9m3lN3OKg.png)
@@ -70,7 +66,7 @@ Header, as with every form component
 
 | DO | DON'T |
 | --- | --- |
-| ![](images/0dcbf16e32a7e500b12072.png) **DO:** Use dropdowns to allow users to select one option from a list. | ![](images/3ca3ce2b9da0e9872e0fb5.png) **DON'T:** Don't use the dropdown to display a list of actions. Use the action menu instead. |
+| ![](images/0dcbf16e32a7e500b12072.png) **DO:** Use dropdowns to allow users to select one option from a list. |  **DON'T:** Don't use the dropdown to display a list of actions. Use the action menu instead. |
 
 | CAUTION |
 | --- |

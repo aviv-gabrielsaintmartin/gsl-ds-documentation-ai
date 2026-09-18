@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831253628/Info+state | Last modified: Aug 21, 2026 -->
-
-# Info state
-
 Info states are placeholders used to inform users about success, error and empty states.
 
 ![](images/LN74ZjSUK8ybAYHhYiKc2Q.png)

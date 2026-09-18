@@ -1,5 +1,3 @@
-# Listing summary
-
 Listing summaries are concise versions of listings featured on any AVIV Group website. Designed for high flexibility, they adapt to a wide range of use cases. While they provide an overview of the listings, they may not always include actionable elements.
 
 ![](images/Iz67boRjTJzqScSvPj-H6g.png)

@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831450186/Segmented+control | Last modified: Aug 21, 2026 -->
-
-# Segmented control
-
 Segmented controls are used to select one option from a group of mutually exclusive choices. They are displayed as a horizontal row of buttons.
 
 ![](images/LUb7n7xTzybQHn85eZqO-A.png)

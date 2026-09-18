@@ -287,7 +287,9 @@ def main():
     # --- write the doc ----------------------------------------------------
     # No source line. Zeroheight is being discontinued, so a comment pointing
     # back at it would outlive the thing it points to.
-    doc = [f"# {name}", "", summary or "Not documented", ""]
+    # No H1. The filename is the component's name; repeating it as the first
+    # line of the page said nothing, and every reader saw it twice.
+    doc = [summary or "Not documented", ""]
     if hero:
         doc += [image_md(hero), ""]
 

@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2832400411/Button+group | Last modified: Aug 17, 2026 -->
-
-# Button group
-
 Button groups display multiple related choices in a horizontal row, allowing users to select one or more options.
 
 ![](images/tCkaJuN8ejFS_ucK5dbqtA.png)

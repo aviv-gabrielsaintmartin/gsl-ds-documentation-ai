@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2830991466/Wizard | Last modified: Aug 21, 2026 -->
-
-# Wizard
-
 Wizards guide users through step-by-step processes to achieve their goal.
 
 ![](images/efksRaEmpDyRYGCdmwhn_w.png)

@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831122517/Tag | Last modified: Aug 21, 2026 -->
-
-# Tag
-
 ![](images/rIQ0wgCWxsdDvzLFUdUXkQ.png)
 
 Tags are used to label, categorize and highlight items to help users quickly identify content.
@@ -83,7 +79,7 @@ Tags are available in a variety of styles to suit different visual contexts and 
 
 | Dark | Subdued | Primary | Secondary | Light | Error | Success | Information | Warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ![](images/92e1082ee2270b02819095.png) | ![](images/c14bcaa093daf8fac310b9.png) | ![](images/2c2a4bab596adfc43afd9b.png) | ![](images/1a953a143a8ff52982e3de.png) | ![](images/3b551fdaa502470ceb78d8.png) | ![](images/8bd7985a323d9cb299159f.png) | ![](images/4ed2a6d1cfd8d42389dfa7.png) | ![](images/22d8656b7b0a3dd244f7e2.png) | ![](images/6b88f65d0bea69e3600ba5.png) |
+| ![](images/92e1082ee2270b02819095.png) |  | ![](images/2c2a4bab596adfc43afd9b.png) |  |  |  |  |  |  |
 
 | DO |
 | --- |

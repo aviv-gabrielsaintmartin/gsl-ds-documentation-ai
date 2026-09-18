@@ -424,8 +424,26 @@ def merge(component, regen_path, write=False, keep_links=False, base=None,
             kept_lines.append(l)
         return kept_lines, dropped
 
+    # The hero used to live under the H1. The docs no longer carry one — the
+    # filename is the title, and repeating it as the first line said nothing —
+    # so the hero now sits in the preamble, above the first `##`. It is still a
+    # replacement and never an addition: the skill lists three separate bugs
+    # that came from treating it as an ordinary picture.
+    src_preamble = next((b for lv, ti, b in split(new_lines) if ti is None), [])
+
     for lv, title, body in repo:
         if title is None:
+            body = list(body)
+            hero = next((m.group(1) for l in src_preamble
+                         for m in [re.match(r"^!\[[^\]]*\]\(images/([^)\s]+)\)\s*$",
+                                            l.strip())] if m), None)
+            if hero:
+                for n, l in enumerate(body):
+                    if re.match(r"^!\[[^\]]*\]\(images/", l.strip()):
+                        if images_in(l) != {hero}:
+                            body[n] = f"![](images/{hero})"
+                            report.append(("(page hero)", "replaced by the source's"))
+                        break
             out += body
             continue
         out.append("#" * lv + " " + title)

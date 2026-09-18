@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2832007277/Legend | Last modified: Aug 25, 2026 -->
-
-# Legend
-
 A legend identifies the data series or categories displayed in a chart, and can allow users to filter the data shown when made interactive.
 
 Not documented

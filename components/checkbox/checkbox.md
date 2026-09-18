@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2830958639/Checkbox | Last modified: Aug 17, 2026 -->
-
-# Checkbox
-
 Checkboxes are used to select one or more options from a list.
 
 ![](images/IJ0shhF-zzNGnmO1vqaB7Q.png)

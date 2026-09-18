@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2830762135/Donut+chart | Last modified: Aug 25, 2026 -->
-
-# Donut chart
-
 A donut chart compares each group's contribution to a whole by dividing a circle into radial slices representing proportions.
 
 ![](images/eovAIWoZB8ToM9RwvuVsoQ.png)

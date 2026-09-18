@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2832269388/Cell+content | Last modified: Aug 17, 2026 -->
-
-# Cell content
-
 Cell contents are building blocks used to create elements such as lists or button cards.
 
 ![](images/EKTtvHXhfujFZF5L9_3p7w.png)

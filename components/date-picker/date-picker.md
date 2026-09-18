@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2832367723/Date+picker | Last modified: Aug 21, 2026 -->
-
-# Date picker
-
 Date pickers are used to select a date using text input or a calendar view.
 
 ![](images/FKfcnOkggnHBX0X7-atNMA.png)

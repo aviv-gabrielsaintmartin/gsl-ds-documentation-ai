@@ -1,7 +1,3 @@
-<!-- Source: https://avivgroup.atlassian.net/wiki/spaces/ADS/pages/2831450231/Media+upload | Last modified: Aug 26, 2026 -->
-
-# Media upload
-
 Media upload components allow users to upload, view, and manage media files such as images, videos and documents.
 
 ![](images/o_n_WvAV6f-6H3j2GuTtiw.png)
@@ -199,7 +195,6 @@ The disabled state is not currently available. If needed, please request it in [
 * **Action menu:** The user can access the following options from the action menu: **Choose as cover** (set the file as a cover; any file type can be set as a cover), **Move forward** (moves the file one step forward; files can also be dragged and dropped to any position), **Move backwards** (moves the file one step backward), **Edit caption** (opens a modal to change the file name/caption), **Edit image** (opens an external image editor), **Remove** (deletes the file).
 * **Width Adaptability:** The media upload cards adjust to the width of their container, filling the available space based on the size of the container. The width can be set to 100% (full-width) or 50% of the container. The cards have a fixed aspect ratio of 3:2.
 
-![](images/0bd5e11d9fdeb7a8ab3081.png)
 
 ### Breakpoints & Platform Adaptations
 
@@ -207,8 +202,8 @@ The text and style of the empty drop zone depends on the breakpoint. On the desk
 
 | Platform / Breakpoint | Layout & Width Behavior |
 | --- | --- |
-| **Web: XXS to MD (0 - 1023 px)** | ![](images/6d603121a27d36810f8107.png) Tap. Android and iOS: used on all breakpoints. |
-| **Web: LG to XXXL (> 1024 px)** | ![](images/2b857ba963f26c30513960.png) Drag and drop. Android and iOS: not used. |
+| **Web: XXS to MD (0 - 1023 px)** |  Tap. Android and iOS: used on all breakpoints. |
+| **Web: LG to XXXL (> 1024 px)** |  Drag and drop. Android and iOS: not used. |
 
 ---
 
