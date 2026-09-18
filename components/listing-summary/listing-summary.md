@@ -27,7 +27,28 @@ Not documented
 
 ### Variant Selection Flow
 
-Not documented
+```
+Thumbnail position
+├─ Row layouts — tables, dense lists → Thumbnail on the left
+└─ Narrow columns or stacked layouts → Thumbnail on top
+
+Thumbnail size
+├─ Shown → Width 64, 72, 84, 96, 104, 112, 128 or 256; aspect ratio 1:1, 4:3 or 3:2
+└─ Not needed → Disable it
+
+Content slots — each is enabled or disabled independently
+├─ Tags → 1, 2 or 3
+├─ Price tag → Headline 24 with €m² 14 (default), or Headline 20 with €m² 12
+├─ Title → 16 (default), 14, or Headline 24
+├─ Feature list → 3 or 4 features, at 12 (default), 14 or 16; icons on or off
+├─ Location → 12 (default), 14 or 16
+├─ Helper text → 12 (default), 14 or 16
+└─ Action → 1 or 2 buttons, at button size 40
+
+Beyond the default slots
+└─ Any custom arrangement is possible — but a summary that mimics Listing card's
+   layout and functions is Listing card; see **Highest tier first**
+```
 
 ### Usage Guidance
 

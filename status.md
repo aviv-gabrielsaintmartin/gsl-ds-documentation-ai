@@ -111,6 +111,14 @@ it, naming the component and the damage.
 of the 29 fixes. Re-running `modal-bottom-sheet` placed **2 pictures the old
 run had left behind**. All three are in the backlog.
 
+### Done: every doc now says which variant to pick
+
+**57 of 57.** `floor-selection` and `listing-summary` were the last two blank; *Variant flow* is at 100%. Both written from each doc's own words, no Figma property named, so they stay platform-neutral.
+
+**It came out of assessing the decision-tree article you sent.** The answer was no new trees — this repo already has both layers the article describes, as intent tables and axis lists. What it does **not** have is anything joining a doc's axis name to Figma's property name. That is now a question in the backlog.
+
+**Those same two docs are also the only two of 57 with no `When to use` and no `When NOT to use`.** An hour's work, proposed in the backlog, not started.
+
 **Then: settle whether `Spacing/56` is page rhythm or forbidden.** The ruleset
 says both, 83 lines apart — and the donut appears to use 56 internally.
 

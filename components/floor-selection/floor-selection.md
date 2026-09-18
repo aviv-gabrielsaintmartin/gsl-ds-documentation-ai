@@ -28,7 +28,18 @@ Not documented
 
 ### Variant Selection Flow
 
-Not documented
+```
+Field width
+├─ Default, one field on its own row → 144px
+├─ Two fields share the same row → 50% of the container
+└─ Not recommended at full-width — the form container caps at 448px
+
+Header
+├─ Always → A label, 1 to 3 words, noun form, starting with a capital letter, no punctuation
+├─ The field is mandatory → Required asterisk; otherwise an optional mention
+├─ The label alone is not enough → Add a tooltip icon
+└─ Recommended → Keep the default helper text, which explains how to enter the ground floor
+```
 
 ### Usage Guidance
 
