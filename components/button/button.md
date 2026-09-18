@@ -73,7 +73,7 @@ Badge
 
 | DO | DON'T |
 | --- | --- |
-| ![](images/6508fd4a5b873b8436fa64.png) **DO:** Use buttons to trigger actions, such as sharing, saving or opening a modal with a contact form. | ![](images/e296b4e7cef1d2c8257112.png) **DON'T:** Don't use buttons as navigational elements. Instead, use links when the desired action is to take the user to a new page. |
+| ![DO](images/6508fd4a5b873b8436fa64.png) **DO:** Use buttons to trigger actions, such as sharing, saving or opening a modal with a contact form. | ![DON'T](images/e296b4e7cef1d2c8257112.png) **DON'T:** Don't use buttons as navigational elements. Instead, use links when the desired action is to take the user to a new page. |
 
 ### Related Components
 
@@ -105,18 +105,22 @@ Proportion of emphasis used across AVIV products
 
 | DO | DON'T |
 | --- | --- |
-| ![](images/DpJQ8zZ_6ifdgFzLni-MJA.svg) **DO:** Use only one primary button per section. | ![](images/K-EoyUnI9ephHevzuDS99Q.svg) **DON'T:** Don't use more than one primary button per section. |
+| ![DO](images/DpJQ8zZ_6ifdgFzLni-MJA.svg) **DO:** Use only one primary button per section. | ![DON'T](images/K-EoyUnI9ephHevzuDS99Q.svg) **DON'T:** Don't use more than one primary button per section. |
 
 | DO |
 | --- |
-| **DO:** You can use secondary and tertiary buttons without the need to include a primary one. |
-| ![](images/2j_UrTRY7PxpmhsPOD9Xew.png) **DO:** You can group multiple secondary and tertiary buttons. |
+| ![DO](images/ZAbKJNmcHdL8CUQtc5yBFw.svg) **DO:** You can use secondary and tertiary buttons without the need to include a primary one. |
+| ![DO](images/2j_UrTRY7PxpmhsPOD9Xew.png) **DO:** You can group multiple secondary and tertiary buttons. |
 
 | CAUTION |
 | --- |
-| **CAUTION:** Be cautious using a standalone tertiary button as without context these buttons could be overlooked as actions. |
+| ![CAUTION](images/KyugH9BhMGSskvqeoxQkjg.svg) **CAUTION:** Be cautious using a standalone tertiary button as without context these buttons could be overlooked as actions. |
 
 Data tracking in the [CDP](https://avivgroup.atlassian.net/wiki/spaces/ADS/database/1123451029) showed that the button change from secondary to tertiary initially caused a short-term drop in engagement but led to a sustained long-term increase. It is now performing the same / slightly better.
+
+| Primary | Secondary | Tertiary | Danger |
+| --- | --- | --- | --- |
+| ![Primary](images/57bd78cc0bdca3e70fe2ba.png) | ![Secondary](images/0d313c16cab499f1533f1d.png) | ![Tertiary](images/8d62da00ee72d348499fa6.png) | ![Danger](images/7b6f16828b7a3afede3fdc.png) |
 
 ### Size
 
@@ -143,13 +147,21 @@ Icons are used to emphasize the action stated in the label of the button. By def
 
 | DO | DON'T |
 | --- | --- |
-| ![](images/xsQee_t-zxzmQ_plzaaW9A.svg) **DO:** Icons that serve an interactive function must be placed within an icon-only button. This ensures accessibility, and clear affordance for user interactions. | ![](images/aHbzr5JTbkd18UPzRxmMFA.svg) **DON'T:** Icons should not be added to layouts with the intent of being interactive. Icons themselves do not support different states or interactions and must be placed within appropriate interactive components, such as buttons, to ensure usability and accessibility. |
+| ![DO](images/xsQee_t-zxzmQ_plzaaW9A.svg) **DO:** Icons that serve an interactive function must be placed within an icon-only button. This ensures accessibility, and clear affordance for user interactions. | ![DON'T](images/aHbzr5JTbkd18UPzRxmMFA.svg) **DON'T:** Icons should not be added to layouts with the intent of being interactive. Icons themselves do not support different states or interactions and must be placed within appropriate interactive components, such as buttons, to ensure usability and accessibility. |
+
+| Icon only | Icon left | Icon right |
+| --- | --- | --- |
+| ![Icon only](images/f4835cb9018e791783240a.png) | ![Icon left](images/1d9a4a0abc87b0e9c2ec8d.png) | ![Icon right](images/a2fcf4c2fb0404c5a039d7.png) |
 
 #### Badge
 
 Badges in buttons are used to display dynamic information that grabs the user's attention. They can be used for things like notifications, alerts, or filtering.
 
 ---
+
+| &nbsp; | &nbsp; | &nbsp; |
+| --- | --- | --- |
+| ![](images/fa207426a269b0b12ef2fd.png) | ![](images/2c295086af06b6e6c8f16c.png) | ![](images/a7562a7cc88c3b569e77b4.png) |
 
 ## Behavior & Responsiveness
 
@@ -164,6 +176,26 @@ Badges in buttons are used to display dynamic information that grabs the user's 
 
 **Loading:** This state is typically triggered when the action initiated upon click involves an API call or server query. This provides the user with a visual indication that their action is being processed. When a button is in a Loading state, the user can still navigate the page. However, if they initiate a new action before the previous one is completed, a message or alert may appear.
 
+| Default | Hover | Pressed | Disabled |
+| --- | --- | --- | --- |
+| ![Default](images/57bd78cc0bdca3e70fe2ba.png) | ![Hover](images/ffa4d2cd52b924d17ae8a7.png) | ![Pressed](images/24484746e5b5f9bd338898.png) | ![Disabled](images/383f1ca04ed9babda52cc6.png) |
+
+#### Disabled button
+
+| DO | DON'T |
+| --- | --- |
+| ![DO](images/7152697f875f7018a1b7ee.png)<br>**DO:** Keep the button active and mark mandatory fields as required. Show error messages when the user clicks the button but hasn’t filled all mandatory fields. | ![DON'T](images/388cf31d0d63f96d28148d.png)<br>**DON'T:** Avoid using disabled buttons. |
+
+| Loading (Web) | Loading (Android) | Loading (iOS) |
+| --- | --- | --- |
+| ![Loading (Web)](images/63339ca9cc69a4aae06a6c.png) | ![Loading (Android)](images/6669853a8d45087f3386de.png) | ![Loading (iOS)](images/8e21437423d0fe30692057.png) |
+
+#### Touch target
+
+| 32px button | 40px button | 48px button |
+| --- | --- | --- |
+| ![32px button](images/97d84f26c98ff45e2964e9.png) | ![40px button](images/ed18a5834db875f71734f3.png) | ![48px button](images/cfb7b1b54899a68ecf8876.png) |
+
 ### Touch Target & Layout
 
 * **Touch Target:** To ensure accessibility, the touch target of the 32px button has a height of 40px. For all other sizes, the touch target is the same height as the button.
@@ -173,6 +205,60 @@ Badges in buttons are used to display dynamic information that grabs the user's 
 | --- |
 | ![](images/6BgGGjSs4ALrawTBowP1ag.svg) **DO:** Use full width buttons on mobile devices. |
 | ![](images/-Yo3dabzd0hSc_wRSn8TSw.png) **DO:** Use full width buttons on smaller containers on desktop devices. |
+
+| 32px height | 40px height | 48px height |
+| --- | --- | --- |
+| ![32px height](images/1c58d5d66bbe5a594e114c.png) | ![40px height](images/57bd78cc0bdca3e70fe2ba.png) | ![48px height](images/ab953ed9cbd769acd72b3d.png) |
+
+| DO | DON'T |
+| --- | --- |
+| ![DO](images/FFF0nICzSsOqcFS8l7wlxQ.svg)<br>**DO:** Use the same size of the button or field aside | ![DON'T](images/OQMhDcnepc_TEc9LCuaqXQ.svg)<br>**DON'T:** Do not use a different size between two buttons aside or the field next to the button |
+
+#### Context
+
+| Default button | Inverted color button | Over primary color surface button | Over secondary color surface button | Floating button |
+| --- | --- | --- | --- | --- |
+| ![Default button](images/57bd78cc0bdca3e70fe2ba.png) | ![Inverted color button](images/753b2d323667a75189305d.png) | ![Over primary color surface button](images/c33968be10cedd1665aefd.png) | ![Over secondary color surface button](images/e268e782d5cc5bf0a8e47b.png) | ![Floating button](images/55d25f9397a62d8f3fdbdc.png) |
+
+| DO |
+| --- |
+| ![DO](images/EHJnjd0Z48pYBzpRrSaBcA.png)<br>**DO:** Use the floating variant for buttons that overlap images |
+| ![DO](images/k_8wf7IfkE-K3iZOEs9sLA.png)<br>**DO:** Use the floating variant for buttons that overlap images |
+
+| DO |
+| --- |
+| ![DO](images/6BgGGjSs4ALrawTBowP1ag.svg)<br>**DO:** Use full width buttons on mobile devices |
+| ![DO](images/-Yo3dabzd0hSc_wRSn8TSw.png)<br>**DO:** Use full width buttons on smaller containers on desktop devices |
+
+#### Use cases
+
+#### Navigation button
+
+To guide users back to the previous page, please use a tertiary button featuring a left-facing arrow and the label "Back."
+
+We recommend the following spacing between header and button:
+
+| Breakpoint: XXS - SM (0 - 767px) | Breakpoint: MD - XXXL (> 767px) |
+| --- | --- |
+| ![Breakpoint: XXS - SM (0 - 767px)](images/89ea6efbc361bd1c34ffd4.png) | ![Breakpoint: MD - XXXL (> 767px)](images/62d5f057060f832af357ba.png) |
+
+The space below the button depends on the content underneath.
+
+#### Read more button
+
+This makes interfaces cleaner and easier to navigate.
+
+| Expanding | Collapsing |
+| --- | --- |
+| ![Expanding](images/7608aaf655410e51033de5.png) | ![Collapsing](images/228d458bf11fbec828e523.png) |
+
+This example will be moved to the text button documentation when it's finished.
+
+#### Animated floating button
+
+| Default | Minimized |
+| --- | --- |
+| ![Default](images/0c6056281d80001ed084b1.png) | ![Minimized](images/f0b0122f54d006c8013cb0.png) |
 
 ### Breakpoints & Platform Adaptations
 
@@ -190,7 +276,7 @@ Buttons solicit an action from the user and trigger that action. Buttons should 
 
 | DO | DON'T |
 | --- | --- |
-| ![](images/awuqKfbT4aKJsszm5uVlHQ.svg) **DO:** Give actions a clear naming. | ![](images/Rolnjm71sEPmKJJzNO_gAg.svg) **DON'T:** Don't give actions a vague naming. |
+| ![DO](images/awuqKfbT4aKJsszm5uVlHQ.svg) **DO:** Give actions a clear naming. | ![DON'T](images/Rolnjm71sEPmKJJzNO_gAg.svg) **DON'T:** Don't give actions a vague naming. |
 
 ---
 

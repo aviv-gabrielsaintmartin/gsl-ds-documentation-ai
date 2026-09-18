@@ -20,6 +20,20 @@ python3 scripts/zeroheight-draft.py <out-dir> --name "Component Name"
 python3 scripts/zeroheight-merge.py <component> <out-dir>/<component>.md
 ```
 
+The third command takes three options, each for recording something a human
+decided. The skill says when to reach for them.
+
+| Option | What it does |
+| --- | --- |
+| `--place "Name=Target"` | Puts a source-only section under a different heading. Repeatable |
+| `--base=<doc>` | Merges against a copy of the doc instead of the one in `components/` |
+| `--keep-zh-links` | Keeps incoming `zeroheight.com` links. By default they are unwrapped to their words |
+
+**A section being cut from the doc is cut in a `--base` copy and the merge
+re-run — never cut out of the finished draft.** The merge holds back any table
+the doc already has, so a section removed afterwards takes the page's
+replacement with it.
+
 Nothing lands in `components/` until `--write` is passed to the third command,
 and that waits until a human has read the result on their Desktop.
 
@@ -32,11 +46,22 @@ written here, and a regeneration deletes them.
 
 ### What the report tells you
 
+From `zeroheight-draft.py`:
+
 | Line | What to do about it |
 | --- | --- |
 | `images downloaded: N \| placed in the doc: N` | These two must match. A gap means an image has no home in the doc |
 | `sections with nothing from the source` | The source genuinely had nothing. They are written as `Not documented` |
-| `headings the source has and the template does not` | **A guess.** Each one was placed under the section that was open at the time. Check every line |
+| `headings the source has and the template does not` | **A guess.** Each one was placed under the section that was open at the time. Check every line, and record each correction with `--place` |
+
+From `zeroheight-merge.py`:
+
+| Line | What to do about it |
+| --- | --- |
+| `all N source images are in the merged doc` | Nothing |
+| `!! N of M source images are NOT in the merged doc` | **Chase every one.** Either a fault, or a decision that has to be written down. This is the line that caught `checkbox` losing 12 images while the draft script reported 42 of 42 placed |
+| `!! N referenced files are NOT pictures` | The doc points at a file that cannot render. 36 such files exist — Figma JSON saved under a `.png` name. `check-links.py` cannot see them, because it asks whether a file exists, never whether it is a picture |
+| `N cells re-pictured` | A cell whose words already matched the page was given the page's picture. Expected where the old migration put the wrong one in |
 
 ### Put the draft in front of a human
 
