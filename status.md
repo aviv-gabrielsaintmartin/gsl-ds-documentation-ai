@@ -135,7 +135,7 @@ run had left behind**. All three are in the backlog.
 
 **Four invented conditions were cut the same hour.** They are now visible *not documented* lines, in one backlog row — an agent that reads *not documented* asks; one that reads a plausible invention follows it.
 
-**Waiting on you:** `Phone number field`'s breakpoint table says dropdown on narrow screens and bottom sheet on wide ones. Everywhere else in the system that mapping is reversed.
+**`Phone number field`'s breakpoint table was inverted, and you confirmed it.** Fixed in both the table and the flow: bottom sheet on narrow, dropdown on wide, matching the rest of the system.
 
 **Then: settle whether `Spacing/56` is page rhythm or forbidden.** The ruleset
 says both, 83 lines apart — and the donut appears to use 56 internally.

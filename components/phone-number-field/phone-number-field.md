@@ -59,12 +59,10 @@ Platform — dictated by the platform, never a design choice
 └─ Android → The label sits inside the field, and moves above it once the field is active or filled
 
 Country code selector — dictated by width, never a design choice
-├─ Web, XXS to XS (0 to 599px) → Dropdown
-└─ Web, SM and above (over 599px) → Bottom sheet
-   └─ **Unverified, and it points the opposite way from the rest of the system.**
-      Everywhere else a bottom sheet is the narrow-width answer and a dropdown
-      the wide one — see **Showing context-specific actions**. This is what the
-      component's own breakpoint table says. Do not follow it without checking
+├─ Web, XXS to XS (0 to 599px) → Bottom sheet
+└─ Web, SM and above (over 599px) → Dropdown
+   └─ Matches **Showing context-specific actions**, which sends narrow widths to
+      a bottom sheet and wide ones to a dropdown
 
 Header, as with every form component
 ├─ Mandatory field → Required asterisk to the right of the label
@@ -175,8 +173,12 @@ The style of the country code selector depends on the breakpoint. To learn more 
 
 | Platform / Breakpoint | Layout & Width Behavior |
 | --- | --- |
-| **Web: XXS - XS (0 - 599 px)** | Dropdown ![](images/ec15768f7eb408a06ef547.png) |
-| **Web: SM - XXXL (> 599 px)** | Bottom Sheet  |
+| **Web: XXS - XS (0 - 599 px)** | Bottom Sheet |
+| **Web: SM - XXXL (> 599 px)** | Dropdown ![](images/ec15768f7eb408a06ef547.png) |
+
+_**Corrected 18 September 2026.** This table read the other way round — dropdown on narrow
+screens, bottom sheet on wide ones — which is the reverse of every other component in the
+system. Gabriel confirmed it was inverted. The image kept its caption and moved with it._
 
 ---
 | Dropdown | Bottom Sheet |
