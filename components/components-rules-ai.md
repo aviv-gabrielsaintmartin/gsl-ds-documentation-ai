@@ -140,6 +140,7 @@ first that decides it:
 | Choose | When | Otherwise |
 | --- | --- | --- |
 | **Button** | The user triggers an immediate action — save, submit, share, open a modal | Navigation → **Link** · Full button weight is visually too heavy → **Text button** · Prominent navigational entry point with icon or illustration → **Button card** · Choosing from a set of related options → **Button group** |
+| **Button bar** | Up to two buttons anchored at the foot of a form or flow, sticky or not | The buttons sit in normal page flow → **Button group** · Two or three actions floating over content → **Floating button group** · A single action → **Button** |
 | **Floating button group** | Two or three actions that float above scrolling content, typically overlaying media or a map | The actions sit in normal page flow → **Button group** · A dropdown list of contextual actions → **Action menu** · A single action → **Button**, floating |
 | **Link** | The intent is navigation to another page or section — not action | An action is triggered → **Button** · Navigation needs button weight, e.g. an empty-state CTA → **Button**, tertiary |
 
@@ -248,8 +249,11 @@ lists. See **Never select**.
 | **Breadcrumb** | Showing hierarchical location and allowing navigation up the hierarchy. **Web only** | The primary need is page title and actions → **Top bar** · Top-level global navigation → **Navigation bar** |
 | **Pagination** | Dividing large result sets into numbered pages. **Web only** | Mobile and apps → infinite scroll, a **behaviour, not a component** — see **Platform limits** |
 | **Top bar** | Page-specific title, context, and actions | Global site navigation → **Navigation bar** |
+| **Mega menus** | Top-level navigation on the main B2C or B2B websites, or staying compliant with what the real product ships | Global navigation inside a product screen → **Navigation bar** · The mobile menu behind the burger icon → **Burger menu** |
 | **Burger menu** | The mobile navigation menu opened from the navigation bar's burger icon | Navigation stays visible across the top → **Navigation bar** · A list of contextual actions rather than navigation → **Action menu** on desktop, **Modal bottom sheet menu** on mobile |
-| **Navigation bar** | Global navigation to top-level site destinations (web) | Sub-pages and flows → **Top bar** · In-app navigation → **Navigation Bar (App)**, mobile only |
+| **Navigation bar** | Global navigation to top-level site destinations (web) | Top-level navigation on the main B2C or B2B websites → **Mega menus** · Sub-pages and flows → **Top bar** · In-app navigation → **Navigation Bar (App)**, mobile only |
+
+**`Mega menus` is not built or maintained by the design system.** It is in Figma because several teams share it. **Provisional** — Gabriel, 18 September 2026, to be confronted with the real product, as `Menus` is.
 
 ### Providing feedback and status
 
@@ -263,8 +267,14 @@ lists. See **Never select**.
 | **Score tag** | A Tag specialised for seller lead scoring | Any other status or category label → **Tag** · An energy-efficiency rating → **Energy tag** |
 | **Badge** | A marker **anchored to a host component's geometry** — overlapping or pinned to a button, tab label, menu entry or cell row, and meaningless without that host. Typically a count or a dot | The marker holds its own place in the layout flow → **Tag** · It is interactive → **Chip** |
 | **Loading state** | Content is being fetched and the wait needs its own element on the page — a spinner with an optional title and description | The area is empty, failed or succeeded rather than waiting → **Info state** · The wait belongs inside a control already on screen, such as a dropdown fetching its options → that component's own loading state, not this |
+| **Feedback thumb buttons** | Asking the user's opinion with a thumbs up / thumbs down | Telling the user something rather than asking → **Feedback message** or **Snackbar** · A laid-out block with an illustration and its own buttons → **Feedback bar** |
+| **Feedback bar** | Asking the user's opinion as a laid-out block — an illustration, a pre-title, and its own buttons, horizontal or vertical, with or without a container | A bare thumbs up / thumbs down → **Feedback thumb buttons** · Telling the user something rather than asking → **Feedback message** or **Snackbar** |
 | **Tooltip** | A brief clarification of one UI element, shown on hover or tap — a single explanation, not a sequence | Persistent inline guidance not tied to a control → **Feedback message** · A guided, multi-step tour → **Coach mark** |
 | **Coach mark** | Contextual onboarding overlays pointing at specific UI elements | Persistent inline guidance not tied to onboarding → **Feedback message** · A single brief clarification rather than a guided tour → **Tooltip** |
+
+**`Feedback thumb buttons` is not built on web, and no usage rules exist for it.** Use it when the user's opinion is needed, until something better replaces it. Gabriel, 18 September 2026.
+
+**`Feedback bar` and `Feedback thumb buttons` are separate components — the thumbs are not inside the bar.** Gabriel, 18 September 2026. **Which to reach for when both would fit is not documented**; the rows above split them by how much the block carries, which is read from their Figma properties and not from any written rule.
 
 ### Showing progress and data
 
@@ -287,6 +297,7 @@ lists. See **Never select**.
 | **Image slider** | A sequence of images the user swipes or steps through — **images only**, and the whole slider may link to one destination | The slides carry mixed content, not only images → **Carousel** · A single image held to a fixed ratio → **Image ratio** |
 | **Rating** | Displaying user rating results — non-interactive, from Opinion System | — |
 | **Energy tag** | Property energy efficiency ratings **only**. Use the correct country/region variant | — |
+| **Badge store** | Linking to the App Store or Google Play. Our replicas of the official badges, kept here so they can be maintained | Any other link → **Link** · A count or marker pinned to a component → **Badge**, which is a different component one word away |
 
 ---
 
@@ -456,6 +467,7 @@ screen.
 | `Programmatic Ads` | Commercial ad slot | Nothing |
 | `Burger menu (profil)` | Already adapted to consumer-content needs, and never to be used. Gabriel, 18 September 2026 | Use `Burger menu` |
 | `Menus` | Built to cover international content needs, and nothing requires it to build anything today. **Provisional** — Gabriel, 18 September 2026, to be revisited once real product usage shows whether it is used | Use `Navigation bar`, whose own controls include the language menu |
+| `Button Card Group` | Never developed, and should be removed from Figma. Gabriel, 18 September 2026 | Use `Button card` on its own |
 | `Tab Bar` | Mid-refactor, unclassified | Use `Tabs` |
 | `Footer` | Figma only, owned by the Header/Footer team, not built | Nothing |
 
