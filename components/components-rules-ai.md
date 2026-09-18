@@ -140,6 +140,7 @@ first that decides it:
 | Choose | When | Otherwise |
 | --- | --- | --- |
 | **Button** | The user triggers an immediate action — save, submit, share, open a modal | Navigation → **Link** · Full button weight is visually too heavy → **Text button** · Prominent navigational entry point with icon or illustration → **Button card** · Choosing from a set of related options → **Button group** |
+| **Floating button group** | Two or three actions that float above scrolling content, typically overlaying media or a map | The actions sit in normal page flow → **Button group** · A dropdown list of contextual actions → **Action menu** · A single action → **Button**, floating |
 | **Link** | The intent is navigation to another page or section — not action | An action is triggered → **Button** · Navigation needs button weight, e.g. an empty-state CTA → **Button**, tertiary |
 
 ### Selecting a single value
@@ -170,9 +171,10 @@ first that decides it:
 
 | Choose | When | Otherwise |
 | --- | --- | --- |
-| **Text field** | Short, single-line free-form input | Multi-line or longer than a sentence → **Text area** · Suggestions appear as the user types → **Autocomplete** · Numeric with increment/decrement controls → **Counter field** · A date → **Date picker** |
+| **Text field** | Short, single-line free-form input | Multi-line or longer than a sentence → **Text area** · Suggestions appear as the user types → **Autocomplete** · Numeric with increment/decrement controls → **Counter field** · A date, picked from a calendar → **Date picker** · A date the user types, with no calendar → **Date field** |
 | **Text area** | Multi-line free-form text — descriptions, comments, messages | Single-line → **Text field** · Attaching a file → **Media upload** |
 | **Autocomplete** | The user types to filter and select from a large or dynamic dataset | No suggestions needed → **Text field** · Fixed options selected without typing → **Dropdown** |
+| **Date field** | The user types a date and no calendar is offered | A calendar view is wanted → **Date picker** · Free-form text that is not a date → **Text field** |
 
 ### Entering numeric values
 
@@ -253,9 +255,11 @@ lists. See **Never select**.
 | Choose | When | Otherwise |
 | --- | --- | --- |
 | **Snackbar** | Brief, transient feedback confirming the outcome of a user action | Persistence and inline placement needed → **Feedback message** · Critical and blocking → **Alert** |
-| **Feedback message** — the Figma library names this set `Feedback Messages` | Persistent inline contextual guidance or status within a section | Transient, action-triggered feedback → **Snackbar** · Full-area or page-level states → **Info state** |
+| **Feedback message** — the Figma library names this set `Feedback Messages` | Persistent inline contextual guidance or status within a section | Transient, action-triggered feedback → **Snackbar** · Full-area or page-level states → **Info state** · Feedback belonging to one form field → **State message** |
+| **State message** — the Figma library names this set `State Messages` | Inline feedback **attached to a single form field** — guiding entry, correcting an error, or adding information under that field | Guidance for a section rather than one field → **Feedback message** · Transient confirmation of an action → **Snackbar** · Full-area state → **Info state** |
 | **Info state** | Full-area states — empty, error, success, loading | Inline section-level messages → **Feedback message** · A blocking decision is required → **Alert** |
-| **Tag** | A non-interactive status label or category that **occupies its own place in the layout flow** and would still make sense if the thing beside it were removed — "New", "Sold", "Exclusive", "Verified" | The element is interactive — selectable, filterable, removable → **Chip** · Status needs supporting text → **Feedback message** · The marker is anchored to another component's geometry → **Badge** |
+| **Tag** | A non-interactive status label or category that **occupies its own place in the layout flow** and would still make sense if the thing beside it were removed — "New", "Sold", "Exclusive", "Verified" | Seller lead scoring → **Score tag** · The element is interactive — selectable, filterable, removable → **Chip** · Status needs supporting text → **Feedback message** · The marker is anchored to another component's geometry → **Badge** |
+| **Score tag** | A Tag specialised for seller lead scoring | Any other status or category label → **Tag** · An energy-efficiency rating → **Energy tag** |
 | **Badge** | A marker **anchored to a host component's geometry** — overlapping or pinned to a button, tab label, menu entry or cell row, and meaningless without that host. Typically a count or a dot | The marker holds its own place in the layout flow → **Tag** · It is interactive → **Chip** |
 | **Tooltip** | A brief clarification of one UI element, shown on hover or tap — a single explanation, not a sequence | Persistent inline guidance not tied to a control → **Feedback message** · A guided, multi-step tour → **Coach mark** |
 | **Coach mark** | Contextual onboarding overlays pointing at specific UI elements | Persistent inline guidance not tied to onboarding → **Feedback message** · A single brief clarification rather than a guided tour → **Tooltip** |

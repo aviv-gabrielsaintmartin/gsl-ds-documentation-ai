@@ -137,6 +137,12 @@ run had left behind**. All three are in the backlog.
 
 **`Phone number field`'s breakpoint table was inverted, and you confirmed it.** Fixed in both the table and the flow: bottom sheet on narrow, dropdown on wide, matching the rest of the system.
 
+### Done: four more components can now be reached
+
+**`State message`, `Score tag`, `Date field` and `Floating button group` have a rule row**, each built from words already in the repo. Components with no rule: 16 → 12.
+
+**The task was *route the 9*. Five of the nine turned out not to be routable** — three look like parts of other components, and nobody can tell the two burger menus apart. Both are questions waiting for you, not invented rows.
+
 **Then: settle whether `Spacing/56` is page rhythm or forbidden.** The ruleset
 says both, 83 lines apart — and the donut appears to use 56 internally.
 
