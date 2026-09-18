@@ -72,44 +72,44 @@ all written into the skill.
   never what it is. Three were `date-picker`'s and are gone; 33 remain, and
   they are in the backlog.
 
-### Then: the remaining 17 merges
+### Done: every merge, and the broken pictures with them
 
-**26 of 54 components now carry every image their Zeroheight page has.** The
-rest are the same job, and the method is written down —
-`.claude/skills/zeroheight-merge/SKILL.md`. Read it before starting; the traps
-in it each cost a round of undoing.
+**All 25 components that had an image gap now carry every picture their
+Zeroheight page holds.** Done 18 September in four batches, each read by you
+before anything landed.
 
-The order, worst first:
+| | |
+| --- | --- |
+| Components merged | **25** |
+| Pictures added | **371** |
+| Sentences lost | **0**, on every one |
+| Sentences duplicated | **0** |
+| `zeroheight.com` links gained | **0** |
 
-| Component | Has | Live | Missing |
-| --- | --- | --- | --- |
-| button-group | 7 | 38 | **32** |
-| tabs | 9 | 35 | **30** |
-| phone-number-field | 12 | 37 | 26 |
-| chip-group | 6 | 32 | 26 |
-| cell-content | 8 | 33 | 25 |
-| action-menu | 12 | 36 | 24 |
-| feedback-message | 5 | 25 | 20 |
-| coach-mark · chip | 3 · 7 | 21 · 25 | 18 each |
-| tag · filter-bar | 18 · 6 | 25 · 21 | 17 each |
-| checkbox-group · card | 6 · 7 | 22 · 23 | 16 each |
-| counter-field · carousel | 4 · 6 | 19 · 21 | 15 each |
-| toggle-group · info-state · floating-button-group | 6 · 4 · 3 | 17 · 15 · 14 | 11 each |
-| modal-bottom-sheet-menu · link | 17 · 17 | 21 · 21 | 9 each |
-| avatar | 32 | 37 | 5 |
+Biggest gains: `coach-mark` 3 pictures to 21, `floating-button-group` 3 to 14,
+`info-state` 4 to 15, `counter-field` 4 to 19, `button-group` 7 to 38,
+`date-picker` 21 to 70.
 
-**Do three or four at a time.** Extract, draft, merge, then the drafts go to
-your Desktop and you read them before anything lands.
+**The merge script took 28 fixes to get there, and the extractor one.** Nine of
+those were found by you reading the drafts, not by any check. Two were found by
+re-running components already merged — including one where a fix of mine
+destroyed 12 pictures silently. Every fix is commented at the line that caused
+it, naming the component and the damage.
 
-**That reading step keeps paying.** On the round before last, three of the four
-defects found were found by you reading. On this one you found a broken picture
-that turned out to be 36 broken pictures across 12 components.
+**Three things also went, all from the old Confluence migration:**
 
-**One thing the next session needs and does not have:** this repo records the
-Zeroheight address of only 25 pages, and only one of the four just done was
-among them. A wrong address returns a page with zero images and no error, so
-there is no way to tell it from an empty page. Reading the styleguide index
-once would fix it for all 17. It is in the backlog.
+- **36 files that were not pictures.** Figma node JSON saved under a `.png`
+  name, each written into a doc as an image, each rendering broken. Eleven were
+  replaced by the pages' own sections; 25 were removed outright, file and
+  reference together. **None are left.**
+- **60 `<!-- Source: …confluence… -->` lines.** Nothing read them.
+- **Every H1.** Each doc opened by repeating its own filename, so you read the
+  name twice. Gone from all 62 docs and from the template.
+
+**What is left of this job:** three components — `select-card-group`,
+`dropdown` and `modal-bottom-sheet` — were merged on 17 September, before any
+of the 29 fixes. Re-running `modal-bottom-sheet` placed **2 pictures the old
+run had left behind**. All three are in the backlog.
 
 **Then: settle whether `Spacing/56` is page rhythm or forbidden.** The ruleset
 says both, 83 lines apart — and the donut appears to use 56 internally.

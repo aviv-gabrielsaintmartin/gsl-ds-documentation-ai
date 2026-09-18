@@ -11,6 +11,37 @@ decision with no downside recorded is usually a decision that wasn't examined.
 
 ---
 
+## 2026-09-18 · A component doc has no H1, and the hero moved with it
+
+**Decided.** Every component doc opened with a level-one heading repeating its
+own filename — `button-group.md` beginning `# Button group`. It is gone from all
+62 docs and from `components/component-template.md`, and
+`scripts/zeroheight-draft.py` no longer writes one.
+
+**Why.** Gabriel reads these pages in an editor that shows the filename as the
+page's title. The name was on screen twice, and the second one carried nothing
+the first did not.
+
+**What it cost.** More than it looked, and the cost was nearly silent.
+
+The page hero — the picture above the readiness table — used to sit inside the
+H1's section, and the merge rule keyed on exactly that: *the section at level
+one holds the hero, and a hero is always a replacement, never an addition.*
+Remove the H1 and a doc becomes all preamble, and the preamble was the one
+thing the merge loop passed straight through untouched. **Every future merge
+would have stopped replacing the hero, and nothing would have said so.**
+
+The rule now reads the preamble on both sides — the page's first bare picture
+replaces the doc's first bare picture, and only when the two differ.
+
+**The part worth remembering:** a merge that leaves a correct hero alone looks
+identical to a merge that has stopped handling heroes at all. It was verified
+by giving a copy of `button-group` a hero the page does not have and watching
+the swap happen. The skill now says to test it that way, because three earlier
+hero bugs are already recorded there and this would have been the fourth.
+
+---
+
 ## 2026-09-11 · The backlog is sorted by the steps of designing a screen
 
 **Decided.** A task sits under the step of designing it stops from succeeding,
