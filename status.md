@@ -141,7 +141,9 @@ run had left behind**. All three are in the backlog.
 
 **`State message`, `Score tag`, `Date field` and `Floating button group` have a rule row**, each built from words already in the repo. Components with no rule: 16 → 12.
 
-**Then three more, after you pushed back.** `Image slider`, `Loading state` and `Burger menu` are routed; `Burger menu (profil)` is forbidden on your word. **You were right about the first two** — the web code repo has real standalone components for both, which the repo's own docs never mentioned. Components with no rule: 16 → 8.
+**Then three more, after you pushed back.** `Image slider`, `Loading state` and `Burger menu` are routed; `Burger menu (profil)` is forbidden on your word. **You were right about the first two** — the web code repo has real standalone components for both, which the repo's own docs never mentioned. Components with no rule: 16 → 7.
+
+**`Menus` is forbidden provisionally, not permanently.** Your reason is in the ruleset with the date, and a backlog row carries the trigger to revisit — a provisional entry with nothing scheduled to re-open it is just a permanent one that reads as temporary.
 
 **Then: settle whether `Spacing/56` is page rhythm or forbidden.** The ruleset
 says both, 83 lines apart — and the donut appears to use 56 internally.

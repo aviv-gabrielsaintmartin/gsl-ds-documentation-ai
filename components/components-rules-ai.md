@@ -455,6 +455,7 @@ screen.
 | `Brand Logo` · `Favicon` · `Brand App Icons` · `Flag` | Brand assets, determined by brand configuration | Nothing. Brand config places them |
 | `Programmatic Ads` | Commercial ad slot | Nothing |
 | `Burger menu (profil)` | Already adapted to consumer-content needs, and never to be used. Gabriel, 18 September 2026 | Use `Burger menu` |
+| `Menus` | Built to cover international content needs, and nothing requires it to build anything today. **Provisional** — Gabriel, 18 September 2026, to be revisited once real product usage shows whether it is used | Use `Navigation bar`, whose own controls include the language menu |
 | `Tab Bar` | Mid-refactor, unclassified | Use `Tabs` |
 | `Footer` | Figma only, owned by the Header/Footer team, not built | Nothing |
 
