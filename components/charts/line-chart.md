@@ -34,10 +34,9 @@ They are particularly useful for tracking trends and making comparisons.
 Highlight
 └─ A specific time frame needs emphasis, such as the impact of a campaign → Highlight that range
 
-Dots
+Dots — not required, but they carry a real accessibility benefit
 ├─ Few data points, or accessibility for visual and cognitive needs → With dots
 └─ A dense series where dots would clutter the line → Without dots
-   └─ Dots are not required, but they carry a real accessibility benefit
 
 Legend
 ├─ Two or more series → Mandatory

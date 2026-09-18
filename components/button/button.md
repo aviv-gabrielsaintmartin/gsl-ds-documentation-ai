@@ -46,11 +46,10 @@ Emphasis
 ├─ A less prominent, independent, or sub-task action → Tertiary
 └─ Destructive and irreversible → Danger — consider a confirmation step after it
 
-Size
+Size — always match the size of an adjacent button or field
 ├─ Default → 40px
 ├─ Generous whitespace around it → 48px
 └─ Dense layout → 32px
-   └─ Always match the size of an adjacent button or field
 
 Context
 ├─ Overlapping an image or a map → Floating

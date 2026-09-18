@@ -34,10 +34,9 @@ The carousel is only used on the web. On iOS and Android, scrollable horizontal 
 ### Variant Selection Flow
 
 ```
-Arrow position
+Arrow position — on web, desktop and mobile, arrows are mandatory for accessibility
 ├─ Visually focused content, large images → Arrows inside
 └─ Arrows would cover content or interactive elements → Arrows above
-   └─ On web, desktop and mobile, arrows are mandatory for accessibility
 
 Dots
 ├─ Space is limited, or the design is visually focused → Dots inside

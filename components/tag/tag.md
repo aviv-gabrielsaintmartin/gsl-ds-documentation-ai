@@ -39,12 +39,12 @@ Context and style — chosen by meaning and by the surface behind it
 └─ Status → Error · Success · Information · Warning
    └─ Emphasis signals importance, never decoration
 
-Icon
-└─ Optional — add one only when it makes the tag's meaning clearer
+Icon — mandatory when the label is dropped; otherwise optional
+└─ Add one only when it makes the tag's meaning clearer
 
 Label
 ├─ Almost always → With label
-└─ The icon is universally recognised → Without label
+└─ The icon is universally recognised → Without label, and the icon becomes mandatory
 ```
 
 ### Usage Guidance

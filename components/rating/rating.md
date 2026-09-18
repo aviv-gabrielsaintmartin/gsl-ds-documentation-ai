@@ -32,8 +32,8 @@ Size
 
 Display
 ├─ Space is limited → Condensed, a single star
+│  └─ Never hide the rating amount in the condensed variant
 └─ Space allows → Full, all stars
-   └─ Never hide the rating amount in the condensed variant
 
 Optional elements — hide only while the context stays understandable
 ├─ Number of ratings

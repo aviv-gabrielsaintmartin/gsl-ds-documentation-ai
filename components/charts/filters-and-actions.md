@@ -23,10 +23,9 @@ Not documented
 ### Variant Selection Flow
 
 ```
-Filter control
+Filter control — any other component used as a filter must be validated by user testing first, and the findings shared
 ├─ Five options or fewer → Chip
 └─ More than five options → Dropdown
-   └─ Any other component used as a filter must be validated by user testing first, and the findings shared
 
 Position
 ├─ Default → Above the graph

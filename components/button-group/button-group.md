@@ -39,10 +39,10 @@ The button group component is available on all platforms.
 ### Variant Selection Flow
 
 ```
-Number of items
+Number of items — the component holds 2 to 9
 ├─ 2 to 7 → Standard
-└─ 8 or 9 → Energy selection on desktop only
-   └─ Otherwise, above 7: multi-select → Chip group; single-select → Dropdown
+├─ 8 or 9, and it is energy or CO₂ selection on desktop → Standard; this is the only case above 7
+└─ 8 or more, anything else → Not a button group: multi-select → Chip group; single-select → Dropdown
 
 Icons
 ├─ Icon with label → Preferred

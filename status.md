@@ -121,6 +121,14 @@ run had left behind**. All three are in the backlog.
 
 **`listing-summary`'s `Related Components` table is written too.** **Four sections now stand at 57 of 57** — *When to use*, *When NOT to use*, *Variant flow*, *Related*. Every component doc answers when to use it, when not, which variant, and what to use instead.
 
+### Done: all 57 variant flows audited
+
+**Nine faults found, seven fixed.** Two were real contradictions, four were an axis-wide rule trapped inside one branch, one was on the wrong branch, one was a gap the source had too.
+
+**The surprise is which flows are weak.** Not the custom components — `energy-tag`, `tables`, `modal-bottom-sheet` and `listing-card` have the best ones. The weak flows are the simple components, and `phone-number-field` is the worst: its whole flow lists runtime states, so the section that should say which variant to pick says nothing. Three task rows in the backlog.
+
+**Waiting on you:** `radio-button-group`'s option cap. You've given me the rule — it is readability, not a number — and I owe you the wording.
+
 **Then: settle whether `Spacing/56` is page rhythm or forbidden.** The ruleset
 says both, 83 lines apart — and the donut appears to use 56 internally.
 
