@@ -39,54 +39,64 @@ ALIASES = {
     "Coachmark": "coach-mark/coach-mark.md",
 }
 
-# --- Why an undocumented entry needs no doc.
-# Source: components-audit.md, "Not selectable, and why". This is the one
-# classification in this file that a human made; it is copied, not re-derived.
+# --- What every component is for, and which ones an agent may never select.
+# Both are read out of the ruleset's inventory, never listed here. A row there
+# reads `| `Name` | Purpose | Doc |`, and a purpose beginning with the never-
+# select marker bars the component. That makes the ruleset the single place
+# either fact is written -- the earlier version of this script kept its own
+# copy, and it went stale within two days of the ruleset being extended.
 
-NOT_SELECTABLE = {
-    "Home Indicator": "Chrome — iOS system affordance",
-    "Status Bar": "Chrome — OS-rendered",
-    "Webview": "Chrome — embedded browser container, iOS/Android only",
-    "Cell Content": "Composed-only — a slot inside Cards and lists",
-    "Content Placeholder": "Composed-only — a slot, swapped for local content",
-    "Filter dropdown container": "Composed-only — sibling pattern to Filter bar",
-    "Map Polygon": "Composed-only — part of the Map experience",
-    "Map Polygon backdrop": "Composed-only — part of the Map experience",
-    "mapPinsV2_SL": "Composed-only — brand-specific pin set (SeLoger)",
-    "mapPinsV2_IWT": "Composed-only — brand-specific pin set (Immowelt)",
-    "Programmatic Ads": "Withheld — commercial ad slot, not a design choice",
-    "Tab Bar": "Withheld — in-progress refactor. Use Tabs until it settles",
-    "Footer": "Withheld — Figma only, not developed. Owned by Header/Footer team",
-    "Favicon": "Asset — fixed, no properties of its own",
-    "Brand App Icons": "Asset — per-platform, per-brand exports",
-    "Brand Logo": "Asset — configured by brand, not chosen by design intent",
-    "Flag": "Asset — country flag family",
-}
+RULESET = COMPONENTS / "components-rules-ai.md"
 
-# --- What an undocumented but selectable component is for, where the repo
-# says so somewhere else. Source: components-audit.md, "Selectable but
-# undocumented".
+INVENTORY_HEADING = re.compile(r"^##\s+The inventory\s*$")
+NEXT_H2 = re.compile(r"^##\s+(?!#)")
+INVENTORY_ROW = re.compile(r"^\|\s*`([^`]+)`([^|]*)\|([^|]*)\|([^|]*)\|\s*$")
+NEVER_SELECT = "🚫"
 
-KNOWN_PURPOSE = {
-    "Tooltip": ("Brief overlay clarifying one UI element", "coach-mark"),
-    "State Messages": ("Inline form feedback — guide, correct, inform", "alert, text-area, text-field"),
-    "Text Button": ("A distinct component from Button", "button, action-menu, autocomplete"),
-    "Pop-up": ("The small-content alternative to Modal bottom sheet", "modal-bottom-sheet"),
-    "Loading State": ("Signals data or content is being fetched", "autocomplete, dropdown, info-state"),
-    "Image Slider": ("Horizontally sliding image sequence", "listing-card, carousel"),
-    "Score Tag": ("A Tag specialised for seller lead scoring", "tag"),
-    "Navigation Bar (App)": ("In-app navigation between destinations. Mobile only", "tabs, registry"),
-    "Badge": ("Attention marker attached to a host element", "button, tabs, cell-content"),
-    "Image Ratio": ("Enforces an image aspect ratio", "registry"),
-    "Date Field": ("Date input, distinct from the Date Picker calendar", "date-picker, text-area"),
-    "Filter button": ("The individual filter control inside Filter bar", "filter-bar, charts"),
-    "Burger menu": ("Mobile menu opened from the navigation bar", "navigation-bar"),
-    "Burger menu (profil)": ("A distinct component from Burger menu", "registry"),
-    "Menus": ("Profile and language menus", "registry"),
-    "Floor selection": ("Picking an apartment floor, including ground floor", "counter-field"),
-    "Listing summary": ("The higher-flexibility alternative to Listing card", "listing-card"),
-    "Map template": ("The map experience container", "registry"),
-}
+
+def load_inventory(path=None):
+    """Return {name: (purpose, doc cell)} from the ruleset's inventory."""
+    lines = (path or RULESET).read_text().splitlines()
+    inside, out = False, {}
+    for line in lines:
+        if INVENTORY_HEADING.match(line):
+            inside = True
+            continue
+        if inside and NEXT_H2.match(line):
+            break
+        if not inside:
+            continue
+        m = INVENTORY_ROW.match(line)
+        if m:
+            name, _, purpose, doc = m.groups()
+            out[name.strip()] = (purpose.strip(), doc.strip())
+    if not out:
+        raise SystemExit(f"No inventory rows found in {path or RULESET}")
+    return out
+
+
+INVENTORY = load_inventory()
+
+
+def purpose_of(name):
+    """The ruleset's description, or None where it gives one."""
+    row = INVENTORY.get(name)
+    if not row or not row[0]:
+        return None
+    return row[0]
+
+
+def is_never_select(name):
+    return purpose_of(name) is not None and purpose_of(name).startswith(NEVER_SELECT)
+
+
+def reason_not_to_select(name):
+    """The never-select purpose with its marker and label stripped off."""
+    text = purpose_of(name) or ""
+    text = text.replace(NEVER_SELECT, "").strip()
+    text = re.sub(r"^\*\*Never select\*\*\s*[—-]\s*", "", text)
+    return text.strip()
+
 
 # --- The template sections that become columns ----------------------------
 # Read out of components/component-template.md, never listed here. A heading in
@@ -335,8 +345,8 @@ def main():
         else:
             undocumented.append((name, tier))
 
-    gaps = [(n, t) for n, t in undocumented if n not in NOT_SELECTABLE]
-    skip = [(n, t) for n, t in undocumented if n in NOT_SELECTABLE]
+    gaps = [(n, t) for n, t in undocumented if not is_never_select(n)]
+    skip = [(n, t) for n, t in undocumented if is_never_select(n)]
     skip_names = sorted({n for n, _ in skip})
     gap_names = sorted({n for n, _ in gaps})
     # Image Ratio and Brand Logo each occupy two registry entries -- they are
@@ -359,6 +369,27 @@ def main():
     for name, tier, doc, marks in documented:
         covered = sum(1 for c in columns if marks[c] == PRESENT)
         scored.append((covered, name, tier, doc, marks))
+
+    # Does the inventory's Doc column still match the filesystem? It said
+    # "no doc" for Button Bar two days after Button Bar got one, and nothing
+    # noticed. Now it is checked on every run.
+    drift = []
+    seen = set()
+    for name, _ in entries:
+        if name in seen:
+            continue
+        seen.add(name)
+        row = INVENTORY.get(name)
+        if not row:
+            continue
+        claims_doc = "no doc" not in row[1]
+        has_doc = find_doc(name) is not None
+        if claims_doc != has_doc:
+            drift.append((
+                name,
+                "has a doc" if claims_doc else "no doc",
+                find_doc(name) if has_doc else "no doc",
+            ))
 
     total_entries = len(entries)
     lines = []
@@ -433,8 +464,9 @@ def main():
     w("**Read `Platform` differently from the rest.** It is prose saying a component")
     w("is restricted to some platforms — *\"pagination is only used on the web\"*. A")
     w(f"component with no restriction needs no such section, so its {ABSENT} is")
-    w("probably correct rather than a gap. Every other row here is a real gap. Which")
-    w("of the 29 are deliberate is unknown — nobody has checked.")
+    w("probably correct rather than a gap. Every other row here is a real gap.")
+    w(f"**Which of the {section_totals['Platform'][ABSENT]} are deliberate is unknown** — nobody has")
+    w("checked, and until somebody does this row cannot be read as a score.")
     w("")
     w("**`a11y` and `Breakpoints` are the two worth acting on.** Between them they")
     w(f"account for {section_totals['a11y'][MISSING] + section_totals['Breakpoints'][MISSING]} pages that")
@@ -485,42 +517,41 @@ def main():
     w("")
     w(f"## The gap — {len(gap_names)} components an agent may select, with no doc at all")
     w("")
-    w("These have no page anywhere in this repo. An agent asked to use one has")
-    w("nothing to read. Where the *Known from* column is filled, the repo describes")
-    w("the component inside **another component's** page — a sentence, not a doc.")
+    w("These have no page anywhere in this repo. The *What it is* column is the one")
+    w("sentence the ruleset's inventory gives — enough for an agent to pick the right")
+    w("component, never enough to build one correctly.")
     w("")
-    w("| Component | Tier | What it is | Known from |")
-    w("| --- | --- | --- | --- |")
-    for name, tier in sorted(gaps, key=lambda r: (r[0] not in KNOWN_PURPOSE, r[0].lower())):
-        purpose, source = KNOWN_PURPOSE.get(name, ("**Unknown**", "—"))
-        w(f"| {name} | {tier} | {purpose} | {source} |")
+    w("| Component | Tier | What it is |")
+    w("| --- | --- | --- |")
+    for name, tier in sorted(gaps, key=lambda r: (purpose_of(r[0]) is not None, r[0].lower())):
+        w(f"| {name} | {tier} | {purpose_of(name) or '**Undescribed** — the ruleset has no sentence for it'} |")
     w("")
-    blind = sorted({n for n, _ in gaps if n not in KNOWN_PURPOSE})
-    w(f"**{len(blind)} of those {len(gap_names)} have no evidence anywhere in the repo** —")
-    w("no doc, and no other page mentions what they do: " +
-      ", ".join(f"`{n}`" for n in blind) + ".")
+    blind = sorted({n for n, _ in gaps if purpose_of(n) is None})
+    if blind:
+        w(f"**{len(blind)} of those {len(gap_names)} are described nowhere** — no doc, and no")
+        w("sentence in the ruleset either: " + ", ".join(f"`{n}`" for n in blind) + ".")
+    else:
+        w(f"**All {len(gap_names)} carry a sentence in the ruleset.** None is a doc, so an")
+        w("agent can choose these components and cannot build them without inventing")
+        w("the detail.")
     w("")
     w("---")
     w(f"## No doc, and none needed — {len(skip_names)} names")
     w("")
-    w("An agent should never select these, so the missing doc is not a gap.")
-    w("The reasons are copied from")
-    w("[components-audit.md](components-audit.md#not-selectable-and-why) — that")
-    w("classification is the one human judgement this page carries.")
+    w("An agent should never select these, so the missing doc is not a gap. The")
+    w("reasons are the ruleset's own, read from the rows it marks " + NEVER_SELECT + ".")
     w("")
     w("| Component | Tier | Why no doc is needed |")
     w("| --- | --- | --- |")
     for name, tier in sorted(skip, key=lambda r: r[0].lower()):
-        w(f"| {name} | {tier} | {NOT_SELECTABLE[name]} |")
+        w(f"| {name} | {tier} | {reason_not_to_select(name)} |")
     w("")
-    documented_but_barred = sorted(n for n, _, _, _ in documented if n in NOT_SELECTABLE)
-    if documented_but_barred:
-        w("**Careful with " + ", ".join(f"`{n}`" for n in documented_but_barred) +
-          ".** It is in the matrix above")
-        w("with a full doc, and it is still not selectable — " +
-          NOT_SELECTABLE[documented_but_barred[0]].lower() + ". A well-filled")
-        w("row in this page is not permission to use the component. The ruleset decides")
-        w("that, not this page.")
+    barred = sorted(n for n, _, _, _ in documented if is_never_select(n))
+    if barred:
+        w("**Careful with " + ", ".join(f"`{n}`" for n in barred) + ".** " +
+          ("They are" if len(barred) > 1 else "It is") + " in the matrix above")
+        w("with a doc, and still not selectable. A well-filled row in this page is not")
+        w("permission to use the component. The ruleset decides that, not this page.")
         w("")
     w("---")
     w("")
@@ -533,7 +564,27 @@ def main():
     w("| `figma/figma-experiences-registry.json` | The Experiences tier |")
     w("| `figma/figma-foundations-components-registry.json` | The Foundations tier |")
     w("| `components/<name>/<name>.md` | Every mark in the matrix |")
-    w("| [components-audit.md](components-audit.md) | The five name aliases, and which components are not selectable |")
+    w("| [component-template.md](component-template.md) | Which sections are columns, and in what order |")
+    w("| [components-rules-ai.md](components-rules-ai.md) | What each component is for, and which may never be selected |")
+    w("| [components-audit.md](components-audit.md) | The five name aliases |")
+    w("")
+    w("### Does the ruleset's inventory still match the files?")
+    w("")
+    if drift:
+        w("**No — " + str(len(drift)) +
+          (" row disagrees.**" if len(drift) == 1 else " rows disagree.**") +
+          " The inventory names a doc the")
+        w("filesystem does not have, or misses one it does. Fix the inventory; this page")
+        w("reads the files and the inventory does not.")
+        w("")
+        w("| Component | The inventory says | On disk |")
+        w("| --- | --- | --- |")
+        for name, claimed, actual in drift:
+            w(f"| {name} | {claimed} | {actual} |")
+    else:
+        w(f"**Yes.** All {len(INVENTORY)} inventory rows agree with the files on disk about")
+        w("whether a doc exists. Checked every time this page is generated, because the")
+        w("inventory went stale unnoticed once already.")
     w("")
 
     OUTPUT.write_text("\n".join(lines) + "\n")

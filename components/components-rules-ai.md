@@ -505,12 +505,12 @@ usage documentation yet; you may still select it if **Which component** or **Hig
 | `Autocomplete` | Autocomplete components suggest possible matches for user input in real time as they type, helping them complete text fields more… | [autocomplete](autocomplete/autocomplete.md) |
 | `Avatar` | Avatars represent user profiles of agencies, agents, private sellers and seekers. | [avatar](avatar/avatar.md) |
 | `Badge` | Attention marker attached to a host component. | — *no doc* |
-| `Badge Store` | ⚠︎ **Undescribed** — see audit | — *no doc* |
+| `Badge Store` | Our replicas of the official App Store and Google Play badges, kept here so they can be maintained. | — *no doc* |
 | `Brand Logo` ⚠︎ *also in Foundations* | 🚫 **Never select** — asset — brand config | — *no doc* |
 | `Button` | Buttons are used to trigger an immediate action. | [button](button/button.md) |
-| `Button Bar` | ⚠︎ **Undescribed** — see audit | — *no doc* |
+| `Button Bar` | Holds the actions that close a form or a flow, anchored at its foot. | [button-bar](button-bar/button-bar.md) |
 | `Button Card` | Button cards are prominent calls to action that can be used alone or in a group, with icons or pictograms. | [button-card](button-card/button-card.md) |
-| `Button Card Group` | ⚠︎ **Undescribed** — see audit | — *no doc* |
+| `Button Card Group` | 🚫 **Never select** — withheld — never developed, should leave Figma | — *no doc* |
 | `Button Group` | Button groups display multiple related choices in a horizontal row, allowing users to select one or more options. | [button-group](button-group/button-group.md) |
 | `Card` | Cards are flexible containers used to visually group content. | [card](card/card.md) |
 | `Carousel` | Carousels are used to display a collection of items that the users can slide through. | [carousel](carousel/carousel.md) |
@@ -526,7 +526,7 @@ usage documentation yet; you may still select it if **Which component** or **Hig
 | `Dropdown` | Dropdowns are used to select one option from a list. | [dropdown](dropdown/dropdown.md) |
 | `Energy Tag` | Energy tags are used to indicate the energy efficiency of properties. | [energy-tag](energy-tag/energy-tag.md) |
 | `Feedback Messages` | Feedback messages are non-disruptive, inline notifications that provide users with important information or contextual messages. | [feedback-message](feedback-message/feedback-message.md) |
-| `Feedback Thumb Buttons` | ⚠︎ **Undescribed** — see audit | — *no doc* |
+| `Feedback Thumb Buttons` | Asks the user for a binary opinion — thumbs up or thumbs down. | — *no doc* |
 | `Floating Button Group` | The floating button group is used to display icon-only actions on top of images and maps. | [floating-button-group](floating-button-group/floating-button-group.md) |
 | `Image Ratio` ⚠︎ *also in Foundations* | Enforces an image aspect ratio. | — *no doc* |
 | `Image Slider` | Horizontally sliding image sequence. | — *no doc* |
@@ -566,7 +566,7 @@ usage documentation yet; you may still select it if **Which component** or **Hig
 | Name | Purpose | Doc |
 | --- | --- | --- |
 | `Burger menu` | Mobile menu opened from the navigation bar burger icon. | — *no doc* |
-| `Burger menu (profil)` | Distinct sibling of Burger menu, separate definition. | — *no doc* |
+| `Burger menu (profil)` | 🚫 **Never select** — withheld — adapted to consumer content, use Burger menu | — *no doc* |
 | `Bar graph` | Compare quantities across categories. | [charts/bar-chart](charts/bar-chart.md) |
 | `Donut chart` | Show a distribution across parts of a whole. | [charts/donut-chart](charts/donut-chart.md) |
 | `Line chart` | Show a trend over a continuous axis. | [charts/line-chart](charts/line-chart.md) |
@@ -574,15 +574,15 @@ usage documentation yet; you may still select it if **Which component** or **Hig
 | `Breadcrumb` | Breadcrumbs are navigation elements that consist of a list of links arranged in a hierarchical order. | [breadcrumb](breadcrumb/breadcrumb.md) |
 | `Date Field` | Date input — distinct from the Date Picker calendar view. | — *no doc* |
 | `Date Picker` | Date pickers are used to select a date using text input or a calendar view. | [date-picker](date-picker/date-picker.md) |
-| `Feedback Bar` | ⚠︎ **Undescribed** — see audit | — *no doc* |
+| `Feedback Bar` | Asks the user to rate something — a notation on a scale. | — *no doc* |
 | `Filter bar` | Filter bars are used to narrow down search results or displayed content based on selected criteria. | [filter-bar](filter-bar/filter-bar.md) |
-| `Filter button` | The individual filter control inside a Filter bar. | — *no doc* |
+| `Filter button` | 🚫 **Never select** — composed-only — inside Filter bar | — *no doc* |
 | `Filter dropdown container` | 🚫 **Never select** — composed-only — inside Filter bar | — *no doc* |
 | `Footer` | 🚫 **Never select** — withheld — Figma only, not built | — *no doc* |
 | `Info State` | Info states are placeholders used to inform users about success, error and empty states. | [info-state](info-state/info-state.md) |
 | `Media Upload` | Media upload components allow users to upload, view, and manage media files such as images, videos and documents. | [media-upload](media-upload/media-upload.md) |
-| `Mega menus` | ⚠︎ **Undescribed** — see audit | — *no doc* |
-| `Menus` | Profile and language menus. | — *no doc* |
+| `Mega menus` | Top-level navigation on the main B2C and B2B websites. Shared across teams, not built or maintained by the design system. | — *no doc* |
+| `Menus` | 🚫 **Never select** — withheld, provisional — nothing requires it today, use Navigation bar | — *no doc* |
 | `Navigation bar` | Navigation bars provide quick access to key pages within the site, helping users to navigate efficiently. | [navigation-bar](navigation-bar/navigation-bar.md) |
 | `Top Bar` | Top bars display navigation elements, titles and actions such as buttons or icons at the top of the screen. | [top-bar](top-bar/top-bar.md) |
 | `Wizard` | Wizards guide users through step-by-step processes to achieve their goal. | [wizard](wizard/wizard.md) |
@@ -591,7 +591,7 @@ usage documentation yet; you may still select it if **Which component** or **Hig
 
 | Name | Purpose | Doc |
 | --- | --- | --- |
-| `Estimation card` | ⚠︎ **Undescribed** — see audit | — *no doc* |
+| `Estimation card` | Presents a completed price estimate — range, confidence, selling or renting. Carries no controls to adjust it. | — *no doc* |
 | `Floor selection` | Picking an apartment floor, including ground floor. | [floor-selection](floor-selection/floor-selection.md) |
 | `Listing Card` | Listing cards are actionable cards that summarize the details of a property listed on any AVIV Group website. | [listing-card](listing-card/listing-card.md) |
 | `Listing summary` | Higher-flexibility alternative to Listing card. | [listing-summary](listing-summary/listing-summary.md) |

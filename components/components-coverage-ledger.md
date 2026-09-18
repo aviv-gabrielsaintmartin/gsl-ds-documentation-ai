@@ -37,8 +37,8 @@ inferred.
 | --- | --- |
 | Registry entries across the four Figma libraries | **98** |
 | — have a doc | **58** |
-| — no doc, and an agent may select them | **23** entries, 22 names |
-| — no doc, and an agent should never select them | **17** entries, 16 names |
+| — no doc, and an agent may select them | **19** entries, 18 names |
+| — no doc, and an agent should never select them | **21** entries, 20 names |
 
 Entries outnumber names because `Brand Logo` and `Image Ratio` each exist in **two** Figma
 libraries under the same name, with different keys. They are two distinct
@@ -75,8 +75,9 @@ Ordered by how many documented components leave the section empty.
 **Read `Platform` differently from the rest.** It is prose saying a component
 is restricted to some platforms — *"pagination is only used on the web"*. A
 component with no restriction needs no such section, so its ⬜ is
-probably correct rather than a gap. Every other row here is a real gap. Which
-of the 29 are deliberate is unknown — nobody has checked.
+probably correct rather than a gap. Every other row here is a real gap.
+**Which of the 31 are deliberate is unknown** — nobody has
+checked, and until somebody does this row cannot be read as a score.
 
 **`a11y` and `Breakpoints` are the two worth acting on.** Between them they
 account for 91 pages that
@@ -186,73 +187,71 @@ of their own, so they are listed rather than scored.
 
 ---
 
-## The gap — 22 components an agent may select, with no doc at all
+## The gap — 18 components an agent may select, with no doc at all
 
-These have no page anywhere in this repo. An agent asked to use one has
-nothing to read. Where the *Known from* column is filled, the repo describes
-the component inside **another component's** page — a sentence, not a doc.
+These have no page anywhere in this repo. The *What it is* column is the one
+sentence the ruleset's inventory gives — enough for an agent to pick the right
+component, never enough to build one correctly.
 
-| Component | Tier | What it is | Known from |
-| --- | --- | --- | --- |
-| Badge | Components | Attention marker attached to a host element | button, tabs, cell-content |
-| Burger menu | Patterns | Mobile menu opened from the navigation bar | navigation-bar |
-| Burger menu (profil) | Patterns | A distinct component from Burger menu | registry |
-| Date Field | Patterns | Date input, distinct from the Date Picker calendar | date-picker, text-area |
-| Filter button | Patterns | The individual filter control inside Filter bar | filter-bar, charts |
-| Image Ratio | Components | Enforces an image aspect ratio | registry |
-| Image Ratio | Foundations | Enforces an image aspect ratio | registry |
-| Image Slider | Components | Horizontally sliding image sequence | listing-card, carousel |
-| Loading State | Components | Signals data or content is being fetched | autocomplete, dropdown, info-state |
-| Map template | Experiences | The map experience container | registry |
-| Menus | Patterns | Profile and language menus | registry |
-| Navigation Bar (App) | Components | In-app navigation between destinations. Mobile only | tabs, registry |
-| Pop-up | Components | The small-content alternative to Modal bottom sheet | modal-bottom-sheet |
-| Score Tag | Components | A Tag specialised for seller lead scoring | tag |
-| State Messages | Components | Inline form feedback — guide, correct, inform | alert, text-area, text-field |
-| Text Button | Components | A distinct component from Button | button, action-menu, autocomplete |
-| Tooltip | Components | Brief overlay clarifying one UI element | coach-mark |
-| Badge Store | Components | **Unknown** | — |
-| Button Card Group | Components | **Unknown** | — |
-| Estimation card | Experiences | **Unknown** | — |
-| Feedback Bar | Patterns | **Unknown** | — |
-| Feedback Thumb Buttons | Components | **Unknown** | — |
-| Mega menus | Patterns | **Unknown** | — |
+| Component | Tier | What it is |
+| --- | --- | --- |
+| Badge | Components | Attention marker attached to a host component. |
+| Badge Store | Components | Our replicas of the official App Store and Google Play badges, kept here so they can be maintained. |
+| Burger menu | Patterns | Mobile menu opened from the navigation bar burger icon. |
+| Date Field | Patterns | Date input — distinct from the Date Picker calendar view. |
+| Estimation card | Experiences | Presents a completed price estimate — range, confidence, selling or renting. Carries no controls to adjust it. |
+| Feedback Bar | Patterns | Asks the user to rate something — a notation on a scale. |
+| Feedback Thumb Buttons | Components | Asks the user for a binary opinion — thumbs up or thumbs down. |
+| Image Ratio | Components | Enforces an image aspect ratio. |
+| Image Ratio | Foundations | Enforces an image aspect ratio. |
+| Image Slider | Components | Horizontally sliding image sequence. |
+| Loading State | Components | Signals data or content is being fetched. |
+| Map template | Experiences | The map experience container. |
+| Mega menus | Patterns | Top-level navigation on the main B2C and B2B websites. Shared across teams, not built or maintained by the design system. |
+| Navigation Bar (App) | Components | Persistent in-app navigation between top-level destinations. |
+| Pop-up | Components | Small-content alternative to a Modal bottom sheet. |
+| Score Tag | Components | A Tag specialised for seller lead scoring. |
+| State Messages | Components | Inline feedback inside a form field. |
+| Text Button | Components | A distinct component from Button, for when full button weight is too heavy. |
+| Tooltip | Components | Brief overlay clarifying one UI element. |
 
-**6 of those 22 have no evidence anywhere in the repo** —
-no doc, and no other page mentions what they do: `Badge Store`, `Button Card Group`, `Estimation card`, `Feedback Bar`, `Feedback Thumb Buttons`, `Mega menus`.
+**All 18 carry a sentence in the ruleset.** None is a doc, so an
+agent can choose these components and cannot build them without inventing
+the detail.
 
 ---
-## No doc, and none needed — 16 names
+## No doc, and none needed — 20 names
 
-An agent should never select these, so the missing doc is not a gap.
-The reasons are copied from
-[components-audit.md](components-audit.md#not-selectable-and-why) — that
-classification is the one human judgement this page carries.
+An agent should never select these, so the missing doc is not a gap. The
+reasons are the ruleset's own, read from the rows it marks 🚫.
 
 | Component | Tier | Why no doc is needed |
 | --- | --- | --- |
-| Brand App Icons | Foundations | Asset — per-platform, per-brand exports |
-| Brand Logo | Components | Asset — configured by brand, not chosen by design intent |
-| Brand Logo | Foundations | Asset — configured by brand, not chosen by design intent |
-| Content Placeholder | Components | Composed-only — a slot, swapped for local content |
-| Favicon | Foundations | Asset — fixed, no properties of its own |
-| Filter dropdown container | Patterns | Composed-only — sibling pattern to Filter bar |
-| Flag | Foundations | Asset — country flag family |
-| Footer | Patterns | Withheld — Figma only, not developed. Owned by Header/Footer team |
-| Home Indicator | Components | Chrome — iOS system affordance |
-| Map Polygon | Experiences | Composed-only — part of the Map experience |
-| Map Polygon backdrop | Experiences | Composed-only — part of the Map experience |
-| mapPinsV2_IWT | Experiences | Composed-only — brand-specific pin set (Immowelt) |
-| mapPinsV2_SL | Experiences | Composed-only — brand-specific pin set (SeLoger) |
-| Programmatic Ads | Components | Withheld — commercial ad slot, not a design choice |
-| Status Bar | Components | Chrome — OS-rendered |
-| Tab Bar | Components | Withheld — in-progress refactor. Use Tabs until it settles |
-| Webview | Components | Chrome — embedded browser container, iOS/Android only |
+| Brand App Icons | Foundations | asset — brand config |
+| Brand Logo | Components | asset — brand config |
+| Brand Logo | Foundations | asset — brand config |
+| Burger menu (profil) | Patterns | withheld — adapted to consumer content, use Burger menu |
+| Button Card Group | Components | withheld — never developed, should leave Figma |
+| Content Placeholder | Components | composed-only — a slot, swapped for local content |
+| Favicon | Foundations | asset — brand config |
+| Filter button | Patterns | composed-only — inside Filter bar |
+| Filter dropdown container | Patterns | composed-only — inside Filter bar |
+| Flag | Foundations | asset — brand config |
+| Footer | Patterns | withheld — Figma only, not built |
+| Home Indicator | Components | chrome — the OS draws it |
+| Map Polygon | Experiences | composed-only — inside Map template |
+| Map Polygon backdrop | Experiences | composed-only — inside Map template |
+| mapPinsV2_IWT | Experiences | composed-only — inside Map template, Immowelt |
+| mapPinsV2_SL | Experiences | composed-only — inside Map template, SeLoger |
+| Menus | Patterns | withheld, provisional — nothing requires it today, use Navigation bar |
+| Programmatic Ads | Components | withheld — commercial ad slot |
+| Status Bar | Components | chrome — the OS draws it |
+| Tab Bar | Components | withheld — mid-refactor, use Tabs |
+| Webview | Components | chrome — an embedded browser container |
 
 **Careful with `Cell Content`.** It is in the matrix above
-with a full doc, and it is still not selectable — composed-only — a slot inside cards and lists. A well-filled
-row in this page is not permission to use the component. The ruleset decides
-that, not this page.
+with a doc, and still not selectable. A well-filled row in this page is not
+permission to use the component. The ruleset decides that, not this page.
 
 ---
 
@@ -265,5 +264,13 @@ that, not this page.
 | `figma/figma-experiences-registry.json` | The Experiences tier |
 | `figma/figma-foundations-components-registry.json` | The Foundations tier |
 | `components/<name>/<name>.md` | Every mark in the matrix |
-| [components-audit.md](components-audit.md) | The five name aliases, and which components are not selectable |
+| [component-template.md](component-template.md) | Which sections are columns, and in what order |
+| [components-rules-ai.md](components-rules-ai.md) | What each component is for, and which may never be selected |
+| [components-audit.md](components-audit.md) | The five name aliases |
+
+### Does the ruleset's inventory still match the files?
+
+**Yes.** All 96 inventory rows agree with the files on disk about
+whether a doc exists. Checked every time this page is generated, because the
+inventory went stale unnoticed once already.
 
