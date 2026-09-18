@@ -23,6 +23,10 @@ Toggle groups allow users to enable one or more options from a predefined set of
 
 As with standalone toggles, the group contains custom toggles on Web and native toggles on iOS and Android.
 
+| Web | iOS | Android |
+| --- | --- | --- |
+| ![Web](images/d7f03da7044414aa012b70.png) | ![iOS](images/40690f1baf3b88bce3b6c5.png) | ![Android](images/5bc8cfbd4ea54e449f421c.png) |
+
 ### When to use
 
 **Toggle group** — multiple independent on/off settings, grouped.
@@ -53,11 +57,11 @@ Header, as with every form component
 
 | DO | DON'T |
 | --- | --- |
-| ![](images/d2c96f848ec3af778748c1.png) **DO:** Use toggle groups in settings for binary choices, where the choice is applied immediately. | ![](images/ea2c658f02bc80106054a0.png) **DON'T:** Don't use toggle groups when only one item can be selected. Use radio buttons instead. |
+| ![DO](images/d2c96f848ec3af778748c1.png) **DO:** Use toggle groups in settings for binary choices, where the choice is applied immediately. | ![DON'T](images/ea2c658f02bc80106054a0.png) **DON'T:** Don't use toggle groups when only one item can be selected. Use radio buttons instead. |
 
 | CAUTION |
 | --- |
-| ![](images/ee57fdcd9d9f3ef70d0fc5.png) **CAUTION:** Avoid using toggle groups within forms. Toggles should take effect immediately, without submitting a form. Use checkboxes instead. |
+| ![CAUTION](images/ee57fdcd9d9f3ef70d0fc5.png) **CAUTION:** Avoid using toggle groups within forms. Toggles should take effect immediately, without submitting a form. Use checkboxes instead. |
 
 ### Related Components
 
@@ -80,13 +84,19 @@ Like standalone toggles, toggle groups can also switch from a toggle left positi
 
 | DO | DON'T |
 | --- | --- |
-| ![](images/3d931fe720f0a3e4d0ba1d.png) **DO:** All toggles in a toggle group should have the same position. | ![](images/309ba374f9c8c42f5ff723.png) **DON'T:** Don't mix positions in the same toggle group. |
+| ![DO](images/3d931fe720f0a3e4d0ba1d.png) **DO:** All toggles in a toggle group should have the same position. | ![DON'T](images/309ba374f9c8c42f5ff723.png) **DON'T:** Don't mix positions in the same toggle group. |
+
+| Left | Right |
+| --- | --- |
+| ![Left](images/cbea2fa63bfe67fad1f93f.png) | ![Right](images/0103e40618de7d0fba3b7f.png) |
 
 #### Header
 
 Like all form components, toggle groups contain a header consisting of a label, a required asterisk or an optional mention, a tooltip icon, and a helper text. Go to the [form guidelines](https://zeroheight.com/626199550/p/81b84d-forms/t/page-81b84d-92550230-54) for more information.
 
 ---
+
+![](images/53e348ee3e1f9f73410e56.png)
 
 ## Behavior & Responsiveness
 
@@ -99,11 +109,21 @@ They also contain a loading state which is typically triggered when the action i
 * [Guidelines on form validation and displaying errors](https://zeroheight.com/626199550/p/81b84d-forms/t/page-81b84d-92550230-79)
 * [Content guidelines for state messages](https://zeroheight.com/626199550/p/526801-state-messages)
 
+| Unselected | Selected | Error |
+| --- | --- | --- |
+| ![Unselected](images/3101f998af7aa478f36611.png) | ![Selected](images/4e63ff848cd95cbf08f22c.png) | ![Error](images/4925fbfd0e0fe0a63705f8.png) |
+
+![](images/c06f6724696097e1c93ff9.png)
+
 ### Touch Target & Layout
 
 * **Interaction:** Not only the toggle itself is clickable, but also the entire row. The row height is 48px.
 * **Width:** The width of the toggle group component is determined by its content. According to our [form guidelines](https://zeroheight.com/626199550/p/81b84d-forms/t/page-81b84d-92550230-13), the max-width should be kept at 448px.
 * **Wrapping and alignment:** Text that exceeds the available space is automatically wrapped to a new line. Toggle and content are centered.
+
+#### Wrapping and alignment
+
+![](images/b5e25f080f8b254c8a65a0.png)
 
 ### Breakpoints & Platform Adaptations
 

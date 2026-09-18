@@ -23,6 +23,10 @@ Checkbox groups are used for multiple choices, not for mutually exclusive option
 
 As with standalone checkboxes, the group contains custom checkboxes on Web/iOS and native checkboxes on Android.
 
+| Web/iOS | Android |
+| --- | --- |
+| ![Web/iOS](images/5aa904ff72e974ff9e248b.png) | ![Android](images/7853c4d86fe0b536a7a232.png) |
+
 ### When to use
 
 **Checkbox group** — multi-select in a structured form.
@@ -62,11 +66,11 @@ Header, as with every form component
 
 | DO | DON'T |
 | --- | --- |
-| ![](images/49b65322e95052ccda608d.png) **DO:** Use checkboxes to allow users to select one or more options independently. | ![](images/d07989288d5f0e1192bba8.png) **DON'T:** Don't use checkboxes for mutually exclusive choices. Use radio buttons instead. |
+| ![DO](images/49b65322e95052ccda608d.png) **DO:** Use checkboxes to allow users to select one or more options independently. | ![DON'T](images/d07989288d5f0e1192bba8.png) **DON'T:** Don't use checkboxes for mutually exclusive choices. Use radio buttons instead. |
 
 | DON'T |
 | --- |
-| ![](images/8d8f82e09e86c96eb2dfbc.png) **DON'T:** Don't use checkboxes for binary choices that should take effect immediately. Use toggle groups instead. |
+| ![DON'T](images/8d8f82e09e86c96eb2dfbc.png) **DON'T:** Don't use checkboxes for binary choices that should take effect immediately. Use toggle groups instead. |
 
 ### Related Components
 
@@ -88,6 +92,10 @@ Header, as with every form component
 
 Checkbox groups can be aligned vertically or horizontally, depending on the use case and layout structure. For better readability, arrange radio buttons vertically whenever possible.
 
+| Vertical | Horizontal |
+| --- | --- |
+| ![Vertical](images/e285ef834a26d1e0ac97a1.png) | ![Horizontal](images/4bfae54ec9d5da36bf725e.png) |
+
 ### Modifiers
 
 #### Border
@@ -97,17 +105,27 @@ Like standalone checkboxes, checkbox groups can also be used with or without a b
 | DO                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ![](images/7752f331e01717cfb623bd.png) **DO:** Use checkboxes without borders when the checkbox group is simple and the options are easily distinguishable without added visual emphasis.                                                                                 |
-| ![](images/efe373b17363ee9e97f1a1.png) **DO:** Use borders around checkbox groups when you want to clearly distinguish options, especially in complex forms. Borders help visually separate each option, making it easier for users to scan and understand their choices. |
+| ![DO](images/efe373b17363ee9e97f1a1.png) **DO:** Use borders around checkbox groups when you want to clearly distinguish options, especially in complex forms. Borders help visually separate each option, making it easier for users to scan and understand their choices. |
+
+| Without border | With border |
+| --- | --- |
+| ![Without border](images/35dff3ef4381c9cb212666.png) | ![With border](images/9a864545d68ea98bf74c02.png) |
 
 #### Columns
 
 Vertical checkbox groups are available in one or two columns.
+
+| One column | Two columns |
+| --- | --- |
+| ![One column](images/e285ef834a26d1e0ac97a1.png) | ![Two columns](images/8141c352c4895b0702f528.png) |
 
 #### Header
 
 Like all form components, checkbox groups contain a header consisting of a label, a required asterisk or an optional mention, a tooltip icon, and a helper text. See the [form guidelines](https://zeroheight.com/626199550/p/81b84d-forms/t/page-81b84d-92550230-54) for more information.
 
 ---
+
+![](images/984a6865daf270eb126bcb.png)
 
 ## Behavior & Responsiveness
 
@@ -117,6 +135,12 @@ Like all form components, checkbox groups contain a header consisting of a label
 
 More information: [Guidelines on form validation and displaying errors](https://zeroheight.com/626199550/p/81b84d-forms/t/page-81b84d-92550230-79), [Content guidelines for state messages](https://zeroheight.com/626199550/p/526801-state-messages).
 
+| Neutral | Error | Checkbox group with error message |
+| --- | --- | --- |
+| ![Neutral](images/70ca9a65eb0560170637ae.png) | ![Error](images/71e70ff2c376b71e5cdf8a.png) | ![Checkbox group with error message](images/6a9df250840799b140eb29.png) |
+
+![](images/615bb5c802d39b310a27f7.png)
+
 ### Touch Target & Layout
 
 * **Width Adaptability:** The width of the checkbox group component is determined by its content. According to the [form guidelines](https://zeroheight.com/626199550/p/81b84d-forms/t/page-81b84d-92550230-13), the max-width should be kept at 448px.
@@ -124,6 +148,20 @@ More information: [Guidelines on form validation and displaying errors](https://
 * **Wrapping & Alignment (Horizontal):** Checkboxes wrap to a new line if there is not enough space for all of them. Only if the text of a checkbox is longer than the available space is the text itself wrapped. Checkbox and content are aligned on top.
 
 Not only the checkbox itself is clickable, but also the entire row. The row height is 48px.
+
+#### Vertical
+
+| One column | Two columns |
+| --- | --- |
+| ![One column](images/f449a7227dbeba73fd8dff.png) | ![Two columns](images/f5ec639fb98710d72fbcb7.png) |
+
+#### Horizontal
+
+Only if the text of a checkbox is longer than the width of the available space, the text is wrapped.
+
+| Short content | Long content |
+| --- | --- |
+| ![Short content](images/07de57e27f18e805aea551.png) | ![Long content](images/0e450820579b21f552ab8f.png) |
 
 ### Breakpoints & Platform Adaptations
 
@@ -148,6 +186,24 @@ Not documented
 For more information on content guidelines, please refer to the [UX Writing principles](https://zeroheight.com/626199550/p/324518-intro).
 
 ---
+
+### Checkbox lists
+
+Lists that use checkboxes should:
+
+* **Start with a capital letter**
+
+* Not use commas or semicolons at the end of each line
+
+### Group labels (optional)
+
+A group label can either indicate the category of the grouping or describe the actions to be taken below it.
+
+In some cases, a group of checkboxes may be within a larger group of components that already have a group label. In this case, no additional group label is required for the checkbox component itself.
+
+### Helper text (optional)
+
+Add an helper text below the label to provide additional context and help the user make a decision.
 
 ## Accessibility (a11y)
 

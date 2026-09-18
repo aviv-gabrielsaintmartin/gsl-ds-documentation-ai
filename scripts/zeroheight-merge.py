@@ -664,11 +664,21 @@ def merge(component, regen_path, write=False, keep_links=False, base=None,
         # looks at H2 and H3 -- so the depth is what decides whether a doc
         # reads as on-template or not.
         if placed:
+            # `Target#4` pins the depth instead of taking parent + 1. Needed
+            # where one level down from the parent is still a level the drift
+            # report checks: `coach-mark`'s `Focus order` under an H2
+            # `Accessibility (a11y)` lands as an H3, and no other component doc
+            # puts an H3 there. The report's own advice is "one level down".
+            want_lv = None
+            if "#" in placed and placed.rsplit("#", 1)[1].isdigit():
+                placed, want_lv = placed.rsplit("#", 1)
+                want_lv = int(want_lv)
             for l in out:
                 m = HEAD.match(l)
                 if m and m.group(2).strip().lower() == placed.strip().lower():
-                    lv = len(m.group(1)) + 1
+                    lv = want_lv or len(m.group(1)) + 1
                     break
+            parent = placed
         # A table row whose words are already on the page is a second copy of
         # that row, wherever it has been filed. `chip-group` carried its DO row
         # under `#### Action chips` and the page put the same row under

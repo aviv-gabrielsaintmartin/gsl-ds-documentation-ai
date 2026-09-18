@@ -84,23 +84,31 @@ The avatar is available as a circle or square in sizes between 24 and 128px.
 
 | Rectangular without stroke | Rectangular with padding and stroke | Rectangular with stroke |
 | --- | --- | --- |
-| ![](images/e393be16d3138b886874fb.png) | ![](images/9003668cf074a284c70081.png) | ![](images/bde75fe4880fa27fdb5c76.png) |
+| ![Rectangular without stroke](images/e393be16d3138b886874fb.png) | ![Rectangular with padding and stroke](images/9003668cf074a284c70081.png) | ![Rectangular with stroke](images/bde75fe4880fa27fdb5c76.png) |
 
 | DO | DON'T |
 | --- | --- |
-| ![](images/2823406288571eb74cd2b5.png) **DO:** Use the avatar in one of the available sizes and shapes. | ![](images/780aa2fb05d8390252a9ba.png) **DON'T:** Don't scale or change the shape of the avatar. |
+| ![DO](images/2823406288571eb74cd2b5.png) **DO:** Use the avatar in one of the available sizes and shapes. | ![DON'T](images/780aa2fb05d8390252a9ba.png) **DON'T:** Don't scale or change the shape of the avatar. |
 
 | DO |
 | --- |
-| ![](images/d897cb50a74f080115994c.png) **DO:** Use the circle for individuals such as agents, seekers, and private owners. Use the square for agencies. |
+| ![DO](images/d897cb50a74f080115994c.png) **DO:** Use the circle for individuals such as agents, seekers, and private owners. Use the square for agencies. |
 
 ### No padding
 
 All avatar sizes are available with and without padding.
 
+| With padding | Without padding |
+| --- | --- |
+| ![With padding](images/eb7f3b60ad799249754ae1.png) | ![Without padding](images/d5617815f39c1bc2affa6b.png) |
+
 ### No border
 
 All avatar sizes are available with and without border.
+
+| With border | Without border | With border | Without border |
+| --- | --- | --- | --- |
+| ![With border](images/bde75fe4880fa27fdb5c76.png) | ![Without border](images/e393be16d3138b886874fb.png) | ![With border](images/38deab5ddaf26a646e69a4.png) | ![Without border](images/55380f6ebed629d93229f8.png) |
 
 ### Icons and initials
 
@@ -108,7 +116,11 @@ Icons or initials can be used as a fallback if no image or logo is available.
 
 | DO | DON'T |
 | --- | --- |
-| ![](images/b4f2e3d1a4d1b21f879683.png) **DO:** If an image is not available, use icons or initials. We recommend using the building icons for agencies and the user icon or initials for individuals such as agents, private sellers, or seekers. | ![](images/265473aaebaabe296fe8bd.png) **DON'T:** Don't use any other illustrations or emojis. |
+| ![DO](images/b4f2e3d1a4d1b21f879683.png) **DO:** If an image is not available, use icons or initials. We recommend using the building icons for agencies and the user icon or initials for individuals such as agents, private sellers, or seekers. | ![DON'T](images/265473aaebaabe296fe8bd.png) **DON'T:** Don't use any other illustrations or emojis. |
+
+| Icon | Initials |
+| --- | --- |
+| ![Icon](images/9add810652b4d8c95b8308.png) | ![Initials](images/42a6f089fd2a9ca75c05b2.png) |
 
 ### Rectangular, adaptive avatar
 

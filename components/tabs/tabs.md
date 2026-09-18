@@ -55,8 +55,12 @@ Badge
 | DON'T |
 | --- |
 | ![](images/1f6292a3e9c5c8272a95c8.png) **DON'T:** Don't use tabs for linear step-by-step processes. Use the wizard instead. |
-| ![](images/0886b129c88d73496a8191.png) **DON'T:** Don't use tabs for primary navigation or to move between pages of different hierarchy levels. |
-| ![](images/09010f252e5e19c095163a.png) **DON'T:** Don't use tabs to move between top-level pages in an app. Use the navigation bar instead. |
+| ![DON'T](images/0886b129c88d73496a8191.png) **DON'T:** Don't use tabs for primary navigation or to move between pages of different hierarchy levels. |
+| ![DON'T](images/868bcd000461a66b2c1a41.png) **DON'T:** Don't use tabs to move between top-level pages in an app. Use the navigation bar instead. |
+
+| DO | DON'T |
+| --- | --- |
+| ![DO](images/936c15f804b9b3d59ba6c1.png)<br>**DO:** Use tabs to group related content into different views. | ![DON'T](images/5e02790a834dfdde2fb118.png)<br>**DON'T:** Don’t use tabs for linear step-by-step processes. Use the wizard instead. |
 
 ### Related Components
 
@@ -77,6 +81,10 @@ Badge
 
 Tabs are available with 2 to 5 elements. We don't recommend using more than this to avoid overwhelming the user.
 
+| &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| --- | --- | --- | --- |
+| ![](images/617ed0cd6f8d9af6cc6c1e.png) | ![](images/0b592f07fe9010fdf256a7.png) | ![](images/2aa9d24fc9814675401135.png) | ![](images/fae9e6601e95270d219059.png) |
+
 ### Modifiers
 
 #### Icons
@@ -85,8 +93,12 @@ Icons can be positioned on the left or on top of the tab.
 
 | DO |
 | --- |
-| ![](images/2aa9d24fc9814675401135.png) **DO:** On smaller screens with limited space, place the icons at the top to avoid scrolling. |
-| ![](images/284204f33714e348ca061b.png) **DO:** On wider screens, position the icons on the left. |
+| ![DO](images/a183471679864064eef96c.png) **DO:** On smaller screens with limited space, place the icons at the top to avoid scrolling. |
+| ![DO](images/284204f33714e348ca061b.png) **DO:** On wider screens, position the icons on the left. |
+
+| Without icons | With icons left | With icons on top |
+| --- | --- | --- |
+| ![Without icons](images/d930d8f0d668bfb232d2c5.png) | ![With icons left](images/24d373ef1a3d225af3199e.png) | ![With icons on top](images/ce7e8c0cd4dcc41697f0c4.png) |
 
 #### Badge
 
@@ -94,9 +106,11 @@ A badge can be placed next to the tab label.
 
 | DO |
 | --- |
-| ![](images/2abe8519e641b98d94553b.png) **DO:** Use badges to indicate notifications or updates. For example, for messages or alerts. |
+| ![DO](images/20d8af9aa00d5833346ebe.png) **DO:** Use badges to indicate notifications or updates. For example, for messages or alerts. |
 
 ---
+
+![](images/dbf80c44b17c4c0c5b9c1b.png)
 
 ## Behavior & Responsiveness
 
@@ -106,10 +120,46 @@ A badge can be placed next to the tab label.
 * **Default selection:** By default, the tab component always has one tab preselected, typically the first tab. Only one tab can be active at a time. If the user selects a new element, the previous tab is automatically deactivated.
 * **Interaction:** In order to change the active tab, the user must click on an inactive tab.
 
+| Default | Hover | Presed | Disabled |
+| --- | --- | --- | --- |
+| ![Default](images/b67aeae32998e3797f05af.png) | ![Hover](images/acc1dc9d350ef603a81d96.png) | ![Presed](images/6e82a5e44a9293d663772c.png) | ![Disabled](images/a1c028c2f23cb612d9cdf5.png) |
+
+| Default active | Hover active | Pressed active |
+| --- | --- | --- |
+| ![Default active](images/96c8330ee4617abd44cf3e.png) | ![Hover active](images/dd45abe8c768f142cbae3f.png) | ![Pressed active](images/e9dc1c514d6fe6ee9f15e7.png) |
+
+#### Scrolling and arrows
+
+On android and iOS, when a row of tabs doesn't fit on the screen, the tabs become scrollable.
+
+On the web, arrows need to be added to allow the user to navigate through them.
+
+| Without arrows | With arrows left and right | With arrow left | With arrow right |
+| --- | --- | --- | --- |
+| ![Without arrows](images/1abbc9d215c6a331b71f6c.png) | ![With arrows left and right](images/4f66bc6172ad5d95c67bf4.png) | ![With arrow left](images/497857c7f041406c77f86b.png) | ![With arrow right](images/cf6ffc5f942ab56d805ea8.png) |
+
+#### Compact Tabs
+
+Alernatively for small spaces, consumers instead of implementing the Scrolling and arrows can implement the Compact Tab variant.
+
+| Rest | Active |
+| --- | --- |
+| ![Rest](images/8af4fb5b79d334704fc72d.png) | ![Active](images/60db1c45b4c159632d7c3e.png) |
+
 ### Touch Target & Layout
 
 * **Size:** Tabs can be configured to either adapt to the content length (Hug content), or be evenly distributed to fill the available container space (Fill container). Use the "Hug Content" option for varying tab lengths, preserving a more compact layout. Choose "Fill container" if you want the tabs to span the entire width.
 * **Alignment:** Tabs can be aligned in different ways within their container. Use center alignment to position tabs evenly in the middle, creating a balanced look. Use left alignment to align tabs to the beginning of the container, which is useful for interfaces where a left-anchored layout is preferred.
+
+| Hug content | Fill container |
+| --- | --- |
+| ![Hug content](images/8241d68672856f5ce5c7a2.png) | ![Fill container](images/da94c44c97eb37af5fbe95.png) |
+
+#### Alignment
+
+| Center | Left |
+| --- | --- |
+| ![Center](images/fe44fd14e20e76f469f2a2.png) | ![Left](images/f78a2558308dd56b7caea0.png) |
 
 ### Breakpoints & Platform Adaptations
 
@@ -120,7 +170,7 @@ A badge can be placed next to the tab label.
 
 | DO |
 | --- |
-| ![](images/6968f549508503a5612fc6.png) **DO:** Use the arrows on the mobile web to ensure accessibility. This is critical to ensure that users with motor impairments, or those who rely on assistive technology, can comfortably access content without having to scroll or directly interact with dynamic elements. |
+| ![DO](images/b862776cb090733d9cbe32.png) **DO:** Use the arrows on the mobile web to ensure accessibility. This is critical to ensure that users with motor impairments, or those who rely on assistive technology, can comfortably access content without having to scroll or directly interact with dynamic elements. |
 
 ---
 

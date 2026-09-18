@@ -45,7 +45,7 @@ libraries under the same name, with different keys. They are two distinct
 components, so both entries are listed.
 
 Across the 57 documented entries there are 912 template
-sections to fill. **573 are filled** — 63%.
+sections to fill. **579 are filled** — 63%.
 
 ---
 
@@ -62,10 +62,10 @@ Ordered by how many documented components leave the section empty.
 | Length Limits | 19 | 38 | 0 | 33% |
 | Platform | 27 | 0 | 30 | 47% |
 | Variants | 35 | 22 | 0 | 61% |
-| Touch target | 37 | 20 | 0 | 65% |
 | Modifiers | 39 | 18 | 0 | 68% |
+| Touch target | 39 | 18 | 0 | 68% |
 | Writing | 43 | 14 | 0 | 75% |
-| States | 46 | 11 | 0 | 81% |
+| States | 50 | 7 | 0 | 88% |
 | Usage guidance | 52 | 5 | 0 | 91% |
 | When to use | 55 | 2 | 0 | 96% |
 | When NOT to use | 55 | 2 | 0 | 96% |
@@ -98,8 +98,8 @@ The ten documented components filling fewest of the 16 sections.
 | [KPI](kpi/kpi.md) | Patterns | 6 / 16 |
 | [Progress Bar](progress-bar/progress-bar.md) | Components | 6 / 16 |
 | [Progress Circle](progress-circle/progress-circle.md) | Components | 6 / 16 |
-| [Filter bar](filter-bar/filter-bar.md) | Patterns | 7 / 16 |
 | [Floor selection](floor-selection/floor-selection.md) | Experiences | 7 / 16 |
+| [Line chart](charts/line-chart.md) | Patterns | 7 / 16 |
 
 ---
 
@@ -117,7 +117,7 @@ The ten documented components filling fewest of the 16 sections.
 | [Button](button/button.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | 14 |
 | [Button Card](button-card/button-card.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 11 |
 | [Button Group](button-group/button-group.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | 14 |
-| [Card](card/card.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | 8 |
+| [Card](card/card.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | 9 |
 | [Carousel](carousel/carousel.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | 14 |
 | [Cell Content](cell-content/cell-content.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | 12 |
 | [Checkbox](checkbox/checkbox.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | 14 |
@@ -132,13 +132,13 @@ The ten documented components filling fewest of the 16 sections.
 | [Dropdown](dropdown/dropdown.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | 12 |
 | [Energy Tag](energy-tag/energy-tag.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | 9 |
 | [Feedback Messages](feedback-message/feedback-message.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | 10 |
-| [Filter bar](filter-bar/filter-bar.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | 7 |
+| [Filter bar](filter-bar/filter-bar.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | 9 |
 | [Floating Button Group](floating-button-group/floating-button-group.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 8 |
 | [Floor selection](floor-selection/floor-selection.md) | Experiences | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | 7 |
-| [Info State](info-state/info-state.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | 7 |
+| [Info State](info-state/info-state.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | 8 |
 | [KPI](kpi/kpi.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 6 |
 | [Line chart](charts/line-chart.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 7 |
-| [Link](link/link.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | 9 |
+| [Link](link/link.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | 10 |
 | [Listing Card](listing-card/listing-card.md) | Experiences | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 7 |
 | [Listing summary](listing-summary/listing-summary.md) | Experiences | ✅ | ⬜ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 3 |
 | [Media Upload](media-upload/media-upload.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | 10 |
@@ -146,7 +146,7 @@ The ten documented components filling fewest of the 16 sections.
 | [Modal Bottom Sheet Menu](modal-bottom-sheet-menu/modal-bottom-sheet-menu.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | 14 |
 | [Navigation bar](navigation-bar/navigation-bar.md) | Patterns | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | 11 |
 | [Pagination](pagination/pagination.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 8 |
-| [Phone Number Field](phone-number-field/phone-number-field.md) | Experiences | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | 10 |
+| [Phone Number Field](phone-number-field/phone-number-field.md) | Experiences | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | 11 |
 | [Progress Bar](progress-bar/progress-bar.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 6 |
 | [Progress Circle](progress-circle/progress-circle.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 6 |
 | [Radio Button Group](radio-button-group/radio-button-group.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | 11 |

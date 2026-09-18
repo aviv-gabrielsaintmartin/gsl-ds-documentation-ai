@@ -61,6 +61,10 @@ Badges
 | ![](images/b0aeed31569c898452b524.png) **DO:** Use dividers to group related options in a menu. Grouping options helps users quickly scan the menu and find what they need. | ![](images/89a1ca7702989d92214a00.png) **DON'T:** Avoid overusing dividers. Too many dividers create visual noise, which can make the menu harder to read. |
 | ![](images/d659fdf55982edc939ad3f.png) **DO:** Group destructive actions (e.g. Delete, Remove) at the end of the menu, separated by a divider, and style them in red to prevent accidental clicks. | ![](images/780f7c8a9bb6fd1621b3ab.png) **DON'T:** Don't place destructive actions at the top or in the middle of a menu, as this increases the risk of users accidentally triggering them. |
 
+| DO | DON'T |
+| --- | --- |
+| ![DO](images/e0a6631c90e794fbaf0828.png)<br>**DO:** Use modal bottom sheet menus to display a list of actions on mobile devices or in apps. | ![DON'T](images/780f7c8a9bb6fd1621b3ab.png)<br>**DON'T:** Don't use modal bottom sheet menus on breakpoints larger than XS (in Web). Use the action menu instead. |
+
 ### Related Components
 
 | Component | Priority | Usage | Example Scenario |
@@ -89,6 +93,38 @@ The modal bottom sheet menu contains a title. On Web, an optional subtitle can b
 
 ---
 
+#### Trigger
+
+Like the action menu, the modal bottom sheet menu can be opened with the following button types: tertiary icon button, floating icon button and text button.
+
+If you use a different trigger, please share your use case with us so we can improve our guidelines and documentation.
+
+| Tertiary icon button | Floating icon button | Text button |
+| --- | --- | --- |
+| ![Tertiary icon button](images/6395ad62fd29a803f75060.png) | ![Floating icon button](images/da330a3f9fa60d186ccf73.png) | ![Text button](images/24e82d9b1072f83c1755c6.png) |
+
+#### Icons
+
+Icons can be added to the menu list. They act as visual cues to provide clarity to the user.
+
+| With icons | Without icons |
+| --- | --- |
+| ![With icons](images/03830ed7d2f2478f7dfab5.png) | ![Without icons](images/309da39081a77bb2962c56.png) |
+
+**Title & body text**
+
+Each menu item contains a body text and an optional title.
+
+| Body text | Title and body text |
+| --- | --- |
+| ![Body text](images/03830ed7d2f2478f7dfab5.png) | ![Title and body text](images/3869393f720223a8b980b7.png) |
+
+#### Actions & links
+
+Menu items can be actions or links. If the menu item is a link, the external link icon is displayed.
+
+![](images/9698945136c0d9e86d5179.png)
+
 ## Behavior & Responsiveness
 
 ### Interactive States & Loading
@@ -102,6 +138,10 @@ The modal bottom sheet menu can be opened and closed in different ways.
 | Open | Open | Close | Close |
 | --- | --- | --- | --- |
 | ![](images/51436237726e2e30afe7f4.png) Clicking an option | ![](images/38964f9215466280ae0ccb.png) Web and app | ![](images/7e7c684e654d3900e2c9e4.png) Clicking outside the action menu or pressing esc | ![](images/b798ebab30542d30601c00.png) App only |
+
+| Unselected | Selected |
+| --- | --- |
+| ![Unselected](images/bce9b3cdc3d2333463069b.png) | ![Selected](images/8f6bcde132e4a73d33d8da.png) |
 
 ### Touch Target & Layout
 
@@ -133,6 +173,16 @@ To learn more about our breakpoints, see our grids and breakpoint guidelines.
 For more information on content guidelines, please refer to the UX Writing principles.
 
 ---
+
+### Menu items
+
+The actions in the list should be clear and inciting. Our users should be able to anticipate what will happen when they click on an action.
+
+Menu items should lead with an action verb that encourages action, in the infinitive tense.
+
+Use sentence case without punctuation.
+
+Try to keep it under 2 lines.
 
 ## Accessibility (a11y)
 

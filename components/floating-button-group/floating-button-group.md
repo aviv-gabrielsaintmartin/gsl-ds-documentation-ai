@@ -25,6 +25,10 @@ The floating button group is used for quick access to important actions without 
 
 The component is only used on the web. On iOS and Android, native components are used instead. The native components are not available in the gemini figma libraries.
 
+| Web | iOS | Android |
+| --- | --- | --- |
+| ![Web](images/a3028d3db3eef52230ce98.png) | ![iOS](images/32ee2e83cd6579ce41ca91.png) | ![Android](images/b1ac1c48932cddc54fb059.png) |
+
 ### When to use
 
 **Floating button group** — actions that float above scrolling content, typically overlaying media.
@@ -52,7 +56,7 @@ Alignment
 
 | DO | DON'T |
 | --- | --- |
-| ![](images/7243514103f50bfb0c442f.png) **DO:** Use the floating button group for related actions, such as zooming on maps. | ![](images/bf5a4cc03dec2d8251a7fd.png) **DON'T:** Don't use the floating button group for unrelated actions. Instead, use individual floating buttons. |
+| ![DO](images/7243514103f50bfb0c442f.png) **DO:** Use the floating button group for related actions, such as zooming on maps. | ![DON'T](images/bf5a4cc03dec2d8251a7fd.png) **DON'T:** Don't use the floating button group for unrelated actions. Instead, use individual floating buttons. |
 
 ### Related Components
 
@@ -69,9 +73,17 @@ Alignment
 
 The floating button group is available with 2 - 3 buttons.
 
+| 2 buttons | 3 buttons |
+| --- | --- |
+| ![2 buttons](images/5ea1fa999707d4695be553.png) | ![3 buttons](images/64a43ddb52947d74851a76.png) |
+
 ### Alignment
 
 The floating button group is available with a vertical and horizontal alignment.
+
+| Vertical | Horizontal |
+| --- | --- |
+| ![Vertical](images/dc161aeb21a1e213a94f77.png) | ![Horizontal](images/55c3553648968711b47c85.png) |
 
 ### Modifiers
 
@@ -84,6 +96,10 @@ Not documented
 ### Interactive States & Loading
 
 The buttons in the floating button group have the states default, hover, pressed and disabled.
+
+| Default | Hover | Pressed | Disabled |
+| --- | --- | --- | --- |
+| ![Default](images/f2c9e2e09a33da60b368d3.png) | ![Hover](images/2b91af1c33aaa37933cb07.png) | ![Pressed](images/5b0ef9cf95f0ba6b9db6b5.png) | ![Disabled](images/422d5915eb1b9c06a7f4ec.png) |
 
 ### Touch Target & Layout
 

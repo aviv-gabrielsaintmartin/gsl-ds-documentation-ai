@@ -64,9 +64,9 @@ Close button
 | DO |
 | --- |
 | ![](images/48e5dcda1e852d62b619e3.png) **DO:** Use feedback messages to provide guidance related to the user's current task. |
-| ![](images/4db1df333aebe4562b91ef.png) **DO:** Use feedback messages for general information related to the system or website/app. |
-| **DO:** Use feedback messages to confirm actions. |
-| ![](images/6e76938bd38c570ebc5d0c.png) **DO:** Use feedback messages for warnings or non-critical errors. |
+| ![DO](images/4db1df333aebe4562b91ef.png) **DO:** Use feedback messages for general information related to the system or website/app. |
+| ![DO](images/b0899d69abcac001a7498e.png) **DO:** Use feedback messages to confirm actions. |
+| ![DO](images/6e76938bd38c570ebc5d0c.png) **DO:** Use feedback messages for warnings or non-critical errors. |
 
 | DON'T |
 | --- |
@@ -93,11 +93,23 @@ Close button
 
 Feedback messages come in the following types: info, success, warning, and error.
 
+| Info | Success | Warning | Error |
+| --- | --- | --- | --- |
+| ![Info](images/9bc54dac93c802a292aa0b.png) | ![Success](images/bed7d6945e0aae38db6e08.png) | ![Warning](images/d503b28b2d922ceacea839.png) | ![Error](images/62dec3660f3421c7b4fcb7.png) |
+
 ### Floating and corner radius
 
 Feedback messages can be floating and non-floating. The floating version floats above the content, the non-floating one is used inline with the content.
 
 Feedback messages are available with and without corner radius. The version without corner radius is manly used to create floating banner at the top of the page.
+
+| Floating | Non-floating |
+| --- | --- |
+| ![Floating](images/b45ddc3160d9d69d22d382.png) | ![Non-floating](images/854df9800c4732f286c3d8.png) |
+
+| 16px corner radius | Without corner radius |
+| --- | --- |
+| ![16px corner radius](images/854df9800c4732f286c3d8.png) | ![Without corner radius](images/b0dfb3dd5732b7d799c401.png) |
 
 #### Breakpoints
 
@@ -109,9 +121,17 @@ We recommend displaying the floating feedback message with rounded corners on de
 
 Titles are optional, but recommended for clarity. Descriptions are mandatory.
 
+| With title | Without title |
+| --- | --- |
+| ![With title](images/b76bf561142831efba04ef.png) | ![Without title](images/d62349688b07d100c4a23d.png) |
+
 #### Buttons
 
 Feedback messages are available with 1 - 2 buttons or without buttons.
+
+| 1 button | 2 buttons | Without button |
+| --- | --- | --- |
+| ![1 button](images/38bb005e8118bba46533db.png) | ![2 buttons](images/9bc54dac93c802a292aa0b.png) | ![Without button](images/f4303242408cb527315af2.png) |
 
 #### Close button
 
@@ -123,11 +143,27 @@ Dismissible messages have a close button (x-icon), non-dismissible messages don'
 
 ---
 
+| With close button | Without close button |
+| --- | --- |
+| ![With close button](images/ebeca2fc0c85e573313126.png) | ![Without close button](images/58654bd6123135b5efaf17.png) |
+
 ## Behavior & Responsiveness
 
 ### Interactive States & Loading
 
 Feedback messages either appear in response to user actions, or they appear automatically to notify users of system processes. Dismissible feedback messages can be closed by clicking the x-button. Non-dismissible messages are either persistent or disappear when the issue that caused the message gets solved.
+
+| Dismissible | Non-dismissible |
+| --- | --- |
+| ![Dismissible](images/808a7a537fd9872ed45e9d.png) | ![Non-dismissible](images/74a7a1e007b0203c3e4e7c.png) |
+
+#### Breakpoints and alignment
+
+To learn more about our breakpoints, see our grids and breakpoint guidelines.
+
+| Vertical alignment | Horizontal alignment |
+| --- | --- |
+| ![Vertical alignment](images/ed8a8f8c3ecc391b83e94c.png) | ![Horizontal alignment](images/9bc54dac93c802a292aa0b.png) |
 
 ### Touch Target & Layout
 
@@ -141,6 +177,10 @@ Not documented
 | **iOS** | On iOS the alignment is done manually. |
 
 ---
+
+| Dektop | Tablet | Phone |
+| --- | --- | --- |
+| ![Dektop](images/501158a1fdb1d09bc44fa2.png) | ![Tablet](images/bf7010179075adf15314b2.png) | ![Phone](images/04bc4bccc36254f8f92906.png) |
 
 ## Content & UX Writing
 
@@ -159,6 +199,10 @@ Buttons should be clear and inciting. Users should be able to anticipate what wi
 For more information on content guidelines, please refer to the [UX Writing principles](https://zeroheight.com/626199550/v/latest/p/324518-intro) and [Feedback message guidelines](https://gemini.zeroheight.com/styleguide/s/92948/p/348cca-feedback-messages).
 
 ---
+
+| 1 button | 2 buttons | Without button |
+| --- | --- | --- |
+| ![1 button](images/38bb005e8118bba46533db.png) | ![2 buttons](images/9bc54dac93c802a292aa0b.png) | ![Without button](images/f4303242408cb527315af2.png) |
 
 ## Accessibility (a11y)
 

@@ -56,12 +56,12 @@ Slots
 | DO |
 | --- |
 | ![](images/31c903cc435aed09c0276f.png) **DO:** Use cards to encapsulate related content or actions that belong together. You can add text, actions, icons, illustrations and images within cards. Place elements in a way that creates a clear hierarchy and is easy to scan. |
-| ![](images/51d5299c88c8b000e83f3f.png) **DO:** Separate larger cards with a divider. |
-| ![](images/0cde26c1018209be5a6da0.png) **DO:** Create clickable cards by placing the cell content component inside the card. |
+| ![DO](images/51d5299c88c8b000e83f3f.png) **DO:** Separate larger cards with a divider. |
+| ![DO](images/0cde26c1018209be5a6da0.png) **DO:** Create clickable cards by placing the cell content component inside the card. |
 
 | DON'T |
 | --- |
-| **DON'T:** Don't use cards for selection. Use select cards instead. |
+| ![DON'T](images/61b6a75b40707a9a8f65b2.png) **DON'T:** Don't use cards for selection. Use select cards instead. |
 
 ### Related Components
 
@@ -84,11 +84,19 @@ The card is available with 4 different background colors. Choose the color accor
 
 | DO |
 | --- |
-| ![](images/57aa0c258410f1dcb861ec.png) **DO:** Use different background colors to create visual hierarchy. |
+| ![DO](images/57aa0c258410f1dcb861ec.png) **DO:** Use different background colors to create visual hierarchy. |
+
+| Default | Light | Primary light | Primary strong |
+| --- | --- | --- | --- |
+| ![Default](images/c7b646f84e1a4021339271.png) | ![Light](images/64b9a6fa5c703de7996af2.png) | ![Primary light](images/6e8a6c901cf4ff810440ec.png) | ![Primary strong](images/d1605e19d0639392c5c9dc.png) |
 
 ### Radius
 
 Cards are available with a radius of 4, 8 or 16px. Choose the radius according to the size of the card. The bigger the card, the bigger the radius should be.
+
+| 4px | 8ps | 16px |
+| --- | --- | --- |
+| ![4px](images/8703d2042ffe1aff7ce480.png) | ![8ps](images/cddf02264493a3a700afbe.png) | ![16px](images/c7b646f84e1a4021339271.png) |
 
 ### Padding
 
@@ -96,14 +104,22 @@ The card can be used with 8px padding or without padding. Choose the padding acc
 
 | DO |
 | --- |
-| ![](images/8d2a2a8042cd11a6898fd5.png) **DO:** Use the card with padding to separate content from the edge. |
-| ![](images/c86bb98d81329fec8cfeab.png) **DO:** When you wrap clickable cell contents inside cards, no padding is needed because the cell contents already contain padding. This makes the entire card clickable. |
+| ![DO](images/8d2a2a8042cd11a6898fd5.png) **DO:** Use the card with padding to separate content from the edge. |
+| ![DO](images/c86bb98d81329fec8cfeab.png) **DO:** When you wrap clickable cell contents inside cards, no padding is needed because the cell contents already contain padding. This makes the entire card clickable. |
+
+| With padding | Without padding |
+| --- | --- |
+| ![With padding](images/3aa30e0c6841d013bdc48e.png) | ![Without padding](images/fcdb41c1e9a39b0a3b92fc.png) |
 
 ### Slots
 
 The content placeholder in the card is available with 1 to 5 slots. You can use the slots as a helper to structure the content inside.
 
 ---
+
+| 1 slot | 2 slots | 3 slots | 4 slots | 5 slots |
+| --- | --- | --- | --- | --- |
+| ![1 slot](images/d86d92eb552e91be549a69.png) | ![2 slots](images/3fc906c2b719fadc5be52a.png) | ![3 slots](images/410a326e2d11ed322249f0.png) | ![4 slots](images/ba3a352d97bd1b100738ff.png) | ![5 slots](images/46a67d0d64542ce2409f2d.png) |
 
 ### Modifiers
 
@@ -113,7 +129,9 @@ Not documented
 
 ### Interactive States & Loading
 
-Not documented
+| Card with padding | Card without padding |
+| --- | --- |
+| ![Card with padding](images/4f47fb33f283ec615ac4cd.png) | ![Card without padding](images/10bcadae13998ec99a8cc6.png) |
 
 ### Touch Target & Layout
 

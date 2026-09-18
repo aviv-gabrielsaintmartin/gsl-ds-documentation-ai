@@ -25,7 +25,8 @@ decided. The skill says when to reach for them.
 
 | Option | What it does |
 | --- | --- |
-| `--place "Name=Target"` | Puts a source-only section under a different heading. Repeatable |
+| `--place "Name=Target"` | Puts a source-only section under a different heading, at one level below it. Repeatable |
+| `--table "Col\|Col=Section"` | Moves a finished table into a named section, for where the page and the doc divide the same content differently. Named by its column names. Repeatable |
 | `--base=<doc>` | Merges against a copy of the doc instead of the one in `components/` |
 | `--keep-zh-links` | Keeps incoming `zeroheight.com` links. By default they are unwrapped to their words |
 
@@ -50,6 +51,7 @@ From `zeroheight-draft.py`:
 
 | Line | What to do about it |
 | --- | --- |
+| `images found: N \| downloaded: N \| on disk: N` | From the extractor. **All three must agree**, and it exits non-zero when they do not. Run it again — the download is occasionally flaky |
 | `images downloaded: N \| placed in the doc: N` | These two must match. A gap means an image has no home in the doc |
 | `sections with nothing from the source` | The source genuinely had nothing. They are written as `Not documented` |
 | `headings the source has and the template does not` | **A guess.** Each one was placed under the section that was open at the time. Check every line, and record each correction with `--place` |
@@ -62,6 +64,10 @@ From `zeroheight-merge.py`:
 | `!! N of M source images are NOT in the merged doc` | **Chase every one.** Either a fault, or a decision that has to be written down. This is the line that caught `checkbox` losing 12 images while the draft script reported 42 of 42 placed |
 | `!! N referenced files are NOT pictures` | The doc points at a file that cannot render. 36 such files exist — Figma JSON saved under a `.png` name. `check-links.py` cannot see them, because it asks whether a file exists, never whether it is a picture |
 | `N cells re-pictured` | A cell whose words already matched the page was given the page's picture. Expected where the old migration put the wrong one in |
+| `N cells re-pictured from the page` | The same, for a section the page has no counterpart for. The page files things differently; the sentences still match |
+| `N repeated lines dropped` | The page said something the doc already said, and it was not written twice |
+| `table moved into <Section>` | A `--table` instruction was carried out. `NOT MOVED` means the column names or the section name did not match anything |
+
 
 ### Put the draft in front of a human
 

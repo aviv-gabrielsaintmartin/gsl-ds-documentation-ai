@@ -61,7 +61,7 @@ Title and description
 
 | DO | DON'T |
 | --- | --- |
-| ![](images/96ac9480a060b3acc73619.png) **DO:** Use carousels when you want to highlight related content and encourage user exploration. They are useful if you have limited space but want to display multiple items. | ![](images/260c7d35fb4e8eac4d594a.png) **DON'T:** Don't use carousels for key messages or calls to action, as they can be hidden if users don't engage with the carousel. Also, don't use them when users need to find information quickly. Carousels can slow down the experience by requiring multiple interactions to view all the content. |
+| ![DO](images/96ac9480a060b3acc73619.png) **DO:** Use carousels when you want to highlight related content and encourage user exploration. They are useful if you have limited space but want to display multiple items. | ![DON'T](images/260c7d35fb4e8eac4d594a.png) **DON'T:** Don't use carousels for key messages or calls to action, as they can be hidden if users don't engage with the carousel. Also, don't use them when users need to find information quickly. Carousels can slow down the experience by requiring multiple interactions to view all the content. |
 
 ### Related Components
 
@@ -80,9 +80,13 @@ Arrows can be positioned inside or above the content. We recommend using the ins
 
 | CAUTION |
 | --- |
-| ![](images/77599480811038a28b2605.png) **CAUTION:** Make sure the arrows don't cover relevant information or interactive elements. If they do, use arrows above the content. |
+| ![CAUTION](images/77599480811038a28b2605.png) **CAUTION:** Make sure the arrows don't cover relevant information or interactive elements. If they do, use arrows above the content. |
 
 For accessibility reasons arrows are **mandatory** on the web (desktop and mobile).
+
+| Inside | Above |
+| --- | --- |
+| ![Inside](images/3819e3ad7de7238bcdbea6.png) | ![Above](images/d88e1948579fcae86bce92.png) |
 
 ### Dots
 
@@ -90,7 +94,11 @@ Dots are optional progress indicators that show the current slide. They can be p
 
 | CAUTION |
 | --- |
-| ![](images/110de88576ba5eda1842c4.png) **CAUTION:** Make sure that dots don't cover relevant information. Use outside dots if they don't. |
+| ![CAUTION](images/110de88576ba5eda1842c4.png) **CAUTION:** Make sure that dots don't cover relevant information. Use outside dots if they don't. |
+
+| Inside | Outside | No dots |
+| --- | --- | --- |
+| ![Inside](images/472840332b3660697be386.png) | ![Outside](images/63006ff457bb9e6a81efcd.png) | ![No dots](images/4494d4c77ac4741a9fdbbd.png) |
 
 ### Clipped content
 
@@ -98,17 +106,25 @@ It's possible to show or clip the content that exceeds the carousel container.
 
 | DO |
 | --- |
-| ![](images/92854f59a4badc75be03bc.png) **DO:** Use the carousel with clipped content if you want to align the content with other content on the page. |
+| ![DO](images/92854f59a4badc75be03bc.png) **DO:** Use the carousel with clipped content if you want to align the content with other content on the page. |
 
 | DO |
 | --- |
-| ![](images/96ac9480a060b3acc73619.png) **DO:** Use the carousel without clipped content if you want the content to reach the edge. |
+| ![DO](images/96ac9480a060b3acc73619.png) **DO:** Use the carousel without clipped content if you want the content to reach the edge. |
+
+| Clipped content | Visible content |
+| --- | --- |
+| ![Clipped content](images/d73e1b1455d2a8aeb77f37.png) | ![Visible content](images/d66dd21b11d37d8d84f598.png) |
 
 ### Modifiers
 
 #### Title and description
 
 Title and description are both optional. We recommend using the title as the primary identifier, and adding a description when additional clarity or explanation is needed. We don't recommend using the description alone.
+
+| Title and description | Only title | No title or description |
+| --- | --- | --- |
+| ![Title and description](images/c3f5626838a0227be3ce19.png) | ![Only title](images/1cc229657b298107e3a830.png) | ![No title or description](images/bf0b7740db60d3bec5adbb.png) |
 
 ### Carousel items
 
@@ -127,6 +143,16 @@ Carousel items hold the content. The carousel can be set to automatically adjust
 We recommend limiting carousels to 5-7 slides. This range helps to maintain user interest without overwhelming them, ensuring the most relevant content is seen and easy to navigate.
 
 The carousel slides horizontally by pressing the chevron buttons or dragging the mouse on desktop and swiping on mobile. It's also possible to navigate using the arrow keys on the keyboard.
+
+| Clicking button | Dragging / swiping |
+| --- | --- |
+| ![Clicking button](images/f8206be13b00ee70388a5f.png) | ![Dragging / swiping](images/a1d90114055ec00af18f38.png) |
+
+#### Button states
+
+| Start | Middle | End |
+| --- | --- | --- |
+| ![Start](images/a8692da34a35a3ef4ecbe3.png) | ![Middle](images/b11428913a9c436ae23091.png) | ![End](images/60f1e5d367872433ed520e.png) |
 
 ### Touch Target & Layout
 

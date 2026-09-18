@@ -71,8 +71,8 @@ Tag
 | DO |
 | --- |
 | ![](images/653deabeee11593e871b11.png) **DO:** Wrap the cell content in a card to create clickable cards that navigate users from an overview to a detail page. |
-| ![](images/9f213dc7b6ac263b752a93.png) **DO:** Separate larger cards with a divider and place multiple cell contents in a container. |
-| ![](images/5d1a7ad1cf031fd24f9997.png) **DO:** Use non-clickable cell contents to create tables. |
+| ![DO](images/9f213dc7b6ac263b752a93.png) **DO:** Separate larger cards with a divider and place multiple cell contents in a container. |
+| ![DO](images/5d1a7ad1cf031fd24f9997.png) **DO:** Use non-clickable cell contents to create tables. |
 
 | DON'T |
 | --- |
@@ -96,8 +96,12 @@ Cell contents are available with horizontal and vertical alignment. Which one to
 
 | DO |
 | --- |
-| ![](images/cbe88399e222f7cde9d49a.png) **DO:** Use the horizontal layout when there is plenty of horizontal space and the content in the cell is longer. |
-| ![](images/adb004e0522f7cb084bcc0.png) **DO:** Use the vertical layout where horizontal space is limited but vertical space is available, such as in grid structures. Allows compact display of information in tight spaces. |
+| ![DO](images/cbe88399e222f7cde9d49a.png) **DO:** Use the horizontal layout when there is plenty of horizontal space and the content in the cell is longer. |
+| ![DO](images/adb004e0522f7cb084bcc0.png) **DO:** Use the vertical layout where horizontal space is limited but vertical space is available, such as in grid structures. Allows compact display of information in tight spaces. |
+
+| Horizontal | Vertical |
+| --- | --- |
+| ![Horizontal](images/08db461bf5812b3c991126.png) | ![Vertical](images/9ff2ebd6de551a5bf8590d.png) |
 
 ### Padding
 
@@ -107,11 +111,19 @@ Padding applies to all four sides. It changes the outer inset only — the gaps 
 
 **0 padding is for non-clickable cell contents only.** Figma offers it on the non-clickable variant alone; the clickable combinations were removed from the component set. The web component still accepts 0 on a clickable cell content — never use it there. Hover, pressed and disabled would paint right up to the edge of the content, with no margin around it.
 
+| 8px | 16px |
+| --- | --- |
+| ![8px](images/21add8fb89d98e7504512c.png) | ![16px](images/c9846baf8dc0c812ec1aa3.png) |
+
 ### Modifiers
 
 #### Title, body and description
 
 All text elements in the cell content are optional and can be freely combined. We recommend using the title as the primary identifier, and adding the body and description when additional clarity or explanation is needed. In tables, for example, it's possible to use the body text alone. We don't recommend using the description alone.
+
+| Only title | Title and description | Title and body | Only body | Title, body and description |
+| --- | --- | --- | --- | --- |
+| ![Only title](images/089a384bc820c2ea95ea0e.png) | ![Title and description](images/c79883a5566767cd847f94.png) | ![Title and body](images/da6d70bc909673f40e958c.png) | ![Only body](images/8eee833931ced8f93ad14b.png) | ![Title, body and description](images/9efee1fe63e9cacc430645.png) |
 
 #### Icons and image
 
@@ -120,6 +132,20 @@ The cell content contains optional icons and images. Icons and images are availa
 **Link and action icons:** If a link or action is applied to the cell content, the chevron is displayed by default. If an external link is applied, the external link icon is displayed.
 
 How the leading icon sits against the text is a separate setting — see *Icon alignment* below.
+
+| Icon left and right | Icon left | Icon right |
+| --- | --- | --- |
+| ![Icon left and right](images/efed66e893fe7b115f9cdc.png) | ![Icon left](images/9bb9931d10c52a3a1f9578.png) | ![Icon right](images/75295862be0f2a35f4b902.png) |
+
+| No icon | Image and icon | Only image |
+| --- | --- | --- |
+| ![No icon](images/68a5feae97e36bf71de1e6.png) | ![Image and icon](images/022cc811c3d1019a6426a9.png) | ![Only image](images/b6d29281890b0420ec1ed0.png) |
+
+**Link and action icons**
+
+| Action and internal link | External link |
+| --- | --- |
+| ![Action and internal link](images/694b73a249225c37a3cc40.png) | ![External link](images/e8ef26beef2375b4af7752.png) |
 
 #### Icon alignment
 
@@ -148,11 +174,15 @@ An optional badge can be placed next to the title in the cell content.
 
 | DO |
 | --- |
-| ![](images/a8832bc236e65f5d7899ff.png) **DO:** Use badges to indicate notifications or updates. For example, for messages or alerts. |
+| ![DO](images/a8832bc236e65f5d7899ff.png) **DO:** Use badges to indicate notifications or updates. For example, for messages or alerts. |
+
+![](images/3d4af5f19c11b989f3dbf7.png)
 
 #### Tag
 
 An optional tag can be placed next to the title in the cell content.
+
+![](images/14532ed448f46aa3d2c8c5.png)
 
 #### Clickable
 
@@ -165,6 +195,16 @@ The cell content can be either clickable or non-clickable.
 ### Interactive States & Loading
 
 * **Default / Hover / Pressed / Disabled:** The clickable cell content has four states: Default, Hover, Pressed and Disabled.
+
+| Default | Hover | Pressed | Disabled |
+| --- | --- | --- | --- |
+| ![Default](images/1691f0986652d75075125d.png) | ![Hover](images/e9dd4b3731cf4a09b4c02b.png) | ![Pressed](images/9041cfb99e873d94106488.png) | ![Disabled](images/d91290dd50663392485beb.png) |
+
+#### Touch target
+
+| Clickable cell content | Wrapped in card |
+| --- | --- |
+| ![Clickable cell content](images/e318d5a0da44447df8627a.png) | ![Wrapped in card](images/f517d5fa4872f6e211ec71.png) |
 
 ### Touch Target & Layout
 

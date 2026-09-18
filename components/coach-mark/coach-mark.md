@@ -20,7 +20,7 @@ Coach marks are temporary messages that provide contextual information to educat
 
 | Single step | Multi step |
 | --- | --- |
-| ![](images/25643d6a8aadbe6492f147.png) | ![](images/21a6bee93866def418f9a9.png) |
+| ![Single step](images/25643d6a8aadbe6492f147.png) | ![Multi step](images/21a6bee93866def418f9a9.png) |
 
 ### When to use
 
@@ -69,9 +69,17 @@ Tag position
 
 Only the title and the close icon are mandatory. All other elements can be hidden, offering a variety of layout.
 
+| Full | Simple |
+| --- | --- |
+| ![Full](images/61b400115880f9fdfd12c9.png) | ![Simple](images/63bca522fa2e1b59beec7b.png) |
+
 ### Tag position
 
 To ensure a perfect readability, the tag can be aligned with the title or placed on top when the title is on two lines. It's up to the consumer.
+
+| Horizontally aligned | On-top |
+| --- | --- |
+| ![Horizontally aligned](images/4cf5e93d03522cb47ed843.png) | ![On-top](images/eebab352701bc568a324bc.png) |
 
 ### Modifiers
 
@@ -84,6 +92,10 @@ Not documented
 ### Interactive States & Loading
 
 The coach mark appears automatically after the page loaded (decided by the consumer). A coach mark is an advisory overlay, not a modal dialog — it provides optional information, and its interaction model should reflect its subordinate nature. By allowing it to be dismissed easily, we reinforce that the coach mark is a temporary guide, not a mandatory step. This distinguishes it from critical alerts or dialogs that require an explicit user action before proceeding.
+
+| Multi step | Single step |
+| --- | --- |
+| ![Multi step](images/032d715feb3142d59e8056.png) | ![Single step](images/dbdb1e8369109afe25461c.png) |
 
 #### Dismissal on scroll
 
@@ -103,6 +115,18 @@ An animation is used when the coach mark appears and disappears. During a tour, 
 #### Position
 
 The coach mark appears near the triggering object. The auto-placement feature identifies the best position from all available placement options, promoting effective use of space.
+
+| Bottom Start | Bottom Middle | Bottom End | Left End |
+| --- | --- | --- | --- |
+| ![Bottom Start](images/dce13f233b27b73ce00060.png) | ![Bottom Middle](images/b925e8adbe96e67624e9d6.png) | ![Bottom End](images/020b07fda8fb89b326f6ab.png) | ![Left End](images/e7dc7f7120e809398f10b9.png) |
+
+| Left Middle | Left End | Left Start | Left Middle |
+| --- | --- | --- | --- |
+| ![Left Middle](images/cd5bcc919b075677189fac.png) | ![Left End](images/17961c3052982b2bda102e.png) | ![Left Start](images/9a40d56553395d22e7361a.png) | ![Left Middle](images/1eee35fec76d61bd9e9043.png) |
+
+| Right End | Right Middle | Left Start | Right Start |
+| --- | --- | --- | --- |
+| ![Right End](images/a9679a46e69010dff8053d.png) | ![Right Middle](images/a771c4e2fb18a82f4aa0fe.png) | ![Left Start](images/5c6a75d8103d2efd2e7fcc.png) | ![Right Start](images/579c05da1e552681559aba.png) |
 
 ### Breakpoints & Platform Adaptations
 
@@ -129,3 +153,21 @@ For more information on content guidelines, please refer to the [UX Writing prin
 
 * **Keyboard Navigation:** When opened, the first focusable element within the content is focused, and focus is trapped and wrapped within it (Source: [Progress Design system kit](https://www.telerik.com/design-system/docs/components/popover/accessibility/)). Upon closing through the keyboard or by interacting with an element within the content, focus is returned to the anchor element. Focus order: Tag → Title → Subtitle → Close (positioned early to allow a quick close) → Steps → Button 1 → Button 2.
 * **Screen Readers:** The illustrative picture is decorative and therefore ignored by screen readers.
+
+#### Focus order
+
+* **Tag**
+
+* **Title**
+
+* **Subtitle**
+
+* Close (positioned here to allow an quick close)
+
+* **Steps**
+
+* **Button 1**
+
+* **Button 2**
+
+The picture is decorative and therefore ignored by the screen readers.

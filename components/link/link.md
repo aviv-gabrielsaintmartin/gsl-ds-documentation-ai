@@ -59,11 +59,15 @@ Icons
 | DO |
 | --- |
 | ![](images/58e406d2e5427fbdb891d2.png) **DO:** Use links to redirect users to different internal pages or to a different section of the current page. |
-| ![](images/51bb89bb546fe4b444ff1b.png) **DO:** Use links with the external link icon to link to external websites. |
+| ![DO](images/b3db1362ebb3e6d7ef5587.png) **DO:** Use links with the external link icon to link to external websites. |
 
 | DON'T |
 | --- |
-| **DON'T:** Don't use links to trigger actions. Use buttons instead. |
+| ![DON'T](images/63903407f1ac0519444759.png) **DON'T:** Don't use links to trigger actions. Use buttons instead. |
+
+| DO | DON'T |
+| --- | --- |
+| ![DO](images/37554b12067aa1ce23d9ba.png)<br>**DO:** Use links to redirect users to different internal pages or to a different section of the current page. | ![DON'T](images/63903407f1ac0519444759.png)<br>**DON'T:** Don't use links to trigger actions. Use buttons instead. |
 
 ### Related Components
 
@@ -80,6 +84,10 @@ Icons
 ### Type
 
 Links can be standalone or inline. Both types can be used to link to internal or external pages or files.
+
+| Standalone | Inline |
+| --- | --- |
+| ![Standalone](images/e13d7b23581cdc9a76a9c8.png) | ![Inline](images/5c409769f6b312d691b7fb.png) |
 
 #### Standalone
 
@@ -105,7 +113,7 @@ Links change their appearance depending on their context and background to bette
 
 | Default | Inverted | On-primary | On-secondary |
 | --- | --- | --- | --- |
-| ![](images/3db7d52da7405f90f66302.png) | ![](images/a4ff730fc709f35dd135d7.png) | ![](images/a2f60ac4237f2636c64e96.png) | ![](images/2e49a04dda338865a82cac.png) |
+| ![Default](images/a4ff730fc709f35dd135d7.png) | ![Inverted](images/51bb89bb546fe4b444ff1b.png) | ![On-primary](images/a2f60ac4237f2636c64e96.png) | ![On-secondary](images/fe323f890eadc4f1d61cb7.png) |
 
 ### Modifiers
 
@@ -117,21 +125,21 @@ Icons are used to emphasize the text content in the link label.
 
 | No icon | Icon left | Icon right | External icon |
 | --- | --- | --- | --- |
-| ![](images/e634fd175195268cb6ef82.png) | ![](images/58e406d2e5427fbdb891d2.png) | ![](images/51bb89bb546fe4b444ff1b.png) | ![](images/78e3f683ed75574b199d89.png) |
+| ![No icon](images/e634fd175195268cb6ef82.png) | ![Icon left](images/58e406d2e5427fbdb891d2.png) | ![Icon right](images/3db7d52da7405f90f66302.png) | ![External icon](images/78e3f683ed75574b199d89.png) |
 
 | DO |
 | --- |
-| ![](images/1c461c30b7ca38e3c5acd2.png) **DO:** Use icons in standalone links. |
+| ![DO](images/beac4a5258fb12cc933d5c.png) **DO:** Use icons in standalone links. |
 
 **Inline link:** To ensure readability, the inline link doesn't have any icons other than the external link icon.
 
 | No icon | External icon |
 | --- | --- |
-| ![](images/3db7d52da7405f90f66302.png) | ![](images/c2a6b6cee9be158efee919.png) |
+| ![No icon](images/e634fd175195268cb6ef82.png) | ![External icon](images/78e3f683ed75574b199d89.png) |
 
 | DO | DON'T |
 | --- | --- |
-| ![](images/9f75c021c817517d9127d7.png) **DO:** Use inline links without icons to ensure readability. Use only the external link icon for external inline links. | ![](images/9b678267ce306452d7ed75.png) **DON'T:** Don't add other icons to inline links. |
+| ![DO](images/9f75c021c817517d9127d7.png) **DO:** Use inline links without icons to ensure readability. Use only the external link icon for external inline links. | ![DON'T](images/1c461c30b7ca38e3c5acd2.png) **DON'T:** Don't add other icons to inline links. |
 
 ---
 
@@ -143,11 +151,13 @@ All link types have the states default, hover, pressed and disabled.
 
 | Default | Hover | Pressed | Disabled |
 | --- | --- | --- | --- |
-| ![](images/3db7d52da7405f90f66302.png) | ![](images/8d95854e8d3f963eb064b4.png) | ![](images/1b1f99153a505082b9a621.png) | ![](images/fe323f890eadc4f1d61cb7.png) |
+| ![Default](images/b31672638970490846c3f6.png) | ![Hover](images/c2a6b6cee9be158efee919.png) | ![Pressed](images/f24172115f7d607e7e9a75.png) | ![Disabled](images/d1c7ff200589fa65f9bd2a.png) |
 
 ### Touch Target & Layout
 
-Not documented
+**Standalone**
+
+**Inline**
 
 ### Breakpoints & Platform Adaptations
 

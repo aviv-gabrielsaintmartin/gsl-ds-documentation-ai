@@ -54,7 +54,7 @@ Header, as with every form component
 | DON'T |
 | --- |
 | ![](images/b09c260c3e0f41c758b223.png) **DON'T:** Don't use the counter field to select the apartment floors. Instead, use the floor selection component. |
-| ![](images/6dda486bc6f305bc73ff28.png) **DON'T:** Don't use the counter field for larger numbers. Use text fields instead. |
+| ![DON'T](images/6dda486bc6f305bc73ff28.png) **DON'T:** Don't use the counter field for larger numbers. Use text fields instead. |
 
 ### Related Components
 
@@ -78,6 +78,8 @@ Like all form components, counter fields contain a header consisting of a label,
 
 ---
 
+![](images/101c3385210efedec8d0ad.png)
+
 ## Behavior & Responsiveness
 
 ### Interactive States & Loading
@@ -87,9 +89,37 @@ Like all form components, counter fields contain a header consisting of a label,
 
 Numbers can be entered into the counter field using the keyboard — it is not possible to enter letters. Numbers can also be selected using the +/- buttons; consumers can decide how many steps the counter will increase/decrease per click (e.g. 0.5, 1, 5, 10 steps etc.). The counter field allows positive and negative integer and decimal numbers. The default, maximum and minimum values can be defined by the consumer.
 
+#### Neutral
+
+| Default | Hover | Active | Disabled |
+| --- | --- | --- | --- |
+| ![Default](images/f34feb69ba6b757d513690.png) | ![Hover](images/be7e44a2c4dcd6052fdba1.png) | ![Active](images/f97cc8859bda2913e18b6d.png) | ![Disabled](images/d21d21fe3a39f686879d11.png) |
+
+#### Error
+
+| Default | Hover | Active | Disabled |
+| --- | --- | --- | --- |
+| ![Default](images/b99d16a03f43b28c4faca3.png) | ![Hover](images/53b4716d7620f54a00d4cb.png) | ![Active](images/9b782bbcdf4e19252c1310.png) | ![Disabled](images/1b2b02424c39b6aaf8fafd.png) |
+
+#### Buttons
+
+| Default | Hover | Pressed | Disabled |
+| --- | --- | --- | --- |
+| ![Default](images/f34feb69ba6b757d513690.png) | ![Hover](images/7cdd2be2493e666706d40b.png) | ![Pressed](images/1792ecdb6b6d58e68a8108.png) | ![Disabled](images/ac4b478fcc6dfccda7f5d1.png) |
+
+It is not possible to enter letters in the counter field component.
+
+Consumers can decide how many steps the counter will increase/decrease when the buttons are clicked (e.g.
+
+| Entering with keyboard | Selecting with buttons |
+| --- | --- |
+| ![Entering with keyboard](images/c85339720628a9ec98aeb7.png) | ![Selecting with buttons](images/671bdce186f531e25a4854.png) |
+
 ### Touch Target & Layout
 
 * **Width Adaptability:** The default size of the counter field is 144px. The width can also be set to 50% of the container if two counter fields are in the same row. Using the counter field at 100% (full-width) is not recommended. According to the [form guidelines](https://zeroheight.com/626199550/p/81b84d-forms/t/page-81b84d-92550230-13), the form container should have a max-width of 448px.
+
+![](images/86306b09f8a92458eb05e2.png)
 
 ### Breakpoints & Platform Adaptations
 

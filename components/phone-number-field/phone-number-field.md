@@ -2,6 +2,8 @@
 
 # Phone number field
 
+![](images/OkYohMv1tV25EOYLM5g6xw.png)
+
 The phone number field is used to input and format phone numbers.
 
 ![z4fLAt6uS1qLwK_92x3F2A.png](https://avivgroup.atlassian.net/wiki/pages/viewpageattachments.action?pageId=3491856865&preview=%2F3491856865%2F3492086884%2Fz4fLAt6uS1qLwK_92x3F2A.png)  <!-- MISSING LOCAL IMAGE: z4fLAt6uS1qLwK_92x3F2A.png -->
@@ -73,6 +75,10 @@ Interaction state
 | --- | --- |
 | ![](images/d01bebae3c8709a2b92f25.png) **DO:** Always display phone number fields at full width (100%). | ![](images/992965002c8fd0c1b08ef0.png) **DON'T:** Avoid using 50% width for input fields when they are grouped with other fields. |
 
+| DO | DON'T |
+| --- | --- |
+| ![DO](images/e5ff53fa5a39d7e1924f75.png)<br>**DO:** Use the phone number field with a country code selector in forms, and prefill the country code based on the user’s location whenever possible to improve usability. | ![DON'T](images/ce6c4b9528add7e2fbe5a4.png)<br>**DON'T:** Leave the country code unselected, as this can cause user confusion and incorrect phone number formatting. |
+
 ### Related Components
 
 | Component | Priority | Usage | Example Scenario |
@@ -92,18 +98,72 @@ Not documented
 
 ---
 
+#### Header
+
+Like all form components, phone number fields contain a header consisting of a label, a required asterisk or an optional mention, a tooltip icon, and a helper text.
+
+Go to the form guidelines for more information.
+
+| Web / iOS | Android |
+| --- | --- |
+| ![Web / iOS](images/4ce04e6119b4d9526da5f6.png) | ![Android](images/422923e296ba265fd25351.png) |
+
+Phone Number fields should always have a label. Only in rare cases, where the context is clear, can the label be hidden. For accessibility, an invisible aria-label should be used.
+
 ## Behavior & Responsiveness
 
 Not documented
 
 ### Interactive States & Loading
 
-Not documented
+The phone number field allows users to change the country code and enter a number when focused. The country code dropdown and the phone number text field have different active and hover states.
+
+They don't have a pressed state. Instead, they change to the active state when a user presses on the text field.
+
+| Default | Hover field | Hover dropdown | Active | Disabled |
+| --- | --- | --- | --- | --- |
+| ![Default](images/203515cd0dfde48381ffdd.png) | ![Hover field](images/7020e8c13a2549038de8be.png) | ![Hover dropdown](images/2111fdb184caa383afd65c.png) | ![Active](images/871ad8643c794f81a28a0f.png) | ![Disabled](images/2216d54baf11ac71dbddc4.png) |
+
+| Default | Hover field | Hover dropdown | Active | Disabled |
+| --- | --- | --- | --- | --- |
+| ![Default](images/7e93def92e72d61ad86134.png) | ![Hover field](images/4bfbccb9e725b439108999.png) | ![Hover dropdown](images/82dfbf822474117ecf910c.png) | ![Active](images/4e416e3e80c1c0220c003f.png) | ![Disabled](images/e7cb8d9080fa5ac083f9db.png) |
+
+#### Country code selection
+
+It is autofilled based on geolocation or defaults to the brand's default country. It can't be deselected, always stays filled, and automatically updates the phone number field when changed.
+
+| Desktop active | Mobile / iOS active |
+| --- | --- |
+| ![Desktop active](images/749ecd4d3c63ed047ec77e.png) | ![Mobile / iOS active](images/07f0d9f306d1547979b546.png) |
+
+The rows in the the dropdown list have the states default, hover and pressed. They can be selected or unselected.
+
+| Unselected | Selected |
+| --- | --- |
+| ![Unselected](images/ec15768f7eb408a06ef547.png) | ![Selected](images/f73f9593abb2ddc36c463f.png) |
+
+#### Errors
+
+Phone number field saves entered phone numbers even when the country code changes. It has filled and empty states, with potential errors.
+
+| Default empty | Hover empty | Active empty | Disabled empty |
+| --- | --- | --- | --- |
+| ![Default empty](images/2405eccb071f9d9d4737ed.png) | ![Hover empty](images/fe02238926e31a3c7e2899.png) | ![Active empty](images/a45a126c38b6c1666c7fc0.png) | ![Disabled empty](images/f58894854e4a63746b4a92.png) |
+
+| Default filled | Hover filled | Active filled | Disabled filled |
+| --- | --- | --- | --- |
+| ![Default filled](images/ef5a865d87898ce96ffbf7.png) | ![Hover filled](images/992965002c8fd0c1b08ef0.png) | ![Active filled](images/25273b28b16d458abf252f.png) | ![Disabled filled](images/03358f9b750701b86718f6.png) |
 
 ### Touch Target & Layout
 
 * **Overflow in a text input:** if user input exceeds the single text input line, the content scrolls horizontally within the field container as the cursor is moved.
 * **Overflow in Dropdown:** the country code in the dropdown will be truncated if it exceeds the available space.
+
+![](images/1486c62a05ea1d0ddd5b96.png)
+
+| DO | DON'T |
+| --- | --- |
+| ![DO](images/e5ff53fa5a39d7e1924f75.png)<br>**DO:** Use the full width of the container for input fields. | ![DON'T](images/d01bebae3c8709a2b92f25.png)<br>**DON'T:** Avoid using 50% width for input fields when they are grouped with other fields. |
 
 ### Breakpoints & Platform Adaptations
 
@@ -115,8 +175,9 @@ The style of the country code selector depends on the breakpoint. To learn more 
 | **Web: SM - XXXL (> 599 px)** | Bottom Sheet ![](images/ff40cc4061b1997aae7009.png) |
 
 ---
-
----
+| Dropdown | Bottom Sheet |
+| --- | --- |
+| ![Dropdown](images/749ecd4d3c63ed047ec77e.png) | ![Bottom Sheet](images/07f0d9f306d1547979b546.png) |
 
 ## Content & UX Writing
 
