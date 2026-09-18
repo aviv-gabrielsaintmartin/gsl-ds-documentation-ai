@@ -70,7 +70,12 @@ Beyond the default slots
 
 ### Related Components
 
-Not documented
+| Component | Priority | Usage | Example Scenario |
+| --- | --- | --- | --- |
+| **Listing summary** | — | Listing summaries are concise versions of listings featured on any AVIV Group website, designed for high flexibility. | — |
+| [**Listing card**](../listing-card/listing-card.md) | High | Listing cards are actionable cards that summarize the details of a property listed on any AVIV Group website. | A full, actionable property card on a search results page |
+| [**Card**](../card/card.md) | Medium | Cards are flexible containers used to visually group content. | Grouping generic content that does not summarise a property — and the container a listing summary is often placed inside |
+| [**Table**](../tables/tables.md) | Low | Tables are used to organize and display all information from a data set. | A listing summary placed as a row inside a larger table layout |
 
 ## Variants & Modifiers
 

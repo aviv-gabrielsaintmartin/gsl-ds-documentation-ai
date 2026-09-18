@@ -119,7 +119,7 @@ run had left behind**. All three are in the backlog.
 
 **Those same two docs were also the only two with no `When to use` and no `When NOT to use`. Both are now written.** Three sections stand at 57 of 57: *When to use*, *When NOT to use*, *Variant flow*.
 
-**One thing left on `listing-summary`** — it is the last doc of 57 with no `Related Components` table. Fifteen minutes, not started, not yet in the backlog.
+**`listing-summary`'s `Related Components` table is written too.** **Four sections now stand at 57 of 57** — *When to use*, *When NOT to use*, *Variant flow*, *Related*. Every component doc answers when to use it, when not, which variant, and what to use instead.
 
 **Then: settle whether `Spacing/56` is page rhythm or forbidden.** The ruleset
 says both, 83 lines apart — and the donut appears to use 56 internally.

@@ -45,7 +45,7 @@ libraries under the same name, with different keys. They are two distinct
 components, so both entries are listed.
 
 Across the 57 documented entries there are 912 template
-sections to fill. **585 are filled** — 64%.
+sections to fill. **586 are filled** — 64%.
 
 ---
 
@@ -67,10 +67,10 @@ Ordered by how many documented components leave the section empty.
 | Writing | 43 | 14 | 0 | 75% |
 | States | 50 | 7 | 0 | 88% |
 | Usage guidance | 52 | 5 | 0 | 91% |
-| Related | 56 | 1 | 0 | 98% |
 | When to use | 57 | 0 | 0 | 100% |
 | When NOT to use | 57 | 0 | 0 | 100% |
 | Variant flow | 57 | 0 | 0 | 100% |
+| Related | 57 | 0 | 0 | 100% |
 
 **Read `Platform` differently from the rest.** It is prose saying a component
 is restricted to some platforms — *"pagination is only used on the web"*. A
@@ -95,11 +95,11 @@ The ten documented components filling fewest of the 16 sections.
 | [Bar graph](charts/bar-chart.md) | Patterns | 6 / 16 |
 | [Divider](divider/divider.md) | Components | 6 / 16 |
 | [KPI](kpi/kpi.md) | Patterns | 6 / 16 |
-| [Listing summary](listing-summary/listing-summary.md) | Experiences | 6 / 16 |
 | [Progress Bar](progress-bar/progress-bar.md) | Components | 6 / 16 |
 | [Progress Circle](progress-circle/progress-circle.md) | Components | 6 / 16 |
 | [Line chart](charts/line-chart.md) | Patterns | 7 / 16 |
 | [Listing Card](listing-card/listing-card.md) | Experiences | 7 / 16 |
+| [Listing summary](listing-summary/listing-summary.md) | Experiences | 7 / 16 |
 
 ---
 
@@ -140,7 +140,7 @@ The ten documented components filling fewest of the 16 sections.
 | [Line chart](charts/line-chart.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 7 |
 | [Link](link/link.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | 10 |
 | [Listing Card](listing-card/listing-card.md) | Experiences | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 7 |
-| [Listing summary](listing-summary/listing-summary.md) | Experiences | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 6 |
+| [Listing summary](listing-summary/listing-summary.md) | Experiences | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 7 |
 | [Media Upload](media-upload/media-upload.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | 10 |
 | [Modal Bottom Sheet](modal-bottom-sheet/modal-bottom-sheet.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | 13 |
 | [Modal Bottom Sheet Menu](modal-bottom-sheet-menu/modal-bottom-sheet-menu.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | 14 |
