@@ -16,8 +16,10 @@ which component to reach for, and which ones must never be selected.
 | [component-template.md](component-template.md) | **The one definition of a component doc.** Its headings are the contract `coverage.py` and `template-drift.py` both read |
 | [components-template-drift.md](components-template-drift.md) | **Script-written.** How far each doc sits from the template, and what would close the gap. **Never read as rules** |
 
-The list below covers only the 61 components with a usage doc. The ruleset's
-inventory covers all 98 registry entries, including the 41 that have no doc yet.
+The list below holds one row per component folder — **61** of them. The
+ruleset's inventory covers all **98** registry entries: **63** reach a doc and
+**35** do not. The two counts differ because `charts/` answers several registry
+entries from a single row.
 
 ## Component list
 
