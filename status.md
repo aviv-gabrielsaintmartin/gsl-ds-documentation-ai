@@ -163,6 +163,20 @@ run had left behind**. All three are in the backlog.
 
 **Twelve selectable components still have no doc**, and every one needs Figma. **Not ten — the backlog's list had been missing `Burger menu` and `Map template` since it was written.** `coverage.py` counts from the registry and had the right number all along.
 
+### Done, 21 September: six rulings written in, and one of my own facts was wrong
+
+**`Score tag` is built on web.** The doc I wrote this morning said it was not. It lives in the **patterns** package, not the core one, which is why every search missed it. Its four tier labels are translated into English, French, German and Dutch — and **Figma opens on `Diamond` while web defaults to `bronze`**.
+
+**The same blind spot ran through the colour audit.** `content.md` said the score tokens served a component with no implementation. Corrected, with the lesson written in: **a zero in that file means "not used in `libraries/ui`", never "not used"**. Five other components sit in that unread package.
+
+**A component can now be flagged as built outside the design system.** Your wording: usable by any team, and **selecting one is the signal it should be adopted properly**. `Score tag`, `Feedback thumb buttons` and `Badge store` carry it.
+
+**Also in:** `Alert` is a fixed-shape modal expecting a decision back, replicable from `Modal bottom sheet` until it is built. `Pop-up` is apps only and stays undocumented until its overlap is settled. `Navigation Bar (App)` has its own rule row, in your words.
+
+**One thing I stopped and did not do.** `Button Card` — you want it deprecated, and three rule rows still send an agent to it. Forbidding it today would leave three rules pointing at a forbidden component. It is a question in the backlog, not a change.
+
+**One check is now reporting something false.** Adding the app navigation rule made `check-rules-docs.py` compare `navigation-bar.md` against the wrong row — it folds `Navigation Bar (App)` into `Navigation bar`. Backlog row, with the evidence.
+
 ### Done, 21 September: three docs written from Figma itself
 
 **`State message`, `Navigation bar (app)` and `Score tag` have docs.** The first three built from a live read of the Figma library, rather than from web code or Zeroheight. **Documented: 63 → 66. Selectable components with no doc: 12 → 9.**

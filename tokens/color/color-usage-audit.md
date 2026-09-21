@@ -501,7 +501,7 @@ Flagged, not triaged, by decision. Grouped, with the apparent reason:
 | `surface.status.{info,success,warning}Strong.{hover,pressed}` | 6 | only error is interactive (C3) |
 | `content.status.*.inverted.default` | 4 | status text is never inverted (C3) |
 | `border.status.{information,success,warning}.default` | 3 | only error borders a control (C3) |
-| `content.score` / `surface.score` — bronze, silver, gold, diamond | 8 | scoring UI not built in `libraries/ui` |
+| ~~`content.score` / `surface.score` — bronze, silver, gold, diamond~~ | ~~8~~ | **Not orphans. Corrected 21 September 2026:** `ScoreTag` is built in `libraries/patterns/tag`, which this scan does not read, and it binds all eight. See [`content.md`](content.md) |
 | `background.constant.{black,white}` | 2 | no consumer |
 | One-offs — the ten below | 10 | see table |
 

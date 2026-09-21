@@ -78,7 +78,18 @@
 
 *Paired with the matching `Surface/Score/*` background. Never use for general status text — Score is a tier ranking label only.*
 
-> **None of the four is used.** No scoring UI exists in `libraries/ui`; `scoreTag.json` defines tokens for a component that has no implementation. Reserved, not live.
+> **Corrected 21 September 2026 — all eight are used, and the scan could not see it.**
+> `ScoreTag` **is** implemented, in `@gsl-core-web/design-system-patterns-tag`
+> (`libraries/patterns/tag/src/ScoreTag`). It binds one `Surface/Score/*` and one
+> `Content/Score/*` per tier, exactly as the table above describes.
+> **The earlier note said the opposite** — *"no scoring UI exists in `libraries/ui`;
+> `scoreTag.json` defines tokens for a component that has no implementation"* —
+> and it was right about `libraries/ui` and wrong about the conclusion. **The
+> usage scan reads `libraries/ui` only**, so every component built in
+> `libraries/patterns` reads as zero. `Score tag`, `Floor selection`,
+> `Phone number field`, `Map pin`, the charts and the energy class slider all
+> live there. **A zero in this file means "not used in `libraries/ui`", never
+> "not used".** Gabriel approved the correction the same day.
 
 ## Tokens
 

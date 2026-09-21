@@ -223,8 +223,22 @@ is a compliance failure even when every part inside it is a real component.
 | Choose | When | Otherwise |
 | --- | --- | --- |
 | **Modal bottom sheet** | Contextual content must overlay the screen and block interaction | Content is a simple action list → **Modal bottom sheet menu** · Content should persist on the page → **Card** · An immediate, blocking decision is required → **Alert** |
-| **Pop-up** | A **small** amount of blocking content — a short confirmation, a brief message, one or two buttons | The content is long, scrollable, or rich → **Modal bottom sheet** · It is a plain list of actions → **Modal bottom sheet menu** · It is not blocking → **Snackbar** or **Feedback message** |
-| **Alert** | Critical, blocking information requiring immediate action | **On web → Pop-up** for a short confirmation, **Modal bottom sheet** for richer content (Alert is not yet available on web) · Transient, non-blocking feedback → **Snackbar** · Inline, non-blocking contextual guidance → **Feedback message** |
+| **Pop-up** | A **small** amount of blocking content — a short confirmation, a brief message, one or two buttons. **Apps only — iOS and Android.** Gabriel, 21 September 2026 | The screen is on the web → **Modal bottom sheet** · The content is long, scrollable, or rich → **Modal bottom sheet** · It is a plain list of actions → **Modal bottom sheet menu** · It is not blocking → **Snackbar** or **Feedback message** |
+| **Alert** | **Alerting the user and expecting a decision back** — an answer, a confirmation, a choice. It is a modal with a fixed design, so that **every alert in the product looks the same**. Gabriel, 21 September 2026 | Transient, non-blocking feedback → **Snackbar** · Inline, non-blocking contextual guidance → **Feedback message** · The content is rich rather than a single decision → **Modal bottom sheet** |
+
+**`Alert` is not built on web, and can be replicated there.** Gabriel,
+21 September 2026. Until it is built, a web alert is assembled from `Modal
+bottom sheet`, keeping the alert's fixed shape: the message, and the buttons
+that answer it. **Replicating a component this rule sends you to is not an
+invention** and does not need declaring under **When nothing fits** — say which
+component you assembled it from, and move on.
+
+**`Pop-up` is for apps only, and is under investigation.** Gabriel,
+21 September 2026. It overlaps `Modal bottom sheet`, which carries a `Type`
+property whose options are `Modal` and `Bottom Sheet` and covers iOS and Android
+already. **Which of the two is right for an app is not settled**, and there is no
+`Pop-up` doc on purpose until it is. On web the question does not arise: use
+`Modal bottom sheet`.
 
 ### Grouping and structuring content
 
@@ -252,6 +266,9 @@ lists. See **Never select**.
 | **Mega menus** | Top-level navigation on the main B2C or B2B websites, or staying compliant with what the real product ships | Global navigation inside a product screen → **Navigation bar** · The mobile menu behind the burger icon → **Burger menu** |
 | **Burger menu** | The mobile navigation menu opened from the navigation bar's burger icon | Navigation stays visible across the top → **Navigation bar** · A list of contextual actions rather than navigation → **Action menu** on desktop, **Modal bottom sheet menu** on mobile |
 | **Navigation bar** | Global navigation to top-level site destinations (web) | Top-level navigation on the main B2C or B2B websites → **Mega menus** · Sub-pages and flows → **Top bar** · In-app navigation → **Navigation Bar (App)**, mobile only |
+| **Navigation Bar (App)** | **The main way a user navigates an app** — moving between its top-level destinations, on iOS and Android. That is the whole of it. Gabriel, 21 September 2026 | The screen is on the web → **Navigation bar** · Switching between views of one screen's content → **Tabs** · One screen's title and its actions → **Top bar** · A list of contextual actions rather than navigation → **Action menu** |
+
+**`Navigation bar` and `Navigation Bar (App)` are two components, not one with two platforms.** The web one is the row above; the app one is its own row. **Reaching the app component must not require considering the web one first** — an agent designing an app screen never looks at a web row. Gabriel, 21 September 2026.
 
 **`Mega menus` is not built or maintained by the design system.** It is in Figma because several teams share it. **Provisional** — Gabriel, 18 September 2026, to be confronted with the real product, as `Menus` is.
 
@@ -326,7 +343,32 @@ shows one.
 | **Image slider** | A sequence of images the user swipes or steps through — **images only**, and the whole slider may link to one destination | The slides carry mixed content, not only images → **Carousel** |
 | **Rating** | Displaying user rating results — non-interactive, from Opinion System | — |
 | **Energy tag** | Property energy efficiency ratings **only**. Use the correct country/region variant | — |
-| **Badge store** | Linking to the App Store or Google Play. Our replicas of the official badges, kept here so they can be maintained | Any other link → **Link** · A count or marker pinned to a component → **Badge**, which is a different component one word away |
+| **Badge store** | **Offering the user a download of the app** — the App Store or Google Play button. Our replicas of the official badges, kept here so they can be maintained. **Mostly a footer or a landing page.** Gabriel, 21 September 2026 | Any other link → **Link** · A count or marker pinned to a component → **Badge**, which is a different component one word away |
+
+---
+
+### Built outside the design system
+
+*Some components in the libraries were not built by the design system. They are
+still yours to select. What changes is what selecting one means.*
+
+**These components are usable by any team.** They are in the libraries precisely
+so that a second team need not rebuild them.
+
+**Selecting one is a signal.** If a component built for one team's case is
+picked by another, more than one team needs it — which is the condition for
+adopting it into the design system properly. **A run that selects one should say
+so in its report**, so the adoption question reaches Gabriel.
+
+| Component | Where it actually lives | What a design agent may do |
+| --- | --- | --- |
+| `Score tag` | Built on web, in the **patterns** package rather than the core UI one. Very specific case — seller lead scoring | Select it. Report that you did |
+| `Feedback thumb buttons` | Built by a team outside the design system and **never brought in**. Figma only — no web, iOS or Android build exists | Select it. Report that you did |
+| `Badge store` | **Figma only, and deliberately so.** Nobody built it on our side, because it is a replica of two badges Apple and Google publish | Place it. There is nothing to generate on any platform |
+
+**This is not the same as Never select.** A never-selectable component is not
+yours to place at all. These are yours to place, and worth telling someone
+about. Gabriel, 21 September 2026.
 
 ---
 
