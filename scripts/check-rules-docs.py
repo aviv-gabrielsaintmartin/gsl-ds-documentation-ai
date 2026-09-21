@@ -11,6 +11,13 @@ This compares the two as sets of component names. It never compares prose: the
 doc is meant to rephrase. Run it after editing either side.
 
     python3 scripts/check-rules-docs.py
+
+**One thing it still cannot do**, and it will show up as a disagreement rather
+than hide: a qualifier written *inside* a bold span becomes part of the name.
+`**Navigation Bar (App), mobile only**` reads as a component called "navigation
+bar mobile only". Write the qualifier outside the asterisks —
+`**Navigation Bar (App)** — mobile only` — and it compares correctly. Not
+tested against every doc; found once, in `navigation-bar.md`, 21 September 2026.
 """
 from __future__ import annotations
 
@@ -29,14 +36,58 @@ NOT_A_COMPONENT = {"which component", "highest tier first", "when nothing fits",
 
 
 def norm(name: str) -> str:
-    """Fold the spellings that mean one component: case, plurals, punctuation."""
+    """Fold the spellings that mean one component: case, plurals, punctuation.
+
+    **A parenthetical is kept.** It used to be stripped, which folded
+    `Navigation Bar (App)` into `Navigation bar` — two components in two
+    libraries, sharing one key. The second row overwrote the first and this file
+    then compared a doc against the wrong row and printed a false line.
+    `bare()` and `resolve()` below put the stripping back where it belongs:
+    applied only when the parenthetical is a qualifier rather than part of a
+    name. Fixed 21 September 2026.
+    """
     n = name.strip().strip("`*_ ").lower()
-    n = re.sub(r"\s*\(.*?\)\s*", " ", n)          # "Button group (single-select)"
     n = re.sub(r"[^a-z0-9 ]", " ", n)
     n = re.sub(r"\s+", " ", n).strip()
     if n.endswith("s") and not n.endswith("ss"):   # Feedback Messages / message
         n = n[:-1]
     return n
+
+
+def bare(raw: str) -> str:
+    """Normalise with any parenthetical dropped first.
+
+    Takes the **raw** text, not a normalised name: `norm()` turns brackets into
+    spaces, so by then there is nothing left to strip.
+    """
+    return norm(re.sub(r"\s*\(.*?\)\s*", " ", raw))
+
+
+def resolve(raw: str, known: set[str]) -> str:
+    """Pick the form that names a real component.
+
+    Two different things wear brackets in this repo, and only one of them is a
+    qualifier:
+
+    | Written | Means |
+    | --- | --- |
+    | `Navigation Bar (App)` | A component whose name includes "(App)" |
+    | `Button group (multi-select)` | `Button group`, used one particular way |
+
+    Nothing distinguishes them by spelling, so this asks the ruleset instead: if
+    the full form is a Choose row, it is a name and is kept. If it is not, the
+    brackets were a qualifier and are dropped. When neither form is known, the
+    stripped form is returned — both sides of a comparison then fold the same
+    way, so a doc and its rule row still agree with each other.
+    """
+    full = norm(raw)
+    if full in known:
+        return full
+    return bare(raw)
+
+
+def resolve_all(raws: set[str], known: set[str]) -> set[str]:
+    return {resolve(r, known) for r in raws}
 
 
 def bolded(cell: str) -> set[str]:
@@ -45,15 +96,18 @@ def bolded(cell: str) -> set[str]:
     A bold span sometimes carries more than the name — `**On web → Pop-up**`, or
     `**Button**, tertiary`. The name is what follows the last arrow. A span saying
     something is deliberately *not* a component is not a name at all.
+
+    **Returns raw text, not normalised names.** `resolve()` needs the brackets
+    intact to tell a name from a qualifier, so every caller norms or resolves
+    for itself.
     """
     out = set()
     for m in re.finditer(r"\*\*([^*]+)\*\*", cell):
         raw = m.group(1).split("\u2192")[-1]
         if "not a component" in raw.lower():
             continue
-        n = norm(raw)
-        if n and n not in {norm(x) for x in NOT_A_COMPONENT}:
-            out.add(n)
+        if norm(raw) and norm(raw) not in {norm(x) for x in NOT_A_COMPONENT}:
+            out.add(raw.strip())
     return out
 
 
@@ -61,7 +115,7 @@ def rule_rows() -> dict[str, set[str]]:
     """Every Choose row in the ruleset: component -> what it sends you to instead."""
     text = RULES.read_text(encoding="utf-8")
     text = text[: text.index("## The inventory")]
-    rows: dict[str, set[str]] = {}
+    raw: dict[str, set[str]] = {}
     for line in text.split("\n"):
         if not line.startswith("|"):
             continue
@@ -71,8 +125,11 @@ def rule_rows() -> dict[str, set[str]]:
         chosen = bolded(cells[0])
         if len(chosen) != 1:
             continue
-        rows[next(iter(chosen))] = bolded(cells[2])
-    return rows
+        raw[norm(next(iter(chosen)))] = bolded(cells[2])
+    # A row's own name in column one is the canonical spelling, so those are the
+    # known names every Otherwise cell is resolved against.
+    known = set(raw)
+    return {name: resolve_all(alts, known) for name, alts in raw.items()}
 
 
 def doc_alternatives(path: Path) -> tuple[set[str] | None, str | None]:
@@ -117,6 +174,7 @@ def main() -> int:
         rel = path.relative_to(ROOT)
         m = re.search(r"^### When to use\s*$\s*\*\*([^*]+)\*\*", path.read_text(encoding="utf-8"), re.M)
         name = norm(m.group(1)) if m else norm(path.stem.replace("-", " "))
+        name = resolve(name, set(rules))
         if name not in rules:
             if name in named_anywhere:
                 no_choose_row.append(f"{rel}  — reachable, but no Choose row, so alternatives cannot be compared")
@@ -127,6 +185,7 @@ def main() -> int:
         if targets is None:
             unreadable.append(f"{rel}  — {why}")
             continue
+        targets = resolve_all(targets, set(rules))
         only_doc = targets - rules[name]
         only_rules = rules[name] - targets
         if only_doc or only_rules:
