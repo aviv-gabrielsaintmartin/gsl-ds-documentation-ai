@@ -176,10 +176,6 @@ The style of the country code selector depends on the breakpoint. To learn more 
 | **Web: XXS - XS (0 - 599 px)** | Bottom Sheet |
 | **Web: SM - XXXL (> 599 px)** | Dropdown ![](images/ec15768f7eb408a06ef547.png) |
 
-_**Corrected 18 September 2026.** This table read the other way round — dropdown on narrow
-screens, bottom sheet on wide ones — which is the reverse of every other component in the
-system. Gabriel confirmed it was inverted. The image kept its caption and moved with it._
-
 ---
 | Dropdown | Bottom Sheet |
 | --- | --- |

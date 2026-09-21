@@ -230,7 +230,11 @@ uncommitted, say so explicitly.
   what you found, say what you'd change, and **wait for Gabriel's go like any
   other file change** — this convention decides *when* the correction is raised,
   never whether it needs approval. Once approved, say what changed and when,
-  inside the file. **The decision log is the exception and is never rewritten**
+  inside the file — **in an `-audit`, `-ledger`, `-eval` or `-rules-ai` file
+  only.** A component doc never carries that record: people read those pages,
+  and who decided a thing and when is repo bookkeeping, not documentation. For a
+  component doc the record lives in the ruleset and in the backlog's done list.
+  Gabriel, 21 September 2026. **The decision log is the exception and is never rewritten**
   — `project/decisions.md` records what was believed on a date, and correcting
   it destroys the only thing it is for.
 - **Don't create a per-tier Figma skill.** `figma-sync-component-sets` handles

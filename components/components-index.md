@@ -16,7 +16,7 @@ which component to reach for, and which ones must never be selected.
 | [component-template.md](component-template.md) | **The one definition of a component doc.** Its headings are the contract `coverage.py` and `template-drift.py` both read |
 | [components-template-drift.md](components-template-drift.md) | **Script-written.** How far each doc sits from the template, and what would close the gap. **Never read as rules** |
 
-The list below covers only the 55 components with a usage doc. The ruleset's
+The list below covers only the 61 components with a usage doc. The ruleset's
 inventory covers all 98 registry entries, including the 41 that have no doc yet.
 
 ## Component list
@@ -28,6 +28,7 @@ inventory covers all 98 registry entries, including the 41 that have no doc yet.
 | [Alert](alert/alert.md) |
 | [Autocomplete](autocomplete/autocomplete.md) |
 | [Avatar](avatar/avatar.md) |
+| [Badge](badge/badge.md) |
 | [Breadcrumb](breadcrumb/breadcrumb.md) |
 | [Button](button/button.md) |
 | [Button bar](button-bar/button-bar.md) |
@@ -46,16 +47,18 @@ inventory covers all 98 registry entries, including the 41 that have no doc yet.
 | [Date picker](date-picker/date-picker.md) |
 | [Divider](divider/divider.md) |
 | [Dropdown](dropdown/dropdown.md) |
-| [Feedback message](feedback-message/feedback-message.md) |
-| [Floating button group](floating-button-group/floating-button-group.md) |
 | [Energy Tag](energy-tag/energy-tag.md) |
+| [Feedback message](feedback-message/feedback-message.md) |
 | [Filter bar](filter-bar/filter-bar.md) |
+| [Floating button group](floating-button-group/floating-button-group.md) |
 | [Floor selection](floor-selection/floor-selection.md) |
+| [Image slider](image-slider/image-slider.md) |
 | [Info state](info-state/info-state.md) |
 | [KPI](kpi/kpi.md) |
 | [Link](link/link.md) |
 | [Listing card](listing-card/listing-card.md) |
 | [Listing summary](listing-summary/listing-summary.md) |
+| [Loading state](loading-state/loading-state.md) |
 | [Media upload](media-upload/media-upload.md) |
 | [Modal bottom sheet](modal-bottom-sheet/modal-bottom-sheet.md) |
 | [Modal bottom sheet menu](modal-bottom-sheet-menu/modal-bottom-sheet-menu.md) |
@@ -70,13 +73,15 @@ inventory covers all 98 registry entries, including the 41 that have no doc yet.
 | [Select card group](select-card-group/select-card-group.md) |
 | [Slider](slider/slider.md) |
 | [Snackbar](snackbar/snackbar.md) |
-| [Tag](tag/tag.md) |
 | [Tables](tables/tables.md) |
 | [Tabs](tabs/tabs.md) |
+| [Tag](tag/tag.md) |
 | [Text area](text-area/text-area.md) |
+| [Text button](text-button/text-button.md) |
 | [Text field](text-field/text-field.md) |
 | [Toggle](toggle/toggle.md) |
 | [Toggle group](toggle-group/toggle-group.md) |
+| [Tooltip](tooltip/tooltip.md) |
 | [Top bar](top-bar/top-bar.md) |
 | [Wizard](wizard/wizard.md) |
 

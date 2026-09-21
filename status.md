@@ -3,7 +3,7 @@
 _The only page you need. Everything else in this repo is reference material for
 agents — looked up, never read through._
 
-_Updated 18 September 2026._
+_Updated 21 September 2026._
 
 ---
 
@@ -151,7 +151,17 @@ run had left behind**. All three are in the backlog.
 
 **`Button Bar` has a doc — the first written from web code, not Zeroheight.** You read it and approved the shape; the one Figma mention is cut, because a component doc is platform-neutral. **Documented: 57 → 58.**
 
-**Fifteen selectable components still have no doc.** Five more have web code and can be written the same way. The last ten have a rule row and nothing else, and need Figma.
+### Done, 21 September: the five with web code are written
+
+**`Badge`, `Image slider`, `Loading state`, `Text button` and `Tooltip` have docs**, each built from its rule row plus its web source and nothing else. **Documented: 58 → 63.** Selectable components with no doc: 19 → 12.
+
+**They beat the pilot.** `Button Bar` filled 8 of 17 sections; these fill 9 to 12. Where a source gave a capability and no rule for choosing it, the doc says so in the open rather than inventing one.
+
+**Your reading changed five things no check would have caught.** `Badge` may stand alone, not only pinned to a host. `Text button` exists for an alignment constraint, not mainly for "Read more". `Danger` is for erase and delete; `inverted` is a dark surface and nothing more. An external link takes the external icon, and the built component does not add it. A form's submit is a **primary** `Button` — you corrected me on that one.
+
+**Two rules you settled outright.** Attributions leave component docs, because people read them — `CLAUDE.md` says so now. And `Image Ratio` joins **Never select**: a Figma-internal helper for designers, never a component in a product screen.
+
+**Ten selectable components still have no doc**, and every one needs Figma.
 
 **Components with no rule: 16 → 0.** Every component in the four libraries can now be reached by a rule, or is forbidden on purpose with the reason written down.
 

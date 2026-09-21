@@ -146,11 +146,11 @@ first that decides it:
 
 ### Selecting a single value
 
-| Choose | When | Otherwise |
-| --- | --- | --- |
+| Choose                 | When                                                                                                                                                                                                                                                    | Otherwise                                                                                                                                                                                                                                                                                                             |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Radio button group** | Mutually exclusive choices in a form. **The limit is label readability, not a count**: up to 5 options in one column; 6 to 10 in two columns, when every label fits 2 lines or fewer on mobile. In one column a label may run to 3 lines, 2 recommended | More than 10 options, or labels too long for the column count → **Dropdown** · Prominent visual treatment preferred → **Button group** (single-select) · Options benefit from icons or illustrations → **Select card group** (single-select) · Switching views rather than submitting a value → **Segmented control** |
-| **Dropdown** | Single-select from a list in a form, or space too constrained to show options inline | 10 options or fewer, and the labels are short enough for the column count → **Radio button group** · Long list where typing to filter helps → **Autocomplete** · Items trigger actions rather than set a value → **Action menu** |
-| **Segmented control** | Switching between mutually exclusive view modes or display options — not a form value | The choice is a form value → **Button group** · Switching full content sections → **Tabs** · Standard form styling needed → **Radio button group** |
+| **Dropdown**           | Single-select from a list in a form, or space too constrained to show options inline                                                                                                                                                                    | 10 options or fewer, and the labels are short enough for the column count → **Radio button group** · Long list where typing to filter helps → **Autocomplete** · Items trigger actions rather than set a value → **Action menu**                                                                                      |
+| **Segmented control**  | Switching between mutually exclusive view modes or display options — not a form value                                                                                                                                                                   | The choice is a form value → **Button group** · Switching full content sections → **Tabs** · Standard form styling needed → **Radio button group**                                                                                                                                                                    |
 
 **The 10-option ceiling on a radio button group has one exception.** When the choice is the whole screen, with no competing content — an onboarding step, for example — the count may go higher. **Record it in the run's report**, in the same `## Declarations` section **When nothing fits** uses, stating the count and why the screen carries nothing else. **Anywhere the screen holds other content, the ceiling holds.**
 
@@ -233,7 +233,7 @@ is a compliance failure even when every part inside it is a real component.
 | **Card** | Visually grouping related content in a cohesive container | Content should be collapsible → **Accordion** · Content overlays the screen → **Modal bottom sheet** · The whole container is a single navigational action → **Button card** |
 | **Accordion** | Content needs progressive disclosure in a persistent expandable list | Content should always be visible → **Card** · Sections are mutually exclusive views → **Tabs** |
 | **Divider** | Visually separating content sections or list items where spacing alone is insufficient | — |
-| **Text button** | Revealing more content in place — "Read more" under truncated text, "Show all 12 photos" | The control leaves the page → **Link** · The content collapses back into a persistent expandable list → **Accordion** |
+| **Text button** | An action needing less weight than a button, standing on its own and **never inline**. **Built for an alignment constraint** — `Button` carries horizontal padding, so a tertiary button below a block of text does not line up with it, and a text button has no horizontal padding. Revealing more content in place — "Read more", "Show all 12 photos" — is one common use, not the whole job | The control leaves the page → **Link**, which is underlined and so reads as taking the user somewhere · The control sits inside a sentence or in body copy → **Link** · The content collapses back into a persistent expandable list → **Accordion** · Submitting or resetting a form → **Button**, primary emphasis for the submit |
 | **A list you lay out yourself, of `Cell content` rows** | A plain list — settings, an index, a menu — that is neither one grouped visual block nor tabular data. **There is no `List` component in any library; laying the rows out yourself is the intended pattern, not a workaround** | The rows are tabular and comparable → **Tables** · The rows belong inside one visual container → **Card** · The whole block is a single action → **Button card** · Every row carries an immediate on/off setting → **Toggle group** |
 | **Carousel** | Users browse a horizontal collection of items one by one. **Web only** | All items should be visible simultaneously → a grid layout, **not a component** — see **Platform limits** |
 
@@ -265,7 +265,7 @@ lists. See **Never select**.
 | **Info state** | Full-area states — empty, error, success, loading | Inline section-level messages → **Feedback message** · A blocking decision is required → **Alert** |
 | **Tag** | A non-interactive status label or category that **occupies its own place in the layout flow** and would still make sense if the thing beside it were removed — "New", "Sold", "Exclusive", "Verified" | Seller lead scoring → **Score tag** · The element is interactive — selectable, filterable, removable → **Chip** · Status needs supporting text → **Feedback message** · The marker is anchored to another component's geometry → **Badge** |
 | **Score tag** | A Tag specialised for seller lead scoring | Any other status or category label → **Tag** · An energy-efficiency rating → **Energy tag** |
-| **Badge** | A marker **anchored to a host component's geometry** — overlapping or pinned to a button, tab label, menu entry or cell row, and meaningless without that host. Typically a count or a dot | The marker holds its own place in the layout flow → **Tag** · It is interactive → **Chip** |
+| **Badge** | A marker — typically a count or a dot — **normally anchored to a host component's geometry**, overlapping or pinned to a button, tab label, menu entry or cell row. **It may also stand alone**, for a case no other component covers — a count beside a title, for example. The anchored use is the common one; the standalone use is open, not exceptional. Gabriel, 18 September 2026 | The marker is a status or category word rather than a count or a dot → **Tag** · It is interactive → **Chip** |
 | **Loading state** | Content is being fetched and the wait needs its own element on the page — a spinner with an optional title and description | The area is empty, failed or succeeded rather than waiting → **Info state** · The wait belongs inside a control already on screen, such as a dropdown fetching its options → that component's own loading state, not this |
 | **Tooltip** | A brief clarification of one UI element, shown on hover or tap — a single explanation, not a sequence | Persistent inline guidance not tied to a control → **Feedback message** · A guided, multi-step tour → **Coach mark** |
 | **Coach mark** | Contextual onboarding overlays pointing at specific UI elements | Persistent inline guidance not tied to onboarding → **Feedback message** · A single brief clarification rather than a guided tour → **Tooltip** |
@@ -308,7 +308,7 @@ shows one.
 | --- | --- | --- |
 | **Avatar** | Representing a user, agent, agency, or seeker. Circle for individuals, square for agencies | — |
 | **Media upload** | The user uploads files by drag-and-drop or file picker | The user provides a URL or file path instead → **Text field** |
-| **Image slider** | A sequence of images the user swipes or steps through — **images only**, and the whole slider may link to one destination | The slides carry mixed content, not only images → **Carousel** · A single image held to a fixed ratio → **Image ratio** |
+| **Image slider** | A sequence of images the user swipes or steps through — **images only**, and the whole slider may link to one destination | The slides carry mixed content, not only images → **Carousel** |
 | **Rating** | Displaying user rating results — non-interactive, from Opinion System | — |
 | **Energy tag** | Property energy efficiency ratings **only**. Use the correct country/region variant | — |
 | **Badge store** | Linking to the App Store or Google Play. Our replicas of the official badges, kept here so they can be maintained | Any other link → **Link** · A count or marker pinned to a component → **Badge**, which is a different component one word away |
@@ -482,6 +482,7 @@ screen.
 | `Burger menu (profil)` | Already adapted to consumer-content needs, and never to be used. Gabriel, 18 September 2026 | Use `Burger menu` |
 | `Menus` | Built to cover international content needs, and nothing requires it to build anything today. **Provisional** — Gabriel, 18 September 2026, to be revisited once real product usage shows whether it is used | Use `Navigation bar`, whose own controls include the language menu |
 | `Button Card Group` | Never developed, and should be removed from Figma. Gabriel, 18 September 2026 | Use `Button card` on its own |
+| `Image Ratio` | A Figma-internal helper, built so a designer need not hold an image to its aspect ratio by hand. Never a component in a product screen. Gabriel, 21 September 2026 | Nothing to place. Hold the image to its ratio in the layout itself |
 | `Tab Bar` | Mid-refactor, unclassified | Use `Tabs` |
 | `Footer` | Figma only, owned by the Header/Footer team, not built | Nothing |
 
@@ -504,7 +505,7 @@ usage documentation yet; you may still select it if **Which component** or **Hig
 | `Alert` | Alerts are modals that provide users with critical information they need immediately. | [alert](alert/alert.md) |
 | `Autocomplete` | Autocomplete components suggest possible matches for user input in real time as they type, helping them complete text fields more… | [autocomplete](autocomplete/autocomplete.md) |
 | `Avatar` | Avatars represent user profiles of agencies, agents, private sellers and seekers. | [avatar](avatar/avatar.md) |
-| `Badge` | Attention marker attached to a host component. | — *no doc* |
+| `Badge` | Attention marker attached to a host component. | [badge](badge/badge.md) |
 | `Badge Store` | Our replicas of the official App Store and Google Play badges, kept here so they can be maintained. | — *no doc* |
 | `Brand Logo` ⚠︎ *also in Foundations* | 🚫 **Never select** — asset — brand config | — *no doc* |
 | `Button` | Buttons are used to trigger an immediate action. | [button](button/button.md) |
@@ -528,10 +529,10 @@ usage documentation yet; you may still select it if **Which component** or **Hig
 | `Feedback Messages` | Feedback messages are non-disruptive, inline notifications that provide users with important information or contextual messages. | [feedback-message](feedback-message/feedback-message.md) |
 | `Feedback Thumb Buttons` | Asks the user for a binary opinion — thumbs up or thumbs down. | — *no doc* |
 | `Floating Button Group` | The floating button group is used to display icon-only actions on top of images and maps. | [floating-button-group](floating-button-group/floating-button-group.md) |
-| `Image Ratio` ⚠︎ *also in Foundations* | Enforces an image aspect ratio. | — *no doc* |
-| `Image Slider` | Horizontally sliding image sequence. | — *no doc* |
+| `Image Ratio` ⚠︎ *also in Foundations* | 🚫 **Never select** — withheld — a Figma-internal ratio helper for designers | — *no doc* |
+| `Image Slider` | Horizontally sliding image sequence. | [image-slider](image-slider/image-slider.md) |
 | `Link` | Links are navigational elements that are used to direct users to another location or resource. | [link](link/link.md) |
-| `Loading State` | Signals data or content is being fetched. | — *no doc* |
+| `Loading State` | Signals data or content is being fetched. | [loading-state](loading-state/loading-state.md) |
 | `Modal Bottom Sheet` | Modal bottom sheets are containers that appear above the content and block interaction with the rest of the screen. | [modal-bottom-sheet](modal-bottom-sheet/modal-bottom-sheet.md) |
 | `Modal Bottom Sheet Menu` | Modal bottom sheet menus display a list of context-specific actions on mobile screens or on apps. | [modal-bottom-sheet-menu](modal-bottom-sheet-menu/modal-bottom-sheet-menu.md) |
 | `Navigation Bar (App)` | Persistent in-app navigation between top-level destinations. | — *no doc* |
@@ -552,11 +553,11 @@ usage documentation yet; you may still select it if **Which component** or **Hig
 | `Tabs` | Tabs are used to organize related content into different views and allow users to seamlessly switch between them. | [tabs](tabs/tabs.md) |
 | `Tag` | Tags are used to label, categorize and highlight items to help users quickly identify content. | [tag](tag/tag.md) |
 | `Text Area` | Text areas are used to enter and edit multi-line text content. | [text-area](text-area/text-area.md) |
-| `Text Button` | A distinct component from Button, for when full button weight is too heavy. | — *no doc* |
+| `Text Button` | A distinct component from Button, for when full button weight is too heavy. | [text-button](text-button/text-button.md) |
 | `Text Field` | Text fields are used to enter and edit single-line text content. | [text-field](text-field/text-field.md) |
 | `Toggle` | Toggles are used to switch between on and off states. | [toggle](toggle/toggle.md) |
 | `Toggle Group` | Toggle groups are used to organize related options, allowing users to switch between multiple settings, with each toggle independently… | [toggle-group](toggle-group/toggle-group.md) |
-| `Tooltip` | Brief overlay clarifying one UI element. | — *no doc* |
+| `Tooltip` | Brief overlay clarifying one UI element. | [tooltip](tooltip/tooltip.md) |
 | `Webview` | 🚫 **Never select** — chrome — an embedded browser container | — *no doc* |
 | `Home Indicator` | 🚫 **Never select** — chrome — the OS draws it | — *no doc* |
 | `Status Bar` | 🚫 **Never select** — chrome — the OS draws it | — *no doc* |
@@ -609,7 +610,7 @@ usage documentation yet; you may still select it if **Which component** or **Hig
 | --- | --- | --- |
 | `Flag` | 🚫 **Never select** — asset — brand config | — *no doc* |
 | `Favicon` | 🚫 **Never select** — asset — brand config | — *no doc* |
-| `Image Ratio` ⚠︎ *also in Components* | Enforces an image aspect ratio. | — *no doc* |
+| `Image Ratio` ⚠︎ *also in Components* | 🚫 **Never select** — withheld — a Figma-internal ratio helper for designers | — *no doc* |
 | `Brand Logo` ⚠︎ *also in Components* | 🚫 **Never select** — asset — brand config | — *no doc* |
 | `Brand App Icons` | 🚫 **Never select** — asset — brand config | — *no doc* |
 
