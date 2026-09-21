@@ -215,14 +215,14 @@ token pages the index routes to and nothing else.
 radius, shadow and border width — were unenforced until 12 September 2026, so a
 `1.5` border or a shadow of `32` broke a written rule and was never reported.
 
-| Ruleset | Section | Examples |
-| --- | --- | --- |
-| `color-rules-ai.md` | *Never use* | the symbol, native, scale and decorative-surface families, the focus border, the unreachable status leaves, the enumerated orphans |
-| `spacing-rules-ai.md` | *Do not use* | `Spacing/56` |
-| `typography-rules-ai.md` | **No Display** | the Display family |
-| `radius-rules-ai.md` | *Do not use* | any value outside the five-token table · `Corner radius/*` per-component variables |
-| `shadow-rules-ai.md` | *Do not use* | `24` and `32` · any custom shadow · the mobile bottom navigation bar's shadow |
-| `border-width-rules-ai.md` | *Do not use* | any value other than `0`, `1` and `2` · `Border Width/2` for anything but active or focused · a widened border to signal an error |
+| Ruleset                    | Section        | Examples                                                                                                                           |
+| -------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `color-rules-ai.md`        | *Never use*    | the symbol, native, scale and decorative-surface families, the focus border, the unreachable status leaves, the enumerated orphans |
+| `spacing-rules-ai.md`      | *Do not use*   | `Spacing/56`                                                                                                                       |
+| `typography-rules-ai.md`   | **No Display** | the Display family                                                                                                                 |
+| `radius-rules-ai.md`       | *Do not use*   | any value outside the five-token table · `Corner radius/*` per-component variables                                                 |
+| `shadow-rules-ai.md`       | *Do not use*   | `24` and `32` · any custom shadow · the mobile bottom navigation bar's shadow                                                      |
+| `border-width-rules-ai.md` | *Do not use*   | any value other than `0`, `1` and `2` · `Border Width/2` for anything but active or focused · a widened border to signal an error  |
 
 #### Two things that are flagged, never failed
 

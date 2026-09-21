@@ -129,13 +129,13 @@ what hurts users today.**
 **Objective — write down who the users are, what the goals are and how success
 is measured, in one place everyone can find.**
 
-| Question | Answered today | AI benefit | Owner |
-| --- | --- | --- | --- |
-| Which space do I create this page in? | Confluence | Would help | Design + Product |
-| Who is responsible for this page once it exists? | **Nothing** | Not needed | **Nobody** |
-| Which template do I use? | Confluence | Would help | Design + Product |
-| Who are the users, the goals, the OKRs, the metrics and the timeline? *(inferred)* | The PM | Not needed | Product |
-| How do I know these goals line up with the business objectives? | **Nothing** | Not needed | Product |
+| Question                                                                           | Answered today | AI benefit | Owner            |
+| ---------------------------------------------------------------------------------- | -------------- | ---------- | ---------------- |
+| Which space do I create this page in?                                              | Confluence     | Would help | Design + Product |
+| Who is responsible for this page once it exists?                                   | **Nothing**    | Not needed | **Nobody**       |
+| Which template do I use?                                                           | Confluence     | Would help | Design + Product |
+| Who are the users, the goals, the OKRs, the metrics and the timeline? *(inferred)* | The PM         | Not needed | Product          |
+| How do I know these goals line up with the business objectives?                    | **Nothing**    | Not needed | Product          |
 
 <details>
 <summary><strong>Which space do I create this page in?</strong></summary>
@@ -193,13 +193,13 @@ rules to follow."*
 **Objective — know what users actually do and what hurts them, using data we
 already hold.**
 
-| Question | Answered today | AI benefit | Owner |
-| --- | --- | --- | --- |
-| What already exists on this surface? | The live site | Would help | Design |
-| What does the quantitative data say? | Four separate tools | **Would change the step** | Design |
-| What does the qualitative data say? | Four separate tools | **Would change the step** | Design |
-| What does the customer journey look like? | Miro | Would help | Design |
-| Where is the research that already exists? | Confluence | **Would change the step** | Research |
+| Question                                   | Answered today      | AI benefit                | Owner    |
+| ------------------------------------------ | ------------------- | ------------------------- | -------- |
+| What already exists on this surface?       | The live site       | Would help                | Design   |
+| What does the quantitative data say?       | Four separate tools | **Would change the step** | Design   |
+| What does the qualitative data say?        | Four separate tools | **Would change the step** | Design   |
+| What does the customer journey look like?  | Miro                | Would help                | Design   |
+| Where is the research that already exists? | Confluence          | **Would change the step** | Research |
 
 <details>
 <summary><strong>What already exists on this surface?</strong></summary>
