@@ -636,9 +636,9 @@ usage documentation yet; you may still select it if **Which component** or **Hig
 | `Line chart` | Show a trend over a continuous axis. | [charts/line-chart](charts/line-chart.md) |
 | `KPI` | Key Performance Indicators (KPIs) are measurable values that demonstrate how effectively a key objective is achieved. | [kpi](kpi/kpi.md) |
 | `Breadcrumb` | Breadcrumbs are navigation elements that consist of a list of links arranged in a hierarchical order. | [breadcrumb](breadcrumb/breadcrumb.md) |
-| `Date Field` | Date input — distinct from the Date Picker calendar view. | — *no doc* |
+| `Date Field` | Date input — distinct from the Date Picker calendar view. | [date-field](date-field/date-field.md) |
 | `Date Picker` | Date pickers are used to select a date using text input or a calendar view. | [date-picker](date-picker/date-picker.md) |
-| `Feedback Bar` | Asks the user to rate something — a notation on a scale. | — *no doc* |
+| `Feedback Bar` | Asks the user to rate something — a notation on a scale. | [feedback-bar](feedback-bar/feedback-bar.md) |
 | `Filter bar` | Filter bars are used to narrow down search results or displayed content based on selected criteria. | [filter-bar](filter-bar/filter-bar.md) |
 | `Filter button` | 🚫 **Never select** — composed-only — inside Filter bar | — *no doc* |
 | `Filter dropdown container` | 🚫 **Never select** — composed-only — inside Filter bar | — *no doc* |

@@ -163,6 +163,20 @@ run had left behind**. All three are in the backlog.
 
 **Twelve selectable components still have no doc**, and every one needs Figma. **Not ten — the backlog's list had been missing `Burger menu` and `Map template` since it was written.** `coverage.py` counts from the registry and had the right number all along.
 
+### Done, 21 September: the first two Patterns docs
+
+**`Date field` and `Feedback bar` have docs.** Written from the Patterns library. **Documented: 66 → 68. Selectable gaps: 9 → 7.**
+
+**`Date field` contradicts the rule that sends an agent to it.** The rule says to choose it when *no calendar is offered*. The Figma component has a calendar button at the end of the field. Nobody has established whether it opens a calendar, is decorative, or is a leftover from `Date picker`, whose page it shares. **The doc says to follow the rule, not the button** — your call when you want it settled.
+
+**There is no standalone date field on web.** `DateField` exists only inside `DatePicker` and is not exported. A web build places a picker, never a field.
+
+**`Feedback bar`'s scale is one to five**, built from a button group set to seven slots with two hidden — a Figma leftover, not a rule. **The scale has no anchor words**, so nothing says what 1 and 5 mean.
+
+**I held back `Burger menu` and `Mega menus`.** Both belong to the navigation topic, and writing them now would mean writing them twice.
+
+**One correction.** The *"will be moved to the product library"* banner I cited as evidence about `Feedback thumb buttons` also sits on the `Feedback bar` page. It is not about the thumb buttons. Your ruling stands on your own knowledge; the backlog note now says so.
+
 ### Done, 21 September: six rulings written in, and one of my own facts was wrong
 
 **`Score tag` is built on web.** The doc I wrote this morning said it was not. It lives in the **patterns** package, not the core one, which is why every search missed it. Its four tier labels are translated into English, French, German and Dutch — and **Figma opens on `Diamond` while web defaults to `bronze`**.

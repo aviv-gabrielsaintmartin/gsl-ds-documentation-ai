@@ -36,16 +36,16 @@ inferred.
 | | Count |
 | --- | --- |
 | Registry entries across the four Figma libraries | **98** |
-| — have a doc | **66** |
-| — no doc, and an agent may select them | **9** entries, 9 names |
+| — have a doc | **68** |
+| — no doc, and an agent may select them | **7** entries, 7 names |
 | — no doc, and an agent should never select them | **23** entries, 21 names |
 
 Entries outnumber names because `Brand Logo` and `Image Ratio` each exist in **two** Figma
 libraries under the same name, with different keys. They are two distinct
 components, so both entries are listed.
 
-Across the 66 documented entries there are 1056 template
-sections to fill. **687 are filled** — 65%.
+Across the 68 documented entries there are 1088 template
+sections to fill. **713 are filled** — 66%.
 
 ---
 
@@ -55,22 +55,22 @@ Ordered by how many documented components leave the section empty.
 
 | Section | ✅ | ❌ | ⬜ | Filled |
 | --- | --- | --- | --- | --- |
-| Label Formula | 13 | 53 | 0 | 20% |
-| a11y | 14 | 52 | 0 | 21% |
-| Capitalization | 19 | 47 | 0 | 29% |
-| Breakpoints | 20 | 46 | 0 | 30% |
-| Length Limits | 24 | 42 | 0 | 36% |
-| Platform | 30 | 0 | 36 | 45% |
-| Variants | 43 | 23 | 0 | 65% |
-| Modifiers | 46 | 20 | 0 | 70% |
-| Touch target | 48 | 18 | 0 | 73% |
-| Writing | 52 | 14 | 0 | 79% |
-| States | 56 | 10 | 0 | 85% |
-| Usage guidance | 58 | 8 | 0 | 88% |
-| When to use | 66 | 0 | 0 | 100% |
-| When NOT to use | 66 | 0 | 0 | 100% |
-| Variant flow | 66 | 0 | 0 | 100% |
-| Related | 66 | 0 | 0 | 100% |
+| Label Formula | 13 | 55 | 0 | 19% |
+| a11y | 16 | 52 | 0 | 24% |
+| Capitalization | 19 | 49 | 0 | 28% |
+| Breakpoints | 21 | 47 | 0 | 31% |
+| Length Limits | 25 | 43 | 0 | 37% |
+| Platform | 32 | 0 | 36 | 47% |
+| Variants | 45 | 23 | 0 | 66% |
+| Modifiers | 48 | 20 | 0 | 71% |
+| Touch target | 50 | 18 | 0 | 74% |
+| Writing | 54 | 14 | 0 | 79% |
+| States | 58 | 10 | 0 | 85% |
+| Usage guidance | 60 | 8 | 0 | 88% |
+| When to use | 68 | 0 | 0 | 100% |
+| When NOT to use | 68 | 0 | 0 | 100% |
+| Variant flow | 68 | 0 | 0 | 100% |
+| Related | 68 | 0 | 0 | 100% |
 
 **Read `Platform` differently from the rest.** It is prose saying a component
 is restricted to some platforms — *"pagination is only used on the web"*. A
@@ -80,7 +80,7 @@ probably correct rather than a gap. Every other row here is a real gap.
 checked, and until somebody does this row cannot be read as a score.
 
 **`a11y` and `Breakpoints` are the two worth acting on.** Between them they
-account for 98 pages that
+account for 99 pages that
 looked at the section and wrote nothing.
 
 ---
@@ -104,7 +104,7 @@ The ten documented components filling fewest of the 16 sections.
 
 ---
 
-## The matrix — 66 documented entries
+## The matrix — 68 documented entries
 
 | Component | Tier | Readiness | Platform | When to use | When NOT to use | Variant flow | Usage guidance | Related | Variants | Modifiers | States | Touch target | Breakpoints | Writing | a11y | Capitalization | Label Formula | Length Limits | Filled |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -129,11 +129,13 @@ The ten documented components filling fewest of the 16 sections.
 | [Chip Group](chip-group/chip-group.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | 13 |
 | [Coachmark](coach-mark/coach-mark.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | 11 |
 | [Counter Field](counter-field/counter-field.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | 13 |
+| [Date Field](date-field/date-field.md) | Patterns | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | 12 |
 | [Date Picker](date-picker/date-picker.md) | Patterns | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | 9 |
 | [Divider](divider/divider.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 6 |
 | [Donut chart](charts/donut-chart.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 5 |
 | [Dropdown](dropdown/dropdown.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | 12 |
 | [Energy Tag](energy-tag/energy-tag.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | 9 |
+| [Feedback Bar](feedback-bar/feedback-bar.md) | Patterns | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | 14 |
 | [Feedback Messages](feedback-message/feedback-message.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | 10 |
 | [Filter bar](filter-bar/filter-bar.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | 9 |
 | [Floating Button Group](floating-button-group/floating-button-group.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 8 |
@@ -176,7 +178,7 @@ The ten documented components filling fewest of the 16 sections.
 | [Wizard](wizard/wizard.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | 11 |
 
 **Readiness** is the `Figma | Web | iOS | Android` table at the top of a page,
-not a template section — so it is not counted in *Filled*. 66 of 66 pages
+not a template section — so it is not counted in *Filled*. 68 of 68 pages
 carry it. The 0 without it: .
 
 ### Chart pages that are not registry components
@@ -195,7 +197,7 @@ of their own, so they are listed rather than scored.
 
 ---
 
-## The gap — 9 components an agent may select, with no doc at all
+## The gap — 7 components an agent may select, with no doc at all
 
 These have no page anywhere in this repo. The *What it is* column is the one
 sentence the ruleset's inventory gives — enough for an agent to pick the right
@@ -205,15 +207,13 @@ component, never enough to build one correctly.
 | --- | --- | --- |
 | Badge Store | Components | Our replicas of the official App Store and Google Play badges, kept here so they can be maintained. |
 | Burger menu | Patterns | Mobile menu opened from the navigation bar burger icon. |
-| Date Field | Patterns | Date input — distinct from the Date Picker calendar view. |
 | Estimation card | Experiences | Presents a completed price estimate — range, confidence, selling or renting. Carries no controls to adjust it. |
-| Feedback Bar | Patterns | Asks the user to rate something — a notation on a scale. |
 | Feedback Thumb Buttons | Components | Asks the user for a binary opinion — thumbs up or thumbs down. |
 | Map template | Experiences | The map experience container. |
 | Mega menus | Patterns | Top-level navigation on the main B2C and B2B websites. Shared across teams, not built or maintained by the design system. |
 | Pop-up | Components | Small-content alternative to a Modal bottom sheet. |
 
-**All 9 carry a sentence in the ruleset.** None is a doc, so an
+**All 7 carry a sentence in the ruleset.** None is a doc, so an
 agent can choose these components and cannot build them without inventing
 the detail.
 
