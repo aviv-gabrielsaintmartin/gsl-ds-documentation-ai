@@ -27,8 +27,8 @@ choosing the wrong one produces a visibly wrong screen.
 
 | | iOS | Android |
 | --- | --- | --- |
-| **Bar height** | 49, or **83 with the home indicator** | **80**, always |
-| **Home indicator** | Available, and adds a 34 strip below the tabs | **Not available** — Android draws no home indicator |
+| **Bar height** | **49 tall**, or **83 with the home indicator** | **80 tall**, always |
+| **Home indicator** | Available, and adds a 34-tall strip below the tabs | **Not available** — Android draws no home indicator |
 | **Label position, phone** | Below the icon | Below the icon |
 | **Label position, tablet** | **Beside the icon** | Below the icon |
 | **Tablet tab width** | Tabs stretch to fill the bar | **Tabs cap at 168** and do not stretch |
@@ -36,6 +36,10 @@ choosing the wrong one produces a visibly wrong screen.
 _Read live from the Figma component set, 21 September 2026. The Android tablet
 cap is why a three-tab Android tablet bar does not fill its width, and a
 three-tab iOS tablet bar does._
+
+_**Every number on this page is a measurement in the platform's own unit** —
+points on iOS, density-independent pixels on Android. They are not a shared
+pixel, and 49 on iOS is not 49 on Android._
 
 ### When to use
 
@@ -69,7 +73,7 @@ three-tab iOS tablet bar does._
 
 4. Does the screen show the home indicator?
    ├── Android ─> not offered. Skip this step
-   └── iOS ─────> Home Indicator = true adds a 34 strip below the tabs
+   └── iOS ─────> Home Indicator = true adds a 34-tall strip below the tabs
                    Set it to match the device frame you are drawing on
 
 Per tab, set separately on the exposed tab, not on the bar:
@@ -148,7 +152,7 @@ below.
 ### Touch Target & Layout
 
 * **Touch Target:** the full tab is the target. On a phone the shortest tab is
-  72 wide by 49 high on iOS, and 72 by 80 on Android.
+  72 wide by 49 tall on iOS, and 72 wide by 80 tall on Android.
 * **Width Adaptability:** the bar is full-width. Tabs divide that width equally
   on phone, on both platforms.
 * **Tablet side padding:** 32 on each side, on both platforms.
@@ -185,10 +189,10 @@ its own does not name a destination.
   Figma component carries no accessibility data.
 * **Keyboard Navigation:** not applicable in the usual sense — this is an app
   component, not a web one.
-* **Touch target size:** the shortest tab is 49 high on iOS. **That is below the
-  44 to 48 minimum both platforms publish only if the width is also small**; at
-  72 wide by 49 high the target clears it. Not verified against either
-  platform's own guidance.
+* **Touch target size:** the shortest tab is 72 wide by 49 tall on iOS, and 72
+  by 80 on Android. Both clear the 44-to-48 minimum the two platforms publish.
+  **Not verified against either platform's own guidance** — the numbers are
+  measured from the Figma component, and the comparison is mine.
 * **Colour alone:** the active tab is distinguished by the tab's `State`
   property. **What that changes visually was not read**, so whether colour is
   the only signal is **not established**.

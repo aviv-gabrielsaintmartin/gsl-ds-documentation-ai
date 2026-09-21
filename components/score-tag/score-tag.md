@@ -2,7 +2,7 @@ A score tag is a Tag fixed to one of four seller lead scoring tiers.
 
 | Figma | Web | iOS | Android |
 | --- | --- | --- | --- |
-| Ready ✅ | Not built 🚧 | Not established 🚧 | Not established 🚧 |
+| Ready ✅ | Ready ✅ | Not established 🚧 | Not established 🚧 |
 
 ---
 
@@ -20,17 +20,21 @@ label is a plain `Tag`.
 
 ### Platform
 
-**Figma only, so far as this repo can prove.**
+**Figma and web both carry it.**
 
 * The component set exists in the GSL Components library.
-* **No web implementation exists.** `@gsl-core-web/design-system-ui` has no such
-  component.
-* **The colour tokens exist and are unused.** `color.surface.score.*` and
-  `color.content.score.*` are defined for all four tiers and have **zero**
-  recorded uses in the web code — see
-  [`color-usage-ledger`](../../tokens/color/color-usage-ledger.md).
+* **The web component is built**, and lives in
+  `@gsl-core-web/design-system-patterns-tag` — **not** in the main UI package.
+  That is why a search of `libraries/ui` finds nothing.
+* **The web build uses the score colour tokens**, one surface and one content
+  token per tier, exactly as Figma does.
 
 _iOS and Android are **not established**: no source for either was read._
+
+_**A count of zero uses for the score colour tokens appears in
+[`color-usage-ledger`](../../tokens/color/color-usage-ledger.md), and it measures
+`libraries/ui` only.** The component sits in the patterns package, so the tokens
+are used and the ledger's scope does not see it._
 
 ### When to use
 
@@ -84,8 +88,13 @@ _Illustrations not yet drawn._
 
 #### Diamond, Gold, Silver, Bronze
 
-Four variants, `Diamond` by default. **The tier sets the icon, the label text
-and both colours together.** They cannot be set apart from one another.
+Four variants. **The tier sets the icon, the label text and both colours
+together.** Icon and colour cannot be set apart from the tier on either
+platform; only the label can be replaced, and only on web.
+
+**The two platforms disagree on the default.** Figma opens on `Diamond`; the web
+component defaults to `bronze`. Neither is wrong, and **a design agent should
+set the tier explicitly rather than rely on either default.**
 
 | Type | Icon | Label | Surface token | Content token |
 | --- | --- | --- | --- | --- |
@@ -101,8 +110,8 @@ content colour to the token named above._
 
 Not documented
 
-_The component has one property, `Type`. There is no size, no emphasis, no
-icon slot and no way to hide the label._
+_The component has one property, `Type`. There is no size, no emphasis and no
+icon slot. The label cannot be hidden; on web it can be replaced._
 
 #### What the inner Tag is fixed to
 
@@ -140,17 +149,31 @@ breakpoint axis._
 
 ## Content & UX Writing
 
-* **Capitalization:** **Title case, and fixed.** The four labels are `Diamond`,
-  `Gold`, `Silver`, `Bronze`, written into the component.
-* **Label Formula:** none. The label is the tier name, and is not editable.
-* **Length Limits:** not applicable, for the same reason.
+* **Capitalization:** **Title case.** Each tier's own name — `Diamond`, `Gold`,
+  `Silver`, `Bronze` — supplied by the component, not typed by the user.
+* **Label Formula:** none. The label is the tier name.
+* **Length Limits:** not applicable. The longest word sets the width.
+
+### The label can be overridden, and normally is not
+
+**The default label is the tier name, and it is what you should use.** The web
+component accepts a replacement string, so the text is not locked.
+
+Figma is the stricter of the two: its four variants carry the tier names as
+fixed text.
 
 ### Translation
 
-Not documented
+**The four tier names are translated, in the web build, into four locales.**
 
-_Whether the four tier names are translated, or stay in English across markets,
-is not recorded anywhere in this repo._
+| Tier | en-GB | fr-FR | de-DE | nl-NL |
+| --- | --- | --- | --- | --- |
+| **Diamond** | Diamond | Diamant | Diamant | Diamant |
+| **Gold** | Gold | Or | Gold | Goud |
+| **Silver** | Silver | Argent | Silber | Zilver |
+| **Bronze** | Bronze | Bronze | Bronze | Brons |
+
+_An overridden label is your own string and is not translated for you._
 
 ## Accessibility (a11y)
 
@@ -160,5 +183,5 @@ is not recorded anywhere in this repo._
   Each tier has its own icon and its own written label, so the meaning survives
   without colour.
 * **Keyboard Navigation:** not applicable. The component is not focusable.
-* **Contrast:** not verified. The score colour tokens have no recorded contrast
-  check, and no implementation exists to measure.
+* **Contrast:** not verified. The score colour tokens carry no recorded contrast
+  check in this repo.
