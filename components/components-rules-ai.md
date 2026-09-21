@@ -261,7 +261,7 @@ lists. See **Never select**.
 | --- | --- | --- |
 | **Snackbar** | Brief, transient feedback confirming the outcome of a user action | Persistence and inline placement needed → **Feedback message** · Critical and blocking → **Alert** |
 | **Feedback message** — the Figma library names this set `Feedback Messages` | Persistent inline contextual guidance or status within a section | Transient, action-triggered feedback → **Snackbar** · Full-area or page-level states → **Info state** · Feedback belonging to one form field → **State message** |
-| **State message** — the Figma library names this set `State Messages` | Inline feedback **attached to a single form field** — guiding entry, correcting an error, or adding information under that field | Guidance for a section rather than one field → **Feedback message** · Transient confirmation of an action → **Snackbar** · Full-area state → **Info state** |
+| **State message** — the Figma library names this set `state_message`, lowercase and underscored | Inline feedback **attached to a single form field** — guiding entry, correcting an error, or adding information under that field | Guidance for a section rather than one field → **Feedback message** · Transient confirmation of an action → **Snackbar** · Full-area state → **Info state** |
 | **Info state** | Full-area states — empty, error, success, loading | Inline section-level messages → **Feedback message** · A blocking decision is required → **Alert** |
 | **Tag** | A non-interactive status label or category that **occupies its own place in the layout flow** and would still make sense if the thing beside it were removed — "New", "Sold", "Exclusive", "Verified" | Seller lead scoring → **Score tag** · The element is interactive — selectable, filterable, removable → **Chip** · Status needs supporting text → **Feedback message** · The marker is anchored to another component's geometry → **Badge** |
 | **Score tag** | A Tag specialised for seller lead scoring | Any other status or category label → **Tag** · An energy-efficiency rating → **Energy tag** |
@@ -285,6 +285,21 @@ group, an illustration slot and a pre-title.
 
 **Neither is built on web**, and **no usage rules exist for the thumb buttons**. Use them when the
 user's opinion is needed, until something better replaces them. Gabriel, 18 September 2026.
+
+**`Feedback thumb buttons` is selectable, and selecting it is a signal.** The component was built
+by a team outside the design system, kept because others might want it, and never brought in.
+Gabriel, 21 September 2026. **An agent may still choose it** — the rule above decides when.
+**What follows from choosing it:** more than one team needs the component, which is the condition
+for adopting it into the design system properly. A run that selects it should say so in its report,
+so the adoption question reaches Gabriel. **This is the only component in the design system on these
+terms**, so far as Gabriel knows.
+
+**`Feedback thumb buttons` is web only — never iOS, never Android.** Gabriel, 21 September 2026.
+Checked live in the Components library the same day: the component set carries **no `Platform`
+property**, its only axis is `Device` with `Desktop` and `Mobile`, and the page titles it
+*"Feedback Thumb Buttons (Web)"*. `Desktop` and `Mobile` there are **web breakpoints**, not native
+platforms. The component is also **not in the web code repo**, so it exists in Figma and nowhere
+else.
 
 **`Rating` is not in this section and is not an alternative to either.** It displays results that
 already exist, from Opinion System, and is non-interactive. These two collect an opinion; `Rating`
@@ -409,6 +424,12 @@ The few platform limits confirmed independently of that row:
 | `Breadcrumb` | Web only |
 | `Pagination` | Web only. On mobile and in apps, use infinite scroll |
 | `Navigation Bar (App)` | iOS and Android only — **not** the same component as `Navigation bar`, which is web |
+| `Feedback Thumb Buttons` | Web only. No `Platform` property exists on the set; its `Device` axis is web breakpoints. Gabriel, 21 September 2026 |
+
+**`Navigation Bar (App)` is placeable in Figma and will never ship on web.** Gabriel,
+21 September 2026. A design agent working in Figma **may** select it for an app screen. A web
+generating agent **may not**, because there is nothing on web to generate. The two are separate
+questions and the answer differs.
 
 **This table is not the full picture and must not be read as one.** A component's
 absence from it means nothing has been established, not that it is available.
@@ -548,7 +569,7 @@ usage documentation yet; you may still select it if **Which component** or **Hig
 | `Select Card Group` | Select cards are used for single- or multi-selection inside forms. | [select-card-group](select-card-group/select-card-group.md) |
 | `Slider` | A range slider can be used to select a single value or a range between minimum and maximum values. | [slider](slider/slider.md) |
 | `Snackbar` | Snackbars are used to provide quick feedback after an action is taken. | [snackbar](snackbar/snackbar.md) |
-| `State Messages` | Inline feedback inside a form field. | — *no doc* |
+| `State Message` | Inline feedback inside a form field. | — *no doc* |
 | `Tab Bar` | 🚫 **Never select** — withheld — mid-refactor, use Tabs | — *no doc* |
 | `Tabs` | Tabs are used to organize related content into different views and allow users to seamlessly switch between them. | [tabs](tabs/tabs.md) |
 | `Tag` | Tags are used to label, categorize and highlight items to help users quickly identify content. | [tag](tag/tag.md) |

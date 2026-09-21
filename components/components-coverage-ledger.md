@@ -211,7 +211,7 @@ component, never enough to build one correctly.
 | Navigation Bar (App) | Components | Persistent in-app navigation between top-level destinations. |
 | Pop-up | Components | Small-content alternative to a Modal bottom sheet. |
 | Score Tag | Components | A Tag specialised for seller lead scoring. |
-| State Messages | Components | Inline feedback inside a form field. |
+| State Message | Components | Inline feedback inside a form field. |
 
 **All 12 carry a sentence in the ruleset.** None is a doc, so an
 agent can choose these components and cannot build them without inventing

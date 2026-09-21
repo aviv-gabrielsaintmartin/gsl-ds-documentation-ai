@@ -119,7 +119,7 @@ mining the existing docs for cross-references:
 | Item | Tier | Purpose | Source |
 | --- | --- | --- | --- |
 | `Tooltip` | Components | Temporary short overlay clarifying a UI element; a single brief clarification, not a guided tour | `doc` (coach-mark) |
-| `State Messages` | Components | Inline feedback in forms — guide, correct errors, add information | `doc` (alert, text-area, text-field) |
+| `State Message` | Components | Inline feedback in forms — guide, correct errors, add information | `doc` (alert, text-area, text-field) |
 | `Text Button` | Components | A distinct component from Button; used for "Read more", inside action menus and autocomplete dropdowns | `doc` (button, action-menu, autocomplete) |
 | `Pop-up` | Components | The small-content alternative to a Modal bottom sheet | `doc` (modal-bottom-sheet) — "If you have a small amount of content, please use the pop-up component instead" |
 | `Loading State` | Components | Signals that data or content is being fetched | `doc` (autocomplete, dropdown, info-state) |
@@ -298,6 +298,28 @@ Each needs Gabriel's answer before the affected rule can be written.
 ---
 
 ## Decisions taken while filling the component docs
+
+### `State Message` is the name, and Figma spells it three ways
+
+**Decided by Gabriel, 21 September 2026.** The repo's name for the component is
+**`State Message`**, singular. The registry key, the ruleset inventory and this
+page were changed the same day; the coverage ledger was regenerated from them.
+
+**Figma disagrees with itself**, read live from the Components library on
+21 September 2026:
+
+| Where in Figma | Spelling |
+| --- | --- |
+| The component set | `state_message` |
+| The page holding it | `State messages` |
+| The documentation frame on that page | `State Message` |
+
+**None of the three is being changed in Figma by this decision.** The registry
+entry now carries a `figmaSetName` field holding the literal `state_message`, so
+a sync can still find the set by its real name. **Name lookups against Figma must
+use `figmaSetName`, never the registry key** — the key is the repo's name and the
+two are deliberately allowed to differ, the same way `Navigation Bar (App)` and
+`Score Tag` already differ from their Figma sets.
 
 ### `Priority` was ambiguous and is now pinned
 

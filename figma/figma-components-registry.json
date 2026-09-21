@@ -1465,11 +1465,12 @@
       "variantCount": 24,
       "status": "Documented"
     },
-    "State Messages": {
+    "State Message": {
       "key": "7c94cec95f0a93ea9e2b5a0b2affd963bcf7b189",
       "pattern": "Pattern 1",
       "variantCount": 5,
-      "status": "Documented"
+      "status": "Documented",
+      "figmaSetName": "state_message"
     },
     "Tab Bar": {
       "key": "29ac52250ffa7869a62d1676c325d2a6253b0a68",
