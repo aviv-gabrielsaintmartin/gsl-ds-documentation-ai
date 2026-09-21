@@ -33,7 +33,7 @@ Select cards contain custom checkboxes on Web/iOS and native checkboxes on Andro
 | --- | --- |
 | Simpler single-select | **Radio button group** |
 | Simpler multi-select | **Checkbox group** |
-| The intent is navigation, not selection | **Button card** |
+| The intent is navigation, not selection | **Card**, with the whole container as the action |
 
 ### Variant Selection Flow
 
@@ -72,8 +72,8 @@ Text
 | **Select card group** | — | Select cards are used for single- or multi-selection inside forms. | — |
 | [**Radio button group**](../radio-button-group/radio-button-group.md) | High | Radio buttons allow users to make mutually exclusive choices. They are used in forms that must be submitted before the change takes effect. | Simpler single-select |
 | [**Checkbox group**](../checkbox-group/checkbox-group.md) | High | Checkbox groups allow users to select one or more choices independently. They are used in forms that must be submitted before the change takes effect. | Simpler multi-select |
-| [**Button card**](../button-card/button-card.md) | High | Button cards are prominent calls to action that can be used alone or in a group, with icons or pictograms. | The intent is navigation, not selection |
-| [**Button card**](../button-card/button-card.md) | High | Button cards are prominent calls to action that can be used alone or in a group, with icons or pictograms. | The intent is navigation, not selection |
+| [**Button card**](../button-card/button-card.md) | 🚫 **Never select** | Button cards are prominent calls to action that can be used alone or in a group, with icons or pictograms. | The intent is navigation, not selection |
+| [**Button card**](../button-card/button-card.md) | 🚫 **Never select** | Button cards are prominent calls to action that can be used alone or in a group, with icons or pictograms. | The intent is navigation, not selection |
 
 ---
 

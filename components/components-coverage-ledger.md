@@ -249,7 +249,7 @@ reasons are the ruleset's own, read from the rows it marks 🚫.
 | Tab Bar | Components | withheld — mid-refactor, use Tabs |
 | Webview | Components | chrome — an embedded browser container |
 
-**Careful with `Cell Content`.** It is in the matrix above
+**Careful with `Button Card`, `Cell Content`.** They are in the matrix above
 with a doc, and still not selectable. A well-filled row in this page is not
 permission to use the component. The ruleset decides that, not this page.
 

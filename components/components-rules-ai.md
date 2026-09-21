@@ -139,7 +139,7 @@ first that decides it:
 
 | Choose | When | Otherwise |
 | --- | --- | --- |
-| **Button** | The user triggers an immediate action — save, submit, share, open a modal | Navigation → **Link** · Full button weight is visually too heavy → **Text button** · Prominent navigational entry point with icon or illustration → **Button card** · Choosing from a set of related options → **Button group** |
+| **Button** | The user triggers an immediate action — save, submit, share, open a modal | Navigation → **Link** · Full button weight is visually too heavy → **Text button** · Prominent navigational entry point with icon or illustration → **Card**, with the whole container as the action · Choosing from a set of related options → **Button group** |
 | **Button bar** | Up to two buttons anchored at the foot of a form or flow, sticky or not | The buttons sit in normal page flow → **Button group** · Two or three actions floating over content → **Floating button group** · A single action → **Button** |
 | **Floating button group** | Two or three actions that float above scrolling content, typically overlaying media or a map | The actions sit in normal page flow → **Button group** · A dropdown list of contextual actions → **Action menu** · A single action → **Button**, floating |
 | **Link** | The intent is navigation to another page or section — not action | An action is triggered → **Button** · Navigation needs button weight, e.g. an empty-state CTA → **Button**, tertiary |
@@ -160,7 +160,7 @@ first that decides it:
 | --- | --- | --- |
 | **Checkbox group** | Multi-select in a structured form | Few options and prominent visual treatment preferred → **Button group** (multi-select) · Options benefit from card layout → **Select card group** (multi-select) · Long list or constrained space → **Dropdown** · Lightweight selections outside a form → **Chip group** |
 | **Chip group** | Lightweight multi-select filtering or input outside a structured form | Inside a structured form with labels and helper text → **Checkbox group** · Constrained space or numerous options → **Dropdown** · Filtering a SERP or data table with structured panels → **Filter bar** · The element is non-interactive → **Tag** |
-| **Select card group** | Form selection benefits from a visual, card-based layout with icons or illustrations | Simpler single-select → **Radio button group** · Simpler multi-select → **Checkbox group** · The intent is navigation, not selection → **Button card** |
+| **Select card group** | Form selection benefits from a visual, card-based layout with icons or illustrations | Simpler single-select → **Radio button group** · Simpler multi-select → **Checkbox group** · The intent is navigation, not selection → **Card**, with the whole container as the action |
 
 ### Filtering content
 
@@ -244,7 +244,7 @@ already. **Which of the two is right for an app is not settled**, and there is n
 
 | Choose | When | Otherwise |
 | --- | --- | --- |
-| **Card** | Visually grouping related content in a cohesive container | Content should be collapsible → **Accordion** · Content overlays the screen → **Modal bottom sheet** · The whole container is a single navigational action → **Button card** |
+| **Card** | Visually grouping related content in a cohesive container | Content should be collapsible → **Accordion** · Content overlays the screen → **Modal bottom sheet** · The whole container is a single navigational action → that is **Card**'s own job; build it as a Card |
 | **Accordion** | Content needs progressive disclosure in a persistent expandable list | Content should always be visible → **Card** · Sections are mutually exclusive views → **Tabs** |
 | **Divider** | Visually separating content sections or list items where spacing alone is insufficient | — |
 | **Text button** | An action needing less weight than a button, standing on its own and **never inline**. **Built for an alignment constraint** — `Button` carries horizontal padding, so a tertiary button below a block of text does not line up with it, and a text button has no horizontal padding. Revealing more content in place — "Read more", "Show all 12 photos" — is one common use, not the whole job | The control leaves the page → **Link**, which is underlined and so reads as taking the user somewhere · The control sits inside a sentence or in body copy → **Link** · The content collapses back into a persistent expandable list → **Accordion** · Submitting or resetting a form → **Button**, primary emphasis for the submit |
@@ -544,7 +544,7 @@ screen.
 | `Programmatic Ads` | Commercial ad slot | Nothing |
 | `Burger menu (profil)` | Already adapted to consumer-content needs, and never to be used. Gabriel, 18 September 2026 | Use `Burger menu` |
 | `Menus` | Built to cover international content needs, and nothing requires it to build anything today. **Provisional** — Gabriel, 18 September 2026, to be revisited once real product usage shows whether it is used | Use `Navigation bar`, whose own controls include the language menu |
-| `Button Card Group` | Never developed, and should be removed from Figma. Gabriel, 18 September 2026 | Use `Button card` on its own |
+| `Button Card` · `Button Card Group` | **Neither is available on any platform** — not web, not iOS, not Android. Never developed. Gabriel, 18 September 2026 for the group and 21 September 2026 for `Button Card` itself. **Removal from Figma waits on an investigation** and is not settled here; selectability is. **`Button Card` has a doc, and a doc is not permission** — the same situation as `Cell Content` above | Use `Card`, with the whole container as the action. **Which component**'s `Button`, `Card` and `Select card group` rows were rerouted there on 21 September 2026, so no rule now points at either of these |
 | `Image Ratio` | A Figma-internal helper, built so a designer need not hold an image to its aspect ratio by hand. Never a component in a product screen. Gabriel, 21 September 2026 | Nothing to place. Hold the image to its ratio in the layout itself |
 | `Tab Bar` | Mid-refactor, unclassified | Use `Tabs` |
 | `Footer` | Figma only, owned by the Header/Footer team, not built | Nothing |
@@ -573,7 +573,7 @@ usage documentation yet; you may still select it if **Which component** or **Hig
 | `Brand Logo` ⚠︎ *also in Foundations* | 🚫 **Never select** — asset — brand config | — *no doc* |
 | `Button` | Buttons are used to trigger an immediate action. | [button](button/button.md) |
 | `Button Bar` | Holds the actions that close a form or a flow, anchored at its foot. | [button-bar](button-bar/button-bar.md) |
-| `Button Card` | Button cards are prominent calls to action that can be used alone or in a group, with icons or pictograms. | [button-card](button-card/button-card.md) |
+| `Button Card` | 🚫 **Never select** — withheld — never developed, available on no platform | [button-card](button-card/button-card.md) |
 | `Button Card Group` | 🚫 **Never select** — withheld — never developed, should leave Figma | — *no doc* |
 | `Button Group` | Button groups display multiple related choices in a horizontal row, allowing users to select one or more options. | [button-group](button-group/button-group.md) |
 | `Card` | Cards are flexible containers used to visually group content. | [card](card/card.md) |

@@ -173,9 +173,11 @@ run had left behind**. All three are in the backlog.
 
 **Also in:** `Alert` is a fixed-shape modal expecting a decision back, replicable from `Modal bottom sheet` until it is built. `Pop-up` is apps only and stays undocumented until its overlap is settled. `Navigation Bar (App)` has its own rule row, in your words.
 
-**One thing I stopped and did not do.** `Button Card` — you want it deprecated, and three rule rows still send an agent to it. Forbidding it today would leave three rules pointing at a forbidden component. It is a question in the backlog, not a change.
+**`Button Card` is forbidden, and everything pointing at it moved.** Available on no platform, so not selectable — your call. Three rule rows and three docs now route to `Card`, with the whole container as the action. `Card`'s own row had been deferring that case to `Button card` all along, so it simply comes back. **Removal from Figma is separate and still open** — you asked for an investigation first, and nobody has said what it should check.
 
-**One check is now reporting something false.** Adding the app navigation rule made `check-rules-docs.py` compare `navigation-bar.md` against the wrong row — it folds `Navigation Bar (App)` into `Navigation bar`. Backlog row, with the evidence.
+**The navigation family is now one topic, not six loose ends.** `Navigation bar` is a **Pattern**; `Navigation Bar (App)` is a **Component**. Two tiers, near-identical names, and nothing says why. The row covers both, plus `Burger menu`, `Mega menus`, `Menus` and `Burger menu (profil)` — three of them Patterns-tier gaps, so it belongs in the same sitting as the other Patterns docs.
+
+**It also swallows a live defect.** `check-rules-docs.py` folds the two navigation names into one, so the line it prints about `navigation-bar.md` is false today. Fixing it alone would make a wrong answer quiet, so it waits for the naming decision.
 
 ### Done, 21 September: three docs written from Figma itself
 

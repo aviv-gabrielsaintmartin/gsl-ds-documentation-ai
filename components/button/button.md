@@ -34,7 +34,7 @@ On iOS and Android, an animated floating button is available. When the user star
 | --- | --- |
 | Navigation | **Link** |
 | Full button weight is visually too heavy | **Text button** |
-| Prominent navigational entry point with icon or illustration | **Button card** |
+| Prominent navigational entry point with icon or illustration | **Card**, with the whole container as the action |
 | Choosing from a set of related options | **Button group** |
 
 ### Variant Selection Flow
@@ -77,7 +77,7 @@ Badge
 | **Button** | — | Buttons trigger actions. | — |
 | [**Link**](../link/link.md) | High | Links are navigational elements that take users to different pages or sections. | Navigation |
 | **Text button** | High | A distinct component from Button, for when full button weight is too heavy. | Full button weight is visually too heavy |
-| [**Button card**](../button-card/button-card.md) | High | Button cards are prominent calls to action that can be used alone or in a group, with icons or pictograms. | Prominent navigational entry point with icon or illustration |
+| [**Button card**](../button-card/button-card.md) | 🚫 **Never select** | Button cards are prominent calls to action that can be used alone or in a group, with icons or pictograms. | Prominent navigational entry point with icon or illustration |
 | [**Button group**](../button-group/button-group.md) | High | Button groups display multiple related choices in a horizontal row, allowing users to select one or more options. | Choosing from a set of related options |
 
 ---

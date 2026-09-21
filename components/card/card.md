@@ -26,7 +26,7 @@ Cards themselves are not clickable. If you want to create clickable cards, place
 | --- | --- |
 | Content should be collapsible | **Accordion** |
 | Content overlays the screen | **Modal bottom sheet** |
-| The whole container is a single navigational action | **Button card** |
+| The whole container is a single navigational action | **Card** — that is this component's own job |
 
 ### Variant Selection Flow
 
@@ -68,7 +68,7 @@ Slots
 | [**Cell content**](../cell-content/cell-content.md) | High | Place inside a Card to make the whole card clickable | Card acts as a clickable row or tile linking to another page |
 | [**Accordion**](../accordion/accordion.md) | High | Accordions are container that allow users to expand and collapse sections of content, making it easier to manage large amounts of information in a… | Content should be collapsible |
 | [**Modal bottom sheet**](../modal-bottom-sheet/modal-bottom-sheet.md) | High | Modal bottom sheets are containers that appear above the content and block interaction with the rest of the screen. | Content overlays the screen |
-| [**Button card**](../button-card/button-card.md) | High | Button cards are prominent calls to action that can be used alone or in a group, with icons or pictograms. | The whole container is a single navigational action |
+| [**Button card**](../button-card/button-card.md) | 🚫 **Never select** | Button cards are prominent calls to action that can be used alone or in a group, with icons or pictograms. | The whole container is a single navigational action |
 
 ---
 
