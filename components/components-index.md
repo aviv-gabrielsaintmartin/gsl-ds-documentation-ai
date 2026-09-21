@@ -16,9 +16,9 @@ which component to reach for, and which ones must never be selected.
 | [component-template.md](component-template.md) | **The one definition of a component doc.** Its headings are the contract `coverage.py` and `template-drift.py` both read |
 | [components-template-drift.md](components-template-drift.md) | **Script-written.** How far each doc sits from the template, and what would close the gap. **Never read as rules** |
 
-The list below holds one row per component folder — **61** of them. The
-ruleset's inventory covers all **98** registry entries: **63** reach a doc and
-**35** do not. The two counts differ because `charts/` answers several registry
+The list below holds one row per component folder — **64** of them. The
+ruleset's inventory covers all **98** registry entries: **66** reach a doc and
+**32** do not. The two counts differ because `charts/` answers several registry
 entries from a single row.
 
 ## Component list
@@ -65,6 +65,7 @@ entries from a single row.
 | [Modal bottom sheet](modal-bottom-sheet/modal-bottom-sheet.md) |
 | [Modal bottom sheet menu](modal-bottom-sheet-menu/modal-bottom-sheet-menu.md) |
 | [Navigation bar](navigation-bar/navigation-bar.md) |
+| [Navigation bar (app)](navigation-bar-app/navigation-bar-app.md) |
 | [Pagination](pagination/pagination.md) |
 | [Phone number field](phone-number-field/phone-number-field.md) |
 | [Progress bar](progress-bar/progress-bar.md) |
@@ -74,7 +75,9 @@ entries from a single row.
 | [Segmented control](segmented-control/segmented-control.md) |
 | [Select card group](select-card-group/select-card-group.md) |
 | [Slider](slider/slider.md) |
+| [Score tag](score-tag/score-tag.md) |
 | [Snackbar](snackbar/snackbar.md) |
+| [State message](state-message/state-message.md) |
 | [Tables](tables/tables.md) |
 | [Tabs](tabs/tabs.md) |
 | [Tag](tag/tag.md) |

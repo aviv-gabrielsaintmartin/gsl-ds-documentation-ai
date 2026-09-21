@@ -163,6 +163,20 @@ run had left behind**. All three are in the backlog.
 
 **Twelve selectable components still have no doc**, and every one needs Figma. **Not ten — the backlog's list had been missing `Burger menu` and `Map template` since it was written.** `coverage.py` counts from the registry and had the right number all along.
 
+### Done, 21 September: three docs written from Figma itself
+
+**`State message`, `Navigation bar (app)` and `Score tag` have docs.** The first three built from a live read of the Figma library, rather than from web code or Zeroheight. **Documented: 63 → 66. Selectable components with no doc: 12 → 9.**
+
+**Figma answered things nothing else in the repo knew.** `Navigation bar (app)` is 49 high on iOS and 80 on Android. The label moves beside the icon on iOS tablet only. Android tablet tabs stop at 168 wide instead of stretching, so a three-tab Android tablet bar does not fill its width.
+
+**`Score tag` wraps a `Tag` that is not exposed.** Its four tiers are fixed in the component, not a convention someone could break. Its colour tokens exist and have zero recorded uses on web — there is no scoring UI built.
+
+**Four rulings of yours are now in the ruleset.** `Feedback thumb buttons` stays selectable and choosing it is the signal to adopt it properly; it is web only. `State Message` is the name. `Navigation bar (app)` is placeable in Figma and never ships on web. The three short variant grids are deliberate.
+
+**`Pop-up` and `Modal bottom sheet` contradict each other three ways**, and it is a backlog row with the evidence, waiting on an investigation.
+
+**One gap opened by the new doc:** no rule sends an agent to `Navigation bar (app)`. Proposed as its own row.
+
 **Components with no rule: 16 → 0.** Every component in the four libraries can now be reached by a rule, or is forbidden on purpose with the reason written down.
 
 **You described five of the last six from memory.** The sixth came out of its Figma properties. Two things are recorded as unknown rather than guessed: the thumb buttons have no usage rules, and the boundary between the two feedback components is read from Figma, not from any rule.

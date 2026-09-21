@@ -556,7 +556,7 @@ usage documentation yet; you may still select it if **Which component** or **Hig
 | `Loading State` | Signals data or content is being fetched. | [loading-state](loading-state/loading-state.md) |
 | `Modal Bottom Sheet` | Modal bottom sheets are containers that appear above the content and block interaction with the rest of the screen. | [modal-bottom-sheet](modal-bottom-sheet/modal-bottom-sheet.md) |
 | `Modal Bottom Sheet Menu` | Modal bottom sheet menus display a list of context-specific actions on mobile screens or on apps. | [modal-bottom-sheet-menu](modal-bottom-sheet-menu/modal-bottom-sheet-menu.md) |
-| `Navigation Bar (App)` | Persistent in-app navigation between top-level destinations. | — *no doc* |
+| `Navigation Bar (App)` | Persistent in-app navigation between top-level destinations. | [navigation-bar-app](navigation-bar-app/navigation-bar-app.md) |
 | `Pagination` | Pagination divides content into smaller, numbered pages, making it easier for users to navigate through large amounts of content. | [pagination](pagination/pagination.md) |
 | `Pop-up` | Small-content alternative to a Modal bottom sheet. | — *no doc* |
 | `Programmatic Ads` | 🚫 **Never select** — withheld — commercial ad slot | — *no doc* |
@@ -564,12 +564,12 @@ usage documentation yet; you may still select it if **Which component** or **Hig
 | `Progress Circle` | A progress circle shows a task's progress. | [progress-circle](progress-circle/progress-circle.md) |
 | `Radio Button Group` | Radio button groups are used to select one option from a group of mutually exclusive choices. | [radio-button-group](radio-button-group/radio-button-group.md) |
 | `Rating` | The rating is used to display the result of user ratings. | [rating](rating/rating.md) |
-| `Score Tag` | A Tag specialised for seller lead scoring. | — *no doc* |
+| `Score Tag` | A Tag specialised for seller lead scoring. | [score-tag](score-tag/score-tag.md) |
 | `Segmented Control` | Segmented controls are used to select one option from a group of mutually exclusive choices. | [segmented-control](segmented-control/segmented-control.md) |
 | `Select Card Group` | Select cards are used for single- or multi-selection inside forms. | [select-card-group](select-card-group/select-card-group.md) |
 | `Slider` | A range slider can be used to select a single value or a range between minimum and maximum values. | [slider](slider/slider.md) |
 | `Snackbar` | Snackbars are used to provide quick feedback after an action is taken. | [snackbar](snackbar/snackbar.md) |
-| `State Message` | Inline feedback inside a form field. | — *no doc* |
+| `State Message` | Inline feedback inside a form field. | [state-message](state-message/state-message.md) |
 | `Tab Bar` | 🚫 **Never select** — withheld — mid-refactor, use Tabs | — *no doc* |
 | `Tabs` | Tabs are used to organize related content into different views and allow users to seamlessly switch between them. | [tabs](tabs/tabs.md) |
 | `Tag` | Tags are used to label, categorize and highlight items to help users quickly identify content. | [tag](tag/tag.md) |
