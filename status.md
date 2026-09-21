@@ -161,7 +161,7 @@ run had left behind**. All three are in the backlog.
 
 **Two rules you settled outright.** Attributions leave component docs, because people read them — `CLAUDE.md` says so now. And `Image Ratio` joins **Never select**: a Figma-internal helper for designers, never a component in a product screen.
 
-**Ten selectable components still have no doc**, and every one needs Figma.
+**Twelve selectable components still have no doc**, and every one needs Figma. **Not ten — the backlog's list had been missing `Burger menu` and `Map template` since it was written.** `coverage.py` counts from the registry and had the right number all along.
 
 **Components with no rule: 16 → 0.** Every component in the four libraries can now be reached by a rule, or is forbidden on purpose with the reason written down.
 
