@@ -127,7 +127,8 @@ this alone, with nobody correcting it?
 **Not a source-code repository** — there is no build, lint, or test tooling here.
 Three deliberate exceptions: `tokens/scripts/`, which reads the design-system code
 repo to generate the token ledgers; `scripts/check-links.py`, which checks
-that every link in this repo resolves and that no ruleset points an agent at a
+that every link in this repo resolves, that a filename written in backticks
+still names a file that exists, and that no ruleset points an agent at a
 file it may not read; and the pair in `scripts/` that generates a component doc
 from its Zeroheight page — `zeroheight-extract.mjs` renders and downloads,
 `zeroheight-draft.py` lays the result out against the template. **The extractor

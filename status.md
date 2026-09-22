@@ -163,6 +163,39 @@ run had left behind**. All three are in the backlog.
 
 **Twelve selectable components still have no doc**, and every one needs Figma. **Not ten — the backlog's list had been missing `Burger menu` and `Map template` since it was written.** `coverage.py` counts from the registry and had the right number all along.
 
+### Done, 22 September: the link check reads filenames, not just links
+
+**Eleven stale names, all fixed.** Two rules files had been telling every
+session the indexes were `components.md` and `tokens.md` — months after both
+were renamed. `tokens/review-progress.md` named a `colors-tokens/` folder that
+has never existed, in nine places.
+
+**`check-links.py` now asks a third question:** does a filename in backticks
+still name a file that exists? **346 names checked alongside 2,366 links, and
+clean.**
+
+**A bare name is a name, not a path.** Every real file is indexed under every
+suffix of its path, so `surface.md` in a rules file finds the one in
+`tokens/color/`.
+
+**Raw, the scan found 108 unresolved names and was unusable.** Five filters take
+it to the 11 real defects — placeholders, grammar fragments like `-audit.md`,
+`~/` paths, the two files that record what was true on a date, and `.json`
+names, which are mostly the web code repo's and not ours to find.
+
+**Proved twice.** Ten synthetic lines through the matcher, then a throwaway file
+carrying `components.md`, which made the real run fail and pass again once
+removed.
+
+**One thing it still cannot see, and you should know it:** a filename with no
+backticks around it. There is no way to tell one from an ordinary word.
+
+**This page is exempt, and the check itself made the case.** It failed on the
+sentence above reporting the fix, because that sentence has to name the old
+file. Your done log is a record of what was true on a date, like the backlog and
+the decision log — all three are skipped for the same reason. The live pointers
+here are links, which are still checked.
+
 ### Done, 22 September: no usage doc names a tool any more
 
 **58 lines across 22 docs, gone.** `scripts/check-tool-neutral.py` reports clean. **Every one of the 58 named Figma** — Zeroheight, Confluence and Storybook were already right, appearing only inside links.

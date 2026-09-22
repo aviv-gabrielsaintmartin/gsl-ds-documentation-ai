@@ -11,19 +11,19 @@ Values are already exported from Figma and trusted — no spot-check against Fig
 5. Where any learning beyond the confirmed rule needs storing, use the same three-tier split everywhere, not an ad hoc format per session:
    - **Confirmed rule** → stated as plain prose/table in `Semantic usage`. No label needed for a settled fact.
    - **A short, self-contained caveat about the token data itself** — doesn't need methodology or evidence to understand (e.g. "these two tokens resolve to the same value, unclear if intentional") — gets a one-line inline flag directly in the token doc, using a standard label: `**Open question:**` for something genuinely unresolved, `**Note:**` for a resolved non-issue worth a heads-up (e.g. a rendering artifact that looks like a bug but isn't).
-   - **Anything that needs methodology, a component/screen list, or produced multiple findings** — whether it settled into a confirmed rule (supporting evidence) or stayed exploratory (no rule could be confirmed) — goes into a sibling `<category>-usage-audit.md` file, human-facing only, flagged not-AI-facing in its own header (see `typography-usage-audit.md` and `radius-usage-audit.md` for the pattern, itself modelled on `colors-tokens/surface-border-combination-audit.md`). The main doc keeps only a one-line pointer to it. This keeps the split about the *shape* of the content (self-contained fact vs. researched evidence), not its size or whether it's "confirmed" — a confirmed rule can still have audit-file-worthy supporting evidence (radius, shadow), and a short caveat doesn't need a whole file just because it's unresolved (border-width, grid, surface).
+   - **Anything that needs methodology, a component/screen list, or produced multiple findings** — whether it settled into a confirmed rule (supporting evidence) or stayed exploratory (no rule could be confirmed) — goes into a sibling `<category>-usage-audit.md` file, human-facing only, flagged not-AI-facing in its own header (see `typography-usage-audit.md` and `radius-usage-audit.md` for the pattern, itself modelled on `color/surface-border-combination-audit.md`). The main doc keeps only a one-line pointer to it. This keeps the split about the *shape* of the content (self-contained fact vs. researched evidence), not its size or whether it's "confirmed" — a confirmed rule can still have audit-file-worthy supporting evidence (radius, shadow), and a short caveat doesn't need a whole file just because it's unresolved (border-width, grid, surface).
 
 ## Status
 
 | Category | File | Status | Last reviewed | Notes |
 | --- | --- | --- | --- | --- |
-| Surface | `colors-tokens/surface.md` | Reviewed | 2026-09-03 | Full template. Two `**Open question:**` flags in the file itself (relabeled during the 2026-09-03 audit-storage consistency pass, content unchanged): `Accent/Light` vs `Active` resolve identically, `Decorative` family boundary still too vague. Both short, self-contained caveats — no sibling audit file needed per the updated methodology. |
-| Border | `colors-tokens/border.md` | Reviewed | 2026-09-03 | Full template. |
-| Content | `colors-tokens/content.md` | Reviewed | 2026-09-03 | Full template. |
-| Symbols | `colors-tokens/symbols.md` | Reviewed | 2026-09-03 | Full template. |
-| Scale | `colors-tokens/scale.md` | Reviewed | 2026-09-03 | Full template. |
-| Native | `colors-tokens/native.md` | Reviewed | 2026-09-03 | Single family, no Overview needed. |
-| Background | `colors-tokens/background.md` | Reviewed | 2026-09-03 | Single family, no Overview needed. |
+| Surface | `color/surface.md` | Reviewed | 2026-09-03 | Full template. Two `**Open question:**` flags in the file itself (relabeled during the 2026-09-03 audit-storage consistency pass, content unchanged): `Accent/Light` vs `Active` resolve identically, `Decorative` family boundary still too vague. Both short, self-contained caveats — no sibling audit file needed per the updated methodology. |
+| Border | `color/border.md` | Reviewed | 2026-09-03 | Full template. |
+| Content | `color/content.md` | Reviewed | 2026-09-03 | Full template. |
+| Symbols | `color/symbols.md` | Reviewed | 2026-09-03 | Full template. |
+| Scale | `color/scale.md` | Reviewed | 2026-09-03 | Full template. |
+| Native | `color/native.md` | Reviewed | 2026-09-03 | Single family, no Overview needed. |
+| Background | `color/background.md` | Reviewed | 2026-09-03 | Single family, no Overview needed. |
 | Spacing | `spacing-tokens.md` | Reviewed | 2026-09-03 | Rebuilt this session — merged two prior files, added Overview + Semantic usage. |
 | Typography | `typography-tokens.md` | Reviewed | 2026-09-03 | Rewritten after auditing 3 real screens in Figma — no H1–H5 mapping exists in practice; size is a per-block choice (local emphasis + container size), not a lookup. Exploratory findings live in the sibling `typography-usage-audit.md` (the original model for the sibling-audit-file pattern, now formalized in the methodology above). Its inline pointer flag was relabeled `**Open question:**` during the 2026-09-03 consistency pass; content unchanged. |
 | Radius | `radius-tokens.md` | Reviewed | 2026-09-03 | Confirmed rule (size/shape-tiered: `4`/`8`/`16` scale with container size, pill covers filled/interactive controls regardless of size) unchanged. During the 2026-09-03 audit-storage consistency pass, moved the supporting evidence — the 9-component and 3-screen live spot-checks, the pill-value non-issue, and two out-of-scope findings (Figma's unimplemented "Corner radius" layer; a custom-built sort control masquerading as a real component) — out of the doc's `Semantic usage` prose and into a new sibling file, `radius-usage-audit.md`, per the same pattern typography already used. Nothing lost, just relocated. |
@@ -37,5 +37,5 @@ Values are already exported from Figma and trusted — no spot-check against Fig
 
 ## Out of scope for now
 
-- The `colors-tokens/surface-border-combination-audit.md` draft — left alone deliberately, not part of this review track.
+- The `color/surface-border-combination-audit.md` draft — left alone deliberately, not part of this review track.
 - Figma value spot-checks — tokens are already exported and trusted; only revisit if something looks structurally wrong.

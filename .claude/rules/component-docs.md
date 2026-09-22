@@ -28,7 +28,7 @@ Same `-rules-ai` / `-audit` split the token docs use, plus an `-eval`:
 
 | File | Role |
 | --- | --- |
-| `components.md` | The index of components that have a usage doc. |
+| `components-index.md` | The index of components that have a usage doc. |
 | `components-rules-ai.md` | **The ruleset — what a generating agent reads to choose a component.** Intent → component, tier order (Experiences before Patterns before Components), platform limits, never-select list, and the full inventory of all four Figma libraries. |
 | `components-audit.md` | The evidence, the triage, rejected options, open questions. **Never read as rules.** |
 | `components-eval.md` | The check on the ruleset — intents with expected answers, scoring bands, and the run log. **The test, not the rules.** |

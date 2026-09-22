@@ -13,7 +13,7 @@ One folder per token category, mirroring how `components/` is organised.
 
 - **Start at `tokens/README.md`** — it explains every file's role.
   `tokens/tokens-index.md` is the content index.
-- Only `README.md`, `tokens.md` and `review-progress.md` sit at the top level.
+- Only `README.md`, `tokens-index.md` and `review-progress.md` sit at the top level.
   Everything else lives in a category folder — `color/`, `typography/`,
   `spacing/`, `sizing/`, `radius/`, `shadow/`, `border-width/`, `breakpoint/`,
   `grid/`, `motion/`, `opacity/`, `z-index/` — or in `scripts/`.

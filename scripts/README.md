@@ -4,7 +4,7 @@ Repo-level tools. Nothing here is part of the documentation an agent reads.
 
 | Script | What it does |
 | --- | --- |
-| `check-links.py` | Checks every repo-relative link resolves, and that no ruleset points an agent at a file it may not read |
+| `check-links.py` | Checks every repo-relative link resolves, that a filename written in backticks still names a file that exists, and that no ruleset points an agent at a file it may not read |
 | `check-rules-docs.py` | Checks each component doc and its ruleset row name the same alternatives. Compares sets of component names, never prose |
 | `check-tool-neutral.py` | Checks no component doc explains a component in terms of a tool — Figma, Zeroheight, Confluence, Storybook. A tool name is allowed in a link, nowhere else |
 | `zeroheight-extract.mjs` | Renders one Zeroheight component page, scrolls it, and saves its blocks plus every content image |
