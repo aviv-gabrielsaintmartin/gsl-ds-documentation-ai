@@ -31,6 +31,7 @@ entries from a single row.
 | [Autocomplete](autocomplete/autocomplete.md) |
 | [Avatar](avatar/avatar.md) |
 | [Badge](badge/badge.md) |
+| [Badge store](badge-store/badge-store.md) |
 | [Breadcrumb](breadcrumb/breadcrumb.md) |
 | [Button](button/button.md) |
 | [Burger menu](burger-menu/burger-menu.md) |
@@ -52,8 +53,10 @@ entries from a single row.
 | [Divider](divider/divider.md) |
 | [Dropdown](dropdown/dropdown.md) |
 | [Energy Tag](energy-tag/energy-tag.md) |
+| [Estimation card](estimation-card/estimation-card.md) |
 | [Feedback bar](feedback-bar/feedback-bar.md) |
 | [Feedback message](feedback-message/feedback-message.md) |
+| [Feedback thumb buttons](feedback-thumb-buttons/feedback-thumb-buttons.md) |
 | [Filter bar](filter-bar/filter-bar.md) |
 | [Floating button group](floating-button-group/floating-button-group.md) |
 | [Floor selection](floor-selection/floor-selection.md) |
@@ -64,6 +67,7 @@ entries from a single row.
 | [Listing card](listing-card/listing-card.md) |
 | [Listing summary](listing-summary/listing-summary.md) |
 | [Loading state](loading-state/loading-state.md) |
+| [Map template](map-template/map-template.md) |
 | [Media upload](media-upload/media-upload.md) |
 | [Mega menus](mega-menus/mega-menus.md) |
 | [Menus](menus/menus.md) |
@@ -115,7 +119,9 @@ components have nothing tool-specific to say.**
 | [Carousel](carousel/carousel-figma.md) |
 | [Cell content](cell-content/cell-content-figma.md) |
 | [Dropdown](dropdown/dropdown-figma.md) |
+| [Estimation card](estimation-card/estimation-card-figma.md) |
 | [Info state](info-state/info-state-figma.md) |
+| [Map template](map-template/map-template-figma.md) |
 | [Media upload](media-upload/media-upload-figma.md) |
 | [Navigation bar](navigation-bar/navigation-bar-figma.md) |
 | [Wizard](wizard/wizard-figma.md) |

@@ -571,7 +571,7 @@ usage documentation yet; you may still select it if **Which component** or **Hig
 | `Autocomplete` | Autocomplete components suggest possible matches for user input in real time as they type, helping them complete text fields more… | [autocomplete](autocomplete/autocomplete.md) |
 | `Avatar` | Avatars represent user profiles of agencies, agents, private sellers and seekers. | [avatar](avatar/avatar.md) |
 | `Badge` | Attention marker attached to a host component. | [badge](badge/badge.md) |
-| `Badge Store` | Our replicas of the official App Store and Google Play badges, kept here so they can be maintained. | — *no doc* |
+| `Badge Store` | Our replicas of the official App Store and Google Play badges, kept here so they can be maintained. | [badge-store](badge-store/badge-store.md) |
 | `Brand Logo` ⚠︎ *also in Foundations* | 🚫 **Never select** — asset — brand config | — *no doc* |
 | `Button` | Buttons are used to trigger an immediate action. | [button](button/button.md) |
 | `Button Bar` | Holds the actions that close a form or a flow, anchored at its foot. | [button-bar](button-bar/button-bar.md) |
@@ -592,7 +592,7 @@ usage documentation yet; you may still select it if **Which component** or **Hig
 | `Dropdown` | Dropdowns are used to select one option from a list. | [dropdown](dropdown/dropdown.md) |
 | `Energy Tag` | Energy tags are used to indicate the energy efficiency of properties. | [energy-tag](energy-tag/energy-tag.md) |
 | `Feedback Messages` | Feedback messages are non-disruptive, inline notifications that provide users with important information or contextual messages. | [feedback-message](feedback-message/feedback-message.md) |
-| `Feedback Thumb Buttons` | Asks the user for a binary opinion — thumbs up or thumbs down. | — *no doc* |
+| `Feedback Thumb Buttons` | Asks the user for a binary opinion — thumbs up or thumbs down. | [feedback-thumb-buttons](feedback-thumb-buttons/feedback-thumb-buttons.md) |
 | `Floating Button Group` | The floating button group is used to display icon-only actions on top of images and maps. | [floating-button-group](floating-button-group/floating-button-group.md) |
 | `Image Ratio` ⚠︎ *also in Foundations* | 🚫 **Never select** — withheld — a Figma-internal ratio helper for designers | — *no doc* |
 | `Image Slider` | Horizontally sliding image sequence. | [image-slider](image-slider/image-slider.md) |
@@ -657,11 +657,11 @@ usage documentation yet; you may still select it if **Which component** or **Hig
 
 | Name | Purpose | Doc |
 | --- | --- | --- |
-| `Estimation card` | Presents a completed price estimate — range, confidence, selling or renting. Carries no controls to adjust it. | — *no doc* |
+| `Estimation card` | Presents a completed price estimate — range, confidence, selling or renting. Carries no controls to adjust it. | [estimation-card](estimation-card/estimation-card.md) |
 | `Floor selection` | Picking an apartment floor, including ground floor. | [floor-selection](floor-selection/floor-selection.md) |
 | `Listing Card` | Listing cards are actionable cards that summarize the details of a property listed on any AVIV Group website. | [listing-card](listing-card/listing-card.md) |
 | `Listing summary` | Higher-flexibility alternative to Listing card. | [listing-summary](listing-summary/listing-summary.md) |
-| `Map template` | The map experience container. | — *no doc* |
+| `Map template` | The map experience container. | [map-template](map-template/map-template.md) |
 | `mapPinsV2_SL` | 🚫 **Never select** — composed-only — inside Map template, SeLoger | — *no doc* |
 | `mapPinsV2_IWT` | 🚫 **Never select** — composed-only — inside Map template, Immowelt | — *no doc* |
 | `Map Polygon` | 🚫 **Never select** — composed-only — inside Map template | — *no doc* |

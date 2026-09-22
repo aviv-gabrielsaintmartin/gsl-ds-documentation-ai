@@ -3,7 +3,7 @@
 _The only page you need. Everything else in this repo is reference material for
 agents — looked up, never read through._
 
-_Updated 21 September 2026._
+_Updated 22 September 2026._
 
 ---
 
@@ -178,6 +178,42 @@ run had left behind**. All three are in the backlog.
 **I got it wrong twice and the checker caught both.** It first treated any line holding a URL as a link, which let three tips through. Then the sentence I added pointing at each sub-page said *"Working in Figma?"* — ten fresh findings from my own fix. Neither would have been caught by reading.
 
 **The rule is now in four places** so it cannot drift back: the template, the filename grammar in `README.md` and `CLAUDE.md`, the folder rules, and the checker.
+
+### Done, 22 September: the last four, and the gap is down to one
+
+**`Badge store`, `Feedback thumb buttons`, `Estimation card` and `Map template`
+have docs.** All four written from a live library read. **Documented: 71 → 75.
+Selectable gaps: 5 → 1** — and the one left is `Pop-up`, which you parked.
+
+They fill 13 to 14 of 16 sections, against 9 to 12 for the five written
+yesterday. Two tool specification pages came with them, because both had
+something real to say. Ten → twelve.
+
+**One finding outranks the four docs. `Map template` is built entirely on
+components the library itself marks outdated** — 81 superseded price pins, three
+in each of its 27 variants, plus 27 superseded floating actions. **The current
+pin sets are used zero times.** Proved twice, by two differently-written reads.
+
+**It makes one ruleset line false today:** the pin sets are said to be reached
+by placing `Map template`, and placing it reaches the old set. You said the map
+is one product's, already implemented, and not a priority — so it is a question
+in the backlog, not a task.
+
+**`Estimation card` embeds `Feedback thumb buttons`.** First place in the repo
+where that unadopted component is shown genuinely in use.
+
+**Three names are misspelled in the libraries and are preserved word for word**,
+because a sync matches the literal string: `Plateform`, `Very zommed / 3D`, and a
+confidence axis still called `Property 1`.
+
+**Seventeen variant combinations are missing across the two Experiences.** All
+recorded as untested rather than guessed at.
+
+**Reading live Figma works, with one trap worth knowing.** It reaches **one file
+at a time, and it is the file the plugin was launched in — not the tab in
+front of you.** The documented way to target another file **fails silently**,
+returning the wrong file with no error. Every read this session confirmed the
+file name first.
 
 ### Done, 22 September: the web navigation, written as one system
 
