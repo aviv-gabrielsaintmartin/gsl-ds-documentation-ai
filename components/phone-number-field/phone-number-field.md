@@ -2,8 +2,6 @@
 
 The phone number field is used to input and format phone numbers.
 
-![z4fLAt6uS1qLwK_92x3F2A.png](https://avivgroup.atlassian.net/wiki/pages/viewpageattachments.action?pageId=3491856865&preview=%2F3491856865%2F3492086884%2Fz4fLAt6uS1qLwK_92x3F2A.png)  <!-- MISSING LOCAL IMAGE: z4fLAt6uS1qLwK_92x3F2A.png -->
-
 | Figma | Web | iOS | Android |
 | --- | --- | --- | --- |
 | Ready ✅ | Ready ✅ | To do 🚧 | Ready ✅ |

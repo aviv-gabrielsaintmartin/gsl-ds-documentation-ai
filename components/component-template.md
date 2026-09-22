@@ -178,8 +178,14 @@ apart. Change a heading here and the coverage ledger changes with it.
 ## A usage doc never names a tool
 
 **Gabriel, 22 September 2026.** This page describes the component. Figma,
-Zeroheight, Confluence and Storybook are tools, and a page written in terms of
-one becomes a reference for that tool instead of a description of the component.
+Zeroheight and Storybook are tools, and a page written in terms of one becomes a
+reference for that tool instead of a description of the component.
+
+**Confluence is stricter than the rest — it may not be mentioned at all.**
+Gabriel, 22 September 2026. Not in the content, and not as a link either: a doc
+that points at a Confluence page sends a reader somewhere this repo does not
+control and most agents cannot open. The one place the word is allowed is an
+`-audit` file recording where a fact originally came from.
 
 | Where a tool name is fine | Where it is not |
 | --- | --- |
@@ -206,15 +212,14 @@ anyone has read.
 
 ## The rules that hold everywhere
 
-These are layout rules. They apply to this markdown, to a Confluence page built
-from it, and to anything else rendered from it. They are not specific to one
-publishing surface.
+These are layout rules. They apply to this markdown and to anything rendered
+from it. They are not specific to one publishing surface.
 
 | Rule | Why it exists |
 | --- | --- |
 | **A DO/DON'T row is always a matched pair** — a DO and the opposite DON'T of the same rule | A row with an empty or `—` cell renders as visibly broken |
 | **An unpaired DO, DON'T or CAUTION gets its own single-column table** | Group several unpaired items of the *same* polarity into one table. Never one table per item |
-| **A variant-comparison table caps at 5 columns** | Wider tables split silently when published to Confluence, and the split-off half loses its header styling. Split it yourself — 5 + 5, never 6 + 4 |
+| **A variant-comparison table caps at 5 columns** | Wider tables split silently when rendered, and the split-off half loses its header styling. Split it yourself — 5 + 5, never 6 + 4 |
 | **Every image is a local file** — `images/<hash>.png`, relative to the doc | The hash is the Zeroheight asset identifier. It is how an image is matched back to its source |
 | **Never rename an image file, and never open one to identify it** | Matching is by filename and hash only |
 
@@ -237,16 +242,3 @@ heading — it just isn't tracked as a column.
 
 **Keep the markers in document order.** That order is the column order in the
 ledger.
-
-## Confluence, when a doc is published there
-
-Confluence needs things this markdown does not. Those belong to the publishing
-step, not to the doc:
-
-- Image references become page attachments, addressed by `data-id`.
-- DO / DON'T / CAUTION header cells take background `#e3fcef` / `#ffebe6` / `#fff0b3`.
-- Neutral, variant-comparison and related-component table headers take `#f4f5f7`.
-- Every image must sit inside `<figure data-type="media-single">`, never a bare media div.
-
-`.claude/skills/zeroheight-confluence-transfer/` holds those rules and the
-storage-format traps behind them.

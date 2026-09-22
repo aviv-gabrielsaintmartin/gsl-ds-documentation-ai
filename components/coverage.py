@@ -176,6 +176,11 @@ CHART_SUPPORT = [
 ]
 
 
+def plural(n, one, many):
+    """`many` unless there is exactly one of the thing."""
+    return one if n == 1 else many
+
+
 def slug(name):
     s = name.lower().strip()
     s = re.sub(r"[()]", "", s)
@@ -434,8 +439,12 @@ def main():
     w("| --- | --- |")
     w(f"| Registry entries across the four Figma libraries | **{total_entries}** |")
     w(f"| — have a doc | **{len(documented)}** |")
-    w(f"| — no doc, and an agent may select them | **{len(gaps)}** entries, {len(gap_names)} names |")
-    w(f"| — no doc, and an agent should never select them | **{len(skip)}** entries, {len(skip_names)} names |")
+    w(f"| — no doc, and an agent may select them | **{len(gaps)}** "
+      f"{plural(len(gaps), 'entry', 'entries')}, {len(gap_names)} "
+      f"{plural(len(gap_names), 'name', 'names')} |")
+    w(f"| — no doc, and an agent should never select them | **{len(skip)}** "
+      f"{plural(len(skip), 'entry', 'entries')}, {len(skip_names)} "
+      f"{plural(len(skip_names), 'name', 'names')} |")
     w("")
     w("Entries outnumber names because " +
       " and ".join(f"`{n}`" for n in dupes) + " each exist in **two** Figma")
@@ -515,11 +524,14 @@ def main():
     w("")
     w("---")
     w("")
-    w(f"## The gap — {len(gap_names)} components an agent may select, with no doc at all")
+    w(f"## The gap — {len(gap_names)} "
+      f"{plural(len(gap_names), 'component', 'components')} an agent may select, "
+      "with no doc at all")
     w("")
-    w("These have no page anywhere in this repo. The *What it is* column is the one")
-    w("sentence the ruleset's inventory gives — enough for an agent to pick the right")
-    w("component, never enough to build one correctly.")
+    w(f"{plural(len(gap_names), 'This has', 'These have')} no page anywhere in this "
+      "repo. The *What it is* column is the one sentence the ruleset's inventory")
+    w("gives — enough for an agent to pick the right component, never enough to")
+    w("build one correctly.")
     w("")
     w("| Component | Tier | What it is |")
     w("| --- | --- | --- |")
@@ -528,12 +540,17 @@ def main():
     w("")
     blind = sorted({n for n, _ in gaps if purpose_of(n) is None})
     if blind:
-        w(f"**{len(blind)} of those {len(gap_names)} are described nowhere** — no doc, and no")
+        w(f"**{len(blind)} of those {len(gap_names)} "
+          f"{plural(len(blind), 'is', 'are')} described nowhere** — no doc, and no")
         w("sentence in the ruleset either: " + ", ".join(f"`{n}`" for n in blind) + ".")
     else:
-        w(f"**All {len(gap_names)} carry a sentence in the ruleset.** None is a doc, so an")
-        w("agent can choose these components and cannot build them without inventing")
-        w("the detail.")
+        if len(gap_names) == 1:
+            w("**It carries a sentence in the ruleset**, and nothing more. An agent can")
+            w("choose it and cannot build it without inventing the detail.")
+        else:
+            w(f"**All {len(gap_names)} carry a sentence in the ruleset.** None is a doc, so")
+            w("an agent can choose these components and cannot build them without")
+            w("inventing the detail.")
     w("")
     w("---")
     w(f"## No doc, and none needed — {len(skip_names)} names")
@@ -590,7 +607,8 @@ def main():
     OUTPUT.write_text("\n".join(lines) + "\n")
     print(f"Wrote {OUTPUT.relative_to(REPO)}")
     print(f"  {total_entries} registry entries: {len(documented)} documented, "
-          f"{len(gaps)} selectable gaps, {len(skip)} not selectable")
+          f"{len(gaps)} selectable {plural(len(gaps), 'gap', 'gaps')}, "
+          f"{len(skip)} not selectable")
 
 
 if __name__ == "__main__":

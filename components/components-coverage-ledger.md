@@ -37,7 +37,7 @@ inferred.
 | --- | --- |
 | Registry entries across the four Figma libraries | **98** |
 | — have a doc | **75** |
-| — no doc, and an agent may select them | **1** entries, 1 names |
+| — no doc, and an agent may select them | **1** entry, 1 name |
 | — no doc, and an agent should never select them | **22** entries, 20 names |
 
 Entries outnumber names because `Brand Logo` and `Image Ratio` each exist in **two** Figma
@@ -204,19 +204,18 @@ of their own, so they are listed rather than scored.
 
 ---
 
-## The gap — 1 components an agent may select, with no doc at all
+## The gap — 1 component an agent may select, with no doc at all
 
-These have no page anywhere in this repo. The *What it is* column is the one
-sentence the ruleset's inventory gives — enough for an agent to pick the right
-component, never enough to build one correctly.
+This has no page anywhere in this repo. The *What it is* column is the one sentence the ruleset's inventory
+gives — enough for an agent to pick the right component, never enough to
+build one correctly.
 
 | Component | Tier | What it is |
 | --- | --- | --- |
 | Pop-up | Components | Small-content alternative to a Modal bottom sheet. |
 
-**All 1 carry a sentence in the ruleset.** None is a doc, so an
-agent can choose these components and cannot build them without inventing
-the detail.
+**It carries a sentence in the ruleset**, and nothing more. An agent can
+choose it and cannot build it without inventing the detail.
 
 ---
 ## No doc, and none needed — 20 names

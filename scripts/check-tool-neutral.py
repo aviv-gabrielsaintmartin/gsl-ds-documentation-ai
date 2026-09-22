@@ -4,8 +4,14 @@
 A usage doc describes the component. It is read by agents that build for web,
 iOS, Android and Figma, and by people who use none of those. **A tool name
 inside the content makes the page a reference for one tool**, which is what
-Gabriel ruled against: Figma, Zeroheight, Confluence and Storybook are all
-tools, and a doc may point at them but must not be written in terms of them.
+Gabriel ruled against: Figma, Zeroheight and Storybook are all tools, and a doc
+may point at them but must not be written in terms of them.
+
+**Confluence is stricter and has no link exemption.** Gabriel, 22 September
+2026: it may not appear in a component doc at all. A Confluence link sends the
+reader somewhere this repo does not control and most agents cannot open, so the
+link is a finding in its own right. The word stays legal only in an `-audit`
+file recording where a fact originally came from, and those are not checked here.
 
     python3 scripts/check-tool-neutral.py
 
@@ -13,7 +19,7 @@ Where a tool name is still allowed, and why:
 
 | Allowed | Why |
 | --- | --- |
-| A link — `[X on Storybook](https://…)` or a bare URL | Pointing at where a component can be seen is a reference, not content. **Links are removed before the line is judged**, so a tip that happens to carry one is still caught |
+| A link — `[X on Storybook](https://…)` or a bare URL | Pointing at where a component can be seen is a reference, not content. **Links are removed before the line is judged**, so a tip that happens to carry one is still caught. **Confluence is the exception — see above** |
 | The readiness table's own `Figma` column header and its note | The table asks where the component exists. That question is its own task and is out of scope here |
 
 Everything else is a finding: a tip about operating the tool, a layer name, a
@@ -31,7 +37,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 COMPONENTS = ROOT / "components"
 
-TOOLS = ("figma", "zeroheight", "confluence", "storybook", "figjam")
+TOOLS = ("figma", "zeroheight", "storybook", "figjam")
+
+# Confluence has no link exemption, so it is matched on the whole line rather
+# than on what survives link-stripping. The host is checked too, because a bare
+# attachment URL never spells the word out.
+BANNED_ANYWHERE = {
+    "confluence": re.compile(r"confluence|atlassian\.net", re.I),
+}
 
 # The readiness table is a separate question, with its own task. Its header row
 # and the template's note explaining the Figma column are left alone.
@@ -56,6 +69,10 @@ def findings(path: Path) -> list[tuple[int, str, str]]:
     out = []
     for i, line in enumerate(path.read_text(encoding="utf-8").split("\n"), 1):
         if READINESS_HEADER.match(line.strip()) or READINESS_NOTE in line:
+            continue
+        banned = [t for t, rx in BANNED_ANYWHERE.items() if rx.search(line)]
+        if banned:
+            out.append((i, banned[0], line.strip()))
             continue
         rest = outside_links(line).lower()
         named = [t for t in TOOLS if t in rest]
@@ -83,6 +100,7 @@ def main() -> int:
         print()
     print("A tool name belongs in a link, or in the registries, the audit or the")
     print("backlog. Not in the page someone reads to understand the component.")
+    print("Confluence has no link exemption: remove it, do not move it into a link.")
     return 1
 
 

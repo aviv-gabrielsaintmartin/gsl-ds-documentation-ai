@@ -111,7 +111,7 @@ Proportion of emphasis used across AVIV products
 | --- |
 | ![CAUTION](images/KyugH9BhMGSskvqeoxQkjg.svg) **CAUTION:** Be cautious using a standalone tertiary button as without context these buttons could be overlooked as actions. |
 
-Data tracking in the [CDP](https://avivgroup.atlassian.net/wiki/spaces/ADS/database/1123451029) showed that the button change from secondary to tertiary initially caused a short-term drop in engagement but led to a sustained long-term increase. It is now performing the same / slightly better.
+Data tracking showed that the button change from secondary to tertiary initially caused a short-term drop in engagement but led to a sustained long-term increase. It is now performing the same / slightly better.
 
 | Primary | Secondary | Tertiary | Danger |
 | --- | --- | --- | --- |

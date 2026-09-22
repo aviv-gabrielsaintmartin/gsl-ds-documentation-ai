@@ -2,8 +2,6 @@
 
 Tags are used to label, categorize and highlight items to help users quickly identify content.
 
-![3a6c28b5-6a93-47bd-89be-6ca7ad848112.png](https://avivgroup.atlassian.net/wiki/pages/viewpageattachments.action?pageId=2831122517&preview=%2F2831122517%2F3454238997%2F3a6c28b5-6a93-47bd-89be-6ca7ad848112.png)  <!-- MISSING LOCAL IMAGE: 3a6c28b5-6a93-47bd-89be-6ca7ad848112.png -->
-
 | Figma | Web | iOS | Android |
 | --- | --- | --- | --- |
 | Ready ✅ | Ready ✅ | Ready ✅ | Partially available |
