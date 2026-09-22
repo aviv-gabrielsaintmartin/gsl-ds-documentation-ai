@@ -4,6 +4,7 @@ Repo-level tools. Nothing here is part of the documentation an agent reads.
 
 | Script | What it does |
 | --- | --- |
+| `check-all.py` | Runs the five standing checks and prints one verdict. Read-only unless `--write` is passed. **Start here** — its docstring also lists the four questions nothing in this repo checks |
 | `check-links.py` | Checks every repo-relative link resolves, that a filename written in backticks still names a file that exists, and that no ruleset points an agent at a file it may not read |
 | `check-rules-docs.py` | Checks each component doc and its ruleset row name the same alternatives. Compares sets of component names, never prose |
 | `check-tool-neutral.py` | Checks no component doc explains a component in terms of a tool — Figma, Zeroheight, Confluence, Storybook. A tool name is allowed in a link, nowhere else |

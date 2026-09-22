@@ -41,6 +41,35 @@ findings are now ruled.
 
 ## The next task
 
+**Done, 22 September: the five checks are one command, and `/task-check` runs it.**
+`scripts/check-all.py` — five checks, one verdict, **0.57 seconds**, and it
+changes nothing unless you pass `--write`.
+
+**It is not a check that only ever passes.** A junk line added to the coverage
+ledger made it report `STALE`; restoring the file made it report `current`.
+
+**It exits 1 today**, on the five `check-rules-docs.py` disagreements that
+predate it. The skill names those five, so a future session can tell a known
+defect from one it just made.
+
+**The warning matters more than the runner.** A clean run proves the docs are
+**well-formed**, and proves nothing about whether a sentence is **true** —
+every check reads this repo against itself. `map-template.md` passes all five
+and was written off a component library with nobody who knows the product
+reading it. That sentence is now in three places, with the four questions
+nobody checks beside it.
+
+**No hook.** Your call, and the reason is worth keeping: a hook fires with
+nobody asking, and you already type `/task-check` at the end of every task.
+
+**`components/missing-images.md` is deleted.** The problem it described is gone
+— **1,611 image references scanned, zero remote, zero non-pictures.** Its one
+lasting lesson was already recorded, in more detail, in the merge skill.
+
+**Five findings went into the backlog**, including your direction: compare the
+documentation against Figma, the app monorepo and the web, rather than only
+against itself.
+
 **Done, 17 September: every component doc matches the template.** 59 of 59, from
 8 that morning. 115 off-template headings are now 0 — and 64 of those 115 were
 never drift at all, just the report not knowing that

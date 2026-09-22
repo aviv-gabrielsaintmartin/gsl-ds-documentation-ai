@@ -605,7 +605,12 @@ def main():
     w("")
 
     OUTPUT.write_text("\n".join(lines) + "\n")
-    print(f"Wrote {OUTPUT.relative_to(REPO)}")
+    # `check-all.py` redirects OUTPUT to a temp file, to ask whether the
+    # committed page is still current without touching it. The path is then
+    # outside the repo, and `relative_to` raised after the file was already
+    # written -- a crash reporting a success. Name it plainly instead.
+    shown = OUTPUT.relative_to(REPO) if OUTPUT.is_relative_to(REPO) else OUTPUT
+    print(f"Wrote {shown}")
     print(f"  {total_entries} registry entries: {len(documented)} documented, "
           f"{len(gaps)} selectable {plural(len(gaps), 'gap', 'gaps')}, "
           f"{len(skip)} not selectable")

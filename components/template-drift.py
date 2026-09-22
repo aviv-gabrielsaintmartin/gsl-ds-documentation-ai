@@ -374,7 +374,12 @@ def main():
     a("| `SYNONYM_OF` in `components/template-drift.py` | Which template section an off-template heading duplicates. **The one judgement on this page** |")
 
     OUTPUT.write_text("\n".join(w) + "\n")
-    print(f"Wrote {OUTPUT.relative_to(REPO)}")
+    # `check-all.py` redirects OUTPUT to a temp file, to ask whether the
+    # committed page is still current without touching it. The path is then
+    # outside the repo, and `relative_to` raised after the file was already
+    # written -- a crash reporting a success. Name it plainly instead.
+    shown = OUTPUT.relative_to(REPO) if OUTPUT.is_relative_to(REPO) else OUTPUT
+    print(f"Wrote {shown}")
     print(f"  {len(docs)} docs: {len(clean)} match the template, {len(rows)} need work")
     print(f"  {sum(extra_names.values())} extra headings — "
           f"{kinds['axis']} level, {kinds['synonym']} merge, {kinds['link']} links")

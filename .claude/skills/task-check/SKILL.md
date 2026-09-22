@@ -32,12 +32,56 @@ Check the actual thing, not the intention:
 
 | Kind of task | How to check it |
 | --- | --- |
+| **Any file under `components/` was written or edited** | **`python3 scripts/check-all.py`.** See the section below — it does not replace the rest of this table |
 | A rule was written for an agent | Read it back cold. Could an agent act on it with nothing else? |
 | A file was moved or restructured | Every link that pointed at it still resolves |
 | Something was deleted | Nothing left in the repo describes it as still present |
 | A registry was synced | Spot-check entries against the live source |
 
 If a claim can't be verified, say so plainly rather than reporting it as done.
+
+### When a component doc changed — `scripts/check-all.py`
+
+One command, five checks, one verdict. It changes nothing unless `--write` is
+passed, so it is safe to run at any point in a task, not only at the end.
+
+**A FAIL is not automatically a failed task.** Some defects are older than the
+task being checked. Tell the two apart before reporting:
+
+```
+   check-all.py reports FAIL
+              │
+              ▼
+   Is this failure already a row in project/backlog.md?
+              │
+      ┌───────┴────────┐
+     yes               no
+      │                 │
+      ▼                 ▼
+  name the row     the task FAILED
+  and carry on     — fix it, re-run,
+  — the task       then one clean commit
+  still passes
+```
+
+**Known and open as of 22 September 2026:** `check-rules-docs.py` reports **five
+disagreements**, all predating the runner. Until they are closed, a clean run of
+all five is impossible and the runner exits 1 every time. Name them; do not
+treat them as your task's doing.
+
+**What a clean run proves: the doc is well-formed.** Pointers resolve, headings
+are ones the template defines, no page explains itself with a tool, and the two
+generated pages match what they are generated from.
+
+**What it proves about whether the doc is TRUE: nothing.** Every check reads
+this repo against itself. None opens Figma, the web code, or the app.
+`map-template.md` fills 13 of its 16 sections and passes all five, and every
+word of it came off a component library with nobody who knows the product having
+read it.
+
+**So never report a clean run as "the documentation is correct."** Report it as
+"nothing is malformed", then say what was not checked. The four questions
+nothing in this repo answers are listed in the script's own docstring.
 
 ## Step 2 — report the verdict
 
