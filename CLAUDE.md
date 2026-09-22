@@ -126,14 +126,18 @@ this alone, with nobody correcting it?
 
 **Not a source-code repository** — there is no build, lint, or test tooling here.
 Three deliberate exceptions: `tokens/scripts/`, which reads the design-system code
-repo to generate the token ledgers; `scripts/check-links.py`, which checks
-that every link in this repo resolves, that a filename written in backticks
-still names a file that exists, and that no ruleset points an agent at a
-file it may not read; and the pair in `scripts/` that generates a component doc
-from its Zeroheight page — `zeroheight-extract.mjs` renders and downloads,
+repo to generate the token ledgers; the five checks in `scripts/`, which read
+this repo against itself; and the pair in `scripts/` that generates a component
+doc from its Zeroheight page — `zeroheight-extract.mjs` renders and downloads,
 `zeroheight-draft.py` lays the result out against the template. **The extractor
 is the only thing here that needs Node**, because the page is client-rendered and
 cannot be read without a browser; `scripts/README.md` says how to install it.
+
+**`scripts/check-all.py` runs all five checks and prints one verdict.** Run it
+after changing anything under `components/`. A clean run proves the docs are
+**well-formed**, and proves nothing about whether a sentence is **true** — no
+check here opens Figma, the web code or the app.
+
 Treat file operations as
 content and data work, not software engineering: reading Zeroheight exports,
 matching images by hash, publishing to Confluence via the Atlassian MCP tools,
