@@ -28,7 +28,7 @@ Highcharts Low vision mode
 
 Trello color blind mode
 
-> ℹ️ The mode is not available in Figma.
+> ℹ️ The mode is not drawn in the libraries.
 
 ---
 

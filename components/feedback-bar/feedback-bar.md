@@ -18,7 +18,7 @@ It asks for a **notation on a scale**. That is what separates it from
 
 ### Platform
 
-**Figma titles it "Feedback Bar (Web)".**
+**Web only**, and labelled so in the library.
 
 **No web implementation exists.** Searched across every package in the web
 repo — `ui`, `patterns`, `core`, `internal` and the rest. Only
@@ -28,7 +28,7 @@ _iOS and Android are **not established**: no source for either was read._
 
 #### Where it sits on the page
 
-Figma states this, and it differs by platform:
+It differs by platform:
 
 | Platform | Where it goes |
 | --- | --- |
@@ -63,15 +63,15 @@ That is all four variants. Then the parts:
    Illustration  ─ on by default, and swappable
 ```
 
-**Figma's own page names the container pair** — `Container=NO` is *inline*,
-`Container=YES` is *overlay*. The property is called Container; the page calls
-the result an overlay. They are the same thing.
+**The container pair has two names.** `Container=NO` is the **inline** form;
+`Container=YES` is the **overlay** form. The property says container, the result
+reads as an overlay. They are the same thing.
 
 ### Usage Guidance
 
 | DO | DON'T |
 | --- | --- |
-| **DO:** Keep the title to two lines. The Figma component says "Title maximum 2 lines" in the component itself. | **DON'T:** Write a third line. Nothing truncates it for you; it will push the bar taller. |
+| **DO:** Keep the title to two lines. The component states that limit itself. | **DON'T:** Write a third line. Nothing truncates it for you; it will push the bar taller. |
 | **DO:** Use the horizontal variant on desktop and the vertical one on mobile. | **DON'T:** Put the horizontal variant in a narrow column. It is 689 wide before it is anything else. |
 | **DO:** Ask once, at the end of a flow. | **DON'T:** Put a feedback bar in the middle of a task the user is trying to finish. |
 
@@ -100,7 +100,7 @@ _Illustrations not yet drawn._
 
 2 × 2 = 4. The full grid.
 
-| Variant | Size in Figma |
+| Variant | Size |
 | --- | --- |
 | Horizontal, no container | 689 × 82 |
 | Horizontal, with container | 689 × 82 |
@@ -127,7 +127,7 @@ The row of numbers is a **button group**, exposed so its buttons can be set
 individually — each carries `Type`, `State` and `Selected`.
 
 **The scale is one to five.** The group is configured with seven slots and
-**two of them are hidden**, which is a Figma-side leftover rather than a rule.
+**two of them are hidden**, which is a leftover in the library rather than a rule.
 **Do not read seven buttons into it**; five are visible and numbered 1 to 5.
 
 Each button is 73 × 40, and they are laid out with a -1 gap so their borders sit
@@ -137,8 +137,8 @@ on top of one another rather than doubling.
 
 ### Interactive States & Loading
 
-* **Selected:** one button in the group carries `Selected=True`. The Figma
-  example shows the fourth selected.
+* **Selected:** one button in the group carries `Selected=True`. The reference
+  drawing shows the fourth selected.
 * **Default / Hover / Pressed / Disabled:** the buttons carry a `State`
   property. **What each state looks like is the button group's business**, not
   this component's, and is not documented here.
@@ -152,7 +152,7 @@ on top of one another rather than doubling.
 * **Outer padding:** 16 on all four sides.
 * **Gap between the title block and the scale:** 56 in the horizontal variant.
 * **Gap between the illustration and the title:** 16.
-* **Width Adaptability:** the horizontal variant is 689 wide in Figma. Whether
+* **Width Adaptability:** the horizontal variant is 689 wide as drawn. Whether
   it stretches is **not established**.
 
 ### Breakpoints & Platform Adaptations
@@ -162,14 +162,14 @@ on top of one another rather than doubling.
 | **Desktop** | Horizontal, as a floating card over the content |
 | **Mobile** | Vertical, in the content or inside a `Modal bottom sheet` |
 
-_Read from the Figma page's own description. No breakpoint value is given for
+_Stated by the component's own description. No breakpoint value is given for
 where one becomes the other._
 
 ## Content & UX Writing
 
 * **Capitalization:** Not documented
 * **Label Formula:** Not documented. The title asks the question.
-* **Length Limits:** **The title is capped at two lines**, stated in the Figma
+* **Length Limits:** **The title is capped at two lines**, stated in the
   component itself. No limit is stated for the pre-title.
 
 ### The scale is unlabelled

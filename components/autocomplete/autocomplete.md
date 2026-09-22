@@ -8,6 +8,9 @@ Autocomplete components suggest possible matches for user input in real time as 
 
 [Autocomplete on Figma](https://www.figma.com/design/xxqSJcKOphrgimxRQbvtfe/2.-Gemini-Components-Library?node-id=3-7275) · [Autocomplete on Storybook](https://gemini-storybook.prompt-scorpion-preview.aws.aviv.eu/?path=/docs/ui-forms-autocomplete--docs)
 
+
+_This component has a tool specification: [`autocomplete-figma.md`](autocomplete-figma.md) — what is true of it in the design tool, and nowhere else._
+
 ---
 
 ## Usage
@@ -167,7 +170,7 @@ The loading state appears when suggestions are being fetched after the user ente
 
 ### Touch Target & Layout
 
-By default, the dropdown list is positioned below the field. On desktop, it is placed above the field if there is not enough space below it. If the options exceed the available space, the dropdown list becomes scrollable — whether the scrollbar is visible depends on the user's system settings. To avoid complexity, not all positions are available in Figma; feel free to detach the component.
+By default, the dropdown list is positioned below the field. On desktop, it is placed above the field if there is not enough space below it. If the options exceed the available space, the dropdown list becomes scrollable — whether the scrollbar is visible depends on the user's system settings.
 
 | Phone | Desktop |
 | --- | --- |

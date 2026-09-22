@@ -9,6 +9,9 @@ Cell contents are building blocks used to create elements such as lists or butto
 * [Cell content on Figma](https://www.figma.com/design/ABqcGx0cmJWozuJ8OoW6f2/2.-GSL-Components-Library?node-id=18359-17763)
 * [Cell content on Storybook](https://gemini-storybook.prompt-scorpion-preview.aws.aviv.eu/?path=/docs/ui-content-cellcontent--docs)
 
+
+_This component has a tool specification: [`cell-content-figma.md`](cell-content-figma.md) — what is true of it in the design tool, and nowhere else._
+
 ---
 
 ## Usage
@@ -105,7 +108,7 @@ The cell content is available with 0, 8 and 16px padding. Which one to use depen
 
 Padding applies to all four sides. It changes the outer inset only — the gaps between icon, text and trailing icon are unchanged, and the height stays driven by the content.
 
-**0 padding is for non-clickable cell contents only.** Figma offers it on the non-clickable variant alone; the clickable combinations were removed from the component set. The web component still accepts 0 on a clickable cell content — never use it there. Hover, pressed and disabled would paint right up to the edge of the content, with no margin around it.
+**0 padding is for non-clickable cell contents only.** The clickable combinations were removed from the component set, so only the non-clickable one offers it. The web component still accepts 0 on a clickable cell content — never use it there. Hover, pressed and disabled would paint right up to the edge of the content, with no margin around it.
 
 | 8px | 16px |
 | --- | --- |
@@ -160,9 +163,9 @@ Top does not mean top-edge alignment. The icon and the first line of text are ce
 
 The trailing icon is always centred against the whole content block, under both settings.
 
-**If a trailing icon is shown, the leading icon must be Middle.** Nothing prevents Top in that combination — not Figma, not the web component — so the rule holds by convention alone. A top-aligned leading icon beside a centred trailing icon sits the two visuals on different lines and unbalances the row.
+**If a trailing icon is shown, the leading icon must be Middle.** Nothing prevents Top in that combination — not the component, not the build — so the rule holds by convention alone. A top-aligned leading icon beside a centred trailing icon sits the two visuals on different lines and unbalances the row.
 
-In Figma the setting is named `Placeholder left alignement` — the misspelling is in the library. It governs the leading placeholder slot, which can hold an icon or an image. An image can stand in for the icon anywhere the icon is used, to build a list or a similar row. **What `Top` does with an image rather than a 24×24 icon is not documented**, and no rule for it exists.
+The setting governs the leading placeholder slot, which can hold an icon or an image. An image can stand in for the icon anywhere the icon is used, to build a list or a similar row. **What `Top` does with an image rather than a 24×24 icon is not documented**, and no rule for it exists.
 
 #### Badge
 

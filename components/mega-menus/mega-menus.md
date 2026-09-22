@@ -32,7 +32,7 @@ one menu at one width. There is no generic empty mega menu to fill in.
 
 **Who owns it, precisely.** Gabriel, 21 September 2026:
 
-* **The Figma was built by the design system team.**
+* **The design was built by the design system team.**
 * **It is not stored in the design system today.**
 * **The transfer into the design system is ongoing.**
 
@@ -175,8 +175,8 @@ marché immobilier*.
 menu. Writing new entries is a change to a live site's information
 architecture, which is not a design system decision.
 
-**Some placeholder text survives in the Figma page** — *Lorem ipsum* strings in
-the documentation frames. Those are the exception and are not menu content.
+**Some placeholder text survives in the library** — *Lorem ipsum* strings in the
+documentation areas. Those are the exception and are not menu content.
 
 ## Accessibility (a11y)
 

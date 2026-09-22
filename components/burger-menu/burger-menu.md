@@ -157,8 +157,7 @@ beside it.
 
 ### The content is the site's navigation
 
-The rows carry a real site's entries, and the Figma page shows them in German
-and French across brands.
+The rows carry a real site's entries, drawn in German and French across brands.
 
 **They are not examples to be replaced freely.** What appears here is the mobile
 form of the same information architecture the mega menu carries on desktop, and

@@ -11,6 +11,9 @@ Carousels are used to display a collection of items that the users can slide thr
 * [Carousel on Figma](https://www.figma.com/design/xxqSJcKOphrgimxRQbvtfe/2.-Gemini-Components-Library?node-id=3-7307)
 * [Carousel on Storybook](https://gemini-storybook.prompt-scorpion-preview.aws.aviv.eu/?path=/docs/ui-content-carousel--docs)
 
+
+_This component has a tool specification: [`carousel-figma.md`](carousel-figma.md) — what is true of it in the design tool, and nowhere else._
+
 ---
 
 ## Usage
@@ -125,7 +128,6 @@ Title and description are both optional. We recommend using the title as the pri
 
 Carousel items hold the content. The carousel can be set to automatically adjust the number of items displayed per slide based on the available screen width, or it can be configured to display a fixed number of items per slide. The number of items displayed can also change at different screen sizes (breakpoints), so that more items are displayed when more space is available.
 
-**Figma tip:** To simulate different slide positions in Figma, you can change the item alignment from left to center.
 
 ---
 

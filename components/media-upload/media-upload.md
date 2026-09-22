@@ -9,6 +9,9 @@ Media upload components allow users to upload, view, and manage media files such
 * [Media upload on Figma](https://www.figma.com/design/TSd5D0j4WIVxZTGk0ZgfK7/3.-Gemini-Patterns-Library?node-id=9-7271)
 * [Media upload on Storybook](https://gemini-storybook.prompt-scorpion-preview.aws.aviv.eu/?path=/docs/ui-forms-mediaupload--docs)
 
+
+_This component has a tool specification: [`media-upload-figma.md`](media-upload-figma.md) — what is true of it in the design tool, and nowhere else._
+
 ---
 
 ## Usage
@@ -76,7 +79,6 @@ Like all form components, media uploads contain a header consisting of a label, 
 
 The empty drop zone contain a illustration placeholder. We recommend adding a pictogram.
 
-**Figma tip:** To choose the correct illustration go the common page in the illustration library. For example: [Common Picto Illustrations](https://www.figma.com/design/BwvS9ir2UuM4gBHVMhjy0O/1.-Gemini-Symbols-Library?node-id=5688-249). There you find illustrations for most use cases such as informative purposes, error messages, and more. If you can't find the illustration you're looking for please request it on #gemini_symbols.
 
 ---
 

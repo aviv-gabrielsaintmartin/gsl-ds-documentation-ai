@@ -13,6 +13,15 @@ One folder per design-system component (`components/accordion/`,
 `components/button/`, …), each holding its markdown doc plus a self-contained
 `images/` folder — e.g. `components/button-group/button-group.md`.
 
+**A folder may also hold `<name>-figma.md`** — the tool specification, added
+22 September 2026. **The usage doc never names a tool**; anything true of the
+component only in Figma lives there instead. It exists **only where there is
+something to say** and is never created empty. There is no iOS or Android
+equivalent yet. `scripts/check-tool-neutral.py` enforces the rule, and
+`coverage.py`, `template-drift.py`, `check-rules-docs.py` and
+`check-tool-neutral.py` all measure the usage doc alone — they match
+`<folder>/<folder>.md`, so a sub-page is invisible to them by construction.
+
 ## The four top-level files
 
 Same `-rules-ai` / `-audit` split the token docs use, plus an `-eval`:

@@ -6,7 +6,7 @@ Filter bars are used to narrow down search results or displayed content based on
 | --- | --- | --- | --- |
 | Ready ✅ | N/A | N/A | N/A |
 
-Figma only (owned by SERP team).
+Designed but not built (owned by the SERP team).
 * [Filter bar on Figma](https://www.figma.com/design/TSd5D0j4WIVxZTGk0ZgfK7/3.-Gemini-Patterns-Library?m=auto&node-id=2240-119052&t=44YLeVrnPbcXxr0R-1)
 
 ---

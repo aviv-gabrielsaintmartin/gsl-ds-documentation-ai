@@ -9,6 +9,9 @@ Dropdowns are used to select one option from a list.
 * [Dropdown on Figma](https://www.figma.com/design/xxqSJcKOphrgimxRQbvtfe/2.-Gemini-Components-Library?node-id=3-7279)
 * [Dropdown on Storybook](https://gemini-storybook.prompt-scorpion-preview.aws.aviv.eu/?path=/docs/ui-forms-dropdown--docs)
 
+
+_This component has a tool specification: [`dropdown-figma.md`](dropdown-figma.md) — what is true of it in the design tool, and nowhere else._
+
 ---
 
 ## Usage
@@ -156,7 +159,7 @@ The dropdown list opens when the user clicks in the field. It closes when the us
 
 * **Width Adaptability:** The width can be set to 100% (full-width) or 50% of the container. For special use cases it is also possible to define a fixed size. According to the [form guidelines](https://zeroheight.com/626199550/p/81b84d-forms/t/page-81b84d-92550230-13), the form container should have a max-width of 448px.
 
-By default, the dropdown list is positioned below the field. If there is not enough space below it, it is positioned on top of the field. When the options exceed the available space, the dropdown becomes scrollable. Whether the scrollbar is visible or not depends on the user's system settings. To avoid complexity, not all positions are available in Figma — feel free to detach the component.
+By default, the dropdown list is positioned below the field. If there is not enough space below it, it is positioned on top of the field. When the options exceed the available space, the dropdown becomes scrollable. Whether the scrollbar is visible or not depends on the user's system settings.
 
 | Below the field | On top of the field | Scrolling |
 | --- | --- | --- |

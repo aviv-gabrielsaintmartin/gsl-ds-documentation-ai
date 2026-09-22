@@ -8,6 +8,9 @@ Alerts are modals that provide users with critical information they need immedia
 
 * [Alert on Figma](https://www.figma.com/design/xxqSJcKOphrgimxRQbvtfe/2.-Gemini-Components-Library?node-id=3-7297)
 
+
+_This component has a tool specification: [`alert-figma.md`](alert-figma.md) — what is true of it in the design tool, and nowhere else._
+
 ---
 
 ## Usage
@@ -33,7 +36,7 @@ The design of the alert depends on whether the alert is specific to the app or w
 | ![](images/26715ff98ede61c4ff741a.png) **DO:** Use native iOS alerts for system-level notifications. For example, to request permission to send notifications to the user or for location tracking. |
 | ![](images/4fc131a60a5d870553b0fa.png) **DO:** Use native Android alerts for system-level notifications. For example, to request permission to send notifications to the user or for location tracking. |
 
-We don't provide all native system components in Gemini. If you need one, please refer to the official Figma platform libraries:
+We don't provide all native system components in Gemini. If you need one, use the official platform kits:
 
 * [Material design 3 Kit](https://www.figma.com/community/file/1035203688168086460/material-3-design-kit)
 * [Apple Design Resources – iOS 18 and iPadOS 18](https://www.figma.com/community/file/1385659531316001292/ios-18-and-ipados-18)
@@ -105,7 +108,6 @@ Alerts can be used with an icon, a spot illustration, or neither. You can't use 
 | --- | --- | --- |
 | ![](images/7ec3ca3762867cfd90ecb2.png) | ![](images/205a035c36cb9cdd09e92c.png) | ![](images/8ba18075fd31d0d96c5a6a.png) |
 
-**Figma tip:** To choose the correct illustration go the common page in the illustration library. For example: [Common Spot Illustrations](https://www.figma.com/design/BwvS9ir2UuM4gBHVMhjy0O/1.-Gemini-Symbols-Library?node-id=5688-250). There you find illustrations for most use cases such as informative purposes, error messages, and more. If you can't find the illustration you're looking for please request it on #gemini_symbols. [More information on the symbol library process](https://kugawana.slack.com/archives/C03HLJU6E3U/p1723193835245029).
 
 #### Title and description
 
@@ -147,7 +149,6 @@ The width of the alert depends on the breakpoint. To learn more about our breakp
 | --- | --- |
 | ![Full width (minus 16px margin left and right)](images/aa74232f5ee0fce8a4743c.png) | ![Fixed width: 400px](images/1dcfe92c117fcf10a25f00.png) |
 
-**Figma tip:** Use the breakpoint variables to automatically set the correct width. [Learn more about using variables](https://zeroheight.com/626199550/p/37f3bf-breakpoints--grids).
 
 ---
 

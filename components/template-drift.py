@@ -141,7 +141,11 @@ def main():
     order = {t: n for n, t in enumerate(titles)}
     free_under = free_name_slots()
 
-    docs = sorted(COMPONENTS.glob("*/*.md"))
+    # Only the usage doc is measured against the template. A sibling such as
+    # `navigation-bar-figma.md` is a platform specification with its own shape,
+    # so it is not drift for it to look nothing like this template.
+    docs = sorted(p for p in COMPONENTS.glob("*/*.md")
+                  if p.stem == p.parent.name or p.parent.name == "charts")
     rows, clean, support = [], [], []
     extra_names, missing_count = Counter(), Counter()
 

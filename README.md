@@ -67,7 +67,7 @@ rather than specify.
 ## The filename grammar
 
 **A file's suffix tells you what it is and whether it may be trusted as rules.**
-Learn these seven and any filename in the repo explains itself.
+Learn these eight and any filename in the repo explains itself.
 
 | Suffix | What it is | Written by | Read as rules? |
 | --- | --- | --- | --- |
@@ -78,6 +78,7 @@ Learn these seven and any filename in the repo explains itself.
 | `-ledger.md` | **The raw evidence table** the audit was built from | **a script** | never — and never edit it, re-run the script |
 | `-eval.md` | **The check on the ruleset** — test intents, expected answers, and the run log | a human | no — it is the test, not the rules |
 | `-scorecard.md` | **The check on generated output** — how a produced screen is judged, and the format of the report it produces | a human | no — it is the test, not the rules |
+| `-figma.md` | **The tool specification**, beside a component's usage doc — what is true of that component *in Figma* and nowhere else: layer names, quirks, and how to work with it there | a human, from a live read | no — the usage doc is the description. This says how the tool renders it |
 
 The distinction that matters most:
 

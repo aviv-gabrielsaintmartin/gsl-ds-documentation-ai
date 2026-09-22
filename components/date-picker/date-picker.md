@@ -219,9 +219,9 @@ In the dropdown view, the user must change the month and year before selecting a
 | --- | --- | --- |
 | ![Calendar](images/24a120504f0fdb2a12883c.png) | ![Month selection](images/f83ceaa8888c58e6a6f0ac.png) | ![Year selection](images/00cc17d886b8654fd53a03.png) |
 
-The month and year selection looks slightly different in the native iOS and Android picker. The native variants for this are currently not available in Figma.
+The month and year selection looks slightly different in the native iOS and Android picker. The native variants for this are not drawn.
 
-On the web, we currently still use the native browser dropdowns for the month and year selection. This will be fixed and aligned with Figma in the future.
+On the web, we currently still use the native browser dropdowns for the month and year selection. This will be fixed and aligned with the design in the future.
 
 #### Clearing
 

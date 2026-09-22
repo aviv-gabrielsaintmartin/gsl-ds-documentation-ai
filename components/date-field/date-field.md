@@ -19,16 +19,15 @@ the same page as `Date picker`, because the two are built from the same parts.
 
 ### Platform
 
-**Figma offers two platform variants**, `Web/iOS` and `Android`. Web and iOS
-share one; Android has its own.
+**Two platform forms exist**, one shared by web and iOS, one for Android.
 
 **On web there is no standalone date field.** `DateField` exists in the web code
 as an internal part of `DatePicker` — `libraries/ui/src/DatePicker/DateField` —
 and **it is not exported**. A web build cannot place a date field on its own
 today; it places a `DatePicker`.
 
-_iOS and Android are **not established**: no source for either was read. Figma's
-`Platform` axis says both are intended._
+_iOS and Android are **not established**: no source for either was read. The
+component's own platform axis says both are intended._
 
 ### When to use
 
@@ -160,8 +159,8 @@ it is answered, **follow the rule, not the button**.
 * **Internal spacing:** 16 between the typed value and the calendar button; 8
   between the leading icon and the text.
 * **Label row:** 28 tall, 4 between the label and what follows it.
-* **Width Adaptability:** the field fills its container. 280 in the Figma
-  example, which is an example and not a rule.
+* **Width Adaptability:** the field fills its container. 280 in the reference
+  drawing, which is an example and not a rule.
 
 ### Breakpoints & Platform Adaptations
 
@@ -180,7 +179,7 @@ is the `Platform` axis, and that is a platform split rather than a width one._
 ### The placeholder is the format
 
 The placeholder is not a hint to be replaced with prose. It shows the order the
-date must be typed in — `DD/MM/YYYY` in the Figma component.
+date must be typed in — `DD/MM/YYYY`.
 
 **Whether that order changes by market is not recorded**, and it would be the
 first thing to check before using this field outside France.
@@ -188,8 +187,7 @@ first thing to check before using this field outside France.
 ## Accessibility (a11y)
 
 * **Screen Readers:** Not documented. No exported web implementation exists to
-  read the behaviour from, and the Figma component carries no accessibility
-  data.
+  read the behaviour from, and no accessibility data is recorded anywhere.
 * **Keyboard Navigation:** Not documented for the field itself. The web
   `DatePicker` it lives inside supports arrow keys to step a segment; whether
   that belongs to the field or to the picker was not established.

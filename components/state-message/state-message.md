@@ -111,12 +111,11 @@ icon, the content colour, and the gap between icon and text.
 | **Warning** | Filled circle, exclamation | `stateMessage.color.warning.content` |
 | **Error** | Filled circle, close | `stateMessage.color.error.content` |
 
-_Proved from the web implementation and from the Figma component set, which
-agree on all five. Figma's `Helper` variant holds a 16px spacer where the others
-hold an icon; the web build renders nothing there._
+_The design and the build agree on all five. The design's `Helper` form holds a
+16 spacer where the others hold an icon; the web build renders nothing there._
 
 **The gap is per type**, not a single value — the component reads
-`stateMessage.spacing.<type>.gap`. In Figma the row's gap is 8.
+`stateMessage.spacing.<type>.gap`. As drawn, the row's gap is 8.
 
 ### Modifiers
 
@@ -125,8 +124,7 @@ hold an icon; the web build renders nothing there._
 **The icon is not selectable.** It follows the type, and there is no way to
 change it, remove it from a type that has one, or add one to `Helper`.
 
-Icon size is 20 in Figma and `sizing.20` on web, for the four types that have
-one.
+Icon size is 20, bound to `sizing.20` on web, for the four types that have one.
 
 ## Behavior & Responsiveness
 
@@ -142,7 +140,7 @@ state, and no loading state. It is text and an icon._
 * **Touch Target:** none. The component is not a control.
 * **Layout:** a single horizontal row — icon, then text. The row is an
   inline flex container and **does not wrap**.
-* **Height:** 20 in Figma, with no padding of its own. Spacing from the field
+* **Height:** 20, with no padding of its own. Spacing from the field
   above belongs to the field, not to this component.
 * **Width Adaptability:** content-hug. The message is as wide as its text.
 

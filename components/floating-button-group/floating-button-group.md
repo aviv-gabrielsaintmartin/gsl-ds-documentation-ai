@@ -19,7 +19,7 @@ The floating button group is used for quick access to important actions without 
 
 ### Platform
 
-The component is only used on the web. On iOS and Android, native components are used instead. The native components are not available in the gemini figma libraries.
+The component is only used on the web. On iOS and Android, native components are used instead. Those native components are not in the GSL libraries.
 
 | Web | iOS | Android |
 | --- | --- | --- |

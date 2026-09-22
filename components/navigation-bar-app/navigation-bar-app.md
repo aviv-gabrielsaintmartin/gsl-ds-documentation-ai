@@ -15,9 +15,9 @@ is active at a time.
 It is **not** the web navigation bar. They are two different components with
 similar names — see *When NOT to use*.
 
-**It is placeable in Figma and will never ship on web.** A design agent working
-in Figma may select it for an app screen. A web generating agent may not, because
-there is nothing on web to generate. Gabriel, 21 September 2026.
+**It is designed, and will never ship on web.** A design agent may select it for
+an app screen. A web generating agent may not, because there is nothing on web to
+generate. Gabriel, 21 September 2026.
 
 ### Platform
 
@@ -33,9 +33,8 @@ choosing the wrong one produces a visibly wrong screen.
 | **Label position, tablet** | **Beside the icon** | Below the icon |
 | **Tablet tab width** | Tabs stretch to fill the bar | **Tabs cap at 168** and do not stretch |
 
-_Read live from the Figma component set, 21 September 2026. The Android tablet
-cap is why a three-tab Android tablet bar does not fill its width, and a
-three-tab iOS tablet bar does._
+_The Android tablet cap is why a three-tab Android tablet bar does not fill its
+width, and a three-tab iOS tablet bar does._
 
 _**Every number on this page is a measurement in the platform's own unit** —
 points on iOS, density-independent pixels on Android. They are not a shared
@@ -186,13 +185,13 @@ its own does not name a destination.
 ## Accessibility (a11y)
 
 * **Screen Readers:** Not documented. No app implementation was read, and the
-  Figma component carries no accessibility data.
+  component carries no accessibility data.
 * **Keyboard Navigation:** not applicable in the usual sense — this is an app
   component, not a web one.
 * **Touch target size:** the shortest tab is 72 wide by 49 tall on iOS, and 72
   by 80 on Android. Both clear the 44-to-48 minimum the two platforms publish.
   **Not verified against either platform's own guidance** — the numbers are
-  measured from the Figma component, and the comparison is mine.
+  measured from the component, and the comparison is mine.
 * **Colour alone:** the active tab is distinguished by the tab's `State`
   property. **What that changes visually was not read**, so whether colour is
   the only signal is **not established**.

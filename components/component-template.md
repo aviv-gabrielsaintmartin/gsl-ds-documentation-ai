@@ -175,6 +175,35 @@ delete it. The headings above are._
 Because the checker reads this file, the template and the check cannot drift
 apart. Change a heading here and the coverage ledger changes with it.
 
+## A usage doc never names a tool
+
+**Gabriel, 22 September 2026.** This page describes the component. Figma,
+Zeroheight, Confluence and Storybook are tools, and a page written in terms of
+one becomes a reference for that tool instead of a description of the component.
+
+| Where a tool name is fine | Where it is not |
+| --- | --- |
+| A link — `[X on Storybook](https://…)` | Anywhere in the content |
+| The readiness table's `Figma` column | A tip about operating the tool |
+| That component's own `<name>-figma.md` | A layer name, or where a fact was read from |
+
+**A measurement is a property of the component, not of the tool.** Write
+*"Height: 20"*, never *"Height: 20 in Figma"* — the component is 20 tall, and
+where you measured it is not the reader's problem.
+
+**What to do with the knowledge instead**, rather than delete it:
+
+| Kind | Where it goes |
+| --- | --- |
+| A tip, a layer name, a quirk of how the tool renders it | `<name>-figma.md`, beside this doc. **Created only where there is something to say**, never empty |
+| A key, a node ID, a variant count | The `figma/*-registry.json` files, which already hold them |
+| Where a fact was read from, and when | `project/backlog.md`'s done list, and the registry's `auditedDate` |
+
+There is no iOS or Android equivalent of `-figma.md` yet. Neither has a source
+anyone has read.
+
+`scripts/check-tool-neutral.py` enforces this.
+
 ## The rules that hold everywhere
 
 These are layout rules. They apply to this markdown, to a Confluence page built

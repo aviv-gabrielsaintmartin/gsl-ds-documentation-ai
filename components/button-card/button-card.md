@@ -9,7 +9,7 @@ Button cards are prominent calls to action that can be used alone or in a group,
 [Button card on Figma](https://www.figma.com/design/xxqSJcKOphrgimxRQbvtfe/2.-Gemini-Components-Library?node-id=3-7271)
 
 
-> 🚫 **Never select this component.** It is not available on web, iOS or Android — it was never developed. Gabriel, 21 September 2026. **Use `Card`, with the whole container as the action.** This page describes what the component would do; it is not permission to place it. Removal from Figma is a separate, open question.
+> 🚫 **Never select this component.** It is not available on web, iOS or Android — it was never developed. Gabriel, 21 September 2026. **Use `Card`, with the whole container as the action.** This page describes what the component would do; it is not permission to place it. Removal from the libraries is a separate, open question.
 
 ---
 

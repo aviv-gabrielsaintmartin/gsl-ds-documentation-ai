@@ -9,6 +9,9 @@ Action menus display context-specific actions in a dropdown list.
 * [Action menu on Figma](https://www.figma.com/design/xxqSJcKOphrgimxRQbvtfe/2.-Gemini-Components-Library?node-id=3-7287)
 * [Action menu on Storybook](https://gemini-storybook.prompt-scorpion-preview.aws.aviv.eu/?path=/docs/ui-navigation-actionmenu--docs)
 
+
+_This component has a tool specification: [`action-menu-figma.md`](action-menu-figma.md) — what is true of it in the design tool, and nowhere else._
+
 ---
 
 ## Usage
@@ -168,7 +171,7 @@ To learn more about our breakpoints, see our grids and breakpoint guidelines.
 
 ### Touch Target & Layout
 
-* **Position:** The dropdown menu can appear at the bottom, top, left, or right of the opening trigger. The opening trigger can be aligned to the left, center, or right. On iOS, it's not possible to position the menu manually — it uses the default native behavior. To avoid complexity, not all positions are available in Figma; feel free to detach the component.
+* **Position:** The dropdown menu can appear at the bottom, top, left, or right of the opening trigger. The opening trigger can be aligned to the left, center, or right. On iOS, it's not possible to position the menu manually — it uses the default native behavior.
 
 ### Breakpoints & Platform Adaptations
 

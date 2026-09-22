@@ -163,6 +163,22 @@ run had left behind**. All three are in the backlog.
 
 **Twelve selectable components still have no doc**, and every one needs Figma. **Not ten — the backlog's list had been missing `Burger menu` and `Map template` since it was written.** `coverage.py` counts from the registry and had the right number all along.
 
+### Done, 22 September: no usage doc names a tool any more
+
+**58 lines across 22 docs, gone.** `scripts/check-tool-neutral.py` reports clean. **Every one of the 58 named Figma** — Zeroheight, Confluence and Storybook were already right, appearing only inside links.
+
+**About 40 were mine**, written in the last four days.
+
+**Ten `-figma.md` sub-pages exist, and none is empty.** `action-menu`, `alert`, `autocomplete`, `carousel`, `cell-content`, `dropdown`, `info-state`, `media-upload`, `navigation-bar`, `wizard`. Each usage doc links to its own. The other 66 components have no such page, which is your rule working.
+
+**What moved rather than died:** the six tips, the "feel free to detach the component" sentence, `cell-content`'s `Placeholder left alignement` misspelling, and the navigation bar's single-variant explanation.
+
+**What was simply cut:** sourcing lines, and the words *in Figma* hanging off measurements. A measurement is a property of the component — *"Height: 20 in Figma"* is now *"Height: 20"*.
+
+**I got it wrong twice and the checker caught both.** It first treated any line holding a URL as a link, which let three tips through. Then the sentence I added pointing at each sub-page said *"Working in Figma?"* — ten fresh findings from my own fix. Neither would have been caught by reading.
+
+**The rule is now in four places** so it cannot drift back: the template, the filename grammar in `README.md` and `CLAUDE.md`, the folder rules, and the checker.
+
 ### Done, 22 September: the web navigation, written as one system
 
 **Four docs.** `Navigation bar` rewritten, `Mega menus`, `Burger menu` and `Menus` written from scratch. **Documented: 68 → 71. Selectable gaps: 7 → 5.**

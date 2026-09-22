@@ -8,6 +8,9 @@ Wizards guide users through step-by-step processes to achieve their goal.
 
 [Wizard on Figma](https://www.figma.com/design/TSd5D0j4WIVxZTGk0ZgfK7/3.-Gemini-Patterns-Library?node-id=9-7269) · [Wizard on Storybook](https://gemini-storybook.prompt-scorpion-preview.aws.aviv.eu/?path=/docs/ui-navigation-wizard--docs)
 
+
+_This component has a tool specification: [`wizard-figma.md`](wizard-figma.md) — what is true of it in the design tool, and nowhere else._
+
 ---
 
 ## Usage
@@ -130,7 +133,6 @@ Steps that are not yet clickable because other steps must be completed first are
 
 ![](images/b2942f3f4f64a2d85ad4dd.png)
 
-> **Figma tip:** If the vertical lines between steps have the wrong color, select the layer Top line or Bottom line and change the variant to Done, To do or Disabled. If it's the first or last step select Start or End.
 
 ### Touch Target & Layout
 

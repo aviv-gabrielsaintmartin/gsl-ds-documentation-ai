@@ -9,6 +9,9 @@ Info states are placeholders used to inform users about success, error and empty
 * [Info state on Figma](https://www.figma.com/design/TSd5D0j4WIVxZTGk0ZgfK7/3.-Gemini-Patterns-Library?node-id=9-7261)
 * [Info state on Storybook](https://gemini-storybook.prompt-scorpion-preview.aws.aviv.eu/?path=/docs/ui-feedback-infostate--docs)
 
+
+_This component has a tool specification: [`info-state-figma.md`](info-state-figma.md) — what is true of it in the design tool, and nowhere else._
+
 ---
 
 ## Usage
@@ -99,13 +102,6 @@ If you use an illustration we recommend the usage of hero illustrations.
 | --- | --- | --- |
 | ![With illustration](images/b43245d8e5f5387fca434c.png) | ![With icon](images/f356c5e938b777c5f806d1.png) | ![No icon/illustration](images/8b795bc895a534d7457f61.png) |
 
-**Figma tip**
-
-To select the correct illustration, go to the common page in the illustration library. For example: [Common Hero Illustrations](https://www.figma.com/design/BwvS9ir2UuM4gBHVMhjy0O/1.-Gemini-Symbols-Library?node-id=5688-312)
-
-There you will find illustrations for most use cases, such as informational purposes, error messages, and more. If you can't find the illustration you're looking for, please request it on #gemini_symbols.
-
-[Learn more about the symbol library process](https://kugawana.slack.com/archives/C03HLJU6E3U/p1723193835245029)
 
 #### Title and description
 

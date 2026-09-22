@@ -20,14 +20,14 @@ label is a plain `Tag`.
 
 ### Platform
 
-**Figma and web both carry it.**
+**Designed and built.**
 
 * The component set exists in the GSL Components library.
 * **The web component is built**, and lives in
   `@gsl-core-web/design-system-patterns-tag` — **not** in the main UI package.
   That is why a search of `libraries/ui` finds nothing.
 * **The web build uses the score colour tokens**, one surface and one content
-  token per tier, exactly as Figma does.
+  token per tier, matching the design exactly.
 
 _iOS and Android are **not established**: no source for either was read._
 
@@ -92,9 +92,9 @@ Four variants. **The tier sets the icon, the label text and both colours
 together.** Icon and colour cannot be set apart from the tier on either
 platform; only the label can be replaced, and only on web.
 
-**The two platforms disagree on the default.** Figma opens on `Diamond`; the web
-component defaults to `bronze`. Neither is wrong, and **a design agent should
-set the tier explicitly rather than rely on either default.**
+**The design and the build disagree on the default.** The component set opens on
+`Diamond`; the web build defaults to `bronze`. Neither is wrong, and **set the
+tier explicitly rather than rely on either default.**
 
 | Type | Icon | Label | Surface token | Content token |
 | --- | --- | --- | --- | --- |
@@ -103,8 +103,7 @@ set the tier explicitly rather than rely on either default.**
 | **Silver** | `medal` | Silver | `color.surface.score.silver` | `color.content.score.silver` |
 | **Bronze** | `award` | Bronze | `color.surface.score.bronze` | `color.content.score.bronze` |
 
-_Read live from the Figma component set. Each variant binds its surface and
-content colour to the token named above._
+_Each variant binds its surface and content colour to the token named above._
 
 ### Modifiers
 
@@ -159,7 +158,7 @@ breakpoint axis._
 **The default label is the tier name, and it is what you should use.** The web
 component accepts a replacement string, so the text is not locked.
 
-Figma is the stricter of the two: its four variants carry the tier names as
+The design is the stricter of the two: its four variants carry the tier names as
 fixed text.
 
 ### Translation

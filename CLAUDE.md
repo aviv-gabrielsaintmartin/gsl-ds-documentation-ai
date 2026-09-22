@@ -158,7 +158,9 @@ All filenames are lowercase kebab-case. The one exception is image filenames,
 left as their original hash-based names because those are Zeroheight asset
 identifiers matched by exact filename/hash.
 
-**The filename suffix says what a file is** — `-index` where to go, `-tokens` what exists, `-rules-ai` what's allowed, `-audit` why, `-ledger` the raw evidence, `-eval` the check on the ruleset. A generating agent reads `-rules-ai` and nothing else. The full table is in `README.md`.
+**The filename suffix says what a file is** — `-index` where to go, `-tokens` what exists, `-rules-ai` what's allowed, `-audit` why, `-ledger` the raw evidence, `-eval` the check on the ruleset, `-figma` what is true of a component in Figma and nowhere else. A generating agent reads `-rules-ai` and nothing else. The full table is in `README.md`.
+
+**A usage doc never explains a component in terms of a tool.** Gabriel, 22 September 2026. Figma, Zeroheight, Confluence and Storybook are tools; a tool name belongs in a link, or in that component's `-figma.md`, and nowhere in the content. `scripts/check-tool-neutral.py` enforces it. **A `-figma.md` exists only where there is something to say** — it is never created empty, and there is no iOS or Android equivalent yet, because no source for either has been read.
 
 ## Git — one task, one commit
 

@@ -6,12 +6,15 @@ Navigation bars provide quick access to key pages within the site, helping users
 | --- | --- | --- | --- |
 | Ready ✅ | Not built 🚧 | N/A | N/A |
 
-**Figma only** (owned by Header/Footer team). The figma component shows a future version that has not yet been developed.
+**Designed but not built** (owned by the Header/Footer team). The design shows a future version that has not yet been developed.
 
 _The readiness row said **Ready** for web until 21 September 2026. It was wrong:
 no navigation bar exists in the web code, in any package. The sentence above had
 been saying so all along._
 * [Navigation bar (Web) on Figma](https://www.figma.com/design/TSd5D0j4WIVxZTGk0ZgfK7/3.-Gemini-Patterns-Library?node-id=9-7267)
+
+
+_This component has a tool specification: [`navigation-bar-figma.md`](navigation-bar-figma.md) — what is true of it in the design tool, and nowhere else._
 
 ---
 
@@ -41,7 +44,7 @@ An entry in the bar that opens nothing is half a design.
 
 ### Platform
 
-Web only. The Figma design is owned by the Header/Footer team and currently shows a future version of the component that has not yet been developed.
+Web only. The design is owned by the Header/Footer team and currently shows a future version of the component that has not yet been developed.
 
 ### When to use
 
@@ -88,21 +91,6 @@ Reduced variant
 ---
 
 ## Variants & Modifiers
-
-#### Why there is only one variant
-
-**The component has a single variant, and that is deliberate.** Gabriel,
-21 September 2026. Its one property is unnamed — Figma's own `Property 1`, with
-the single option `Default`.
-
-**Breakpoints are handled by Figma variables, not by variants.** One component
-works at every width, which is why no breakpoint axis exists. Building it as a
-variant grid was the worse option under Figma's constraints.
-
-**The development architecture does not mirror this.** Gabriel, the same day.
-Do not read the Figma structure as a description of how the bar is built, or
-would be built, on web. **Read it as one component that adapts**, and nothing
-more.
 
 ### Modifiers
 
