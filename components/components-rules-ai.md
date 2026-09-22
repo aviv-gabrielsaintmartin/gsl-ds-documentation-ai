@@ -268,9 +268,11 @@ lists. See **Never select**.
 | **Navigation bar** | Global navigation to top-level site destinations (web) | Top-level navigation on the main B2C or B2B websites → **Mega menus** · Sub-pages and flows → **Top bar** · In-app navigation → **Navigation Bar (App)**, mobile only |
 | **Navigation Bar (App)** | **The main way a user navigates an app** — moving between its top-level destinations, on iOS and Android. That is the whole of it. Gabriel, 21 September 2026 | The screen is on the web → **Navigation bar** · Switching between views of one screen's content → **Tabs** · One screen's title and its actions → **Top bar** · A list of contextual actions rather than navigation → **Action menu** |
 
+**The web navigation is three components, and choosing one means choosing the others.** Gabriel, 21 September 2026. `Navigation bar` is the bar; **`Mega menus` is what an entry opens on desktop**; **`Burger menu` is what replaces the mega menu on mobile**. An entry in the bar that opens nothing is half a design, so reach for the whole set. The width decides which of the two panels applies — mega menus from 1024 up, burger menu at 320 and 768 — and it is never a free choice between them.
+
 **`Navigation bar` and `Navigation Bar (App)` are two components, not one with two platforms.** The web one is the row above; the app one is its own row. **Reaching the app component must not require considering the web one first** — an agent designing an app screen never looks at a web row. Gabriel, 21 September 2026.
 
-**`Mega menus` is not built or maintained by the design system.** It is in Figma because several teams share it. **Provisional** — Gabriel, 18 September 2026, to be confronted with the real product, as `Menus` is.
+**`Mega menus` is moving into the design system, not sitting outside it.** Gabriel, 21 September 2026, correcting the 18 September note. **The Figma was built by the design system team**, the component is **not stored here today**, and **the transfer is ongoing**. It is not built or maintained by the team on the development side. **Provisional** — 18 September 2026, to be confronted with the real product, as `Menus` is.
 
 ### Providing feedback and status
 
@@ -629,7 +631,7 @@ usage documentation yet; you may still select it if **Which component** or **Hig
 
 | Name | Purpose | Doc |
 | --- | --- | --- |
-| `Burger menu` | Mobile menu opened from the navigation bar burger icon. | — *no doc* |
+| `Burger menu` | Mobile menu opened from the navigation bar burger icon. | [burger-menu](burger-menu/burger-menu.md) |
 | `Burger menu (profil)` | 🚫 **Never select** — withheld — adapted to consumer content, use Burger menu | — *no doc* |
 | `Bar graph` | Compare quantities across categories. | [charts/bar-chart](charts/bar-chart.md) |
 | `Donut chart` | Show a distribution across parts of a whole. | [charts/donut-chart](charts/donut-chart.md) |
@@ -645,8 +647,8 @@ usage documentation yet; you may still select it if **Which component** or **Hig
 | `Footer` | 🚫 **Never select** — withheld — Figma only, not built | — *no doc* |
 | `Info State` | Info states are placeholders used to inform users about success, error and empty states. | [info-state](info-state/info-state.md) |
 | `Media Upload` | Media upload components allow users to upload, view, and manage media files such as images, videos and documents. | [media-upload](media-upload/media-upload.md) |
-| `Mega menus` | Top-level navigation on the main B2C and B2B websites. Shared across teams, not built or maintained by the design system. | — *no doc* |
-| `Menus` | 🚫 **Never select** — withheld, provisional — nothing requires it today, use Navigation bar | — *no doc* |
+| `Mega menus` | Top-level navigation on the main B2C and B2B websites. The Figma was built by the design system team; the component is not stored here yet and the transfer is ongoing. | [mega-menus](mega-menus/mega-menus.md) |
+| `Menus` | 🚫 **Never select** — withheld, provisional — nothing requires it today, use Navigation bar | [menus](menus/menus.md) |
 | `Navigation bar` | Navigation bars provide quick access to key pages within the site, helping users to navigate efficiently. | [navigation-bar](navigation-bar/navigation-bar.md) |
 | `Top Bar` | Top bars display navigation elements, titles and actions such as buttons or icons at the top of the screen. | [top-bar](top-bar/top-bar.md) |
 | `Wizard` | Wizards guide users through step-by-step processes to achieve their goal. | [wizard](wizard/wizard.md) |

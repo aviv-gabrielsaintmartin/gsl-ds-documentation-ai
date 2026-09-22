@@ -25,8 +25,8 @@ page is the other half of the question.
 
 | | Count |
 | --- | --- |
-| Component docs measured | **70** |
-| — already match the template | **70** |
+| Component docs measured | **73** |
+| — already match the template | **73** |
 | — need something changed | **0** |
 | Chart support pages, listed apart | 3 |
 | Headings the template does not define | **5**, under 5 distinct names |
@@ -78,7 +78,7 @@ Ordered by how much. `—` means nothing to do in that column.
 | Doc | Extra headings | Missing sections | What to do |
 | --- | --- | --- | --- |
 
-**70 docs need nothing**: `accordion`, `action-menu`, `alert`, `autocomplete`, `avatar`, `badge`, `breadcrumb`, `button`, `button-bar`, `button-card`, `button-group`, `card`, `carousel`, `cell-content`, `charts`, `charts`, `charts`, `charts`, `charts`, `checkbox`, `checkbox-group`, `chip`, `chip-group`, `coach-mark`, `counter-field`, `date-field`, `date-picker`, `divider`, `dropdown`, `energy-tag`, `feedback-bar`, `feedback-message`, `filter-bar`, `floating-button-group`, `floor-selection`, `image-slider`, `info-state`, `kpi`, `link`, `listing-card`, `listing-summary`, `loading-state`, `media-upload`, `modal-bottom-sheet`, `modal-bottom-sheet-menu`, `navigation-bar`, `navigation-bar-app`, `pagination`, `phone-number-field`, `progress-bar`, `progress-circle`, `radio-button-group`, `rating`, `score-tag`, `segmented-control`, `select-card-group`, `slider`, `snackbar`, `state-message`, `tables`, `tabs`, `tag`, `text-area`, `text-button`, `text-field`, `toggle`, `toggle-group`, `tooltip`, `top-bar`, `wizard`.
+**73 docs need nothing**: `accordion`, `action-menu`, `alert`, `autocomplete`, `avatar`, `badge`, `breadcrumb`, `burger-menu`, `button`, `button-bar`, `button-card`, `button-group`, `card`, `carousel`, `cell-content`, `charts`, `charts`, `charts`, `charts`, `charts`, `checkbox`, `checkbox-group`, `chip`, `chip-group`, `coach-mark`, `counter-field`, `date-field`, `date-picker`, `divider`, `dropdown`, `energy-tag`, `feedback-bar`, `feedback-message`, `filter-bar`, `floating-button-group`, `floor-selection`, `image-slider`, `info-state`, `kpi`, `link`, `listing-card`, `listing-summary`, `loading-state`, `media-upload`, `mega-menus`, `menus`, `modal-bottom-sheet`, `modal-bottom-sheet-menu`, `navigation-bar`, `navigation-bar-app`, `pagination`, `phone-number-field`, `progress-bar`, `progress-circle`, `radio-button-group`, `rating`, `score-tag`, `segmented-control`, `select-card-group`, `slider`, `snackbar`, `state-message`, `tables`, `tabs`, `tag`, `text-area`, `text-button`, `text-field`, `toggle`, `toggle-group`, `tooltip`, `top-bar`, `wizard`.
 
 ---
 

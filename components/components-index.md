@@ -16,9 +16,9 @@ which component to reach for, and which ones must never be selected.
 | [component-template.md](component-template.md) | **The one definition of a component doc.** Its headings are the contract `coverage.py` and `template-drift.py` both read |
 | [components-template-drift.md](components-template-drift.md) | **Script-written.** How far each doc sits from the template, and what would close the gap. **Never read as rules** |
 
-The list below holds one row per component folder — **66** of them. The
-ruleset's inventory covers all **98** registry entries: **68** reach a doc and
-**30** do not. The two counts differ because `charts/` answers several registry
+The list below holds one row per component folder — **69** of them. The
+ruleset's inventory covers all **98** registry entries: **71** reach a doc and
+**27** do not. The two counts differ because `charts/` answers several registry
 entries from a single row.
 
 ## Component list
@@ -33,6 +33,7 @@ entries from a single row.
 | [Badge](badge/badge.md) |
 | [Breadcrumb](breadcrumb/breadcrumb.md) |
 | [Button](button/button.md) |
+| [Burger menu](burger-menu/burger-menu.md) |
 | [Button bar](button-bar/button-bar.md) |
 | [Button card](button-card/button-card.md) |
 | [Button group](button-group/button-group.md) |
@@ -64,6 +65,8 @@ entries from a single row.
 | [Listing summary](listing-summary/listing-summary.md) |
 | [Loading state](loading-state/loading-state.md) |
 | [Media upload](media-upload/media-upload.md) |
+| [Mega menus](mega-menus/mega-menus.md) |
+| [Menus](menus/menus.md) |
 | [Modal bottom sheet](modal-bottom-sheet/modal-bottom-sheet.md) |
 | [Modal bottom sheet menu](modal-bottom-sheet-menu/modal-bottom-sheet-menu.md) |
 | [Navigation bar](navigation-bar/navigation-bar.md) |

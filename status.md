@@ -163,6 +163,22 @@ run had left behind**. All three are in the backlog.
 
 **Twelve selectable components still have no doc**, and every one needs Figma. **Not ten — the backlog's list had been missing `Burger menu` and `Map template` since it was written.** `coverage.py` counts from the registry and had the right number all along.
 
+### Done, 22 September: the web navigation, written as one system
+
+**Four docs.** `Navigation bar` rewritten, `Mega menus`, `Burger menu` and `Menus` written from scratch. **Documented: 68 → 71. Selectable gaps: 7 → 5.**
+
+**The ruleset now says the three belong together**, where an agent chooses. The bar holds the entries, the mega menu is what one opens on desktop, the burger menu is what replaces it on mobile. **The width decides, and it is never a free choice** — mega menus from 1024 up, burger menu at 320 and 768.
+
+**One readiness row was wrong.** `navigation-bar.md` claimed **Ready** on web while its own next sentence said the component had not been developed. No navigation bar exists in the web code, in any package. Corrected.
+
+**Your single-variant answer is written in.** Deliberate, a Figma constraint, better for you — breakpoints run on Figma variables rather than variants, so one component works at every width. **The dev architecture does not mirror it**, and the doc says so, to stop a reader treating the Figma structure as a build description.
+
+**`Mega menus`' ownership note was wrong and is corrected** to your account: the Figma was built by the design system team, the component is not stored here yet, and the transfer is ongoing.
+
+**`Menus` got a doc despite being never-select**, opening with a banner saying so. It is the profile and language panel — six branded profile variants, one unbranded language variant. That is the first concrete account of what it is, which your investigation needs.
+
+**Two things I left alone and filed as questions:** the stray `.❌ Navigation bar (outdated)` instance and the detached bar on the Mega menus page, and a text node reading **"❖ Bad component"** sitting inside the live navigation bar component.
+
 ### Done, 21 September: the first two Patterns docs
 
 **`Date field` and `Feedback bar` have docs.** Written from the Patterns library. **Documented: 66 → 68. Selectable gaps: 9 → 7.**

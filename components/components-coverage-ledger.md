@@ -36,16 +36,16 @@ inferred.
 | | Count |
 | --- | --- |
 | Registry entries across the four Figma libraries | **98** |
-| — have a doc | **68** |
-| — no doc, and an agent may select them | **7** entries, 7 names |
-| — no doc, and an agent should never select them | **23** entries, 21 names |
+| — have a doc | **71** |
+| — no doc, and an agent may select them | **5** entries, 5 names |
+| — no doc, and an agent should never select them | **22** entries, 20 names |
 
 Entries outnumber names because `Brand Logo` and `Image Ratio` each exist in **two** Figma
 libraries under the same name, with different keys. They are two distinct
 components, so both entries are listed.
 
-Across the 68 documented entries there are 1088 template
-sections to fill. **713 are filled** — 66%.
+Across the 71 documented entries there are 1136 template
+sections to fill. **748 are filled** — 66%.
 
 ---
 
@@ -55,22 +55,22 @@ Ordered by how many documented components leave the section empty.
 
 | Section | ✅ | ❌ | ⬜ | Filled |
 | --- | --- | --- | --- | --- |
-| Label Formula | 13 | 55 | 0 | 19% |
-| a11y | 16 | 52 | 0 | 24% |
-| Capitalization | 19 | 49 | 0 | 28% |
-| Breakpoints | 21 | 47 | 0 | 31% |
-| Length Limits | 25 | 43 | 0 | 37% |
-| Platform | 32 | 0 | 36 | 47% |
-| Variants | 45 | 23 | 0 | 66% |
-| Modifiers | 48 | 20 | 0 | 71% |
-| Touch target | 50 | 18 | 0 | 74% |
-| Writing | 54 | 14 | 0 | 79% |
-| States | 58 | 10 | 0 | 85% |
-| Usage guidance | 60 | 8 | 0 | 88% |
-| When to use | 68 | 0 | 0 | 100% |
-| When NOT to use | 68 | 0 | 0 | 100% |
-| Variant flow | 68 | 0 | 0 | 100% |
-| Related | 68 | 0 | 0 | 100% |
+| Label Formula | 13 | 58 | 0 | 18% |
+| a11y | 19 | 52 | 0 | 27% |
+| Capitalization | 19 | 52 | 0 | 27% |
+| Breakpoints | 23 | 48 | 0 | 32% |
+| Length Limits | 25 | 46 | 0 | 35% |
+| Platform | 35 | 0 | 36 | 49% |
+| Variants | 48 | 23 | 0 | 68% |
+| Modifiers | 48 | 23 | 0 | 68% |
+| Touch target | 53 | 18 | 0 | 75% |
+| Writing | 57 | 14 | 0 | 80% |
+| States | 61 | 10 | 0 | 86% |
+| Usage guidance | 63 | 8 | 0 | 89% |
+| When to use | 71 | 0 | 0 | 100% |
+| When NOT to use | 71 | 0 | 0 | 100% |
+| Variant flow | 71 | 0 | 0 | 100% |
+| Related | 71 | 0 | 0 | 100% |
 
 **Read `Platform` differently from the rest.** It is prose saying a component
 is restricted to some platforms — *"pagination is only used on the web"*. A
@@ -80,7 +80,7 @@ probably correct rather than a gap. Every other row here is a real gap.
 checked, and until somebody does this row cannot be read as a score.
 
 **`a11y` and `Breakpoints` are the two worth acting on.** Between them they
-account for 99 pages that
+account for 100 pages that
 looked at the section and wrote nothing.
 
 ---
@@ -104,7 +104,7 @@ The ten documented components filling fewest of the 16 sections.
 
 ---
 
-## The matrix — 68 documented entries
+## The matrix — 71 documented entries
 
 | Component | Tier | Readiness | Platform | When to use | When NOT to use | Variant flow | Usage guidance | Related | Variants | Modifiers | States | Touch target | Breakpoints | Writing | a11y | Capitalization | Label Formula | Length Limits | Filled |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -116,6 +116,7 @@ The ten documented components filling fewest of the 16 sections.
 | [Badge](badge/badge.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | 9 |
 | [Bar graph](charts/bar-chart.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 6 |
 | [Breadcrumb](breadcrumb/breadcrumb.md) | Patterns | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | 10 |
+| [Burger menu](burger-menu/burger-menu.md) | Patterns | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | 12 |
 | [Button](button/button.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | 14 |
 | [Button Bar](button-bar/button-bar.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | 8 |
 | [Button Card](button-card/button-card.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 11 |
@@ -149,6 +150,8 @@ The ten documented components filling fewest of the 16 sections.
 | [Listing summary](listing-summary/listing-summary.md) | Experiences | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 7 |
 | [Loading State](loading-state/loading-state.md) | Components | ✅ | ⬜ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | 10 |
 | [Media Upload](media-upload/media-upload.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | 10 |
+| [Mega menus](mega-menus/mega-menus.md) | Patterns | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | 12 |
+| [Menus](menus/menus.md) | Patterns | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | 11 |
 | [Modal Bottom Sheet](modal-bottom-sheet/modal-bottom-sheet.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | 13 |
 | [Modal Bottom Sheet Menu](modal-bottom-sheet-menu/modal-bottom-sheet-menu.md) | Components | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | 14 |
 | [Navigation bar](navigation-bar/navigation-bar.md) | Patterns | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | 11 |
@@ -178,7 +181,7 @@ The ten documented components filling fewest of the 16 sections.
 | [Wizard](wizard/wizard.md) | Patterns | ✅ | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | 11 |
 
 **Readiness** is the `Figma | Web | iOS | Android` table at the top of a page,
-not a template section — so it is not counted in *Filled*. 68 of 68 pages
+not a template section — so it is not counted in *Filled*. 71 of 71 pages
 carry it. The 0 without it: .
 
 ### Chart pages that are not registry components
@@ -197,7 +200,7 @@ of their own, so they are listed rather than scored.
 
 ---
 
-## The gap — 7 components an agent may select, with no doc at all
+## The gap — 5 components an agent may select, with no doc at all
 
 These have no page anywhere in this repo. The *What it is* column is the one
 sentence the ruleset's inventory gives — enough for an agent to pick the right
@@ -206,19 +209,17 @@ component, never enough to build one correctly.
 | Component | Tier | What it is |
 | --- | --- | --- |
 | Badge Store | Components | Our replicas of the official App Store and Google Play badges, kept here so they can be maintained. |
-| Burger menu | Patterns | Mobile menu opened from the navigation bar burger icon. |
 | Estimation card | Experiences | Presents a completed price estimate — range, confidence, selling or renting. Carries no controls to adjust it. |
 | Feedback Thumb Buttons | Components | Asks the user for a binary opinion — thumbs up or thumbs down. |
 | Map template | Experiences | The map experience container. |
-| Mega menus | Patterns | Top-level navigation on the main B2C and B2B websites. Shared across teams, not built or maintained by the design system. |
 | Pop-up | Components | Small-content alternative to a Modal bottom sheet. |
 
-**All 7 carry a sentence in the ruleset.** None is a doc, so an
+**All 5 carry a sentence in the ruleset.** None is a doc, so an
 agent can choose these components and cannot build them without inventing
 the detail.
 
 ---
-## No doc, and none needed — 21 names
+## No doc, and none needed — 20 names
 
 An agent should never select these, so the missing doc is not a gap. The
 reasons are the ruleset's own, read from the rows it marks 🚫.
@@ -243,13 +244,12 @@ reasons are the ruleset's own, read from the rows it marks 🚫.
 | Map Polygon backdrop | Experiences | composed-only — inside Map template |
 | mapPinsV2_IWT | Experiences | composed-only — inside Map template, Immowelt |
 | mapPinsV2_SL | Experiences | composed-only — inside Map template, SeLoger |
-| Menus | Patterns | withheld, provisional — nothing requires it today, use Navigation bar |
 | Programmatic Ads | Components | withheld — commercial ad slot |
 | Status Bar | Components | chrome — the OS draws it |
 | Tab Bar | Components | withheld — mid-refactor, use Tabs |
 | Webview | Components | chrome — an embedded browser container |
 
-**Careful with `Button Card`, `Cell Content`.** They are in the matrix above
+**Careful with `Button Card`, `Cell Content`, `Menus`.** They are in the matrix above
 with a doc, and still not selectable. A well-filled row in this page is not
 permission to use the component. The ruleset decides that, not this page.
 

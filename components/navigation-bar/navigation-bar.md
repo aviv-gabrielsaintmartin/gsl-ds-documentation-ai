@@ -4,9 +4,13 @@ Navigation bars provide quick access to key pages within the site, helping users
 
 | Figma | Web | iOS | Android |
 | --- | --- | --- | --- |
-| Ready ✅ | Ready ✅ | N/A | N/A |
+| Ready ✅ | Not built 🚧 | N/A | N/A |
 
 **Figma only** (owned by Header/Footer team). The figma component shows a future version that has not yet been developed.
+
+_The readiness row said **Ready** for web until 21 September 2026. It was wrong:
+no navigation bar exists in the web code, in any package. The sentence above had
+been saying so all along._
 * [Navigation bar (Web) on Figma](https://www.figma.com/design/TSd5D0j4WIVxZTGk0ZgfK7/3.-Gemini-Patterns-Library?node-id=9-7267)
 
 ---
@@ -14,6 +18,26 @@ Navigation bars provide quick access to key pages within the site, helping users
 ## Usage
 
 Navigation bars are located at the top of the site and provide global navigation and quick access to key pages. Clicking on an entry opens the menu.
+
+#### The web navigation is three components, not one
+
+**This bar is one part of a whole.** Gabriel, 21 September 2026.
+
+```
+Web navigation
+├─ Navigation bar     the bar itself, always visible
+├─ Mega menus         what an entry opens on DESKTOP
+└─ Burger menu        what replaces the mega menu on MOBILE
+```
+
+Reach for whichever part you are drawing, and know which whole it belongs to.
+An entry in the bar that opens nothing is half a design.
+
+| Part | Where | Doc |
+| --- | --- | --- |
+| **Navigation bar** | Everywhere | This page |
+| **Mega menus** | Desktop | [mega-menus](../mega-menus/mega-menus.md) |
+| **Burger menu** | Mobile | [burger-menu](../burger-menu/burger-menu.md) |
 
 ### Platform
 
@@ -64,6 +88,21 @@ Reduced variant
 ---
 
 ## Variants & Modifiers
+
+#### Why there is only one variant
+
+**The component has a single variant, and that is deliberate.** Gabriel,
+21 September 2026. Its one property is unnamed — Figma's own `Property 1`, with
+the single option `Default`.
+
+**Breakpoints are handled by Figma variables, not by variants.** One component
+works at every width, which is why no breakpoint axis exists. Building it as a
+variant grid was the worse option under Figma's constraints.
+
+**The development architecture does not mirror this.** Gabriel, the same day.
+Do not read the Figma structure as a description of how the bar is built, or
+would be built, on web. **Read it as one component that adapts**, and nothing
+more.
 
 ### Modifiers
 
