@@ -41,6 +41,32 @@ findings are now ruled.
 
 ## The next task
 
+**Done, 23 September: the repo has a sixth check, and it closes the gap you
+named as the end goal.** `scripts/check-rules-reach.py` asks whether every
+selectable component is named by at least one rule. **73 selectable, all 73
+reachable.** Your hand count of 21 September was right, and it is now checked
+rather than claimed.
+
+**Nothing could see this before.** `coverage.py` reads the registry against
+docs; `check-rules-docs.py` reads docs against rules. Nothing read the inventory
+against the rules.
+
+**Proved it fails, three ways** — a planted component, a real one with its
+mentions stripped, and the same hole planted in the real file and run through
+`check-all.py`. It found a bug in itself first: the first run called 71 of 73
+unreachable, `Button` included.
+
+**Seven lines across five files said five checks.** All corrected.
+`project/decisions.md` still says five, deliberately — it records what was
+believed on a date.
+
+**Done, 23 September: the questions are sorted by whether an agent is blocked.**
+Your filter. **Seven of 45** change what an agent builds; they sit above the
+line. Two were struck as already answered by the files. 45 before, 45 after.
+
+**The Tasks section was left alone on purpose** — `task-next` picks from its
+design-step order, so re-sorting it would break the rule that chooses the work.
+
 **Done, 23 September: the component eval went from 31 intents to 64.** 33 new
 rows, one per rule written after the last run that nothing tested — the six
 never-select rulings, the navigation family, the built-outside-the-system flag,

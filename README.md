@@ -7,7 +7,7 @@ interface with nobody correcting it.
 It is not a code repository. There is no build, no lint, no test suite — the
 deliberate exceptions are `tokens/scripts/`, which reads the design-system code
 repo, and the checks in `scripts/`, which read this repo against itself.
-**`scripts/check-all.py` runs all five of those and prints one verdict.**
+**`scripts/check-all.py` runs all six of those and prints one verdict.**
 Everything else here is content and data.
 
 **It is also not the agent.** Several agents consume this knowledge base — a
@@ -204,7 +204,7 @@ has to make with no documentation behind it.
 | `skills/`         | **Skills for tools that cannot read this repo.** `README.md` explains what a Figma custom skill can be, the architecture chosen, and the four traps in writing to Figma — **read it before any Figma write.** `gsl-color-rules/SKILL.md` is the first skill — the colour ruleset packaged as a single Markdown file for Figma's design agent. Authored here, uploaded there. **Generated from the rulesets, never hand-edited once the build exists.** Not to be confused with `.claude/skills/`, which holds the skills that maintain this repo |
 | `project/`        | `backlog.md` — every task, question and finding — plus `the-project.md`, the one page for a stakeholder, `design-process-map.md`, every design step and the questions it must answer, `decisions.md`, the log of why the project is shaped this way, and `how-a-run-is-reported.md`, the plain-language walkthrough of the reporting pipeline. Retired files sit in `project/archive/`. **Human-first** |
 | `tokens/scripts/` | 4 Python scripts. They only ever *read* the design-system code repo. Re-run them to refresh the evidence                                                                                                                                                                 |
-| `scripts/`        | **`check-all.py` — run it after changing anything under `components/`.** It runs the five standing checks and prints one verdict, and changes nothing unless `--write` is passed. The five: `check-links.py` (links, backticked filenames, and rulesets pointing an agent at evidence it may not read), `check-rules-docs.py` (where a doc and the ruleset send an agent to different places), `check-tool-neutral.py` (a doc explaining itself with a tool), and the two generated pages, checked for still being current. **A clean run proves the docs are well-formed. It never proves a sentence is true** — every check reads this repo against itself |
+| `scripts/`        | **`check-all.py` — run it after changing anything under `components/`.** It runs the six standing checks and prints one verdict, and changes nothing unless `--write` is passed. The six: `check-links.py` (links, backticked filenames, and rulesets pointing an agent at evidence it may not read), `check-rules-docs.py` (where a doc and the ruleset send an agent to different places), `check-rules-reach.py` (a selectable component no rule names, so no agent can ever pick it), `check-tool-neutral.py` (a doc explaining itself with a tool), and the two generated pages, checked for still being current. **A clean run proves the docs are well-formed. It never proves a sentence is true** — every check reads this repo against itself |
 
 ### The nine skills
 

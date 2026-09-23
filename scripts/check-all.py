@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 """Run every standing check in this repo and print one verdict.
 
-Five checks existed and each had to be remembered separately. Nothing said what
+Six checks exist and each had to be remembered separately. Nothing said what
 order to run them in, and nothing said what a clean run did and did not prove.
 This is the one command.
 
     python3 scripts/check-all.py           # read-only, changes nothing
     python3 scripts/check-all.py --write   # also regenerates the two ledgers
 
-**Nothing here is a new check.** It runs the five that already exist and reports
-them together. Three read files and report. Two are generators, and this runs
-them into a temporary file and compares -- so the question they answer here is
-*is the committed page still current*, never *rewrite it*. Add `--write` when you
-want the page itself brought up to date.
+**Nothing here is a check of its own.** It runs the six that exist as their own
+scripts and reports them together. Four read files and report. Two are
+generators, and this runs them into a temporary file and compares -- so the
+question they answer here is *is the committed page still current*, never
+*rewrite it*. Add `--write` when you want the page itself brought up to date.
 
 Exit code is 0 when every check passes, 1 when any fails.
 
@@ -28,7 +28,7 @@ generated pages match the files they are generated from.
 
 **It proves nothing about whether a sentence is true.** Every check here reads
 this repo against itself. None of them opens Figma, the web code, or the app.
-A page can pass all five and be wrong in every paragraph -- `map-template.md`
+A page can pass all six and be wrong in every paragraph -- `map-template.md`
 fills 13 of its 16 sections and every word came off a component library, with
 nobody who knows the product having read it.
 
@@ -39,8 +39,11 @@ prints a clean verdict is exactly where a reader stops looking:
      never read. `navigation-bar.md` claimed Ready on web while no web component
      exists, and a person caught it.
   2. **Whether a filled section is true.** Coverage answers shape only.
-  3. **Whether the ruleset contradicts itself.** Only `components-rules-ai-eval.md`
-     probes that, it is run by hand against a cold agent, and it is stale.
+  3. **Whether the ruleset contradicts itself, or whether a rule is any good.**
+     `check-rules-reach.py` asks only whether a rule *exists* for each
+     component. Whether two rules disagree, or one is too vague to follow, is
+     `components-rules-ai-eval.md` -- run by hand against a cold agent, and
+     never run since 8 September 2026.
   4. **Whether a page is reachable at all.** A file nothing links to is
      invisible to the link check, which asks the opposite question.
 """
@@ -58,13 +61,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-# --- The three that read and report --------------------------------------
+# --- The four that read and report ---------------------------------------
 # Each prints a `Checked N ...` line first and exits non-zero on a finding.
 
 SCRIPTS = [
     ("Links and filenames", "scripts/check-links.py"),
     ("Tool neutrality", "scripts/check-tool-neutral.py"),
     ("Docs against the ruleset", "scripts/check-rules-docs.py"),
+    ("Every component has a rule", "scripts/check-rules-reach.py"),
 ]
 
 # --- The two that generate a page ----------------------------------------
@@ -157,7 +161,7 @@ def main() -> int:
     else:
         print(f"All {len(results)} checks pass.")
 
-    print("These five read this repo against itself. **None of them opens Figma,")
+    print("These six read this repo against itself. **None of them opens Figma,")
     print("the web code or the app, and none can tell you whether a sentence is")
     print("true.** The four questions nobody checks are listed in this script's")
     print("own docstring — read it before treating a clean run as a finished doc.")
