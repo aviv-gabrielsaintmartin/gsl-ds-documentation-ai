@@ -41,6 +41,28 @@ findings are now ruled.
 
 ## The next task
 
+**Done, 23 September: the component eval went from 31 intents to 64.** 33 new
+rows, one per rule written after the last run that nothing tested — the six
+never-select rulings, the navigation family, the built-outside-the-system flag,
+the nine components documented on 21 and 22 September, and the chart, legend,
+icon and declaration rules.
+
+**One of the existing 31 was wrong, and it would have scored a pass.** Row 17
+accepted `Pop-up` for a blocking confirmation **on web**. Your 21 September
+ruling made `Pop-up` apps only. Corrected, with a new row 54 for its real case.
+
+**Every expected answer traces to a line in the ruleset** — 34 names checked,
+none missing. The run instruction changed too: it said *ask for one component
+name*, which tells the agent one exists. Twelve rows have no component as their
+answer.
+
+**Nothing here has been run.** Drafting proves the file is well-formed. Whether
+a cold agent reaches these 64 answers is what nobody knows, and it is now
+unblocked.
+
+**Two rows came off their blocker:** re-running the component eval, and giving
+colour its own eval. Both were waiting on this sitting.
+
 **Done, 23 September: a file that examines another is named after it.** Your
 rule. Three renames — `components-rules-ai-eval.md`,
 `components-rules-ai-audit.md`, `compliance-scorecard-audit.md`. Each pair now

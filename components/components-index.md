@@ -11,7 +11,7 @@ which component to reach for, and which ones must never be selected.
 | --- | --- |
 | [components-rules-ai.md](components-rules-ai.md) | **The ruleset** — intent → component, tier order, platform limits, the full 98-item inventory across all four Figma libraries |
 | [components-rules-ai-audit.md](components-rules-ai-audit.md) | The evidence behind it, what was rejected, and the open questions. **Never read as rules** |
-| [components-rules-ai-eval.md](components-rules-ai-eval.md) | The check on the ruleset — 27 intents with expected answers, scoring bands, and the run log |
+| [components-rules-ai-eval.md](components-rules-ai-eval.md) | The check on the ruleset — 64 intents with expected answers, scoring bands, and the run log |
 | [components-coverage-ledger.md](components-coverage-ledger.md) | **Script-written.** Which of the 98 registry entries have a doc, and which template sections that doc fills. **Never read as rules** — it measures the docs, it does not say what may be used |
 | [component-template.md](component-template.md) | **The one definition of a component doc.** Its headings are the contract `coverage.py` and `template-drift.py` both read |
 | [components-template-drift.md](components-template-drift.md) | **Script-written.** How far each doc sits from the template, and what would close the gap. **Never read as rules** |
