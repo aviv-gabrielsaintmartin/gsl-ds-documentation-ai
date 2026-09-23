@@ -27,7 +27,7 @@ REGISTRIES = [
 ]
 
 # --- Registry name -> doc path, where slugifying the name does not reach it.
-# Source: components-audit.md, "Five docs cover a registry entry under a
+# Source: components-rules-ai-audit.md, "Five docs cover a registry entry under a
 # different name".
 
 ALIASES = {
@@ -583,7 +583,7 @@ def main():
     w("| `components/<name>/<name>.md` | Every mark in the matrix |")
     w("| [component-template.md](component-template.md) | Which sections are columns, and in what order |")
     w("| [components-rules-ai.md](components-rules-ai.md) | What each component is for, and which may never be selected |")
-    w("| [components-audit.md](components-audit.md) | The five name aliases |")
+    w("| [components-rules-ai-audit.md](components-rules-ai-audit.md) | The five name aliases |")
     w("")
     w("### Does the ruleset's inventory still match the files?")
     w("")

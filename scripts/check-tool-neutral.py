@@ -25,7 +25,7 @@ Where a tool name is still allowed, and why:
 Everything else is a finding: a tip about operating the tool, a layer name, a
 note that something is or is not available in one of them, or a statement of
 where a fact was read from. Those belong in the registries, in
-`components-audit.md`, or in the backlog — never in the page someone reads to
+`components-rules-ai-audit.md`, or in the backlog — never in the page someone reads to
 understand the component.
 """
 from __future__ import annotations

@@ -24,14 +24,16 @@ equivalent yet. `scripts/check-tool-neutral.py` enforces the rule, and
 
 ## The four top-level files
 
-Same `-rules-ai` / `-audit` split the token docs use, plus an `-eval`:
+Same `-rules-ai` / `-audit` split the token docs use, plus an `-eval`. **All
+three carry the ruleset's full name**, so the examining file and the file it
+examines sit together in a listing — the rule is in `README.md`:
 
 | File | Role |
 | --- | --- |
 | `components-index.md` | The index of components that have a usage doc. |
 | `components-rules-ai.md` | **The ruleset — what a generating agent reads to choose a component.** Intent → component, tier order (Experiences before Patterns before Components), platform limits, never-select list, and the full inventory of all four Figma libraries. |
-| `components-audit.md` | The evidence, the triage, rejected options, open questions. **Never read as rules.** |
-| `components-eval.md` | The check on the ruleset — intents with expected answers, scoring bands, and the run log. **The test, not the rules.** |
+| `components-rules-ai-audit.md` | The evidence, the triage, rejected options, open questions. **Never read as rules.** |
+| `components-rules-ai-eval.md` | The check on the ruleset — intents with expected answers, scoring bands, and the run log. **The test, not the rules.** |
 
 The ruleset's inventory is generated from the four `figma/*-registry.json` files
 and must stay complete: every registry name appears in it exactly once (twice for

@@ -77,9 +77,9 @@ Learn these eight and any filename in the repo explains itself.
 | `-index.md` | **The routing page.** Every page in the folder, what it covers, and which ruleset to read instead. Holds no values of its own | a human | no — it tells you where to go, not what to use |
 | `-tokens.md`, or `<name>.md` | **The page.** What exists — every value, every variant, and when to use each | a human | no — it lists everything, including things the audit rejected |
 | `-rules-ai.md` | **The ruleset.** What an agent is *allowed* to reach for | a human, from the audit | **yes. This is the contract** |
-| `-audit.md` | **The evidence.** Why the ruleset says what it says, what was rejected, what is still open | a human, from the ledger | **never** |
+| `-audit.md` | **The evidence.** Why the ruleset says what it says, what was rejected, what is still open. **Named after the file it explains** | a human, from the ledger | **never** |
 | `-ledger.md` | **The raw evidence table** the audit was built from | **a script** | never — and never edit it, re-run the script |
-| `-eval.md` | **The check on the ruleset** — test intents, expected answers, and the run log | a human | no — it is the test, not the rules |
+| `-eval.md` | **The check on the ruleset** — test intents, expected answers, and the run log. **Named after the file it tests** | a human | no — it is the test, not the rules |
 | `-scorecard.md` | **The check on generated output** — how a produced screen is judged, and the format of the report it produces | a human | no — it is the test, not the rules |
 | `-figma.md` | **The tool specification**, beside a component's usage doc — what is true of that component *in Figma* and nowhere else: layer names, quirks, and how to work with it there | a human, from a live read | no — the usage doc is the description. This says how the tool renders it |
 
@@ -89,16 +89,37 @@ The distinction that matters most:
 > An agent that reads the page instead of the ruleset will build on tokens the
 > audit already rejected.
 
+### How an examining file is named
+
+> **A file that examines another file is named after it, in full.**
+> `components-rules-ai.md` is examined by `components-rules-ai-eval.md` and
+> `components-rules-ai-audit.md`. `compliance-scorecard.md` is examined by
+> `compliance-scorecard-audit.md`. The pair sits together in a directory
+> listing, so nobody has to know what a suffix targets.
+
+**The boundary: a file about a topic keeps the topic's name.**
+`color-usage-audit.md` is about colour **usage** — a subject, not a file — so it
+stays as it is, and so do the five audits like it. `compliance-scorecard.md`
+itself is the same case: it judges screens, and no file in this repo is its
+target.
+
+**The rule extends to anything testable**, not only rulesets. A skill or an
+agent gets `<its name>-eval.md` by the same grammar, without another decision.
+
 And the distinction between the two kinds of check:
 
 > **An `-eval` judges a ruleset. A `-scorecard` judges output.**
 > The eval asks "would an agent reading this reach the right answer?" The
 > scorecard asks "is this screen compliant?".
 
-Two honest inconsistencies, so you aren't confused when you meet them:
+**Underneath, the difference is the answer key.** An eval asks fixed questions
+with **expected answers written down**, so two runs on two dates compare — which
+is what makes 22/22 then 27/27 mean something. A scorecard asks its questions of
+a screen that has never existed before. There is nothing to compare against, so
+it produces a report rather than a score you can trend.
 
-- Token audits are named `-usage-audit.md`, the component audit is
-  `-audit.md`. Same family, historical difference.
+One honest inconsistency, so you aren't confused when you meet it:
+
 - A `-ledger.md` always has a `.json` twin holding the same data for scripts.
   The `.json` is not committed and is regenerated on demand.
 
@@ -106,7 +127,7 @@ Two honest inconsistencies, so you aren't confused when you meet them:
 
 | Rulesets — the contract | Audits — the evidence | Ledgers — script output | Evals — the check |
 | --- | --- | --- | --- |
-| `components/components-rules-ai.md` | `components/components-audit.md` | `tokens/color/color-usage-ledger.md` | `components/components-eval.md` |
+| `components/components-rules-ai.md` | `components/components-rules-ai-audit.md` | `tokens/color/color-usage-ledger.md` | `components/components-rules-ai-eval.md` |
 | `tokens/color/color-rules-ai.md` | `tokens/color/color-usage-audit.md` | `tokens/spacing/spacing-usage-ledger.md` | |
 | `tokens/typography/typography-rules-ai.md` | `tokens/typography/typography-usage-audit.md` | `tokens/typography/typography-usage-ledger.md` | |
 | `tokens/spacing/spacing-rules-ai.md` | `tokens/spacing/spacing-usage-audit.md` | | |
@@ -115,7 +136,7 @@ Two honest inconsistencies, so you aren't confused when you meet them:
 | `tokens/border-width/border-width-rules-ai.md` | | | |
 | `icons/icons-rules-ai.md` | `icons/icons-audit.md` | | |
 | | `tokens/color/surface-border-combination-audit.md` — draft, not yet a ruleset | | |
-| | `compliance/compliance-audit.md` | `compliance/compliance-flag-ledger.md` | `compliance/compliance-scorecard.md` |
+| | `compliance/compliance-scorecard-audit.md` | `compliance/compliance-flag-ledger.md` | `compliance/compliance-scorecard.md` |
 | | | `compliance/compliance-run-ledger.md` | |
 
 Seven rulesets, eight audits, five ledgers, one eval, one scorecard.

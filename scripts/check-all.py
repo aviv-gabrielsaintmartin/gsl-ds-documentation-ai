@@ -39,7 +39,7 @@ prints a clean verdict is exactly where a reader stops looking:
      never read. `navigation-bar.md` claimed Ready on web while no web component
      exists, and a person caught it.
   2. **Whether a filled section is true.** Coverage answers shape only.
-  3. **Whether the ruleset contradicts itself.** Only `components-eval.md`
+  3. **Whether the ruleset contradicts itself.** Only `components-rules-ai-eval.md`
      probes that, it is run by hand against a cold agent, and it is stale.
   4. **Whether a page is reachable at all.** A file nothing links to is
      invisible to the link check, which asks the opposite question.

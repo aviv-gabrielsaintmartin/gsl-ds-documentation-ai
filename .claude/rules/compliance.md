@@ -11,7 +11,7 @@ How generated output is judged against the design system. Same
 | File | Role |
 | --- | --- |
 | `compliance-scorecard.md` | **The questions.** What is asked, grouped by the design step each question guards, what a `yes` means, and the report format. Read by a **checking** agent |
-| `compliance-audit.md` | The evidence — why these questions, what was rejected, open questions. **Never read as rules** |
+| `compliance-scorecard-audit.md` | The evidence — why these questions, what was rejected, open questions. **Never read as rules** |
 | `compliance-run-ledger.md` | Append-only, one row per run. The comparison table. **Written by the checking agent — never edit by hand** |
 | `compliance-flag-ledger.md` | Append-only findings across runs. **Written by the checking agent — never edit by hand** |
 | `briefs/brief-NNN/` | One folder per brief: `brief-NNN.md`, written once, plus every run of it. **Two runs are comparable only when they share this folder.** A changed requirement starts a new brief folder, never an edit to an existing one |
@@ -105,9 +105,16 @@ reads as an oversight; a step that states its own emptiness reads as a known gap
 
 ## Two things not to confuse
 
-- **`-eval` judges a ruleset. `-scorecard` judges output.** `components-eval.md`
+- **`-eval` judges a ruleset. `-scorecard` judges output.** `components-rules-ai-eval.md`
   asks whether an agent reading the ruleset reaches the right answer. The
-  scorecard asks whether a produced screen is compliant.
+  scorecard asks whether a produced screen is compliant. **The difference
+  underneath is the answer key** — an eval's expected answers are written down,
+  so two runs compare; a scorecard judges a screen that has never existed, so it
+  produces a report and not a score you can trend.
+- **The scorecard keeps its own name, and its audit carries the scorecard's.**
+  `compliance-scorecard-audit.md` explains `compliance-scorecard.md`. The
+  scorecard is not renamed to `-eval`: no file in this repo is its target, and
+  it has no answer key. The naming rule is in `README.md`.
 - **Compliance is not quality.** Compliance is arithmetic and is judged here.
   Quality is judgment, is not judged here, and is recorded as a free-text human
   verdict — in full in the run's own `report-run-NNN.md`, in one line in

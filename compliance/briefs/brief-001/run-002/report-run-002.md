@@ -252,7 +252,7 @@ denied.
 **Proved.** `Energy tag` was used for the GES rating as well as the DPE rating,
 both at `Country=France, Class=A`. **Which component** says `Energy tag` is for
 "property energy efficiency ratings **only**". GES is greenhouse-gas emission
-data. Whether that is the right component is `components-eval.md`'s question,
+data. Whether that is the right component is `components-rules-ai-eval.md`'s question,
 not the scorecard's, so it is reported and not scored.
 
 **Proved.** The `Donut chart`'s legend sits **beside** the chart, not below it.

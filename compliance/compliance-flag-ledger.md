@@ -26,7 +26,7 @@ missing a case.
    sessions filed the same finding in different files.
 5. Doing the work writes the rule into the ruleset and the reasoning into the
    relevant `-audit.md` — `color-usage-audit.md`, `spacing-usage-audit.md`,
-   `typography-usage-audit.md` or `components-audit.md`. **The audit is where
+   `typography-usage-audit.md` or `components-rules-ai-audit.md`. **The audit is where
    reasoning settles, never the queue.**
 
 | Verdict | Meaning |

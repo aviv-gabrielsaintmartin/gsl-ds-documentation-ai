@@ -119,7 +119,7 @@ Again the score hid defects — one of them introduced by the Run 1 fixes:
 
 Still open, and tracked in the audit rather than the ruleset: seven components
 are marked *Undescribed* in **The inventory**, so for those the ruleset knowingly points
-outside itself. See [components-audit.md](components-audit.md)
+outside itself. See [components-rules-ai-audit.md](components-rules-ai-audit.md)
 open question 2.
 
 ### Run 3 — 2026-09-08 · focused

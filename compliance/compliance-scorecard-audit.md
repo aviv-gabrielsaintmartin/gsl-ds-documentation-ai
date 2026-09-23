@@ -149,7 +149,7 @@ a literal. Omitting the field says the platform could not look. Conflating them
 would let an adapter gap read as a compliance failure, which is the exact error
 the `unavailable` rule exists to prevent.
 
-**On the JSON block.** `components-audit.md` rejected publishing the component
+**On the JSON block.** `components-rules-ai-audit.md` rejected publishing the component
 inventory as JSON, on the grounds that JSON in this repo is reserved for Figma
 identity data written by the sync skills. That still holds: this is an **example
 inside a markdown file**, not a committed data file, and no skill owns it. A
@@ -221,7 +221,7 @@ than making a mistake.
 That reframing changed the design. Flags are no longer per-run noise to be
 skimmed — they **accumulate in a ledger**, and a flag seen three times is
 promoted to a ruleset defect with an entry in the relevant `-audit.md`. This is
-the same mechanism that made `components-eval.md` valuable: its 22/22 first run
+the same mechanism that made `components-rules-ai-eval.md` valuable: its 22/22 first run
 still surfaced four defects, because the agent's friction was recorded rather
 than discarded.
 

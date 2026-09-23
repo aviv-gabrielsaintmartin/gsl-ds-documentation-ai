@@ -3,7 +3,7 @@
 _The only page you need. Everything else in this repo is reference material for
 agents — looked up, never read through._
 
-_Updated 22 September 2026._
+_Updated 23 September 2026._
 
 ---
 
@@ -40,6 +40,29 @@ findings are now ruled.
 ---
 
 ## The next task
+
+**Done, 23 September: a file that examines another is named after it.** Your
+rule. Three renames — `components-rules-ai-eval.md`,
+`components-rules-ai-audit.md`, `compliance-scorecard-audit.md`. Each pair now
+sits together in a directory listing, so nobody has to know what a suffix
+targets.
+
+**21 references fixed across 15 files, and the link check passes** — 2,364 links
+and 369 filenames. All three are `git mv`, so history follows them.
+
+**`compliance-scorecard.md` was deliberately left alone**, and the reason is now
+written where someone will look: no file in this repo is its target, and it has
+no answer key. An eval's expected answers are written down, so two runs compare.
+A scorecard judges a screen that never existed before.
+
+**One finding outranks the rename. Eight rulesets exist and seven have no eval
+at all** — icons, colour, spacing, typography, radius, shadow, border-width.
+Your new name is what made that visible. The backlog row recommends starting
+with colour rather than doing all seven.
+
+**Not yet recorded in the decision log.** It needs your go, and it is the only
+place that keeps what a decision cost — here, the scorecard rename you didn't
+make.
 
 **Done, 22 September: the five checks are one command, and `/task-check` runs it.**
 `scripts/check-all.py` — five checks, one verdict, **0.57 seconds**, and it

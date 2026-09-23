@@ -265,7 +265,7 @@ permission to use the component. The ruleset decides that, not this page.
 | `components/<name>/<name>.md` | Every mark in the matrix |
 | [component-template.md](component-template.md) | Which sections are columns, and in what order |
 | [components-rules-ai.md](components-rules-ai.md) | What each component is for, and which may never be selected |
-| [components-audit.md](components-audit.md) | The five name aliases |
+| [components-rules-ai-audit.md](components-rules-ai-audit.md) | The five name aliases |
 
 ### Does the ruleset's inventory still match the files?
 

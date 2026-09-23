@@ -8,7 +8,7 @@ See [what the scoring agent reads](#what-the-scoring-agent-reads)._
 **Read by the scoring agent**, never by a generating agent — a generating agent
 reads the `*-rules-ai.md` rulesets.
 
-Evidence and rejected alternatives: [compliance-audit.md](compliance-audit.md).
+Evidence and rejected alternatives: [compliance-scorecard-audit.md](compliance-scorecard-audit.md).
 
 ---
 
@@ -112,11 +112,11 @@ there is no source to check against. Stated so the gap stays visible.
 
 **Did the output use the design system, or build its own?**
 
-| Question | A `yes` means | Enforces | What the scorer must see |
-| --- | --- | --- | --- |
+| Question                                                      | A `yes` means                                                                                                                                       | Enforces          | What the scorer must see                 |
+| ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ---------------------------------------- |
 | Was any element hand-built instead of taken from the library? | **A finding, not a failure.** Every hand-built element is carried into **Define what needs to be built**, where the declaration question decides it | **The inventory** | Whether an element is a library instance |
-| Was any never-select component used? | **Failure.** Platform chrome, brand assets, another component's internals, or a withheld component | **Never select** | Which component each instance is |
-| Was any component name used that appears in no registry? | **Failure.** It came from outside GSL | **The inventory** | Which component each instance is |
+| Was any never-select component used?                          | **Failure.** Platform chrome, brand assets, another component's internals, or a withheld component                                                  | **Never select**  | Which component each instance is         |
+| Was any component name used that appears in no registry?      | **Failure.** It came from outside GSL                                                                                                               | **The inventory** | Which component each instance is         |
 
 **The first question is the whole of "is it using the design system".** It needs
 one look per element and no lists, no parts counting and no judgment: either an
@@ -124,7 +124,7 @@ element is a library instance or it is not, and the answer is a count of the one
 that are not.
 
 **What this step cannot see** — whether the *right* component was chosen. `Chip`
-where `Tag` was correct passes completely. That is `components-eval.md`'s job,
+where `Tag` was correct passes completely. That is `components-rules-ai-eval.md`'s job,
 not the scorecard's.
 
 **And it cannot see that a hand-built element duplicates something that already
@@ -719,7 +719,7 @@ Stated plainly so a clean report is not mistaken for a good screen.
 
 | Blind spot | Whose job |
 | --- | --- |
-| Whether the **right** component was chosen | `components-eval.md` |
+| Whether the **right** component was chosen | `components-rules-ai-eval.md` |
 | Whether a hand-built element **duplicates** a component that already exists | Human, from the reason on the report |
 | Whether the **right** authorised token was chosen | Nothing yet |
 | Whether the screen carries the content the brief asked for | Nothing yet — **Put them on the screen** has no question |
