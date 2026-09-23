@@ -11,6 +11,78 @@ decision with no downside recorded is usually a decision that wasn't examined.
 
 ---
 
+## 2026-09-23 · An examining file is named after the file it examines
+
+**Decided.** Gabriel's rule. A file whose job is to test or explain another file
+carries that file's full name. Three renames on the day:
+
+| Was | Is |
+| --- | --- |
+| `components-eval.md` | `components-rules-ai-eval.md` |
+| `components-audit.md` | `components-rules-ai-audit.md` |
+| `compliance-audit.md` | `compliance-scorecard-audit.md` |
+
+**The boundary is part of the rule.** A file about a *topic* keeps the topic's
+name. `color-usage-audit.md` is about colour usage, which is a subject and not a
+file, so it and the five audits like it are unchanged.
+
+**Why.** Reading the repo, nothing said which files were a pair.
+`components-eval.md` sat beside `components-rules-ai.md` and the relationship
+was invisible unless you already knew what `-eval` targets.
+
+Gabriel raised it while being confused about a different thing entirely — what
+the drafting task did. The filename was not the cause of that confusion, and the
+rule is still right.
+
+**This supersedes the grammar decided on 2026-09-08**, in the entry below, which
+said the form was `<pillar>-<suffix>` with no exceptions. That entry stands as
+written; it records what was believed then. Its own cost line names the
+component-audit inconsistency this decision retires.
+
+**What was rejected: renaming `compliance-scorecard.md` to an `-eval`.**
+Gabriel asked whether the two are the same thing applied to different material.
+They are not, and the difference is the answer key:
+
+- An **eval** asks fixed questions with **expected answers written down**. Two
+  runs on two dates compare, which is what makes 22/22 then 27/27 mean anything.
+- A **scorecard** asks its questions of a screen that has never existed before.
+  There is nothing to compare against, so it produces a report and not a score.
+
+A second reason: no file in this repo is the scorecard's target. The rule cannot
+apply to it, because there is nothing to name it after.
+
+**What it cost.** Four things, and the first is the one that will surprise
+someone.
+
+**Four dated records now name files that do not exist.** `status.md`'s done log,
+this file, the backlog's done list and everything in `project/archive/`. All
+four are deliberately exempt from `check-links.py`'s filename check, so nothing
+flags them and nothing will. A future reader grepping for `components-eval.md`
+finds only history, with no note saying so.
+
+That was the choice: a record of what was true on a date is worth more than a
+repo where every string resolves. **One dated record was edited anyway** —
+`report-run-002.md`, on Gabriel's explicit yes, and only the filename inside it
+changed.
+
+**Nothing enforces the rule.** `check-links.py` asks whether a filename names a
+real file. It cannot ask whether a file is named after the right one. An audit
+added tomorrow under the wrong name passes all five checks.
+
+**Names are longer.** `components-rules-ai-eval.md` is 28 characters against 19.
+Every reference to it is a longer line, and three prose paragraphs needed
+rewrapping.
+
+**What it revealed, which outranks the rename.** Eight rulesets exist and
+**seven have no eval at all** — icons, colour, spacing, typography, radius,
+shadow, border-width. Under the old name that gap was invisible; under
+`<ruleset>-eval.md` a directory listing shows it. Nobody has ever asked whether
+an agent reading the colour ruleset reaches the right answer. It is a backlog
+row, and the recommendation is to write one eval, for colour, and decide from
+what it finds whether the other six earn one.
+
+---
+
 ## 2026-09-18 · A component doc has no H1, and the hero moved with it
 
 **Decided.** Every component doc opened with a level-one heading repeating its

@@ -60,9 +60,10 @@ at all** — icons, colour, spacing, typography, radius, shadow, border-width.
 Your new name is what made that visible. The backlog row recommends starting
 with colour rather than doing all seven.
 
-**Not yet recorded in the decision log.** It needs your go, and it is the only
-place that keeps what a decision cost — here, the scorecard rename you didn't
-make.
+**In the decision log**, with what was rejected — renaming
+`compliance-scorecard.md` to an `-eval` — and four costs. The largest: four
+dated records now name files that no longer exist, and all four are exempt from
+the checker, so nothing will ever flag them.
 
 **Done, 22 September: the five checks are one command, and `/task-check` runs it.**
 `scripts/check-all.py` — five checks, one verdict, **0.57 seconds**, and it
