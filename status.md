@@ -46,8 +46,8 @@ findings are now ruled.
 
 ## The next task
 
-**Next: make the build place a block inside the screen the spec names.** The
-first real run put the banner over the whole app, splash and cookie consent included.
+**Next: re-run `/design` on the same idea** — in `~/gsl-ios`, after
+`/prototype-cleanup`. The skill now designs from the need, not the wording.
 
 **Done, 24 September: the design skill can pick a colour token.** The five colour
 family pages are in its references now, without their value tables.

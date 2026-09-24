@@ -96,6 +96,11 @@ A product manager or a designer. **Not an engineer.**
 - **Never ask which component to use.** A preference the person volunteers is
   recorded word for word in **Source** and treated as a wish: follow it when the
   rules allow it, and add an assumption saying so either way.
+- **Every interface word in the idea is a wish, never a constraint** — "banner",
+  "pop-up", "card", "list", "dropdown", whether or not it names a real
+  component. People describe ideas in interface words. **Such a word never rules
+  a component out.** Design from the need behind it: what the user must see,
+  do, and when.
 
 ## Step 1 — the problem
 
@@ -217,7 +222,9 @@ question 9 are that ask. Apply this table to every component and token chosen.
 something new only when nothing does, and declare it.
 
 1. For each goal, find its problem under **Which component** in
-   `components-rules-ai.md`, and pick from what that problem names.
+   `components-rules-ai.md`, and pick from what that problem names. **Match the
+   need, never the person's wording**: "a banner that greets them on arrival" is
+   a short message, shown on arrival, that can be closed — look it up as that.
 2. Set only the variants that differ from the default, or that the rules
    require stating. Names come from `component-variants.md`, never invented.
 3. A library component's **Tokens** cell is `—`. Tokens are chosen only for
@@ -225,12 +232,18 @@ something new only when nothing does, and declare it.
    reads:** `color-rules-ai.md` for the family, then that family's page for the
    token, by its *When to use* and *Don't use for*. A token its page marks
    **Not used** is never chosen.
-4. Anything built from parts is `composed`, with an **Inventions** entry holding
-   all three parts **When nothing fits** requires. A missing part means the
-   whole invention is undeclared.
-5. **Copy you wrote is an assumption.** Copy quoted from the source is not. No
+4. **Before writing any `composed` element, name the component the rules give
+   for its need**, under **Which component**, and check it against the need.
+   Only a reason found in the need rules it out — what the user must see, do,
+   or when. **"The source says banner" is never a reason.** If the rules' answer
+   fits, use it: an existing component always beats a built one.
+5. Anything still built from parts is `composed`, with an **Inventions** entry
+   holding all three parts **When nothing fits** requires. A missing part means
+   the whole invention is undeclared. Its **Ruled out** names the component from
+   point 4 first, with its reason from the need.
+6. **Copy you wrote is an assumption.** Copy quoted from the source is not. No
    rule covers copy yet: write plain, short, sentence-case strings and flag each.
-6. **Every validated criterion must be true of the screen.** If one cannot be,
+7. **Every validated criterion must be true of the screen.** If one cannot be,
    never drop it quietly — say so at hand-off, naming it.
 
 Add a change log row for the screen, naming every block ID.
@@ -243,6 +256,8 @@ Add a change log row for the screen, naming every block ID.
 - [ ] Every token is allowed by its ruleset, and colour is in slash form.
 - [ ] No raw value, no platform name, no destination, no file path inside an app.
 - [ ] Every element serves a goal. Every goal has a criterion.
+- [ ] Every `composed` element's **Ruled out** starts with the component the rules give for its need, ruled out by the need — never by the person's wording.
+- [ ] A block that goes on an existing screen says which screen, and what it sits above or below.
 - [ ] Every validated criterion is true of the screen.
 - [ ] Every decision the source did not make is in **Assumptions**.
 
@@ -257,7 +272,9 @@ absolute paths filled in:
 Build the screen described in <~/gsl-specs/spec-NNN.md, absolute>.
 Translate its component and token names with <this skill's
 references/components-ios-map.md> and <references/tokens-ios-map.md>.
-Build every row of its Screen section in order. Report anything you could not
+Build every row of its Screen section in order. Place each block inside the
+screen the spec names, where it says — never as an overlay on the whole app,
+never over the splash screen or a system prompt. Report anything you could not
 build by its element ID. Never change the spec.
 ```
 
@@ -308,6 +325,7 @@ Validating the goals is not agreeing the spec.
 - **Never reads outside `references/`** to choose a component or a token.
 - **Never rewords the source**, and never writes one.
 - **Never asks which component, token or layout to use.**
+- **Never rules a component out because of the person's wording**, and never builds what an existing component already does.
 - **Never designs a screen before the goals are validated.**
 - **Never writes a platform name into a spec**, even though it read one in a map.
 - **Never edits the built screen**, only the spec.
