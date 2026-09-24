@@ -46,8 +46,8 @@ findings are now ruled.
 
 ## The next task
 
-**Next: run `/design` for real, once** — in a chat opened in `~/gsl-ios`,
-on a fresh idea. Only you can open that chat. Top of *The iOS demo* in the backlog.
+**Next: give the design skill the colour guidance it lacks.** It can choose a
+colour family but not the token inside it. Then run `/design` for real, in `~/gsl-ios`.
 
 **Done, 24 September: the design skill exists.** `skills/design/`, runs from any repo.
 
