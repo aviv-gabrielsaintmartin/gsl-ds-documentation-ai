@@ -25,8 +25,9 @@ design agent ── writes ──► spec ── read by ──► build agent �
 **A spec is platform-neutral.** It never contains a Figma, web, iOS or Android
 name, a code identifier, a file path inside an app, or a raw value such as a hex
 colour or a pixel size. A build agent translates each neutral name with its own
-platform's name map. On iOS that map is
-[components-ios-map.md](../components/components-ios-map.md).
+platform's name maps. On iOS there are two:
+[components-ios-map.md](../components/components-ios-map.md) for components, and
+[tokens-ios-map.md](../tokens/tokens-ios-map.md) for tokens.
 
 **A spec never says where to build.** The app, the branch, the Figma file or the
 route is the build agent's input, passed beside the spec, never written into it.
