@@ -26,14 +26,14 @@ been run.**
 
 The rows where a plausible-looking wrong answer is the default failure:
 
-| Rows | What they probe |
-| --- | --- |
-| 8, 18–22, 24 | Tier order, rule precedence, the never-select list, and the two non-composed kinds of higher-tier component |
-| 28–31 | The container and all-or-nothing kinds, and the `Table` platform caveat |
-| 32–37 | The never-select rulings written after the last run. **Every one names a component that looks like the right answer** |
-| 41–43 | **Built outside the design system.** The component alone is not the whole answer — the run must report the selection |
-| 52–53, 59, 64 | Rules whose answer includes a declaration, not only a component |
-| 35–37, 56–58 | Rules whose correct answer is that there is nothing to place |
+| Rows          | What they probe                                                                                                       |
+| ------------- | --------------------------------------------------------------------------------------------------------------------- |
+| 8, 18–22, 24  | Tier order, rule precedence, the never-select list, and the two non-composed kinds of higher-tier component           |
+| 28–31         | The container and all-or-nothing kinds, and the `Table` platform caveat                                               |
+| 32–37         | The never-select rulings written after the last run. **Every one names a component that looks like the right answer** |
+| 41–43         | **Built outside the design system.** The component alone is not the whole answer — the run must report the selection  |
+| 52–53, 59, 64 | Rules whose answer includes a declaration, not only a component                                                       |
+| 35–37, 56–58  | Rules whose correct answer is that there is nothing to place                                                          |
 
 | #   | Intent                                                                                                               | Expected                                                                                                                                                                                 | Tests                                                                                                                                                                                                                                    |
 | --- | -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
