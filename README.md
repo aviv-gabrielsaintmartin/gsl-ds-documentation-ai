@@ -38,6 +38,7 @@ Judge every page in here by one test:
 | Know **why** a rule says what it says | The matching `-audit.md` |
 | Know why the project is shaped like this | [project/decisions.md](project/decisions.md) |
 | Understand how a generation run becomes a saved report | [project/how-a-run-is-reported.md](project/how-a-run-is-reported.md) |
+| Understand how an idea becomes an iOS prototype — the flow, the files, the script | [project/how-a-prototype-is-made.md](project/how-a-prototype-is-made.md) |
 
 **How work runs:** one task at a time. `/task-next` proposes a task and waits for
 Gabriel's go; `/task-check` verifies it worked and names the next one. Every

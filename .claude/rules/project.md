@@ -53,6 +53,7 @@ rest of the repo.
 | `project/input-agent-assessment.md` | **One conversation, recorded** — the input-agent idea of 16 Sep 2026, what it is worth, and what Gabriel decided | Holds the session id so the chat can be reopened. It decides nothing; its tasks live in the backlog |
 | `project/decisions.md` | Why the project is shaped this way, newest first | Every entry records **what it costs**, not just what was decided |
 | `project/how-a-run-is-reported.md` | How a generation run becomes a saved report, walked through for a non-technical reader | **Links** to the scorecard for the template and the required facts; never repeats them |
+| `project/how-a-prototype-is-made.md` | How an idea becomes an iOS prototype — the flow, what each file is for, the token-map script | **Links** to the spec format and the maps; never repeats them. Update it when a task changes the pipeline |
 | `project/archive/` | The retired plan, briefs and handoff note | **History.** Never work from it, never update it. Its own README says why each was retired |
 
 ## How work runs

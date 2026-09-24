@@ -11,6 +11,55 @@ decision with no downside recorded is usually a decision that wasn't examined.
 
 ---
 
+## 2026-09-24 · A spec is the contract between design and the prototype
+
+**Decided.** Gabriel's calls, in one conversation. The goal: a product manager
+tries an idea on the real iOS app, fast.
+
+- **The iOS demo replaces the Figma milestone** as the priority.
+- **No drawing in Figma.** The design agent writes a spec directly. A Figma
+  render stays optional.
+- **The prototype is throwaway.** It is for ideation and testing. Nothing from
+  it merges to production.
+- **Two skills, chained, never merged.** The design skill writes the spec, then
+  calls `/prototype`. Aviv owns `/prototype`; this repo owns the design side.
+- **Feedback edits the spec, never the built code.** The prototype is then
+  rebuilt from the spec.
+- **One spec format for a quick idea and a full PRD.** A thin idea produces a
+  spec with many assumptions, each marked as open.
+
+**Why.** The process follows real product design: a PM brief, then a design,
+then a spec for the builder. The spec is the one fixed point, so the stages
+before it can shrink for a quick idea.
+
+The design skill stays platform-neutral, so Android can reuse it. Merging it
+into `/prototype` would have forked Aviv's skill and tied design to iOS.
+
+**What was rejected.**
+
+- **Merging the design skill into `/prototype`.** One command is simpler to
+  type. The chained design skill still feels like one command, because it
+  calls `/prototype` itself.
+- **Drawing in Figma first, then extracting a spec.** Two translations mean
+  two places for the result to drift.
+
+**What it cost.**
+
+- **The Figma milestone stalls.** Its open rule gaps wait while the iOS demo
+  goes first. The end-of-September definition in `the-project.md` still names
+  Figma, and is now out of date until Gabriel rewrites it.
+- **The design step with nothing written gets hit first.** A PRD does not list
+  content, so the design skill must choose it, with no rules to follow. The
+  spec's assumptions make those choices visible, and nothing more.
+- **Two maps to keep true.** The component map is by hand; the token map is by
+  script. Neither has been confirmed by an iOS engineer.
+- **A PM who tweaks `/prototype` directly makes the spec stale.** Only the
+  habit of going through the design skill prevents it. Nothing enforces it.
+
+How it all fits: [how-a-prototype-is-made.md](how-a-prototype-is-made.md).
+
+---
+
 ## 2026-09-23 · An examining file is named after the file it examines
 
 **Decided.** Gabriel's rule. A file whose job is to test or explain another file
