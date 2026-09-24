@@ -15,6 +15,7 @@ which component to reach for, and which ones must never be selected.
 | [components-coverage-ledger.md](components-coverage-ledger.md) | **Script-written.** Which of the 98 registry entries have a doc, and which template sections that doc fills. **Never read as rules** — it measures the docs, it does not say what may be used |
 | [component-template.md](component-template.md) | **The one definition of a component doc.** Its headings are the contract `coverage.py` and `template-drift.py` both read |
 | [components-template-drift.md](components-template-drift.md) | **Script-written.** How far each doc sits from the template, and what would close the gap. **Never read as rules** |
+| [components-ios-map.md](components-ios-map.md) | Each component's SwiftUI name on iOS, with how sure the pairing is. **Translates a name already chosen — never read to choose one** |
 
 The list below holds one row per component folder — **69** of them. The
 ruleset's inventory covers all **98** registry entries: **71** reach a doc and

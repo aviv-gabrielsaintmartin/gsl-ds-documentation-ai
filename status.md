@@ -9,6 +9,11 @@ _Updated 24 September 2026._
 
 ## What we're building
 
+**Priority changed 24 September: the iOS demo replaces the Figma milestone.**
+A design skill turns a brief into a neutral spec; `/prototype` builds it on iOS.
+The Figma goal below stays until you rewrite it.
+
+
 A written description of the GSL Design System complete enough that an AI agent
 can read it and design a screen in Figma using the right components and the
 right colours, with nobody correcting it.
@@ -41,7 +46,18 @@ findings are now ruled.
 
 ## The next task
 
-**Next: two eval rows fail because the duty sits beside the rule, not in it.**
+**Next: define the spec the design skill writes and `/prototype` reads.**
+Screen, components with variants, tokens and copy, all in neutral names. Top of
+*The iOS demo* in the backlog.
+
+**Done, 24 September: every component has its iOS name.**
+`components/components-ios-map.md`, 73 of 73.
+
+- **44 proved, 5 guessing, 18 not found, 6 not for iOS.** Counted by script.
+- **Read from the remote.** Your local `gsl-ios` was 21 design-system commits behind.
+- **No iOS engineer has confirmed it.** The five guesses need one.
+
+**Paused: two eval rows fail because the duty sits beside the rule.**
 `Feedback thumb buttons` and `Score tag` must be reported as selected, and the
 cold agent missed it. Top of *Define the components to use* in the backlog.
 
