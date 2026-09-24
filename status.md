@@ -46,8 +46,8 @@ findings are now ruled.
 
 ## The next task
 
-**Next: run `/design` for real, once** — in a chat opened in `~/gsl-ios`, on
-a fresh idea. Only you can open that chat.
+**Next: make the build place a block inside the screen the spec names.** The
+first real run put the banner over the whole app, splash and cookie consent included.
 
 **Done, 24 September: the design skill can pick a colour token.** The five colour
 family pages are in its references now, without their value tables.
