@@ -125,11 +125,13 @@ this alone, with nobody correcting it?
 ## What this repository is
 
 **Not a source-code repository** — there is no build, lint, or test tooling here.
-Three deliberate exceptions: `tokens/scripts/`, which reads the design-system code
+Four deliberate exceptions: `tokens/scripts/`, which reads the design-system code
 repo to generate the token ledgers; the seven checks in `scripts/`, which read
 this repo against itself; and the pair in `scripts/` that generates a component
 doc from its Zeroheight page — `zeroheight-extract.mjs` renders and downloads,
-`zeroheight-draft.py` lays the result out against the template. **The extractor
+`zeroheight-draft.py` lays the result out against the template. A fourth,
+`scripts/build-design-references.py`, copies the rules into the design skill's
+`skills/design/references/`, which runs outside this repo. **The extractor
 is the only thing here that needs Node**, because the page is client-rendered and
 cannot be read without a browser; `scripts/README.md` says how to install it.
 

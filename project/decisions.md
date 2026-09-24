@@ -11,6 +11,46 @@ decision with no downside recorded is usually a decision that wasn't examined.
 
 ---
 
+## 2026-09-24 · The design skill is one workflow, and it travels with its rules
+
+**Decided.** Gabriel's calls, the same day, later in the afternoon, while the
+design skill was being built.
+
+- **One command, one flow.** `/design` plus the idea. Questions, then the
+  person validates the goals, then the screen is designed without asking.
+  Separate `refine` and `interface` commands were built first, then dropped.
+- **No screen before the goals are validated.** The acceptance criteria check
+  that the screen does what was asked. Quality stays human.
+- **Never ask which component.** A PM rarely has a view, and the rules decide.
+- **The platform is asked, or detected**, and it shapes the choice. It never
+  enters the spec.
+- **Feedback in the same chat**, sized in three. Only a change of goal asks
+  anything.
+- **The skill lives in `skills/design/` and carries its rules** in a generated
+  `references/` folder. It runs from any repo, and can later go to the company
+  skill marketplace. It builds only where the chat can build.
+- **Specs are saved in `~/gsl-specs/`**, outside every repo, so a spec
+  outlives its prototype.
+- **The PM skill and the PRD format are deferred.** The design skill's
+  questions do their job for now.
+
+**Why.** The earlier entry below expected the design skill to call
+`/prototype` from this repo. `/prototype` only runs inside `gsl-ios`, so both
+skills have to share one chat there, and the design skill cannot read this
+repo from it. Carrying its rules solves both.
+
+**What was rejected.**
+
+- **Copying the skill into the iOS repo.** Two copies drift.
+- **A spec folder inside each platform repo.** `/prototype`'s cleanup deletes
+  it with the branch, and the same spec could not build on Android.
+- **Two skills, one for the problem and one for the interface.** Two files to
+  maintain, and a PRD format to invent before either worked.
+
+**What it cost.** The first `/task-check` failed once: the skill and the spec
+format disagreed on where a spec is saved. Gabriel then found the skill had
+no colour guidance below the family level, which no check had caught.
+
 ## 2026-09-24 · A spec is the contract between design and the prototype
 
 **Decided.** Gabriel's calls, in one conversation. The goal: a product manager
