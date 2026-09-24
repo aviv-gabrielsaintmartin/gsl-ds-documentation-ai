@@ -4,7 +4,7 @@ Select cards are used for single- or multi-selection inside forms.
 
 | Figma | Web | iOS | Android |
 | --- | --- | --- | --- |
-| Not documented | Ready ✅ | Ready ✅ | Partially developed |
+| Ready ✅ | Ready ✅ | Ready ✅ | Partially developed |
 
 * [Select card group on Figma](https://www.figma.com/design/xxqSJcKOphrgimxRQbvtfe/2.-Gemini-Components-Library?node-id=3-7282)
 * [Select card group on Storybook](https://gemini-storybook.prompt-scorpion-preview.aws.aviv.eu/?path=/docs/ui-forms-selectcardgroup--docs)

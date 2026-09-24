@@ -4,7 +4,9 @@ Energy tags are used to indicate the energy efficiency of properties.
 
 | Figma | Web | iOS | Android |
 | --- | --- | --- | --- |
-| [Energy tag on Figma](https://www.figma.com/design/xxqSJcKOphrgimxRQbvtfe/2.-Gemini-Components-Library?node-id=4612-2541) | To Do 🚧 | To Do 🚧 | Ready ✅ |
+| Ready ✅ | To Do 🚧 | To Do 🚧 | Ready ✅ |
+
+[Energy tag on Figma](https://www.figma.com/design/xxqSJcKOphrgimxRQbvtfe/2.-Gemini-Components-Library?node-id=4612-2541)
 
 ---
 

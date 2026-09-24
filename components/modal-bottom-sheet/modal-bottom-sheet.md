@@ -4,7 +4,9 @@ Modal bottom sheets are containers that appear above the content and block inter
 
 | Figma | Web | iOS | Android |
 | --- | --- | --- | --- |
-| [Modal bottom sheet on Figma](https://www.figma.com/design/xxqSJcKOphrgimxRQbvtfe/2.-Gemini-Components-Library?node-id=3-7293) | Ready ✅ | Ready ✅ | Ready ✅ |
+| Ready ✅ | Ready ✅ | Ready ✅ | Ready ✅ |
+
+[Modal bottom sheet on Figma](https://www.figma.com/design/xxqSJcKOphrgimxRQbvtfe/2.-Gemini-Components-Library?node-id=3-7293)
 
 [Modal bottom sheet on Storybook](https://gemini-storybook.prompt-scorpion-preview.aws.aviv.eu/?path=/docs/ui-overlay-modal--docs)
 

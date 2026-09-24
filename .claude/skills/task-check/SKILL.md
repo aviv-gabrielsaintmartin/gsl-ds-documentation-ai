@@ -42,7 +42,7 @@ If a claim can't be verified, say so plainly rather than reporting it as done.
 
 ### When a component doc changed — `scripts/check-all.py`
 
-One command, six checks, one verdict. It changes nothing unless `--write` is
+One command, seven checks, one verdict. It changes nothing unless `--write` is
 passed, so it is safe to run at any point in a task, not only at the end.
 
 **A FAIL is not automatically a failed task.** Some defects are older than the
@@ -66,7 +66,7 @@ task being checked. Tell the two apart before reporting:
 
 **Known and open as of 22 September 2026:** `check-rules-docs.py` reports **five
 disagreements**, all predating the runner. Until they are closed, a clean run of
-all six is impossible and the runner exits 1 every time. Name them; do not
+all seven is impossible and the runner exits 1 every time. Name them; do not
 treat them as your task's doing.
 
 **What a clean run proves: the doc is well-formed.** Pointers resolve, headings
@@ -75,7 +75,7 @@ generated pages match what they are generated from.
 
 **What it proves about whether the doc is TRUE: nothing.** Every check reads
 this repo against itself. None opens Figma, the web code, or the app.
-`map-template.md` fills 13 of its 16 sections and passes all six, and every
+`map-template.md` fills 13 of its 16 sections and passes all seven, and every
 word of it came off a component library with nobody who knows the product having
 read it.
 

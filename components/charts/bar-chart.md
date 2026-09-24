@@ -4,7 +4,7 @@ A bar chart, or bar graph, shows numeric values as bars, with one axis for categ
 
 | Figma | Web | iOS | Android |
 | --- | --- | --- | --- |
-| Not documented | To Do 🚧 | To Do 🚧 | To Do 🚧 |
+| Ready ✅ | To Do 🚧 | To Do 🚧 | To Do 🚧 |
 
 ---
 

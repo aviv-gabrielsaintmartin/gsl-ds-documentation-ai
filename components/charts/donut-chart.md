@@ -4,7 +4,7 @@ A donut chart compares each group's contribution to a whole by dividing a circle
 
 | Figma | Web | iOS | Android |
 | --- | --- | --- | --- |
-| To Do 🚧 | To Do 🚧 | To Do 🚧 | To Do 🚧 |
+| Ready ✅ | To Do 🚧 | To Do 🚧 | To Do 🚧 |
 
 ---
 

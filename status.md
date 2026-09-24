@@ -3,7 +3,7 @@
 _The only page you need. Everything else in this repo is reference material for
 agents — looked up, never read through._
 
-_Updated 23 September 2026._
+_Updated 24 September 2026._
 
 ---
 
@@ -40,6 +40,20 @@ findings are now ruled.
 ---
 
 ## The next task
+
+**Next: two eval rows fail because the duty sits beside the rule, not in it.**
+`Feedback thumb buttons` and `Score tag` must be reported as selected, and the
+cold agent missed it. Top of *Define the components to use* in the backlog.
+
+**Done, 24 September: every readiness table's Figma cell is checked.** A
+seventh check compares it with the four registries. **75 of 75 agree.**
+
+- **Six cells were wrong**, the same six the 8 September audit found and left.
+- **Proved it fails**, on a copy with three planted faults.
+- **The audit said all 98 registry entries were verified live.** Two say they
+  were not. Corrected.
+- **Web, iOS and Android are still unread.** The ruleset line telling agents to
+  skip the table stays until they are.
 
 **Done, 23 September: the repo has a sixth check, and it closes the gap you
 named as the end goal.** `scripts/check-rules-reach.py` asks whether every

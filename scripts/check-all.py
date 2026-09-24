@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """Run every standing check in this repo and print one verdict.
 
-Six checks exist and each had to be remembered separately. Nothing said what
+Seven checks exist and each had to be remembered separately. Nothing said what
 order to run them in, and nothing said what a clean run did and did not prove.
 This is the one command.
 
     python3 scripts/check-all.py           # read-only, changes nothing
     python3 scripts/check-all.py --write   # also regenerates the two ledgers
 
-**Nothing here is a check of its own.** It runs the six that exist as their own
-scripts and reports them together. Four read files and report. Two are
+**Nothing here is a check of its own.** It runs the seven that exist as their own
+scripts and reports them together. Five read files and report. Two are
 generators, and this runs them into a temporary file and compares -- so the
 question they answer here is *is the committed page still current*, never
 *rewrite it*. Add `--write` when you want the page itself brought up to date.
@@ -28,16 +28,18 @@ generated pages match the files they are generated from.
 
 **It proves nothing about whether a sentence is true.** Every check here reads
 this repo against itself. None of them opens Figma, the web code, or the app.
-A page can pass all six and be wrong in every paragraph -- `map-template.md`
+A page can pass all seven and be wrong in every paragraph -- `map-template.md`
 fills 13 of its 16 sections and every word came off a component library, with
 nobody who knows the product having read it.
 
 Four things nothing in this repo checks, listed here because a runner that
 prints a clean verdict is exactly where a reader stops looking:
 
-  1. **Whether a readiness row is true.** The table is checked for existence and
-     never read. `navigation-bar.md` claimed Ready on web while no web component
-     exists, and a person caught it.
+  1. **Whether a readiness row is true on web, iOS or Android.** Only the Figma
+     cell is read, by `check-readiness-figma.py`, and only against the
+     registries -- which are as fresh as the last `figma-sync-*` run.
+     `navigation-bar.md` claimed Ready on web while no web component exists,
+     and a person caught it.
   2. **Whether a filled section is true.** Coverage answers shape only.
   3. **Whether the ruleset contradicts itself, or whether a rule is any good.**
      `check-rules-reach.py` asks only whether a rule *exists* for each
@@ -61,7 +63,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-# --- The four that read and report ---------------------------------------
+# --- The five that read and report ---------------------------------------
 # Each prints a `Checked N ...` line first and exits non-zero on a finding.
 
 SCRIPTS = [
@@ -69,6 +71,7 @@ SCRIPTS = [
     ("Tool neutrality", "scripts/check-tool-neutral.py"),
     ("Docs against the ruleset", "scripts/check-rules-docs.py"),
     ("Every component has a rule", "scripts/check-rules-reach.py"),
+    ("Figma readiness cells", "scripts/check-readiness-figma.py"),
 ]
 
 # --- The two that generate a page ----------------------------------------
@@ -161,7 +164,7 @@ def main() -> int:
     else:
         print(f"All {len(results)} checks pass.")
 
-    print("These six read this repo against itself. **None of them opens Figma,")
+    print("These seven read this repo against itself. **None of them opens Figma,")
     print("the web code or the app, and none can tell you whether a sentence is")
     print("true.** The four questions nobody checks are listed in this script's")
     print("own docstring — read it before treating a clean run as a finished doc.")

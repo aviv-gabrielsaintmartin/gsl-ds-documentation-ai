@@ -4,7 +4,7 @@ Snackbars are used to provide quick feedback after an action is taken.
 
 | Figma          | Web     | iOS     | Android |
 | -------------- | ------- | ------- | ------- |
-| Not documented | Ready ✅ | Ready ✅ | Ready ✅ |
+| Ready ✅       | Ready ✅ | Ready ✅ | Ready ✅ |
 
 * [Snackbar on Figma](https://www.figma.com/design/xxqSJcKOphrgimxRQbvtfe/2.-Gemini-Components-Library?node-id=3-7301)
 * [Snackbar on Storybook](https://gemini-storybook.prompt-scorpion-preview.aws.aviv.eu/?path=/docs/ui-feedback-snackbar--docs)

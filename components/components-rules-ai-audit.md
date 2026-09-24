@@ -501,10 +501,33 @@ data-quality problems, not missing components:**
 | A link instead of a status | `energy-tag` · `modal-bottom-sheet` | The component exists; the cell simply is not a status |
 | `To Do 🚧` | `donut-chart` | `Donut chart` is in the Patterns registry, verified live |
 
-**Every one of the 98 registry entries was verified live in Figma.** So the
-authoritative answer to "does this exist in Figma" is the registry, and the
-doc's Figma cell is a hand-maintained duplicate that has drifted in six of 52
-cases.
+**Two of the 98 registry entries say outright they were not re-verified live
+in Figma.** A third, `Tab Bar`, was seen live and is flagged as an unfinished
+refactor. How the other 95 were verified is not recorded — 35 of them say only
+`Documented`. So the authoritative answer to "does this exist in Figma" is the
+registry, and the doc's Figma cell is a hand-maintained duplicate that has
+drifted in six of 52 cases.
+
+**Corrected 24 September 2026.** This paragraph first said *"every one of the 98
+registry entries was verified live"*. **That was false, and the registries say
+so themselves.** Three entries carry a `status` that bars them from being called
+Ready — two because they were not re-verified live, one because it is in
+progress:
+
+| Entry | Registry | What its `status` says |
+| --- | --- | --- |
+| `Brand Logo` | `figma-components-registry.json` | Not re-verified — *"key is last-known, not live-confirmed"* |
+| `Image Ratio` | `figma-components-registry.json` | Not re-verified — *"key is last-known, not live-confirmed"* |
+| `Tab Bar` | `figma-components-registry.json` | Seen live — *"newly discovered"*, with a node ID — but inside a `Refacto` section, *"likely an in-progress refactor"* |
+
+**The six cells above are fixed, 24 September 2026.** All six now read
+`Ready ✅`. The two links that stood in the cell moved to a line under the
+table. **Gabriel approved the change.** `scripts/check-readiness-figma.py` now
+compares every doc's Figma cell with the four registries on every
+`check-all.py` run. A cell may say Ready only when a registry holds the
+component and that entry is not flagged outdated, in progress or unverified.
+The three entries in the table above are the flagged ones. None of them has a
+doc today.
 
 ### Where each kind of availability data belongs
 
