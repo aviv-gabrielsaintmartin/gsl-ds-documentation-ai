@@ -6,8 +6,8 @@ _The authoritative ruleset for choosing colour when generating a GSL interface.
 Every rule here is derived from real bindings in `gsl-core-web-design-system`, not
 from token names. Evidence and reasoning are in `color-usage-audit.md`, which a
 generating agent must not read. Exact values:
-background · surface · border ·
-content · symbols · scale._
+[background](background.md) · [surface](surface.md) · [border](border.md) ·
+[content](content.md) · symbols · [scale](scale.md)._
 
 ---
 
@@ -388,7 +388,7 @@ in dark. If either token value ever changes, re-check this step before any other
 
 **Using `Content/Default/Default` on `Blue100`–`Blue300` passes in light and
 fails in dark** — 1.49:1, 2.02:1 and 2.83:1. This is exactly the trap
-content.md warns about: `Constant` and `Default` are identical in
+[content.md](content.md) warns about: `Constant` and `Default` are identical in
 light mode and diverge completely in dark.
 
 #### Where these rules come from
@@ -397,7 +397,7 @@ light mode and diverge completely in dark.
 | --- | --- |
 | Energy class mapping | **Verified against web source code** — `libraries/patterns/energyclassslider/src/EnergyScale.tsx`, 10 September 2026 |
 | CO₂ ordering | **Not verified against code.** Nothing in the web codebase consumes `Scales/CO2/*`; the rule comes from the token page |
-| CO₂ letter colour | **Computed, not observed.** The contrast figures above were calculated from the hex values on scale.md and content.md, 14 September 2026. Nothing in code or Figma sets a letter colour on this scale. The rule was written from run-002, the first output to build a CO₂ ladder, and ruled by Gabriel that day |
+| CO₂ letter colour | **Computed, not observed.** The contrast figures above were calculated from the hex values on [scale.md](scale.md) and [content.md](content.md), 14 September 2026. Nothing in code or Figma sets a letter colour on this scale. The rule was written from run-002, the first output to build a CO₂ ladder, and ruled by Gabriel that day |
 | Both | **Never checked against Figma.** `Energy Tag` carries 48 Figma variants that have not been read. If they assign classes differently, that is a finding to raise — not a difference to resolve on your own |
 
 ### `Surface/Dark`

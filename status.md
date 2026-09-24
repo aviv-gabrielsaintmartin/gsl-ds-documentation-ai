@@ -46,8 +46,11 @@ findings are now ruled.
 
 ## The next task
 
-**Next: give the design skill the colour guidance it lacks.** It can choose a
-colour family but not the token inside it. Then run `/design` for real, in `~/gsl-ios`.
+**Next: run `/design` for real, once** — in a chat opened in `~/gsl-ios`, on
+a fresh idea. Only you can open that chat.
+
+**Done, 24 September: the design skill can pick a colour token.** The five colour
+family pages are in its references now, without their value tables.
 
 **Done, 24 September: the design skill exists.** `skills/design/`, runs from any repo.
 

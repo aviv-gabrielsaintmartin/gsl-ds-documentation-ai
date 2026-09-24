@@ -66,18 +66,17 @@ exist. Every path below is relative to this skill's folder.
 | `references/spec-rules-ai.md` | **The spec format.** Read it in full before writing a spec. When it and this file disagree, it wins, and the disagreement is a defect in this file |
 | `references/components-rules-ai.md` | **Which component.** All of it: **Which component**, **Platform limits**, **Never select**, **The inventory**, **When nothing fits** |
 | `references/component-variants.md` | Every component's **Variants & Modifiers** — the only place a variant name comes from. Headings sit one level lower than in the source doc |
-| `references/color-rules-ai.md`, `typography-rules-ai.md`, `spacing-rules-ai.md`, `radius-rules-ai.md`, `shadow-rules-ai.md`, `border-width-rules-ai.md` | Which tokens are allowed |
+| `references/color-rules-ai.md`, `typography-rules-ai.md`, `spacing-rules-ai.md`, `radius-rules-ai.md`, `shadow-rules-ai.md`, `border-width-rules-ai.md` | Which tokens are allowed. For colour, `color-rules-ai.md` picks the **family** only |
+| `references/background.md`, `surface.md`, `border.md`, `content.md`, `scale.md` | **Which colour token inside a family**, by *When to use · Don't use for*. Value tables left out |
 | `references/icons-rules-ai.md` | Icons |
 | `references/components-ios-map.md`, `references/tokens-ios-map.md` | What iOS can build, and the iOS name of each design-system name |
 
 **The references are generated, never edited here.** If one seems wrong, say so
 in the hand-off. Do not work around it.
 
-**Where `spec-rules-ai.md` sends you somewhere `references/` does not hold** —
-a component's full doc, or a colour family page to confirm a slash name — use
-`component-variants.md` for variants, and the slash names in
-`tokens-ios-map.md` or `color-rules-ai.md` for tokens. Nothing else is
-available, and nothing else is needed.
+**Where `spec-rules-ai.md` sends you to a component's full doc**, use
+`component-variants.md`: it holds every component's variants, and nothing else
+from the doc is needed to write a spec.
 
 **Where a spec is saved:** `~/gsl-specs/spec-NNN.md`, one folder outside every
 repository, numbered as **Where specs live** in `spec-rules-ai.md` says. Never
@@ -222,7 +221,10 @@ something new only when nothing does, and declare it.
 2. Set only the variants that differ from the default, or that the rules
    require stating. Names come from `component-variants.md`, never invented.
 3. A library component's **Tokens** cell is `—`. Tokens are chosen only for
-   `text` and `composed` rows, from the token rulesets.
+   `text` and `composed` rows, from the token rulesets. **Colour takes two
+   reads:** `color-rules-ai.md` for the family, then that family's page for the
+   token, by its *When to use* and *Don't use for*. A token its page marks
+   **Not used** is never chosen.
 4. Anything built from parts is `composed`, with an **Inventions** entry holding
    all three parts **When nothing fits** requires. A missing part means the
    whole invention is undeclared.

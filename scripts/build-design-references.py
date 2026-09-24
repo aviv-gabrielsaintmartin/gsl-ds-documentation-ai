@@ -15,6 +15,7 @@ What it copies:
 | The spec format | `specs/spec-rules-ai.md` |
 | What iOS can build | The two iOS name maps |
 | Each component's variants | The `## Variants & Modifiers` section of every component doc, extracted into one file |
+| Which colour token inside a family | The five colour family pages, cut before `## Tokens` — their *When to use · Don't use for* tables, without the value tables |
 
 **Only copying and extracting. Nothing is rewritten for meaning.** Three
 mechanical changes, both because the copy leaves the repo:
@@ -55,6 +56,17 @@ SOURCES = [
 ]
 VARIANTS_FILE = "component-variants.md"
 
+# `color-rules-ai.md` picks the family; these pages pick the token inside it.
+# Copied under their own names so the ruleset's links to them still resolve.
+# Everything from `## Tokens` down is values and is left out.
+COLOUR_FAMILY_PAGES = [
+    "tokens/color/background.md",
+    "tokens/color/surface.md",
+    "tokens/color/border.md",
+    "tokens/color/content.md",
+    "tokens/color/scale.md",
+]
+
 IMAGE = re.compile(r"!\[[^\]]*\]\([^)]*\)")
 LINK = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
 FENCE = re.compile(r"^\s*(```|~~~)")
@@ -92,6 +104,15 @@ def header(source: str) -> str:
     )
 
 
+def usage_only(text: str) -> str:
+    """A colour family page without its opening evidence note and its values."""
+    text = re.split(r"^## Tokens\s*$", text, maxsplit=1, flags=re.M)[0]
+    lines = text.splitlines()
+    while lines and (lines[0].startswith(">") or not lines[0].strip()):
+        lines.pop(0)
+    return "\n".join(lines).rstrip() + "\n"
+
+
 def extract_variants() -> str:
     """One section per component: its H1 title, then its Variants & Modifiers."""
     parts = [
@@ -117,16 +138,24 @@ def main() -> None:
     if OUT.exists():
         shutil.rmtree(OUT)
     OUT.mkdir(parents=True)
-    copied = {Path(s).name for s in SOURCES} | {VARIANTS_FILE}
+    copied = {Path(s).name for s in SOURCES + COLOUR_FAMILY_PAGES} | {VARIANTS_FILE}
 
     for source in SOURCES:
         text = (ROOT / source).read_text()
         (OUT / Path(source).name).write_text(header(source) + rewrite_links(text, copied))
 
+    for source in COLOUR_FAMILY_PAGES:
+        note = (
+            "_Which token to use inside this colour family. The value tables "
+            "are left out: a spec never holds a raw value._\n\n"
+        )
+        text = usage_only((ROOT / source).read_text())
+        (OUT / Path(source).name).write_text(header(source) + note + rewrite_links(text, copied))
+
     variants = rewrite_links(extract_variants(), copied)
     (OUT / VARIANTS_FILE).write_text(header("components/*/*.md") + variants)
 
-    print(f"Wrote {len(SOURCES) + 1} files to {OUT.relative_to(ROOT)}/")
+    print(f"Wrote {len(SOURCES) + len(COLOUR_FAMILY_PAGES) + 1} files to {OUT.relative_to(ROOT)}/")
 
 
 if __name__ == "__main__":
