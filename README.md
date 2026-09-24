@@ -30,6 +30,7 @@ Judge every page in here by one test:
 | Explain this project to someone who doesn't work on it | [project/the-project.md](project/the-project.md) |
 | See how the design process works today, and where AI would help | [project/design-process-map.md](project/design-process-map.md) |
 | **Generate an interface** | The rulesets, and only the rulesets — see the four of them below |
+| Write or read a spec — the file a design agent writes and a build agent reads | [specs/spec-rules-ai.md](specs/spec-rules-ai.md) · worked example [specs/spec-001.md](specs/spec-001.md) |
 | Know what components exist | [components/components-index.md](components/components-index.md) |
 | Know what icons exist | [icons/icons-index.md](icons/icons-index.md) |
 | Know what tokens exist | [tokens/tokens-index.md](tokens/tokens-index.md) · then [tokens/README.md](tokens/README.md) for the folder |

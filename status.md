@@ -46,9 +46,16 @@ findings are now ruled.
 
 ## The next task
 
-**Next: define the spec the design skill writes and `/prototype` reads.**
-Screen, components with variants, tokens and copy, all in neutral names. Top of
-*The iOS demo* in the backlog.
+**Next: map every token a spec uses to its iOS name.** Without it,
+`/prototype` guesses token names. Top of *The iOS demo* in the backlog.
+
+**Done, 24 September: the spec format exists.** `specs/spec-rules-ai.md`, with
+`brief-001` written in it as `specs/spec-001.md`.
+
+- **Eight sections**, in design-system names only. Goals, acceptance criteria and assumptions included.
+- **Each element has a stable ID.** Feedback edits one row, then the prototype rebuilds.
+- **The first check failed**, on three contradictions. All three were fixed.
+- **Not tested:** no fresh agent has written or built from a spec yet.
 
 **Done, 24 September: every component has its iOS name.**
 `components/components-ios-map.md`, 73 of 73.
