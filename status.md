@@ -46,8 +46,15 @@ findings are now ruled.
 
 ## The next task
 
-**Next: write the design skill** — brief in, spec out, then it calls
-`/prototype`. Top of *The iOS demo* in the backlog.
+**Next: run `/design` for real, once** — in a chat opened in `~/gsl-ios`,
+on a fresh idea. Only you can open that chat. Top of *The iOS demo* in the backlog.
+
+**Done, 24 September: the design skill exists.** `skills/design/`, runs from any repo.
+
+- **One flow:** questions, you validate the goals, the screen is designed, `/prototype` builds it.
+- **Feedback in the same chat.** Small changes ask nothing.
+- **Specs saved in `~/gsl-specs/`**, so they outlive the prototype.
+- **Not tested:** it has never run.
 
 **Done, 24 September: every token has its iOS name.** `tokens/tokens-ios-map.md`.
 

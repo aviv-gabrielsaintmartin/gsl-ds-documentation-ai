@@ -1,7 +1,9 @@
+<!-- Generated from `specs/spec-rules-ai.md` on 2026-09-24 by scripts/build-design-references.py. Never edit here: edit the source and re-run the script. -->
+
 # Spec format for AI generation
 
 _The format of a spec: the file a design agent writes and a build agent reads.
-Created 24 September 2026. The worked example is [spec-001.md](spec-001.md)._
+Created 24 September 2026. The worked example is spec-001.md._
 
 ## What a spec is
 
@@ -26,16 +28,16 @@ design agent ── writes ──► spec ── read by ──► build agent �
 name, a code identifier, a file path inside an app, or a raw value such as a hex
 colour or a pixel size. A build agent translates each neutral name with its own
 platform's name maps. On iOS there are two:
-[components-ios-map.md](../components/components-ios-map.md) for components, and
-[tokens-ios-map.md](../tokens/tokens-ios-map.md) for tokens.
+[components-ios-map.md](components-ios-map.md) for components, and
+[tokens-ios-map.md](tokens-ios-map.md) for tokens.
 
 **A spec never says where to build.** The app, the branch, the Figma file or the
 route is the build agent's input, passed beside the spec, never written into it.
 The same spec must be buildable twice, in two places, without an edit.
 
 **A spec never decides which component to use by itself.** The design agent
-decides with [components-rules-ai.md](../components/components-rules-ai.md), the
-token rulesets and [icons-rules-ai.md](../icons/icons-rules-ai.md). The spec
+decides with [components-rules-ai.md](components-rules-ai.md), the
+token rulesets and [icons-rules-ai.md](icons-rules-ai.md). The spec
 records the answer.
 
 ## Where specs live
