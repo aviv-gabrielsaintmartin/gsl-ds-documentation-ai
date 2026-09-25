@@ -68,8 +68,9 @@ exist. Every path below is relative to this skill's folder.
 | `references/component-variants.md` | Every component's **Variants & Modifiers** — the only place a variant name comes from. Headings sit one level lower than in the source doc |
 | `references/color-rules-ai.md`, `typography-rules-ai.md`, `spacing-rules-ai.md`, `radius-rules-ai.md`, `shadow-rules-ai.md`, `border-width-rules-ai.md` | Which tokens are allowed. For colour, `color-rules-ai.md` picks the **family** only |
 | `references/background.md`, `surface.md`, `border.md`, `content.md`, `scale.md` | **Which colour token inside a family**, by *When to use · Don't use for*. Value tables left out |
-| `references/icons-rules-ai.md` | Icons |
-| `references/components-ios-map.md`, `references/tokens-ios-map.md` | What iOS can build, and the iOS name of each design-system name |
+| `references/icons-rules-ai.md` | Which icons are allowed, and how to choose one |
+| `references/icons-index.md` | **Every icon that exists, by exact name.** An icon name in a spec comes from here and nowhere else |
+| `references/components-ios-map.md`, `references/tokens-ios-map.md`, `references/icons-ios-map.md` | What iOS can build, and the iOS name of each design-system name |
 
 **The references are generated, never edited here.** If one seems wrong, say so
 in the hand-off. Do not work around it.
@@ -270,8 +271,9 @@ absolute paths filled in:
 
 ```
 Build the screen described in <~/gsl-specs/spec-NNN.md, absolute>.
-Translate its component and token names with <this skill's
-references/components-ios-map.md> and <references/tokens-ios-map.md>.
+Translate its component, token and icon names with <this skill's
+references/components-ios-map.md>, <references/tokens-ios-map.md> and
+<references/icons-ios-map.md>.
 Build every row of its Screen section in order. Place each block inside the
 screen the spec names, where it says — never as an overlay on the whole app,
 never over the splash screen or a system prompt. Report anything you could not

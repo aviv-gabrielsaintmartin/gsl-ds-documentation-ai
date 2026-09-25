@@ -289,6 +289,18 @@ lists. See **Never select**.
 | **Tooltip** | A brief clarification of one UI element, shown on hover or tap — a single explanation, not a sequence | Persistent inline guidance not tied to a control → **Feedback message** · A guided, multi-step tour → **Coach mark** |
 | **Coach mark** | Contextual onboarding overlays pointing at specific UI elements | Persistent inline guidance not tied to onboarding → **Feedback message** · A single brief clarification rather than a guided tour → **Tooltip** |
 
+**A Tag's style comes from its role, never from how loud it should look.** Gabriel, 25 September 2026, from how the iOS and Android apps use tags today. The same table is in the Tag doc, under **Style by role**:
+
+| What the tag says | Example labels | Style | Hierarchy | Icon |
+| --- | --- | --- | --- | --- |
+| **The item is new** — a listing just published | "New" | `Primary` | `Strong` | Yes — `fire` |
+| **A feature is on trial** | "Beta" | `Information` | `Weak` | No rule. Add one only when it makes the meaning clearer |
+| **The user's own history with this item** | "Seen", "Contacted" | `Light` | — | Yes. Choose it by the icon rules |
+| **A neutral attribute of the item** | "Furnished", "3 rooms" | `Subdued` | — | No rule. Add one only when it makes the meaning clearer |
+| **A system state** — something the system decided about the item | "Sold out", "Expired" | The status that matches the meaning: `Error`, `Success`, `Information` or `Warning` | `Strong` or `Weak`. No rule decides between them yet | No rule. Add one only when it makes the meaning clearer |
+
+**`Dark` and `Secondary` have no role in this table.** If no row matches the tag's role, do not reach for either. Stop and report the tag's role as unmatched. **The surface behind the tag never chooses the style.** Swap to another style only when the role's style fails contrast on that surface, and report the swap with the reason.
+
 ### Asking the user for something
 
 *The rows above tell the user something. These two ask.*

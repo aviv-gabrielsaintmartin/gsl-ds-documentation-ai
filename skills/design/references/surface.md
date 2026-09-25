@@ -1,4 +1,4 @@
-<!-- Generated from `tokens/color/surface.md` on 2026-09-24 by scripts/build-design-references.py. Never edit here: edit the source and re-run the script. -->
+<!-- Generated from `tokens/color/surface.md` on 2026-09-25 by scripts/build-design-references.py. Never edit here: edit the source and re-run the script. -->
 
 _Which token to use inside this colour family. The value tables are left out: a spec never holds a raw value._
 

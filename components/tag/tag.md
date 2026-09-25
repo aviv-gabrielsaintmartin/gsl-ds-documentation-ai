@@ -31,20 +31,40 @@ Tags are non-interactive labels used to display information or status that canno
 ### Variant Selection Flow
 
 ```
-Context and style — chosen by meaning and by the surface behind it
-├─ Strongest emphasis → Dark
-├─ Lowest emphasis → Subdued or Light
-├─ Brand emphasis → Primary or Secondary
-└─ Status → Error · Success · Information · Warning
-   └─ Emphasis signals importance, never decoration
+Style and hierarchy — chosen by the tag's role, in the table below
+└─ The surface behind the tag never chooses the style
+   └─ Swap only when the role's style fails contrast on that surface
 
-Icon — mandatory when the label is dropped; otherwise optional
-└─ Add one only when it makes the tag's meaning clearer
+Icon — set by the role where the table says so
+├─ Mandatory when the label is dropped
+└─ Otherwise add one only when it makes the tag's meaning clearer
 
 Label
 ├─ Almost always → With label
 └─ The icon is universally recognised → Without label, and the icon becomes mandatory
 ```
+
+#### Style by role
+
+**Choose the style from what the tag says, never from how loud it should look.**
+Find the row that matches the tag's role. Use its style, its hierarchy and its
+icon.
+
+| What the tag says | Example labels | Style | Hierarchy | Icon |
+| --- | --- | --- | --- | --- |
+| **The item is new** — a listing just published | "New" | `Primary` | `Strong` | Yes — `fire` |
+| **A feature is on trial** | "Beta" | `Information` | `Weak` | No rule. Add one only when it makes the meaning clearer |
+| **The user's own history with this item** | "Seen", "Contacted" | `Light` | — | Yes. Choose it by the icon rules |
+| **A neutral attribute of the item** | "Furnished", "3 rooms" | `Subdued` | — | No rule. Add one only when it makes the meaning clearer |
+| **A system state** — something the system decided about the item | "Sold out", "Expired" | The status that matches the meaning: `Error`, `Success`, `Information` or `Warning` | `Strong` or `Weak`. No rule decides between them yet | No rule. Add one only when it makes the meaning clearer |
+
+**`Dark` and `Secondary` have no role in this table.** If no row matches the tag's
+role, do not reach for either. Stop and report the tag's role as unmatched.
+
+**The surface swaps a style only when contrast fails.** A tag on a photo or a
+dark surface keeps its role's style when that style stays readable. When it does
+not, choose another style that stays readable, and report the swap with the
+reason.
 
 ### Usage Guidance
 
@@ -80,10 +100,21 @@ Tags are available in a variety of styles to suit different visual contexts and 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ![](images/92e1082ee2270b02819095.png) |  | ![](images/2c2a4bab596adfc43afd9b.png) |  |  |  |  |  |  |
 
+Which style to use is decided by the tag's role. The rule is the **Style by
+role** table. It is in this doc's *Usage* section, and the same table is in the
+component ruleset, `components-rules-ai.md`, under *Providing feedback and
+status*.
+
 | DO |
 | --- |
 | ![DO](images/bf2bf19e9616ce6cc2a8fa.png) **DO:** Use tags with different emphasis to indicate the level of importance. |
 | ![DO](images/771d9c7e8fef053cf9ab6d.png) **DO:** Use tags to communicate the status of items. |
+
+### Hierarchy
+
+`Strong` or `Weak`. **Only `Primary` and the four status styles carry it** —
+`Error`, `Success`, `Information` and `Warning`. `Dark`, `Subdued`,
+`Secondary` and `Light` have no hierarchy.
 
 ### Modifiers
 

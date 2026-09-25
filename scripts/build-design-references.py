@@ -13,7 +13,8 @@ What it copies:
 | --- | --- |
 | The component, token and icon rulesets | Every `-rules-ai.md` an agent generates from |
 | The spec format | `specs/spec-rules-ai.md` |
-| What iOS can build | The two iOS name maps |
+| Which icons exist | `icons/icons-index.md` |
+| What iOS can build | The three iOS name maps — components, tokens and icons |
 | Each component's variants | The `## Variants & Modifiers` section of every component doc, extracted into one file |
 | Which colour token inside a family | The five colour family pages, cut before `## Tokens` — their *When to use · Don't use for* tables, without the value tables |
 
@@ -51,8 +52,10 @@ SOURCES = [
     "tokens/shadow/shadow-rules-ai.md",
     "tokens/border-width/border-width-rules-ai.md",
     "icons/icons-rules-ai.md",
+    "icons/icons-index.md",
     "components/components-ios-map.md",
     "tokens/tokens-ios-map.md",
+    "icons/icons-ios-map.md",
 ]
 VARIANTS_FILE = "component-variants.md"
 

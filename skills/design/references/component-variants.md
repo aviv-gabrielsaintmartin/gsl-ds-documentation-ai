@@ -1,4 +1,4 @@
-<!-- Generated from `components/*/*.md` on 2026-09-24 by scripts/build-design-references.py. Never edit here: edit the source and re-run the script. -->
+<!-- Generated from `components/*/*.md` on 2026-09-25 by scripts/build-design-references.py. Never edit here: edit the source and re-run the script. -->
 
 # Component variants
 
@@ -2947,10 +2947,21 @@ Tags are available in a variety of styles to suit different visual contexts and 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  |  |  |  |  |
 
+Which style to use is decided by the tag's role. The rule is the **Style by
+role** table. It is in this doc's *Usage* section, and the same table is in the
+component ruleset, `components-rules-ai.md`, under *Providing feedback and
+status*.
+
 | DO |
 | --- |
 |  **DO:** Use tags with different emphasis to indicate the level of importance. |
 |  **DO:** Use tags to communicate the status of items. |
+
+#### Hierarchy
+
+`Strong` or `Weak`. **Only `Primary` and the four status styles carry it** —
+`Error`, `Success`, `Information` and `Warning`. `Dark`, `Subdued`,
+`Secondary` and `Light` have no hierarchy.
 
 #### Modifiers
 

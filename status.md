@@ -38,10 +38,11 @@ _Your one page. One screen, never longer. Everything else is in
 
 ## The next task
 
-**Task A — fix the rules Test 1 exposed.** Icons into the design skill, a tag
-rule by role, then regenerate the skill. Details in the backlog.
+**Task B — the schools PRD with its content, then Test 2 on iOS.** You run
+it in `~/gsl-ios`. Details in the backlog.
 
-**Then Task B:** the schools PRD with its content, and Test 2 on iOS.
+**Task A is done, 25 September:** the design skill can name icons, translate
+them for iOS, and pick a tag's style by its role.
 
 **Test 1, 25 September:** same structure as the designer's screen. The gaps
 were in the PRD's content and in two rules.

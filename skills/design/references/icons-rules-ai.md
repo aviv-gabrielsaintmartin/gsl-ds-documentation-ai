@@ -1,9 +1,9 @@
-<!-- Generated from `icons/icons-rules-ai.md` on 2026-09-24 by scripts/build-design-references.py. Never edit here: edit the source and re-run the script. -->
+<!-- Generated from `icons/icons-rules-ai.md` on 2026-09-25 by scripts/build-design-references.py. Never edit here: edit the source and re-run the script. -->
 
 # Icon rules for AI generation
 
 _The authoritative ruleset for icons when generating a GSL interface. What exists
-is icons-index.md. The evidence, the defective names and the
+is [icons-index.md](icons-index.md). The evidence, the defective names and the
 open questions are in `icons-audit.md`, **which a generating agent must not
 read**. Components: [components-rules-ai.md](components-rules-ai.md).
 Colour: [color-rules-ai.md](color-rules-ai.md)._
@@ -64,7 +64,7 @@ presses it. The test is whether the user can act on it, never how it looks.
 
 *The name in the index is the whole of the match.*
 
-Names are reproduced in icons-index.md exactly as the library
+Names are reproduced in [icons-index.md](icons-index.md) exactly as the library
 holds them. **Fifteen break the lowercase-kebab convention, and three carry a
 trailing space.** `eye slash`, `smart fill`, `Save`, `RDC` and `assistance `
 are the real strings — an approximate match, a tidied match or a guessed
@@ -79,7 +79,7 @@ hyphenation finds nothing.
 
 They look almost the same and mean different things, so **never pick between
 them by appearance** — pick by what you are saying. See
-icons-index.md for both rows.
+[icons-index.md](icons-index.md) for both rows.
 
 **One name is a typo, and the typo is still the name today:**
 
