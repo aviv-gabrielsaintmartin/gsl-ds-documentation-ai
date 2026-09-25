@@ -38,12 +38,13 @@ _Your one page. One screen, never longer. Everything else is in
 
 ## The next task
 
-**Make the iOS workflow work, end to end.** Input: a real PRD, a schools block
-on the classified page. Recorded for the CPO, never shown live. Every gap the
-run hits gets named. Run `/design` in a fresh chat in `~/gsl-ios`, now on
-the latest `develop`.
+**Task A — fix the rules Test 1 exposed.** Icons into the design skill, a tag
+rule by role, then regenerate the skill. Details in the backlog.
 
-Then the plan: deadlines, the product design cycle, ending in production.
+**Then Task B:** the schools PRD with its content, and Test 2 on iOS.
+
+**Test 1, 25 September:** same structure as the designer's screen. The gaps
+were in the PRD's content and in two rules.
 
 ---
 
