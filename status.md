@@ -38,8 +38,11 @@ _Your one page. One screen, never longer. Everything else is in
 
 ## The next task
 
-**Task B — the schools PRD with its content, then Test 2 on iOS.** You run
-it in `~/gsl-ios`. Details in the backlog.
+**Test 2 on iOS — you run it.** Paste `~/gsl-specs/prd-schools.md`, below
+its line, into a session in `~/gsl-ios`. Then we compare with the designer.
+
+**The Test 2 PRD is written, 25 September.** It holds the designer's content
+word for word, and names no component or layout.
 
 **Task A is done, 25 September:** the design skill can name icons, translate
 them for iOS, and pick a tag's style by its role.
