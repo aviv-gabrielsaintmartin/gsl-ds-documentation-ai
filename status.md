@@ -38,17 +38,13 @@ _Your one page. One screen, never longer. Everything else is in
 
 ## The next task
 
-**Test 2 on iOS — you run it.** Paste `~/gsl-specs/prd-schools.md`, below
-its line, into a session in `~/gsl-ios`. Then we compare with the designer.
+**Task C — two rules from Test 2.** When a block gets a card, and which
+colour. How a block's title differs inside a section. Evidence first, from the
+apps and Figma links you share. **A proposal only** — no file changes until
+you approve it.
 
-**The Test 2 PRD is written, 25 September.** It holds the designer's content
-word for word, and names no component or layout.
-
-**Task A is done, 25 September:** the design skill can name icons, translate
-them for iOS, and pick a tag's style by its role.
-
-**Test 1, 25 September:** same structure as the designer's screen. The gaps
-were in the PRD's content and in two rules.
+**Test 2, 25 September:** all PRD content on screen, both cases working. What
+is left is rules and the iOS build. Nine gaps logged for the CPO plan.
 
 ---
 
