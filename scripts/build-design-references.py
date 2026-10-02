@@ -17,6 +17,7 @@ What it copies:
 | What iOS can build | The three iOS name maps — components, tokens and icons |
 | Each component's variants | The `## Variants & Modifiers` section of every component doc, extracted into one file |
 | Which colour token inside a family | The five colour family pages, cut before `## Tokens` — their *When to use · Don't use for* tables, without the value tables |
+| How Figma places each name | The `figma/*.json` registries, laid out as one table per kind in `figma-map.md`: library, key, node ID |
 
 **Only copying and extracting. Nothing is rewritten for meaning.** Three
 mechanical changes, both because the copy leaves the repo:
@@ -33,6 +34,7 @@ Re-run it after changing any file listed in SOURCES, or any component doc's
 variants. It deletes and rewrites `skills/design/references/` whole.
 """
 
+import json
 import re
 import shutil
 from datetime import date
@@ -68,6 +70,15 @@ COLOUR_FAMILY_PAGES = [
     "tokens/color/border.md",
     "tokens/color/content.md",
     "tokens/color/scale.md",
+]
+
+FIGMA_MAP_FILE = "figma-map.md"
+# Registry file, and the library tier it describes, for each component registry.
+FIGMA_COMPONENT_REGISTRIES = [
+    ("figma/figma-components-registry.json", "components"),
+    ("figma/figma-patterns-registry.json", "patterns"),
+    ("figma/figma-experiences-registry.json", "experiences"),
+    ("figma/figma-foundations-components-registry.json", "foundations"),
 ]
 
 IMAGE = re.compile(r"!\[[^\]]*\]\([^)]*\)")
@@ -137,11 +148,121 @@ def extract_variants() -> str:
     return "".join(parts)
 
 
+def inventory_names() -> list[str]:
+    """Every component name in `## The inventory` of components-rules-ai.md."""
+    text = (ROOT / "components" / "components-rules-ai.md").read_text()
+    m = re.search(r"^## The inventory\s*$(.*?)(?=^## |\Z)", text, re.M | re.S)
+    return re.findall(r"^\| `([^`]+)`", m.group(1), re.M) if m else []
+
+
+def cell(value) -> str:
+    return f"`{value}`" if value else "—"
+
+
+def figma_map() -> str:
+    """One table per kind — components, tokens, icons — from the Figma registries."""
+    tiers = json.loads((ROOT / "figma" / "figma-libraries-registry.json").read_text())["tiers"]
+    parts = [
+        "# Figma names and keys\n\n"
+        "Joins each design-system name a spec uses to the Figma key that places "
+        "it. Generated from the `figma/*.json` registries.\n\n"
+        "**This file never decides which component or token to use.** "
+        "`components-rules-ai.md` and the token rulesets decide that. This file "
+        "only finds, in Figma, a name that was already chosen.\n\n"
+        "**The spec keeps the design-system name.** A key or a node ID never "
+        "appears in a spec.\n\n"
+        "## Libraries\n\n"
+        "| Tier | Figma library name |\n| --- | --- |\n"
+    ]
+    parts += [f"| {tier} | `{t['name']}` |\n" for tier, t in tiers.items()]
+
+    parts.append(
+        "\n## How to read a key\n\n"
+        "| Kind | What the key is | How to import it |\n| --- | --- | --- |\n"
+        "| Component with variants | The **component set** key | "
+        "`figma.importComponentSetByKeyAsync(key)`, then pick the variant. "
+        "If it throws *not found*, try `figma.importComponentByKeyAsync(key)` "
+        "— the key is then a single component |\n"
+        "| Icon | The **component set** key. **Proved 14 September 2026**: "
+        "`importComponentByKeyAsync` throws *not found* on these keys | "
+        "`figma.importComponentSetByKeyAsync(key)` |\n"
+        "| Colour, spacing, radius, border width | A **variable** key | "
+        "`figma.variables.importVariableByKeyAsync(key)`, then bind it |\n"
+        "| Text style, shadow | A **style** key | `figma.importStyleByKeyAsync(key)` |\n"
+    )
+
+    known: set[str] = set()
+    parts.append(
+        "\n## Components\n\n"
+        "**Pattern 2** means the component has an exposed inner slot. Set the "
+        "slot's own properties on the nested instance, found by its main "
+        "component key in **Exposed slots** — never through the parent's "
+        "properties.\n\n"
+        "| Name | Library | Key | Node ID | Pattern | Variants |\n"
+        "| --- | --- | --- | --- | --- | --- |\n"
+    )
+    slots = []
+    for path, tier in FIGMA_COMPONENT_REGISTRIES:
+        entries = json.loads((ROOT / path).read_text())["components"]
+        for name, e in sorted(entries.items()):
+            known.add(name)
+            parts.append(
+                f"| `{name}` | {tier} | {cell(e.get('key'))} | {cell(e.get('nodeId'))} "
+                f"| {e.get('pattern', '—')} | {e.get('variantCount', '—')} |\n"
+            )
+            for s in e.get("exposedSubComponents", []):
+                slots.append(
+                    f"| `{name}` | {', '.join(f'`{x}`' for x in s.get('exposedAs', []))} "
+                    f"| {cell(s.get('name'))} | {cell(s.get('key'))} |\n"
+                )
+
+    missing = [n for n in inventory_names() if n.split(" ⚠︎")[0] not in known]
+    parts.append(
+        "\n**Names in The inventory with no Figma key here:** "
+        + (", ".join(f"`{n}`" for n in missing) if missing else "none")
+        + ". Find one of these by name in its library, and report that it had "
+        "no key.\n"
+    )
+
+    parts.append(
+        "\n### Exposed slots\n\n"
+        "| Parent | Exposed as | Nested component | Nested key |\n"
+        "| --- | --- | --- | --- |\n" + "".join(slots)
+    )
+
+    tokens = json.loads((ROOT / "figma" / "figma-tokens-registry.json").read_text())
+    parts.append(
+        "\n## Tokens\n\n"
+        "**A colour in a spec may omit the leading `Color/`.** `Content/Default/Default` "
+        "in a spec is `Color/Content/Default/Default` here. Every other kind "
+        "is written the same in both.\n\n"
+        "**Never write a raw value where a token exists.** Bind the variable or "
+        "apply the style, so a brand or theme switch still works.\n"
+    )
+    for kind, c in tokens["categories"].items():
+        parts.append(
+            f"\n### {kind}\n\n_Collection: `{c['collection']}`._\n\n"
+            "| Figma name | Key |\n| --- | --- |\n"
+        )
+        parts += [f"| `{t['name']}` | `{t['key']}` |\n" for t in c["tokens"]]
+
+    icons = json.loads((ROOT / "figma" / "figma-icons-registry.json").read_text())
+    parts.append(
+        "\n## Icons\n\n"
+        "Every icon key is a component set key. Set `Filled`, `Circle` and "
+        "`Square` only when the spec asks: all three default to `Off`.\n\n"
+        "| Name | Category | Key |\n| --- | --- | --- |\n"
+    )
+    for category, c in icons["categories"].items():
+        parts += [f"| `{i['name']}` | {category} | `{i['key']}` |\n" for i in c["icons"]]
+    return "".join(parts)
+
+
 def main() -> None:
     if OUT.exists():
         shutil.rmtree(OUT)
     OUT.mkdir(parents=True)
-    copied = {Path(s).name for s in SOURCES + COLOUR_FAMILY_PAGES} | {VARIANTS_FILE}
+    copied = {Path(s).name for s in SOURCES + COLOUR_FAMILY_PAGES} | {VARIANTS_FILE, FIGMA_MAP_FILE}
 
     for source in SOURCES:
         text = (ROOT / source).read_text()
@@ -158,7 +279,9 @@ def main() -> None:
     variants = rewrite_links(extract_variants(), copied)
     (OUT / VARIANTS_FILE).write_text(header("components/*/*.md") + variants)
 
-    print(f"Wrote {len(SOURCES) + len(COLOUR_FAMILY_PAGES) + 1} files to {OUT.relative_to(ROOT)}/")
+    (OUT / FIGMA_MAP_FILE).write_text(header("figma/*.json") + figma_map())
+
+    print(f"Wrote {len(SOURCES) + len(COLOUR_FAMILY_PAGES) + 2} files to {OUT.relative_to(ROOT)}/")
 
 
 if __name__ == "__main__":

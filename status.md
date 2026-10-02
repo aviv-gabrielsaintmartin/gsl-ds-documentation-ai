@@ -1,7 +1,7 @@
 # Status
 
 _Your one page. One screen, never longer. Everything else is in
-[project/backlog.md](project/backlog.md). Updated 25 September 2026._
+[project/backlog.md](project/backlog.md). Updated 2 October 2026._
 
 ---
 
@@ -28,7 +28,7 @@ _Your one page. One screen, never longer. Everything else is in
 | **1. Understand the need** | `/design` asks questions; you validate goals | No rule for what a screen should say |
 | **2. Choose the parts** | Components ruled; colour ruled; iOS name maps | Five token kinds; variant meanings; illustrations |
 | **3. Write the spec** | `specs/spec-rules-ai.md`; `spec-001`, `spec-002` | No field for where a block goes |
-| **4. Build the screen** | iOS: `/prototype`. Android: `/vibe` | Neither reads a spec yet. One iOS run misplaced the block |
+| **4. Build the screen** | iOS: `/prototype`. Android: `/vibe`. **Figma: `/design` itself, 2 Oct** | iOS and Android don't read a spec yet. Figma: ten gaps to improve |
 | **5. Check the result** | A scorecard, written for Figma | Nothing checks an app build |
 
 **One brief has gone through stations 1 to 4, on iOS.** Proved: `spec-002`,
@@ -38,10 +38,11 @@ _Your one page. One screen, never longer. Everything else is in
 
 ## The next task
 
-**Task C — two rules from Test 2.** When a block gets a card, and which
-colour. How a block's title differs inside a section. Evidence first, from the
-apps and Figma links you share. **A proposal only** — no file changes until
-you approve it.
+**Audit the live web site: surfaces, cards, block titles.** Detail page,
+market insights, estimation, at mobile and desktop widths. It unblocks
+**Task C**, whose card and title rules you held back on 25 September:
+Figma, iOS and Android alone were not enough. Your idea to test: grey is set
+by contrast with the white base, not by content.
 
 **Test 2, 25 September:** all PRD content on screen, both cases working. What
 is left is rules and the iOS build. Nine gaps logged for the CPO plan.
