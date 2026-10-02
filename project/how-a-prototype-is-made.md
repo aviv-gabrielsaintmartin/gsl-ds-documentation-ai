@@ -88,7 +88,7 @@ the screen does what you asked. Whether it is *good* stays your judgement.
 | Components, variants, colours, text styles, spacing, icons — chosen from the design system's rules, then written as the spec | The skill, automatically |
 
 - **Reuse before invention.** Anything built outside the design system is declared.
-- **Only what iOS can build.** Components iOS lacks are avoided.
+- **Only what the platform can build.** On iOS, components iOS lacks are avoided.
 - **Every guess is written down** as an assumption. Nothing invented is hidden.
 
 **Why automatic:** the rules already answer these questions. Asking you would
@@ -100,8 +100,12 @@ only slow you down.
 | --- | --- |
 | The spec is handed to `/prototype`, which builds it in SwiftUI on a throwaway branch | `/prototype`, in the same chat |
 
-**Outside the iOS repo**, the skill stops at the spec. Android, web and Figma
-have no build yet.
+**In Figma**, the skill builds the screen itself, through figma-cli, in the
+file you have open. It places only design-system library components, and
+builds the layout between them from tokens. On an existing screen, it works in
+a copy. The rules are in the skill's **Figma** section.
+
+**Android and web** have no build yet. The skill stops at the spec.
 
 ### 6 · Feedback
 
@@ -151,6 +155,7 @@ spec be built on Android later.
 | [specs/spec-001.md](../specs/spec-001.md) | A worked example |
 | [components/components-ios-map.md](../components/components-ios-map.md) | Component names on iOS. `Text Button` → `DSTextButton`. By hand: 44 proved, 5 guessed |
 | [tokens/tokens-ios-map.md](../tokens/tokens-ios-map.md) | Token names on iOS. By a script: 248 of 283 proved, none guessed |
+| `skills/design/references/figma-map.md` | The Figma key of every component, token and icon. Generated from the four Figma registries by the same script as the rest of `references/` |
 
 **The maps never decide.** The rules choose a component or a token. A map only
 translates the name for iOS, and tells the skill what iOS lacks.
@@ -172,7 +177,9 @@ your local copy.
 
 ## What is not proved yet
 
-- **The design skill has never run.** The first real run is the next task.
+- **The Figma build has run on one spec only**, `spec-002`, on 2 October 2026.
+  A fresh agent built it first try and a scorer found no failures. Ten gaps
+  were logged to improve.
 - **`/prototype` has not been taught to read a spec.** It is pointed at the file
   in plain words. **Guessing** it follows it well.
 - **No iOS engineer has confirmed either map.** Five component names are guesses.
