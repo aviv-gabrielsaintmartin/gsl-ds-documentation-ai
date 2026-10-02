@@ -1,4 +1,4 @@
-<!-- Generated from `specs/spec-rules-ai.md` on 2026-09-25 by scripts/build-design-references.py. Never edit here: edit the source and re-run the script. -->
+<!-- Generated from `specs/spec-rules-ai.md` on 2026-10-02 by scripts/build-design-references.py. Never edit here: edit the source and re-run the script. -->
 
 # Spec format for AI generation
 
@@ -204,6 +204,18 @@ part counts as the whole invention being undeclared:
 **What needs declaring follows `components-rules-ai.md`, unchanged.** A frame
 that only stacks things, and plain text in a published text style, are not
 declared.
+
+**Every group inside What is built has its own ID.** A group is any row or
+stack that holds more than one part. Write its ID in backticks where the group
+is named, following the **ID** column's rule: `a vertical stack welcome.text of
+welcome.title over welcome.message`. The ID is unique in the spec, like any
+other. **A part sitting in that group names it in its Inside column.** The
+group itself gets no row in the table and no declaration of its own.
+
+**Why:** a build agent names every node it creates by an ID. A group described
+without one forces it to invent a name, and feedback can then never point at
+that group. Gabriel, 2 October 2026, after the second Figma build of `spec-002`
+needed a wrapper the spec never named.
 
 ### Change log
 

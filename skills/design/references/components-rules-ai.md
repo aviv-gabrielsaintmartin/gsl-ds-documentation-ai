@@ -1,4 +1,4 @@
-<!-- Generated from `components/components-rules-ai.md` on 2026-09-25 by scripts/build-design-references.py. Never edit here: edit the source and re-run the script. -->
+<!-- Generated from `components/components-rules-ai.md` on 2026-10-02 by scripts/build-design-references.py. Never edit here: edit the source and re-run the script. -->
 
 # Component rules for AI generation
 
@@ -360,6 +360,24 @@ shows one.
 | **Rating** | Displaying user rating results — non-interactive, from Opinion System | — |
 | **Energy tag** | Property energy efficiency ratings **only**. Use the correct country/region variant | — |
 | **Badge store** | **Offering the user a download of the app** — the App Store or Google Play button. Our replicas of the official badges, kept here so they can be maintained. **Mostly a footer or a landing page.** Gabriel, 21 September 2026 | Any other link → **Link** · A count or marker pinned to a component → **Badge**, which is a different component one word away |
+
+#### An illustration slot is filled, never left empty
+
+**When a component you placed carries an illustration slot, fill it with an
+illustration from the Foundations library.** Never leave the slot empty, never
+leave its placeholder showing, and never draw an illustration by hand.
+Gabriel, 2 October 2026.
+
+- **Four components carry one**, proved on 2 October 2026 from their recorded
+  slots: `Info State`, `Feedback Bar`, `Media Upload`, `Select Card Group`.
+- **Illustrations have a fixed size**, set by the illustration itself. Never
+  resize one to fit.
+- **No usage doc exists for illustrations yet.** Choose the one whose name is
+  closest to what the content is about, and **report which one you chose and
+  that no rule guided the choice**.
+- **An illustration outside a component's slot has no rule yet.** Treat it as
+  anything built outside the design system: go to **When nothing fits** and
+  declare it.
 
 ---
 

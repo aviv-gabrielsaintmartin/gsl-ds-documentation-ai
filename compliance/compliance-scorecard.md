@@ -87,8 +87,8 @@ label, which is what a ledger is for.
 
 ## The questions, by step
 
-Designing a screen is seven steps. **Each section below is one step.** Four steps
-have questions; three have none, and say so rather than being left out — an
+Designing a screen is seven steps. **Each section below is one step.** Five steps
+have questions; two have none, and say so rather than being left out — an
 absent step reads as an oversight, a step that states its own emptiness reads as
 a known gap.
 
@@ -244,11 +244,26 @@ authorised token. A subdued surface where a default one was meant passes.
 
 ### Put them on the screen
 
-**No question yet.**
+**Did a placed component's illustration slot get an illustration?**
 
-Nothing checks whether a placed component carries the content the brief asked
-for — an agent can place a `Text Field` and leave its label empty, and every
-question above still answers `no`.
+| Question | A `yes` means | Enforces | What the scorer must see |
+| --- | --- | --- | --- |
+| Was any illustration slot left empty, left showing its placeholder, or filled with something other than a library illustration? | **Failure** | **An illustration slot is filled, never left empty**, in `components-rules-ai.md` | Every placed instance of `Info State`, `Feedback Bar`, `Media Upload` and `Select Card Group`, and what fills its illustration slot |
+
+**Which illustration was chosen is not judged.** No usage doc exists for
+illustrations yet, so a wrong choice cannot fail. Only an empty slot can.
+
+**An illustration outside a component's slot is not asked about here.** It is
+hand-built, so **Define the components to use** and **Define what needs to be
+built** already see it. **This means a brief that asks for an illustration can
+still be met by an empty frame without failing**, as `spec-002`'s banner was on
+2 October 2026. Stated so the gap stays visible.
+
+Added by Gabriel, 2 October 2026. Runs scored before that date have no answer
+to it, and are compared without it.
+
+**Nothing else is checked yet.** An agent can place a `Text Field` and leave its
+label empty, and every question above still answers `no`.
 
 ---
 
@@ -591,7 +606,7 @@ Rulings: `awaiting decision` · `agent error` · `ruleset gap` · `library defec
 | Choose the tokens | Was a library component's internal styling overridden? | **yes** | The donut chart's internal spacing was changed |
 | Choose the tokens | Was any deny-listed token used? | no | — |
 | Choose the tokens | Was any token used that is not in the GSL token set? | no | — |
-| Put them on the screen | _no question yet_ | — | — |
+| Put them on the screen | Was any illustration slot left empty, left showing its placeholder, or filled with something other than a library illustration? | no | — |
 | Place them according to the design guidance | _inactive_ | — | — |
 | Check the content | _no question yet_ | — | — |
 

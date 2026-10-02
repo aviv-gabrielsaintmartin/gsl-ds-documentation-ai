@@ -28,7 +28,7 @@ _Your one page. One screen, never longer. Everything else is in
 | **1. Understand the need** | `/design` asks questions; you validate goals | No rule for what a screen should say |
 | **2. Choose the parts** | Components ruled; colour ruled; iOS name maps | Five token kinds; variant meanings; illustrations |
 | **3. Write the spec** | `specs/spec-rules-ai.md`; `spec-001`, `spec-002` | No field for where a block goes |
-| **4. Build the screen** | iOS: `/prototype`. Android: `/vibe`. **Figma: `/design` itself, 2 Oct** | iOS and Android don't read a spec yet. Figma: ten gaps to improve |
+| **4. Build the screen** | iOS: `/prototype`. Android: `/vibe`. **Figma: `/design` itself, 2 Oct** | iOS and Android don't read a spec yet. Figma: illustration and card padding still open |
 | **5. Check the result** | A scorecard, written for Figma | Nothing checks an app build |
 
 **One brief has gone through stations 1 to 4, on iOS.** Proved: `spec-002`,

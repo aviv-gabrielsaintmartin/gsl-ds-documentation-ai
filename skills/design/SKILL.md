@@ -145,7 +145,7 @@ it. **Never more than nine.**
 | 6 | What must it show? Which real information does it use? | **Assumptions** now, **Data** in step 2 |
 | 7 | Looking at the finished screen, what would tell you it works? | **Acceptance criteria** |
 | 8 | Which brand? | Header **Brand**. `SeLoger` when unanswered, as an `open` assumption |
-| 9 | Which platform is this for — iOS, Android, web, or Figma? **Skipped when the check above found one** | One assumption, and header **Width** |
+| 9 | Which platforms will this be built on — iOS, Android, web, Figma? More than one is a full answer. **When the check above found one**, ask only: _"Will it also be built anywhere else?"_ | One assumption, and header **Width** |
 
 **Question 7 must yield things visible on the screen.** A business metric — "more
 leads" — cannot be checked by looking at a screen. Record it as an assumption
@@ -153,8 +153,11 @@ about the goal it supports, then ask one follow-up: _"What would someone see on
 the screen that makes that likely?"_ The follow-up does not count towards the
 nine. With no answer, write the criterion yourself and mark it `assumed`.
 
-**The platform shapes the choices in step 2. It never enters the spec.** Record
-it as one assumption: `Components were chosen to be buildable on <platform>`.
+**The platforms shape the choices in step 2. They never enter the spec.**
+Record them as one assumption, every target named:
+`Components were chosen to be buildable on <platform>, <platform>`.
+**One spec serves every target.** It is built on each in any order, never
+rewritten per platform. Gabriel, 2 October 2026.
 **Width:** iOS and Android are `mobile` unless the person says tablet. Web and
 Figma use `mobile`, as an `open` assumption.
 
@@ -202,7 +205,9 @@ it in **The inventory**.
 
 `components-rules-ai.md` says, under **Web, iOS and Android**: _if your target
 platform is web, iOS or Android, ask before selecting._ The build check and
-question 9 are that ask. Apply this table to every component and token chosen.
+question 9 are that ask. Apply this table to every component and token chosen,
+**once per target platform**. A component must pass on every target. When one
+fails on any target, choose another the rules allow for the same problem.
 
 **For iOS**, look up the name's status in the iOS maps:
 
@@ -301,6 +306,11 @@ Then tell the person, in plain words:
 Every component, token and icon is placed from the GSL libraries by its key in
 `references/figma-map.md`. Nothing is drawn by hand that a library holds.
 
+**When the spec's platform assumption does not name Figma**, check each
+component against the **Figma** part of **Platform limits** in
+`components-rules-ai.md` before drawing. Build anyway, and report each one that
+fails by element ID. Never change the spec.
+
 ### What to place, in this order
 
 ```
@@ -375,6 +385,11 @@ more.** They opened it.
 
 - **Create one new top-level frame** on the current page, to the right of
   everything already there. Name it `spec-NNN — <spec title>`.
+- **The frame's fill is a `Background` colour token, bound, never a raw
+  colour.** Choose it by role, from `background.md`. **`Background/Default` is
+  the usual answer**: the base canvas behind all content. Another `Background`
+  token only when the spec asks for what its *When to use* describes.
+  Gabriel, 2 October 2026.
 - **Never move, edit or delete anything else in the file.**
 - **Width:** `mobile` 360, `tablet` 768, `desktop` 1440. **No rule sets these
   yet.** Mobile is 360 because the reference detail page in the
@@ -387,8 +402,7 @@ more.** They opened it.
   it, place the copy to the right of everything, name it
   `spec-NNN — <spec title>`, and insert the block where the spec says.
   **A part of the copied screen is never reused** for the spec's own rows.
-- **When the file has no such screen**, draw the block on its own. Write the
-  screen's name and the block's position in an annotation on the frame.
+- **When the file has no such screen**, draw the block on its own.
 
 ### How to draw each row
 
@@ -404,6 +418,13 @@ more.** They opened it.
 | **`text`** | Create a text node. Import its text style by key and apply it. Load the style's font before writing. Import its colour variable and bind the fill. Write the copy exactly as the spec quotes it |
 | **`composed`** | Build what its **Inventions** entry describes under **What is built**, part by part. Every token it names is bound, never typed as a value |
 | **An icon** | Import it by its key from **Icons** in `figma-map.md`. Leave `Filled`, `Circle` and `Square` at `Off` unless the spec sets them |
+| **An icon inside a component** — a button's icon, for example | Import the icon as above. Set it through the component's own icon property, the instance-swap property whose name holds `Icon`, to the icon's default variant. Never place the icon beside the component |
+
+**A variant the spec leaves unset takes the component doc's default, never
+Figma's.** Gabriel, 2 October 2026. They differ: `Button`'s doc default height is
+40, and Figma's default instance is 48. Read the default from that component's
+section in `component-variants.md`, and set it. When the doc names no default,
+keep Figma's, and report it at hand-off.
 
 **Matching a variant.** The spec's axis and value names come from the
 component docs. **Figma's names often differ**, proved on 2 October 2026: the
@@ -443,8 +464,7 @@ final width.
 **Copy inside a library component** goes into that component's text
 property. Never edit a text layer inside an instance by hand.
 
-**The Behaviour column cannot be drawn.** Add its text as an annotation on the
-element: `node src/index.js annotate add "<behaviour>" --node <id>`.
+**The Behaviour column is not drawn.** A static frame cannot show it.
 
 **Never, in Figma:**
 
