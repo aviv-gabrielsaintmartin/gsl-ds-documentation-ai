@@ -1,7 +1,7 @@
 # Status
 
 _Your one page. One screen, never longer. Everything else is in
-[project/backlog.md](project/backlog.md). Updated 2 October 2026._
+[project/backlog.md](project/backlog.md). Updated 5 October 2026._
 
 ---
 
@@ -33,6 +33,9 @@ _Your one page. One screen, never longer. Everything else is in
 
 **One brief has gone through stations 1 to 4, on iOS.** Proved: `spec-002`,
 24 September. It has never gone through all five.
+
+**New, 5 October:** [project/topic-map.md](project/topic-map.md) shows every
+topic as written, partial or empty.
 
 ---
 
