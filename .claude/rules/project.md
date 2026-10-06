@@ -54,6 +54,7 @@ rest of the repo.
 | `project/decisions.md` | Why the project is shaped this way, newest first | Every entry records **what it costs**, not just what was decided |
 | `project/how-a-run-is-reported.md` | How a generation run becomes a saved report, walked through for a non-technical reader | **Links** to the scorecard for the template and the required facts; never repeats them |
 | `project/how-a-prototype-is-made.md` | How an idea becomes an iOS prototype — the flow, what each file is for, the token-map script | **Links** to the spec format and the maps; never repeats them. Update it when a task changes the pipeline |
+| `project/AI-assisted design - next steps and scale.md` | **The CPO document** — the flow today and with AI, four use cases, owners, needs | Reviewed by Gabriel's manager before the CPO reads it |
 | `project/topic-map.md` | **Every design topic, and how far each one is** — written, partial or empty. The page to show a designer | **Generated** by `scripts/build-topic-map.py`. Never edit it; re-run the script |
 | `project/archive/` | The retired plan, briefs and handoff note | **History.** Never work from it, never update it. Its own README says why each was retired |
 
