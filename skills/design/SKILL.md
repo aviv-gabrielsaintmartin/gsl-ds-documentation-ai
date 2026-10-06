@@ -218,6 +218,12 @@ fails on any target, choose another the rules allow for the same problem.
 | `not found` | **Choose another component or token the rules allow for the same problem, if one fits.** If none fits, keep it and add an `open` assumption: `<name> may not exist on iOS`. The map says `not found` does not prove the app lacks it |
 | `not for iOS` | **Never select it.** Use the replacement the rules or the map name |
 
+**Icons on iOS.** Look up every icon in `references/icons-ios-map.md`. When the
+map gives the icon no iOS path, or says its path draws a different icon, choose
+another icon from `references/icons-index.md` that iOS can draw and that fits
+the meaning. Add an `open` assumption naming both icons. Never leave this choice
+to the build.
+
 **For Android or web**, no name map exists yet. Apply **Platform limits** in
 `components-rules-ai.md` only, and add one `open` assumption:
 `No name map exists for <platform>; whether each component exists there was not checked`.

@@ -130,7 +130,64 @@ Gabriel, 6 Oct, on a stakeholder demo from PRD to iOS screen:
 - **Not tested since 25 Sep:** the iOS path. `/design` changed on 2 Oct.
 - **Proved 6 Oct:** `gsl-ios` is on `prototype/schools-block-list-spec-005`,
   clean, last fetched 25 Sep. A 15 GB build cache exists. A simulator is booted.
-- **Open question for him:** live in the room, or recorded as ruled on 25 Sep.
+- **Answered 6 Oct:** recorded. The presentation lasts 10 minutes; the video is shorter.
+- **Rerun, 6 Oct: `~/gsl-specs/spec-006.md`, built on `prototype/schools-block-spec-006`.**
+  Proved from one simulator capture at 13:27 and from the spec.
+  - **Fixed:** no grey card, no white boxes, travel times aligned with the text.
+  - **Fixed:** the block title is `headline/20/bold`, above 16 bold school names.
+  - **Survived:** "Écoles privées" is `body/16/bold`, identical to a school name.
+    The spec chose it; the larger-title rule was not applied to it.
+  - **Survived:** cycling shows the words "À vélo" where other modes show an
+    icon. The spec says the mode's name is spoken, never written.
+  - **Survived:** English app chrome around French content. Simulator setting.
+  - **New:** the rows are plain text, no `Cell content` and no `Tag`. **Proved
+    from `spec-006`'s *Ruled out*:** the design skill chose it, in the spec. Its
+    reason: name, type and distance fill the row's three text slots, leaving
+    none for travel times. The earlier guess, that the iOS limit caused it, was
+    wrong. `/prototype` built what the spec said.
+  - **Cause of the cycling text, proved:** the spec named `bicycle`, which the
+    icon map says has no iOS path. The skill's platform check covers components
+    and tokens, never icons, so the build was left to cope.
+  - **Gabriel, 6 Oct:** "Écoles privées" takes the same 20 title. A missing
+    icon is replaced by another one and flagged. The choice belongs in the
+    design skill, never in the builder. English and French may cohabit.
+  - **Gabriel, 6 Oct, after seeing `spec-006`:** composing the row is fine;
+    the travel times should be tags. More space is needed between the address
+    button and the 20 title. Schools are hard to tell apart; one card for
+    public schools and one for private ones could help.
+  - **Rules checked for those three, 6 Oct:**
+    - **Tags.** The tag's role table has no row for a measured value such as a
+      travel time. `spec-006` never mentions `Tag` for travel times. **Guessing**
+      the missing role is why; `spec-005` used `Subdued` and flagged the gap.
+    - **Spacing.** No rule sets the gap between two blocks inside a section.
+      The page rhythm table gives 48 between sections, unverified. The iOS
+      location section uses 16 between its blocks, proved on `develop`.
+    - **Cards.** `Card` is for grouping related content, and `Divider` for
+      list items where spacing is not enough. No rule says when a group of rows
+      gets a card. Task C's evidence: a white `Default` card with a light border
+      wraps a list of rows, in Figma, both apps and the web.
+  - **Gabriel, 6 Oct:** no tags for the travel times; it is a question of
+    information hierarchy only. The tag role for a measured value is dropped.
+  - **Gabriel, 6 Oct:** each school list sits in one card, schools separated by
+    a divider, the title outside the card. No rule exists for it yet.
+  - **Written 6 Oct, on his go:** a block holding two or more titled groups of
+    rows puts each group in its own `Default` card, dividers between rows, title
+    outside. In `components-rules-ai.md`. **He doubts it scales.**
+  - **His principle for the wider rule, 6 Oct, feeds Task C:** a container
+    follows its content. Content about the same subject shares one container.
+    Inside it, a piece that must stand out may take a second container with a
+    different background. The schools block has no such piece.
+  - **Written 6 Oct, on his go — replaces the morning's two title rows:**
+    *Titles inside a section*, in `typography-rules-ai.md`. Section header 22;
+    a title in between 20 or 16; an item's title 16 or 14; all bold, each level
+    smaller than the one above. "Same level, same style" is Claude's addition.
+    The done row of 6 Oct above describes the morning's version.
+  - **Written 6 Oct, on his go:** *Icons on iOS*, in `skills/design/SKILL.md`.
+    An icon with no usable iOS path is replaced in the spec and flagged as an
+    open assumption. **Not tested** until the next iOS run.
+  - **Not ruled:** the gap between the address button and the 20 title.
+  - **Timing:** spec saved 12:16, first build committed 12:35, last 13:21.
+  - **No screenshot saved yet** in `~/gsl-specs/screens/`.
 
 | Task | Status |
 | --- | --- |
@@ -375,6 +432,7 @@ decision.
 | --- | --- | --- | --- | --- |
 | Settle whether `Spacing/56` is a page-rhythm token or a forbidden one | yes | **Wrong screen, and the scorecard fails the run.** The spacing ruleset says both, 83 lines apart. **Component spacing stops at 32** lists `Spacing/56` among the page-rhythm tokens at `spacing-rules-ai.md:60`; **Do not use** forbids it at `:143`, on the grounds that it appears *"not in any usage note, layer, or rhythm table"* — which the rhythm table in the same file falsifies. An agent reaching for a section gap reads the first, emits `Spacing/56`, and the scorecard's spacing deny-list fails the run for obeying the ruleset. **`Spacing/40` is loose in the same way:** it is called *the boundary* and *page-level*, and appears in neither the component range nor the page-rhythm list. Needs the audit read, not a guess **Comes up:** Any screen with section separation |  | Twenty minutes |
 | Finish the colour ruleset's restricted list | yes | **The agent stops and asks you.** The pointer into the audit is **already gone** — removed while freeing the energy colours, so this is no longer a dead end. What remains: the list still says "and 28 others" and enumerates only about ten of them, so an agent asking about an unusual token gets no answer. The audit's own section is grouped by family too, so the per-token reasons have to be written, not copied **Comes up:** Any screen using an unusual colour token |  | Half an hour |
+| **`components-rules-ai.md` says "the style `typography-rules-ai.md` gives a block title"; that page no longer uses the words "block title"** — found by `/task-check`, 6 Oct. It now says *a title between the section header and an item's title*. An agent can still follow it. **Proposed:** change the two words to match. A sentence Gabriel approved, so it waits for him | no | **Only our own files change.** | | Minutes |
 | Decide whether `headline/20/bold` belongs in the typography ruleset's used-styles table | no | **The agent stops and asks you.** `typography-rules-ai.md` heads that table *"the styles the design system exercises in real components"* and then lists `headline/20/bold` with a component count of **0** and a *Bound by* reading `direct: unsafe`. Either the style does not belong in a table of what components use, or the heading overclaims and the table is really *the eleven worth preferring*. The count of eleven depends on which answer is right. Low harm — an agent picking it gets a real style — but it is the one row in six rulesets that contradicts its own heading **Comes up:** Rarely, and only for a 20px heading |  | Twenty minutes |
 | Give opacity, motion and z-index a ruleset, or say plainly they are out of scope | no | **The agent stops and asks you.** The other half of the row above. All three are code-only — `tokens-index.md` records motion and z-index as having no Figma property at all, and says an alpha colour token is preferred over an opacity. So a Figma agent never needs them and a web agent has nothing it may read. Either answer closes it; leaving it unanswered is what doesn't **Comes up:** Every web screen that animates or stacks |  | Half a day |
 
@@ -720,6 +778,7 @@ commit unless they are dealt with first.**
 
 | Date | What |
 | --- | --- |
+| 6 Oct 2026 | **Second round, after the `spec-006` rerun: three more rules from Gabriel's rulings.** `components-rules-ai.md`: a block holding two or more titled groups of rows puts each group in its own `Default` card, dividers between rows, title outside. `typography-rules-ai.md`: *Titles inside a section* — section header 22, a title in between 20 or 16, an item's title 16 or 14, all bold, each level smaller than the one above. **It replaces the morning's two title rows in the row below.** `skills/design/SKILL.md`: an icon with no usable iOS path is replaced in the spec and flagged. Copies regenerated. **Checked:** `check-all.py`, six pass, and the seventh fails only on the five logged disagreements. **Not tested:** the iOS screen, until the next rerun. **Proved by the first rerun:** the grey card, the white boxes and the identical block title are gone |
 | 6 Oct 2026 | **Three rules from Gabriel's rulings on the schools screen, for the demo rerun.** `components-rules-ai.md`: `Cell content` sits only on a white surface, and a block's title is never a `Cell content` title. `typography-rules-ai.md`: a title inside a section is `headline/20/bold` when the content below carries its own bold titles, `body/16/bold` otherwise. `components-ios-map.md`: `Cell Content` always paints its own background and padding on iOS. The design skill's copies are regenerated. **Checked:** `check-all.py`, six pass, and the seventh fails only on the five logged disagreements. **Not tested:** the iOS screen, until Gabriel reruns the schools PRD in `~/gsl-ios` |
 | 5 Oct 2026 | **The topic map exists.** `project/topic-map.md` shows every design topic as written, partial or empty. `scripts/build-topic-map.py` writes it by counting files. **Today it reads:** components partial, with 75 of 98 pages; tokens partial, with 6 of 12 kinds ruled; icons written; content and edge cases empty; layout, responsive and motion partial; Figma and iOS have their name maps, Android and web have none. **Proved in the check:** every figure recounted by hand and matching; a second run writes the same page; every link resolves. **Not tested:** whether it reads clearly to a designer. **Gabriel's rulings, 5 Oct:** UI generation first; research, problem definition and testing later; accessibility is not a topic for now |
 | 2 Oct 2026 | **Six of the Figma gaps are closed, from Gabriel's rulings.** Skill: frame fill a `Background` token by role, icon set through a component's icon property, a variant left unset takes the doc's default, no annotations, several target platforms per spec, and a Figma limits check when the spec does not name Figma. `spec-rules-ai.md`: every group inside a built part has its own ID. `components-rules-ai.md`: an illustration slot is filled from the library. Scorecard: *Put them on the screen* now asks about empty illustration slots. **Proved:** a fresh agent rebuilt `spec-002` as frame `181:4894` applying the skill changes — button 40, `Background/Default`, no annotations, limits check run — and a cold scorer found 0 failures. **Not exercised:** the illustration rule and the group-ID rule, since `spec-002` has neither an illustration slot nor group IDs |

@@ -57,8 +57,6 @@ Observed pairings on real screens, to copy rather than derive:
 | --- | --- | --- |
 | Detail page (full width) | Price, primary | `headline/28/bold` |
 | Detail page | Section header | `headline/22/bold` |
-| Detail page | Title inside a section, when the content below it carries its own bold titles | `headline/20/bold` |
-| Detail page | Title inside a section, otherwise | `body/16/bold` |
 | Detail page | Property title | `body/16/bold` |
 | Detail page | Key facts, address, card copy | `body/14/regular` |
 | Search result card | Price | `headline/24/bold` |
@@ -68,6 +66,23 @@ Observed pairings on real screens, to copy rather than derive:
 | Homepage carousel | Widget label / sub-label | `body/14/bold` / `body/12/regular` |
 
 **Bold vs Regular within a size is emphasis, not hierarchy.**
+
+### Titles inside a section
+
+*Every title is bold. Each level is smaller than the level above it.* This
+orders titles inside one section only. It is not a page-wide ladder.
+
+| Level | Style |
+| --- | --- |
+| Section header, the highest level | `headline/22/bold` |
+| A title between the section header and an item's title | `headline/20/bold` or `body/16/bold` |
+| An item's title, the last level, such as one row's name in a list | `body/16/bold` or `body/14/bold` |
+
+- A title never takes the same style as the title one level above it or below it.
+- Two titles at the same level take the same style.
+- A `Cell content` title is `body/16/bold`, fixed by the component.
+
+Gabriel, 6 October 2026.
 
 ---
 

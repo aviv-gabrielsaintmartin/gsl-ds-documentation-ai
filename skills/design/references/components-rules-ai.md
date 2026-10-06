@@ -261,6 +261,10 @@ lists. See **Never select**.
 `Primary strong` card. A block whose rows are `Cell content` takes a `Default`
 card or no card. Gabriel, 6 October 2026.
 
+**A block holding two or more titled groups of rows puts each group in its own
+`Card`, `Color: Default`.** `Divider` between the rows. Each group's title sits
+above its card, outside it. Gabriel, 6 October 2026.
+
 **A block's title is never a `Cell content` title.** Write it as plain text
 above the rows, in the style `typography-rules-ai.md` gives a block title. A
 `Cell content` title is `body/16/bold`, so a block title written that way reads
