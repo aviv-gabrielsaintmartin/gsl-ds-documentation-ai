@@ -1,7 +1,7 @@
 # Status
 
 _Your one page. One screen, never longer. Everything else is in
-[project/backlog.md](project/backlog.md). Updated 5 October 2026._
+[project/backlog.md](project/backlog.md). Updated 6 October 2026._
 
 ---
 
@@ -49,6 +49,11 @@ by contrast with the white base, not by content.
 
 **Test 2, 25 September:** all PRD content on screen, both cases working. What
 is left is rules and the iOS build. Nine gaps logged for the CPO plan.
+
+**Yours, 6 October: rerun the schools PRD in `~/gsl-ios`, for the recorded
+demo.** Three rules were written from your rulings: rows on white only, a
+block title that is never a row, a larger title above titled rows. Not tested
+until that run. Start with `/prototype-cleanup`, then `/design`.
 
 ---
 

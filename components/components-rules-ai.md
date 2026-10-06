@@ -254,6 +254,16 @@ already. **Which of the two is right for an app is not settled**, and there is n
 `Cell content` is **not a choice** — it is a composition slot inside Cards and
 lists. See **Never select**.
 
+**`Cell content` sits only on a white surface** — the page background, or a
+`Card` with `Color: Default`. Never inside a `Light`, `Primary light` or
+`Primary strong` card. A block whose rows are `Cell content` takes a `Default`
+card or no card. Gabriel, 6 October 2026.
+
+**A block's title is never a `Cell content` title.** Write it as plain text
+above the rows, in the style `typography-rules-ai.md` gives a block title. A
+`Cell content` title is `body/16/bold`, so a block title written that way reads
+as one more row. Gabriel, 6 October 2026.
+
 ### Navigating between pages and sections
 
 | Choose | When | Otherwise |

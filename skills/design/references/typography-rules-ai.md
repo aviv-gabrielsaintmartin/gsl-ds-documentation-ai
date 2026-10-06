@@ -1,4 +1,4 @@
-<!-- Generated from `tokens/typography/typography-rules-ai.md` on 2026-09-25 by scripts/build-design-references.py. Never edit here: edit the source and re-run the script. -->
+<!-- Generated from `tokens/typography/typography-rules-ai.md` on 2026-10-06 by scripts/build-design-references.py. Never edit here: edit the source and re-run the script. -->
 
 # Typography rules for AI generation
 
@@ -59,6 +59,8 @@ Observed pairings on real screens, to copy rather than derive:
 | --- | --- | --- |
 | Detail page (full width) | Price, primary | `headline/28/bold` |
 | Detail page | Section header | `headline/22/bold` |
+| Detail page | Title inside a section, when the content below it carries its own bold titles | `headline/20/bold` |
+| Detail page | Title inside a section, otherwise | `body/16/bold` |
 | Detail page | Property title | `body/16/bold` |
 | Detail page | Key facts, address, card copy | `body/14/regular` |
 | Search result card | Price | `headline/24/bold` |

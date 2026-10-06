@@ -57,6 +57,8 @@ Observed pairings on real screens, to copy rather than derive:
 | --- | --- | --- |
 | Detail page (full width) | Price, primary | `headline/28/bold` |
 | Detail page | Section header | `headline/22/bold` |
+| Detail page | Title inside a section, when the content below it carries its own bold titles | `headline/20/bold` |
+| Detail page | Title inside a section, otherwise | `body/16/bold` |
 | Detail page | Property title | `body/16/bold` |
 | Detail page | Key facts, address, card copy | `body/14/regular` |
 | Search result card | Price | `headline/24/bold` |

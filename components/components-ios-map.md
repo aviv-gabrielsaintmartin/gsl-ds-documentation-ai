@@ -135,7 +135,7 @@ two of them inside a container, so their iOS names are recorded here.
 
 | Component | iOS name | Confidence | When it may appear |
 | --- | --- | --- | --- |
-| `Cell Content` | `DSCellContent` | proved | Only as a row inside a container, as `components-rules-ai.md` says |
+| `Cell Content` | `DSCellContent` | proved | Only as a row inside a container, as `components-rules-ai.md` says. Always paints `Surface/Default` behind itself and adds its own padding, 8 or 16. `Padding: 0px` cannot be built. Give anything stacked beside it the same side inset |
 | `Content Placeholder` | `DSContentPlaceholder` | proved | Only inside its parent, as `components-rules-ai.md` says |
 
 Every other never-select component in the inventory has no entry here. None of

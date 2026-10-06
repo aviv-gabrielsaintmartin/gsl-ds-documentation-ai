@@ -1,4 +1,4 @@
-<!-- Generated from `specs/spec-rules-ai.md` on 2026-10-02 by scripts/build-design-references.py. Never edit here: edit the source and re-run the script. -->
+<!-- Generated from `specs/spec-rules-ai.md` on 2026-10-06 by scripts/build-design-references.py. Never edit here: edit the source and re-run the script. -->
 
 # Spec format for AI generation
 
