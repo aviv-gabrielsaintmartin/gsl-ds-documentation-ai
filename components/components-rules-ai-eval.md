@@ -21,8 +21,9 @@ by luck when the rule should have routed via **Platform limits** still fails.
 
 ## The set
 
-**Sixty-four intents.** Rows 1–27 were run three times. **Rows 28–64 have never
-been run.**
+**Sixty-four intents.** Rows 1–27 were run three times on 2026-09-08. **All 64
+were run once, on 2026-09-23 — run 4, 60/64.** Rows 29 and 54 are defective as
+written and are marked so under *Run 4*, below.
 
 The rows where a plausible-looking wrong answer is the default failure:
 
@@ -110,7 +111,7 @@ The rows where a plausible-looking wrong answer is the default failure:
 | 56–63 | Usable. Fix the missed rows before extending **Which component** |
 | ≤55 | The ruleset is not yet the single entry point. Do not point agents at it |
 
-**Intents 28–64 have never been run.** Rows 28–31 were added on 2026-09-08 with
+**Intents 28–64 were first run on 2026-09-23, in run 4.** Rows 28–31 were added on 2026-09-08 with
 **Highest tier first**'s parts list, to probe the container and all-or-nothing
 kinds and the `Table` platform caveat. **Rows 32–64 were drafted on 2026-09-23**,
 one per rule written after the last run and reached by no existing intent — the
@@ -119,7 +120,8 @@ flag, the nine components documented on 21 and 22 September, the two Experiences
 runs 1–3 never reached, and the chart, legend, icon and declaration rules.
 
 Runs 1–3 scored against the first 27 only, so **their scores are not comparable
-to a 64-intent run.** A 64-intent run has no prior score to compare against.
+to a 64-intent run.** Run 4 is the first 64-intent score, and the only one a
+later 64-intent run may be compared against.
 
 **Row 17 was corrected on 2026-09-23, and its old expected answer would have
 scored a pass on an answer the ruleset forbids.** It accepted `Pop-up` for a
@@ -136,6 +138,7 @@ Record each run below.
 | 2026-09-08 · run 1 | **22/22** | None. Two answers reached at low confidence (#2, #20), one at medium (#9) | Four ruleset defects the score did not catch — all fixed, see below |
 | 2026-09-08 · run 2 | **27/27** (5 new intents added) | None. Run 1's fixes moved #2 and #9 to high confidence | Five more defects, including a **Highest tier first** / **Which component** contradiction introduced by run 1 — all fixed |
 | 2026-09-08 · run 3 | **10/10** focused | None. Both run-2 fixes confirmed working, quoted back by the agent | Three more defects — `Pop-up` missing from **Which component**, `Charts` unbranched, **Highest tier first** threshold qualitative — all fixed |
+| 2026-09-23 · run 4 | **60/64** — first run of all 64 | #29, #41, #42, #54. Two are the ruleset's fault, two are this file's | **None applied.** Three ruleset defects found and still open on 2026-10-08, see below |
 
 ### Run 1 — 2026-09-08
 
@@ -204,3 +207,62 @@ Three further defects found and fixed:
 Accepted, not fixed: the five-step precedence ladder is stated once at the top of
 **Which component** rather than repeated per row. Repeating it 51 times would bloat the table
 for a reader that always has the whole file in context.
+
+### Run 4 — 2026-09-23
+
+The first run of all 64 intents. A cold agent on **Sonnet**, given the 64 intents
+with the Expected column removed and told to read `components-rules-ai.md` and
+nothing else. **It made one tool call and read one file**, which is the evidence
+that the run was cold and not merely instructed to be.
+
+**Sonnet was chosen on purpose.** A stronger reader silently repairs an ambiguous
+rule, which is the weakest version of a test built to find ambiguity.
+
+**60/64 — band: usable.** Four misses, and they are not four faults of one kind:
+
+| Row | Expected | Answered | Whose fault |
+| --- | --- | --- | --- |
+| 41 | `Feedback thumb buttons`, and the run reports the selection | `Feedback thumb buttons`, no report line | **The ruleset.** The obligation is written — *"Select it. Report that you did"* — but in the separate **Built outside the design system** section, never in the component's own **Which component** row. The agent found the row, named the component and stopped |
+| 42 | `Score tag`, and the run reports the selection | `Score tag`, no report line | **The ruleset.** Same cause as row 41 |
+| 29 | `Table`, flagged as *Figma-ready, web in progress* | `Table`, no caveat | **This file.** *"Web in progress"* appears nowhere in the ruleset, so the row expects a fact the agent cannot have. **Row 29 is defective as written** |
+| 54 | `Pop-up`, or `Modal bottom sheet` | `Alert` | **This file, and the ruleset behind it.** The intent says *"Confirm before deleting"*. `Alert`'s row says *"expecting a decision back — an answer, a confirmation, a choice"*, and `Pop-up`'s row says *"a short confirmation"*. Both rows claim the case, so the intent cannot isolate `Pop-up`. **Row 54 is defective as written** |
+
+**Rows 29 and 54 are left unchanged, on purpose.** Neither can be rewritten
+correctly yet:
+
+- **Row 29** waits on where availability lives. Gabriel decided on 2026-09-24
+  that it lives in each component doc's readiness table and not in the ruleset.
+  A run that reads only the ruleset therefore cannot be asked about availability
+  at all, so this row is rewritten or removed once the ruleset's **Platform
+  limits** section follows that decision.
+- **Row 54** waits on a rule that separates `Pop-up` from `Alert`. No such rule
+  exists, and it is Gabriel's to write.
+
+**Score a later run against 62, not 64, until both rows are repaired** — and say
+so beside the score.
+
+**Three ruleset defects, none of them fixed. Verified still present on
+2026-10-08:**
+
+| Defect | Found by |
+| --- | --- |
+| **The report obligation for a component built outside the design system is not in that component's own row.** It is in a separate section the agent did not reach | Rows 41 and 42 |
+| **`Info state` and `Loading state` both claim full-area loading.** `Info state`'s row lists *"empty, error, success, loading"*; `Loading state`'s Otherwise sends *"empty, failed or succeeded rather than waiting"* to `Info state`. Nothing says which one owns full-area waiting | The agent, unprompted, in its own friction report. It answered row 45 correctly and flagged that the two rows overlap |
+| **`Pop-up` and `Alert` both claim a confirmation**, and both are available in apps | Scoring row 54 |
+
+**Three things the agent looked for and could not find.** None is a
+contradiction:
+
+- A rule for a panel that switches language **and** reaches the profile. `Menus`
+  is never-select and reroutes to `Navigation bar` for the language menu; the
+  profile half is addressed nowhere. Row 34, answered correctly at medium
+  confidence.
+- Which control the info icon beside a bare label sits inside. The **Icons**
+  section lists the kinds of control and not which applies here. Row 58.
+- The widths behind the breakpoint names `XXS`, `XS` and `SM`, which the ruleset
+  uses and does not define.
+
+**What this run does not prove.** It proves the ruleset can be followed to the
+expected answer on 60 intents by one reader on one day. It proves nothing about
+whether a rule is true of the design system — every expected answer here was
+written from the ruleset itself.
