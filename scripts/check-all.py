@@ -44,8 +44,8 @@ prints a clean verdict is exactly where a reader stops looking:
   3. **Whether the ruleset contradicts itself, or whether a rule is any good.**
      `check-rules-reach.py` asks only whether a rule *exists* for each
      component. Whether two rules disagree, or one is too vague to follow, is
-     `components-rules-ai-eval.md` -- run by hand against a cold agent, and
-     never run since 8 September 2026.
+     `components-rules-ai-eval.md` -- run by hand against a cold agent. Its
+     runs table says when it was last run; nothing re-runs it for you.
   4. **Whether a page is reachable at all.** A file nothing links to is
      invisible to the link check, which asks the opposite question.
 """
