@@ -176,6 +176,8 @@ identifiers matched by exact filename/hash.
 **Name every session `<kind>/<surface>/<task>`**, like a branch. Gabriel,
 9 October 2026. At the start of each session, print one ready-to-paste line:
 `/rename <name>`. Claude has no tool to rename a session; Gabriel pastes it.
+**Always paste the full line, never bare `/rename`**: a bare `/rename` invents its
+own name from the chat and ignores this table. Tested 9 October 2026.
 
 | Kind | Takes a surface? | Use for | Example |
 | --- | --- | --- | --- |
