@@ -171,6 +171,27 @@ identifiers matched by exact filename/hash.
 
 **A usage doc never explains a component in terms of a tool.** Gabriel, 22 September 2026. Figma, Zeroheight, Confluence and Storybook are tools; a tool name belongs in a link, or in that component's `-figma.md`, and nowhere in the content. `scripts/check-tool-neutral.py` enforces it. **A `-figma.md` exists only where there is something to say** — it is never created empty, and there is no iOS or Android equivalent yet, because no source for either has been read.
 
+## Session names
+
+**Name every session `<kind>/<surface>/<task>`**, like a branch. Gabriel,
+9 October 2026. At the start of each session, print one ready-to-paste line:
+`/rename <name>`. Claude has no tool to rename a session; Gabriel pastes it.
+
+| Kind | Takes a surface? | Use for | Example |
+| --- | --- | --- | --- |
+| `design` | Required | `/design` runs, spec rules, prototype builds | `design/ios/schools-prd-rerun` |
+| `audit` | Required | Live web, app or token audits | `audit/web/cards-and-titles` |
+| `docs` | Optional | Writing or fixing pages | `docs/date-field-usage` |
+| `check` | Optional | Scripts, evals, audits of this repo | `check/eval-run-5` |
+| `task` | No | Loop sessions with no clearer kind | `task/next-backlog-pick` |
+| `claude` | No | Questions about Claude usage | `claude/rename-sessions` |
+
+- **Surfaces:** `ios`, `android`, `figma`, `web`, `all`.
+- **`all`** means platform-neutral work, such as a component doc.
+- **An optional surface** is added only when one platform alone is affected,
+  such as `docs/ios/icon-names`.
+- **The task part** is kebab-case, three to five words.
+
 ## Git — one task, one commit
 
 **This overrides Gabriel's personal `~/.claude/CLAUDE.md`, which says one task,
